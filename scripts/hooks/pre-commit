@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Mantiene el mapa de CLAUDE.md al dia en cada commit.
+#
+# Es pre-commit y no post-commit a proposito: asi el mapa entra en el mismo
+# commit y el arbol de trabajo no queda sucio despues de commitear.
+#
+# Activado con:  git config core.hooksPath scripts/hooks
+# Saltear una vez:  git commit --no-verify
+set -euo pipefail
+
+RAIZ="$(git rev-parse --show-toplevel)"
+SCRIPT="$RAIZ/scripts/actualizar-mapa.sh"
+
+[ -f "$SCRIPT" ] || exit 0
+
+if bash "$SCRIPT"; then
+  # Solo se agrega si el script efectivamente lo modifico.
+  if ! git diff --quiet -- CLAUDE.md 2>/dev/null; then
+    git add "$RAIZ/CLAUDE.md"
+  fi
+else
+  echo "pre-commit: fallo actualizar-mapa.sh, se commitea igual" >&2
+fi
