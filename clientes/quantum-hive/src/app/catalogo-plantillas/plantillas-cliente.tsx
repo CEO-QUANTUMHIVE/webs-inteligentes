@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type SyntheticEvent } from "react";
+import Link from "next/link";
 import type { Plantilla } from "@/lib/catalogo";
 
 // Alias local: el resto del componente ya usaba este nombre.
@@ -8,6 +9,40 @@ type Template = Plantilla;
 
 function TemplatePreview({ template }: { template: Template }) {
   const c = template.colors;
+
+  if (template.id === "gamer-agency") {
+    const selectPreviewFrame = (event: SyntheticEvent<HTMLVideoElement>) => {
+      const video = event.currentTarget;
+      if (!Number.isFinite(video.duration)) return;
+      video.pause();
+      video.currentTime = Math.min(video.duration - 0.05, video.duration * 0.48);
+    };
+
+    return (
+      <div className="relative h-full w-full overflow-hidden bg-black">
+        <div className="absolute inset-0 flex items-center justify-between px-5 font-['Orbitron'] text-6xl font-black tracking-[-0.08em] text-white">
+          <span>GA</span>
+          <span>ER</span>
+        </div>
+        <video
+          muted
+          playsInline
+          preload="metadata"
+          onLoadedMetadata={selectPreviewFrame}
+          className="absolute inset-0 h-full w-full object-cover mix-blend-screen"
+        >
+          <source
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_3Bd1EO6EIHxSqCgleKKy9qZ3l1v/hf_20260708_013819_edaa01af-a48e-49c8-a167-17787c36d012.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/20" />
+        <span className="absolute bottom-3 left-3 font-mono text-[8px] uppercase tracking-[0.2em] text-[#ff5733]">
+          Mueve el cursor en la demo
+        </span>
+      </div>
+    );
+  }
 
   if (template.preview === "gradient") {
     return (
@@ -143,17 +178,17 @@ export default function PlantillasCliente({ plantillas }: { plantillas: Plantill
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#050508]/80 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="flex items-center justify-between py-4">
-            <a href="/" className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center">
                 <span className="text-sm font-bold">⚡</span>
               </div>
               <span className="font-['Orbitron'] text-xl font-bold tracking-tight">Webs Inteligentes</span>
-            </a>
+            </Link>
             <div className="flex items-center gap-4">
-              <a href="/" className="text-sm text-gray-400 hover:text-white transition-colors hidden md:block">Inicio</a>
-              <a href="/webs-inteligentes" className="text-sm text-gray-400 hover:text-white transition-colors hidden md:block">Webs Inteligentes</a>
-              <a href="/catalogo-efectos" className="text-sm text-gray-400 hover:text-white transition-colors hidden md:block">Efectos</a>
-              <a href="/catalogo-plantillas" className="text-sm text-cyan-400 font-medium hidden md:block">Plantillas</a>
+              <Link href="/" className="text-sm text-gray-400 hover:text-white transition-colors hidden md:block">Inicio</Link>
+              <Link href="/webs-inteligentes" className="text-sm text-gray-400 hover:text-white transition-colors hidden md:block">Webs Inteligentes</Link>
+              <Link href="/catalogo-efectos" className="text-sm text-gray-400 hover:text-white transition-colors hidden md:block">Efectos</Link>
+              <Link href="/catalogo-plantillas" className="text-sm text-cyan-400 font-medium hidden md:block">Plantillas</Link>
               <a href="#contacto" className="px-4 py-2 bg-cyan-400 text-black text-sm font-semibold rounded-full hover:bg-cyan-300 transition-all">Contactar</a>
             </div>
           </div>
@@ -324,12 +359,12 @@ export default function PlantillasCliente({ plantillas }: { plantillas: Plantill
             Creamos plantillas 100% personalizadas para tu negocio. Contactanos y te damos una cotización sin compromiso.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="/webs-inteligentes" className="px-8 py-4 bg-cyan-400 text-black font-bold rounded-lg hover:bg-cyan-300 transition-all">
+            <Link href="/webs-inteligentes" className="px-8 py-4 bg-cyan-400 text-black font-bold rounded-lg hover:bg-cyan-300 transition-all">
               Webs Inteligentes →
-            </a>
-            <a href="/" className="px-8 py-4 bg-white/10 text-white font-bold rounded-lg hover:bg-white/20 transition-all">
+            </Link>
+            <Link href="/" className="px-8 py-4 bg-white/10 text-white font-bold rounded-lg hover:bg-white/20 transition-all">
               Volver al Inicio
-            </a>
+            </Link>
           </div>
         </div>
       </section>

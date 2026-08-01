@@ -93,11 +93,41 @@ const PLANTILLA_CONCRETO: Plantilla = {
   urlDemo: "/plantillas/concreto/",
 };
 
+const PLANTILLA_GAMER: Plantilla = {
+  id: "gamer-agency",
+  name: "GAMER — Global design agency",
+  description:
+    "Hero editorial de pantalla completa con video controlado por el mouse y herramientas interactivas de estudio.",
+  niche: "Branding / Agencia",
+  style: "Editorial tecnológico",
+  pages: ["Hero interactivo", "Menú", "Configurador", "Chat"],
+  colors: {
+    primary: "#ff5733",
+    secondary: "#ff4500",
+    accent: "#f1eee9",
+    bg: "#000000",
+  },
+  font: "Outfit + Inter + JetBrains Mono",
+  features: [
+    "Video scrub por mouse",
+    "Wordmark estratificado",
+    "Sintetizador Web Audio",
+    "Estudio de luz ambiente",
+    "Configurador de proyecto",
+    "Chat drawer interactivo",
+  ],
+  preview: "creative",
+  popular: true,
+  urlDemo: "/plantillas/gamer/",
+};
+
+const PLANTILLAS_PUBLICADAS = [PLANTILLA_CONCRETO, PLANTILLA_GAMER];
+
 export async function obtenerPlantillas(): Promise<Plantilla[]> {
   if (!CLAVE) throw new Error("Falta NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY.");
 
   const res = await fetch(
-    `${URL_SUPABASE}/rest/v1/plantillas?select=*&id=eq.concreto-streetwear&publicado=is.true`,
+    `${URL_SUPABASE}/rest/v1/plantillas?select=*&id=in.(concreto-streetwear,gamer-agency)&publicado=is.true`,
     {
       headers: { apikey: CLAVE, Authorization: `Bearer ${CLAVE}` },
       cache: "force-cache",
@@ -128,9 +158,11 @@ export async function obtenerPlantillas(): Promise<Plantilla[]> {
     urlDemo: f.url_demo ?? null,
   }));
 
-  // La migracion puede aplicarse despues del deploy del frontend. El catalogo
-  // nunca debe volver a mostrar las 12 entradas conceptuales ni quedar vacio.
-  return plantillas.length > 0 ? plantillas : [PLANTILLA_CONCRETO];
+  // Las migraciones pueden aplicarse despues del deploy del frontend. Completamos
+  // solo las demos verificadas que falten, sin reintroducir conceptos descartados.
+  const porId = new Map(PLANTILLAS_PUBLICADAS.map((plantilla) => [plantilla.id, plantilla]));
+  plantillas.forEach((plantilla) => porId.set(plantilla.id, plantilla));
+  return PLANTILLAS_PUBLICADAS.map((plantilla) => porId.get(plantilla.id)!);
 }
 
 /** Orden de las categorias en la barra lateral. */

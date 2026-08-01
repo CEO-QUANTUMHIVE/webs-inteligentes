@@ -1,0 +1,95 @@
+name: Deploy Webs Inteligentes
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: webs-inteligentes-production
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  id-token: write
+
+env:
+  GCP_PROJECT_ID: bubbly-stone-502214-u7
+  GCP_REGION: us-central1
+  CLOUD_RUN_SERVICE: webs-inteligentes
+  NEXT_PUBLIC_SUPABASE_URL: https://paviigrgdumrwldegliy.supabase.co
+
+jobs:
+  build-and-deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: |
+            clientes/quantum-hive/package-lock.json
+            plantillas/*/package-lock.json
+
+      - name: Build Vite templates
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r config; do
+            template_dir="$(dirname "$config")"
+            echo "Building template: $template_dir"
+            npm ci --prefix "$template_dir"
+            npm run build --prefix "$template_dir"
+          done < <(find plantillas -mindepth 2 -maxdepth 2 -name vite.config.ts -print)
+
+      - name: Build Webs Inteligentes
+        working-directory: clientes/quantum-hive
+        env:
+          NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY }}
+        run: |
+          npm ci
+          npm run build
+
+      - name: Verify static export
+        working-directory: clientes/quantum-hive
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f out/index.html
+          test -f out/catalogo-plantillas.html
+          test -f out/plantillas/concreto/index.html
+          test -f out/plantillas/gamer/index.html
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_DEPLOY_SERVICE_ACCOUNT }}
+
+      - name: Setup Google Cloud CLI
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Deploy to Cloud Run
+        working-directory: clientes/quantum-hive
+        shell: bash
+        run: |
+          gcloud run deploy "$CLOUD_RUN_SERVICE" \
+            --source . \
+            --project "$GCP_PROJECT_ID" \
+            --region "$GCP_REGION" \
+            --no-invoker-iam-check \
+            --quiet
+
+      - name: Show public URL
+        run: |
+          gcloud run services describe "$CLOUD_RUN_SERVICE" \
+            --project "$GCP_PROJECT_ID" \
+            --region "$GCP_REGION" \
+            --format='value(status.url)'
