@@ -20,6 +20,7 @@ env:
   GCP_WORKLOAD_IDENTITY_PROVIDER: projects/854335368640/locations/global/workloadIdentityPools/github-actions/providers/github
   GCP_DEPLOY_SERVICE_ACCOUNT: github-webs-inteligentes@bubbly-stone-502214-u7.iam.gserviceaccount.com
   NEXT_PUBLIC_SUPABASE_URL: https://paviigrgdumrwldegliy.supabase.co
+  NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: sb_publishable_n4kXQlWID9irXsTpa-UoPQ_DYzrFSjd
 
 jobs:
   build-and-deploy:
@@ -53,10 +54,7 @@ jobs:
 
       - name: Build Webs Inteligentes
         working-directory: clientes/quantum-hive
-        env:
-          NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || vars.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY }}
         run: |
-          test -n "$NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY" || (echo "Falta NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY en GitHub Secrets o Variables" && exit 1)
           npm ci
           set +e
           npm run build 2>&1 | tee /tmp/next-build.log
