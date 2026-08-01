@@ -49,3 +49,6 @@ desktop.ini
 !.vscode/extensions.json
 .idea/
 *.swp
+
+# Grafo de conocimiento: generado localmente, se reconstruye con `graphify update .`
+graphify-out/

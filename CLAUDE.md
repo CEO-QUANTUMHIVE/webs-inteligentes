@@ -108,6 +108,24 @@ Consultar el sistema de diseño de un nicho:
 python .claude/skills/ui-ux-pro-max/scripts/search.py "gastronomia parrilla" --design-system
 ```
 
+## Grafo de conocimiento
+
+**Consultá el grafo antes de releer el repo.** Para "¿dónde está X?", arquitectura, o "¿cómo se conecta Y con Z?", el grafo responde con archivo y línea exactos. Releer archivos sueltos es el último recurso.
+
+```bash
+graphify query "como se protege el codigo privado de los efectos"
+graphify explain "efectos_publicos"
+graphify path "catalogo-cliente" "Supabase"
+```
+
+Mantenerlo vivo después de cambios grandes (sin costo de LLM):
+
+```bash
+graphify update .
+```
+
+`graphify-out/` está gitignorado: se regenera en cada máquina. Los `.sql` necesitan `pip install "graphifyy[sql]"`, ya instalado — sin eso el esquema de Supabase queda fuera del grafo.
+
 <!-- INICIO MAPA AUTO -->
 ## Mapa del repo
 
