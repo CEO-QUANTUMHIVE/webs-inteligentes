@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import { previewsReales } from "./previews-reales";
 
 interface Effect {
   id: string;
@@ -890,7 +891,9 @@ export default function CatalogoEfectos() {
     .filter((g) => g.items.length > 0);
 
   const efecto = effects.find((e) => e.id === activo) ?? effects[0];
-  const Preview = previewComponents[efecto.id];
+  // Componente real de Vengeance UI. El mapa viejo de aproximaciones CSS
+  // queda de reserva para los que el registro todavia no publica.
+  const Preview = previewsReales[efecto.id] ?? previewComponents[efecto.id];
   const estaSeleccionado = seleccionados.includes(efecto.id);
 
   const alternar = (id: string) =>
