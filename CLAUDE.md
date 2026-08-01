@@ -131,11 +131,11 @@ graphify update .
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-01 · 166 archivos versionados
+Actualizado: 2026-08-01 · 167 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
-| `clientes/` | 57 | Proyectos Next.js de cada cliente |
+| `clientes/` | 58 | Proyectos Next.js de cada cliente |
 | `.claude/` | 37 | — |
 | `plantillas/` | 28 | Plantillas por tipo de negocio |
 | `habilidades/` | 15 | Skills del pipeline y material de apoyo |

@@ -7,7 +7,7 @@ import PlantillasCliente from "./plantillas-cliente";
 export const metadata: Metadata = {
   title: "Catálogo de Plantillas — Webs Inteligentes | Quantum Hive",
   description:
-    "Plantillas premium por rubro: gastronomía, barbería, e-commerce, wellness y más. Cada una lista para personalizar con la identidad de tu negocio.",
+    "Catálogo en crecimiento de plantillas premium navegables, listas para personalizar con la identidad de cada negocio.",
 };
 
 export default async function CatalogoPlantillas() {

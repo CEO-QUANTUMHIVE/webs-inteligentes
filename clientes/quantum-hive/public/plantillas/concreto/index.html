@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CONCRETO — Moda de calle</title>
+<meta name="description" content="CONCRETO — ropa de calle hecha para el asfalto. Drop 001.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0a0a0a;
+  --asphalt:#131313;
+  --asphalt-2:#1c1b19;
+  --concrete:#8c897f;
+  --concrete-light:#cfccc0;
+  --off-white:#eeece5;
+  --orange:#ff5a1f;
+  --orange-dim:#c7441a;
+  --sodium:#ffb03c;
+  --font-display:'Anton', sans-serif;
+  --font-body:'Space Grotesk', sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--black);color:var(--off-white);
+  font-family:var(--font-body);overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+}
+::selection{background:var(--orange);color:#000}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+
+/* ── Grano ── */
+#grain{
+  position:fixed;inset:0;z-index:900;pointer-events:none;
+  opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* ── Header ── */
+.header{
+  position:fixed;top:0;left:0;right:0;z-index:800;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem clamp(1.1rem,4vw,2.6rem);
+  color:var(--off-white);transition:color .3s;
+  mix-blend-mode:normal;
+}
+.header.on-light{color:#000}
+.logo{font-family:var(--font-display);font-size:1.35rem;letter-spacing:.06em}
+.readout{display:flex;align-items:center;gap:.9rem;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase}
+.readout .chapter{min-width:9ch}
+.readout .track{width:110px;height:2px;background:currentColor;opacity:.28;position:relative}
+.readout .fill{position:absolute;inset:0;width:0%;background:var(--orange);opacity:1}
+.readout .alt{font-variant-numeric:tabular-nums;min-width:5ch;text-align:right}
+.cta-pill{
+  border:1px solid currentColor;border-radius:999px;
+  padding:.5rem 1.15rem;font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;transition:background .25s,color .25s,border-color .25s;
+}
+.cta-pill:hover{background:var(--orange);color:#000;border-color:var(--orange)}
+@media(max-width:720px){.readout{display:none}}
+
+/* ── Escenas ── */
+.scene{position:relative;height:100vh;overflow:hidden}
+.scene-photo{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  will-change:transform;
+}
+.scene-photo-scrim{position:absolute;inset:0;pointer-events:none}
+
+/* Escena A */
+.scene-a{background:radial-gradient(ellipse at 50% 18%, rgba(255,255,255,.05), transparent 55%),linear-gradient(180deg,#050608 0%,#0a0d13 45%,#0e0f12 100%)}
+.scene-a .scene-photo-scrim{background:radial-gradient(ellipse at 50% 18%, rgba(0,0,0,.15), transparent 55%),linear-gradient(180deg, rgba(4,5,7,.55) 0%, rgba(6,7,9,.35) 45%, rgba(8,8,9,.75) 100%)}
+.stars{position:absolute;inset:0;pointer-events:none}
+.star{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%}
+#ambient{position:absolute;inset:0;pointer-events:none;z-index:3}
+.hero-copy{
+  position:absolute;inset:0;z-index:4;pointer-events:none;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:0 1.2rem;
+}
+.hero-copy h1{
+  font-family:var(--font-display);font-size:clamp(3.2rem,13vw,9.5rem);
+  line-height:.92;letter-spacing:.02em;overflow:hidden;
+}
+.hero-copy h1 span{display:inline-block;will-change:transform}
+.hero-sub{
+  margin-top:1.1rem;color:var(--orange);letter-spacing:.35em;
+  text-transform:uppercase;font-size:.8rem;opacity:0;
+}
+.hero-drop{
+  margin-top:.7rem;color:var(--concrete-light);opacity:0;
+  text-transform:uppercase;letter-spacing:.18em;font-size:.68rem;
+}
+.scroll-cue{
+  position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);
+  z-index:5;display:flex;flex-direction:column;align-items:center;gap:.6rem;
+  opacity:0;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--concrete-light);
+}
+.cue-line{position:relative;width:1px;height:34px;background:rgba(207,204,192,.3);overflow:hidden}
+.cue-line::after{
+  content:'';position:absolute;left:0;width:100%;height:40%;
+  background:var(--orange);animation:cueDrip 1.6s ease-in-out infinite;
+}
+@keyframes cueDrip{from{transform:translateY(-100%)}to{transform:translateY(280%)}}
+
+/* Escena B */
+.scene-b{background:linear-gradient(180deg,#0c0b0a,#151210)}
+.scene-b .scene-photo-scrim{background:radial-gradient(ellipse 60% 40% at 50% 50%, rgba(4,3,2,.55), transparent 70%),linear-gradient(180deg, rgba(6,5,4,.45) 0%, rgba(6,5,4,.6) 100%)}
+.blob{position:absolute;filter:blur(18px);opacity:0;border-radius:44% 56% 52% 48% / 48% 44% 56% 52%;pointer-events:none}
+.blob-1{width:340px;height:260px;top:14%;left:8%;background:radial-gradient(circle, rgba(255,90,31,.55), transparent 70%)}
+.blob-2{width:280px;height:300px;top:46%;right:10%;background:radial-gradient(circle, rgba(255,176,60,.5), transparent 70%)}
+.fence{
+  position:absolute;top:-10%;bottom:-10%;width:56%;pointer-events:none;
+  background-image:repeating-linear-gradient(45deg, rgba(210,210,205,.55) 0 2px, transparent 2px 22px),repeating-linear-gradient(-45deg, rgba(210,210,205,.55) 0 2px, transparent 2px 22px);
+  box-shadow:inset 0 0 60px rgba(0,0,0,.6);
+}
+.fence-l{left:0}
+.fence-r{right:0}
+.scene-b .copy{
+  position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;padding:0 1.2rem;
+}
+.scene-b h2{
+  font-family:var(--font-display);font-size:clamp(2rem,6vw,4.4rem);
+  letter-spacing:.03em;clip-path:inset(0 100% 0 0);
+}
+.scene-b .sub{margin-top:1rem;color:var(--concrete-light);opacity:0;letter-spacing:.1em;font-size:.9rem}
+
+/* Escena C */
+.scene-c{background:#07080a}
+.scene-c .scene-photo-scrim{background:linear-gradient(180deg, rgba(2,2,3,.5) 0%, rgba(2,2,3,.3) 40%, rgba(2,2,3,.75) 100%)}
+.spotlight{
+  position:absolute;width:120vw;height:140%;top:-20%;left:50%;
+  transform:translateX(-50%) scaleY(.2);transform-origin:top center;opacity:0;
+  background:radial-gradient(ellipse at 50% 0%, rgba(255,203,120,.35), rgba(255,176,60,.08) 32%, transparent 60%);
+  pointer-events:none;
+}
+.rail{
+  position:absolute;top:34%;left:50%;transform:translateX(-50%);
+  width:min(70vw,640px);height:4px;background:#3a3a3a;opacity:0;
+}
+.rack{
+  position:absolute;top:34%;left:50%;transform:translateX(-50%);
+  display:flex;align-items:flex-start;gap:clamp(1.2rem,4vw,3.2rem);z-index:3;
+}
+.garment{display:flex;flex-direction:column;align-items:center;opacity:0}
+.hook{width:2px;height:14px;background:#5a5a5a}
+.body-block{
+  width:clamp(38px,5vw,64px);height:clamp(64px,9vw,108px);border-radius:6px;
+  background:linear-gradient(160deg,#232220,#151412);
+}
+.garment.accent .body-block{background:linear-gradient(160deg,#4a2416,#241109)}
+.dock-floor{position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(180deg,transparent,#000);pointer-events:none}
+.dock-copy{
+  position:absolute;bottom:14%;left:0;right:0;text-align:center;opacity:0;z-index:4;
+}
+.dock-copy .label{color:var(--orange);font-size:.66rem;letter-spacing:.28em;text-transform:uppercase}
+.dock-copy .line{margin-top:.6rem;font-family:var(--font-display);font-size:clamp(1.3rem,3.6vw,2.4rem);letter-spacing:.04em}
+.dust{position:absolute;width:3px;height:3px;background:#fff;border-radius:50%;filter:blur(.5px);opacity:0;pointer-events:none}
+
+/* Escena D */
+.scene-d{background:linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.35)),linear-gradient(160deg,#8c897f,#6f6d64 55%,#57554d)}
+.scene-d .scene-photo-scrim{background:linear-gradient(100deg, rgba(6,5,4,.7) 0%, rgba(6,5,4,.35) 45%, rgba(6,5,4,.15) 100%),linear-gradient(0deg, rgba(4,3,2,.4), transparent 40%)}
+.scene-d .copy{
+  position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;
+  justify-content:center;padding-left:clamp(1.4rem,8vw,7rem);padding-right:1.2rem;
+}
+.scene-d h2{
+  font-family:var(--font-display);font-size:clamp(3rem,11vw,8rem);
+  line-height:.9;letter-spacing:.02em;
+}
+.scene-d h2 span{display:inline-block;clip-path:inset(0 0 100% 0);will-change:clip-path}
+.scene-d .tag{margin-top:1.1rem;color:var(--concrete-light);opacity:0;letter-spacing:.2em;text-transform:uppercase;font-size:.75rem}
+.counter-row{margin-top:1.6rem;display:flex;align-items:baseline;gap:.7rem;opacity:0}
+.counter-row .lb{font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:var(--concrete-light)}
+.counter-row .num{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.4rem);font-variant-numeric:tabular-nums}
+.seam-fade{position:absolute;inset:0;z-index:5;opacity:0;pointer-events:none;background:linear-gradient(180deg, transparent 40%, #cfccc0 100%)}
+
+/* ── Main claro ── */
+main{position:relative;z-index:10;background:var(--concrete-light);color:#000}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(1.2rem,5vw,3rem)}
+.eyebrow{color:var(--orange-dim);font-size:.7rem;letter-spacing:.28em;text-transform:uppercase}
+h2.sec{font-family:var(--font-display);font-size:clamp(2.4rem,7vw,5rem);line-height:1;margin-top:.7rem}
+
+/* Colección */
+#coleccion{padding:clamp(4rem,10vw,8rem) 0 0}
+#coleccion .intro{max-width:22ch;margin-top:1.2rem;opacity:.65;line-height:1.6}
+#galleryPin{height:100vh}
+.gal-sticky{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:minmax(200px,300px) 1fr;align-items:center}
+.gal-side{padding-left:clamp(1.2rem,5vw,3rem)}
+.gal-idx{font-family:var(--font-display);font-size:clamp(2.6rem,6vw,4.4rem);line-height:1}
+.gal-idx .of{font-size:.9rem;opacity:.5;font-family:var(--font-body);margin-left:.4rem}
+.gal-track{max-width:160px;height:2px;background:rgba(0,0,0,.2);position:relative;margin-top:1.2rem}
+.gal-fill{position:absolute;inset:0;width:0%;background:var(--orange)}
+.gal-hint{margin-top:1rem;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;opacity:.5}
+.gal-stack{position:relative}
+.g-card{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.g-inner{width:min(70vw,380px);background:#e4e1d5;padding:1.6rem 1.5rem 1.8rem;box-shadow:0 24px 50px rgba(0,0,0,.16)}
+.g-thumb{position:relative;aspect-ratio:4/5;border-radius:8px;overflow:hidden;background:#d6d3c7}
+.g-thumb img{width:100%;height:100%;object-fit:cover}
+.g-tag{position:absolute;top:.6rem;left:.6rem;color:var(--sodium);font-family:var(--font-display);font-size:.9rem;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.g-title{font-family:var(--font-display);font-size:1.4rem;margin-top:1rem}
+.g-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:.5rem;font-size:.8rem}
+.g-meta .price{font-weight:700}
+@media(max-width:720px){
+  .gal-sticky{grid-template-columns:1fr}
+  .gal-side{position:absolute;top:1.6rem;left:1.2rem;padding-left:0;z-index:5}
+}
+
+/* Manifiesto */
+#manifiesto{background:var(--black);color:var(--off-white);padding:clamp(4rem,9vw,7rem) 0;overflow:hidden}
+.marquee{display:flex;white-space:nowrap;width:max-content}
+.marquee-row{display:flex;gap:2.4rem;padding-right:2.4rem;flex-shrink:0}
+.marquee-row span{
+  font-family:var(--font-display);font-size:clamp(2.6rem,8vw,5.5rem);
+  color:transparent;-webkit-text-stroke:1px var(--concrete-light);
+}
+.marquee-row span.solid{color:var(--orange);-webkit-text-stroke:0}
+.manifesto-p{max-width:640px;line-height:1.7;opacity:.8;margin-top:clamp(2.4rem,5vw,3.6rem)}
+
+/* Tienda */
+#tienda{background:var(--concrete-light);color:#000;padding:clamp(4rem,9vw,7rem) 0}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.6rem;margin-top:clamp(2rem,5vw,3.2rem)}
+.info-card{border-top:2px solid #000;padding-top:1.1rem}
+.info-card .lb{color:var(--orange-dim);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase}
+.info-card p{margin-top:.7rem;line-height:1.6;opacity:.8}
+
+/* Contacto */
+#contacto{background:var(--asphalt-2);color:var(--off-white);padding:clamp(4rem,9vw,7rem) 0}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,4rem)}
+@media(max-width:820px){.contact-grid{grid-template-columns:1fr}}
+.contact-grid p{margin-top:1.1rem;line-height:1.7;opacity:.75;max-width:42ch}
+.socials{display:flex;gap:.8rem;margin-top:1.8rem}
+.socials a{
+  width:38px;height:38px;border-radius:50%;border:1px solid rgba(238,236,229,.35);
+  display:flex;align-items:center;justify-content:center;transition:background .25s,border-color .25s;
+}
+.socials a:hover{background:var(--orange);border-color:var(--orange)}
+.socials a:hover svg{fill:#000}
+.socials svg{width:17px;height:17px;fill:var(--off-white);transition:fill .25s}
+.field{display:flex;flex-direction:column;margin-bottom:1.4rem}
+.field label{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;opacity:.6;margin-bottom:.5rem}
+.field input,.field textarea{
+  background:transparent;border:0;border-bottom:1px solid rgba(238,236,229,.3);
+  color:var(--off-white);font-family:var(--font-body);font-size:.95rem;
+  padding:.55rem 0;outline:none;resize:none;transition:border-color .25s;
+}
+.field input:focus,.field textarea:focus{border-color:var(--orange)}
+.submit{
+  background:var(--orange);color:#000;border:0;font-family:var(--font-body);
+  font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
+  padding:.85rem 2rem;cursor:pointer;transition:background .25s;
+}
+.submit:hover{background:var(--sodium)}
+
+footer{background:var(--black);color:var(--off-white);padding:2.4rem 0;font-size:.74rem;opacity:.6}
+footer p+p{margin-top:.4rem}
+
+@media(prefers-reduced-motion: reduce){
+  .hero-copy h1 span,.scene-d h2 span{clip-path:none !important;transform:none !important}
+  .cue-line::after{animation:none}
+}
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <a href="#" class="logo">CONCRETO</a>
+  <div class="readout" id="readout">
+    <span class="chapter" id="chapter">DESCENSO</span>
+    <span class="track"><span class="fill" id="progFill"></span></span>
+    <span class="alt" id="alt">980m</span>
+  </div>
+  <a href="#tienda" class="cta-pill">Tienda</a>
+</header>
+
+<div id="filmScroll">
+
+  <!-- SECCION 1 — Descenso -->
+  <section class="scene scene-a" id="sceneA" data-header="dark">
+    <div class="scene-photo" id="photoA" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3Bd1EO6EIHxSqCgleKKy9qZ3l1v/hf_20260718_024842_abc72002-7de8-4f7e-a11a-6b86970231cb.png')"></div>
+    <div class="scene-photo-scrim"></div>
+    <div class="stars" id="stars"></div>
+    <canvas id="ambient"></canvas>
+    <div class="hero-copy">
+      <h1 id="heroTitle">CONCRETO</h1>
+      <p class="hero-sub">Moda de calle</p>
+      <p class="hero-drop">Drop N.° 001 — Ciudad Nocturna</p>
+    </div>
+    <div class="scroll-cue">
+      <span>Baja</span>
+      <span class="cue-line"></span>
+    </div>
+  </section>
+
+  <!-- SECCION 2 — Callejón -->
+  <section class="scene scene-b" id="sceneB" data-header="dark">
+    <div class="scene-photo" id="photoB" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3Bd1EO6EIHxSqCgleKKy9qZ3l1v/hf_20260718_024847_978522be-16ca-40ad-8779-fb329d7590b6.png')"></div>
+    <div class="scene-photo-scrim"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="fence fence-l"></div>
+    <div class="fence fence-r"></div>
+    <div class="copy">
+      <h2 id="titleB">SIN FILTRO</h2>
+      <p class="sub">Cortado a la medida del asfalto</p>
+    </div>
+  </section>
+
+  <!-- SECCION 3 — Muelle -->
+  <section class="scene scene-c" id="sceneC" data-header="dark">
+    <div class="scene-photo" id="photoC" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3Bd1EO6EIHxSqCgleKKy9qZ3l1v/hf_20260718_024848_b6154d89-7c5f-41d8-9294-858237059a59.png')"></div>
+    <div class="scene-photo-scrim"></div>
+    <div class="spotlight"></div>
+    <div class="rail"></div>
+    <div class="rack">
+      <div class="garment"><span class="hook"></span><span class="body-block"></span></div>
+      <div class="garment accent"><span class="hook"></span><span class="body-block"></span></div>
+      <div class="garment"><span class="hook"></span><span class="body-block"></span></div>
+      <div class="garment accent"><span class="hook"></span><span class="body-block"></span></div>
+      <div class="garment"><span class="hook"></span><span class="body-block"></span></div>
+    </div>
+    <div class="dock-floor"></div>
+    <div class="dock-copy">
+      <p class="label">Llega al muelle</p>
+      <p class="line">Drop 001 — En espera</p>
+    </div>
+  </section>
+
+  <!-- SECCION 4 — Concreto -->
+  <section class="scene scene-d" id="sceneD" data-header="dark">
+    <div class="scene-photo" id="photoD" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3Bd1EO6EIHxSqCgleKKy9qZ3l1v/hf_20260718_024850_c30d65bb-98f3-4403-b775-cc68c75ae10c.png')"></div>
+    <div class="scene-photo-scrim"></div>
+    <div class="copy">
+      <h2 id="finaleTitle">CONCRETO</h2>
+      <p class="tag">Hecho en la calle</p>
+      <div class="counter-row">
+        <span class="lb">Drop</span>
+        <span class="num" id="dropCounter">000</span>
+      </div>
+    </div>
+    <div class="seam-fade"></div>
+  </section>
+
+</div>
+
+<main>
+
+  <!-- SECCION 5 — Colección -->
+  <section id="coleccion" data-header="light">
+    <div class="wrap">
+      <p class="eyebrow">Drop 001</p>
+      <h2 class="sec">Colección</h2>
+      <p class="intro">Piezas cortadas para moverse por la ciudad. Producción limitada.</p>
+    </div>
+
+    <div id="galleryPin">
+      <div class="gal-sticky">
+        <div class="gal-side">
+          <div class="gal-idx"><span id="galIdx">01</span><span class="of">/ 06</span></div>
+          <div class="gal-track"><span class="gal-fill" id="galFill"></span></div>
+          <p class="gal-hint">Sigue bajando</p>
+        </div>
+        <div class="gal-stack" id="galStack"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCION 6 — Manifiesto -->
+  <section id="manifiesto" data-header="dark">
+    <div class="marquee">
+      <div class="marquee-row" id="marqueeRow1">
+        <span>CALLE</span><span class="solid">CONCRETO</span><span>ACTITUD</span><span>SIN FILTRO</span><span class="solid">CONCRETO</span>
+      </div>
+      <div class="marquee-row" aria-hidden="true">
+        <span>CALLE</span><span class="solid">CONCRETO</span><span>ACTITUD</span><span>SIN FILTRO</span><span class="solid">CONCRETO</span>
+      </div>
+    </div>
+    <div class="wrap">
+      <p class="manifesto-p">CONCRETO nace del pavimento, no del escaparate. Cada pieza está cortada para el ritmo de la ciudad: el camión de las 6am, el andén a medianoche, el eco del metro. No vestimos vitrinas — vestimos calle.</p>
+    </div>
+  </section>
+
+  <!-- SECCION 7 — Tienda -->
+  <section id="tienda" data-header="light">
+    <div class="wrap">
+      <p class="eyebrow">Visítanos</p>
+      <h2 class="sec">La tienda</h2>
+      <div class="info-grid">
+        <div class="info-card"><p class="lb">Dirección</p><p>Av. del Andén 154, Distrito Muelle / Ciudad de México</p></div>
+        <div class="info-card"><p class="lb">Horario</p><p>Lun–Vie 12:00–20:00 / Sáb 11:00–21:00 · Dom cerrado</p></div>
+        <div class="info-card"><p class="lb">Nuevos drops</p><p>Cada primer viernes de mes. / Cantidades limitadas, sin restock.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCION 8 — Contacto -->
+  <section id="contacto" data-header="dark">
+    <div class="wrap contact-grid">
+      <div>
+        <h2 class="sec">Hablemos</h2>
+        <p>Colaboraciones, prensa, mayoreo o solo para decir qué tal. Respondemos entre semana.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.22 1 .48 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c0 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2 0-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.2A6.6 6.6 0 1 0 18.6 12 6.6 6.6 0 0 0 12 5.4zm0 10.9A4.3 4.3 0 1 1 16.3 12 4.3 4.3 0 0 1 12 16.3zm6.9-11.1a1.55 1.55 0 1 1-1.55-1.55A1.55 1.55 0 0 1 18.9 5.2z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 5.8a4.8 4.8 0 0 1-1.2-3.2h-3.2v12.9a2.9 2.9 0 1 1-2.1-2.8V9.4a6.1 6.1 0 1 0 5.3 6V9.1a8 8 0 0 0 4.6 1.5V7.4a4.8 4.8 0 0 1-3.4-1.6z"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a9.9 9.9 0 0 0-8.5 15L2 22l5.2-1.4A9.9 9.9 0 1 0 12 2zm0 18a8.1 8.1 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.1 8.1 0 1 1 12 20zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2a.4.4 0 0 0 0-.4c0-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3A2.9 2.9 0 0 0 7 8.1a5 5 0 0 0 1.1 2.7 11.4 11.4 0 0 0 4.4 3.9c1.6.7 2.2.7 3 .6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .1-1.2z"/></svg></a>
+        </div>
+      </div>
+      <form id="contactForm">
+        <div class="field"><label for="n">Nombre</label><input id="n" type="text" required></div>
+        <div class="field"><label for="c">Correo</label><input id="c" type="email" required></div>
+        <div class="field"><label for="m">Mensaje</label><textarea id="m" rows="4"></textarea></div>
+        <button class="submit" type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <p>© 2026 CONCRETO. Todos los derechos reservados.</p>
+      <p>Diseñado para la calle.</p>
+    </div>
+  </footer>
+
+</main>
+
+<div id="grain"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script>
+(function(){
+  'use strict';
+
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── Lenis, movido por el ticker de GSAP ── */
+  if(!reduceMotion){
+    const lenis = new Lenis({ lerp: 0.09, smoothWheel: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t * 1000));
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  /* ── Partir texto en caracteres ── */
+  function splitChars(el){
+    const txt = el.textContent;
+    el.textContent = '';
+    const out = [];
+    for(const ch of txt){
+      const s = document.createElement('span');
+      s.textContent = ch === ' ' ? ' ' : ch;
+      el.appendChild(s);
+      out.push(s);
+    }
+    return out;
+  }
+
+  const heroChars   = splitChars(document.getElementById('heroTitle'));
+  const finaleChars = splitChars(document.getElementById('finaleTitle'));
+
+  /* ── Estrellas de la escena A ── */
+  (function(){
+    let html = '';
+    for(let i=0;i<70;i++){
+      const l = (Math.random()*100).toFixed(2);
+      const t = (Math.random()*45).toFixed(2);
+      const o = (0.2 + Math.random()*0.6).toFixed(2);
+      html += '<span class="star" style="left:'+l+'%;top:'+t+'%;opacity:'+o+'"></span>';
+    }
+    document.getElementById('stars').innerHTML = html;
+  })();
+
+  /* ── Galeria: tarjetas ── */
+  const PRODUCTOS = [
+    { t:'Hoodie Bloque',       m:'Algodón pesado 400g', p:'$68',  img:'https://d8j0ntlcm91z4.cloudfront.net/user_3Bd1EO6EIHxSqCgleKKy9qZ3l1v/hf_20260718_024851_60d56f9b-f0d7-4071-89a9-f59a937b1134.png' },
+    { t:'Tee Grieta',          m:'Jersey 220g',         p:'$32',  img:'https://d8j0ntlcm91z4.cloudfront.net/user_3Bd1EO6EIHxSqCgleKKy9qZ3l1v/hf_20260718_024852_fc9fdb51-9199-4731-b9d3-169205810445.png' },
+    { t:'Cargo Andén',         m:'Ripstop reforzado',   p:'$74',  img:'https://d8j0ntlcm91z4.cloudfront.net/user_3Bd1EO6EIHxSqCgleKKy9qZ3l1v/hf_20260718_024853_d6dce968-902e-4e58-820b-5fa23d67c0bf.png' },
+    { t:'Chaqueta Muelle 04',  m:'Nylon con forro',     p:'$132', img:'https://d8j0ntlcm91z4.cloudfront.net/user_3Bd1EO6EIHxSqCgleKKy9qZ3l1v/hf_20260718_024855_4d47423d-c5c5-4198-926d-dc745a25cd68.png' },
+    { t:'Gorra Eslabón',       m:'Six-panel',           p:'$28',  img:'https://d8j0ntlcm91z4.cloudfront.net/user_3Bd1EO6EIHxSqCgleKKy9qZ3l1v/hf_20260718_024856_5b164155-57c9-450c-ae12-c787621ba2ca.png' },
+    { t:'Calceta Asfalto',     m:'Pack x3',             p:'$18',  img:'https://d8j0ntlcm91z4.cloudfront.net/user_3Bd1EO6EIHxSqCgleKKy9qZ3l1v/hf_20260718_024857_5f4e32b8-d1d8-47cf-83e2-ce0a2af36ea4.png' }
+  ];
+  (function(){
+    const stack = document.getElementById('galStack');
+    stack.innerHTML = PRODUCTOS.map((p,i) =>
+      '<div class="g-card"><div class="g-inner">'
+      + '<div class="g-thumb"><img src="'+p.img+'" alt="'+p.t+'" loading="lazy"><span class="g-tag">0'+(i+1)+'</span></div>'
+      + '<h3 class="g-title">'+p.t+'</h3>'
+      + '<div class="g-meta"><span>'+p.m+'</span><span class="price">'+p.p+'</span></div>'
+      + '</div></div>'
+    ).join('');
+  })();
+
+  /* ── Entrada del hero (al cargar, no ligada al scroll) ── */
+  gsap.set(heroChars, { yPercent: 120 });
+  gsap.delayedCall(0.2, () => {
+    const tl = gsap.timeline();
+    tl.to(heroChars, { yPercent: 0, stagger: 0.045, ease: 'power4.out', duration: 0.9 }, 0)
+      .to('.hero-sub, .hero-drop', { opacity: 1, duration: 0.6 }, 0.55)
+      .to('.scroll-cue', { opacity: 0.55, duration: 0.6 }, 0.8);
+  });
+
+  /* ── SECCION 1 — Escena A ── */
+  const tlA = gsap.timeline({ scrollTrigger: {
+    trigger:'#sceneA', start:'top top', end:'+=160%', scrub:1, pin:true, pinSpacing:true, id:'sceneA'
+  }});
+  tlA.to('.scroll-cue', { opacity: 0, duration: 0.1 }, 0)
+     .to('#photoA', { scale: 1.22, duration: 1.1, ease: 'none' }, 0)
+     .to('.hero-copy', { opacity: 0, y: -40, duration: 0.35, ease: 'power1.in' }, 0.28)
+     .to('.stars', { opacity: 0.15, duration: 0.6 }, 0.5)
+     .to('#sceneA', { filter: 'brightness(0.4)', duration: 0.3 }, 0.7);
+
+  /* ── Motas de polvo en canvas (solo escena A) ── */
+  (function(){
+    const canvas = document.getElementById('ambient');
+    const ctx = canvas.getContext('2d');
+    let w = 0, h = 0, parts = [], t = 0;
+
+    function resize(){
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      w = window.innerWidth; h = window.innerHeight;
+      canvas.style.width = w + 'px';
+      canvas.style.height = h + 'px';
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    if(reduceMotion) return;
+
+    for(let i=0;i<46;i++){
+      parts.push({
+        x: Math.random()*window.innerWidth,
+        y: Math.random()*window.innerHeight*0.7,
+        r: 0.6 + Math.random()*1.6,
+        vy: 0.06 + Math.random()*0.16,
+        vx: (Math.random()-0.5)*0.08,
+        a: 0.15 + Math.random()*0.35,
+        phase: Math.random()*Math.PI*2
+      });
+    }
+
+    function frame(){
+      requestAnimationFrame(frame);
+      const st = ScrollTrigger.getById('sceneA');
+      const p = st ? st.progress : 0;
+      const ambientAlpha = Math.max(0, 1 - p/0.35);
+      if(ambientAlpha <= 0){ ctx.clearRect(0,0,w,h); return; }
+      t += 0.02;
+      ctx.clearRect(0,0,w,h);
+      for(const q of parts){
+        q.y -= q.vy;
+        q.x += q.vx + Math.sin(t + q.phase)*0.05;
+        if(q.y < -10){ q.y = h + 10; q.x = Math.random()*w; }
+        const tw = 0.6 + 0.4*Math.sin(t*1.4 + q.phase);
+        ctx.globalAlpha = q.a * ambientAlpha * tw;
+        ctx.fillStyle = '#ffcf8a';
+        ctx.beginPath();
+        ctx.arc(q.x, q.y, q.r, 0, Math.PI*2);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    }
+    frame();
+  })();
+
+  /* ── SECCION 2 — Escena B ── */
+  const tlB = gsap.timeline({ scrollTrigger: {
+    trigger:'#sceneB', start:'top top', end:'+=130%', scrub:1, pin:true, pinSpacing:true, id:'sceneB'
+  }});
+  tlB.to('#photoB', { scale: 1.12, duration: 1, ease: 'none' }, 0)
+     .to('.scene-b .blob', { opacity: 0.5, duration: 0.3 }, 0)
+     .to('.fence-l', { xPercent: -100, duration: 0.5, ease: 'power2.inOut' }, 0.12)
+     .to('.fence-r', { xPercent: 100, duration: 0.5, ease: 'power2.inOut' }, 0.12)
+     .to('#titleB', { clipPath: 'inset(0 0% 0 0)', duration: 0.4, ease: 'power3.out' }, 0.3)
+     .to('.scene-b .sub', { opacity: 0.85, duration: 0.3 }, 0.45)
+     .to('#sceneB', { filter: 'brightness(0.55)', duration: 0.25 }, 0.8);
+
+  /* ── SECCION 3 — Escena C ── */
+  const tlC = gsap.timeline({ scrollTrigger: {
+    trigger:'#sceneC', start:'top top', end:'+=140%', scrub:1, pin:true, pinSpacing:true, id:'sceneC'
+  }});
+  tlC.to('#photoC', { scale: 1.1, duration: 1.1, ease: 'none' }, 0)
+     .to('.spotlight', { opacity: 1, scaleY: 1, duration: 0.5, ease: 'power2.out' }, 0)
+     .to('.rail', { opacity: 1, duration: 0.2 }, 0.25)
+     .to('.garment', { opacity: 1, y: 0, stagger: 0.08, duration: 0.4, ease: 'power2.out' }, 0.3)
+     .to('.dock-copy', { opacity: 1, duration: 0.3 }, 0.65);
+
+  /* ── Polvo flotante de la escena C ── */
+  if(!reduceMotion){
+    const sceneC = document.querySelector('.scene-c');
+    for(let i=0;i<18;i++){
+      const d = document.createElement('span');
+      d.className = 'dust';
+      d.style.left = (30 + Math.random()*40) + '%';
+      d.style.top = '60%';
+      sceneC.appendChild(d);
+      gsap.to(d, {
+        y: -140 - Math.random()*80,
+        opacity: 0.5,
+        duration: 4 + Math.random()*4,
+        delay: Math.random()*4,
+        repeat: -1,
+        ease: 'sine.inOut',
+        onRepeat(){ gsap.set(d, { y: 0, opacity: 0 }); }
+      });
+    }
+  }
+
+  /* ── SECCION 4 — Escena D ── */
+  const tlD = gsap.timeline({ scrollTrigger: {
+    trigger:'#sceneD', start:'top top', end:'+=150%', scrub:1, pin:true, pinSpacing:true, id:'sceneD'
+  }});
+  const counter = document.getElementById('dropCounter');
+  tlD.to('#photoD', { scale: 1.08, duration: 1.3, ease: 'none' }, 0)
+     .to(finaleChars, { clipPath: 'inset(0 0 0% 0)', stagger: 0.05, duration: 0.5, ease: 'power3.out' }, 0.05)
+     .to('.scene-d .tag', { opacity: 1, duration: 0.3 }, 0.45)
+     .to('.counter-row', { opacity: 1, duration: 0.2 }, 0.55)
+     .to({ v: 0 }, { v: 1, duration: 0.3, onUpdate(){
+        counter.textContent = String(Math.round(this.targets()[0].v)).padStart(3, '0');
+     }}, 0.6)
+     .to('.seam-fade', { opacity: 1, duration: 0.35, ease: 'power1.in' }, 0.78);
+
+  /* ── SECCION 5 — Galeria con scrub ── */
+  (function(){
+    const cards = gsap.utils.toArray('.g-card');
+    const N = cards.length;
+    const idxEl = document.getElementById('galIdx');
+    const fillEl = document.getElementById('galFill');
+
+    gsap.set(cards[0], { y: 0, rotate: 0, opacity: 1, scale: 1 });
+    gsap.set(cards.slice(1), { y: '60vh', rotate: 10, opacity: 0, scale: 0.94 });
+    if(reduceMotion) return;
+
+    const tl = gsap.timeline({ scrollTrigger: {
+      trigger:'#galleryPin', start:'top top', end:'+=' + (N*100) + '%',
+      scrub:1, pin:true, pinSpacing:true,
+      onUpdate(self){
+        const idx = Math.min(N-1, Math.floor(self.progress * N));
+        idxEl.textContent = String(idx+1).padStart(2, '0');
+        fillEl.style.width = (self.progress*100).toFixed(1) + '%';
+      }
+    }});
+
+    for(let j=0;j<N-1;j++){
+      tl.to(cards[j], { y:'-60vh', rotate:-10, opacity:0, scale:0.94, duration:0.4, ease:'power2.in' }, j + 0.3)
+        .fromTo(cards[j+1],
+          { y:'60vh', rotate:10, opacity:0, scale:0.94 },
+          { y:0, rotate:0, opacity:1, scale:1, duration:0.4, ease:'power2.out' }, j + 0.3);
+    }
+  })();
+
+  /* ── SECCION 6 — Marquesina ── */
+  if(!reduceMotion){
+    gsap.to('#marqueeRow1', { xPercent: -100, duration: 18, ease: 'none', repeat: -1 });
+  }
+
+  /* ── SECCION 7 — Tarjetas de tienda ── */
+  gsap.utils.toArray('.info-card').forEach(card => {
+    gsap.from(card, { opacity: 0, y: 20, duration: 0.6, scrollTrigger: { trigger: card, start: 'top 92%' } });
+  });
+
+  /* ── Contraste adaptativo del header ── */
+  (function(){
+    const header = document.getElementById('header');
+    const zonas = gsap.utils.toArray('[data-header]');
+    gsap.ticker.add(() => {
+      for(const z of zonas){
+        const r = z.getBoundingClientRect();
+        if(r.top <= 1 && r.bottom > 1){
+          header.classList.toggle('on-light', z.dataset.header === 'light');
+          break;
+        }
+      }
+    });
+  })();
+
+  /* ── Capitulo y altimetro ── */
+  (function(){
+    const CHAPTERS = ['DESCENSO','CALLEJÓN','MUELLE','CONCRETO'];
+    const film = document.getElementById('filmScroll');
+    const chapterEl = document.getElementById('chapter');
+    const fillEl = document.getElementById('progFill');
+    const altEl = document.getElementById('alt');
+    gsap.ticker.add(() => {
+      const r = film.getBoundingClientRect();
+      const p = gsap.utils.clamp(0, 1, -r.top / (r.height - window.innerHeight));
+      fillEl.style.width = (p*100).toFixed(1) + '%';
+      altEl.textContent = Math.round((1-p)*980) + 'm';
+      chapterEl.textContent = CHAPTERS[Math.min(CHAPTERS.length-1, Math.floor(p * CHAPTERS.length))];
+    });
+  })();
+
+  /* El swap de fuentes cambia las metricas y por lo tanto el alto del
+     documento: hay que recalcular los offsets de cada escena pineada. */
+  document.fonts.ready.then(() => ScrollTrigger.refresh());
+
+  document.getElementById('contactForm').addEventListener('submit', e => e.preventDefault());
+})();
+</script>
+</body>
+</html>

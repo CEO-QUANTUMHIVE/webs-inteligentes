@@ -269,9 +269,19 @@ export default function PlantillasCliente({ plantillas }: { plantillas: Plantill
                     >
                       Usar Esta →
                     </a>
-                    <button className="px-3 py-2.5 rounded-lg bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white transition-all text-xs">
-                      ↗
-                    </button>
+                    {/* Demo navegable. El boton solo aparece si la plantilla
+                        tiene una: antes era un boton muerto que no hacia nada. */}
+                    {t.urlDemo && (
+                      <a
+                        href={t.urlDemo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={`Ver demo de ${t.name}`}
+                        className="px-3 py-2.5 rounded-lg bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white transition-all text-xs"
+                      >
+                        Ver demo ↗
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>

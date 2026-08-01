@@ -41,13 +41,63 @@ export interface Plantilla {
   features: string[];
   preview: "minimal" | "bold" | "gradient" | "dark" | "clean" | "creative";
   popular?: boolean;
+  /** Demo navegable servida desde public/plantillas/. null si todavia no hay. */
+  urlDemo: string | null;
 }
+
+interface FilaPlantilla {
+  id: string;
+  nombre: string;
+  descripcion: string | null;
+  nicho: string;
+  estilo: string | null;
+  paginas: string[] | null;
+  paleta: {
+    primario?: string;
+    secundario?: string;
+    acento?: string;
+    fondo?: string;
+  } | null;
+  fuentes: { familias?: string } | null;
+  caracteristicas: string[] | null;
+  vista_previa: Plantilla["preview"] | null;
+  popular: boolean | null;
+  url_demo: string | null;
+}
+
+const PLANTILLA_CONCRETO: Plantilla = {
+  id: "concreto-streetwear",
+  name: "CONCRETO — Moda de calle",
+  description:
+    "One-pager cinematográfico que desciende del cielo nocturno al asfalto antes de aterrizar en un catálogo de producto.",
+  niche: "Streetwear / Indumentaria",
+  style: "Cinemático",
+  pages: ["Portada", "Colección", "Manifiesto", "Tienda", "Contacto"],
+  colors: {
+    primary: "#ff5a1f",
+    secondary: "#ffb03c",
+    accent: "#8c897f",
+    bg: "#0a0a0a",
+  },
+  font: "Anton + Space Grotesk",
+  features: [
+    "Escenas ancladas al scroll",
+    "Galería rotativa",
+    "Grano de película",
+    "Partículas en canvas",
+    "Altímetro de capítulo",
+    "Header de contraste adaptativo",
+  ],
+  preview: "dark",
+  popular: true,
+  urlDemo: "/plantillas/concreto/",
+};
 
 export async function obtenerPlantillas(): Promise<Plantilla[]> {
   if (!CLAVE) throw new Error("Falta NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY.");
 
   const res = await fetch(
-    `${URL_SUPABASE}/rest/v1/plantillas?select=*&publicado=is.true&order=nicho`,
+    `${URL_SUPABASE}/rest/v1/plantillas?select=*&id=eq.concreto-streetwear&publicado=is.true`,
     {
       headers: { apikey: CLAVE, Authorization: `Bearer ${CLAVE}` },
       cache: "force-cache",
@@ -58,7 +108,7 @@ export async function obtenerPlantillas(): Promise<Plantilla[]> {
     throw new Error(`No se pudieron leer las plantillas (HTTP ${res.status})`);
   }
 
-  return (await res.json()).map((f: Record<string, any>) => ({
+  const plantillas = ((await res.json()) as FilaPlantilla[]).map((f) => ({
     id: f.id,
     name: f.nombre,
     description: f.descripcion ?? "",
@@ -75,7 +125,12 @@ export async function obtenerPlantillas(): Promise<Plantilla[]> {
     features: f.caracteristicas ?? [],
     preview: f.vista_previa ?? "minimal",
     popular: f.popular ?? false,
+    urlDemo: f.url_demo ?? null,
   }));
+
+  // La migracion puede aplicarse despues del deploy del frontend. El catalogo
+  // nunca debe volver a mostrar las 12 entradas conceptuales ni quedar vacio.
+  return plantillas.length > 0 ? plantillas : [PLANTILLA_CONCRETO];
 }
 
 /** Orden de las categorias en la barra lateral. */
