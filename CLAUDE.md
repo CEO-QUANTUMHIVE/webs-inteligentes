@@ -91,7 +91,7 @@ Apoyo: `paletas-por-nicho/` (6 nichos) y `biblioteca-referencias/` (4 categoría
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-01 · 80 archivos versionados
+Actualizado: 2026-08-01 · 81 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
@@ -104,6 +104,7 @@ Actualizado: 2026-08-01 · 80 archivos versionados
 | `evaluaciones/` | 3 | Criterios de QA visual, factual y conversacional |
 | `scripts/` | 2 | Automatización del repo |
 | `CONTEXTO/` | 1 | Contexto del proyecto |
+| `.claude/` | 1 | — |
 
 ### Rutas del sitio
 

@@ -1,577 +1,270 @@
 ---
 name: copiar-pagina
-description: Copia una página web de referencia y genera una página Next.js + Tailwind de alta fidelidad, aplicando la paleta del nicho del cliente.
+description: Copia una página web de referencia con alta fidelidad visual y genera una página Next.js + Tailwind, aplicando la identidad del cliente.
 ---
 
-# Copiar Página Web — Skill Avanzada
+# Copiar Página Web
 
-> **Versión:** 2.0 — Con análisis visual profundo, mapeo de componentes y generación de código de alta fidelidad.
+> **Versión 3.0** — El análisis visual ahora se ejecuta de verdad, contra la página viva, con el navegador.
+
+## Qué cambió respecto de la v2.0
+
+La v2.0 mandaba a analizar con WebFetch y después pegaba scripts de `document.querySelector` y `getComputedStyle`. **Eso nunca pudo ejecutarse**: WebFetch convierte la página a markdown, no corre JavaScript ni devuelve estilos computados. El resultado era que la fidelidad se estimaba a ojo.
+
+En la v3.0 la extracción corre en un navegador real (`preview_start` + `javascript_tool`), que sí evalúa JS contra el DOM vivo.
 
 ---
 
-## Objetivo
-
-Replicar una página web de referencia con **alta fidelidad visual** usando Next.js + Tailwind CSS, aplicando la paleta de colores del nicho del cliente y generando código production-ready.
-
----
-
-## Stack Tecnológico
+## Stack
 
 | Capa | Tecnología |
 |------|-----------|
-| Framework | Next.js 16+ (React 19) |
+| Framework | Next.js 16 (React 19) |
 | Estilos | Tailwind CSS 4 |
 | Componentes | shadcn/ui + Vengeance UI |
-| Animaciones | CSS Animations + Framer Motion |
-| Análisis | WebFetch + WebSearch |
+| Análisis | Navegador (`preview_start`, `javascript_tool`, `read_page`) |
 | Build | `npm run build` → `out/` |
-| Deploy | Netlify (drag & drop de `out/`) |
+| Deploy | Cloud Run (ver CLAUDE.md) |
+
+## Inputs
+
+| Input | Requerido | Ejemplo |
+|-------|-----------|---------|
+| `url-referencia` | Sí | `https://ejemplo.com` |
+| `nombre-cliente` | Sí | `Café Aroma` |
+| `nicho` | Sí | `gastronomia` |
+| `fidelidad` | No | `alta` (default) · `estructura` |
+| `secciones` | No | `["hero", "servicios"]` |
+
+### Qué significa cada nivel de fidelidad
+
+- **`alta`** (default): se replica composición, escala tipográfica, espaciado, paleta y tipo de animaciones lo más fiel posible.
+- **`estructura`**: se replica el layout y la jerarquía, pero la paleta sale del nicho del cliente.
+
+En **ambos** niveles hay cosas que nunca se copian, porque no son diseño sino activos ajenos:
+
+| Nunca se copia | Qué se hace en su lugar |
+|----------------|-------------------------|
+| Logo y nombre de marca | El del cliente |
+| Fotos y video propios del sitio | Assets del cliente, stock con licencia, o `/placeholder.svg` |
+| Textos tal cual | Reescritos para el negocio del cliente |
+| Testimonios, precios, datos de contacto | Los reales del cliente, verificados |
+| Iconografía con copyright | Lucide u otra librería abierta |
+
+Copiar layout, escala y paleta es práctica normal de la industria. Copiar el logo, las fotos o el copy de otro negocio no, y además deja la demo inservible para el cliente.
 
 ---
 
-## Inputs Requeridos
-
-| Input | Requerido | Descripción | Ejemplo |
-|-------|-----------|-------------|---------|
-| `url-referencia` | Sí | URL de la página a copiar | `https://ejemplo.com` |
-| `nombre-cliente` | Sí | Nombre del negocio | `Café Aroma` |
-| `nicho` | Sí | Tipo de negocio | `gastronomia` |
-| `paleta-personalizada` | No | Colores específicos | `{primary: "#ff6b35"}` |
-| `secciones` | No | Qué secciones copiar | `["hero", "servicios"]` |
-| `nivel-fidelidad` | No | `alta`, `media`, `baja` | Default: `alta` |
-
----
-
-## Flujo de Trabajo Detallado
-
-### FASE 0: Preparación (2 min)
+## FASE 0 — Preparación
 
 ```bash
-# 1. Verificar que estamos en el directorio correcto
-ls package.json
-
-# 2. Verificar que node_modules existe
-ls node_modules/.package-lock.json
-
-# 3. Verificar next.config.ts
-cat next.config.ts  # Debe tener output: "export"
+cd clientes/[cliente]        # o clientes/quantum-hive para el piloto
+ls package.json              # confirmar directorio
 ```
 
-**Si falta algo, corregir ANTES de continuar.**
+Verificar que `next.config.ts` tiene `output: "export"`.
 
 ---
 
-### FASE 1: Análisis Visual Profundo (10 min)
+## FASE 1 — Análisis visual (ejecutable)
 
-#### Paso 1.1: Obtener el HTML
+### 1.1 Abrir la referencia en el navegador
 
-```bash
-# Usar WebFetch para obtener el contenido
-webfetch → url: [url-referencia], format: "html"
+```
+preview_start  { url: "[url-referencia]" }
 ```
 
-#### Paso 1.2: Analizar estructura
+Guardar el `tabId` que devuelve.
+
+### 1.2 Extraer estructura y estilos computados
+
+Correr con `javascript_tool` contra ese tab. Devuelve JSON.
 
 ```javascript
-// Extraer estructura del documento
-const analisis = {
-  // 1. Estructura general
-  estructura: {
-    header: !!document.querySelector('header, nav, [class*="nav"]'),
-    hero: !!document.querySelector('[class*="hero"], section:first-of-type'),
-    sections: document.querySelectorAll('section').length,
-    footer: !!document.querySelector('footer'),
-    forms: document.querySelectorAll('form').length,
-  },
+(() => {
+  const cs = (el, props) => {
+    if (!el) return null;
+    const s = getComputedStyle(el);
+    return Object.fromEntries(props.map(p => [p, s[p]]));
+  };
+  const q = sel => document.querySelector(sel);
 
-  // 2. Secciones principales
-  secciones: [...document.querySelectorAll('section')].map((s, i) => ({
-    indice: i,
-    id: s.id || `seccion-${i}`,
-    clases: s.className,
-    tieneH1: !!s.querySelector('h1'),
-    tieneH2: !!s.querySelector('h2'),
-    tieneForm: !!s.querySelector('form'),
-    tieneGrid: !!s.querySelector('[class*="grid"]'),
-    tieneCards: !!s.querySelector('[class*="card"]'),
-    tieneImg: !!s.querySelector('img'),
-    tieneVideo: !!s.querySelector('video'),
-    numChildren: s.children.length,
-  })),
+  return {
+    body: cs(document.body, ['backgroundColor','color','fontFamily','fontSize','lineHeight']),
 
-  // 3. Navegación
-  nav: {
-    items: [...document.querySelectorAll('nav a, header a')].map(a => ({
-      texto: a.textContent.trim(),
-      href: a.getAttribute('href'),
-    })),
-    tieneCta: !!document.querySelector('nav button, header a[class*="btn"]'),
-  },
+    header: cs(q('header, nav'), ['backgroundColor','backdropFilter','borderBottom','padding','position']),
 
-  // 4. Contenido
-  contenido: {
-    titulares: [...document.querySelectorAll('h1, h2, h3')].map(h => ({
-      tag: h.tagName,
-      texto: h.textContent.trim().substring(0, 100),
+    hero: cs(q('[class*="hero" i], main section:first-of-type, body > section:first-of-type'),
+             ['backgroundColor','backgroundImage','minHeight','padding','textAlign']),
+
+    card: cs(q('[class*="card" i]'),
+             ['backgroundColor','borderRadius','boxShadow','border','padding']),
+
+    boton: cs(q('a[class*="btn" i], button[class*="primary" i], .cta, button'),
+              ['backgroundColor','color','borderRadius','padding','fontWeight','fontSize']),
+
+    // Escala tipografica real: que tamaños se usan y cuantas veces
+    escala: (() => {
+      const conteo = {};
+      document.querySelectorAll('h1,h2,h3,h4,p,li,a,span').forEach(el => {
+        const s = getComputedStyle(el);
+        const k = `${el.tagName} ${s.fontSize} ${s.fontWeight}`;
+        conteo[k] = (conteo[k] || 0) + 1;
+      });
+      return Object.entries(conteo).sort((a,b) => b[1]-a[1]).slice(0, 18);
+    })(),
+
+    secciones: [...document.querySelectorAll('section, main > div')].slice(0, 14).map((s, i) => ({
+      i,
+      id: s.id || null,
+      alto: Math.round(s.getBoundingClientRect().height),
+      titulo: s.querySelector('h1,h2,h3')?.textContent?.trim().slice(0, 70) || null,
+      grid: !!s.querySelector('[class*="grid" i]'),
+      cards: s.querySelectorAll('[class*="card" i]').length,
+      imgs: s.querySelectorAll('img').length,
+      form: !!s.querySelector('form'),
     })),
-    imagenes: [...document.querySelectorAll('img')].map(img => ({
-      src: img.src,
-      alt: img.alt,
-      width: img.naturalWidth,
-      height: img.naturalHeight,
-    })),
-    videos: [...document.querySelectorAll('video')].length,
-  },
-};
+  };
+})()
 ```
 
-#### Paso 1.3: Extraer estilos computados
+### 1.3 Extraer la paleta real
 
 ```javascript
-// Para cada sección principal, extraer estilos clave
-const estilos = {
-  body: {
-    bgColor: getComputedStyle(document.body).backgroundColor,
-    textColor: getComputedStyle(document.body).color,
-    fontFamily: getComputedStyle(document.body).fontFamily,
-  },
-  header: (() => {
-    const h = document.querySelector('header, nav');
-    if (!h) return null;
-    return {
-      bgColor: getComputedStyle(h).backgroundColor,
-      backdropFilter: getComputedStyle(h).backdropFilter,
-      borderBottom: getComputedStyle(h).borderBottom,
-      padding: getComputedStyle(h).padding,
-    };
-  })(),
-  hero: (() => {
-    const hero = document.querySelector('[class*="hero"], section:first-of-type');
-    if (!hero) return null;
-    return {
-      bgColor: getComputedStyle(hero).backgroundColor,
-      background: getComputedStyle(hero).background,
-      minHeight: getComputedStyle(hero).minHeight,
-      padding: getComputedStyle(hero).padding,
-    };
-  })(),
-  cards: (() => {
-    const card = document.querySelector('[class*="card"], [class*="Card"]');
-    if (!card) return null;
-    return {
-      bgColor: getComputedStyle(card).backgroundColor,
-      borderRadius: getComputedStyle(card).borderRadius,
-      boxShadow: getComputedStyle(card).boxShadow,
-      border: getComputedStyle(card).border,
-      padding: getComputedStyle(card).padding,
-    };
-  })(),
-};
-```
-
-#### Paso 1.4: Identificar colores
-
-```javascript
-// Extraer paleta de colores completa
-const paleta = new Set();
-
-// De estilos inline
-document.querySelectorAll('*').forEach(el => {
-  const style = getComputedStyle(el);
-  ['color', 'backgroundColor', 'borderColor'].forEach(prop => {
-    const val = style[prop];
-    if (val && val !== 'rgba(0, 0, 0, 0)' && val !== 'transparent') {
-      paleta.add(val);
-    }
+(() => {
+  const uso = {};
+  document.querySelectorAll('*').forEach(el => {
+    const s = getComputedStyle(el);
+    ['color','backgroundColor','borderColor'].forEach(p => {
+      const v = s[p];
+      if (v && v !== 'rgba(0, 0, 0, 0)' && v !== 'transparent') {
+        uso[v] = (uso[v] || 0) + 1;
+      }
+    });
   });
-});
 
-// De CSS custom properties
-const rootStyles = getComputedStyle(document.documentElement);
-const customProps = {};
-for (const sheet of document.styleSheets) {
-  try {
-    for (const rule of sheet.cssRules) {
-      if (rule.selectorText === ':root' || rule.selectorText === ':root, :host') {
-        for (const prop of rule.style) {
-          if (prop.startsWith('--') && !prop.startsWith('--tw')) {
-            customProps[prop] = rule.style.getPropertyValue(prop);
+  // Variables CSS del tema (saltea las de Tailwind)
+  const vars = {};
+  for (const hoja of document.styleSheets) {
+    try {
+      for (const regla of hoja.cssRules) {
+        if (regla.selectorText && regla.selectorText.includes(':root')) {
+          for (const prop of regla.style) {
+            if (prop.startsWith('--') && !prop.startsWith('--tw')) {
+              vars[prop] = regla.style.getPropertyValue(prop).trim();
+            }
           }
         }
       }
-    }
-  } catch(e) {}
-}
+    } catch (e) { /* hoja de otro origen */ }
+  }
+
+  return {
+    masUsados: Object.entries(uso).sort((a,b) => b[1]-a[1]).slice(0, 15),
+    variablesTema: vars,
+    fuentes: [...new Set([...document.querySelectorAll('h1,h2,p,body')]
+      .map(el => getComputedStyle(el).fontFamily))].slice(0, 6),
+  };
+})()
 ```
+
+### 1.4 Contenido y navegación
+
+Usar `read_page` para el árbol semántico (títulos, links, jerarquía) y `get_page_text` para el copy. Es más fiable que extraerlo a mano.
+
+### 1.5 Responsive
+
+```
+resize_window { width: 360, height: 640 }
+```
+
+Repetir 1.2 para ver cómo cambian layout y tipografía en mobile. **Anotar los breakpoints donde el grid cambia de columnas** — es lo que más se pierde al copiar.
 
 ---
 
-### FASE 2: Mapeo de Componentes (5 min)
+## FASE 2 — Mapeo a componentes
 
-Mapear cada elemento visual a un componente concreto:
-
-| Elemento Visual | Componente Tailwind | Componente Vengeance UI |
-|----------------|--------------------|-----------------------|
+| Elemento visual | Tailwind | Vengeance UI |
+|----------------|----------|--------------|
 | Header sticky | `sticky top-0 z-50 backdrop-blur-xl` | `spotlight-navbar` |
-| Hero con fondo animado | Gradientes CSS + blur | `animated-rays` |
-| Texto animado rotativo | `useState` + `setInterval` | `morph-text` o `flip-fade-text` |
-| Tarjetas con brillo | `border hover:shadow-[glow]` | `glow-border-card` |
-| Botón CTA | `bg-cyan-400 rounded-lg hover:scale` | `radial-glow-button` |
-| Grid de features | `grid grid-cols-3 gap-6` | `agent-bento-grid` |
-| Dock de navegación | `fixed bottom-6 flex gap-2` | `glass-dock` |
-| Footer | `border-t py-12` | Componente simple |
-| Sección de pricing | `grid grid-cols-3 gap-8` | Tarjetas con `glow-border-card` |
-| Testimonios | `grid grid-cols-2 gap-6` | Cards con avatar |
-| Formulario | `form` + `input` + `button` | shadcn/ui form |
+| Hero con fondo animado | Gradientes + blur | `animated-rays` |
+| Texto rotativo | `useState` + `setInterval` | `morph-text`, `flip-fade-text` |
+| Tarjeta con brillo | `border hover:shadow-[glow]` | `glow-border-card` |
+| Botón CTA | `rounded-lg hover:scale-105` | `radial-glow-button` |
+| Grid de features | `grid grid-cols-1 md:grid-cols-3 gap-6` | `agent-bento-grid` |
+| Dock flotante | `fixed bottom-6 flex gap-2` | `glass-dock` |
+
+> Para páginas críticas (home, landing de cliente) preferir **CSS puro**. Vengeance UI se rompió en producción. Ver regla 2 del CLAUDE.md.
 
 ---
 
-### FASE 3: Generación de Código (20 min)
+## FASE 3 — Generación
 
-#### Paso 3.1: Estructura del proyecto
+**Regla: una sección por vez, verificando que compila antes de seguir.**
 
-```bash
-# Crear estructura (si no existe)
-mkdir -p src/app/[nombre-pagina]
-mkdir -p src/components/ui
-```
+1. `layout.tsx` — fuentes con `next/font/google` y **`metadata` propia de la ruta**.
+2. `globals.css` — volcar la paleta extraída en 1.3 como variables CSS.
+3. `page.tsx` — una función por sección (`Header`, `Hero`, `Servicios`, `CTA`, `Footer`).
 
-#### Paso 3.2: Layout base
-
-```tsx
-// src/app/layout.tsx
-import type { Metadata } from "next";
-import { Orbitron, Space_Grotesk, Inter } from "next/font/google";
-
-const orbitron = Orbitron({
-  subsets: ["latin"],
-  variable: "--font-orbitron",
-});
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
-});
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-export const metadata: Metadata = {
-  title: "[Nombre del Cliente] — Webs Inteligentes",
-  description: "[Descripción del negocio]",
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html
-      lang="es"
-      className={`${orbitron.variable} ${spaceGrotesk.variable} ${inter.variable}`}
-    >
-      <body>{children}</body>
-    </html>
-  );
-}
-```
-
-#### Paso 3.3: Globals CSS con tokens
-
-```css
-/* src/app/globals.css */
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
-
-@custom-variant dark (&:is(.dark *));
-
-@theme inline {
-  --font-heading: var(--font-orbitron);
-  --font-sans: var(--font-space-grotesk);
-  --font-body: var(--font-inter);
-
-  /* Colores extraídos del análisis */
-  --color-primary: #[color-primario];
-  --color-secondary: #[color-secundario];
-  --color-accent: #[color-acento];
-  --color-bg: #[color-fondo];
-}
-
-:root {
-  --background: #[color-fondo];
-  --foreground: #[color-texto];
-}
-
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), sans-serif;
-}
-
-/* Utilidades reutilizables */
-.gradient-text {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glow {
-  box-shadow: 0 0 20px rgba(var(--color-primary-rgb, 0, 212, 255), 0.3);
-}
-```
-
-#### Paso 3.4: Generar page.tsx por secciones
-
-**REGLA:** Generar UNA sección a la vez. Verificar que compila antes de continuar.
-
-```tsx
-// src/app/[nombre-pagina]/page.tsx
-"use client";
-
-export default function NombrePagina() {
-  return (
-    <div className="min-h-screen bg-[#[color-fondo]] text-white">
-      <Header />
-      <Hero />
-      <Servicios />
-      <CTA />
-      <Footer />
-    </div>
-  );
-}
-
-// Generar cada componente como función separada
-function Header() {
-  return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#[color-fondo]]/80 backdrop-blur-xl">
-      {/* Contenido del header */}
-    </header>
-  );
-}
-
-function Hero() {
-  return (
-    <section className="relative min-h-[85vh] flex items-center justify-center px-4 overflow-hidden">
-      {/* Background effects */}
-      {/* Contenido del hero */}
-    </section>
-  );
-}
-
-// ... etc
-```
+> **Metadata:** si la página necesita `useState`, no puede exportar `metadata`. Separar en un server component que exporte la metadata y un componente cliente adentro con la parte interactiva.
 
 ---
 
-### FASE 4: Personalización por Nicho (10 min)
+## FASE 4 — Identidad del cliente
 
-1. **Aplicar paleta de colores**
-   ```bash
-   # Leer paleta del nicho
-   cat habilidades/paletas-por-nicho/[nicho].md
-   ```
+Con `fidelidad: estructura`, la paleta sale de **`habilidades/paletas-por-nicho/[nicho].md`** — esa es la única fuente de verdad, no hay paletas duplicadas en esta skill.
 
-2. **Reemplazar contenido dummy**
-   - Nombre del cliente → nombre real
-   - Servicios genéricos → servicios reales
-   - Textos placeholder → textos reales
-   - Imágenes placeholder → URLs reales o `/placeholder.svg`
+Reemplazar en todos los casos: nombre, servicios reales, contacto verificado, copy adaptado al rubro.
 
-3. **Ajustar copy según nicho**
-   - Gastronomía: "Menú", "Reservas", "Horarios"
-   - Servicios: "Cotización", "Presupuesto", "Consulta"
-   - Retail: "Productos", "Ofertas", "Carrito"
-   - Wellness: "Clases", "Turnos", "Bienestar"
+| Nicho | Vocabulario del CTA |
+|-------|--------------------|
+| Gastronomía | Menú · Reservas · Horarios |
+| Servicios | Cotización · Presupuesto · Consulta |
+| Retail | Productos · Ofertas · Carrito |
+| Wellness | Clases · Turnos · Bienestar |
 
 ---
 
-### FASE 5: QA Visual (10 min)
-
-#### Paso 5.1: Build
+## FASE 5 — QA
 
 ```bash
 npm run build
 ```
 
-**Verificar:**
-- [ ] Build exitoso sin errores
-- [ ] Todas las rutas aparecen en el output
-- [ ] La carpeta `out/` se genera
+Verificar que todas las rutas aparecen en el output. Después, con el navegador:
 
-#### Paso 5.2: Verificación manual
+1. `preview_start` sobre el build.
+2. `read_console_messages { onlyErrors: true }` — tiene que dar vacío.
+3. Comparar contra la referencia: abrir ambas y contrastar composición, escala y espaciado.
+4. `resize_window` a 360×640 y verificar que no hay desborde horizontal:
 
-```bash
-# Abrir en navegador (usar live-server o similar)
-npx serve out
+```javascript
+(() => {
+  const de = document.documentElement;
+  return { desborda: de.scrollWidth > de.clientWidth, scrollWidth: de.scrollWidth };
+})()
 ```
 
-**Verificar CADA página:**
-- [ ] Header visible y funcional
-- [ ] Hero se ve correcto
-- [ ] Contenido legible
-- [ ] Colores correctos
-- [ ] Responsive (mobile/tablet/desktop)
-- [ ] Animaciones smooth
-- [ ] Links funcionales
-- [ ] Formularios funcionales
-
-#### Paso 5.3: Comparar con original
-
-```
-1. Abrir original en una pestaña
-2. Abrir copia en otra pestaña
-3. Comparar:
-   - Layout general
-   - Colores y contrastes
-   - Tipografía
-   - Espaciado
-   - Animaciones
-   - Responsive
-```
+Después correr `qa-web-cliente.md`.
 
 ---
 
-### FASE 6: Deploy (5 min)
-
-```bash
-# 1. Build final
-npm run build
-
-# 2. Verificar out/
-ls out/
-
-# 3. Deploy a Netlify
-# Opción A: Drag & drop de out/
-# Opción B: netlify deploy --prod --dir=out
-
-# 4. Verificar en producción
-# Abrir URL de Netlify y verificar
-```
-
----
-
-## Paletas por Nicho
-
-### Gastronomía
-```css
---primary: #ff6b35;    /* Naranja cálido */
---secondary: #004e89;  /* Azul profundo */
---accent: #ffd166;     /* Dorado */
---background: #1a1a2e; /* Oscuro elegante */
-```
-
-### Servicios Profesionales
-```css
---primary: #2563eb;    /* Azul profesional */
---secondary: #1e40af;  /* Azul oscuro */
---accent: #10b981;     /* Verde éxito */
---background: #0f172a; /* Slate oscuro */
-```
-
-### Retail Moderno
-```css
---primary: #ec4899;    /* Rosa moderno */
---secondary: #8b5cf6;  /* Púrpura */
---accent: #06b6d4;     /* Cyan */
---background: #18181b; /* Zinc oscuro */
-```
-
-### Wellness/Yoga
-```css
---primary: #10b981;    /* Verde salud */
---secondary: #059669;  /* Verde oscuro */
---accent: #f59e0b;     /* Dorado natural */
---background: #0a1628; /* Azul muy oscuro */
-```
-
-### Barberías
-```css
---primary: #dc2626;    /* Rojo clásico */
---secondary: #991b1b;  /* Rojo oscuro */
---accent: #f5f5f4;     /* Blanco cálido */
---background: #1c1917; /* Negro cálido */
-```
-
-### Educación
-```css
---primary: #3b82f6;    /* Azul conocimiento */
---secondary: #1d4ed8;  /* Azul profundo */
---accent: #22c55e;     /* Verde éxito */
---background: #0f172a; /* Oscuro neutro */
-```
-
----
-
-## Errores Comunes y Soluciones
+## Errores conocidos
 
 | Error | Causa | Solución |
 |-------|-------|----------|
-| Build falla con `JSX` | React 19 no tiene namespace JSX | Usar `React.JSX.Element` |
-| Colores no se ven | Variables CSS no definidas | Verificar `globals.css` tiene las variables |
-| Tipografía incorrecta | Font no importada | Verificar `layout.tsx` tiene `next/font/google` |
-| Responsive roto | Falta `md:` o `lg:` | Agregar breakpoints de Tailwind |
-| Animaciones lentas | Demasiados elementos animados | Máximo 2-3 animaciones por sección |
-| Imágenes no cargan | Rutas incorrectas | Usar `/placeholder.svg` o URLs absolutas |
-| Links rotos | href incorrecto | Verificar rutas relativas (`/pagina`) |
-| CSS no aplica | Tailwind no config | Verificar `postcss.config.mjs` y `globals.css` |
-| Build lento | node_modules corrupto | `rm -rf node_modules && npm install` |
-| Netlify 404 | `output: "export"` faltante | Agregar a `next.config.ts` |
+| El script de análisis devuelve `null` | Selector no matchea ese sitio | Ajustar el selector con `read_page` primero |
+| `styleSheets` tira excepción | Hoja de otro origen | Ya está en `try/catch`; usar `masUsados` |
+| Build falla con JSX | React 19 | `React.JSX.Element` |
+| Título repetido en todas las rutas | Páginas `"use client"` no exportan metadata | Separar server + client (fase 3) |
+| Animaciones lentas | Demasiados elementos animados | Máximo 2-3 por sección |
 
 ---
 
-## Checklist de Fidelidad
-
-### Estructura (40%)
-- [ ] Mismas secciones que el original
-- [ ] Mismo orden de secciones
-- [ ] Mismo layout (grid, flex, etc.)
-- [ ] Mismas proporciones aproximadas
-
-### Visual (40%)
-- [ ] Colores equivalentes (no idénticos)
-- [ ] Tipografía similar
-- [ ] Espaciado consistente
-- [ ] Bordes y sombras similares
-- [ ] Contraste adecuado
-
-### Funcionalidad (20%)
-- [ ] Links internos funcionan
-- [ ] Formularios envían (o simulan)
-- [ ] Animaciones suaves
-- [ ] Responsive funciona
-- [ ] Performance aceptable
-
----
-
-## Métricas de Éxito
-
-| Métrica | Objetivo |
-|---------|----------|
-| Tiempo de análisis | < 10 min |
-| Tiempo de generación | < 25 min |
-| Fidelidad visual | > 85% |
-| Build exitoso | 100% |
-| Responsive | 100% |
-| Tiempo de carga | < 3s |
-
----
-
-## Integración con Pipeline
+## Pipeline
 
 ```
-1. copiar-pagina → Generar web de alta fidelidad
-2. qa-web-cliente → Verificar calidad
-3. personalizar → Agregar info real del cliente
-4. agente-conversacional → Integrar chatbot
-5. deploy → Netlify
-6. propuesta → Enviar al cliente
+copiar-pagina → qa-web-cliente → personalizar → deploy (Cloud Run)
 ```
+
+> El paso de agente conversacional todavía no existe: `motor-agentes/` es andamiaje y el endpoint público de chat está sin construir. No prometerlo en una demo.
