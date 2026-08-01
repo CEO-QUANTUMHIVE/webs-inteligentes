@@ -91,17 +91,18 @@ Apoyo: `paletas-por-nicho/` (6 nichos) y `biblioteca-referencias/` (4 categoría
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-01 · 98 archivos versionados
+Actualizado: 2026-08-01 · 101 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
 | `clientes/` | 54 | Proyectos Next.js de cada cliente |
-| `habilidades/` | 14 | Skills del pipeline y material de apoyo |
+| `habilidades/` | 15 | Skills del pipeline y material de apoyo |
 | `sistema-de-diseno/` | 6 | Tokens, registro de componentes y efectos |
 | `plantillas/` | 5 | Plantillas por tipo de negocio |
 | `motor-agentes/` | 4 | Andamiaje del agente conversacional (sin implementar) |
 | `documentacion/` | 4 | Documentos de producto y comerciales |
 | `evaluaciones/` | 3 | Criterios de QA visual, factual y conversacional |
+| `supabase/` | 2 | — |
 | `scripts/` | 2 | Automatización del repo |
 | `CONTEXTO/` | 1 | Contexto del proyecto |
 | `.claude/` | 1 | — |
