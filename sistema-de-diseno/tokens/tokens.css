@@ -1,0 +1,182 @@
+/* Web Factory - Design Tokens */
+/* Estos tokens definen la identidad visual de todas las webs generadas */
+
+:root {
+  /* === COLORES PRIMARIOS === */
+  --wf-primary: #00d4ff;
+  --wf-primary-hover: #00b8e6;
+  --wf-primary-light: rgba(0, 212, 255, 0.1);
+  --wf-primary-medium: rgba(0, 212, 255, 0.2);
+  
+  /* === COLORES SECUNDARIOS === */
+  --wf-secondary: #00ff88;
+  --wf-secondary-hover: #00e67a;
+  --wf-secondary-light: rgba(0, 255, 136, 0.1);
+  
+  /* === COLORES DE ACENTO === */
+  --wf-accent-gold: #ffd700;
+  --wf-accent-gold-light: rgba(255, 215, 0, 0.1);
+  --wf-accent-orange: #ff8c00;
+  
+  /* === COLORES DE FONDO === */
+  --wf-bg-dark: #0a0a0f;
+  --wf-bg-dark-secondary: #12121a;
+  --wf-bg-glass: rgba(255, 255, 255, 0.03);
+  --wf-bg-glass-strong: rgba(255, 255, 255, 0.06);
+  
+  /* === COLORES DE TEXTO === */
+  --wf-text-primary: #ffffff;
+  --wf-text-secondary: #a0a0b0;
+  --wf-text-muted: #6b6b7b;
+  
+  /* === COLORES DE BORDE === */
+  --wf-border: rgba(255, 255, 255, 0.08);
+  --wf-border-hover: rgba(255, 255, 255, 0.15);
+  --wf-border-focus: rgba(0, 212, 255, 0.5);
+  
+  /* === GRADIENTES === */
+  --wf-gradient-primary: linear-gradient(135deg, #00d4ff, #00ff88);
+  --wf-gradient-gold: linear-gradient(135deg, #ffd700, #ff8c00);
+  --wf-gradient-dark: linear-gradient(180deg, #0a0a0f, #12121a);
+  
+  /* === SOMBRAS === */
+  --wf-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --wf-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --wf-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --wf-shadow-glow: 0 0 20px rgba(0, 212, 255, 0.3);
+  
+  /* === TIPOGRAFÍA === */
+  --wf-font-display: 'Orbitron', sans-serif;
+  --wf-font-body: 'Space Grotesk', sans-serif;
+  --wf-font-mono: 'JetBrains Mono', monospace;
+  
+  --wf-text-xs: 0.75rem;
+  --wf-text-sm: 0.875rem;
+  --wf-text-base: 1rem;
+  --wf-text-lg: 1.125rem;
+  --wf-text-xl: 1.25rem;
+  --wf-text-2xl: 1.5rem;
+  --wf-text-3xl: 1.875rem;
+  --wf-text-4xl: 2.25rem;
+  --wf-text-5xl: 3rem;
+  --wf-text-6xl: 3.75rem;
+  
+  /* === ESPACIADOS === */
+  --wf-space-xs: 0.25rem;
+  --wf-space-sm: 0.5rem;
+  --wf-space-md: 1rem;
+  --wf-space-lg: 1.5rem;
+  --wf-space-xl: 2rem;
+  --wf-space-2xl: 3rem;
+  --wf-space-3xl: 4rem;
+  --wf-space-4xl: 6rem;
+  
+  /* === BORDES === */
+  --wf-radius-sm: 0.375rem;
+  --wf-radius-md: 0.5rem;
+  --wf-radius-lg: 0.75rem;
+  --wf-radius-xl: 1rem;
+  --wf-radius-full: 9999px;
+  
+  /* === TRANSICIONES === */
+  --wf-transition-fast: 150ms ease;
+  --wf-transition-base: 200ms ease;
+  --wf-transition-slow: 300ms ease;
+  
+  /* === Z-INDEX === */
+  --wf-z-base: 0;
+  --wf-z-above: 10;
+  --wf-z-nav: 50;
+  --wf-z-modal: 100;
+  --wf-z-toast: 150;
+}
+
+/* === UTILIDADES CSS === */
+.wf-glass {
+  background: var(--wf-bg-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--wf-border);
+}
+
+.wf-glass-strong {
+  background: var(--wf-bg-glass-strong);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--wf-border);
+}
+
+.wf-gradient-text {
+  background: var(--wf-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.wf-glow {
+  box-shadow: var(--wf-shadow-glow);
+}
+
+.wf-glow-hover:hover {
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+}
+
+/* === COMPONENTES BASE === */
+.wf-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--wf-space-sm);
+  padding: var(--wf-space-sm) var(--wf-space-lg);
+  font-family: var(--wf-font-body);
+  font-weight: 600;
+  border-radius: var(--wf-radius-lg);
+  transition: all var(--wf-transition-base);
+  cursor: pointer;
+}
+
+.wf-button-primary {
+  background: var(--wf-primary);
+  color: var(--wf-bg-dark);
+}
+
+.wf-button-primary:hover {
+  background: var(--wf-primary-hover);
+  transform: translateY(-2px);
+}
+
+.wf-button-secondary {
+  background: transparent;
+  color: var(--wf-text-primary);
+  border: 1px solid var(--wf-border);
+}
+
+.wf-button-secondary:hover {
+  background: var(--wf-bg-glass);
+  border-color: var(--wf-border-hover);
+}
+
+/* === CONTENEDORES === */
+.wf-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--wf-space-lg);
+}
+
+.wf-section {
+  padding: var(--wf-space-4xl) 0;
+}
+
+/* === TARJETAS === */
+.wf-card {
+  background: var(--wf-bg-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--wf-border);
+  border-radius: var(--wf-radius-xl);
+  padding: var(--wf-space-xl);
+  transition: all var(--wf-transition-base);
+}
+
+.wf-card:hover {
+  border-color: var(--wf-border-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--wf-shadow-lg);
+}

@@ -1,0 +1,332 @@
+{
+  "name": "QuantumHive Effects Stack",
+  "description": "Colección de efectos Vengeance UI para usar en Webs Inteligentes",
+  "version": "1.0.0",
+  "source": "https://www.vengenceui.com",
+  "license": "MIT",
+  "categories": {
+    "backgrounds": {
+      "name": "Fondos Animados",
+      "description": "Efectos de fondo para hero sections y secciones principales",
+      "effects": [
+        {
+          "id": "animated-rays",
+          "name": "Rayos Animados",
+          "description": "Hero con rayos aurora multicolor animados",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/animated-rays.json",
+          "jsonUrl": "https://www.vengenceui.com/r/animated-rays.json",
+          "dependencies": [],
+          "useCase": "Hero sections, fondos de página principal",
+          "complexity": "low",
+          "preview": "https://www.vengenceui.com/components/animated-rays"
+        },
+        {
+          "id": "interactive-particles",
+          "name": "Partículas Interactivas",
+          "description": "Partículas que siguen el cursor y responden a interacción",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/interactive-particles.json",
+          "jsonUrl": "https://www.vengenceui.com/r/interactive-particles.json",
+          "dependencies": ["three", "gsap"],
+          "useCase": "Fondos interactivos, portafolios, landings premium",
+          "complexity": "high",
+          "preview": "https://www.vengenceui.com/components/interactive-particles"
+        },
+        {
+          "id": "aurora-hero",
+          "name": "Aurora Hero",
+          "description": "Hero con efecto aurora boreal animada",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/aurora-hero.json",
+          "jsonUrl": "https://www.vengenceui.com/r/aurora-hero.json",
+          "dependencies": [],
+          "useCase": "Hero sections de tecnología, SaaS",
+          "complexity": "medium",
+          "preview": "https://www.vengenceui.com/components/aurora-hero"
+        },
+        {
+          "id": "fluid-morph-bg",
+          "name": "Fondo Morphing Fluido",
+          "description": "Formas orgánicas que se transforman continuamente",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/fluid-morph-bg.json",
+          "jsonUrl": "https://www.vengenceui.com/r/fluid-morph-bg.json",
+          "dependencies": [],
+          "useCase": "Fondos elegantes, wellness, spa",
+          "complexity": "medium",
+          "preview": "https://www.vengenceui.com/components/fluid-morph-bg"
+        },
+        {
+          "id": "wave-grid-background",
+          "name": "Grid de Olas",
+          "description": "Grid 3D que ondula con el cursor",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/wave-grid-background.json",
+          "jsonUrl": "https://www.vengenceui.com/r/wave-grid-background.json",
+          "dependencies": [],
+          "useCase": "Fondos tech, startups, innovación",
+          "complexity": "high",
+          "preview": "https://www.vengenceui.com/components/wave-grid-background"
+        }
+      ]
+    },
+    "text": {
+      "name": "Textos Animados",
+      "description": "Efectos de texto con animaciones premium",
+      "effects": [
+        {
+          "id": "morph-text",
+          "name": "Texto Morfológico",
+          "description": "Texto que cambia entre palabras con efecto blur/morph",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/morph-text.json",
+          "jsonUrl": "https://www.vengenceui.com/r/morph-text.json",
+          "dependencies": [],
+          "useCase": "Hero headlines, títulos principales",
+          "complexity": "low",
+          "preview": "https://www.vengenceui.com/components/morph-text"
+        },
+        {
+          "id": "flip-text",
+          "name": "Texto Flip",
+          "description": "Caracteres que rotan individualmente en 3D",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/flip-text.json",
+          "jsonUrl": "https://www.vengenceui.com/r/flip-text.json",
+          "dependencies": [],
+          "useCase": "Títulos animados, countdowns",
+          "complexity": "low",
+          "preview": "https://www.vengenceui.com/components/flip-text"
+        },
+        {
+          "id": "flip-fade-text",
+          "name": "Texto Flip Fade",
+          "description": "Texto que rota y hace fade simultáneamente",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/flip-fade-text.json",
+          "jsonUrl": "https://www.vengenceui.com/r/flip-fade-text.json",
+          "dependencies": [],
+          "useCase": "Títulos elegantes, presentaciones",
+          "complexity": "low",
+          "preview": "https://www.vengenceui.com/components/flip-fade-text"
+        },
+        {
+          "id": "stagger-text",
+          "name": "Texto Escalonado",
+          "description": "Letras que aparecen con efecto escalonado",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/stagger-text.json",
+          "jsonUrl": "https://www.vengenceui.com/r/stagger-text.json",
+          "dependencies": [],
+          "useCase": "Títulos dramáticos, lanzamientos",
+          "complexity": "low",
+          "preview": "https://www.vengenceui.com/components/stagger-text"
+        },
+        {
+          "id": "ascii-glitch-ripple",
+          "name": "ASCII Glitch Ripple",
+          "description": "Efecto glitch con caracteres ASCII que se propagan",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/ascii-glitch-ripple.json",
+          "jsonUrl": "https://www.vengenceui.com/r/ascii-glitch-ripple.json",
+          "dependencies": [],
+          "useCase": "Proyectos tech, gaming, hacker aesthetics",
+          "complexity": "medium",
+          "preview": "https://www.vengenceui.com/components/ascii-glitch-ripple"
+        }
+      ]
+    },
+    "cards": {
+      "name": "Tarjetas y Layouts",
+      "description": "Componentes de tarjetas con efectos visuales",
+      "effects": [
+        {
+          "id": "glow-border-card",
+          "name": "Tarjeta Borde Brillante",
+          "description": "Tarjeta con borde que brilla y rota con gradientes",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/glow-border-card.json",
+          "jsonUrl": "https://www.vengenceui.com/r/glow-border-card.json",
+          "dependencies": [],
+          "useCase": "Cards de servicios, pricing, features",
+          "complexity": "low",
+          "preview": "https://www.vengenceui.com/components/glow-border-card"
+        },
+        {
+          "id": "agent-bento-grid",
+          "name": "Grid Bento de Agentes",
+          "description": "Layout bento interactivo para múltiples elementos",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/agent-bento-grid.json",
+          "jsonUrl": "https://www.vengenceui.com/r/agent-bento-grid.json",
+          "dependencies": [],
+          "useCase": "Dashboards, portafolios, showcases",
+          "complexity": "medium",
+          "preview": "https://www.vengenceui.com/components/agent-bento-grid"
+        },
+        {
+          "id": "cursor-card",
+          "name": "Tarjeta con Cursor",
+          "description": "Tarjeta que sigue el movimiento del cursor",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/cursor-card.json",
+          "jsonUrl": "https://www.vengenceui.com/r/cursor-card.json",
+          "dependencies": [],
+          "useCase": "Cards interactivas, testimonials",
+          "complexity": "medium",
+          "preview": "https://www.vengenceui.com/components/cursor-card"
+        },
+        {
+          "id": "highlight-grid",
+          "name": "Grid con Highlight",
+          "description": "Grid donde un highlight sigue el cursor",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/highlight-grid.json",
+          "jsonUrl": "https://www.vengenceui.com/r/highlight-grid.json",
+          "dependencies": [],
+          "useCase": "Listas de features, comparaciones",
+          "complexity": "medium",
+          "preview": "https://www.vengenceui.com/components/highlight-grid"
+        }
+      ]
+    },
+    "navigation": {
+      "name": "Navegación",
+      "description": "Componentes de navegación premium",
+      "effects": [
+        {
+          "id": "spotlight-navbar",
+          "name": "Navbar Spotlight",
+          "description": "Navbar con efecto spotlight que sigue el cursor",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/spotlight-navbar.json",
+          "jsonUrl": "https://www.vengenceui.com/r/spotlight-navbar.json",
+          "dependencies": ["framer-motion"],
+          "useCase": "Navegación principal de landing pages",
+          "complexity": "medium",
+          "preview": "https://www.vengenceui.com/components/spotlight-navbar"
+        },
+        {
+          "id": "glass-dock",
+          "name": "Dock de Vidrio",
+          "description": "Dock estilo macOS con efecto glass y morphing de iconos",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/glass-dock.json",
+          "jsonUrl": "https://www.vengenceui.com/r/glass-dock.json",
+          "dependencies": ["framer-motion", "gsap"],
+          "useCase": "Navegación móvil, portfolios",
+          "complexity": "high",
+          "preview": "https://www.vengenceui.com/components/glass-dock"
+        },
+        {
+          "id": "mega-menu-navbar",
+          "name": "Mega Menu Navbar",
+          "description": "Navbar con mega menú responsive para SaaS",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/mega-menu-navbar.json",
+          "jsonUrl": "https://www.vengenceui.com/r/mega-menu-navbar.json",
+          "dependencies": [],
+          "useCase": "Sitios corporativos, SaaS",
+          "complexity": "medium",
+          "preview": "https://www.vengenceui.com/components/mega-menu-navbar"
+        }
+      ]
+    },
+    "buttons": {
+      "name": "Botones",
+      "description": "Botones con efectos premium",
+      "effects": [
+        {
+          "id": "radial-glow-button",
+          "name": "Botón Brillo Radial",
+          "description": "Botón con efecto de brillo radial que sigue el cursor",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/radial-glow-button.json",
+          "jsonUrl": "https://www.vengenceui.com/r/radial-glow-button.json",
+          "dependencies": [],
+          "useCase": "CTAs principales, botones de acción",
+          "complexity": "low",
+          "preview": "https://www.vengenceui.com/components/radial-glow-button"
+        },
+        {
+          "id": "animated-button",
+          "name": "Botón Animado",
+          "description": "Botón con efecto de brillo y animación al hover",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/animated-button.json",
+          "jsonUrl": "https://www.vengenceui.com/r/animated-button.json",
+          "dependencies": [],
+          "useCase": "Botones principales, CTAs",
+          "complexity": "low",
+          "preview": "https://www.vengenceui.com/components/my-animated-button"
+        },
+        {
+          "id": "liquid-metal",
+          "name": "Metal Líquido",
+          "description": "Botón con efecto de metal líquido shader",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/liquid-metal.json",
+          "jsonUrl": "https://www.vengenceui.com/r/liquid-metal.json",
+          "dependencies": [],
+          "useCase": "Botones premium, gaming, lujo",
+          "complexity": "medium",
+          "preview": "https://www.vengenceui.com/components/liquid-metal"
+        }
+      ]
+    },
+    "interactive": {
+      "name": "Interactivos",
+      "description": "Componentes interactivos avanzados",
+      "effects": [
+        {
+          "id": "image-trail",
+          "name": "Estela de Imágenes",
+          "description": "Imágenes que siguen al cursor formando una estela",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/image-trail.json",
+          "jsonUrl": "https://www.vengenceui.com/r/image-trail.json",
+          "dependencies": [],
+          "useCase": "Portafolios, galerías interactivas",
+          "complexity": "medium",
+          "preview": "https://www.vengenceui.com/components/image-trail"
+        },
+        {
+          "id": "perspective-carousel",
+          "name": "Carrusel Perspectiva",
+          "description": "Carrusel 3D con efecto de perspectiva",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/perspective-carousel.json",
+          "jsonUrl": "https://www.vengenceui.com/r/perspective-carousel.json",
+          "dependencies": [],
+          "useCase": "Galerías de productos, portfolios",
+          "complexity": "medium",
+          "preview": "https://www.vengenceui.com/components/perspective-carousel"
+        },
+        {
+          "id": "magnetic-spotlight-marquee",
+          "name": "Marquee Spotlight Magnético",
+          "description": "Marquee interactivo con spotlight que sigue el cursor",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/magnetic-spotlight-marquee.json",
+          "jsonUrl": "https://www.vengenceui.com/r/magnetic-spotlight-marquee.json",
+          "dependencies": [],
+          "useCase": "Logos de clientes, marcas, features",
+          "complexity": "medium",
+          "preview": "https://www.vengenceui.com/components/magnetic-spotlight-marquee"
+        },
+        {
+          "id": "logo-slider",
+          "name": "Slider de Logos",
+          "description": "Carrusel infinito de logos con animación",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/logo-slider.json",
+          "jsonUrl": "https://www.vengenceui.com/r/logo-slider.json",
+          "dependencies": [],
+          "useCase": "Logos de clientes, partners",
+          "complexity": "low",
+          "preview": "https://www.vengenceui.com/components/logo-slider"
+        }
+      ]
+    },
+    "loaders": {
+      "name": "Loaders",
+      "description": "Componentes de carga animados",
+      "effects": [
+        {
+          "id": "kinetic-text-loader",
+          "name": "Loader de Texto Kinético",
+          "description": "Loader con texto que se anima mientras carga",
+          "cli": "npx shadcn@latest add https://www.vengenceui.com/r/kinetic-text-loader.json",
+          "jsonUrl": "https://www.vengenceui.com/r/kinetic-text-loader.json",
+          "dependencies": [],
+          "useCase": "Pantallas de carga, transiciones",
+          "complexity": "low",
+          "preview": "https://www.vengenceui.com/components/kinetic-text-loader"
+        }
+      ]
+    }
+  },
+  "stats": {
+    "totalEffects": 28,
+    "categories": 7,
+    "withDependencies": 4,
+    "zeroDependency": 24
+  }
+}
