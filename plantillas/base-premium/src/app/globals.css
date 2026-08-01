@@ -1,0 +1,85 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ===========================================================================
+   TOKENS DEL CLIENTE — es lo unico que se toca al arrancar un proyecto.
+   Los valores salen de ui-ux-pro-max:
+     python .claude/skills/ui-ux-pro-max/scripts/search.py "<nicho>" --design-system
+   Esa herramienta ya devuelve paletas con contraste WCAG verificado.
+   =========================================================================== */
+
+:root {
+  --marca-primario: #2563eb;
+  --marca-secundario: #3b82f6;
+  --marca-acento: #f97316;
+  --marca-fondo: #0a0a0f;
+  --marca-superficie: #12121a;
+  --marca-texto: #f5f5f5;
+  --marca-texto-suave: #a1a1aa;
+  --marca-borde: rgba(255, 255, 255, 0.1);
+
+  --background: var(--marca-fondo);
+  --foreground: var(--marca-texto);
+}
+
+@theme inline {
+  --font-titulo: var(--font-display);
+  --font-sans: var(--font-body);
+
+  --color-primario: var(--marca-primario);
+  --color-secundario: var(--marca-secundario);
+  --color-acento: var(--marca-acento);
+  --color-superficie: var(--marca-superficie);
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--marca-fondo);
+  color: var(--marca-texto);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Utilidades que se repiten en todas las webs ── */
+
+.texto-degradado {
+  background: linear-gradient(135deg, var(--marca-primario), var(--marca-acento));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.vidrio {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--marca-borde);
+}
+
+.resplandor {
+  box-shadow: 0 0 24px color-mix(in srgb, var(--marca-primario) 30%, transparent);
+}
+
+/* Respeta a quien pidio menos movimiento. Es accesibilidad, no un extra. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--marca-primario);
+  color: #fff;
+}

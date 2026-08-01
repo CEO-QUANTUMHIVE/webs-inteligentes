@@ -131,15 +131,15 @@ graphify update .
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-01 · 140 archivos versionados
+Actualizado: 2026-08-01 · 163 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
 | `clientes/` | 56 | Proyectos Next.js de cada cliente |
 | `.claude/` | 37 | — |
+| `plantillas/` | 28 | Plantillas por tipo de negocio |
 | `habilidades/` | 15 | Skills del pipeline y material de apoyo |
 | `sistema-de-diseno/` | 6 | Tokens, registro de componentes y efectos |
-| `plantillas/` | 5 | Plantillas por tipo de negocio |
 | `motor-agentes/` | 4 | Andamiaje del agente conversacional (sin implementar) |
 | `documentacion/` | 4 | Documentos de producto y comerciales |
 | `supabase/` | 3 | — |

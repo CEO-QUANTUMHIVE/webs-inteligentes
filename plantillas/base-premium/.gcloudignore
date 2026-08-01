@@ -1,0 +1,18 @@
+# Cloud Build solo necesita: Dockerfile, nginx.conf y out/
+# IMPORTANTE: sin este archivo, gcloud usa .gitignore — que excluye out/ y rompe el build.
+
+node_modules/
+.next/
+.git/
+src/
+public/
+package.json
+package-lock.json
+tsconfig.json
+next.config.ts
+next-env.d.ts
+postcss.config.mjs
+eslint.config.mjs
+components.json
+README.md
+.gitignore
