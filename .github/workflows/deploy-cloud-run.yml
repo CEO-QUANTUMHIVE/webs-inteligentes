@@ -58,7 +58,18 @@ jobs:
         run: |
           test -n "$NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY" || (echo "Falta NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY en GitHub Secrets o Variables" && exit 1)
           npm ci
-          npm run build
+          set +e
+          npm run build 2>&1 | tee /tmp/next-build.log
+          build_status=${PIPESTATUS[0]}
+          set -e
+          if [ "$build_status" -ne 0 ]; then
+            message="$(tail -n 30 /tmp/next-build.log)"
+            message="${message//'%'/'%25'}"
+            message="${message//$'\r'/'%0D'}"
+            message="${message//$'\n'/'%0A'}"
+            echo "::error title=Next.js build failed::$message"
+            exit "$build_status"
+          fi
 
       - name: Verify static export
         working-directory: clientes/quantum-hive
