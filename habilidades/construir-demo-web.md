@@ -1,187 +1,189 @@
 ---
 name: construir-demo-web
-description: Construye una demo premium en Next.js a partir del brief de un cliente.
+description: Arma la web de un cliente desde su brief, partiendo de la plantilla maestra. Es el orquestador del pipeline de Web Factory.
 ---
 
 # Construir Demo Web
 
-Esta skill automatiza el proceso de ensamblar una página web premium para un cliente de Web Factory.
+> **Versión 2.0** — Reescrita contra el estado real del repo.
 
-## Stack Tecnológico
+## Qué cambió respecto de la v1.0
 
-- **Framework**: Next.js 16+ con React 19
-- **Estilos**: Tailwind CSS 4
-- **Componentes**: shadcn/ui + Vengeance UI
-- **Animaciones**: Framer Motion / GSAP
-- **Tipografías**: Orbitron (display) + Space Grotesk (body)
+Tres cosas que no funcionaban:
 
-## Flujo de Trabajo
+1. Mandaba a copiar la plantilla desde `sistema-de-diseno/plantillas/`, donde
+   solo hay un `templates.ts`. La plantilla real ahora existe en
+   `plantillas/base-premium/`.
+2. Incluía un paso "Configurar Agente" con knowledge base y widget. **Nada de
+   eso existe**: `motor-agentes/` es andamiaje.
+3. No mencionaba el deploy. Terminaba en "QA inicial" y la web quedaba en local.
 
-### Paso 1: Recopilar Información
-1. Leer el brief del cliente desde `clientes/[nombre-cliente]/`
-2. Verificar que tenga toda la información necesaria
-3. Identificar tipo de negocio y necesidades
-4. Seleccionar plantilla apropiada
+---
 
-### Paso 2: Preparar Entorno
-1. Copiar plantilla base desde `sistema-de-diseno/plantillas/`
-2. Crear directorio del cliente en `clientes/`
-3. Configurar proyecto Next.js con Tailwind + shadcn
-4. Instalar componentes Vengeance UI necesarios
+## Antes de arrancar
 
-### Paso 3: Aplicar Diseño
-1. Cargar tokens de `sistema-de-diseno/tokens/`
-2. Seleccionar componentes aprobados del registro
-3. Aplicar efectos del design system
-4. Personalizar colores según marca del cliente
+Leé el `CLAUDE.md` de la raíz. Y verificá que tenés el brief del cliente con
+**datos verificados**: nombre, dirección, teléfono, servicios, precios y
+horarios. Sin eso no se arranca.
 
-### Paso 4: Personalizar Contenido
-1. Reemplazar texto dummy con información real
-2. Cargar imágenes autorizadas
-3. Configurar formularios de contacto
-4. Integrar agente conversacional
+> **No se inventan datos de un negocio real.** Si falta un precio, va un
+> placeholder marcado y se avisa. Una demo con precios inventados es peor que
+> una incompleta: el cliente lo detecta y perdés la venta.
 
-### Paso 5: Configurar Agente
-1. Crear knowledge base con información del negocio
-2. Configurar prompts del agente
-3. Integrar web widget
-4. Probar respuestas básicas
+---
 
-### Paso 6: QA Inicial
-1. Ejecutar `npm run build`
-2. Verificar que no hay errores
-3. Probar responsive
-4. Revisar performance
-
-### Paso 7: Documentación
-1. Crear README del proyecto
-2. Documentar decisiones tomadas
-3. Listar componentes utilizados
-4. Registrar conocimiento del agente
-
-## Instalación de Componentes Vengeance UI
+## FASE 1 — Partir de la plantilla
 
 ```bash
-# Inicializar shadcn (si no está inicializado)
-npx shadcn@latest init
+cp -r plantillas/base-premium clientes/<cliente>
+cd clientes/<cliente>
+npm install
+```
 
-# Agregar componente específico
-npx shadcn@latest add https://www.vengenceui.com/r/animated-rays.json
+Cambiar `name` en `package.json`. Se olvida siempre: `quantum-hive` arrastró
+`"name": "base-premium"` durante todo el proyecto.
 
-# Con alias (si se configuró en components.json)
+---
+
+## FASE 2 — Sistema de diseño del nicho
+
+**Primero mirá si el nicho ya tiene paleta propia:**
+
+```bash
+ls habilidades/paletas-por-nicho/
+```
+
+Si existe, usala: están escritas para el rubro y con los contrastes medidos.
+
+Si no existe, consultá `ui-ux-pro-max`, **en inglés**:
+
+```bash
+python .claude/skills/ui-ux-pro-max/scripts/search.py "beauty spa wellness" --design-system
+```
+
+> El dataset está en inglés y organizado por *product type*. Una consulta en
+> español cae al default de SaaS: azul, naranja y glassmorphism para cualquier
+> rubro. Y si el nicho no está en el dataset, el resultado no sirve — a
+> "barbería" la clasifica como *Beauty/Spa* y devuelve rosa con lavanda.
+
+### Verificar el contraste, siempre
+
+Sea cual sea el origen de la paleta, medí antes de usarla. La paleta de
+barberías afirmaba "contraste perfecto" y el texto del CTA daba 3.19:1.
+
+| Combinación | Mínimo |
+|---|---|
+| Texto de cuerpo sobre fondo | 4.5:1 |
+| **Texto dentro de botones** | 4.5:1 |
+| Bordes y separadores | 3:1 |
+
+Volcar los colores en las variables `--marca-*` de `globals.css` y las fuentes
+en `layout.tsx`.
+
+---
+
+## FASE 3 — Contenido
+
+Reemplazar todos los `[corchetes]` de `page.tsx` con la información real.
+
+Adaptar el vocabulario al rubro:
+
+| Nicho | CTA |
+|---|---|
+| Gastronomía | Ver menú · Reservar mesa |
+| Barbería | Reservar turno · Ver servicios |
+| Retail | Ver productos · Comprar |
+| Wellness | Reservar clase · Ver horarios |
+
+Si el negocio tiene web o redes, sacá de ahí los datos con `copiar-pagina.md`,
+que analiza el sitio en un navegador real.
+
+---
+
+## FASE 4 — Efectos
+
+```bash
 npx shadcn@latest add @vengeanceui/animated-rays
-
-# Múltiples componentes
-npx shadcn@latest add \
-  https://www.vengenceui.com/r/animated-rays.json \
-  https://www.vengenceui.com/r/morph-text.json \
-  https://www.vengenceui.com/r/glow-border-card.json \
-  https://www.vengenceui.com/r/spotlight-navbar.json
 ```
 
-## Estructura del Proyecto
+El catálogo con los 25 efectos y su ficha técnica está en `/catalogo-efectos`.
 
-```
-clientes/[nombre-cliente]/
-├── README.md              # Documentación del proyecto
-├── package.json           # Dependencias
-├── components.json        # Configuración shadcn
-├── src/
-│   ├── app/
-│   │   ├── page.tsx       # Página principal
-│   │   ├── layout.tsx     # Layout
-│   │   └── globals.css    # Estilos globales
-│   ├── components/        # Componentes específicos
-│   │   └── ui/            # Componentes Vengeance UI
-│   └── lib/
-│       ├── knowledge.ts   # Knowledge base del agente
-│       └── utils.ts       # Utilidades
-├── public/                # Assets estáticos
-└── knowledge/             # Documentos del negocio
-```
+Dos reglas que salieron de romper cosas en producción:
+- **En la home, efectos livianos.** Los de impacto 5 rinden mejor de a uno.
+- Para páginas críticas preferir CSS puro. Algunos componentes de Vengeance se
+  rompieron en producción por depender de configuración especial.
 
-## Checklist de Implementación
+---
 
-### Información
-- [ ] Nombre del negocio correcto
-- [ ] Dirección verificada
-- [ ] Teléfono y email correctos
-- [ ] Horarios de atención
-- [ ] Servicios/productos listados
-- [ ] Precios exactos
-
-### Diseño
-- [ ] Template seleccionado
-- [ ] Colores aplicados
-- [ ] Tipografía configurada
-- [ ] Componentes Vengeance UI integrados
-- [ ] Responsive verificado
-
-### Contenido
-- [ ] Hero section personalizada
-- [ ] Secciones principales
-- [ ] Formulario de contacto
-- [ ] Footer completo
-- [ ] SEO básico
-
-### Agente
-- [ ] Knowledge base cargada
-- [ ] Prompts configurados
-- [ ] Widget integrado
-- [ ] Pruebas realizadas
-- [ ] Lead capture funcionando
-
-### QA
-- [ ] Build exitoso
-- [ ] Sin errores de consola
-- [ ] Responsive móvil
-- [ ] Performance aceptable
-- [ ] Accesibilidad básica
-
-## Comandos Útiles
+## FASE 5 — QA
 
 ```bash
-# Iniciar desarrollo
-npm run dev
-
-# Build de producción
 npm run build
-
-# Verificar lint
-npm run lint
-
-# Analizar bundle
-npx @next/bundle-analyzer
 ```
 
-## Errores Comunes
+Verificar que **todas** las rutas aparecen en el output: una página faltante
+falla en silencio.
 
-### Build Fallido
-- Verificar dependencias faltantes
-- Revisar imports rotos
-- Comprobar tipos TypeScript
+Después, en el navegador:
 
-### Estilos No Aplicados
-- Verificar imports de Tailwind
-- Comprobar specificity
-- Revisar configuración de shadcn
+1. `preview_start` sobre el build.
+2. `read_console_messages { onlyErrors: true }` → tiene que dar vacío.
+3. `resize_window` a 360×640 y comprobar que no hay desborde horizontal.
+4. Cada ruta con su propio `<title>`. Si es `"use client"` no puede exportar
+   `metadata`: separar en server component + cliente adentro.
 
-### Vengeance UI No Funciona
-- Verificar que Tailwind está instalado
-- Comprobar que shadcn está inicializado
-- Revisar imports de componentes
+Después correr `qa-web-cliente.md`.
 
-### Agente No Funciona
-- Verificar tenant ID
-- Comprobar API endpoint
-- Revisar knowledge base
+---
 
-## Métricas de Éxito
+## FASE 6 — Deploy
 
-| Métrica | Objetivo |
-|---------|----------|
-| Tiempo de construcción | < 2 horas |
-| Build exitoso | 100% |
-| Responsive | 100% |
-| Agente funcional | 100% |
-| Sin errores | 100% |
+```bash
+npm run build
+gcloud run deploy <cliente> --source . --region us-central1 --project bubbly-stone-502214-u7
+```
+
+- El **403** inicial no es un deploy fallido: falta el acceso público. La
+  organización bloquea `allUsers` en IAM; se resuelve con
+  `--no-invoker-iam-check`.
+- `.gcloudignore` no se toca. Sin él, gcloud usa el `.gitignore` —que excluye
+  `out/`— y sube `node_modules` sin ningún HTML.
+
+---
+
+## FASE 7 — Registrar
+
+```sql
+insert into clientes (nombre, nicho, estado, contacto)
+values ('<nombre>', '<nicho>', 'piloto', '{"tel":"...","ig":"..."}');
+
+insert into proyectos (cliente_id, nombre, estado, url_deploy, efectos)
+values ('<uuid>', '<nombre>', 'en_revision', 'https://...', array['animated-rays']);
+```
+
+Si algo falló y se resolvió, cargarlo en `aprendizajes` y correr
+`mejorar-skills.md`. Es lo que evita repetir el error en el próximo cliente.
+
+---
+
+## Qué NO prometer
+
+**No hay agente conversacional.** `motor-agentes/` son READMEs sin código, y el
+endpoint de QuantumCore es el asistente interno del CEO: inyecta constitución y
+memoria propias, y no tiene autenticación. Exponerlo en la web de un cliente
+filtraría contexto interno.
+
+Se puede vender como fase 2. No se muestra como si existiera.
+
+---
+
+## Errores conocidos
+
+| Síntoma | Causa | Solución |
+|---|---|---|
+| Build no encuentra `package.json` | Directorio equivocado | `cd clientes/<cliente>` |
+| Namespace JSX | React 19 | `React.JSX.Element` |
+| Todas las rutas con el mismo título | Páginas `"use client"` | Separar server + cliente |
+| Cloud Run devuelve 403 | Falta acceso público | No es fallo de deploy |
+| Componente de Vengeance roto en prod | Config especial | Reemplazar por CSS puro |
+| Un componente del registro no compila | Viene roto de origen | Pasó con `mega-menu-navbar`: bloque duplicado y `className` truncado |
