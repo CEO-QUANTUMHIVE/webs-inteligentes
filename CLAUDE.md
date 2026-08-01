@@ -38,7 +38,7 @@ El proyecto Next.js vive en **`clientes/quantum-hive/`**.
 ## Deploy
 
 ```bash
-export CLOUDSDK_PYTHON="/c/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/platform/bundledpython/python.exe"
+# Python 3.12 esta en el PATH del sistema: gcloud ya no necesita CLOUDSDK_PYTHON.
 cd clientes/quantum-hive
 npm run build
 gcloud run deploy webs-inteligentes --source . --region us-central1 --project bubbly-stone-502214-u7
@@ -47,7 +47,7 @@ gcloud run deploy webs-inteligentes --source . --region us-central1 --project bu
 URL: https://webs-inteligentes-854335368640.us-central1.run.app
 
 Detalles que importan:
-- **`CLOUDSDK_PYTHON` es obligatorio** — no hay Python en el PATH y el CLI falla sin eso.
+- Si gcloud dice `python: not found`, es una sesion de shell abierta antes de instalar Python: `export PATH="/c/Program Files/Python312:$PATH"`.
 - **`.gcloudignore` no se toca.** Sin él, gcloud usa el `.gitignore`, que excluye `out/`: subiría 612 MB de `node_modules` y ningún HTML.
 - **Acceso público:** la organización bloquea `allUsers` en IAM. El mecanismo que funciona es `--no-invoker-iam-check` (anotación `run.googleapis.com/invoker-iam-disabled`), igual que `landing-quantumhive` y `quantumcore`.
 - En `nginx.conf`, el `=404` final del `try_files` es obligatorio: apuntar a `/404.html` devolvería status 200.
@@ -61,7 +61,7 @@ Detalles que importan:
 | Falta una página en el build | `page.tsx` mal ubicado | Verificar la carpeta de la ruta |
 | Componente Vengeance roto en prod | Depende de config especial | Reemplazar por CSS puro |
 | Netlify/Run sirve 404 | Falta `output: "export"` | Agregarlo a `next.config.ts` |
-| `gcloud` dice `python: not found` | Falta `CLOUDSDK_PYTHON` | Exportarla (ver Deploy) |
+| `gcloud` dice `python: not found` | Sesión de shell abierta antes de instalar Python | `export PATH="/c/Program Files/Python312:$PATH"` en esa sesión |
 | Cloud Run devuelve 403 | Falta acceso público | No es fallo de deploy: ver arriba |
 
 ## Estado y pendientes
@@ -86,16 +86,39 @@ En `habilidades/`, por orden de uso:
 
 Apoyo: `paletas-por-nicho/` (6 nichos) y `biblioteca-referencias/` (4 categorías).
 
+### Skills instaladas en `.claude/skills/`
+
+Vienen de [claude-webkit](https://github.com/Hainrixz/claude-webkit) (MIT). A diferencia de `habilidades/`, estas son skills reales: se cargan solas cuando la tarea las amerita.
+
+| Skill | Para qué |
+|-------|----------|
+| `ui-ux-pro-max` | 161 paletas con contraste WCAG verificado, 1924 fuentes, 85 estilos, 74 pares tipográficos, 99 guías UX. Requiere Python |
+| `seo-audit` | Auditoría de SEO — no teníamos nada de esto |
+| `humanizer` | Copy que no suena a IA |
+| `frontend-design` | Calidad de diseño de interfaces |
+| `web-design-guidelines` | Revisión de accesibilidad y UI |
+
+**No se instalaron a propósito:** `vercel-deploy` (se dispara con "deploy my app" y chocaría con Cloud Run), y `playwright-cli` / `chrome-bridge-automation` / `web-reader` (duplican las herramientas de navegador que ya usa `copiar-pagina`).
+
+> El kit apunta a Next.js 15 y nosotros estamos en 16. Ante una diferencia, mandan los docs de `node_modules/next/dist/docs/`.
+
+Consultar el sistema de diseño de un nicho:
+
+```bash
+python .claude/skills/ui-ux-pro-max/scripts/search.py "gastronomia parrilla" --design-system
+```
+
 <!-- INICIO MAPA AUTO -->
 ## Mapa del repo
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-01 · 104 archivos versionados
+Actualizado: 2026-08-01 · 140 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
 | `clientes/` | 56 | Proyectos Next.js de cada cliente |
+| `.claude/` | 37 | — |
 | `habilidades/` | 15 | Skills del pipeline y material de apoyo |
 | `sistema-de-diseno/` | 6 | Tokens, registro de componentes y efectos |
 | `plantillas/` | 5 | Plantillas por tipo de negocio |
@@ -105,7 +128,6 @@ Actualizado: 2026-08-01 · 104 archivos versionados
 | `evaluaciones/` | 3 | Criterios de QA visual, factual y conversacional |
 | `scripts/` | 2 | Automatización del repo |
 | `CONTEXTO/` | 1 | Contexto del proyecto |
-| `.claude/` | 1 | — |
 
 ### Rutas del sitio
 
