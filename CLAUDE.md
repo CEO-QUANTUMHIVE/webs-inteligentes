@@ -91,11 +91,11 @@ Apoyo: `paletas-por-nicho/` (6 nichos) y `biblioteca-referencias/` (4 categoría
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-01 · 102 archivos versionados
+Actualizado: 2026-08-01 · 104 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
-| `clientes/` | 54 | Proyectos Next.js de cada cliente |
+| `clientes/` | 56 | Proyectos Next.js de cada cliente |
 | `habilidades/` | 15 | Skills del pipeline y material de apoyo |
 | `sistema-de-diseno/` | 6 | Tokens, registro de componentes y efectos |
 | `plantillas/` | 5 | Plantillas por tipo de negocio |
