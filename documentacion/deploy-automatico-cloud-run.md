@@ -16,8 +16,9 @@ El workflow `.github/workflows/deploy-cloud-run.yml` se ejecuta en cada push a
 | Secret | Contenido |
 |--------|-----------|
 | `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Clave publishable de Supabase |
-| `GCP_WORKLOAD_IDENTITY_PROVIDER` | Provider completo de Workload Identity |
-| `GCP_DEPLOY_SERVICE_ACCOUNT` | Email de la service account de deploy |
+
+El provider de Workload Identity y la service account no son secretos. Sus
+identificadores publicos estan declarados en el workflow.
 
 Ejemplo de provider:
 
@@ -32,7 +33,7 @@ github-webs-inteligentes@bubbly-stone-502214-u7.iam.gserviceaccount.com
 ```
 
 No guardar claves JSON de Google Cloud en el repositorio. La identidad federada
-emite credenciales temporales para cada ejecución.
+ya configurada emite credenciales temporales para cada ejecución.
 
 ## Permisos de Google Cloud
 
@@ -58,4 +59,4 @@ Actions > Deploy Webs Inteligentes
 ```
 
 La ejecucion debe terminar mostrando la URL del servicio de Cloud Run. El dominio
-`webs-inteligentes.quantumhive.com.ar` sigue apuntando a ese servicio.
+`websinteligentes.quantumhive.com.ar` sigue apuntando a ese servicio.

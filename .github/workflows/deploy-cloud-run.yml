@@ -17,6 +17,8 @@ env:
   GCP_PROJECT_ID: bubbly-stone-502214-u7
   GCP_REGION: us-central1
   CLOUD_RUN_SERVICE: webs-inteligentes
+  GCP_WORKLOAD_IDENTITY_PROVIDER: projects/854335368640/locations/global/workloadIdentityPools/github-actions/providers/github
+  GCP_DEPLOY_SERVICE_ACCOUNT: github-webs-inteligentes@bubbly-stone-502214-u7.iam.gserviceaccount.com
   NEXT_PUBLIC_SUPABASE_URL: https://paviigrgdumrwldegliy.supabase.co
 
 jobs:
@@ -70,8 +72,8 @@ jobs:
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
-          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
-          service_account: ${{ secrets.GCP_DEPLOY_SERVICE_ACCOUNT }}
+          workload_identity_provider: ${{ env.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ env.GCP_DEPLOY_SERVICE_ACCOUNT }}
 
       - name: Setup Google Cloud CLI
         uses: google-github-actions/setup-gcloud@v2

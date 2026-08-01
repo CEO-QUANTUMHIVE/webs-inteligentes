@@ -335,7 +335,7 @@ export default function PlantillasCliente({ plantillas }: { plantillas: Plantill
             {[
               { num: "01", title: "Elegí una Plantilla", desc: "Explorá el catálogo y elegí la plantilla que mejor se adapte a tu negocio." },
               { num: "02", title: "Personalizala", desc: "Cambiar colores, textos, imágenes y configurar tu agente de IA." },
-              { num: "03", title: "Lanzá tu Web", desc: "Deploy en Netlify en minutos. Tu web lista para recibir clientes." },
+              { num: "03", title: "Lanzá tu Web", desc: "Publicación automática en Cloud Run. Tu web lista para recibir clientes." },
             ].map((step, i) => (
               <div key={i} className="text-center">
                 <div className="w-16 h-16 rounded-full bg-cyan-400/10 flex items-center justify-center mx-auto mb-4">
