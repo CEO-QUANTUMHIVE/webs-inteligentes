@@ -24,6 +24,60 @@ const URL_SUPABASE =
   process.env.NEXT_PUBLIC_SUPABASE_URL ?? "https://paviigrgdumrwldegliy.supabase.co";
 const CLAVE = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? "";
 
+/**
+ * Plantilla ya adaptada a la forma que espera el componente del catalogo.
+ * La base guarda los campos en espanol; el mapeo vive aca para no tener que
+ * renombrar 340 lineas de JSX.
+ */
+export interface Plantilla {
+  id: string;
+  name: string;
+  description: string;
+  niche: string;
+  style: string;
+  pages: string[];
+  colors: { primary: string; secondary: string; accent: string; bg: string };
+  font: string;
+  features: string[];
+  preview: "minimal" | "bold" | "gradient" | "dark" | "clean" | "creative";
+  popular?: boolean;
+}
+
+export async function obtenerPlantillas(): Promise<Plantilla[]> {
+  if (!CLAVE) throw new Error("Falta NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY.");
+
+  const res = await fetch(
+    `${URL_SUPABASE}/rest/v1/plantillas?select=*&publicado=is.true&order=nicho`,
+    {
+      headers: { apikey: CLAVE, Authorization: `Bearer ${CLAVE}` },
+      cache: "force-cache",
+    }
+  );
+
+  if (!res.ok) {
+    throw new Error(`No se pudieron leer las plantillas (HTTP ${res.status})`);
+  }
+
+  return (await res.json()).map((f: Record<string, any>) => ({
+    id: f.id,
+    name: f.nombre,
+    description: f.descripcion ?? "",
+    niche: f.nicho,
+    style: f.estilo ?? "",
+    pages: f.paginas ?? [],
+    colors: {
+      primary: f.paleta?.primario ?? "#2563eb",
+      secondary: f.paleta?.secundario ?? "#3b82f6",
+      accent: f.paleta?.acento ?? "#f97316",
+      bg: f.paleta?.fondo ?? "#0a0a0f",
+    },
+    font: f.fuentes?.familias ?? "Inter",
+    features: f.caracteristicas ?? [],
+    preview: f.vista_previa ?? "minimal",
+    popular: f.popular ?? false,
+  }));
+}
+
 /** Orden de las categorias en la barra lateral. */
 export const ORDEN_CATEGORIAS = [
   "Fondos",
