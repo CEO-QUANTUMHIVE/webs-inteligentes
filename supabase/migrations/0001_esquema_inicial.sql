@@ -230,3 +230,11 @@ create policy "plantillas publicas" on plantillas
 
 -- La vista hereda el RLS de `efectos` por security_invoker.
 grant select on efectos_publicos to anon;
+
+-- El codigo de los efectos es desarrollo propio: anon no lo ve nunca.
+-- La politica de RLS sola no alcanza, porque filtra filas y no columnas.
+-- Se revoca el select de tabla completa y se otorga columna por columna.
+revoke select on efectos from anon;
+grant select (id, nombre, descripcion, categoria, impacto, ideal_para,
+              origen, es_nuevo, publicado)
+  on efectos to anon;
