@@ -236,6 +236,17 @@ export const ORDEN_CATEGORIAS = [
   "Interactivo",
 ];
 
+const EFECTO_MATRIX_RAIN: Efecto = {
+  id: "matrix-rain",
+  nombre: "Lluvia Matrix",
+  descripcion: "Lluvia animada de caracteres japoneses y alfanuméricos con brillo verde",
+  categoria: "Fondos",
+  impacto: 4,
+  ideal_para: ["Gaming", "Cyberpunk", "Tech"],
+  origen: "adaptado",
+  es_nuevo: true,
+};
+
 export async function obtenerEfectos(): Promise<Efecto[]> {
   if (!CLAVE) {
     throw new Error(
@@ -262,8 +273,12 @@ export async function obtenerEfectos(): Promise<Efecto[]> {
   }
 
   const filas: Efecto[] = await res.json();
+  const porId = new Map(filas.map((efecto) => [efecto.id, efecto]));
+  if (!porId.has(EFECTO_MATRIX_RAIN.id)) {
+    porId.set(EFECTO_MATRIX_RAIN.id, EFECTO_MATRIX_RAIN);
+  }
 
-  return filas.sort((a, b) => {
+  return [...porId.values()].sort((a, b) => {
     const ia = ORDEN_CATEGORIAS.indexOf(a.categoria);
     const ib = ORDEN_CATEGORIAS.indexOf(b.categoria);
     if (ia !== ib) return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);

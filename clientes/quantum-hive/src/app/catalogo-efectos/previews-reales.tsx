@@ -19,6 +19,7 @@ import { AuroraHero } from "@/components/ui/aurora-hero";
 import { FluidMorphBg } from "@/components/ui/fluid-morph-bg";
 import { WaveGridBackground } from "@/components/ui/wave-grid-background";
 import { PerspectiveGrid } from "@/components/ui/perspective-grid";
+import { MatrixRain } from "@/components/ui/matrix-rain";
 import { MorphText } from "@/components/ui/morph-text";
 import { FlipText } from "@/components/ui/flip-text";
 import { FlipFadeText } from "@/components/ui/flip-fade-text";
@@ -104,6 +105,7 @@ export const previewsReales: Record<string, React.ComponentType> = {
   "fluid-morph-bg": () => (<Lleno><FluidMorphBg /></Lleno>),
   "wave-grid-background": () => (<Lleno><WaveGridBackground /></Lleno>),
   "perspective-grid": () => (<Lleno><PerspectiveGrid /></Lleno>),
+  "matrix-rain": () => (<Lleno><MatrixRain /></Lleno>),
 
   // Texto y movimiento
   "morph-text": () => (<Centro><MorphText /></Centro>),

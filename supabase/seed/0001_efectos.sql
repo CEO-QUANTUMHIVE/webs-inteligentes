@@ -12,6 +12,7 @@ values
   ('fluid-morph-bg', 'Fondo Morph Fluido', 'Animación orgánica de formas morphing fluidas', 'Fondos', 4, array['Elegante','Wellness','Spa']::text[], '@/components/ui/fluid-morph-bg', false),
   ('wave-grid-background', 'Grid de Olas', 'Grid 3D interactivo de cubos con ondas de cursor', 'Fondos', 5, array['Tech','Innovación','3D']::text[], '@/components/ui/wave-grid-background', false),
   ('perspective-grid', 'Grid Perspectiva', 'Efecto de fondo matrix con perspectiva 3D', 'Fondos', 3, array['Retro','Synthwave','Tech']::text[], '@/components/ui/perspective-grid', false),
+  ('matrix-rain', 'Lluvia Matrix', 'Lluvia animada de caracteres japoneses y alfanuméricos con brillo verde', 'Fondos', 4, array['Gaming','Cyberpunk','Tech']::text[], '@/components/ui/matrix-rain', true),
   ('morph-text', 'Texto Morfológico', 'Efecto de rotación de palabras con blur-morph para headlines', 'Texto y Movimiento', 5, array['Hero','Headlines','Dinámico']::text[], '@/components/ui/morph-text', false),
   ('flip-text', 'Texto Volteado', 'Animación de texto con rotación 3D por carácter', 'Texto y Movimiento', 4, array['Headlines','Cuenta Regresiva','Moderno']::text[], '@/components/ui/flip-text', false),
   ('flip-fade-text', 'Texto Flip Fade', 'Ciclo de animación de volteo y desvanecimiento de palabras', 'Texto y Movimiento', 4, array['Elegante','Moda','Lifestyle']::text[], '@/components/ui/flip-fade-text', false),
@@ -43,3 +44,4 @@ on conflict (id) do update set
 -- magnetic-spotlight-marquee no tiene componente real: su entrada del
 -- registro de Vengeance UI devuelve 404.
 update efectos set componente = null where id = 'magnetic-spotlight-marquee';
+update efectos set origen = 'adaptado' where id = 'matrix-rain';
