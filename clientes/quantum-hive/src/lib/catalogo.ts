@@ -149,13 +149,46 @@ const PLANTILLA_CODIX: Plantilla = {
   urlDemo: "/plantillas/codix/",
 };
 
-const PLANTILLAS_PUBLICADAS = [PLANTILLA_CONCRETO, PLANTILLA_GAMER, PLANTILLA_CODIX];
+const PLANTILLA_QUANTUM_STUDIO: Plantilla = {
+  id: "quantum-studio",
+  name: "QUANTUM STUDIO — Agencia creativa",
+  description:
+    "One-pager editorial de gran formato con narrativa de estudio, servicios interactivos, portfolio, planes y contacto.",
+  niche: "Branding / Agencia",
+  style: "Editorial premium",
+  pages: ["Portada", "Enfoque", "Identidad", "Marketing", "Interacción", "Portfolio", "Planes", "Contacto"],
+  colors: {
+    primary: "#f5f5f0",
+    secondary: "#9c9c98",
+    accent: "#b8ef42",
+    bg: "#040404",
+  },
+  font: "Inter + Manrope",
+  features: [
+    "Hero cinematográfico",
+    "Proceso escalonado",
+    "Bloques numerados",
+    "Portfolio interactivo",
+    "Planes dinámicos",
+    "FAQ desplegable",
+  ],
+  preview: "creative",
+  popular: false,
+  urlDemo: "/plantillas/quantum-studio/",
+};
+
+const PLANTILLAS_PUBLICADAS = [
+  PLANTILLA_CONCRETO,
+  PLANTILLA_GAMER,
+  PLANTILLA_CODIX,
+  PLANTILLA_QUANTUM_STUDIO,
+];
 
 export async function obtenerPlantillas(): Promise<Plantilla[]> {
   if (!CLAVE) throw new Error("Falta NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY.");
 
   const res = await fetch(
-    `${URL_SUPABASE}/rest/v1/plantillas?select=*&id=in.(concreto-streetwear,gamer-agency,codix-developer)&publicado=is.true`,
+    `${URL_SUPABASE}/rest/v1/plantillas?select=*&id=in.(concreto-streetwear,gamer-agency,codix-developer,quantum-studio)&publicado=is.true`,
     {
       headers: { apikey: CLAVE, Authorization: `Bearer ${CLAVE}` },
       cache: "force-cache",
