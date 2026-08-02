@@ -23,6 +23,10 @@
   --font-body:'Space Grotesk', sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
+/* En html tambien, no solo en body: el spotlight (120vw) y la marquesina
+   son mas anchos que la pantalla a proposito, y sin esto el desborde se
+   escapa igual y la pagina scrollea de costado. */
+html{overflow-x:hidden}
 body{
   background:var(--black);color:var(--off-white);
   font-family:var(--font-body);overflow-x:hidden;

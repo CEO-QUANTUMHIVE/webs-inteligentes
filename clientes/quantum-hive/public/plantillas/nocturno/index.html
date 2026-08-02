@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NOCTURNO — Coctelería de autor</title>
+<meta name="description" content="NOCTURNO — coctelería de autor. Carta de estación, barra abierta hasta tarde.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --negro:#000;
+  --carbon:#0b0b0b;
+  --dorado:#e7d393;
+  --dorado-dim:#b9a46c;
+  --blanco:#fff;
+  --gris:#808080;
+  --linea:rgba(231,211,147,.22);
+  --font-display:'Playfair Display', serif;
+  --font-body:'Inter', sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden}
+body{
+  background:var(--negro);color:var(--blanco);font-family:var(--font-body);
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--dorado);color:#000}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+
+/* Ruido sutil sobre todo */
+.noisy::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:2;opacity:.05;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* ── Nav ── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:800;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem clamp(1.1rem,5vw,3.4rem);
+  transition:background .4s,backdrop-filter .4s;
+}
+.nav.solido{background:rgba(0,0,0,.72);backdrop-filter:blur(12px)}
+.nav .marca{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.02em;font-style:italic}
+.nav ul{display:flex;gap:clamp(1rem,2.6vw,2.4rem);list-style:none}
+.nav ul a{font-size:.82rem;letter-spacing:.06em;opacity:.75;transition:opacity .25s,color .25s}
+.nav ul a:hover{opacity:1;color:var(--dorado)}
+@media(max-width:760px){.nav ul{display:none}}
+
+/* ── Hero ── */
+#hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden}
+.hero-glow{
+  position:absolute;width:70vw;height:70vw;max-width:820px;max-height:820px;
+  top:-18%;left:50%;transform:translateX(-50%);pointer-events:none;
+  background:radial-gradient(circle, rgba(231,211,147,.16), transparent 62%);
+}
+.hero-inner{position:relative;z-index:3;width:100%;padding:0 clamp(1.2rem,6vw,4.5rem);text-align:center}
+.hero-kicker{
+  color:var(--dorado);font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;opacity:0;
+}
+.hero-title{
+  font-family:var(--font-display);font-weight:500;font-style:italic;
+  font-size:clamp(3.6rem,15vw,11rem);line-height:.88;margin-top:1rem;overflow:hidden;
+}
+.hero-title span{display:inline-block;will-change:transform}
+.hero-lede{
+  max-width:34ch;margin:1.8rem auto 0;color:rgba(255,255,255,.72);
+  line-height:1.7;font-weight:300;font-size:clamp(.95rem,1.5vw,1.1rem);opacity:0;
+}
+.btn{
+  display:inline-block;margin-top:2.2rem;border:1px solid var(--dorado);color:var(--dorado);
+  padding:.9rem 2.3rem;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;
+  transition:background .3s,color .3s;opacity:0;
+}
+.btn:hover{background:var(--dorado);color:#000}
+.cue{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:4;
+  display:flex;flex-direction:column;align-items:center;gap:.55rem;opacity:0;
+  font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gris);
+}
+.cue-line{position:relative;width:1px;height:36px;background:rgba(231,211,147,.25);overflow:hidden}
+.cue-line::after{
+  content:'';position:absolute;left:0;width:100%;height:38%;background:var(--dorado);
+  animation:gotea 1.8s ease-in-out infinite;
+}
+@keyframes gotea{from{transform:translateY(-100%)}to{transform:translateY(280%)}}
+
+/* ── Listas ── */
+#cartas{position:relative;padding:clamp(5rem,12vw,9rem) 0;overflow:hidden}
+.wrap{max-width:1220px;margin:0 auto;padding:0 clamp(1.2rem,5vw,3.4rem)}
+.listas{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.4rem,7vw,6rem)}
+@media(max-width:820px){.listas{grid-template-columns:1fr}}
+.lista h2{
+  font-family:var(--font-display);font-style:italic;font-weight:400;
+  font-size:clamp(1.5rem,3vw,2.1rem);color:var(--dorado);margin-bottom:2rem;
+}
+.lista ul{list-style:none}
+.lista li{
+  display:flex;justify-content:space-between;align-items:baseline;gap:1.4rem;
+  padding:1.15rem 0;border-bottom:1px solid var(--linea);
+}
+.lista .nom{font-size:1.02rem;font-weight:500}
+.lista .det{display:block;font-size:.76rem;color:var(--gris);margin-top:.3rem;letter-spacing:.04em}
+.lista .precio{font-family:var(--font-display);font-size:1.15rem;color:var(--dorado);white-space:nowrap}
+
+/* ── El arte ── */
+#arte{position:relative;padding:clamp(5rem,12vw,9rem) 0;background:var(--carbon)}
+.arte-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.4rem,7vw,5rem);align-items:center}
+@media(max-width:900px){.arte-grid{grid-template-columns:1fr}}
+.arte-titulo{
+  font-family:var(--font-display);font-style:italic;font-weight:400;
+  font-size:clamp(2.4rem,6.5vw,4.6rem);line-height:1.05;
+}
+.arte-titulo em{color:var(--dorado);font-style:italic}
+.arte-p{margin-top:1.6rem;color:rgba(255,255,255,.7);line-height:1.8;font-weight:300;max-width:46ch}
+.rasgos{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:.5rem}
+@media(max-width:520px){.rasgos{grid-template-columns:1fr}}
+.rasgo{
+  border:1px solid var(--linea);padding:1rem 1.1rem;font-size:.83rem;
+  color:rgba(255,255,255,.82);display:flex;align-items:center;gap:.7rem;
+}
+.rasgo b{color:var(--dorado);font-family:var(--font-display);font-size:1rem;font-weight:400}
+.dato{margin-top:2.4rem;display:flex;align-items:baseline;gap:1rem}
+.dato .n{font-family:var(--font-display);font-size:clamp(2.6rem,6vw,4rem);color:var(--dorado);line-height:1}
+.dato .t{font-size:.82rem;color:var(--gris);max-width:18ch;line-height:1.5}
+
+/* ── Carta rotativa ── */
+#carta{position:relative;padding:clamp(5rem,12vw,9rem) 0 0}
+.carta-head{text-align:center}
+.carta-head h2{
+  font-family:var(--font-display);font-style:italic;font-weight:400;
+  font-size:clamp(2.4rem,7vw,4.8rem);
+}
+#cartaPin{height:100svh}
+.carta-sticky{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center}
+.carta-nav{
+  display:flex;gap:clamp(.8rem,2.4vw,2rem);justify-content:center;flex-wrap:wrap;
+  padding:0 1.2rem;margin-bottom:clamp(2rem,5vw,3.4rem);
+}
+.carta-nav button{
+  background:none;border:0;cursor:pointer;color:rgba(255,255,255,.4);
+  font-family:var(--font-display);font-style:italic;font-size:clamp(.95rem,2vw,1.25rem);
+  padding:.3rem 0;border-bottom:1px solid transparent;transition:color .3s,border-color .3s;
+}
+.carta-nav button.on{color:var(--dorado);border-color:var(--dorado)}
+.carta-stack{position:relative;flex:1;min-height:0}
+.trago{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  padding:0 clamp(1.2rem,6vw,4rem);
+}
+.trago-inner{max-width:620px;text-align:center}
+.trago .idx{font-family:var(--font-display);font-size:.9rem;color:var(--dorado);letter-spacing:.2em}
+.trago h3{
+  font-family:var(--font-display);font-style:italic;font-weight:400;
+  font-size:clamp(2.4rem,7vw,4.4rem);line-height:1.05;margin-top:.8rem;
+}
+.trago .sub{margin-top:.9rem;color:var(--dorado);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase}
+.trago p{margin-top:1.4rem;color:rgba(255,255,255,.7);line-height:1.8;font-weight:300}
+.trago .ing{
+  margin-top:1.6rem;display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;
+}
+.trago .ing span{
+  border:1px solid var(--linea);padding:.4rem .9rem;font-size:.74rem;color:rgba(255,255,255,.75);
+}
+
+/* ── Visitanos ── */
+#visitanos{padding:clamp(5rem,12vw,9rem) 0;border-top:1px solid var(--linea)}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2.4rem;margin-top:3rem}
+.info h4{color:var(--dorado);font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;margin-bottom:1rem}
+.info p{color:rgba(255,255,255,.72);line-height:1.9;font-weight:300;font-size:.92rem}
+footer{padding:2.4rem 0;border-top:1px solid var(--linea);color:var(--gris);font-size:.76rem}
+.pie{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+@media(prefers-reduced-motion: reduce){
+  .hero-title span{transform:none !important}
+  .cue-line::after{animation:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="#hero" class="marca">Nocturno</a>
+  <ul>
+    <li><a href="#cartas">Cartas</a></li>
+    <li><a href="#arte">El oficio</a></li>
+    <li><a href="#carta">La carta</a></li>
+    <li><a href="#visitanos">Visitanos</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="noisy">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <p class="hero-kicker">Coctelería de autor</p>
+    <h1 class="hero-title" id="heroTitle">Nocturno</h1>
+    <p class="hero-lede">Cada trago de la carta es una mezcla de ingredientes de estación, técnica y paciencia. Sin apuro, como se toma de noche.</p>
+    <a href="#carta" class="btn">Ver la carta</a>
+  </div>
+  <div class="cue"><span>Bajá</span><span class="cue-line"></span></div>
+</section>
+
+<!-- CARTAS -->
+<section id="cartas" class="noisy">
+  <div class="wrap listas">
+    <div class="lista" data-lista>
+      <h2>Los más pedidos</h2>
+      <ul>
+        <li><span><span class="nom">Negroni de casa</span><span class="det">Gin de enebro · vermut rosso · bitter</span></span><span class="precio">$9.800</span></li>
+        <li><span><span class="nom">Mojito de estación</span><span class="det">Ron blanco · menta fresca · lima</span></span><span class="precio">$8.400</span></li>
+        <li><span><span class="nom">Old Fashioned ahumado</span><span class="det">Bourbon · azúcar mascabo · humo de roble</span></span><span class="precio">$11.200</span></li>
+        <li><span><span class="nom">Margarita de pomelo</span><span class="det">Tequila reposado · pomelo rosado · sal</span></span><span class="precio">$9.500</span></li>
+      </ul>
+    </div>
+    <div class="lista" data-lista>
+      <h2>Sin alcohol</h2>
+      <ul>
+        <li><span><span class="nom">Jardín de pepino</span><span class="det">Pepino · albahaca · tónica</span></span><span class="precio">$6.200</span></li>
+        <li><span><span class="nom">Maracuyá y menta</span><span class="det">Maracuyá · menta · soda</span></span><span class="precio">$6.500</span></li>
+        <li><span><span class="nom">Cítrico de la casa</span><span class="det">Naranja sanguina · romero</span></span><span class="precio">$5.900</span></li>
+        <li><span><span class="nom">Lavanda espumante</span><span class="det">Lavanda · limón · agua con gas</span></span><span class="precio">$6.800</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EL ARTE -->
+<section id="arte">
+  <div class="wrap arte-grid">
+    <div>
+      <h2 class="arte-titulo" data-reveal>Donde <em>cada detalle</em> cuenta</h2>
+      <p class="arte-p" data-reveal>Desde el primer macerado hasta la última guarnición. Ese cuidado es lo que convierte un trago simple en algo que se recuerda.</p>
+      <div class="dato" data-reveal>
+        <span class="n">4.8</span>
+        <span class="t">de calificación promedio en más de 1.200 reseñas</span>
+      </div>
+    </div>
+    <div class="rasgos">
+      <div class="rasgo" data-rasgo><b>01</b> Ingredientes de estación</div>
+      <div class="rasgo" data-rasgo><b>02</b> Hielo tallado a mano</div>
+      <div class="rasgo" data-rasgo><b>03</b> Destilados de productores chicos</div>
+      <div class="rasgo" data-rasgo><b>04</b> Recetas propias</div>
+      <div class="rasgo" data-rasgo><b>05</b> Macerados de la casa</div>
+      <div class="rasgo" data-rasgo><b>06</b> Servido en su punto</div>
+    </div>
+  </div>
+</section>
+
+<!-- CARTA ROTATIVA -->
+<section id="carta">
+  <div class="wrap carta-head">
+    <h2>La carta</h2>
+  </div>
+  <div id="cartaPin">
+    <div class="carta-sticky">
+      <div class="carta-nav" id="cartaNav"></div>
+      <div class="carta-stack" id="cartaStack"></div>
+    </div>
+  </div>
+</section>
+
+<!-- VISITANOS -->
+<section id="visitanos">
+  <div class="wrap">
+    <h2 class="arte-titulo">Dónde <em>encontrarnos</em></h2>
+    <div class="info-grid">
+      <div class="info">
+        <h4>La barra</h4>
+        <p>Av. Libertador 2480<br>Olivos, Buenos Aires</p>
+      </div>
+      <div class="info">
+        <h4>Reservas</h4>
+        <p>+54 11 5555 0199<br>hola@nocturno.bar</p>
+      </div>
+      <div class="info">
+        <h4>Abierto</h4>
+        <p>Mar–Jue · 19:00 – 01:00<br>Vie–Sáb · 19:00 – 03:00<br>Dom y Lun · cerrado</p>
+      </div>
+      <div class="info">
+        <h4>Seguinos</h4>
+        <p>Instagram<br>Whatsapp</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap pie">
+    <span>© 2026 Nocturno. Todos los derechos reservados.</span>
+    <span>Beber con moderación. Prohibida la venta a menores de 18 años.</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script>
+(function(){
+  'use strict';
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  gsap.registerPlugin(ScrollTrigger);
+
+  if(!reduceMotion){
+    const lenis = new Lenis({ lerp: 0.09, smoothWheel: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t * 1000));
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  /* Partir el titulo en caracteres */
+  function splitChars(el){
+    const txt = el.textContent; el.textContent = '';
+    return [...txt].map(ch => {
+      const s = document.createElement('span');
+      s.textContent = ch === ' ' ? ' ' : ch;
+      el.appendChild(s); return s;
+    });
+  }
+  const heroChars = splitChars(document.getElementById('heroTitle'));
+
+  /* Entrada del hero */
+  gsap.set(heroChars, { yPercent: 118 });
+  gsap.delayedCall(0.15, () => {
+    gsap.timeline()
+      .to('.hero-kicker', { opacity: 1, duration: .6 }, 0)
+      .to(heroChars, { yPercent: 0, stagger: .04, ease: 'power4.out', duration: .95 }, .1)
+      .to('.hero-lede', { opacity: 1, duration: .7 }, .6)
+      .to('.btn', { opacity: 1, duration: .6 }, .78)
+      .to('.cue', { opacity: .7, duration: .6 }, .9);
+  });
+
+  /* Nav se vuelve solido al salir del hero */
+  ScrollTrigger.create({
+    trigger: '#hero', start: 'bottom top+=80',
+    onEnter: () => document.getElementById('nav').classList.add('solido'),
+    onLeaveBack: () => document.getElementById('nav').classList.remove('solido')
+  });
+
+  /* Hero se desvanece al bajar */
+  gsap.to('.hero-inner', {
+    opacity: 0, y: -50, ease: 'none',
+    scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 1 }
+  });
+  gsap.to('.cue', { opacity: 0, duration: .2,
+    scrollTrigger: { trigger: '#hero', start: 'top top', end: '+=15%', scrub: 1 } });
+
+  /* Listas: cada fila entra escalonada */
+  gsap.utils.toArray('[data-lista]').forEach(l => {
+    gsap.from(l.querySelectorAll('li'), {
+      opacity: 0, y: 24, duration: .6, stagger: .09, ease: 'power2.out',
+      scrollTrigger: { trigger: l, start: 'top 82%' }
+    });
+  });
+
+  /* Bloque del oficio */
+  gsap.utils.toArray('[data-reveal]').forEach(el => {
+    gsap.from(el, { opacity: 0, y: 26, duration: .7, ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 86%' } });
+  });
+  gsap.from('[data-rasgo]', {
+    opacity: 0, y: 20, duration: .5, stagger: .07, ease: 'power2.out',
+    scrollTrigger: { trigger: '.rasgos', start: 'top 84%' }
+  });
+
+  /* ── Carta rotativa, anclada al scroll ── */
+  const TRAGOS = [
+    { n:'Negroni de casa',      s:'Amargo · cítrico',   p:'Partes iguales de gin, vermut rosso y bitter. Se sirve sobre un solo cubo tallado, con piel de naranja quemada.', i:['Gin de enebro','Vermut rosso','Bitter','Naranja'] },
+    { n:'Mojito de estación',   s:'Fresco · herbal',    p:'Menta macerada sin romperla, lima exprimida al momento y ron blanco. La soda entra última, para que no pierda el gas.', i:['Ron blanco','Menta','Lima','Soda'] },
+    { n:'Old Fashioned ahumado',s:'Intenso · ahumado',  p:'Bourbon con azúcar mascabo y unas gotas de bitter. La copa se ahúma con roble antes de servir.', i:['Bourbon','Mascabo','Bitter','Roble'] },
+    { n:'Margarita de pomelo',  s:'Cítrico · salado',   p:'Tequila reposado con pomelo rosado recién exprimido. Borde de sal marina, apenas en la mitad de la copa.', i:['Tequila','Pomelo','Lima','Sal marina'] },
+    { n:'Jardín de pepino',     s:'Sin alcohol',        p:'Pepino y albahaca macerados en frío, con tónica artesanal. Refresca sin pesar.', i:['Pepino','Albahaca','Tónica','Lima'] }
+  ];
+
+  (function(){
+    const stack = document.getElementById('cartaStack');
+    const nav = document.getElementById('cartaNav');
+    stack.innerHTML = TRAGOS.map((t,i) =>
+      '<article class="trago"><div class="trago-inner">'
+      + '<p class="idx">' + String(i+1).padStart(2,'0') + ' / ' + String(TRAGOS.length).padStart(2,'0') + '</p>'
+      + '<h3>' + t.n + '</h3>'
+      + '<p class="sub">' + t.s + '</p>'
+      + '<p>' + t.p + '</p>'
+      + '<div class="ing">' + t.i.map(x => '<span>' + x + '</span>').join('') + '</div>'
+      + '</div></article>').join('');
+    nav.innerHTML = TRAGOS.map((t,i) =>
+      '<button type="button" data-i="' + i + '"' + (i===0?' class="on"':'') + '>' + t.n + '</button>').join('');
+
+    const cards = gsap.utils.toArray('.trago');
+    const botones = gsap.utils.toArray('#cartaNav button');
+    const N = cards.length;
+
+    gsap.set(cards[0], { opacity: 1, y: 0 });
+    gsap.set(cards.slice(1), { opacity: 0, y: 40 });
+
+    function marcar(idx){
+      botones.forEach((b,i) => b.classList.toggle('on', i === idx));
+    }
+
+    if(reduceMotion){
+      // Sin scroll-jacking: los botones cambian el trago directamente.
+      botones.forEach((b,i) => b.addEventListener('click', () => {
+        gsap.set(cards, { opacity: 0, y: 0 });
+        gsap.set(cards[i], { opacity: 1 });
+        marcar(i);
+      }));
+      return;
+    }
+
+    const tl = gsap.timeline({ scrollTrigger: {
+      trigger: '#cartaPin', start: 'top top', end: '+=' + (N*100) + '%',
+      scrub: 1, pin: true, pinSpacing: true,
+      onUpdate(self){ marcar(Math.min(N-1, Math.floor(self.progress * N))); }
+    }});
+
+    for(let j=0;j<N-1;j++){
+      tl.to(cards[j], { opacity: 0, y: -40, duration: .4, ease: 'power2.in' }, j + .35)
+        .fromTo(cards[j+1], { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: .4, ease: 'power2.out' }, j + .35);
+    }
+  })();
+
+  /* El swap de fuentes cambia las metricas y el alto del documento:
+     hay que recalcular los offsets de la seccion pineada. */
+  document.fonts.ready.then(() => ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>

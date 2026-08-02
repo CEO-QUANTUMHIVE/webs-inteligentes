@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Orbitron, Space_Grotesk, Inter } from "next/font/google";
+import { Orbitron, Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const orbitron = Orbitron({
@@ -18,6 +18,13 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+});
+
+// Tipografia de la landing de Webs Inteligentes: mono tecnico sobre negro y oro.
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -50,7 +57,7 @@ export default function RootLayout({
   return (
     <html lang="es" className="dark">
       <body
-        className={`${orbitron.variable} ${spaceGrotesk.variable} ${inter.variable} antialiased`}
+        className={`${orbitron.variable} ${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
         {children}
       </body>
