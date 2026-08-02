@@ -67,6 +67,7 @@ npx shadcn@latest add @vengeanceui/animated-rays
 4. **No publicar sitios sin autorización explícita**
 5. **Respetar los límites del MVP inicial**
 6. **Priorizar impacto visual sobre complejidad técnica**
+7. **Toda plantilla recreada desde una referencia externa debe estar en español e incluir una atribución visible `Powered by Quantum Hive`**
 
 ### Estructura de Directorio
 

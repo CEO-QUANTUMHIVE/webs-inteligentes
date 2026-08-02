@@ -78,6 +78,7 @@ jobs:
           test -f out/catalogo-plantillas.html
           test -f out/plantillas/concreto/index.html
           test -f out/plantillas/gamer/index.html
+          test -f out/plantillas/codix/index.html
 
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2

@@ -10,6 +10,23 @@ type Template = Plantilla;
 function TemplatePreview({ template }: { template: Template }) {
   const c = template.colors;
 
+  if (template.id === "codix-developer") {
+    return (
+      <div className="relative h-full w-full overflow-hidden bg-[#0e0e0e] p-3 text-white">
+        <div className="flex h-7 items-center justify-between rounded-md bg-[#ddff48] px-2 text-[7px] font-bold text-black">
+          <span className="tracking-[-0.08em]">{"{ } codix"}</span>
+          <span className="font-mono uppercase tracking-[0.14em]">Servicios · Contacto</span>
+        </div>
+        <div className="absolute inset-x-0 top-11 h-24 bg-[radial-gradient(circle,rgba(221,255,72,0.22),transparent_58%)]" />
+        <div className="relative flex h-[calc(100%_-_1.75rem)] flex-col items-center justify-center text-center">
+          <span className="mb-2 font-mono text-[6px] uppercase tracking-[0.22em] text-[#ddff48]">Disponible para trabajar</span>
+          <strong className="text-xl font-medium uppercase leading-[0.9] tracking-[-0.08em]">Experto en<br />desarrollo web</strong>
+          <span className="mt-3 rounded border border-white px-2 py-1 font-mono text-[6px] uppercase">Ver proyecto ↗</span>
+        </div>
+      </div>
+    );
+  }
+
   if (template.id === "gamer-agency") {
     const selectPreviewFrame = (event: SyntheticEvent<HTMLVideoElement>) => {
       const video = event.currentTarget;

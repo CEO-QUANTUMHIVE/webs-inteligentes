@@ -121,13 +121,41 @@ const PLANTILLA_GAMER: Plantilla = {
   urlDemo: "/plantillas/gamer/",
 };
 
-const PLANTILLAS_PUBLICADAS = [PLANTILLA_CONCRETO, PLANTILLA_GAMER];
+const PLANTILLA_CODIX: Plantilla = {
+  id: "codix-developer",
+  name: "CODIX — Desarrollo independiente",
+  description:
+    "Portfolio técnico de estética oscura y lima con servicios, proyectos, precios, testimonios y formulario de contacto.",
+  niche: "Tecnología / Portfolio",
+  style: "Editorial técnico",
+  pages: ["Portada", "Sobre mí", "Servicios", "Portfolio", "Precios", "Contacto"],
+  colors: {
+    primary: "#ddff48",
+    secondary: "#6d7e23",
+    accent: "#ffffff",
+    bg: "#0e0e0e",
+  },
+  font: "Plus Jakarta Sans + Roboto Mono",
+  features: [
+    "Hero editorial",
+    "Servicios interactivos",
+    "Portfolio filtrable",
+    "Marquee de testimonios",
+    "Preguntas desplegables",
+    "Formulario responsive",
+  ],
+  preview: "bold",
+  popular: true,
+  urlDemo: "/plantillas/codix/",
+};
+
+const PLANTILLAS_PUBLICADAS = [PLANTILLA_CONCRETO, PLANTILLA_GAMER, PLANTILLA_CODIX];
 
 export async function obtenerPlantillas(): Promise<Plantilla[]> {
   if (!CLAVE) throw new Error("Falta NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY.");
 
   const res = await fetch(
-    `${URL_SUPABASE}/rest/v1/plantillas?select=*&id=in.(concreto-streetwear,gamer-agency)&publicado=is.true`,
+    `${URL_SUPABASE}/rest/v1/plantillas?select=*&id=in.(concreto-streetwear,gamer-agency,codix-developer)&publicado=is.true`,
     {
       headers: { apikey: CLAVE, Authorization: `Bearer ${CLAVE}` },
       cache: "force-cache",
