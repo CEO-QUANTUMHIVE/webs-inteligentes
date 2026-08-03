@@ -251,6 +251,8 @@ Escenas predefinidas de Spline que se pueden embedir directamente:
 | **Órbita y zoom** | Control de comportamiento de cámara desde exportación | `https://prod.spline.design/U9O6K7fXziMEU7Wu/scene.splinecode` |
 | **Seguir global** | Objetos siguen al cursor (eventos en todo el documento) | `https://prod.spline.design/PBQQBw8bfXDhBo7w/scene.splinecode` |
 | **Seguir local** | Objetos siguen al cursor (eventos solo en el viewer) | `https://prod.spline.design/PBQQBw8bfXDhBo7w/scene.splinecode` |
+| **Mira a global** | Objetos miran a cámara/cursor (eventos en todo el documento) | `https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode` |
+| **Mira a local** | Objetos miran a cámara/cursor (eventos solo en el viewer) | `https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode` |
 
 ### Voluta - Scroll Transitions
 
@@ -373,6 +375,59 @@ export function CursorFollow() {
       {/* Local - solo dentro del canvas */}
       {/* <spline-viewer 
         url="https://prod.spline.design/PBQQBw8bfXDhBo7w/scene.splinecode"
+        events-target="local"
+        className="w-full h-full"
+      /> */}
+    </div>
+  );
+}
+```
+
+### Mira a... Global / Local - Look At
+
+Puedes hacer que tus objetos miren a la cámara, al cursor o a otros objetos con el evento "Mirar a".
+
+**Diferencia entre Global y Local:**
+- `events-target="global"` - Los objetos miran hacia la cámara/cursor en toda la página
+- `events-target="local"` - Los objetos miran solo dentro del canvas 3D
+
+#### Mira a Global
+```html
+<script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
+<spline-viewer url="https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode" events-target="global"></spline-viewer>
+```
+
+#### Mira a Local
+```html
+<script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
+<spline-viewer url="https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode" events-target="local"></spline-viewer>
+```
+
+**Uso recomendado:**
+- **Global:** Logos o personajes que siguen al usuario en toda la landing
+- **Local:** Elementos interactivos dentro de una sección específica
+
+**Integración en Next.js:**
+```tsx
+'use client';
+
+export function LookAtDemo() {
+  return (
+    <div className="relative w-full h-96">
+      <script 
+        type="module" 
+        src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js" 
+      />
+      {/* Global - objetos miran al cursor en toda la página */}
+      <spline-viewer 
+        url="https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode"
+        events-target="global"
+        className="w-full h-full"
+      />
+      
+      {/* Local - solo dentro del canvas */}
+      {/* <spline-viewer 
+        url="https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode"
         events-target="local"
         className="w-full h-full"
       /> */}
