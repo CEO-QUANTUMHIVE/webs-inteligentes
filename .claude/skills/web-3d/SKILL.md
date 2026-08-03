@@ -248,6 +248,7 @@ Escenas predefinidas de Spline que se pueden embedir directamente:
 | Nombre | Efecto | URL |
 |--------|--------|-----|
 | **Voluta** | Transiciones basadas en desplazamiento, estados de cámara | `https://prod.spline.design/LEvjG3OETYd2GsRw/scene.splinecode` |
+| **Órbita y zoom** | Control de comportamiento de cámara desde exportación | `https://prod.spline.design/U9O6K7fXziMEU7Wu/scene.splinecode` |
 
 ### Voluta - Scroll Transitions
 
@@ -284,6 +285,40 @@ export function VolutaHero() {
       />
       <spline-viewer 
         url="https://prod.spline.design/LEvjG3OETYd2GsRw/scene.splinecode"
+        className="w-full h-full"
+      />
+    </div>
+  );
+}
+```
+
+### Órbita y Zoom - Camera Control
+
+Controla el comportamiento de la cámara desde la configuración de exportación de Spline.
+
+```html
+<script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
+<spline-viewer url="https://prod.spline.design/U9O6K7fXziMEU7Wu/scene.splinecode"></spline-viewer>
+```
+
+**Uso recomendado:**
+- Productos 360° (productos, joyas, autos)
+- Exhibiciones interactivas de catálogos
+- Experiencias de exploración de objetos
+
+**Integración en Next.js:**
+```tsx
+'use client';
+
+export function OrbitaZoom() {
+  return (
+    <div className="relative w-full h-96">
+      <script 
+        type="module" 
+        src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js" 
+      />
+      <spline-viewer 
+        url="https://prod.spline.design/U9O6K7fXziMEU7Wu/scene.splinecode"
         className="w-full h-full"
       />
     </div>
