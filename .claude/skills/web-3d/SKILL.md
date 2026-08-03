@@ -241,6 +241,56 @@ pnpm add @splinetool/react-spline @splinetool/runtime
 - Large .splinecode files affect load time
 - Complex interactions require manual runtime code
 
+## Gallery - Ready-to-Use Scenes
+
+Escenas predefinidas de Spline que se pueden embedir directamente:
+
+| Nombre | Efecto | URL |
+|--------|--------|-----|
+| **Voluta** | Transiciones basadas en desplazamiento, estados de cámara | `https://prod.spline.design/LEvjG3OETYd2GsRw/scene.splinecode` |
+
+### Voluta - Scroll Transitions
+
+Crea eventos de desplazamiento y estados de cámara para crear transiciones basadas en el desplazamiento.
+
+```html
+<script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
+<spline-viewer url="https://prod.spline.design/LEvjG3OETYd2GsRw/scene.splinecode"></spline-viewer>
+```
+
+**Uso recomendado:**
+- Hero sections con scroll reveal
+- Narrativas visuales interactivas
+- Portafolios con transiciones cinematográficas
+
+**Integración en Next.js:**
+```tsx
+'use client';
+
+import { useEffect, useRef } from 'react';
+
+export function VolutaHero() {
+  const viewerRef = useRef<any>(null);
+
+  useEffect(() => {
+    // El viewer carga automáticamente el scroll behavior
+  }, []);
+
+  return (
+    <div className="relative h-screen">
+      <script 
+        type="module" 
+        src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js" 
+      />
+      <spline-viewer 
+        url="https://prod.spline.design/LEvjG3OETYd2GsRw/scene.splinecode"
+        className="w-full h-full"
+      />
+    </div>
+  );
+}
+```
+
 ## MCP Server (Optional)
 
 For code generation assistance, `lesleslie/spline-mcp` (BSD-3) can generate React components:
