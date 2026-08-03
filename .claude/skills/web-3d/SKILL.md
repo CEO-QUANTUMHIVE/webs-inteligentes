@@ -32,7 +32,33 @@ Embed component in page, configure interactions via runtime API
 
 ## Templates
 
-### Basic React Component
+### 1. Web Component (HTML - más simple)
+
+Incrustación directa sin dependencias de React:
+
+```html
+<script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
+<spline-viewer url="https://prod.spline.design/XXXXXXXXXX/scene.splinecode"></spline-viewer>
+```
+
+**Para Next.js** - Agregar en `layout.tsx` o en el componente:
+```tsx
+// En layout.tsx (global)
+<script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js" />
+
+// En el componente
+<spline-viewer url="https://prod.spline.design/XXXXXXXXXX/scene.splinecode" />
+```
+
+**Estilos personalizados:**
+```html
+<spline-viewer 
+  url="https://prod.spline.design/XXXXXXXXXX/scene.splinecode"
+  style="width: 100%; height: 500px;"
+></spline-viewer>
+```
+
+### 2. Basic React Component (con package)
 ```tsx
 'use client';
 
@@ -53,7 +79,7 @@ export function SplineScene({ className, sceneUrl }: SplineSceneProps) {
 }
 ```
 
-### Next.js Dynamic Import (SSR-safe)
+### 3. Next.js Dynamic Import (SSR-safe)
 ```tsx
 'use client';
 
@@ -78,7 +104,7 @@ export function Hero3D({ sceneUrl }: Hero3DProps) {
 }
 ```
 
-### Interactive Scene with Events
+### 4. Interactive Scene with Events
 ```tsx
 'use client';
 
@@ -116,7 +142,7 @@ export function InteractiveScene({ sceneUrl, onObjectClick }: InteractiveScenePr
 }
 ```
 
-### Product Viewer Pattern
+### 5. Product Viewer Pattern
 ```tsx
 'use client';
 
@@ -198,7 +224,9 @@ spline.setVariable('rotation', 180);
 - `play`, `pause`, `stop`
 - `intersection` (viewport visibility)
 
-## Package Installation
+## Package Installation (solo para React components)
+
+La opción Web Component NO necesita package - solo el script CDN.
 
 ```bash
 npm install @splinetool/react-spline @splinetool/runtime
