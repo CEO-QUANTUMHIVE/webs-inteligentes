@@ -31,8 +31,8 @@ export default function Navigation() {
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 h-[72px] flex items-center justify-between">
-        <a href="#home" className="text-[15px] font-medium tracking-tight">
-          Studio — Vanadium
+        <a href="#home" className="text-[18px] font-bold tracking-tight">
+          SV
         </a>
 
         <div className="hidden md:flex items-center gap-8">

@@ -3,14 +3,14 @@
 import { useEffect, useRef } from "react";
 
 const team = [
-  { name: "Ahmad Fauzi", role: "Founder & Creative Director" },
-  { name: "Dian Permata", role: "Art Director" },
-  { name: "Rizky Pratama", role: "Senior Designer" },
-  { name: "Maya Sari", role: "Brand Strategist" },
-  { name: "Budi Santoso", role: "UI/UX Designer" },
-  { name: "Putri Wulandari", role: "Graphic Designer" },
-  { name: "Farhan Hidayat", role: "Motion Designer" },
-  { name: "Ayu Lestari", role: "Project Manager" },
+  { name: "Ahmad Fauzi", role: "Founder & Creative Director", image: "/team/1.jpg" },
+  { name: "Dian Permata", role: "Art Director", image: "/team/2.jpg" },
+  { name: "Rizky Pratama", role: "Senior Designer", image: "/team/3.jpg" },
+  { name: "Maya Sari", role: "Brand Strategist", image: "/team/4.jpg" },
+  { name: "Budi Santoso", role: "UI/UX Designer", image: "/team/5.jpg" },
+  { name: "Putri Wulandari", role: "Graphic Designer", image: "/team/6.jpg" },
+  { name: "Farhan Hidayat", role: "Motion Designer", image: "/team/7.jpg" },
+  { name: "Ayu Lestari", role: "Project Manager", image: "/team/8.jpg" },
 ];
 
 export default function Team() {
@@ -35,7 +35,7 @@ export default function Team() {
   }, []);
 
   return (
-    <section className="py-24 px-6 md:px-12 bg-gray-800">
+    <section className="py-24 px-6 md:px-12 bg-[#131313]">
       <div className="max-w-[1400px] mx-auto">
         <div className="mb-16">
           <p className="text-[11px] uppercase tracking-[0.2em] text-gray-400 mb-4">
@@ -56,9 +56,9 @@ export default function Team() {
               className="team-card opacity-0 translate-y-8 transition-all duration-700"
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="aspect-[3/4] rounded-xl bg-gray-700 mb-4 overflow-hidden">
+              <div className="aspect-[3/4] rounded-xl bg-gray-800 mb-4 overflow-hidden">
                 <img
-                  src={`https://picsum.photos/seed/${member.name.toLowerCase().replace(/\s/g, "")}/400/533`}
+                  src={member.image}
                   alt={member.name}
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
                   loading="lazy"

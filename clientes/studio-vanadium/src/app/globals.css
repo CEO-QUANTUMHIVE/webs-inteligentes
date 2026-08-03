@@ -20,29 +20,36 @@
 
 @font-face {
   font-family: "Neue Haas Grotesk Display Pro";
-  src: url("https://framerusercontent.com/assets/tmLwqa5rh55YXw6gAs9GB7y6CY.woff2");
-  font-weight: 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Neue Haas Grotesk Display Pro";
-  src: url("https://framerusercontent.com/assets/7v88vbNPUPh3PX8XhEqCZvmuic.woff2");
+  src: url("/fonts/font_tmLwqa5rh55YXw6gAs9GB7y6CY.woff2");
   font-weight: 400;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Neue Haas Grotesk Display Pro";
-  src: url("https://framerusercontent.com/assets/ml8WBou3qLRVFQzTmsYLrcQlG3s.woff2");
-  font-weight: 700;
+  src: url("/fonts/font_vQyevYAyHtARFwPqUzQGpnDs.woff2");
+  font-weight: 300;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Neue Haas Grotesk Display Pro";
-  src: url("https://framerusercontent.com/assets/GOW5fAs7vHkKuMlMQBmQpkLcM.woff2");
+  src: url("/fonts/font_GOW5fAs7vHkKuMlMQBmQpkLcM.woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("/fonts/font_ml8WBou3qLRVFQzTmsYLrcQlG3s.woff2");
   font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("/fonts/font_7v88vbNPUPh3PX8XhEqCZvmuic.woff2");
+  font-weight: 700;
   font-display: swap;
 }
 
@@ -169,9 +176,9 @@ body {
 
 /* CTA button */
 .cta-button {
-  background: #6350c0;
+  background: #131313;
   color: white;
-  padding: 10px 24px;
+  padding: 12px 28px;
   border-radius: 100px;
   font-weight: 500;
   font-size: 14px;
@@ -181,7 +188,7 @@ body {
 }
 
 .cta-button:hover {
-  background: #7f66f6;
+  background: #2a2a2a;
   transform: translateY(-1px);
 }
 
