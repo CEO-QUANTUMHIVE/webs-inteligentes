@@ -1,0 +1,506 @@
+SI TENGO LOS CREDITOS DE AZURE PUEDO CREAR WEBS Y PONERLE MODELO CONVERSACIONAL DE CHAT GPT?  CUANTO CREDITO ME CONSUME PUEDO TENER MULTIPLE USARIOS QUIERO OFRECER PAGINAS WEBS CON MODELOS CONVERSACIONALES Y AGENTES QUE SE CONECTEN A WSP PARA AUTOMATIZARLES LAS ATENCION AL CLIENTE
+Procesó durante 2m 16s
+
+Sí, totalmente. Eso que describís puede ser una línea comercial de QuantumHive: páginas web con un “empleado virtual” que atiende en la web y usa el mismo cerebro para responder por WhatsApp.
+
+La aclaración importante: no incrustás la aplicación ChatGPT dentro de la web. Construís tu propia interfaz y tu backend se conecta a modelos GPT mediante Azure OpenAI.
+
+Qué cubren tus créditos de Azure
+
+Los créditos pueden pagar:
+
+Azure OpenAI y el consumo de los modelos GPT.
+Hosting de las páginas y del backend.
+Bases de datos, almacenamiento y monitoreo.
+Funciones, contenedores y webhooks.
+Procesamiento de voz, si utilizás servicios de Azure.
+
+Para que se descuenten de los créditos, los servicios tienen que estar en la misma suscripción patrocinada y ser facturados directamente por Azure. Los productos externos de Marketplace pueden quedar afuera. Microsoft explica esta cobertura aquí.
+
+No cubren:
+
+Los cargos de Meta por WhatsApp.
+Twilio, 360dialog u otro proveedor externo.
+Supabase, Vercel, Resend u otros servicios contratados por separado.
+El uso directo de la API de OpenAI fuera de Azure.
+Cuánto consume el modelo
+
+Para atención al cliente podés comenzar con GPT-4.1-mini. Actualmente, en Azure Global Standard cuesta aproximadamente:
+
+Entrada: USD 0,40 por millón de tokens.
+Entrada cacheada: USD 0,10 por millón.
+Salida: USD 1,60 por millón.
+
+Es precio por consumo, no por usuario ni por agente. Precios oficiales de Azure OpenAI.
+
+Un cálculo ilustrativo:
+
+Tipo de conversación	Tokens entrada	Tokens salida	Costo aproximado
+Consulta sencilla	15.000	2.000	USD 0,009
+Atención normal	40.000	5.000	USD 0,024
+Agente intensivo	100.000	15.000	USD 0,064
+
+Por lo tanto:
+
+1.000 conversaciones normales: aproximadamente USD 24 de modelo.
+USD 200 de crédito: unas 8.300 conversaciones normales.
+USD 1.000 de crédito: unas 41.600 conversaciones normales.
+
+Es un cálculo de tokens únicamente. Hay que restar hosting, base de datos, almacenamiento, voz y herramientas externas.
+
+El frontend puede comenzar con Azure Static Web Apps gratuito. Para el backend, Azure Container Apps incluye mensualmente 2 millones de solicitudes y determinados recursos de cómputo gratuitos; un App Service Linux B1 fijo ronda USD 13,14 mensuales. Container Apps y App Service.
+
+¿Podés tener múltiples usuarios y negocios?
+
+Sí. No necesitás crear un modelo diferente para cada cliente.
+
+La arquitectura correcta es multiempresa:
+
+Un backend central de QuantumHive.
+Un deployment compartido de Azure OpenAI.
+Cada negocio es un tenant.
+Cada agente tiene su propio prompt, personalidad, catálogo, documentos, herramientas y número de WhatsApp.
+Las conversaciones, datos y memoria quedan separados por tenant_id.
+Registrás los tokens y mensajes consumidos por cada negocio para facturarlos.
+
+Azure contempla oficialmente deployments compartidos para soluciones multitenant. La simultaneidad depende de la cuota de tokens por minuto y solicitudes por minuto, no de la cantidad total de usuarios registrados. Arquitectura multitenant de Azure OpenAI y cuotas de Azure OpenAI.
+
+En otras palabras: podrías tener 100 negocios y miles de usuarios finales usando el mismo motor, siempre que controles las cuotas y escales la capacidad.
+
+WhatsApp
+
+El flujo sería:
+
+El cliente escribe por WhatsApp.
+Meta envía un webhook a QuantumHive.
+Tu plataforma identifica el negocio y al cliente.
+El agente consulta catálogo, reservas, pedidos o CRM.
+Azure OpenAI genera o decide la respuesta.
+QuantumHive responde mediante WhatsApp Cloud API.
+
+Para ofrecerlo comercialmente a muchos negocios, conviene operar como Meta Tech Provider y usar Embedded Signup, para que cada negocio vincule su propia cuenta y número de WhatsApp. Documentación oficial para Tech Providers.
+
+Los cargos de WhatsApp son independientes de Azure. Al 31 de julio de 2026:
+
+Las plantillas de marketing, utilidad y autenticación se cobran por mensaje entregado y país.
+Los mensajes normales dentro de la ventana de atención de 24 horas todavía son gratuitos.
+Desde el 1 de octubre de 2026, Meta comenzará a cobrar también los mensajes de servicio y determinados mensajes dentro de esa ventana. Precios oficiales de WhatsApp y cambios anunciados.
+Cómo lo estructuraría para QuantumHive
+
+No vendería “una página con chatbot”. Vendería:
+
+Página web inteligente + empleado virtual multicanal + WhatsApp automatizado + panel de conversaciones y métricas.
+
+El mismo producto base puede adaptarse a:
+
+Restaurantes y Mesero Virtual.
+Inmobiliarias.
+Concesionarias.
+Clínicas y consultorios.
+Barberías.
+Hoteles.
+Tiendas y catálogos.
+
+Cada agente sería una configuración diferente sobre la misma infraestructura. Eso evita construir un sistema nuevo por cliente y te permite cobrar instalación más mensualidad, incluyendo una cantidad de conversaciones y cobrando excedentes.
+
+BUENO SI VA A IR ENLAZADO A MESERO VIRTUAL Y EMPLEADOS VIRTUALES PERO LO QUIERO SEPARAR EN UN FRENTE DISTINTO OSEA LA PAGINA WEB CON EL ASISTENTE DE CHAT EN LA MISMA PAGINA DEL FRONTED NO EN WSP DESPUES LE OFRESCO EL EMPLEDO VIRTUAL CON EL AVATAR Y LA INTEGRACION CON WATHSAPP Y A NEGOCIOS EN LO QUE ENTRO CON LOS EMPLEADOS VIRTUALES EN LOS CATALOGOS LE OFRESCO LA WEB OSEA SON DOS SERVICIOS DISTINTOS QUE SE ENTRELAZAN PERO LO DE LAS WEBS ES MAS RAPIDO POR QUE NO TENGO QUE RESOLVER LO DEL AVATAR CREO QUE PODRIA MONETIZAR MAS RAPIDO CON ESO ME QUEDAN 15 DIAS NADA MAS DE LOS CREDITOS DE AZURE Y DE GCP TAMBIEN TENGO QUE PONERME EN CAMPAÑA DE CONSEGUIR  SUBSIDIO PODEMOS PEDIR LOS CREDITOS DE ELEVEN LABS PARA AGENTES CONVERSACIONALES TAMBIEN PERO NECESITO TENER UNA PROPUESTA PARA QUE ME LES DEN O NO? MIENTARS PODRIA USAR LOS DE AZURE O GCP Y DE PASO YA VALIDO Y PIDO SUBSIDIO PERO AHORA VAMOS A PLANIAR LA WEB FACTORY AHORA TE VOY A PASAR DOS DOCUMENTOS QUE MASOMENOS PLANIE ALGO EN FORMA GENERAL # Web Factory
+
+Pipeline interno de QuantumHive para encontrar negocios con una presencia web
+debil, construirles una propuesta premium demostrable y convertir esa mejora
+en una oportunidad comercial.
+
+## Hipotesis
+
+Es mas facil vender una web cuando el prospecto puede ver su nueva experiencia
+antes de comprar. Web Factory no empieza ofreciendo una promesa: prepara una
+demo personalizada, un diagnostico verificable y una propuesta concreta.
+
+## Cliente inicial
+
+Negocios locales encontrados en Google Maps que:
+
+- no tienen sitio web;
+- tienen un sitio antiguo, lento o no adaptado a movil;
+- no convierten visitas en consultas;
+- responden repetidamente las mismas preguntas;
+- pueden beneficiarse de un agente conversacional en su web.
+
+## Propuesta de valor
+
+- Web premium adaptada al negocio.
+- Demo visual ya construida.
+- Agente conversacional entrenado con informacion publica verificada.
+- Diagnostico claro del sitio actual.
+- Implementacion rapida con control humano antes de publicar.
+
+## Pipeline
+
+
+text
+Maps
+  -> descubrimiento
+  -> calificacion
+  -> auditoria
+  -> generacion de demo
+  -> configuracion del agente
+  -> QA humana
+  -> aprobacion
+  -> propuesta comercial
+  -> seguimiento
+
+
+## Agentes previstos
+
+- Lead Finder: encuentra y normaliza candidatos.
+- Site Auditor: verifica presencia, tecnologia y problemas visibles.
+- Web Builder: genera una demo premium bajo un sistema de diseno controlado.
+- Conversation Agent Builder: prepara conocimiento y respuestas del negocio.
+- Proposal Composer: redacta una propuesta basada en evidencia real.
+- CRM Follow-up: organiza respuestas y proximos pasos despues de aprobacion.
+
+## Primera validacion
+
+1. Elegir un solo nicho.
+2. Elegir una sola zona geografica.
+3. Revisar manualmente diez prospectos.
+4. Generar pocas demos de alta calidad.
+5. Enviar propuestas solo despues de aprobacion humana.
+6. Medir respuestas, reuniones y cierres antes de automatizar mas.
+
+## Metricas
+
+- Leads calificados.
+- Demos aprobadas.
+- Tiempo y costo por demo.
+- Tasa de respuesta.
+- Reuniones obtenidas.
+- Tasa de cierre.
+- Ingreso y margen por proyecto.
+
+## Limites iniciales
+
+- No es un SaaS publico.
+- No envia mensajes sin aprobacion.
+- No inventa informacion del negocio.
+- No compra dominios ni publica sitios automaticamente.
+- No escala a varios nichos antes de validar ventas.
+
+Ver docs/product-brief.md para el alcance del producto interno. Web Factory - Product Brief
+
+## Problema
+
+Miles de negocios locales no tienen web o conservan una presencia anticuada.
+Las agencias suelen vender una promesa abstracta y obligan al prospecto a
+imaginar el resultado. Al mismo tiempo, construir propuestas personalizadas a
+mano consume demasiado tiempo para prospectar a escala.
+
+## Usuario interno
+
+El primer usuario es QuantumHive. El sistema ayuda a Sergio a identificar,
+priorizar y demostrar oportunidades comerciales. No se ofrece inicialmente
+como plataforma de autoservicio.
+
+## Experiencia del prospecto
+
+1. Recibe una comunicacion aprobada y especifica.
+2. Ve una demo reconocible de su propio negocio.
+3. Entiende los problemas de su presencia actual sin tecnicismos.
+4. Puede conversar con un agente sobre servicios, horarios y consultas.
+5. Decide si quiere una reunion, ajustes o la implementacion.
+
+## Flujo interno
+
+1. Descubrir negocios desde una fuente permitida.
+2. Normalizar nombre, categoria, zona, contacto y URLs.
+3. Verificar si existe sitio y auditarlo.
+4. Calificar oportunidad, capacidad de pago y facilidad de contacto.
+5. Recopilar solo informacion publica verificable.
+6. Generar una demo bajo componentes y estilos controlados.
+7. Configurar el agente con conocimiento citado.
+8. Ejecutar QA visual, factual, movil y conversacional.
+9. Aprobar manualmente la demo y la propuesta.
+10. Registrar contacto, respuesta y siguiente paso.
+
+## Datos necesarios
+
+- Identidad publica del negocio.
+- Categoria y ubicacion.
+- Sitio y perfiles publicos.
+- Canales de contacto publicados.
+- Servicios, horarios y preguntas frecuentes verificables.
+- Evidencia de problemas del sitio actual.
+- Estado comercial y consentimiento de contacto.
+
+## Aprobaciones humanas
+
+- Inclusion definitiva del lead.
+- Uso de identidad e imagenes en una demo.
+- Calidad y exactitud de la demo.
+- Contenido de la propuesta.
+- Envio de cualquier comunicacion.
+- Publicacion, dominio y precio final.
+
+## MVP
+
+- Un nicho y una ciudad o zona.
+- Diez prospectos revisados manualmente.
+- Auditoria semiautomatica.
+- Generacion de demos con una plantilla premium adaptable.
+- Agente de preguntas frecuentes con fuentes.
+- CRM minimo para estado y resultados.
+
+## Fuera del MVP
+
+- Scraping masivo sin limites ni revision.
+- Envio autonomo de mensajes.
+- Generacion ilimitada de estilos.
+- Compra automatica de dominios.
+- Facturacion y onboarding de autoservicio.
+- Soporte multiagencia.
+
+## Hipotesis comercial
+
+Una demo personalizada y funcional debe producir mas respuestas y reuniones
+que un mensaje generico de agencia. La hipotesis se valida con ventas reales,
+no con cantidad de paginas generadas.
+
+## Decision de producto
+
+Web Factory comienza como pipeline privado. Solo se evaluara convertirlo en
+producto cuando el proceso consiga clientes con margen positivo y resultados
+repetibles.
+Sí, podés empezar ya. De hecho, Web Factory es el camino más corto para monetizar sin quedar trabado por el avatar.
+
+Pero no arrancaría construyendo toda la fábrica. Arrancaría con una prueba comercial mínima:
+
+Un solo nicho.
+Una sola zona.
+Una plantilla web premium.
+Un asistente textual integrado.
+Tres negocios reales con demos personalizadas.
+Contactarlos y comprobar si alguno acepta una reunión o compra.
+
+Mi recomendación es comenzar por gastronomía porque ya tenés conocimiento, material y después podés cruzarles Mesero Virtual. El primer producto sería:
+
+Web premium con asistente inteligente que responde consultas, recomienda opciones y convierte visitantes en potenciales clientes.
+
+Ahora el primer paso concreto es elegir la zona y el tipo exacto de negocio: parrillas, restaurantes, cafeterías o cervecerías. Después definimos la oferta, el precio inicial y construimos la plantilla maestra. No hace falta esperar a ElevenLabs ni resolver el avatar.
+
+Mira, no, en restaurante no tengo experiencia. Lo único que hice los meseros virtuales, me imaginé el menú QR, pero lo que sí tengo, por ejemplo, un negocio de tienda nube que tiene una página web que puede estar interesado en que se la mejore y le instale un asistente conversacional. Es más, tengo una propuesta que le hice, que te la voy a enviar, a ver si le podemos armar algo. Después tengo otra clienta que quedó en la nada, que tengo toda la info de su negocio, porque había armado un bot de Telegram, una prueba, después se colgó el bot, se colgó ella, no lo... pero le podría ofrecer la web con el agente que haga el diagnóstico en la misma web. Se lo podría ofrecer. Después tengo otro negocio de mi primo que vende indumentaria de trabajo. Después tengo un amigo que tiene una barbería con redes sociales y se hizo una web regenérica, también se lo podría ofrecer. No sé si les puedo cobrar, les podría cobrar un precio simbólico o gratis, pero para ya tener cuatro o cinco clientes. Después tengo una clienta que se está haciendo un Instagram de profesora de yoga y también le puedo hacer la web. También tengo que hacer la web de Quantum Hive con el agente conversacional. O sea, tengo como varios frentes para empezar a probar el tema de las webs y ya armar como un stock o un catálogo de clientes de webs que hice y validar el nicho, validar el pipeline que voy a usar. Lo que también tengo, tengo un montón de skills y de páginas para yo entrenar a un agente de desarrollo, o sea, a OpenAI mismo, armarle en la carpeta donde puse, en una carpeta especial de factory, de web factory, puedo armar una carpeta de skills especialmente que son para las páginas web y de páginas donde yo pueda elegir los frontends así, viste que hay páginas que vos podés elegir efectos, elegir cosas. Bueno, puedo armar todo un entorno de desarrollo solamente dedicado a las webs y ya empezar con esos primeros clientes que pueden ser que no sean clientes que no me paguen, pero me serviría ya para validar todo el circuito y ya tener una cartera de clientes para cuando busque clientes nuevos, pueden entrar a mi página, ya ven mi página bien hecha, profesional y además un apartado que diga clientes de páginas web o algo así. Y esos mismos clientes, ya cuando haga el avatar, les ofrezco el avatar mismo. O sea, una vez que entra uno con la web ya después le puedo ofrecer el avatar y los demás servicios de Quantum Hive. El tema con el tema de la automatización de WhatsApp es que también yo tengo mi WhatsApp, todavía no ofrecí ningún servicio y todavía no tengo claro cómo hacer un agente de WhatsApp. Aunque tengo mucha experiencia en desarrollo y en software y todo, realmente no tengo claro cómo poner un agente en WhatsApp. Así que es como que estoy empezando, pero bueno, ya tengo un paraguas como para poder arrancar y creo que sería como lo que me va a destrabar inicialmente esto de las webs antes de la mesera virtual y de los empleados virtuales. Como que lo de los empleados virtuales sería el paso siguiente, que ya también casi lo tengo armado. Me falta lo del avatar que, es más, lo del avatar voy a agarrar una VM del RunPound y hacer los assets en Nive Portable, los hago yo en videos, y podría ya empezar con el avatar sin cachar los videos de cada plato o de cada cosa, sino solamente con un idle de conversación y listo. Un agente conversacional. O cachar solamente el audio y le pongo el idle, aunque no tenga los labios sincronizados, no importa, puedo empezar así.
+Ha pensado durante 1m 55s
+
+Sí, ahora lo veo mucho más claro. Y corrijo lo anterior: no necesitás empezar por restaurantes ni elegir un nicho al azar. Tu ventaja inicial no es la experiencia gastronómica: es que ya tenés seis oportunidades reales para probar Web Factory sin hacer prospección fría.
+
+La estrategia correcta sería validar primero el sistema con contactos cercanos y después decidir en qué nicho especializarte según quién paga, quién responde y qué tipo de web produce mejores resultados.
+
+Los primeros casos
+Caso	Tipo de solución	Prioridad
+QuantumHive	Web corporativa + agente que diagnostica negocios y vende servicios	1
+Negocio con Tiendanube	Mejora visual + asesor de productos dentro de la tienda	2
+Antigua clienta del bot	Web + agente que realiza el diagnóstico conversacional	3
+Indumentaria de trabajo	Catálogo + recomendador según oficio/necesidad	4
+Barbería	Servicios + precios + turnos/consulta	5
+Profesora de yoga	Marca personal + clases + captación de alumnos	6
+
+No construiría las seis simultáneamente. Primero haría QuantumHive y tres pilotos que representen distintos modelos:
+
+E-commerce o catálogo.
+Servicios con turnos.
+Diagnóstico y captación de prospectos.
+
+Después la indumentaria reutiliza el sistema del e-commerce; yoga reutiliza gran parte del sistema de barbería.
+
+No estás validando un nicho todavía
+
+Estás validando tres cosas más importantes:
+
+Si podés construir una web personalizada rápidamente.
+Si el asistente realmente agrega valor y genera consultas.
+Si alguien está dispuesto a pagar por el resultado.
+
+Después de cinco casos vas a poder comparar:
+
+Qué sector necesitó menos personalización.
+Qué asistente fue más útil.
+Quién respondió más rápido.
+Quién tuvo más capacidad de pago.
+Qué proyecto produjo mejores imágenes y resultados para el portafolio.
+A quién se le puede vender después un Empleado Virtual.
+
+Ahí elegís el nicho con evidencia, no por intuición.
+
+Cómo manejar los trabajos gratis
+
+No los presentaría como “webs gratis”. Los llamaría:
+
+Programa de Clientes Piloto Fundadores de Web Factory.
+
+Podés bonificar total o parcialmente la implementación, pero siempre con un intercambio concreto:
+
+Permiso para mostrar el proyecto en el portafolio.
+Dos reuniones de feedback.
+Entrega de información y correcciones dentro de un plazo.
+Testimonio si queda conforme.
+Autorización para publicar capturas, resultados y logo.
+Dominio y servicios externos pagados por el negocio.
+Alcance limitado y documentado.
+Mantenimiento posterior pago.
+
+En la propuesta debe aparecer el valor real y debajo:
+
+Bonificación especial como cliente piloto fundador.
+
+Esto evita que parezca que tu trabajo vale cero.
+
+Con la antigua clienta del bot de Telegram tendría especial cuidado: ya tenés la información y anteriormente hubo interés, pero no volvería a construirle todo sin una confirmación concreta. Primero le mostrás el nuevo concepto y pedís una aceptación, una reserva simbólica o un compromiso de participación. Así evitás repetir la historia de que se cuelgue después de que vos invertiste tiempo.
+
+La web de QuantumHive es el primer producto
+
+No tiene que ser una web institucional gigantesca. Inicialmente necesita:
+
+Presentación fuerte de QuantumHive.
+Webs Inteligentes.
+Empleados Virtuales.
+Mesero Virtual como especialización.
+Casos piloto.
+Proceso de trabajo.
+Formulario o agenda.
+Agente conversacional dentro de la página.
+
+El agente de QuantumHive debería hacer lo mismo que después vendés:
+
+Preguntar qué tipo de negocio tiene la persona.
+Consultar si ya posee web.
+Detectar problemas básicos.
+Explicar qué solución encaja.
+Realizar un diagnóstico preliminar.
+Capturar el contacto.
+Preparar un resumen para que vos continúes la venta.
+
+Tu propia web se transforma en la primera demostración funcional de Web Factory.
+
+El entorno de desarrollo especializado
+
+Tu idea es buena, pero no metería inmediatamente veinte skills diferentes. Primero haría dos implementaciones manuales y documentaría los pasos que realmente se repiten.
+
+La separación correcta sería:
+
+web-factory/
+├── AGENTS.md
+├── docs/
+│   ├── product-brief.md
+│   ├── commercial-offer.md
+│   ├── pilot-program.md
+│   └── pipeline.md
+├── design-system/
+│   ├── tokens/
+│   ├── components/
+│   ├── effects/
+│   └── templates/
+├── templates/
+│   ├── ecommerce/
+│   ├── services-booking/
+│   └── diagnostic-funnel/
+├── agent-runtime/
+│   ├── web-widget/
+│   ├── knowledge/
+│   ├── lead-capture/
+│   └── provider-router/
+├── clients/
+│   ├── quantumhive/
+│   └── pilots/
+└── evals/
+    ├── visual/
+    ├── factual/
+    └── conversational/
+
+Y empezaría solamente con dos skills propias:
+
+build-client-web-demo
+
+Recibe la información del negocio y:
+
+Normaliza el brief.
+Selecciona la plantilla.
+Aplica identidad visual.
+Construye la demo.
+Configura el asistente.
+Genera la URL de revisión.
+qa-client-web
+
+Verifica:
+
+Celular y escritorio.
+Información inventada o incorrecta.
+Botones y formularios.
+Velocidad.
+Accesibilidad.
+Respuestas del agente.
+Captura de leads.
+Errores de consola.
+
+Los componentes, efectos y plantillas deberían vivir como recursos controlados de Web Factory. Las skills tienen que enseñar el procedimiento, no convertirse en depósitos gigantes de enlaces y código.
+
+También conviene crear un registro de componentes con:
+
+Fuente.
+Licencia.
+Framework.
+Categoría.
+Compatibilidad móvil.
+Costo de rendimiento.
+Estado aprobado/no aprobado.
+
+Así el agente selecciona elementos que vos ya validaste y no arma cada web como una mezcla impredecible.
+
+WhatsApp no es un bloqueo
+
+No necesitás aprenderlo ahora para empezar. Lo importante es que el núcleo del agente no quede atado al chat de la web.
+
+Primero:
+
+Widget web → API QuantumHive → agente → respuesta
+
+Más adelante:
+
+WhatsApp → webhook → misma API QuantumHive → mismo agente → respuesta
+
+WhatsApp será otro adaptador de entrada y salida, no otro cerebro. Por ahora no lo ofrecería hasta que lo pruebes completamente con tu propio número.
+
+La simplificación del avatar es válida
+
+La idea del idle general + audio es una buena salida para desbloquear Empleados Virtuales:
+
+Un video idle de buena calidad.
+Respiración, parpadeo y pequeños movimientos.
+Audio dinámico o cacheado.
+Subtítulos.
+Un orbe o forma de onda que reaccione mientras habla.
+Sin primer plano de la boca para que la falta de sincronización no parezca un error.
+
+Para Mesero Virtual tampoco necesitás un video por plato inicialmente. Podés utilizar:
+
+Avatar idle general.
+Fotografías reales de los platos.
+Chips de navegación.
+Texto y voz.
+Videos cacheados solamente para bienvenida, categorías y mensajes repetidos.
+
+Luego reemplazás el render visual sin cambiar el agente ni la aplicación.
+
+Orden concreto
+
+Yo arrancaría así:
+
+Me pasás la propuesta del negocio de Tiendanube.
+La analizamos y la transformamos en el primer caso de Web Inteligente.
+Definimos la plantilla maestra y el comportamiento del asistente.
+Construimos una versión inicial de la web de QuantumHive.
+Contactás a la antigua clienta antes de construirle nada.
+Seleccionamos barbería o yoga como primer caso de turnos.
+Documentamos lo aprendido.
+Recién entonces convertimos el procedimiento probado en skills de Web Factory.
+
+Esto sí puede destrabarte: las webs te dan clientes, portafolio y experiencia comercial; esos mismos clientes después alimentan Empleados Virtuales. No estás abandonando el proyecto grande: estás construyendo su puerta de entrada.
+
+YA TENGO UNA QUE ESTA BUENA VISUALMENTE PERO EL CONTENIDO ES MALISIMO    AHORA CON EL ENTORNO DE DESARROLLO WEB NUEVO QUE ESTA DENTRO DE ESTE ENTORNO DE CHAT GPT LE PUEDO INSTALAR SKILLS Y HACERLO PROFECIONAL? O ES MEJOR SI ME ARMO UN ENTRNO LOCAL CON UN AGENTE Y CARPETA CON SKILLS Y PAGINAS QUE TIENE QUE USAR EN LA WEB PARA HACER LAS WEBS PROFECIONALES? 

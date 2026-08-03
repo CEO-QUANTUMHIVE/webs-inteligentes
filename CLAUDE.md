@@ -131,14 +131,17 @@ graphify update .
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-03 · 417 archivos versionados
+Actualizado: 2026-08-03 · 451 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
-| `clientes/` | 235 | Proyectos Next.js de cada cliente |
-| `plantillas/` | 75 | Plantillas por tipo de negocio |
-| `.claude/` | 38 | — |
-| `habilidades/` | 16 | Skills del pipeline y material de apoyo |
+| `clientes/` | 89 | Proyectos Next.js de cada cliente |
+| `work/` | 87 | — |
+| `plantillas/` | 78 | Plantillas por tipo de negocio |
+| `asset de imagenes de quantumhive/` | 53 | — |
+| `.claude/` | 40 | — |
+| `"asset de imagenes de quantumhive/` | 29 | — |
+| `habilidades/` | 17 | Skills del pipeline y material de apoyo |
 | `PROCESOS APRENDIDOS/` | 11 | — |
 | `supabase/` | 10 | — |
 | `sistema-de-diseno/` | 6 | Tokens, registro de componentes y efectos |
@@ -147,6 +150,7 @@ Actualizado: 2026-08-03 · 417 archivos versionados
 | `motor-agentes/` | 4 | Andamiaje del agente conversacional (sin implementar) |
 | `evaluaciones/` | 3 | Criterios de QA visual, factual y conversacional |
 | `scripts/` | 2 | Automatización del repo |
+| `docs/` | 1 | — |
 | `CONTEXTO/` | 1 | Contexto del proyecto |
 | `.github/` | 1 | — |
 

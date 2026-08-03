@@ -1,0 +1,11 @@
+{
+  "gsap": false,
+  "ScrollTrigger": false,
+  "Swiper": false,
+  "lenis": false,
+  "lottie": false,
+  "three": false,
+  "canvas": 0,
+  "rive": 0,
+  "video": 7
+}
