@@ -4,8 +4,17 @@
     "clone-website": {
       "source": "JCodesMore/ai-website-cloner-template",
       "sourceType": "github",
-      "skillPath": ".claude/skills/clone-website/SKILL.md",
-      "computedHash": "e27632c6852a32d765d91af33d8f38a6637af4120d4c54f812235e26ca85b27d"
+      "skillPath": ".agents/skills/clone-website/SKILL.md",
+      "computedHash": "e27632c6852a32d765d91af33d8f38a6637af4120d4c54f812235e26ca85b27d",
+      "use": "Sitios estándar, CSS perfecto, migration WordPress"
+    },
+    "true-web-clone": {
+      "source": "SkyNotSilent/true-web-clone",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/true-web-clone/SKILL.md",
+      "description": "Source-first cloning for 3D/WebGL, GSAP, Lottie, Rive sites",
+      "use": "Sitios premium con Three.js, scroll inmersivo, animaciones complejas",
+      "created": "2026-08-03"
     },
     "web-3d": {
       "source": "custom",

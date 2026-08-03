@@ -131,7 +131,7 @@ graphify update .
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-03 · 253 archivos versionados
+Actualizado: 2026-08-03 · 257 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
@@ -143,6 +143,7 @@ Actualizado: 2026-08-03 · 253 archivos versionados
 | `sistema-de-diseno/` | 6 | Tokens, registro de componentes y efectos |
 | `documentacion/` | 5 | Documentos de producto y comerciales |
 | `motor-agentes/` | 4 | Andamiaje del agente conversacional (sin implementar) |
+| `.agents/` | 4 | — |
 | `evaluaciones/` | 3 | Criterios de QA visual, factual y conversacional |
 | `scripts/` | 2 | Automatización del repo |
 | `CONTEXTO/` | 1 | Contexto del proyecto |
