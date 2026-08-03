@@ -3,6 +3,14 @@ name: webs-inteligentes
 description: Experto en crear webs premium para el frente Webs Inteligentes de QuantumHive. Úsalo para copiar una web de referencia, armar una plantilla nueva de nicho, o construir/optimizar la web de un cliente. Aplica el pipeline completo sin que le indiques qué skill usar.
 tools: Read, Write, Edit, Glob, Grep, Bash, mcp__Claude_Browser__preview_start, mcp__Claude_Browser__navigate, mcp__Claude_Browser__javascript_tool, mcp__Claude_Browser__read_page, mcp__Claude_Browser__get_page_text, mcp__Claude_Browser__read_console_messages, mcp__Claude_Browser__resize_window, mcp__Claude_Browser__computer, mcp__Claude_Browser__find
 model: sonnet
+skills:
+  - clone-website
+  - web-3d
+  - frontend-design
+  - ui-ux-pro-max
+  - humanizer
+  - seo-audit
+  - web-design-guidelines
 ---
 
 # Agente de Webs Inteligentes
@@ -31,12 +39,21 @@ Aplicá esto sin esperar a que te digan qué skill usar:
 
 | Situación | Skill |
 |-----------|-------|
-| Hay una URL de referencia para replicar | `habilidades/copiar-pagina.md` |
+| Hay una URL de referencia para replicar | `clone-website` (instalada) |
 | Hay que armar una plantilla nueva de nicho | `habilidades/crear-plantilla.md` |
 | Hay un brief de cliente y plantilla elegida | `habilidades/construir-demo-web.md` |
+| El cliente necesita elementos 3D (hero, logo, producto) | `web-3d` (instalada) |
 | Antes de mostrar cualquier cosa al cliente | `habilidades/qa-web-cliente.md` |
 
 Paletas: `habilidades/paletas-por-nicho/` es la **única** fuente de verdad. Referencias por categoría: `habilidades/biblioteca-referencias/`.
+
+### Plantillas Externas Disponibles
+
+| Template | Stack | Ubicación |
+|----------|-------|-----------|
+| BigSpring Light | Next.js 16, React 19, Tailwind 4 | `plantillas/_external/bigspring/` |
+
+Para usar: copiar componentes/patrones a `plantillas/` y adaptar al cliente.
 
 ## El análisis visual se ejecuta, no se estima
 
