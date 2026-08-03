@@ -253,6 +253,7 @@ Escenas predefinidas de Spline que se pueden embedir directamente:
 | **Seguir local** | Objetos siguen al cursor (eventos solo en el viewer) | `https://prod.spline.design/PBQQBw8bfXDhBo7w/scene.splinecode` |
 | **Mira a global** | Objetos miran a cámara/cursor (eventos en todo el documento) | `https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode` |
 | **Mira a local** | Objetos miran a cámara/cursor (eventos solo en el viewer) | `https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode` |
+| **Cambiar fondo** | Color de fondo personalizado con CSS | `https://prod.spline.design/fJ2ptJKzT-sDkpfO/scene.splinecode` |
 
 ### Voluta - Scroll Transitions
 
@@ -434,6 +435,71 @@ export function LookAtDemo() {
     </div>
   );
 }
+```
+
+### Cambiar Fondo - Background Color
+
+Modifica el color de fondo de tu escena Spline utilizando la propiedad `background`, que acepta cualquier color de estilo CSS. Este color reemplazará el color de fondo que hayas definido en el editor.
+
+```html
+<script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
+<spline-viewer url="https://prod.spline.design/fJ2ptJKzT-sDkpfO/scene.splinecode" background="rgba(218,81,221,0.2)"></spline-viewer>
+```
+
+**Formatos de color soportados:**
+```html
+<!-- RGB con opacidad -->
+<spline-viewer background="rgba(218,81,221,0.2)" />
+
+<!-- HEX -->
+<spline-viewer background="#ff0000" />
+
+<!-- HSL -->
+<spline-viewer background="hsl(120, 100%, 50%)" />
+
+<!-- Named colors -->
+<spline-viewer background="transparent" />
+<spline-viewer background="black" />
+```
+
+**Uso recomendado:**
+- Adaptar escena al color del tema del cliente
+- Crear transiciones de fondo con CSS
+- Escenas con fondos transparentes para overlay
+
+**Integración en Next.js:**
+```tsx
+'use client';
+
+interface SplineWithBackgroundProps {
+  sceneUrl: string;
+  backgroundColor?: string;
+}
+
+export function SplineWithBackground({ 
+  sceneUrl, 
+  backgroundColor = 'transparent' 
+}: SplineWithBackgroundProps) {
+  return (
+    <div className="relative w-full h-96">
+      <script 
+        type="module" 
+        src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js" 
+      />
+      <spline-viewer 
+        url={sceneUrl}
+        background={backgroundColor}
+        className="w-full h-full"
+      />
+    </div>
+  );
+}
+
+// Uso:
+// <SplineWithBackground 
+//   sceneUrl="https://prod.spline.design/xxx/scene.splinecode"
+//   backgroundColor="rgba(218,81,221,0.2)"
+// />
 ```
 
 ## MCP Server (Optional)
