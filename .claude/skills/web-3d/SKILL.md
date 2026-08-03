@@ -241,6 +241,19 @@ pnpm add @splinetool/react-spline @splinetool/runtime
 - Large .splinecode files affect load time
 - Complex interactions require manual runtime code
 
+## Compatibilidad
+
+`<spline-viewer>` es un componente HTML nativo (Web Component) compatible con:
+
+| Categoría | Soporte |
+|-----------|---------|
+| **Navegadores** | Últimas versiones de Chrome, Firefox, Safari, Edge |
+| **Frameworks JS** | React, Svelte, Vue, Angular, vanilla JS |
+| **Creadores de sitios** | Framer, Webflow, Typedream, Squarespace, WordPress |
+| **Build tools** | Next.js, Vite, Webpack, Parcel |
+
+**Nota:** Para SSR (Next.js App Router), usar `dynamic()` con `ssr: false` o el script en `layout.tsx`.
+
 ## Gallery - Ready-to-Use Scenes
 
 Escenas predefinidas de Spline que se pueden embedir directamente:
