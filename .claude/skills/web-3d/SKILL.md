@@ -249,6 +249,8 @@ Escenas predefinidas de Spline que se pueden embedir directamente:
 |--------|--------|-----|
 | **Voluta** | Transiciones basadas en desplazamiento, estados de cámara | `https://prod.spline.design/LEvjG3OETYd2GsRw/scene.splinecode` |
 | **Órbita y zoom** | Control de comportamiento de cámara desde exportación | `https://prod.spline.design/U9O6K7fXziMEU7Wu/scene.splinecode` |
+| **Seguir global** | Objetos siguen al cursor (eventos en todo el documento) | `https://prod.spline.design/PBQQBw8bfXDhBo7w/scene.splinecode` |
+| **Seguir local** | Objetos siguen al cursor (eventos solo en el viewer) | `https://prod.spline.design/PBQQBw8bfXDhBo7w/scene.splinecode` |
 
 ### Voluta - Scroll Transitions
 
@@ -321,6 +323,59 @@ export function OrbitaZoom() {
         url="https://prod.spline.design/U9O6K7fXziMEU7Wu/scene.splinecode"
         className="w-full h-full"
       />
+    </div>
+  );
+}
+```
+
+### Seguir Global / Seguir Local - Cursor Follow
+
+Haz que tus objetos sigan al cursor u otros objetos utilizando el evento Follow.
+
+**Diferencia entre Global y Local:**
+- `events-target="global"` - Los eventos se capturan en todo el documento
+- `events-target="local"` - Los eventos se capturan solo dentro del viewer
+
+#### Seguir Global
+```html
+<script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
+<spline-viewer url="https://prod.spline.design/PBQQBw8bfXDhBo7w/scene.splinecode" events-target="global"></spline-viewer>
+```
+
+#### Seguir Local
+```html
+<script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
+<spline-viewer url="https://prod.spline.design/PBQQBw8bfXDhBo7w/scene.splinecode" events-target="local"></spline-viewer>
+```
+
+**Uso recomendado:**
+- **Global:** Efectos de cursor que interactúan con la página completa
+- **Local:** Interacciones confinadas al canvas 3D (mejor rendimiento)
+
+**Integración en Next.js:**
+```tsx
+'use client';
+
+export function CursorFollow() {
+  return (
+    <div className="relative w-full h-96">
+      <script 
+        type="module" 
+        src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js" 
+      />
+      {/* Global - sigue cursor en toda la página */}
+      <spline-viewer 
+        url="https://prod.spline.design/PBQQBw8bfXDhBo7w/scene.splinecode"
+        events-target="global"
+        className="w-full h-full"
+      />
+      
+      {/* Local - solo dentro del canvas */}
+      {/* <spline-viewer 
+        url="https://prod.spline.design/PBQQBw8bfXDhBo7w/scene.splinecode"
+        events-target="local"
+        className="w-full h-full"
+      /> */}
     </div>
   );
 }
