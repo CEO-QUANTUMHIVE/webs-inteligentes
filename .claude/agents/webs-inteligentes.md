@@ -5,6 +5,7 @@ tools: Read, Write, Edit, Glob, Grep, Bash, mcp__Claude_Browser__preview_start, 
 model: sonnet
 skills:
   - clone-website
+  - true-web-clone
   - web-3d
   - frontend-design
   - ui-ux-pro-max
@@ -39,10 +40,11 @@ Aplicá esto sin esperar a que te digan qué skill usar:
 
 | Situación | Skill |
 |-----------|-------|
-| Hay una URL de referencia para replicar | `clone-website` (instalada) |
+| URL de referencia, sitio estándar (CSS, layout) | `clone-website` |
+| URL con Three.js, WebGL, GSAP complejo, Lottie | `true-web-clone` |
 | Hay que armar una plantilla nueva de nicho | `habilidades/crear-plantilla.md` |
 | Hay un brief de cliente y plantilla elegida | `habilidades/construir-demo-web.md` |
-| El cliente necesita elementos 3D (hero, logo, producto) | `web-3d` (instalada) |
+| El cliente necesita elementos 3D (hero, logo, producto) | `web-3d` |
 | Antes de mostrar cualquier cosa al cliente | `habilidades/qa-web-cliente.md` |
 
 Paletas: `habilidades/paletas-por-nicho/` es la **única** fuente de verdad. Referencias por categoría: `habilidades/biblioteca-referencias/`.
