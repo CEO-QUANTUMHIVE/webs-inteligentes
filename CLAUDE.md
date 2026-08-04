@@ -81,7 +81,7 @@ En `habilidades/`, por orden de uso:
 |-------|----------|
 | `copiar-pagina.md` | Replicar una web de referencia. **El análisis visual de la fase 1 no es ejecutable con WebFetch** — requiere un navegador real que corra JS. |
 | `qa-web-cliente.md` | Filtro de calidad antes de mostrar al cliente |
-| `construir-demo-web.md` | Orquesta el armado. Apunta a `sistema-de-diseno/plantillas/` pero ahí no hay plantilla copiable |
+| `construir-demo-web.md` | Orquesta el armado. Ya corregido: parte de `plantillas/base-premium/` (no de `sistema-de-diseno/plantillas/`, que solo tiene un `templates.ts` sin plantilla copiable) |
 | `crear-plantilla.md` | Solo al armar un nicho nuevo |
 
 Apoyo: `paletas-por-nicho/` (6 nichos) y `biblioteca-referencias/` (4 categorías).
@@ -108,6 +108,45 @@ Consultar el sistema de diseño de un nicho:
 python .claude/skills/ui-ux-pro-max/scripts/search.py "gastronomia parrilla" --design-system
 ```
 
+## Catálogo de plantillas básicas
+
+8 plantillas navegables en producción, una por rubro, en
+`/catalogo-plantillas` (sección "Básicas"). Documentación completa en
+[`PROCESOS APRENDIDOS/10-catalogo-plantillas-basicas.md`](PROCESOS%20APRENDIDOS/10-catalogo-plantillas-basicas.md).
+
+| Nicho | Ruta |
+|-------|------|
+| Gastronomía | `/catalogo/plantillas/basicas/gastronomia` |
+| Barbería | `/catalogo/plantillas/basicas/barberia` |
+| Servicios profesionales | `/catalogo/plantillas/basicas/servicios-pro` |
+| Wellness / Yoga | `/catalogo/plantillas/basicas/wellness` |
+| Retail / Ecommerce | `/catalogo/plantillas/basicas/retail` |
+| Educación / Cursos | `/catalogo/plantillas/basicas/educacion` |
+| Salud | `/catalogo/plantillas/basicas/salud` |
+| Inmobiliaria | `/catalogo/plantillas/basicas/inmobiliaria` |
+
+**Arquitectura, distinta de las demos "premium"** (`concreto`, `gamer`,
+`codix`, `quantum-studio`, que son apps Vite compiladas aparte y copiadas
+como estático a `public/plantillas/`): las básicas son rutas **Next.js
+reales** dentro de `src/app/catalogo/plantillas/basicas/<id>/`, cada una con
+su propio `layout.tsx` (fuentes del nicho vía `next/font/google`) y
+`<id>.module.css` (variables `--t-*` propias, sin tocar el theme global de
+QuantumHive en `globals.css`).
+
+`catalogo/plantillas/basicas/<id>/` (fuera del proyecto Next, en la raíz del
+repo) guarda `ficha.json` + `README.md` con las decisiones de diseño —
+**no duplica el código**, solo lo documenta. El índice
+(`catalogo/plantillas/basicas/indice.json`) se lee en build time con
+`fs.readFileSync` desde `src/lib/catalogo.ts` (`obtenerPlantillasBasicas()`)
+— no depende de Supabase, a diferencia de las plantillas premium.
+
+Paletas de nicho en `habilidades/paletas-por-nicho/`: 8 disponibles (las 6
+originales más `salud.md` e `inmobiliaria.md`, creadas para este catálogo
+con contrastes calculados, no estimados).
+
+Para crear la plantilla básica #9, usar la skill
+`.claude/skills/crear-plantilla-basica/SKILL.md`.
+
 ## Grafo de conocimiento
 
 **Consultá el grafo antes de releer el repo.** Para "¿dónde está X?", arquitectura, o "¿cómo se conecta Y con Z?", el grafo responde con archivo y línea exactos. Releer archivos sueltos es el último recurso.
@@ -131,7 +170,7 @@ graphify update .
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-04 · 419 archivos versionados
+Actualizado: 2026-08-04 · 421 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
@@ -142,8 +181,8 @@ Actualizado: 2026-08-04 · 419 archivos versionados
 | `catalogo/` | 29 | — |
 | `"asset de imagenes de quantumhive/` | 29 | — |
 | `habilidades/` | 19 | Skills del pipeline y material de apoyo |
-| `PROCESOS APRENDIDOS/` | 11 | — |
-| `supabase/` | 10 | — |
+| `PROCESOS APRENDIDOS/` | 12 | — |
+| `supabase/` | 11 | — |
 | `sistema-de-diseno/` | 6 | Tokens, registro de componentes y efectos |
 | `documentacion/` | 5 | Documentos de producto y comerciales |
 | `.agents/` | 5 | — |

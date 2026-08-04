@@ -132,6 +132,43 @@ const previewComponents: Record<string, () => React.JSX.Element> = {};
 
 ---
 
+## ERROR 7: Entidad HTML `&amp;` en texto JSX se come el espacio anterior
+
+**Qué pasó:**
+- Al construir el catálogo de plantillas básicas, el footer de la plantilla
+  "servicios profesionales" escribía `{new Date().getFullYear()} Andrade
+  &amp; Vega` y renderizaba `2026Andrade Vega`, sin espacio antes de
+  "Andrade".
+- Las otras plantillas del mismo lote, que no usaban `&amp;` en su texto,
+  no tenían el problema (`2026 Ceniza`, con espacio).
+
+**Causa:**
+- El compilador JSX de Next.js 16 / React 19 colapsa el espacio en blanco
+  inmediatamente anterior a una entidad HTML como `&amp;` dentro de un nodo
+  de texto mixto (texto + expresión + texto con entidad). No pasa con el
+  carácter `&` literal.
+
+**Cómo se detectó:**
+- Se comparó el HTML generado (`out/*.html`) byte a byte entre una
+  plantilla sin `&` y la que sí lo tenía, en vez de asumir que era un
+  problema de layout/CSS.
+
+**Solución:**
+```tsx
+// MAL — el espacio antes de "Andrade" desaparece al renderizar
+<span>Andrade &amp; Vega</span>
+
+// BIEN — React escapa el & a &amp; en el HTML de salida de todas formas
+<span>Andrade & Vega</span>
+```
+
+**Prevención:**
+- No usar entidades HTML (`&amp;`, `&ldquo;`, etc.) en texto JSX. Usar el
+  carácter literal (`&`, `"`, `"`) — React los escapa correctamente al
+  serializar a HTML, así que no hay pérdida de seguridad ni de semántica.
+
+---
+
 ## RESUMEN DE LECCIONES
 
 | # | Error | Lección |
@@ -142,3 +179,4 @@ const previewComponents: Record<string, () => React.JSX.Element> = {};
 | 4 | Config faltante | Incluir `output: "export"` siempre |
 | 5 | Carpetas vacías | Mantener fuente de verdad en un solo lugar |
 | 6 | JSX namespace | Usar `React.JSX.Element` en React 19 |
+| 7 | Entidad `&amp;` en JSX | Usar el carácter `&` literal, nunca la entidad |
