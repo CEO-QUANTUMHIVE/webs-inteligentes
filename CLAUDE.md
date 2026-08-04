@@ -170,14 +170,14 @@ graphify update .
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-04 · 421 archivos versionados
+Actualizado: 2026-08-04 · 423 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
 | `clientes/` | 113 | Proyectos Next.js de cada cliente |
 | `plantillas/` | 78 | Plantillas por tipo de negocio |
 | `asset de imagenes de quantumhive/` | 53 | — |
-| `.claude/` | 40 | — |
+| `.claude/` | 42 | — |
 | `catalogo/` | 29 | — |
 | `"asset de imagenes de quantumhive/` | 29 | — |
 | `habilidades/` | 19 | Skills del pipeline y material de apoyo |
