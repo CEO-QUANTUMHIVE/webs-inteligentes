@@ -131,11 +131,11 @@ graphify update .
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-04 · 370 archivos versionados
+Actualizado: 2026-08-04 · 376 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
-| `clientes/` | 92 | Proyectos Next.js de cada cliente |
+| `clientes/` | 95 | Proyectos Next.js de cada cliente |
 | `plantillas/` | 78 | Plantillas por tipo de negocio |
 | `asset de imagenes de quantumhive/` | 53 | — |
 | `.claude/` | 40 | — |
@@ -144,11 +144,11 @@ Actualizado: 2026-08-04 · 370 archivos versionados
 | `PROCESOS APRENDIDOS/` | 11 | — |
 | `supabase/` | 10 | — |
 | `sistema-de-diseno/` | 6 | Tokens, registro de componentes y efectos |
+| `catalogo/` | 6 | — |
 | `documentacion/` | 5 | Documentos de producto y comerciales |
 | `.agents/` | 5 | — |
 | `motor-agentes/` | 4 | Andamiaje del agente conversacional (sin implementar) |
 | `evaluaciones/` | 3 | Criterios de QA visual, factual y conversacional |
-| `catalogo/` | 3 | — |
 | `scripts/` | 2 | Automatización del repo |
 | `docs/` | 1 | — |
 | `CONTEXTO/` | 1 | Contexto del proyecto |
@@ -158,6 +158,7 @@ Actualizado: 2026-08-04 · 370 archivos versionados
 
 - `/catalogo-efectos` → `clientes/quantum-hive/src/app/catalogo-efectos/page.tsx`
 - `/catalogo-plantillas` → `clientes/quantum-hive/src/app/catalogo-plantillas/page.tsx`
+- `/catalogo/plantillas/basicas/barberia` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/barberia/page.tsx`
 - `/catalogo/plantillas/basicas/gastronomia` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/gastronomia/page.tsx`
 - `/nuestras-webs` → `clientes/quantum-hive/src/app/nuestras-webs/page.tsx`
 - `/` → `clientes/quantum-hive/src/app/page.tsx`

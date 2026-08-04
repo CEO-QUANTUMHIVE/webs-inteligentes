@@ -1,0 +1,26 @@
+{
+  "id": "pl-basica-barberia",
+  "nombre": "La Navaja — Barbería Clásica",
+  "nicho": "barberia",
+  "nivel": "basica",
+  "version": "1.0.0",
+  "estilo": "Clásico oscuro (madera, cuero, metal envejecido)",
+  "paleta": {
+    "ref": "habilidades/paletas-por-nicho/barberias.md",
+    "primario": "#d97706",
+    "secundario": "#92400e",
+    "acento": "#fbbf24",
+    "fondo": "#1c1917",
+    "texto": "#fafaf9"
+  },
+  "tipografia": { "display": "Bebas Neue", "body": "Inter" },
+  "secciones": ["hero", "servicios", "galeria", "turnos", "equipo", "contacto"],
+  "elementos": ["wf-hero-glass", "wf-card-metrica"],
+  "dependencias": ["tailwind"],
+  "compatibleMovil": true,
+  "costoRendimiento": "bajo",
+  "ruta": "/catalogo/plantillas/basicas/barberia",
+  "estado": "publicada",
+  "creada": "2026-08-03",
+  "fuenteReceta": "ui-ux-pro-max search.py \"booking appointment salon\" --design-system (descartado por sesgo de nicho); paleta y tipografía oficiales de habilidades/paletas-por-nicho/barberias.md"
+}
