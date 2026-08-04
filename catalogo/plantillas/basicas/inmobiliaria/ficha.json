@@ -1,0 +1,26 @@
+{
+  "id": "pl-basica-inmobiliaria",
+  "nombre": "Merídian — Propiedades",
+  "nicho": "inmobiliaria",
+  "nivel": "basica",
+  "version": "1.0.0",
+  "estilo": "Minimalismo exagerado — tipografía grande, espacio generoso",
+  "paleta": {
+    "ref": "habilidades/paletas-por-nicho/inmobiliaria.md",
+    "primario": "#c9a227",
+    "secundario": "#5c4a2e",
+    "acento": "#e8dcc8",
+    "fondo": "#14110d",
+    "texto": "#f7f4ee"
+  },
+  "tipografia": { "display": "Cinzel", "body": "Josefin Sans" },
+  "secciones": ["hero", "busqueda", "propiedades", "contacto"],
+  "elementos": ["vui-glow-border-card", "wf-seccion-contacto"],
+  "dependencias": ["tailwind"],
+  "compatibleMovil": true,
+  "costoRendimiento": "bajo",
+  "ruta": "/catalogo/plantillas/basicas/inmobiliaria",
+  "estado": "publicada",
+  "creada": "2026-08-03",
+  "fuenteReceta": "ui-ux-pro-max search.py \"real estate property listing\" --design-system (tipografía y estilo, sin cambios); paleta nueva creada en habilidades/paletas-por-nicho/inmobiliaria.md con contrastes calculados"
+}

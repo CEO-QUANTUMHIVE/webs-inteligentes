@@ -131,17 +131,17 @@ graphify update .
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-04 · 407 archivos versionados
+Actualizado: 2026-08-04 · 414 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
-| `clientes/` | 110 | Proyectos Next.js de cada cliente |
+| `clientes/` | 113 | Proyectos Next.js de cada cliente |
 | `plantillas/` | 78 | Plantillas por tipo de negocio |
 | `asset de imagenes de quantumhive/` | 53 | — |
 | `.claude/` | 40 | — |
 | `"asset de imagenes de quantumhive/` | 29 | — |
-| `catalogo/` | 21 | — |
-| `habilidades/` | 18 | Skills del pipeline y material de apoyo |
+| `catalogo/` | 24 | — |
+| `habilidades/` | 19 | Skills del pipeline y material de apoyo |
 | `PROCESOS APRENDIDOS/` | 11 | — |
 | `supabase/` | 10 | — |
 | `sistema-de-diseno/` | 6 | Tokens, registro de componentes y efectos |
@@ -161,6 +161,7 @@ Actualizado: 2026-08-04 · 407 archivos versionados
 - `/catalogo/plantillas/basicas/barberia` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/barberia/page.tsx`
 - `/catalogo/plantillas/basicas/educacion` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/educacion/page.tsx`
 - `/catalogo/plantillas/basicas/gastronomia` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/gastronomia/page.tsx`
+- `/catalogo/plantillas/basicas/inmobiliaria` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/inmobiliaria/page.tsx`
 - `/catalogo/plantillas/basicas/retail` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/retail/page.tsx`
 - `/catalogo/plantillas/basicas/salud` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/salud/page.tsx`
 - `/catalogo/plantillas/basicas/servicios-pro` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/servicios-pro/page.tsx`
