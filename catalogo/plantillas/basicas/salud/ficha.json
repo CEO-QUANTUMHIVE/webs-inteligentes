@@ -1,0 +1,26 @@
+{
+  "id": "pl-basica-salud",
+  "nombre": "Vitta — Centro de Salud Integral",
+  "nicho": "salud",
+  "nivel": "basica",
+  "version": "1.0.0",
+  "estilo": "Clínico y calmo (sin Neumorphism, por accesibilidad)",
+  "paleta": {
+    "ref": "habilidades/paletas-por-nicho/salud.md",
+    "primario": "#2dd4bf",
+    "secundario": "#115e59",
+    "acento": "#4ade80",
+    "fondo": "#0a1f1c",
+    "texto": "#ffffff"
+  },
+  "tipografia": { "display": "Figtree", "body": "Noto Sans" },
+  "secciones": ["hero", "especialidades", "equipo", "turnos", "contacto"],
+  "elementos": ["wf-card-metrica", "wf-seccion-contacto"],
+  "dependencias": ["tailwind"],
+  "compatibleMovil": true,
+  "costoRendimiento": "bajo",
+  "ruta": "/catalogo/plantillas/basicas/salud",
+  "estado": "publicada",
+  "creada": "2026-08-03",
+  "fuenteReceta": "ui-ux-pro-max search.py \"medical clinic appointment health\" --design-system (tipografía; estilo Neumorphism descartado por accesibilidad); paleta nueva creada en habilidades/paletas-por-nicho/salud.md con contrastes calculados"
+}
