@@ -1,0 +1,26 @@
+{
+  "id": "pl-basica-gastronomia",
+  "nombre": "Ceniza — Parrilla & Bodegón",
+  "nicho": "gastronomia",
+  "nivel": "basica",
+  "version": "1.0.0",
+  "estilo": "Flat Design + Minimalismo editorial",
+  "paleta": {
+    "ref": "habilidades/paletas-por-nicho/gastronomia.md",
+    "primario": "#ff6b35",
+    "secundario": "#004e89",
+    "acento": "#ffd166",
+    "fondo": "#1a1a2e",
+    "texto": "#ffffff"
+  },
+  "tipografia": { "display": "Playfair Display", "body": "Karla" },
+  "secciones": ["hero", "menu", "galeria", "reservas", "contacto"],
+  "elementos": ["wf-hero-glass", "wf-seccion-contacto"],
+  "dependencias": ["tailwind"],
+  "compatibleMovil": true,
+  "costoRendimiento": "bajo",
+  "ruta": "/catalogo/plantillas/basicas/gastronomia",
+  "estado": "publicada",
+  "creada": "2026-08-03",
+  "fuenteReceta": "ui-ux-pro-max search.py \"restaurant menu food ordering\" --design-system (tipografía); paleta oficial de habilidades/paletas-por-nicho/gastronomia.md"
+}
