@@ -131,7 +131,7 @@ graphify update .
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-04 · 414 archivos versionados
+Actualizado: 2026-08-04 · 419 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
@@ -139,8 +139,8 @@ Actualizado: 2026-08-04 · 414 archivos versionados
 | `plantillas/` | 78 | Plantillas por tipo de negocio |
 | `asset de imagenes de quantumhive/` | 53 | — |
 | `.claude/` | 40 | — |
+| `catalogo/` | 29 | — |
 | `"asset de imagenes de quantumhive/` | 29 | — |
-| `catalogo/` | 24 | — |
 | `habilidades/` | 19 | Skills del pipeline y material de apoyo |
 | `PROCESOS APRENDIDOS/` | 11 | — |
 | `supabase/` | 10 | — |

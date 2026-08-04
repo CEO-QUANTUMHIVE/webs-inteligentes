@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { obtenerPlantillas } from "@/lib/catalogo";
+import { obtenerPlantillas, obtenerPlantillasBasicas } from "@/lib/catalogo";
 import PlantillasCliente from "./plantillas-cliente";
 
 // Server component: puede exportar su propia metadata. Antes esta ruta
@@ -12,5 +12,6 @@ export const metadata: Metadata = {
 
 export default async function CatalogoPlantillas() {
   const plantillas = await obtenerPlantillas();
-  return <PlantillasCliente plantillas={plantillas} />;
+  const basicas = obtenerPlantillasBasicas();
+  return <PlantillasCliente plantillas={plantillas} basicas={basicas} />;
 }

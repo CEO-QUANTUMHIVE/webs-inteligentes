@@ -2,7 +2,7 @@
 
 import { useState, type SyntheticEvent } from "react";
 import Link from "next/link";
-import type { Plantilla } from "@/lib/catalogo";
+import type { Plantilla, PlantillaBasica } from "@/lib/catalogo";
 
 // Alias local: el resto del componente ya usaba este nombre.
 type Template = Plantilla;
@@ -179,7 +179,66 @@ function TemplatePreview({ template }: { template: Template }) {
   );
 }
 
-export default function PlantillasCliente({ plantillas }: { plantillas: Plantilla[] }) {
+function TarjetaBasica({ plantilla }: { plantilla: PlantillaBasica }) {
+  const { paleta } = plantilla;
+  return (
+    <Link
+      href={plantilla.ruta}
+      className="group rounded-2xl border border-white/10 bg-white/[0.02] hover:border-white/20 transition-all duration-300 hover:scale-[1.02] overflow-hidden block"
+    >
+      <div
+        className="h-36 relative overflow-hidden flex items-center justify-center"
+        style={{ background: paleta.fondo }}
+      >
+        <div
+          className="w-16 h-16 rounded-xl"
+          style={{ background: `linear-gradient(135deg, ${paleta.primario}, ${paleta.acento})` }}
+        />
+        <div className="absolute top-3 left-3 px-2 py-0.5 bg-white/10 text-white text-[10px] font-bold rounded-full uppercase tracking-wide">
+          Básica
+        </div>
+      </div>
+      <div className="p-5">
+        <div className="flex items-start justify-between mb-2 gap-2">
+          <h3 className="font-bold text-sm">{plantilla.nombre}</h3>
+          <span className="text-[10px] px-2 py-1 rounded-full bg-white/5 text-gray-400 whitespace-nowrap">
+            {plantilla.nicho}
+          </span>
+        </div>
+        <p className="text-xs text-gray-400 mb-3 leading-relaxed">{plantilla.estilo}</p>
+        <div className="flex items-center gap-2 mb-3">
+          <span className="text-[10px] text-gray-500">Colores:</span>
+          <div className="flex gap-1">
+            {[paleta.primario, paleta.secundario, paleta.acento].map((col, i) => (
+              <div key={i} className="w-4 h-4 rounded-full border border-white/20" style={{ background: col }} />
+            ))}
+          </div>
+        </div>
+        <div className="flex flex-wrap gap-1 mb-4">
+          {plantilla.secciones.map((s) => (
+            <span key={s} className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-gray-400 capitalize">
+              {s}
+            </span>
+          ))}
+        </div>
+        <p className="text-[10px] text-gray-500 mb-4">
+          <span className="text-gray-400">Fuente:</span> {plantilla.tipografia.display} + {plantilla.tipografia.body}
+        </p>
+        <span className="block w-full py-2.5 rounded-lg text-xs font-semibold bg-cyan-400 text-black text-center group-hover:bg-cyan-300 transition-all">
+          Ver plantilla →
+        </span>
+      </div>
+    </Link>
+  );
+}
+
+export default function PlantillasCliente({
+  plantillas,
+  basicas,
+}: {
+  plantillas: Plantilla[];
+  basicas: PlantillaBasica[];
+}) {
   // Los nichos salen de los datos: si se suma uno en la base, aparece solo.
   const niches = ["Todos", ...new Set(plantillas.map((t) => t.niche))];
 
@@ -232,9 +291,33 @@ export default function PlantillasCliente({ plantillas }: { plantillas: Plantill
         </div>
       </section>
 
+      {/* Básicas — una por rubro */}
+      <section className="pb-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2" style={{ fontFamily: "Orbitron, sans-serif" }}>
+              Básicas <span className="text-cyan-400">— una por rubro</span>
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto text-sm">
+              {basicas.length} plantillas navegables, una por nicho, listas para personalizar.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {basicas.map((b) => (
+              <TarjetaBasica key={b.id} plantilla={b} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Nicho filter */}
       <section className="pb-8 px-4">
         <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2" style={{ fontFamily: "Orbitron, sans-serif" }}>
+              Premium
+            </h2>
+          </div>
           <div className="flex flex-wrap gap-2 justify-center">
             {niches.map((n) => (
               <button

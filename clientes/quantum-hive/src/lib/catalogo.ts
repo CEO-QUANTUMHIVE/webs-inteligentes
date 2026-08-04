@@ -9,6 +9,46 @@
  * `codigo`. Nunca consultar la tabla `efectos` desde el frontend.
  */
 
+import { readFileSync } from "node:fs";
+import path from "node:path";
+
+/** Ficha de una plantilla básica del catálogo (catalogo/plantillas/basicas/). */
+export interface PlantillaBasica {
+  id: string;
+  nombre: string;
+  nicho: string;
+  estilo: string;
+  paleta: {
+    primario: string;
+    secundario: string;
+    acento: string;
+    fondo: string;
+    texto: string;
+  };
+  tipografia: { display: string; body: string };
+  secciones: string[];
+  ruta: string;
+}
+
+/**
+ * Lee catalogo/plantillas/basicas/indice.json en build time. Vive fuera del
+ * proyecto Next (dos niveles arriba de clientes/quantum-hive/), por eso lee
+ * el archivo directamente en vez de importarlo — evita rutas relativas
+ * frágiles atravesando el árbol de src/app.
+ */
+export function obtenerPlantillasBasicas(): PlantillaBasica[] {
+  const ruta = path.join(
+    process.cwd(),
+    "..",
+    "..",
+    "catalogo",
+    "plantillas",
+    "basicas",
+    "indice.json"
+  );
+  return JSON.parse(readFileSync(ruta, "utf-8"));
+}
+
 export interface Efecto {
   id: string;
   nombre: string;
