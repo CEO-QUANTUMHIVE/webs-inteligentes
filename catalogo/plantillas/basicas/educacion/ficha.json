@@ -1,0 +1,26 @@
+{
+  "id": "pl-basica-educacion",
+  "nombre": "Nexo — Academia Online",
+  "nicho": "educacion",
+  "nivel": "basica",
+  "version": "1.0.0",
+  "estilo": "Moderno edtech — limpio, sin elementos infantiles",
+  "paleta": {
+    "ref": "habilidades/paletas-por-nicho/educacion.md",
+    "primario": "#059669",
+    "secundario": "#047857",
+    "acento": "#3b82f6",
+    "fondo": "#022c22",
+    "texto": "#ffffff"
+  },
+  "tipografia": { "display": "Manrope", "body": "Inter" },
+  "secciones": ["hero", "cursos", "instructores", "testimonios", "contacto"],
+  "elementos": ["wf-card-metrica", "wf-hero-glass"],
+  "dependencias": ["tailwind"],
+  "compatibleMovil": true,
+  "costoRendimiento": "bajo",
+  "ruta": "/catalogo/plantillas/basicas/educacion",
+  "estado": "publicada",
+  "creada": "2026-08-03",
+  "fuenteReceta": "ui-ux-pro-max search.py \"online course education learning\" --design-system (descartado, sesgo hacia apps infantiles); paleta oficial de habilidades/paletas-por-nicho/educacion.md, tipografía elegida manualmente"
+}
