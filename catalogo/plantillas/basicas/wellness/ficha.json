@@ -1,0 +1,26 @@
+{
+  "id": "pl-basica-wellness",
+  "nombre": "Prana — Centro de Yoga y Bienestar",
+  "nicho": "wellness",
+  "nivel": "basica",
+  "version": "1.0.0",
+  "estilo": "Orgánico — curvas suaves, esquinas muy redondeadas",
+  "paleta": {
+    "ref": "habilidades/paletas-por-nicho/wellness-yoga.md",
+    "primario": "#8b5cf6",
+    "secundario": "#a78bfa",
+    "acento": "#f59e0b",
+    "fondo": "#1e1b4b",
+    "texto": "#ffffff"
+  },
+  "tipografia": { "display": "Lora", "body": "Raleway" },
+  "secciones": ["hero", "clases", "horarios", "instructores", "contacto"],
+  "elementos": ["wf-card-metrica", "wf-hero-glass"],
+  "dependencias": ["tailwind"],
+  "compatibleMovil": true,
+  "costoRendimiento": "bajo",
+  "ruta": "/catalogo/plantillas/basicas/wellness",
+  "estado": "publicada",
+  "creada": "2026-08-03",
+  "fuenteReceta": "ui-ux-pro-max search.py \"fitness wellness yoga class\" --design-system (tipografía y concepto orgánico); paleta oficial de habilidades/paletas-por-nicho/wellness-yoga.md"
+}
