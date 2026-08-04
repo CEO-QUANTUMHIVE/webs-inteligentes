@@ -1,0 +1,26 @@
+{
+  "id": "pl-basica-retail",
+  "nombre": "Aurora Store — Moda y Accesorios",
+  "nicho": "retail",
+  "nivel": "basica",
+  "version": "1.0.0",
+  "estilo": "Moderno vibrante — tarjetas de producto tipo grid",
+  "paleta": {
+    "ref": "habilidades/paletas-por-nicho/retail-moderno.md",
+    "primario": "#ec4899",
+    "secundario": "#8b5cf6",
+    "acento": "#06b6d4",
+    "fondo": "#18181b",
+    "texto": "#ffffff"
+  },
+  "tipografia": { "display": "Rubik", "body": "Nunito Sans" },
+  "secciones": ["hero", "categorias", "productos", "contacto"],
+  "elementos": ["vui-glow-border-card", "wf-hero-glass"],
+  "dependencias": ["tailwind"],
+  "compatibleMovil": true,
+  "costoRendimiento": "bajo",
+  "ruta": "/catalogo/plantillas/basicas/retail",
+  "estado": "publicada",
+  "creada": "2026-08-03",
+  "fuenteReceta": "ui-ux-pro-max search.py \"ecommerce shop product catalog\" --design-system (tipografía y patrón de producto); paleta oficial de habilidades/paletas-por-nicho/retail-moderno.md"
+}
