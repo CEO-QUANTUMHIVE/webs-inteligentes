@@ -131,11 +131,11 @@ graphify update .
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-04 · 376 archivos versionados
+Actualizado: 2026-08-04 · 382 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
-| `clientes/` | 95 | Proyectos Next.js de cada cliente |
+| `clientes/` | 98 | Proyectos Next.js de cada cliente |
 | `plantillas/` | 78 | Plantillas por tipo de negocio |
 | `asset de imagenes de quantumhive/` | 53 | — |
 | `.claude/` | 40 | — |
@@ -143,8 +143,8 @@ Actualizado: 2026-08-04 · 376 archivos versionados
 | `habilidades/` | 17 | Skills del pipeline y material de apoyo |
 | `PROCESOS APRENDIDOS/` | 11 | — |
 | `supabase/` | 10 | — |
+| `catalogo/` | 9 | — |
 | `sistema-de-diseno/` | 6 | Tokens, registro de componentes y efectos |
-| `catalogo/` | 6 | — |
 | `documentacion/` | 5 | Documentos de producto y comerciales |
 | `.agents/` | 5 | — |
 | `motor-agentes/` | 4 | Andamiaje del agente conversacional (sin implementar) |
@@ -160,6 +160,7 @@ Actualizado: 2026-08-04 · 376 archivos versionados
 - `/catalogo-plantillas` → `clientes/quantum-hive/src/app/catalogo-plantillas/page.tsx`
 - `/catalogo/plantillas/basicas/barberia` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/barberia/page.tsx`
 - `/catalogo/plantillas/basicas/gastronomia` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/gastronomia/page.tsx`
+- `/catalogo/plantillas/basicas/servicios-pro` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/servicios-pro/page.tsx`
 - `/nuestras-webs` → `clientes/quantum-hive/src/app/nuestras-webs/page.tsx`
 - `/` → `clientes/quantum-hive/src/app/page.tsx`
 - `/webs-inteligentes` → `clientes/quantum-hive/src/app/webs-inteligentes/page.tsx`

@@ -1,0 +1,26 @@
+{
+  "id": "pl-basica-servicios-pro",
+  "nombre": "Andrade & Vega — Consultoría Legal y de Negocios",
+  "nicho": "servicios-pro",
+  "nivel": "basica",
+  "version": "1.0.0",
+  "estilo": "Trust & Authority (métricas, casos, testimonios)",
+  "paleta": {
+    "ref": "habilidades/paletas-por-nicho/servicios-profesionales.md",
+    "primario": "#2563eb",
+    "secundario": "#1e40af",
+    "acento": "#10b981",
+    "fondo": "#0f172a",
+    "texto": "#ffffff"
+  },
+  "tipografia": { "display": "Poppins", "body": "Open Sans" },
+  "secciones": ["hero", "servicios", "casos", "testimonios", "contacto"],
+  "elementos": ["wf-card-metrica", "wf-seccion-contacto"],
+  "dependencias": ["tailwind"],
+  "compatibleMovil": true,
+  "costoRendimiento": "bajo",
+  "ruta": "/catalogo/plantillas/basicas/servicios-pro",
+  "estado": "publicada",
+  "creada": "2026-08-03",
+  "fuenteReceta": "ui-ux-pro-max search.py \"professional services consulting\" --design-system (tipografía y patrón); paleta oficial de habilidades/paletas-por-nicho/servicios-profesionales.md"
+}
