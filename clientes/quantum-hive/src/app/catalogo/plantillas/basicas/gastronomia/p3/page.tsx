@@ -2,7 +2,7 @@
 
 export const metadata = {
   title: "Ceniza — Parrilla & Bodegon | Premium 3 Neon/Tech",
-  description: "Plantilla premium neon/tech con galeria infinita y mouse glow.",
+  description: "Plantilla premium neon/tech con galeria infinita vertical.",
 };
 
 export default function Page() {

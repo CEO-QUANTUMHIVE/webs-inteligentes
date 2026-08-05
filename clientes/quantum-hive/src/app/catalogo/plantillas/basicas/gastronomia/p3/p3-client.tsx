@@ -2,12 +2,21 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import FirmaQuantumHive from "@/components/marca/firma-quantumhive";
+import P3InfiniteGallery from "@/components/p3/P3InfiniteGallery";
 import "./p3.module.css";
 
-export default function P3Gastronomia() {
+const galleryItems = [
+  { id: "fuego", img: "photo-1555939594-58d7cb561ad1", caption: "El fuego" },
+  { id: "salon", img: "photo-1559339352-11d035aa65de", caption: "El salon" },
+  { id: "plato", img: "photo-1546069901-ba9599a7e63c", caption: "El plato" },
+  { id: "vino", img: "photo-1551218808-94e220e084d2", caption: "El vino" },
+  { id: "mesa", img: "photo-1414235077428-338989a2e8c0", caption: "La mesa" },
+  { id: "detalle", img: "photo-1504674900247-0877df9cc836", caption: "El detalle" },
+];
+
+export default function P3GastronomiaV4() {
   const glowRef = useRef<HTMLDivElement>(null);
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
-  const [galleryPaused, setGalleryPaused] = useState(false);
 
   useEffect(() => {
     const handle = (e: MouseEvent) => setMouse({ x: e.clientX, y: e.clientY });
@@ -19,16 +28,9 @@ export default function P3Gastronomia() {
     { n: "Parrillada Ceniza x2", d: "Achuras, vacio, chorizo, pollo", p: "$28.000", img: "photo-1555939594-58d7cb561ad1" },
     { n: "Bife de chorizo", d: "350g, guarnicion a eleccion", p: "$14.900", img: "photo-1559339352-11d035aa65de" },
     { n: "Ojo de bife madurado", d: "30 dias, sal de escamas", p: "$18.200", img: "photo-1546069901-ba9599a7e63c" },
-    { n: "Provoleta a la parrilla", d: "Oregano, ajil molido, pan casero", p: "$6.500", img: "photo-1551218808-94e220e084d2" },
-    { n: "Flan casero", d: "Dulce de leche con crema chantilly", p: "$4.200", img: "photo-1414235077428-338989a2e8c0" },
-    { n: "Panqueque de manzana", d: "Caramelizado, servido tibio", p: "$4.800", img: "photo-1504674900247-0877df9cc836" },
-  ];
-
-  const galleryImg = [
-    "photo-1555939594-58d7cb561ad1", "photo-1559339352-11d035aa65de", "photo-1546069901-ba9599a7e63c",
-    "photo-1551218808-94e220e084d2", "photo-1414235077428-338989a2e8c0", "photo-1504674900247-0877df9cc836",
-    "photo-1555939594-58d7cb561ad1", "photo-1559339352-11d035aa65de", "photo-1546069901-ba9599a7e63c",
-    "photo-1551218808-94e220e084d2", "photo-1414235077428-338989a2e8c0", "photo-1504674900247-0877df9cc836",
+    { n: "Provoleta", d: "Oregano, ajil molido, pan casero", p: "$6.500", img: "photo-1551218808-94e220e084d2" },
+    { n: "Flan casero", d: "Dulce de leche con crema", p: "$4.200", img: "photo-1414235077428-338989a2e8c0" },
+    { n: "Panqueque manzana", d: "Caramelizado, tibio", p: "$4.800", img: "photo-1504674900247-0877df9cc836" },
   ];
 
   return (
@@ -55,6 +57,7 @@ export default function P3Gastronomia() {
             <div><div className="p3-sn">12K</div><div className="p3-sl">platos/ano</div></div>
           </div>
         </header>
+
         <section className="p3-s" id="menu">
           <p className="p3-sl2">Nuestra carta</p>
           <h2 className="p3-st2">Del fuego <span className="g">a la mesa</span></h2>
@@ -72,29 +75,25 @@ export default function P3Gastronomia() {
             ))}
           </div>
         </section>
+
+        {/* GALERIA INFINITA vertical */}
         <section className="p3-s" id="galeria">
           <p className="p3-sl2">El lugar</p>
-          <h2 className="p3-st2">Un vistazo <span className="g">infinito</span></h2>
-          <p className="p3-ss">Pase el mouse para pausar.</p>
-          <div className="p3-gi-wrapper" onMouseEnter={() => setGalleryPaused(true)} onMouseLeave={() => setGalleryPaused(false)}>
-            <div className="p3-gi-track" style={{ animationPlayState: galleryPaused ? "paused" : "running" }}>
-              {galleryImg.map((id, i) => (
-                <div key={i} className="p3-gi-item">
-                  <img src={`https://images.unsplash.com/${id}?w=400&q=75&auto=format&fit=crop`} alt={`Galeria ${i}`} width={400} height={533} loading="lazy" />
-                </div>
-              ))}
-            </div>
-          </div>
+          <h2 className="p3-st2">Scrollea <span className="g">infinito</span></h2>
+          <p className="p3-ss">Hacia arriba o hacia abajo. La galeria nunca termina.</p>
         </section>
+        <P3InfiniteGallery items={galleryItems} speed={0.8} />
+
         <section className="p3-s">
           <p className="p3-sl2">Lo que dicen</p>
           <h2 className="p3-st2">Sobremesas <span className="g">que vuelven</span></h2>
           <div className="p3-tg">
-            <div className="p3-ti"><div className="p3-ts">★★★★★</div><p className="p3-tt">El ojo de bife madurado es de otro nivel. Volvimos tres veces.</p><div className="p3-ta">Martina Rios</div><div className="p3-tr">Comensal</div></div>
-            <div className="p3-ti"><div className="p3-ts">★★★★★</div><p className="p3-tt">La mejor parrilla del barrio. Carne de primera.</p><div className="p3-ta">Diego Sandez</div><div className="p3-tr">Google</div></div>
-            <div className="p3-ti"><div className="p3-ts">★★★★★</div><p className="p3-tt">Reservamos para un cumpleaños y fue increible.</p><div className="p3-ta">Lucia Fernandez</div><div className="p3-tr">Critica</div></div>
+            <div className="p3-ti"><div className="p3-ts">★★★★★</div><p className="p3-tt">El ojo de bife madurado es de otro nivel.</p><div className="p3-ta">Martina Rios</div><div className="p3-tr">Comensal</div></div>
+            <div className="p3-ti"><div className="p3-ts">★★★★★</div><p className="p3-tt">La mejor parrilla del barrio.</p><div className="p3-ta">Diego Sandez</div><div className="p3-tr">Google</div></div>
+            <div className="p3-ti"><div className="p3-ts">★★★★★</div><p className="p3-tt">Reservamos y fue increible.</p><div className="p3-ta">Lucia Fernandez</div><div className="p3-tr">Critica</div></div>
           </div>
         </section>
+
         <section className="p3-s" id="contacto">
           <p className="p3-sl2">Reservas</p>
           <h2 className="p3-st2">Reserve su <span className="g">mesa</span></h2>
@@ -116,6 +115,7 @@ export default function P3Gastronomia() {
             </div>
           </div>
         </section>
+
         <footer className="p3-f">
           <div className="p3-fg">
             <div><Link href="/catalogo-plantillas" className="p3-nb">CEN<span>IZA</span></Link><p style={{color:"var(--p3-muted)",marginTop:"1rem",fontSize:"0.9rem"}}>Parrilla y bodegon en Buenos Aires.</p></div>
