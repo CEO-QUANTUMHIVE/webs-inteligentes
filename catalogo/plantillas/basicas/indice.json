@@ -1,9 +1,10 @@
 [
-  {
-    "id": "pl-basica-gastronomia",
-    "nombre": "Ceniza — Parrilla & Bodegón",
-    "nicho": "gastronomia",
-    "nivel": "basica",
+{
+  "id": "pl-premium-gastronomia",
+  "nombre": "Ceniza — Parrilla & Bodegón",
+  "nicho": "gastronomia",
+  "nivel": "premium",
+  "estiloPremium": "Premium 1 — Editorial Premium (oscuro, cálido, serif, cinematográfico)",
     "version": "1.0.0",
     "estilo": "Flat Design + Minimalismo editorial",
     "paleta": {
@@ -15,8 +16,8 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Playfair Display", "body": "Karla" },
-    "secciones": ["hero", "menu", "galeria", "reservas", "contacto"],
-    "elementos": ["wf-hero-glass", "wf-seccion-contacto"],
+    "secciones": ["hero", "menu", "galeria", "historia", "reservas", "testimonios", "contacto"],
+    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
@@ -25,11 +26,12 @@
     "creada": "2026-08-03",
     "fuenteReceta": "ui-ux-pro-max search.py \"restaurant menu food ordering\" --design-system (tipografía); paleta oficial de habilidades/paletas-por-nicho/gastronomia.md"
   },
-  {
-    "id": "pl-basica-barberia",
-    "nombre": "La Navaja — Barbería Clásica",
-    "nicho": "barberia",
-    "nivel": "basica",
+{
+  "id": "pl-premium-barberia",
+  "nombre": "La Navaja — Barbería Clásica",
+  "nicho": "barberia",
+  "nivel": "premium",
+  "estiloPremium": "Premium 1 — Editorial Premium (oscuro, cálido, caps, cinematográfico)",
     "version": "1.0.0",
     "estilo": "Clásico oscuro (madera, cuero, metal envejecido)",
     "paleta": {
@@ -41,8 +43,8 @@
       "texto": "#fafaf9"
     },
     "tipografia": { "display": "Bebas Neue", "body": "Inter" },
-    "secciones": ["hero", "servicios", "galeria", "turnos", "equipo", "contacto"],
-    "elementos": ["wf-hero-glass", "wf-card-metrica"],
+    "secciones": ["hero", "servicios", "galeria", "turnos", "equipo", "testimonios", "contacto"],
+    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
@@ -78,10 +80,11 @@
     "fuenteReceta": "ui-ux-pro-max search.py \"professional services consulting\" --design-system (tipografía y patrón); paleta oficial de habilidades/paletas-por-nicho/servicios-profesionales.md"
   },
   {
-    "id": "pl-basica-wellness",
-    "nombre": "Prana — Centro de Yoga y Bienestar",
+    "id": "pl-premium-wellness",
+    "nombre": "Sattva — Centro de Yoga y Bienestar",
     "nicho": "wellness",
-    "nivel": "basica",
+    "nivel": "premium",
+    "estiloPremium": "Premium 1 — Editorial Premium (orgánico, púrpura, serif italic, cálido)",
     "version": "1.0.0",
     "estilo": "Orgánico — curvas suaves, esquinas muy redondeadas",
     "paleta": {
@@ -93,8 +96,8 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Lora", "body": "Raleway" },
-    "secciones": ["hero", "clases", "horarios", "instructores", "contacto"],
-    "elementos": ["wf-card-metrica", "wf-hero-glass"],
+    "secciones": ["hero", "clases", "galeria", "horarios", "equipo", "testimonios", "contacto"],
+    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
