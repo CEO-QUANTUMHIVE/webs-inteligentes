@@ -54,10 +54,11 @@
     "fuenteReceta": "ui-ux-pro-max search.py \"booking appointment salon\" --design-system (descartado por sesgo de nicho); paleta y tipografía oficiales de habilidades/paletas-por-nicho/barberias.md"
   },
   {
-    "id": "pl-basica-servicios-pro",
-    "nombre": "Andrade & Vega — Consultoría Legal y de Negocios",
+    "id": "pl-premium-servicios-pro",
+    "nombre": "Meridian — Consultora Legal & Empresarial",
     "nicho": "servicios-pro",
-    "nivel": "basica",
+    "nivel": "premium",
+    "estiloPremium": "Premium 1 — Editorial Premium (azul confianza, Poppins, corporativo)",
     "version": "1.0.0",
     "estilo": "Trust & Authority (métricas, casos, testimonios)",
     "paleta": {
@@ -69,8 +70,8 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Poppins", "body": "Open Sans" },
-    "secciones": ["hero", "servicios", "casos", "testimonios", "contacto"],
-    "elementos": ["wf-card-metrica", "wf-seccion-contacto"],
+    "secciones": ["hero", "servicios", "casos", "equipo", "testimonios", "contacto"],
+    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
@@ -107,10 +108,11 @@
     "fuenteReceta": "ui-ux-pro-max search.py \"fitness wellness yoga class\" --design-system (tipografía y concepto orgánico); paleta oficial de habilidades/paletas-por-nicho/wellness-yoga.md"
   },
   {
-    "id": "pl-basica-retail",
-    "nombre": "Aurora Store — Moda y Accesorios",
+    "id": "pl-premium-retail",
+    "nombre": "Umami Store — Moda & Accesorios",
     "nicho": "retail",
-    "nivel": "basica",
+    "nivel": "premium",
+    "estiloPremium": "Premium 1 — Editorial Premium (rosa zinc, sans-serif, moderno)",
     "version": "1.0.0",
     "estilo": "Moderno vibrante — tarjetas de producto tipo grid",
     "paleta": {
@@ -122,8 +124,8 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Rubik", "body": "Nunito Sans" },
-    "secciones": ["hero", "categorias", "productos", "contacto"],
-    "elementos": ["vui-glow-border-card", "wf-hero-glass"],
+    "secciones": ["hero", "productos", "galeria", "equipo", "testimonios", "contacto"],
+    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
@@ -133,10 +135,11 @@
     "fuenteReceta": "ui-ux-pro-max search.py \"ecommerce shop product catalog\" --design-system (tipografía y patrón de producto); paleta oficial de habilidades/paletas-por-nicho/retail-moderno.md"
   },
   {
-    "id": "pl-basica-educacion",
-    "nombre": "Nexo — Academia Online",
+    "id": "pl-premium-educacion",
+    "nombre": "Nexo Academy — Cursos Online",
     "nicho": "educacion",
-    "nivel": "basica",
+    "nivel": "premium",
+    "estiloPremium": "Premium 1 — Editorial Premium (verde crecimiento, sans-serif, edtech)",
     "version": "1.0.0",
     "estilo": "Moderno edtech — limpio, sin elementos infantiles",
     "paleta": {
@@ -148,8 +151,8 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Manrope", "body": "Inter" },
-    "secciones": ["hero", "cursos", "instructores", "testimonios", "contacto"],
-    "elementos": ["wf-card-metrica", "wf-hero-glass"],
+    "secciones": ["hero", "cursos", "galeria", "equipo", "testimonios", "contacto"],
+    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
@@ -159,10 +162,11 @@
     "fuenteReceta": "ui-ux-pro-max search.py \"online course education learning\" --design-system (descartado, sesgo hacia apps infantiles); paleta oficial de habilidades/paletas-por-nicho/educacion.md, tipografía elegida manualmente"
   },
   {
-    "id": "pl-basica-salud",
+    "id": "pl-premium-salud",
     "nombre": "Vitta — Centro de Salud Integral",
     "nicho": "salud",
-    "nivel": "basica",
+    "nivel": "premium",
+    "estiloPremium": "Premium 1 — Editorial Premium (teal medico, sans-serif, clinico)",
     "version": "1.0.0",
     "estilo": "Clínico y calmo (sin Neumorphism, por accesibilidad)",
     "paleta": {
@@ -174,8 +178,8 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Figtree", "body": "Noto Sans" },
-    "secciones": ["hero", "especialidades", "equipo", "turnos", "contacto"],
-    "elementos": ["wf-card-metrica", "wf-seccion-contacto"],
+    "secciones": ["hero", "servicios", "galeria", "equipo", "turnos", "testimonios", "contacto"],
+    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
@@ -185,10 +189,11 @@
     "fuenteReceta": "ui-ux-pro-max search.py \"medical clinic appointment health\" --design-system (tipografía; estilo Neumorphism descartado por accesibilidad); paleta nueva creada en habilidades/paletas-por-nicho/salud.md con contrastes calculados"
   },
   {
-    "id": "pl-basica-inmobiliaria",
-    "nombre": "Merídian — Propiedades",
+    "id": "pl-premium-inmobiliaria",
+    "nombre": "Merídian — Propiedades Premium",
     "nicho": "inmobiliaria",
-    "nivel": "basica",
+    "nivel": "premium",
+    "estiloPremium": "Premium 1 — Editorial Premium (oro envejecido, Cinzel serif, lujo)",
     "version": "1.0.0",
     "estilo": "Minimalismo exagerado — tipografía grande, espacio generoso",
     "paleta": {
@@ -200,8 +205,8 @@
       "texto": "#f7f4ee"
     },
     "tipografia": { "display": "Cinzel", "body": "Josefin Sans" },
-    "secciones": ["hero", "busqueda", "propiedades", "contacto"],
-    "elementos": ["vui-glow-border-card", "wf-seccion-contacto"],
+    "secciones": ["hero", "propiedades", "galeria", "equipo", "testimonios", "contacto"],
+    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
@@ -211,3 +216,4 @@
     "fuenteReceta": "ui-ux-pro-max search.py \"real estate property listing\" --design-system (tipografía y estilo, sin cambios); paleta nueva creada en habilidades/paletas-por-nicho/inmobiliaria.md con contrastes calculados"
   }
 ]
+
