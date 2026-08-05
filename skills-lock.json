@@ -43,6 +43,20 @@
       "skillPath": ".claude/skills/clonar-plantilla-premium-minimalista/SKILL.md",
       "description": "Pipeline exacto (9 pasos, copiar-y-cambiar) para clonar el molde PREMIUM 2 Minimalismo Extremo a un rubro nuevo. Referencia: gastronomia/p2",
       "created": "2026-08-05"
+    },
+    "clonar-plantilla-premium-neon": {
+      "source": "custom",
+      "sourceType": "local",
+      "skillPath": ".claude/skills/clonar-plantilla-premium-neon/SKILL.md",
+      "description": "Pipeline exacto (10 pasos) para clonar el molde PREMIUM 3 Neon/Tech a un rubro nuevo. Referencia: gastronomia/p3. Incluye particulas, glitch, glow.",
+      "created": "2026-08-05"
+    },
+    "disenar-nuevo-estilo": {
+      "source": "custom",
+      "sourceType": "local",
+      "skillPath": ".claude/skills/disenar-nuevo-estilo/SKILL.md",
+      "description": "Workflow creativo completo para disenar un nuevo estilo de plantilla premium: brief, piloto, review, clonado. Cubre todo el ciclo de vida de un nuevo estilo.",
+      "created": "2026-08-05"
     }
   }
 }
