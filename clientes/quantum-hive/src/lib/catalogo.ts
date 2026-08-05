@@ -17,7 +17,9 @@ export interface PlantillaBasica {
   id: string;
   nombre: string;
   nicho: string;
+  nivel: string;
   estilo: string;
+  estiloPremium?: string;
   paleta: {
     primario: string;
     secundario: string;
