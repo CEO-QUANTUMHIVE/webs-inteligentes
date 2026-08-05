@@ -1,8 +1,8 @@
 ﻿import P3Gastronomia from "./p3-client";
 
 export const metadata = {
-  title: "Ceniza — Parrilla & Bodegon | Premium 3 Neon/Tech",
-  description: "Plantilla premium neon/tech con galeria infinita vertical.",
+  title: "Ceniza — Premium 3 Neon/Tech",
+  description: "Infinite scroll gallery estilo codrops.",
 };
 
 export default function Page() {
