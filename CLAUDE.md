@@ -170,14 +170,14 @@ graphify update .
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-05 · 436 archivos versionados
+Actualizado: 2026-08-05 · 459 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
-| `clientes/` | 125 | Proyectos Next.js de cada cliente |
+| `clientes/` | 146 | Proyectos Next.js de cada cliente |
 | `plantillas/` | 78 | Plantillas por tipo de negocio |
 | `asset de imagenes de quantumhive/` | 53 | — |
-| `.claude/` | 43 | — |
+| `.claude/` | 44 | — |
 | `catalogo/` | 29 | — |
 | `"asset de imagenes de quantumhive/` | 29 | — |
 | `habilidades/` | 19 | Skills del pipeline y material de apoyo |
@@ -189,6 +189,7 @@ Actualizado: 2026-08-05 · 436 archivos versionados
 | `motor-agentes/` | 4 | Andamiaje del agente conversacional (sin implementar) |
 | `evaluaciones/` | 3 | Criterios de QA visual, factual y conversacional |
 | `scripts/` | 2 | Automatización del repo |
+| `logo quantumhive/` | 1 | — |
 | `docs/` | 1 | — |
 | `CONTEXTO/` | 1 | Contexto del proyecto |
 | `.github/` | 1 | — |
@@ -197,14 +198,21 @@ Actualizado: 2026-08-05 · 436 archivos versionados
 
 - `/catalogo-efectos` → `clientes/quantum-hive/src/app/catalogo-efectos/page.tsx`
 - `/catalogo-plantillas` → `clientes/quantum-hive/src/app/catalogo-plantillas/page.tsx`
+- `/catalogo/plantillas/basicas/barberia/p2` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/barberia/p2/page.tsx`
 - `/catalogo/plantillas/basicas/barberia` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/barberia/page.tsx`
+- `/catalogo/plantillas/basicas/educacion/p2` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/educacion/p2/page.tsx`
 - `/catalogo/plantillas/basicas/educacion` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/educacion/page.tsx`
 - `/catalogo/plantillas/basicas/gastronomia/p2` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/gastronomia/p2/page.tsx`
 - `/catalogo/plantillas/basicas/gastronomia` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/gastronomia/page.tsx`
+- `/catalogo/plantillas/basicas/inmobiliaria/p2` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/inmobiliaria/p2/page.tsx`
 - `/catalogo/plantillas/basicas/inmobiliaria` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/inmobiliaria/page.tsx`
+- `/catalogo/plantillas/basicas/retail/p2` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/retail/p2/page.tsx`
 - `/catalogo/plantillas/basicas/retail` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/retail/page.tsx`
+- `/catalogo/plantillas/basicas/salud/p2` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/salud/p2/page.tsx`
 - `/catalogo/plantillas/basicas/salud` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/salud/page.tsx`
+- `/catalogo/plantillas/basicas/servicios-pro/p2` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/servicios-pro/p2/page.tsx`
 - `/catalogo/plantillas/basicas/servicios-pro` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/servicios-pro/page.tsx`
+- `/catalogo/plantillas/basicas/wellness/p2` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/wellness/p2/page.tsx`
 - `/catalogo/plantillas/basicas/wellness` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/wellness/page.tsx`
 - `/nuestras-webs` → `clientes/quantum-hive/src/app/nuestras-webs/page.tsx`
 - `/` → `clientes/quantum-hive/src/app/page.tsx`
