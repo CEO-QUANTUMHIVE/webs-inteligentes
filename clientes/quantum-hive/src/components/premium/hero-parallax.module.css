@@ -1,0 +1,41 @@
+/*
+  HeroParallax — capa de imagen del hero con ken-burns (CSS) + parallax (JS).
+  El parallax lo aplica el componente por transform en .layer; el ken-burns
+  (zoom lento infinito) va en la imagen. Dos elementos para no pisar el mismo
+  transform. Compartido por las plantillas premium.
+*/
+
+.layer {
+  position: absolute;
+  inset: -12% 0 0 0;
+  height: 124%;
+  will-change: transform;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: kenburns 13s ease-in-out infinite alternate;
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1.24);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layer {
+    transform: none !important;
+    inset: 0;
+    height: 100%;
+  }
+  .img {
+    animation: none;
+    transform: scale(1.03);
+  }
+}

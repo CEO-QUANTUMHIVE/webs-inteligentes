@@ -29,6 +29,13 @@
       "skillPath": ".claude/skills/crear-plantilla-basica/SKILL.md",
       "description": "Crea una plantilla básica nueva del catálogo (ruta Next.js, paleta y tipografía de nicho), destilada del proceso real usado para las 8 plantillas iniciales",
       "created": "2026-08-04"
+    },
+    "clonar-plantilla-premium": {
+      "source": "custom",
+      "sourceType": "local",
+      "skillPath": ".claude/skills/clonar-plantilla-premium/SKILL.md",
+      "description": "Pipeline exacto (9 pasos, copiar-y-cambiar) para clonar el molde PREMIUM Editorial a un rubro nuevo. Pensado para que un modelo económico lo replique sin inventar. Referencias: gastronomia y barberia",
+      "created": "2026-08-04"
     }
   }
 }
