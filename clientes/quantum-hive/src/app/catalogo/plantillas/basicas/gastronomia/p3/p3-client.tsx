@@ -2,19 +2,18 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import FirmaQuantumHive from "@/components/marca/firma-quantumhive";
-import P3GridGallery from "@/components/p3/P3GridGallery";
+import P3Waterfall from "@/components/p3/P3Waterfall";
 import "./p3-full.css";
 
-const gallerySlides = [
-  { img: "photo-1555939594-58d7cb561ad1", title: "El Fuego", desc: "La parrilla encendida desde las 6am." },
-  { img: "photo-1559339352-11d035aa65de", title: "El Salon", desc: "Un bodegon que se niega a cambiar." },
-  { img: "photo-1546069901-ba9599a7e63c", title: "El Plato", desc: "Cada plato lleva la firma del fuego." },
-  { img: "photo-1551218808-94e220e084d2", title: "La Bodega", desc: "Vinos de bodegas familiares." },
-  { img: "photo-1414235077428-338989a2e8c0", title: "La Mesa", desc: "Mesas para compartir sin apuro." },
-  { img: "photo-1504674900247-0877df9cc836", title: "El Detalle", desc: "Las pequenas decisiones." },
-  { img: "photo-1414235077428-338989a2e8c0", title: "La Noche", desc: "Ceniza de noche se transforma." },
-  { img: "photo-1546069901-ba9599a7e63c", title: "El Regreso", desc: "Siempre vuelven." },
-  { img: "photo-1551218808-94e220e084d2", title: "El Sabor", desc: "Producto de verdad." },
+const waterfallItems = [
+  { img: "photo-1555939594-58d7cb561ad1", title: "El Fuego" },
+  { img: "photo-1559339352-11d035aa65de", title: "El Salon" },
+  { img: "photo-1546069901-ba9599a7e63c", title: "El Plato" },
+  { img: "photo-1551218808-94e220e084d2", title: "La Bodega" },
+  { img: "photo-1414235077428-338989a2e8c0", title: "La Mesa" },
+  { img: "photo-1504674900247-0877df9cc836", title: "El Detalle" },
+  { img: "photo-1414235077428-338989a2e8c0", title: "La Noche" },
+  { img: "photo-1546069901-ba9599a7e63c", title: "El Regreso" },
 ];
 
 export default function P3FullPage() {
@@ -76,7 +75,7 @@ export default function P3FullPage() {
             <div className="p3contact-grid">
               <input placeholder="Nombre" className="p3input" />
               <input placeholder="Telefono" className="p3input" />
-              <input type="datetime-local" placeholder="Fecha" className="p3input" />
+              <input type="datetime-local" className="p3input" />
               <select className="p3input"><option>2 pax</option><option>4 pax</option><option>6+</option></select>
             </div>
             <button className="p3btn">Reservar →</button>
@@ -92,19 +91,19 @@ export default function P3FullPage() {
         </div>
       </section>
 
-      {/* FIRMA — antes de la galeria */}
+      {/* FIRMA antes de la galeria */}
       <div className="p3firma-not-in-gallery">
         <FirmaQuantumHive />
       </div>
 
-      {/* GALERIA INFINITA — cascada que nunca termina */}
+      {/* WATERFALL INFINITA a ancho completo */}
       <section className="p3gallery-section">
         <div className="p3gallery-header">
           <p className="p3sec-label">El lugar</p>
           <h2 className="p3sec-title">Cascada <em>infinita</em></h2>
-          <p className="p3sec-sub">Las fotos se suman al scroll. Nunca se termina.</p>
+          <p className="p3sec-sub">Las fotos se suman al scroll. Nunca se termina. Se difuminan al pasar.</p>
         </div>
-        <P3GridGallery items={gallerySlides} />
+        <P3Waterfall items={waterfallItems} />
       </section>
 
       <footer className="p3footer">

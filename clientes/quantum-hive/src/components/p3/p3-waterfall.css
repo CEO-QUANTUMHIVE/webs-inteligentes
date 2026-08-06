@@ -1,0 +1,94 @@
+﻿/* Full-width infinite waterfall gallery */
+.p3g-waterfall {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  padding: 4rem 0;
+  position: relative;
+}
+
+/* Difuminado superior e inferior */
+.p3g-waterfall::before,
+.p3g-waterfall::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 20vh;
+  z-index: 5;
+  pointer-events: none;
+}
+.p3g-waterfall::before {
+  top: 0;
+  background: linear-gradient(to bottom, #06060a, transparent);
+}
+.p3g-waterfall::after {
+  bottom: 0;
+  background: linear-gradient(to top, #06060a, transparent);
+}
+
+/* Grid a ancho completo */
+.p3g-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  padding: 0 1rem;
+}
+
+.p3g-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 0.75;
+  border: 1px solid rgba(0,229,255,0.08);
+  transition: opacity 0.6s ease, transform 0.4s ease, filter 0.4s ease, border-color 0.4s ease;
+}
+
+.p3g-item:nth-child(8n+1) { grid-column: span 2; aspect-ratio: 1.5; }
+.p3g-item:nth-child(8n+4) { grid-row: span 2; aspect-ratio: 0.65; }
+.p3g-item:nth-child(8n+6) { grid-column: span 2; aspect-ratio: 1.5; }
+
+.p3g-item img {
+  width: 100%; height: 100%; object-fit: cover;
+  transform: scale(1.1);
+  transition: transform 0.6s ease;
+}
+
+.p3g-item.is-active {
+  border-color: rgba(0,229,255,0.35);
+  box-shadow: 0 0 30px rgba(0,229,255,0.15), inset 0 0 20px rgba(0,229,255,0.05);
+  z-index: 2;
+}
+
+.p3g-item.is-active img { transform: scale(1); }
+
+/* Difuminado por distancia al centro (lo maneja JS via opacity/filter) */
+.p3g-item { filter: blur(0px); }
+
+.p3g-item .p3g-info {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(6,6,10,0.95), transparent);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.4s ease;
+  z-index: 2;
+}
+
+.p3g-item.is-active .p3g-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.p3g-item .p3g-info span {
+  font-family: var(--t-font-display), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #00e5ff;
+}
+
+@media (max-width: 768px) {
+  .p3g-grid { grid-template-columns: repeat(2, 1fr); }
+  .p3g-item:nth-child(8n+1),
+  .p3g-item:nth-child(8n+6) { grid-column: span 2; }
+}
