@@ -170,11 +170,11 @@ graphify update .
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-06 · 553 archivos versionados
+Actualizado: 2026-08-06 · 557 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
-| `clientes/` | 237 | Proyectos Next.js de cada cliente |
+| `clientes/` | 241 | Proyectos Next.js de cada cliente |
 | `plantillas/` | 78 | Plantillas por tipo de negocio |
 | `asset de imagenes de quantumhive/` | 53 | — |
 | `.claude/` | 47 | — |
@@ -210,6 +210,7 @@ Actualizado: 2026-08-06 · 553 archivos versionados
 - `/catalogo/plantillas/basicas/gastronomia/p3` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/gastronomia/p3/page.tsx`
 - `/catalogo/plantillas/basicas/gastronomia/p4` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/gastronomia/p4/page.tsx`
 - `/catalogo/plantillas/basicas/gastronomia/p5` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/gastronomia/p5/page.tsx`
+- `/catalogo/plantillas/basicas/gastronomia/p6` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/gastronomia/p6/page.tsx`
 - `/catalogo/plantillas/basicas/gastronomia` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/gastronomia/page.tsx`
 - `/catalogo/plantillas/basicas/inmobiliaria/p2` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/inmobiliaria/p2/page.tsx`
 - `/catalogo/plantillas/basicas/inmobiliaria/p3` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/inmobiliaria/p3/page.tsx`
