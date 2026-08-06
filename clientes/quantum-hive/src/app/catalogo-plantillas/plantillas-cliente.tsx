@@ -13,21 +13,23 @@ function TarjetaVariante({ v }: { v: PlantillaBasica }) {
   const isOrganico = v.nivel === "premium-organico";
   const isCristal = v.nivel === "premium-cristal";
   const isNeon = v.nivel === "premium-neon";
+  const isLiquid = v.nivel === "premium-liquid";
+  const isLuxuryGold = v.nivel === "premium-luxury-gold";
   const isLight = isMinimalista || isBrutalismo || isOrganico;
-  const borderColor = isMinimalista ? "rgba(0,0,0,0.08)" : isBrutalismo ? "rgba(0,0,0,0.15)" : isOrganico ? "#E8E0D5" : isCristal ? "rgba(0,229,255,0.2)" : isNeon ? "rgba(0,229,255,0.25)" : "rgba(255,255,255,0.1)";
-  const bgColor = isMinimalista ? "#FAFAFA" : isBrutalismo ? "#f5f5f5" : isOrganico ? "#FAF7F2" : isCristal ? "#080810" : isNeon ? "#06060a" : "rgba(255,255,255,0.02)";
-  const previewBg = isMinimalista ? "#F3F3F3" : isBrutalismo ? paleta.fondo : isOrganico ? "#F3EDE5" : isCristal ? "#080810" : isNeon ? "#06060a" : paleta.fondo;
-  const badgeBg = isLight ? "rgba(0,0,0,0.06)" : isCristal ? "rgba(0,229,255,0.15)" : isNeon ? "rgba(0,229,255,0.2)" : "rgba(255,255,255,0.1)";
-  const badgeColor = isLight ? "#666" : isCristal ? "#00e5ff" : isNeon ? "#00e5ff" : "#fff";
-  const badgeLabel = isMinimalista ? "Minimalista" : isBrutalismo ? "Brutalismo" : isOrganico ? "Orgánico" : isCristal ? "Cristal" : isNeon ? "Neon" : "Editorial";
+  const borderColor = isMinimalista ? "rgba(0,0,0,0.08)" : isBrutalismo ? "rgba(0,0,0,0.15)" : isOrganico ? "#E8E0D5" : isCristal ? "rgba(0,229,255,0.2)" : isNeon ? "rgba(0,229,255,0.25)" : isLiquid ? "rgba(255,255,255,0.12)" : isLuxuryGold ? "rgba(201,162,39,0.3)" : "rgba(255,255,255,0.1)";
+  const bgColor = isMinimalista ? "#FAFAFA" : isBrutalismo ? "#f5f5f5" : isOrganico ? "#FAF7F2" : isCristal ? "#080810" : isNeon ? "#06060a" : isLiquid ? "#0a0a12" : isLuxuryGold ? "#08080c" : "rgba(255,255,255,0.02)";
+  const previewBg = isMinimalista ? "#F3F3F3" : isBrutalismo ? paleta.fondo : isOrganico ? "#F3EDE5" : isCristal ? "#080810" : isNeon ? "#06060a" : isLiquid ? "#0a0a12" : isLuxuryGold ? "#08080c" : paleta.fondo;
+  const badgeBg = isLight ? "rgba(0,0,0,0.06)" : isCristal ? "rgba(0,229,255,0.15)" : isNeon ? "rgba(0,229,255,0.2)" : isLuxuryGold ? "rgba(201,162,39,0.2)" : "rgba(255,255,255,0.1)";
+  const badgeColor = isLight ? "#666" : isCristal ? "#00e5ff" : isNeon ? "#00e5ff" : isLuxuryGold ? "#c9a227" : "#fff";
+  const badgeLabel = isMinimalista ? "Minimalista" : isBrutalismo ? "Brutalismo" : isOrganico ? "Orgánico" : isCristal ? "Cristal" : isNeon ? "Neon" : isLiquid ? "Liquid" : isLuxuryGold ? "Luxury Gold" : "Editorial";
   const textColor = isLight ? "#111" : "#fff";
-  const subtextColor = isLight ? "#888" : isCristal ? "#5a5a72" : isNeon ? "#5a5a72" : "#9ca3af";
+  const subtextColor = isLight ? "#888" : isCristal ? "#5a5a72" : isNeon ? "#5a5a72" : isLuxuryGold ? "#a09080" : "#9ca3af";
   const dotBorder = isLight ? "rgba(0,0,0,0.1)" : "rgba(255,255,255,0.2)";
-  const btnBg = isOrganico ? "#C2703E" : isCristal ? "transparent" : isNeon ? "transparent" : isLight ? "#111" : "#22d3ee";
-  const btnColor = isLight ? "#FAFAFA" : isCristal ? "#00e5ff" : isNeon ? "#00e5ff" : "#000";
-  const btnBorder = isCristal ? "1px solid rgba(0,229,255,0.4)" : isNeon ? "1px solid rgba(0,229,255,0.4)" : "none";
+  const btnBg = isOrganico ? "#C2703E" : isCristal ? "transparent" : isNeon ? "transparent" : isLuxuryGold ? "transparent" : isLight ? "#111" : "#22d3ee";
+  const btnColor = isLight ? "#FAFAFA" : isCristal ? "#00e5ff" : isNeon ? "#00e5ff" : isLuxuryGold ? "#c9a227" : "#000";
+  const btnBorder = isCristal ? "1px solid rgba(0,229,255,0.4)" : isNeon ? "1px solid rgba(0,229,255,0.4)" : isLuxuryGold ? "1px solid rgba(201,162,39,0.4)" : "none";
   const swatchRadius = isBrutalismo ? "0" : isOrganico ? "100px" : "9999px";
-  const cardRadius = isOrganico ? "16px" : isCristal ? "16px" : isNeon ? "16px" : "12px";
+  const cardRadius = isOrganico ? "16px" : isCristal ? "16px" : isNeon ? "16px" : isLuxuryGold ? "16px" : "12px";
   return (
     <Link
       href={v.ruta}
@@ -40,7 +42,7 @@ function TarjetaVariante({ v }: { v: PlantillaBasica }) {
       >
         <div
           className={isBrutalismo ? "w-10 h-10" : "w-10 h-10 rounded-xl"}
-          style={{ background: `linear-gradient(135deg, ${paleta.primario}, ${paleta.acento})`, boxShadow: isCristal ? `0 0 20px ${paleta.primario}40` : isNeon ? `0 0 20px ${paleta.primario}40` : "none" }}
+          style={{ background: `linear-gradient(135deg, ${paleta.primario}, ${paleta.acento})`, boxShadow: isCristal ? `0 0 20px ${paleta.primario}40` : isNeon ? `0 0 20px ${paleta.primario}40` : isLuxuryGold ? `0 0 20px ${paleta.primario}40` : "none" }}
         />
         <div
           className="absolute top-2 left-2 px-2 py-0.5 text-[9px] font-bold rounded-full uppercase tracking-wide"

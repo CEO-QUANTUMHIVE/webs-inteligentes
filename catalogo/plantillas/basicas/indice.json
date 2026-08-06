@@ -1039,6 +1039,58 @@
     "creada": "2026-08-06"
   },
   {
+    "id": "pl-p6-gastronomia",
+    "nombre": "Ceniza — Parrilla & Bodegon",
+    "nicho": "gastronomia",
+    "nivel": "premium-liquid",
+    "estiloPremium": "Premium 6 — Liquid Glass / Kinetic",
+    "version": "1.0.0",
+    "estilo": "Liquid Glass / Kinetic (superficies de vidrio, blur dinámico, profundidad por capas, movimiento como jerarquía)",
+    "paleta": {
+      "ref": "habilidades/paletas-por-nicho/gastronomia.md",
+      "primario": "#ff3e00",
+      "secundario": "#0a0a12",
+      "acento": "#ffffff",
+      "fondo": "#0a0a12",
+      "texto": "#f0f0f5"
+    },
+    "tipografia": { "display": "Sora", "body": "Inter" },
+    "secciones": ["hero", "historia", "galeria", "testimonios", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
+    "dependencias": ["tailwind"],
+    "compatibleMovil": true,
+    "costoRendimiento": "medio",
+    "ruta": "/catalogo/plantillas/basicas/gastronomia/p6",
+    "estado": "piloto",
+    "creada": "2026-08-06"
+  },
+  {
+    "id": "pl-p7-gastronomia",
+    "nombre": "Ceniza — Parrilla & Bodegon",
+    "nicho": "gastronomia",
+    "nivel": "premium-luxury-gold",
+    "estiloPremium": "Premium 7 — Luxury Gold",
+    "version": "1.0.0",
+    "estilo": "Luxury Dark Gold (fondo oscuro profundo, dorado elegante, liquid glass, tipografía serif)",
+    "paleta": {
+      "ref": "habilidades/paletas-por-nicho/gastronomia.md",
+      "primario": "#c9a227",
+      "secundario": "#08080c",
+      "acento": "#f5e6b8",
+      "fondo": "#08080c",
+      "texto": "#f0ebe0"
+    },
+    "tipografia": { "display": "Playfair Display", "body": "Karla" },
+    "secciones": ["hero", "historia", "galeria", "testimonios", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
+    "dependencias": ["tailwind"],
+    "compatibleMovil": true,
+    "costoRendimiento": "medio",
+    "ruta": "/catalogo/plantillas/basicas/gastronomia/p7",
+    "estado": "piloto",
+    "creada": "2026-08-06"
+  },
+  {
     "id": "pl-p8-gastronomia",
     "nombre": "Ceniza — Parrilla & Bodegon",
     "nicho": "gastronomia",
