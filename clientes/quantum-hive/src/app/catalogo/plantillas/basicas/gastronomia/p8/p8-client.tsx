@@ -52,7 +52,7 @@ function initCanvas(canvas: HTMLCanvasElement, mouse: { x: number; y: number }) 
       // Draw particle
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(0, 229, 255, ${0.4 + (p.r / 3) * 0.3})`;
+      ctx.fillStyle = `rgba(0, 255, 136, ${0.4 + (p.r / 3) * 0.3})`;
       ctx.fill();
 
       // Connect nearby particles
