@@ -71,6 +71,11 @@
 .p3sec-sub { color: #5a5a72; margin-top: 1rem; }
 .p3footer { padding: 2rem 1.5rem; text-align: center; color: #3a3a50; font-size: 0.75rem; border-top: 1px solid rgba(0,229,255,0.05); margin-top: 2rem; }
 
+@keyframes p3ParticleFade {
+  0% { opacity: 1; transform: scale(1) translateY(0); }
+  100% { opacity: 0; transform: scale(0.2) translateY(-40px); }
+}
+
 @media (max-width: 768px) {
   .p3nav-links { display: none; }
   .p3sec-inner { grid-template-columns: 1fr; }
