@@ -1,6 +1,5 @@
-﻿import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
 
-// P4 Brutalismo — Barberia: JetBrains Mono (display) + Space Grotesk (body)
 const jetbrains = JetBrains_Mono({
   variable: "--t-font-display",
   subsets: ["latin"],
@@ -13,7 +12,7 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-export default function LayoutP4Barberia({
+export default function LayoutP4Retail({
   children,
 }: Readonly<{
   children: React.ReactNode;

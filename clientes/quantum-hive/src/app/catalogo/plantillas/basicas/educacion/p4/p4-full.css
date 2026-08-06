@@ -1,0 +1,369 @@
+/*
+  P4 BRUTALISMO / GEOMETRICO — Educacion
+  Estilo: Grid estricto, colores planos, bordes gruesos, sin ornamento.
+  Sin redondeos, sin gradientes sutiles, sin sombras. Contraste alto.
+*/
+
+.p4r {
+  background: #f0faf5;
+  color: #1a1a1a;
+  font-family: var(--t-font-body), system-ui, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* TIPOGRAFIA BRUTALISTA */
+.p4r h1, .p4r h2, .p4r h3, .p4r h4 {
+  font-family: var(--t-font-display), monospace;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  line-height: 0.95;
+}
+
+/* NAV — Linea superior gruesa, sin blur */
+.p4nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem clamp(1rem, 4vw, 2rem);
+  background: #1a1a1a;
+  border-bottom: 4px solid #059669;
+}
+.p4nav-brand {
+  font-family: var(--t-font-display), monospace;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+  color: #f0faf5;
+  text-decoration: none;
+}
+.p4nav-brand span { color: #059669; }
+.p4nav-links { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
+.p4nav-links a {
+  font-family: var(--t-font-display), monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #888;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.p4nav-links a:hover { color: #059669; }
+.p4nav-cta {
+  font-family: var(--t-font-display), monospace;
+  padding: 0.5rem 1rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: #059669;
+  color: #1a1a1a;
+  border: 3px solid #1a1a1a;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.15s;
+}
+.p4nav-cta:hover {
+  background: #1a1a1a;
+  color: #059669;
+}
+
+/* HERO — Asimetrico, grid estricto */
+.p4hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 70vh;
+  border-bottom: 4px solid #1a1a1a;
+}
+.p4hero-content {
+  padding: 4rem clamp(1rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 4px solid #1a1a1a;
+}
+.p4hero-tag {
+  font-family: var(--t-font-display), monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #059669;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  border: 2px solid #059669;
+  padding: 0.3rem 0.8rem;
+  width: fit-content;
+}
+.p4hero-title {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  margin: 0 0 1.5rem;
+  line-height: 0.85;
+}
+.p4hero-title em {
+  font-style: normal;
+  color: #059669;
+  display: block;
+}
+.p4hero-sub {
+  color: #555;
+  font-size: 1rem;
+  max-width: 40ch;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+.p4hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 3px solid #1a1a1a;
+}
+.p4hero-stat {
+  padding: 1rem;
+  border-right: 3px solid #1a1a1a;
+  text-align: center;
+}
+.p4hero-stat:last-child { border-right: none; }
+.p4hero-stat strong {
+  display: block;
+  font-family: var(--t-font-display), monospace;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+.p4hero-stat span {
+  display: block;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #888;
+  margin-top: 0.2rem;
+}
+.p4hero-img {
+  position: relative;
+  overflow: hidden;
+}
+.p4hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* SECCIONES — Grid estricto, bordes gruesos */
+.p4sec {
+  padding: 0;
+  border-bottom: 4px solid #1a1a1a;
+}
+.p4sec-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 60vh;
+}
+.p4sec-text {
+  padding: 3rem clamp(1rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 4px solid #1a1a1a;
+}
+.p4sec-label {
+  font-family: var(--t-font-display), monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #059669;
+  margin-bottom: 1rem;
+}
+.p4sec-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  margin: 0 0 1.5rem;
+}
+.p4sec-title em {
+  font-style: normal;
+  color: #059669;
+}
+.p4sec p {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.p4sec-img {
+  position: relative;
+  overflow: hidden;
+}
+.p4sec-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* SECCION OSCURA — Invertido */
+.p4sec-dark {
+  background: #1a1a1a;
+  color: #f0faf5;
+}
+.p4sec-dark .p4sec-text {
+  border-right-color: #333;
+}
+.p4sec-dark .p4sec p {
+  color: #aaa;
+}
+.p4sec-dark .p4sec-img {
+  border-left: 4px solid #333;
+}
+
+/* FORMULARIO — Inputs sin bordes redondeados */
+.p4contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 2rem 0;
+  border: 3px solid #059669;
+}
+.p4input {
+  background: transparent;
+  border: none;
+  border-right: 3px solid #059669;
+  border-bottom: 3px solid #059669;
+  padding: 0.8rem 1rem;
+  color: #f0faf5;
+  font-family: var(--t-font-display), monospace;
+  font-size: 0.85rem;
+}
+.p4input:nth-child(2n) { border-right: none; }
+.p4input:nth-child(n+3) { border-bottom: none; }
+.p4input:focus {
+  outline: none;
+  background: rgba(5, 150, 105, 0.1);
+}
+.p4input::placeholder {
+  color: #666;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+}
+
+/* BOTON — Brutal, sin transiciones suaves */
+.p4btn {
+  padding: 0.8rem 2rem;
+  font-family: var(--t-font-display), monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: #059669;
+  color: #1a1a1a;
+  border: 3px solid #1a1a1a;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.1s;
+}
+.p4btn:hover {
+  background: #1a1a1a;
+  color: #059669;
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 #059669;
+}
+
+/* INFO CONTACTO */
+.p4contact-info {
+  display: flex;
+  flex-direction: column;
+}
+.p4contact-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+  border-bottom: 3px solid #333;
+  font-family: var(--t-font-display), monospace;
+  font-size: 0.8rem;
+}
+.p4contact-row span:first-child {
+  color: #888;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+}
+.p4closed {
+  color: #059669 !important;
+  font-weight: 700;
+}
+
+/* GALERIA — Grid estricto, sin gap suave */
+.p4gallery {
+  padding: 3rem clamp(1rem, 4vw, 2rem);
+  border-bottom: 4px solid #1a1a1a;
+}
+.p4gallery-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid #1a1a1a;
+}
+.p4gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.p4gallery-cell {
+  border: 2px solid #1a1a1a;
+  overflow: hidden;
+  position: relative;
+}
+.p4gallery-cell img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.2s;
+}
+.p4gallery-cell:hover img {
+  filter: grayscale(0%);
+}
+.p4gallery-cell figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1a1a1a;
+  color: #f0faf5;
+  font-family: var(--t-font-display), monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.4rem 0.6rem;
+}
+
+/* FOOTER — Minimal, brutal */
+.p4footer {
+  padding: 1.5rem clamp(1rem, 4vw, 2rem);
+  background: #1a1a1a;
+  color: #666;
+  font-family: var(--t-font-display), monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-top: 4px solid #059669;
+}
+
+/* FIRMA */
+.p4firma {
+  padding: 2rem 0;
+  border-bottom: 4px solid #1a1a1a;
+}
+
+/* RESPONSIVE — Stack vertical, sin gracia */
+@media (max-width: 768px) {
+  .p4nav-links { display: none; }
+  .p4hero { grid-template-columns: 1fr; }
+  .p4hero-content { border-right: none; border-bottom: 4px solid #1a1a1a; }
+  .p4hero-img { min-height: 50vh; }
+  .p4sec-inner { grid-template-columns: 1fr; }
+  .p4sec-text { border-right: none; border-bottom: 4px solid #1a1a1a; }
+  .p4contact-grid { grid-template-columns: 1fr; }
+  .p4gallery-grid { grid-template-columns: 1fr; }
+}
