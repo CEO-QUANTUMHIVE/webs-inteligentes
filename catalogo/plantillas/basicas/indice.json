@@ -415,6 +415,32 @@
     "creada": "2026-08-06"
   },
   {
+    "id": "pl-p4-gastronomia",
+    "nombre": "Ceniza — Parrilla & Bodegon",
+    "nicho": "gastronomia",
+    "nivel": "premium-brutalismo",
+    "estiloPremium": "Premium 4 — Brutalismo / Geometrico",
+    "version": "1.0.0",
+    "estilo": "Brutalismo Geometrico (grid estricto, colores planos, bordes gruesos)",
+    "paleta": {
+      "ref": "habilidades/paletas-por-nicho/gastronomia.md",
+      "primario": "#ff3e00",
+      "secundario": "#0a0a0a",
+      "acento": "#fff5f0",
+      "fondo": "#fff5f0",
+      "texto": "#0a0a0a"
+    },
+    "tipografia": { "display": "JetBrains Mono", "body": "Space Grotesk" },
+    "secciones": ["hero", "servicios", "historia", "galeria", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
+    "dependencias": ["tailwind"],
+    "compatibleMovil": true,
+    "costoRendimiento": "bajo",
+    "ruta": "/catalogo/plantillas/basicas/gastronomia/p4",
+    "estado": "piloto",
+    "creada": "2026-08-06"
+  },
+  {
     "id": "pl-p4-barberia",
     "nombre": "La Navaja — Barberia Clasica",
     "nicho": "barberia",

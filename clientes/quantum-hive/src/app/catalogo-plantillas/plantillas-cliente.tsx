@@ -9,51 +9,56 @@ type Template = Plantilla;
 function TarjetaVariante({ v }: { v: PlantillaBasica }) {
   const { paleta } = v;
   const isMinimalista = v.nivel === "premium-minimalista";
+  const isBrutalismo = v.nivel === "premium-brutalismo";
+  const isLight = isMinimalista || isBrutalismo;
+  const borderColor = isMinimalista ? "rgba(0,0,0,0.08)" : isBrutalismo ? "rgba(0,0,0,0.15)" : "rgba(255,255,255,0.1)";
+  const bgColor = isMinimalista ? "#FAFAFA" : isBrutalismo ? "#f5f5f5" : "rgba(255,255,255,0.02)";
+  const previewBg = isMinimalista ? "#F3F3F3" : isBrutalismo ? paleta.fondo : paleta.fondo;
+  const badgeBg = isLight ? "rgba(0,0,0,0.06)" : "rgba(255,255,255,0.1)";
+  const badgeColor = isLight ? "#666" : "#fff";
+  const badgeLabel = isMinimalista ? "Minimalista" : isBrutalismo ? "Brutalismo" : "Editorial";
+  const textColor = isLight ? "#111" : "#fff";
+  const subtextColor = isLight ? "#888" : "#9ca3af";
+  const dotBorder = isLight ? "rgba(0,0,0,0.1)" : "rgba(255,255,255,0.2)";
+  const btnBg = isLight ? "#111" : "#22d3ee";
+  const btnColor = isLight ? "#FAFAFA" : "#000";
+  const swatchRadius = isBrutalismo ? "0" : "9999px";
   return (
     <Link
       href={v.ruta}
       className="group flex flex-col rounded-xl border transition-all duration-300 hover:scale-[1.02] overflow-hidden block"
-      style={{
-        borderColor: isMinimalista ? "rgba(0,0,0,0.08)" : "rgba(255,255,255,0.1)",
-        background: isMinimalista ? "#FAFAFA" : "rgba(255,255,255,0.02)",
-      }}
+      style={{ borderColor, background: bgColor }}
     >
       <div
         className="h-28 relative overflow-hidden flex items-center justify-center"
-        style={{ background: isMinimalista ? "#F3F3F3" : paleta.fondo }}
+        style={{ background: previewBg }}
       >
         <div
-          className="w-10 h-10 rounded-lg"
+          className={isBrutalismo ? "w-10 h-10" : "w-10 h-10 rounded-lg"}
           style={{ background: `linear-gradient(135deg, ${paleta.primario}, ${paleta.acento})` }}
         />
         <div
           className="absolute top-2 left-2 px-2 py-0.5 text-[9px] font-bold rounded-full uppercase tracking-wide"
-          style={{
-            background: isMinimalista ? "rgba(0,0,0,0.06)" : "rgba(255,255,255,0.1)",
-            color: isMinimalista ? "#666" : "#fff",
-          }}
+          style={{ background: badgeBg, color: badgeColor }}
         >
-          {isMinimalista ? "Minimalista" : "Editorial"}
+          {badgeLabel}
         </div>
       </div>
       <div className="p-3 flex-1 flex flex-col">
-        <h4 className="font-semibold text-xs mb-1" style={{ color: isMinimalista ? "#111" : "#fff" }}>
+        <h4 className="font-semibold text-xs mb-1" style={{ color: textColor }}>
           {v.estiloPremium ? v.estiloPremium.split(" — ")[1] || v.estiloPremium : v.estilo}
         </h4>
-        <p className="text-[10px] mb-2 leading-relaxed flex-1" style={{ color: isMinimalista ? "#888" : "#9ca3af" }}>
+        <p className="text-[10px] mb-2 leading-relaxed flex-1" style={{ color: subtextColor }}>
           {v.tipografia.display} + {v.tipografia.body}
         </p>
         <div className="flex gap-1 mb-2">
           {[paleta.primario, paleta.secundario, paleta.acento].map((col, i) => (
-            <div key={i} className="w-3 h-3 rounded-full" style={{ background: col, border: `1px solid ${isMinimalista ? "rgba(0,0,0,0.1)" : "rgba(255,255,255,0.2)"}` }} />
+            <div key={i} className="w-3 h-3" style={{ background: col, border: `1px solid ${dotBorder}`, borderRadius: swatchRadius }} />
           ))}
         </div>
         <span
           className="block w-full py-1.5 rounded-lg text-[10px] font-semibold text-center transition-all"
-          style={{
-            background: isMinimalista ? "#111" : "#22d3ee",
-            color: isMinimalista ? "#FAFAFA" : "#000",
-          }}
+          style={{ background: btnBg, color: btnColor }}
         >
           Ver →
         </span>
