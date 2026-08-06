@@ -170,7 +170,7 @@ graphify update .
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-05 · 471 archivos versionados
+Actualizado: 2026-08-06 · 471 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|

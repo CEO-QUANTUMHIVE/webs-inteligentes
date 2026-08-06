@@ -31,7 +31,6 @@ export default function P3FullPage() {
     <div className="p3r">
       <div ref={glowRef} className="p3glow" style={{ left: mouse.x, top: mouse.y }} />
 
-      {/* Nav */}
       <nav className="p3nav">
         <Link href="/catalogo-plantillas" className="p3nav-brand">CEN<span>IZA</span></Link>
         <ul className="p3nav-links">
@@ -41,7 +40,6 @@ export default function P3FullPage() {
         <a href="#contacto" className="p3nav-cta">Reservar</a>
       </nav>
 
-      {/* HERO */}
       <header className="p3hero">
         <p className="p3hero-tag">● Parrilla · Bodegon · Buenos Aires</p>
         <h1 className="p3hero-title">
@@ -56,7 +54,6 @@ export default function P3FullPage() {
         </div>
       </header>
 
-      {/* HISTORIA */}
       <section className="p3sec" id="historia">
         <div className="p3sec-inner">
           <div className="p3sec-text">
@@ -71,7 +68,6 @@ export default function P3FullPage() {
         </div>
       </section>
 
-      {/* CONTACTO */}
       <section className="p3sec p3sec-dark" id="contacto">
         <div className="p3sec-inner">
           <div className="p3sec-text">
@@ -96,24 +92,23 @@ export default function P3FullPage() {
         </div>
       </section>
 
-      {/* GALERIA INFINITA — abajo del todo */}
+      {/* FIRMA — antes de la galeria */}
+      <div className="p3firma-not-in-gallery">
+        <FirmaQuantumHive />
+      </div>
+
+      {/* GALERIA INFINITA — cascada que nunca termina */}
       <section className="p3gallery-section">
         <div className="p3gallery-header">
           <p className="p3sec-label">El lugar</p>
-          <h2 className="p3sec-title">Scrollea <em>infinito</em></h2>
-          <p className="p3sec-sub">Las imagenes aparecen al pasar. Nunca termina.</p>
+          <h2 className="p3sec-title">Cascada <em>infinita</em></h2>
+          <p className="p3sec-sub">Las fotos se suman al scroll. Nunca se termina.</p>
         </div>
         <P3GridGallery items={gallerySlides} />
       </section>
 
-      {/* FIRMA superpuesta sobre la galeria */}
-      <div className="p3firma-wrap">
-        <FirmaQuantumHive />
-      </div>
-
-      {/* Footer minimal */}
       <footer className="p3footer">
-        <p>© {new Date().getFullYear()} Ceniza — Parrilla & Bodegon. Demo (stock libre).</p>
+        <p>© {new Date().getFullYear()} Ceniza — Parrilla & Bodegon.</p>
       </footer>
     </div>
   );
