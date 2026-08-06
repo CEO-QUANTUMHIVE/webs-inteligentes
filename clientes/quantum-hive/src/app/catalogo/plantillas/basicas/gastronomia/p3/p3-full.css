@@ -2,7 +2,9 @@
   background: #06060a; color: #eeeef5;
   font-family: var(--t-font-body), system-ui, sans-serif;
   min-height: 100vh; overflow-x: hidden; position: relative;
+  cursor: none;
 }
+.p3r * { cursor: none; }
 .p3glow {
   position: fixed; width: 500px; height: 500px; border-radius: 50%;
   background: radial-gradient(circle, rgba(0,229,255,0.18), transparent 65%);
