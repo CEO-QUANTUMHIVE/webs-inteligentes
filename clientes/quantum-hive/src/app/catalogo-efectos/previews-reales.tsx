@@ -38,6 +38,7 @@ import { LiquidMetal } from "@/components/ui/liquid-metal";
 import { ImageTrail } from "@/components/ui/image-trail";
 import { PerspectiveCarousel } from "@/components/ui/perspective-carousel";
 import { LogoSlider } from "@/components/ui/logo-slider";
+import PortalGalleryEffect, { portalGalleryDemoData } from "./PortalGalleryEffect";
 
 /* ── contenedores ── */
 
@@ -170,4 +171,11 @@ export const previewsReales: Record<string, React.ComponentType> = {
     <Centro><PerspectiveCarousel items={ITEMS_CARRUSEL} /></Centro>
   ),
   "logo-slider": () => (<Centro><LogoSlider logos={LOGOS} /></Centro>),
+
+  // Galerias
+  "portal-gallery": () => (
+    <div className="h-full w-full overflow-hidden bg-[#0a0a0f]">
+      <PortalGalleryEffect items={portalGalleryDemoData} height={300} />
+    </div>
+  ),
 };

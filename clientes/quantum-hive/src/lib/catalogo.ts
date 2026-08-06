@@ -305,6 +305,7 @@ export const ORDEN_CATEGORIAS = [
   "Navegación",
   "Botones",
   "Interactivo",
+  "Galerias",
 ];
 
 const EFECTO_MATRIX_RAIN: Efecto = {
@@ -315,6 +316,17 @@ const EFECTO_MATRIX_RAIN: Efecto = {
   impacto: 4,
   ideal_para: ["Gaming", "Cyberpunk", "Tech"],
   origen: "adaptado",
+  es_nuevo: true,
+};
+
+const EFECTO_PORTAL_GALLERY: Efecto = {
+  id: "portal-gallery",
+  nombre: "Portal Gallery",
+  descripcion: "Galeria infinita en ventana: las imagenes aparecen y desaparecen por los bordes al scrollear.",
+  categoria: "Galerias",
+  impacto: 5,
+  ideal_para: ["Portfolio", "Restaurantes", "Galeria de productos", "Fotografia"],
+  origen: "propio",
   es_nuevo: true,
 };
 
@@ -347,6 +359,9 @@ export async function obtenerEfectos(): Promise<Efecto[]> {
   const porId = new Map(filas.map((efecto) => [efecto.id, efecto]));
   if (!porId.has(EFECTO_MATRIX_RAIN.id)) {
     porId.set(EFECTO_MATRIX_RAIN.id, EFECTO_MATRIX_RAIN);
+  }
+  if (!porId.has(EFECTO_PORTAL_GALLERY.id)) {
+    porId.set(EFECTO_PORTAL_GALLERY.id, EFECTO_PORTAL_GALLERY);
   }
 
   return [...porId.values()].sort((a, b) => {
