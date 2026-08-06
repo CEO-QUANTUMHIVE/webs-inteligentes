@@ -133,7 +133,7 @@ export default function P3FullPage() {
   return (
     <div className="p3r">
       {/* Canvas energy halos */}
-      <canvas ref={canvasRef} style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }} />
+      <canvas ref={canvasRef} style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none", cursor: "none" }} />
 
       {/* Custom cursor — big glowing ball */}
       <div ref={cursorRef} style={{

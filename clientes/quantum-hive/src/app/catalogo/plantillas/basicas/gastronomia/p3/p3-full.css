@@ -4,7 +4,7 @@
   min-height: 100vh; overflow-x: hidden; position: relative;
   cursor: none;
 }
-.p3r * { cursor: none; }
+html, body, .p3r, .p3r * { cursor: none !important; }
 .p3glow {
   position: fixed; width: 500px; height: 500px; border-radius: 50%;
   background: radial-gradient(circle, rgba(0,229,255,0.18), transparent 65%);
