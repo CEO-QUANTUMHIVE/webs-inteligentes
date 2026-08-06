@@ -1,0 +1,194 @@
+﻿/*
+  PREMIUM 4 — BRUTALISMO
+  Barberia "La Navaja"
+  
+  Principios:
+  - Cero bordes redondeados
+  - Bordes negros gruesos (3px)
+  - Sombras duras (sin blur)
+  - Tipografia monospace
+  - Alto contraste
+  - Layout blocky/raw
+*/
+
+:root {
+  --b-bg: #f5f0e8;
+  --b-fg: #0a0a0a;
+  --b-accent: #d97706;
+  --b-accent-2: #92400e;
+  --b-border: 3px solid #0a0a0a;
+  --b-shadow: 6px 6px 0 #0a0a0a;
+  --b-shadow-sm: 3px 3px 0 #0a0a0a;
+  --b-shadow-accent: 6px 6px 0 #d97706;
+}
+
+.b-root {
+  background: var(--b-bg);
+  color: var(--b-fg);
+  font-family: var(--t-font-body), monospace;
+  font-size: 15px;
+  line-height: 1.5;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+.b-root * { border-radius: 0 !important; }
+
+/* Nav */
+.b-nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: var(--b-bg);
+  border-bottom: var(--b-border);
+}
+
+.b-nav-brand {
+  font-family: var(--t-font-mono), monospace;
+  font-weight: 800; font-size: 1.3rem; letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.b-nav-brand span { color: var(--b-accent); }
+
+.b-nav-links { display: flex; gap: 0; list-style: none; margin: 0; padding: 0; }
+.b-nav-links a {
+  display: block; padding: 0.5rem 1rem;
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--b-fg); border-left: var(--b-border);
+  transition: 0.2s;
+}
+.b-nav-links a:hover { background: var(--b-accent); color: #fff; }
+
+.b-nav-cta {
+  padding: 0.6rem 1.2rem; font-family: var(--t-font-mono), monospace;
+  font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+  background: var(--b-accent); color: #fff; border: var(--b-border);
+  box-shadow: var(--b-shadow-sm); cursor: pointer; transition: 0.2s;
+}
+.b-nav-cta:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 #0a0a0a; }
+
+/* Hero */
+.b-hero {
+  padding: 5rem 1.5rem;
+  border-bottom: var(--b-border);
+  text-align: center;
+}
+
+.b-hero-tag {
+  display: inline-block; padding: 0.4rem 1rem;
+  font-family: var(--t-font-mono), monospace; font-size: 0.65rem;
+  font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+  background: var(--b-fg); color: var(--b-bg); margin-bottom: 2rem;
+}
+
+.b-hero-title {
+  font-family: var(--t-font-mono), monospace;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 800; line-height: 0.9; letter-spacing: -0.03em;
+  text-transform: uppercase; margin: 0 0 1.5rem;
+}
+.b-hero-title em { font-style: normal; color: var(--b-accent); }
+
+.b-hero-sub {
+  max-width: 45ch; margin: 0 auto 2.5rem;
+  color: #444; font-size: 1rem;
+}
+
+.b-hero-stats {
+  display: flex; justify-content: center; gap: 0;
+  border-top: var(--b-border); border-bottom: var(--b-border);
+  margin-top: 3rem;
+}
+.b-stat {
+  flex: 1; padding: 1.5rem; text-align: center;
+  border-right: var(--b-border);
+}
+.b-stat:last-child { border-right: none; }
+.b-stat-n {
+  font-family: var(--t-font-mono), monospace;
+  font-size: 2rem; font-weight: 800; color: var(--b-accent);
+}
+.b-stat-l {
+  font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: #666;
+}
+
+/* Secciones */
+.b-sec { padding: 4rem 1.5rem; border-bottom: var(--b-border); }
+.b-sec-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+
+.b-sec-label {
+  font-family: var(--t-font-mono), monospace; font-size: 0.65rem;
+  font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--b-accent); margin-bottom: 1rem;
+}
+.b-sec-title {
+  font-family: var(--t-font-mono), monospace;
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 800; line-height: 1; letter-spacing: -0.02em;
+  text-transform: uppercase; margin: 0 0 1.5rem;
+}
+.b-sec-title em { font-style: normal; color: var(--b-accent); }
+.b-sec p { color: #444; line-height: 1.7; margin-bottom: 1rem; }
+
+.b-sec-img {
+  border: var(--b-border); box-shadow: var(--b-shadow);
+  overflow: hidden; aspect-ratio: 4/3;
+}
+.b-sec-img img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Servicios — lista brutalista */
+.b-services {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border: var(--b-border);
+}
+.b-service {
+  padding: 1.5rem; border-bottom: var(--b-border);
+  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+}
+.b-service:nth-child(odd) { border-right: var(--b-border); }
+.b-service-name { font-weight: 600; font-size: 0.95rem; }
+.b-service-desc { font-size: 0.8rem; color: #666; margin-top: 0.2rem; }
+.b-service-price {
+  font-family: var(--t-font-mono), monospace; font-weight: 700;
+  color: var(--b-accent); white-space: nowrap;
+}
+
+/* Contacto */
+.b-contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: var(--b-border); max-width: 600px; }
+.b-input {
+  background: transparent; border: none; border-bottom: var(--b-border); border-right: var(--b-border);
+  padding: 0.8rem 1rem; color: var(--b-fg); font-family: inherit; font-size: 0.9rem;
+}
+.b-input:nth-child(even) { border-right: none; }
+.b-input:focus { outline: none; background: rgba(217,119,6,0.05); }
+
+.b-btn {
+  display: inline-block; margin-top: 1.5rem; padding: 0.8rem 2rem;
+  font-family: var(--t-font-mono), monospace; font-size: 0.75rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  background: var(--b-fg); color: var(--b-bg); border: var(--b-border);
+  box-shadow: var(--b-shadow-sm); cursor: pointer; transition: 0.2s;
+}
+.b-btn:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 #0a0a0a; background: var(--b-accent); }
+
+.b-hours { border: var(--b-border); max-width: 400px; }
+.b-hour-row { display: flex; justify-content: space-between; padding: 0.6rem 1rem; border-bottom: var(--b-border); font-size: 0.85rem; }
+.b-hour-row:last-child { border-bottom: none; }
+.b-hour-row span:first-child { color: #666; }
+.b-closed { color: var(--b-accent) !important; font-weight: 600; }
+
+/* Footer */
+.b-footer {
+  padding: 2rem 1.5rem; text-align: center;
+  font-family: var(--t-font-mono), monospace; font-size: 0.7rem;
+  color: #666; text-transform: uppercase; letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .b-nav-links { display: none; }
+  .b-sec-inner { grid-template-columns: 1fr; }
+  .b-hero-stats { flex-wrap: wrap; }
+  .b-services, .b-contact-grid { grid-template-columns: 1fr; }
+  .b-service:nth-child(odd) { border-right: none; }
+}

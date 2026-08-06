@@ -413,5 +413,58 @@
     "ruta": "/catalogo/plantillas/basicas/inmobiliaria/p2",
     "estado": "publicada",
     "creada": "2026-08-05"
+  },
+  {
+    "id": "pl-p4-gastronomia",
+    "nombre": "Ceniza — Parrilla & Bodegon",
+    "nicho": "gastronomia",
+    "nivel": "premium-brutalismo",
+    "estiloPremium": "Premium 4 — Brutalismo / Geometrico",
+    "version": "1.0.0",
+    "estilo": "Brutalismo Geometrico (grid estricto, colores planos, bordes gruesos)",
+    "paleta": {
+      "ref": "habilidades/paletas-por-nicho/gastronomia.md",
+      "primario": "#ff3e00",
+      "secundario": "#1a1a1a",
+      "acento": "#f5f5f0",
+      "fondo": "#f5f5f0",
+      "texto": "#1a1a1a"
+    },
+    "tipografia": { "display": "JetBrains Mono", "body": "Space Grotesk" },
+    "secciones": ["hero", "historia", "galeria", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
+    "dependencias": ["tailwind"],
+    "compatibleMovil": true,
+    "costoRendimiento": "bajo",
+    "ruta": "/catalogo/plantillas/basicas/gastronomia/p4",
+    "estado": "piloto",
+    "creada": "2026-08-06"
+  }
+
+  {
+    "id": "pl-p4-barberia",
+    "nombre": "La Navaja — Barberia Clasica",
+    "nicho": "barberia",
+    "nivel": "premium-brutalista",
+    "estiloPremium": "Premium 4 — Brutalismo (raw, bordes gruesos, monospace)",
+    "version": "1.0.0",
+    "estilo": "Brutalismo",
+    "paleta": {
+      "ref": "habilidades/paletas-por-nicho/barberias.md",
+      "primario": "#d97706",
+      "secundario": "#92400e",
+      "acento": "#0a0a0a",
+      "fondo": "#f5f0e8",
+      "texto": "#0a0a0a"
+    },
+    "tipografia": { "display": "JetBrains Mono", "body": "JetBrains Mono" },
+    "secciones": ["hero", "servicios", "historia", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
+    "dependencias": ["tailwind"],
+    "compatibleMovil": true,
+    "costoRendimiento": "bajo",
+    "ruta": "/catalogo/plantillas/basicas/barberia/p4",
+    "estado": "publicada",
+    "creada": "2026-08-06"
   }
 ]

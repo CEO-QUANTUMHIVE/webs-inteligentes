@@ -170,11 +170,11 @@ graphify update .
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-06 · 474 archivos versionados
+Actualizado: 2026-08-06 · 478 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
-| `clientes/` | 159 | Proyectos Next.js de cada cliente |
+| `clientes/` | 163 | Proyectos Next.js de cada cliente |
 | `plantillas/` | 78 | Plantillas por tipo de negocio |
 | `asset de imagenes de quantumhive/` | 53 | — |
 | `.claude/` | 46 | — |
@@ -199,6 +199,7 @@ Actualizado: 2026-08-06 · 474 archivos versionados
 - `/catalogo-efectos` → `clientes/quantum-hive/src/app/catalogo-efectos/page.tsx`
 - `/catalogo-plantillas` → `clientes/quantum-hive/src/app/catalogo-plantillas/page.tsx`
 - `/catalogo/plantillas/basicas/barberia/p2` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/barberia/p2/page.tsx`
+- `/catalogo/plantillas/basicas/barberia/p4` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/barberia/p4/page.tsx`
 - `/catalogo/plantillas/basicas/barberia` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/barberia/page.tsx`
 - `/catalogo/plantillas/basicas/educacion/p2` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/educacion/p2/page.tsx`
 - `/catalogo/plantillas/basicas/educacion` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/educacion/page.tsx`
