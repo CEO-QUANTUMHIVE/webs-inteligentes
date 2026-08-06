@@ -1,0 +1,22 @@
+﻿.p8r {
+  min-height: 100vh;
+  background: #0a0f1a;
+  color: #eaf4ff;
+  font-family: system-ui, sans-serif;
+}
+.p8nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.p8nav-brand { font-weight: 700; font-size: 1.2rem; }
+.p8nav-brand span { color: #d97706; }
+.p8main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+.p8main h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+.p8main p { color: rgba(234, 244, 255, 0.6); }

@@ -1,32 +1,45 @@
 /*
-  P6 LIQUID GLASS / KINETIC — Gastronomía "Ceniza"
-  Estilo: superficies de vidrio, blur dinámico, profundidad por capas,
-  movimiento como jerarquía. Fondo frío #0A0F1A, violeta vidrio + rosa acento.
-  Paleta distinta del P3 Neon (cian): aquí prima el violeta lavanda translúcido.
-  Fonts: --t-font-display (Space Grotesk) + --t-font-body (IBM Plex Sans).
+  P6 KINETIC / POSTER NOIR — Gastronomía "Ceniza"
+  Estilo: tipografía-poster enorme (Bebas Neue), negro profundo, acento fuego
+  (coral/anaranjado), marquee infinitos, galería con scroll horizontal,
+  carcaturas con esquinas de corte, botones sharp. Radicalmente distinto a
+  P1 (editorial/serif), P2 (minimal blanco), P3 (neon cian), P4 (brutal mono),
+  P5 (orgánico cálido) y P7 (glassmorphism violeta).
 */
 
 .p6r {
-  --p6-primary: #a78bfa;
-  --p6-primary-deep: #7c5cff;
-  --p6-rose: #ff6bb5;
-  --p6-primary-soft: rgba(167, 139, 250, 0.18);
-  --p6-rose-soft: rgba(255, 107, 181, 0.14);
-  --p6-line: rgba(255, 255, 255, 0.12);
-  --p6-surface: rgba(255, 255, 255, 0.06);
-  --p6-text: #f4f1ff;
-  --p6-muted: rgba(244, 241, 255, 0.6);
-  --p6-bg-a: #0c0b18;
-  --p6-bg-b: #15132b;
+  --p6-fg: #f2ede4;
+  --p6-muted: rgba(242, 237, 228, 0.55);
+  --p6-line: rgba(242, 237, 228, 0.14);
+  --p6-accent: #ff5a2e;   /* fuego / coral */
+  --p6-accent-hi: #ff8a4e;
+  --p6-bg: #0d0d0e;
+  --p6-bg-2: #141416;
 
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
-  color: var(--p6-text);
+  background: var(--p6-bg);
+  color: var(--p6-fg);
   font-family: var(--t-font-body), system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+/* Fondo luminoso tipo cono/apertura (único del estilo) */
+.p6-bg-aperture {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
   background:
-    radial-gradient(120% 90% at 50% -10%, #241f4d 0%, transparent 60%),
-    linear-gradient(180deg, var(--p6-bg-a), var(--p6-bg-b));
+    radial-gradient(90% 70% at 50% -10%, rgba(255, 90, 46, 0.16), transparent 60%),
+    radial-gradient(ellipse 60% 45% at 100% 100%, rgba(255, 138, 78, 0.06), transparent 60%),
+    linear-gradient(160deg, var(--p6-bg), var(--p6-bg-2));
+}
+
+.p6r *:where(header, section, footer) {
+  position: relative;
+  z-index: 1;
 }
 
 .p6r *,
@@ -38,82 +51,16 @@
 .p6r h1,
 .p6r h2,
 .p6r h3 {
-  font-family: var(--t-font-display), system-ui, sans-serif;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  font-family: var(--t-font-display), "Arial Narrow", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 0.9;
+  text-transform: uppercase;
 }
 
 .p6r a {
   color: inherit;
   text-decoration: none;
-}
-
-.p6r button {
-  font-family: inherit;
-}
-
-/* ===== FONDO LÍQUIDO (blobs animados) ===== */
-.p6bg {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.p6blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.5;
-  mix-blend-mode: screen;
-  will-change: transform;
-  animation: p6-float 18s ease-in-out infinite alternate;
-}
-
-.p6blobA {
-  width: 500px;
-  height: 500px;
-  top: -120px;
-  left: -120px;
-  background: radial-gradient(circle, rgba(167, 139, 250, 0.52), transparent 70%);
-}
-
-.p6blobB {
-  width: 440px;
-  height: 440px;
-  top: 40%;
-  right: -140px;
-  background: radial-gradient(circle, rgba(255, 107, 181, 0.42), transparent 70%);
-  animation-delay: -6s;
-}
-
-.p6blobC {
-  width: 420px;
-  height: 420px;
-  bottom: -140px;
-  left: 22%;
-  background: radial-gradient(circle, rgba(124, 92, 255, 0.34), transparent 70%);
-  animation-delay: -11s;
-}
-
-@keyframes p6float {
-  0%   { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(60px, -40px) scale(1.12); }
-}
-
-/* ============ SUPERFICIE DE VIDRIO ============ */
-.p6glass {
-  position: relative;
-  background: var(--p6-surface);
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid var(--p6-line);
-  border-radius: 24px;
-  box-shadow:
-    0 4px 24px -4px rgba(167, 139, 250, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  overflow: hidden;
 }
 
 /* ============ NAV ============ */
@@ -125,472 +72,477 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.95rem clamp(1.25rem, 4vw, 2.5rem);
-  background: rgba(10, 11, 24, 0.6);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  padding: 0.9rem clamp(1.25rem, 4vw, 2.5rem);
+  background: rgba(13, 13, 14, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--p6-line);
   flex-wrap: wrap;
 }
 
 .p6nav-volver {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   color: var(--p6-muted);
   white-space: nowrap;
   transition: color 0.2s ease;
 }
-.p6nav-volver:hover {
-  color: var(--p6-primary);
-}
+.p6nav-volver:hover { color: var(--p6-accent); }
 
 .p6nav-marca {
   font-family: var(--t-font-display), sans-serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
 }
 .p6nav-marca span {
-  color: var(--p6-primary);
-  text-shadow: 0 0 18px var(--p6-primary-soft);
+  color: var(--p6-accent);
 }
 
 .p6nav-links {
   display: flex;
-  gap: 1.7rem;
+  gap: 1.6rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 .p6nav-links a {
-  position: relative;
-  font-size: 0.9rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--p6-muted);
   transition: color 0.2s ease;
 }
-.p6nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, var(--p6-primary), var(--p6-rose));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-.p6nav-links a:hover {
-  color: var(--p6-text);
-}
-.p6nav-links a:hover::after {
-  transform: scaleX(1);
-}
+.p6nav-links a:hover { color: var(--p6-fg); }
 
 .p6nav-cta {
-  padding: 0.6rem 1.3rem;
-  font-size: 0.86rem;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   font-weight: 600;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--p6-primary), var(--p6-primary-deep));
-  color: #140f2b;
+  background: var(--p6-accent);
+  color: #160500;
   border: none;
   cursor: pointer;
-  white-space: nowrap;
-  box-shadow: 0 4px 20px -4px rgba(124, 92, 255, 0.55);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 .p6nav-cta:hover {
+background: var(--p6-accent-hi);
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px -4px rgba(124, 92, 255, 0.7);
 }
 
-@media (max-width: 760px) {
-  .p6nav-links {
-    display: none;
-  }
+@media (max-width: 720px) {
+  .p6nav-links { display: none; }
 }
 
 /* ============ HERO ============ */
 .p6hero {
   position: relative;
-  min-height: min(94vh, 860px);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: clamp(2rem, 7vw, 5rem) clamp(1.25rem, 4vw, 2.5rem);
+  width: 100%;
+  padding: clamp(4rem, 10vw, 8rem) 0;
   overflow: hidden;
-  isolation: isolate;
 }
 
-.p6hero-fondo {
-  position: absolute;
-  inset: -80px 0 0 0;
-  z-index: 0;
+.p6hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+  position: relative;
+  z-index: 2;
 }
-.p6hero-fondo img {
+
+/* Canvas de fuego: ancho total, anclado abajo, no bloquea clicks */
+.p6hero-fuego {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 54%;
+  z-index: 0;
+  pointer-events: none;
+}
+.p6hero-fuego .p6-parrilla {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  filter: saturate(0.9) contrast(1.05);
+  display: block;
+  pointer-events: none;
 }
-.p6hero-veil {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-      180deg,
-      rgba(10, 11, 24, 0.45) 0%,
-      rgba(10, 11, 24, 0.55) 50%,
-      rgba(10, 11, 24, 0.97) 100%
-    ),
-    radial-gradient(100% 80% at 20% 10%, rgba(167, 139, 250, 0.18), transparent 55%);
-}
-
-.p6hero-titulo-wrap {
+/* el contenido del hero (título, sub, acciones) va por encima del fuego */
+.p6hero-meta,
+.p6hero-title,
+.p6hero-sub,
+.p6hero-acciones,
+.p6hero-stats {
   position: relative;
   z-index: 2;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
 }
 
-.p6hero-tag {
+.p6hero-meta {
   display: inline-block;
-  padding: 0.4rem 0.95rem;
-  margin-bottom: 1.3rem;
-  border-radius: 999px;
-  background: var(--p6-surface);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--p6-line);
-  color: var(--p6-primary);
-  font-size: 0.76rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+  color: var(--p6-accent);
+  margin-bottom: 2rem;
 }
 
-.p6hero-titulo {
-  font-size: clamp(3rem, 10vw, 7rem);
-  font-weight: 700;
-  margin: 0 0 2rem;
-  line-height: 0.92;
+.p6hero-title {
+  font-size: clamp(4.5rem, 17vw, 12rem);
+  margin: 0 0 2.5rem;
 }
-.p6hero-titulo span {
-  background: linear-gradient(120deg, var(--p6-primary), var(--p6-rose));
-  -webkit-background-clip: text;
+.p6hero-title .p6row {
+  display: block;
+}
+.p6hero-title .p6row--right {
+  text-align: right;
+  color: var(--p6-accent);
+  -webkit-text-stroke: 1px var(--p6-accent);
   -webkit-text-fill-color: transparent;
-  background-clip: text;
+}
+.p6hero-title em {
+  font-style: normal;
+  font-size: 0.55em;
+  vertical-align: super;
+  color: var(--p6-accent);
+  -webkit-text-fill-color: var(--p6-accent);
 }
 
-.p6hero-pie {
-  position: relative;
-  z-index: 2;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 2rem;
-  padding-top: 0;
-}
-
-.p6hero-texto {
-  flex: 1 1 320px;
+.p6hero-sub {
   color: var(--p6-muted);
-  font-size: clamp(1rem, 1.6vw, 1.15rem);
-  line-height: 1.7;
-  margin: 0;
-  max-width: 44ch;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  max-width: 48ch;
+  margin: 0 0 2.5rem;
 }
 
 .p6hero-acciones {
   display: flex;
-  gap: 0.9rem;
+  gap: 1rem;
   flex-wrap: wrap;
+  margin-bottom: 3.5rem;
 }
 
-.p6hero-meta {
+.p6hero-stats {
   display: flex;
-  gap: clamp(1.4rem, 4vw, 3rem);
-  flex: 1 1 100%;
-  margin-top: 2.4rem;
-  padding-top: 1.8rem;
+  gap: clamp(2rem, 6vw, 4rem);
+  flex-wrap: wrap;
+  padding-top: 2rem;
   border-top: 1px solid var(--p6-line);
 }
 
-.p6dato {
+.p6stat {
   display: flex;
   flex-direction: column;
 }
-.p6dato strong {
+.p6stat-num {
   font-family: var(--t-font-display), sans-serif;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 700;
-  color: var(--p6-primary);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--p6-accent);
   line-height: 1;
-  text-shadow: 0 0 18px var(--p6-primary-soft);
 }
-.p6dato span {
+.p6stat-label {
   font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--p6-muted);
   margin-top: 0.4rem;
-  letter-spacing: 0.06em;
 }
 
-/* ============ BOTONES ============ */
+.p6stat--solid {
+  padding: 1.4rem 1.8rem;
+  background: var(--p6-bg-2);
+  border: 1px solid var(--p6-line);
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+}
+
+/* ============ BOTONES (esquinas cortadas) ============ */
 .p6btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.9rem 1.8rem;
-  border-radius: 999px;
-  font-family: var(--t-font-body), sans-serif;
-  font-weight: 600;
-  font-size: 0.95rem;
+  padding: 0.95rem 1.8rem;
+  font-family: var(--t-font-display), sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   cursor: pointer;
-  border: 1px solid transparent;
+  color: var(--p6-fg);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.p6btn:hover { transform: translateY(-3px); }
+
+.p6btn--fill {
+  background: var(--p6-accent);
+  color: #160500;
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+}
+.p6btn--fill:hover { background: var(--p6-accent-hi); }
+
+.p6btn--ghost {
+  background: transparent;
+  border: 1px solid var(--p6-line);
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+}
+.p6btn--ghost:hover {
+  border-color: var(--p6-accent);
+  color: var(--p6-accent);
+}
+
+.p6btn--full { width: 100%; }
+
+/* ============ MARQUEE ============ */
+.p6marquee {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--p6-line);
+  border-bottom: 1px solid var(--p6-line);
+  padding: 1.2rem 0;
+  background: #0a0a0b;
+}
+
+.p6marquee-track {
+  display: flex;
+  width: max-content;
+  animation: p6-scroll 22s linear infinite;
+}
+.p6marquee--rev .p6marquee-track {
+  animation-direction: reverse;
+}
+
+.p6marquee-chunk {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.p6marquee-item {
+  font-family: var(--t-font-display), sans-serif;
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  letter-spacing: 0.05em;
+  color: var(--p6-fg);
   white-space: nowrap;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  display: flex;
+  align-items: center;
+}
+.p6marquee-item + .p6marquee-item { margin-left: 2.5rem; }
+
+.p6marquee-dot {
+  color: var(--p6-accent);
+  margin-left: 2.5rem;
 }
 
-.p6btnP {
-  background: linear-gradient(135deg, var(--p6-primary), var(--p6-primary-deep));
-  color: #140f2b;
-  box-shadow: 0 6px 24px -4px rgba(124, 92, 255, 0.55);
-}
-.p6btnP:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 34px -4px rgba(124, 92, 255, 0.7);
-}
-
-.p6btnS {
-  background: var(--p6-surface);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-color: var(--p6-line);
-  color: var(--p6-text);
-}
-.p6btnS:hover {
-  transform: translateY(-3px);
-  border-color: var(--p6-primary);
-}
-
-.p6btn--dark {
-  background: rgba(0, 0, 0, 0.4);
-  border-color: var(--p6-line);
-  color: var(--p6-text);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-.p6btn--dark:hover {
-  border-color: var(--p6-primary);
-  color: var(--p6-primary);
-  transform: translateY(-3px);
-}
-
-.p6btn--full {
-  width: 100%;
+@keyframes p6-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 /* ============ SECCIONES ============ */
 .p6sec {
-  position: relative;
-  z-index: 1;
-  padding: clamp(3.5rem, 8vw, 6.5rem) clamp(1rem, 4vw, 2.5rem);
+  padding: clamp(3.5rem, 8vw, 6rem) clamp(1.25rem, 4vw, 2.5rem);
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.p6sec-head {
-  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
-  max-width: 560px;
-}
+.p6sec-head { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
 .p6sec-head--center {
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
 }
 
 .p6eyebrow {
   display: inline-block;
-  font-family: var(--t-font-display), sans-serif;
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 0.8rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--p6-primary);
-  margin-bottom: 1rem;
+  color: var(--p6-accent);
+  margin-bottom: 1.2rem;
 }
 
-.p6titulo {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 700;
-  margin: 0 0 0.9rem;
+.p6sec-title {
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  margin: 0 0 0.8rem;
+  line-height: 0.88;
 }
-.p6titulo em {
+.p6sec-title em {
   font-style: normal;
-  background: linear-gradient(120deg, var(--p6-primary), var(--p6-rose));
-  -webkit-background-clip: text;
+  color: var(--p6-accent);
+}
+.p6sec-title span {
+  color: var(--p6-accent);
+  -webkit-text-stroke: 1px var(--p6-accent);
   -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .p6sub {
   color: var(--p6-muted);
-  font-size: clamp(1rem, 1.6vw, 1.12rem);
-  line-height: 1.7;
+  font-size: 1.05rem;
   max-width: 50ch;
+  line-height: 1.7;
 }
 
-/* ============ MASONRY PLATOS ============ */
-.p6masonry {
+/* ============ CARTA (grid de 4) ============ */
+.p6-cartas {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 40px;
-  gap: 1.1rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
 }
-
-.p6card {
+.p6carta {
+  background: var(--p6-bg-2);
+  border: 1px solid var(--p6-line);
+  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  border-radius: 20px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
 }
-.p6card img {
-  width: 100%;
-  height: calc(100% - 84px);
-  object-fit: cover;
-  display: block;
-  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.p6card:hover img {
-  transform: scale(1.07);
+.p6carta:hover {
+  border-color: var(--p6-accent);
+  transform: translateY(-5px);
 }
 
-.p6card-barra {
-  flex-shrink: 0;
+.p6carta-img {
+  position: relative;
+  aspect-ratio: 1 / 0.85;
+  overflow: hidden;
+}
+.p6carta-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.p6carta:hover .p6carta-img img { transform: scale(1.08); }
+
+.p6carta-idx {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.7rem;
+  font-family: var(--t-font-display), sans-serif;
+  font-size: 1.1rem;
+  color: var(--p6-fg);
+  background: var(--p6-bg);
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--p6-line);
+}
+
+.p6carta-body {
+  padding: 1.2rem 1.3rem 1.4rem;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.8rem;
-  padding: 0.9rem 1.1rem;
-  height: 84px;
-  background: rgba(10, 11, 24, 0.5);
+  flex-direction: column;
+}
+.p6carta-body h3 {
+  font-size: 1.35rem;
+  margin: 0 0 0.3rem;
+}
+.p6carta-body p {
+  color: var(--p6-muted);
+  font-size: 0.9rem;
+  margin: 0 0 1rem;
+}
+.p6carta-precio {
+  display: block;
+  font-family: var(--t-font-display), sans-serif;
+  font-size: 1.4rem;
+  color: var(--p6-accent);
+}
+
+/* ============ LUGAR ============ */
+.p6-lugar-stats {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* ============ GALERÍA scroll horizontal ============ */
+.p6fotos {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
   border-top: 1px solid var(--p6-line);
 }
-
-.p6card-info {
+.p6fotos-head {
+  padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+  margin-bottom: 2.5rem;
+  max-width: 1200px;
+}
+.p6fotos-scroll {
   display: flex;
-  flex-direction: column;
+  gap: 1.2rem;
+  overflow-x: auto;
+  padding: 0 clamp(1.25rem, 4vw, 2.5rem) 1.5rem;
+  scroll-snap-type: x mandatory;
 }
-.p6card-info strong {
-  font-family: var(--t-font-display), sans-serif;
-  font-size: 1.02rem;
-  font-weight: 600;
+.p6foto {
+  flex: 0 0 340px;
+  margin: 0;
+  scroll-snap-align: start;
 }
-.p6card-info span {
-  font-size: 0.78rem;
-  color: var(--p6-muted);
-  margin-top: 0.15rem;
-}
-
-.p6card-tiempo {
-  font-family: var(--t-font-display), sans-serif;
-  font-size: 0.82rem;
-  color: var(--p6-primary);
-  white-space: nowrap;
-}
-
-/* ============ EL LUGAR (dos columnas) ============ */
-.p6doscol {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: clamp(2rem, 5vw, 3.5rem);
-  align-items: center;
-}
-.p6lugar-img {
-  border-radius: 24px;
-  overflow: hidden;
-}
-.p6lugar-img img {
+.p6foto img {
   width: 100%;
-  aspect-ratio: 4 / 4.6;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
   display: block;
+  filter: saturate(0.95) contrast(1.05);
+  transition: transform 0.6s ease;
 }
-
-.p6lugar-txt p {
+.p6foto:hover img { transform: scale(1.03); }
+.p6foto-cap {
+  display: block;
+  margin-top: 0.7rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: var(--p6-muted);
-  line-height: 1.8;
-  margin: 0 0 1.2rem;
-  font-size: 1.05rem;
-}
-.p6lugar-txt .p6btn {
-  margin-top: 0.6rem;
 }
 
-/* ============ TESTIMONIOS ============ */
-.p6testimonios {
-  padding-top: 0;
-}
-
-.p6test-grid {
+/* ============ VEREDICTOS ============ */
+.p6-verdicts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.2rem;
 }
-
-.p6test-card {
-  padding: 2rem;
+.p6voto {
   margin: 0;
-  display: flex;
-  flex-direction: column;
+  padding: 1.8rem;
+  background: var(--p6-bg-2);
+  border: 1px solid var(--p6-line);
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
 }
-.p6test-card p {
-  color: var(--p6-text);
-  line-height: 1.7;
-  font-size: 0.98rem;
-  margin: 1rem 0 1.4rem;
-  padding-left: 1rem;
-  border-left: 2px solid rgba(167, 139, 250, 0.4);
-}
-.p6test-card footer {
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-}
-.p6test-card footer strong {
+.p6voto-num {
   font-family: var(--t-font-display), sans-serif;
-  font-weight: 600;
+  font-size: 1rem;
+  color: var(--p6-accent);
 }
-.p6test-card footer span {
-  font-size: 0.8rem;
-  color: var(--p6-muted);
-  margin-top: 0.15rem;
+.p6voto p {
+  color: var(--p6-fg);
+  line-height: 1.65;
+  font-size: 1rem;
+  margin: 1.2rem 0;
 }
-
-.p6estrellas {
-  color: var(--p6-primary);
+.p6voto footer {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--p6-line);
+  padding-top: 1rem;
+}
+.p6voto footer strong {
   font-size: 0.95rem;
-  letter-spacing: 0.12em;
-  text-shadow: 0 0 14px var(--p6-primary-soft);
+}
+.p6voto footer span {
+  font-size: 0.82rem;
+  color: var(--p6-muted);
+  margin-top: 0.2rem;
 }
 
 /* ============ RESERVAS ============ */
-.p6reservas {
-  padding-top: 0;
-}
-
-.p6reserva-card {
+.p6-reserva {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  overflow: hidden;
-  border-radius: 28px;
-}
-.p6reserva-info {
-  padding: clamp(1.6rem, 4vw, 2.6rem);
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: start;
 }
 .p6horarios {
   margin-top: 2rem;
@@ -600,156 +552,71 @@
   justify-content: space-between;
   padding: 0.85rem 0;
   border-bottom: 1px dashed var(--p6-line);
-  font-size: 0.92rem;
+  font-size: 0.95rem;
 }
-.p6horarios div:last-child {
-  border-bottom: none;
-}
-.p6horarios span {
-  color: var(--p6-muted);
-}
-.p6horarios strong {
-  font-weight: 600;
-}
-.p6cerrado {
-  color: var(--p6-rose) !important;
-  font-weight: 700;
-}
+.p6horarios div:last-child { border-bottom: none; }
+.p6horarios span { color: var(--p6-muted); }
+.p6horarios strong { font-weight: 600; }
+.p6cerrado { color: var(--p6-accent) !important; font-weight: 700; }
 
 .p6form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: clamp(1.6rem, 4vw, 2.6rem);
-  background: rgba(10, 11, 24, 0.35);
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-  border-left: 1px solid var(--p6-line);
+  padding: clamp(1.6rem, 4vw, 2.4rem);
+  background: var(--p6-bg-2);
+  border: 1px solid var(--p6-line);
+  clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
 }
-
-.p6form-fila {
+.p6form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
-
 .p6input {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--p6-line);
-  border-radius: 14px;
   padding: 0.85rem 1rem;
-  color: var(--p6-text);
+  color: var(--p6-fg);
   font-family: var(--t-font-body), sans-serif;
-  font-size: 0.93rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  width: 100%;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+  clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px);
 }
-.p6input::placeholder {
-  color: rgba(244, 241, 255, 0.45);
-}
+.p6input::placeholder { color: rgba(242, 237, 228, 0.4); }
 .p6input:focus {
   outline: none;
-  border-color: var(--p6-primary);
-  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.16);
+  border-color: var(--p6-accent);
 }
-.p6input option {
-  background: #0a0b18;
-  color: var(--p6-text);
-}
-
-.p6textarea {
-  resize: vertical;
-}
-
-/* ============ MAPA ============ */
-.p6mapa {
-  padding-top: 0;
-}
-.p6mapa-wrap {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  overflow: hidden;
-  border-radius: 24px;
-}
-.p6mapa-info {
-  padding: clamp(1.6rem, 4vw, 2.6rem);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.4rem;
-}
-.p6mapa-info h3 {
-  font-size: 1.8rem;
-  margin: 0 0 1rem;
-}
-.p6mapa-info p {
-  color: var(--p6-muted);
-  margin: 0;
-  line-height: 1.7;
-}
-.p6mapa-frame iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 300px;
-  border: 0;
-  filter: grayscale(0.3) contrast(1.1);
-}
+.p6input option { background: var(--p6-bg); color: var(--p6-fg); }
+.p6textarea { resize: vertical; }
 
 /* ============ FOOTER ============ */
 .p6foot {
   position: relative;
-  z-index: 1;
   text-align: center;
   padding: 2.5rem clamp(1rem, 4vw, 2.5rem);
   border-top: 1px solid var(--p6-line);
   color: var(--p6-muted);
   font-size: 0.85rem;
 }
-.p6foot p {
-  margin: 0;
-}
+.p6foot p { margin: 0; }
 
 /* ============ RESPONSIVE ============ */
-@media (max-width: 900px) {
-  .p6masonry {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .p6doscol {
-    grid-template-columns: 1fr;
-  }
-  .p6lugar-img img {
-    aspect-ratio: 4 / 3;
-  }
-  .p6test-grid {
-    grid-template-columns: 1fr;
-  }
-  .p6reserva-card {
-    grid-template-columns: 1fr;
-  }
-  .p6form {
-    border-left: 0;
-    border-top: 1px solid var(--p6-line);
-  }
-  .p6mapa-wrap {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 980px) {
+  .p6-cartas { grid-template-columns: repeat(2, 1fr); }
 }
-
+@media (max-width: 780px) {
+  .p6-cartas { grid-template-columns: 1fr; }
+  .p6-verdicts { grid-template-columns: 1fr; }
+  .p6-reserva { grid-template-columns: 1fr; }
+  .p6-form-row { grid-template-columns: 1fr; }
+}
 @media (max-width: 560px) {
-  .p6masonry {
-    grid-template-columns: 1fr;
-  }
-  .p6form-fila {
-    grid-template-columns: 1fr;
-  }
+  .p6-cartas { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .p6blob {
-    animation: none;
-  }
-  .p6card img {
-    transition: none;
-  }
+  .p6marquee-track { animation: none; }
+  .p6carta-img img { transition: none; }
 }

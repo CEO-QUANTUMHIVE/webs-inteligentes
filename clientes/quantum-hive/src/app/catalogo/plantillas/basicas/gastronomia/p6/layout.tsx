@@ -1,28 +1,24 @@
-import { Space_Grotesk, IBM_Plex_Sans } from "next/font/google";
+import { Bebas_Neue, Inter } from "next/font/google";
 
-// Tipografía P6 Liquid Glass / Kinetic: Space Grotesk (display/tech)
-// + IBM Plex Sans (body/legible). Estilo frío-premium, translúcido,
-// theme-aware, con profundidad por capas (vidrio líquido).
-const spaceGrotesk = Space_Grotesk({
+// Tipografía P6 Kinetic / Poster Noir: Bebas Neue (display condensado, enorme)
+// + Inter (body legible). Distinta del resto: la P6 es pura tipografía-poster
+// con marquee y scroll horizontal, nada de serif (P1) ni de letras mono (P4).
+const bebas = Bebas_Neue({
   variable: "--t-font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400"],
 });
 
-const ibmPlexSans = IBM_Plex_Sans({
+const inter = Inter({
   variable: "--t-font-body",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-export default function LayoutP6LiquidGlass({
+export default function LayoutP6Kinetic({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>): React.JSX.Element {
-  return (
-    <div className={`${spaceGrotesk.variable} ${ibmPlexSans.variable}`}>
-      {children}
-    </div>
-  );
+  return <div className={`${bebas.variable} ${inter.variable}`}>{children}</div>;
 }

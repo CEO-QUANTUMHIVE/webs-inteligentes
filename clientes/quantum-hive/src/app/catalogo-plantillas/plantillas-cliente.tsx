@@ -11,20 +11,22 @@ function TarjetaVariante({ v }: { v: PlantillaBasica }) {
   const isMinimalista = v.nivel === "premium-minimalista";
   const isBrutalismo = v.nivel === "premium-brutalismo";
   const isOrganico = v.nivel === "premium-organico";
+  const isCristal = v.nivel === "premium-cristal";
   const isLight = isMinimalista || isBrutalismo || isOrganico;
-  const borderColor = isMinimalista ? "rgba(0,0,0,0.08)" : isBrutalismo ? "rgba(0,0,0,0.15)" : isOrganico ? "#E8E0D5" : "rgba(255,255,255,0.1)";
-  const bgColor = isMinimalista ? "#FAFAFA" : isBrutalismo ? "#f5f5f5" : isOrganico ? "#FAF7F2" : "rgba(255,255,255,0.02)";
-  const previewBg = isMinimalista ? "#F3F3F3" : isBrutalismo ? paleta.fondo : isOrganico ? "#F3EDE5" : paleta.fondo;
-  const badgeBg = isLight ? "rgba(0,0,0,0.06)" : "rgba(255,255,255,0.1)";
-  const badgeColor = isLight ? "#666" : "#fff";
-  const badgeLabel = isMinimalista ? "Minimalista" : isBrutalismo ? "Brutalismo" : isOrganico ? "Orgánico" : "Editorial";
+  const borderColor = isMinimalista ? "rgba(0,0,0,0.08)" : isBrutalismo ? "rgba(0,0,0,0.15)" : isOrganico ? "#E8E0D5" : isCristal ? "rgba(0,229,255,0.2)" : "rgba(255,255,255,0.1)";
+  const bgColor = isMinimalista ? "#FAFAFA" : isBrutalismo ? "#f5f5f5" : isOrganico ? "#FAF7F2" : isCristal ? "#080810" : "rgba(255,255,255,0.02)";
+  const previewBg = isMinimalista ? "#F3F3F3" : isBrutalismo ? paleta.fondo : isOrganico ? "#F3EDE5" : isCristal ? "#080810" : paleta.fondo;
+  const badgeBg = isLight ? "rgba(0,0,0,0.06)" : isCristal ? "rgba(0,229,255,0.15)" : "rgba(255,255,255,0.1)";
+  const badgeColor = isLight ? "#666" : isCristal ? "#00e5ff" : "#fff";
+  const badgeLabel = isMinimalista ? "Minimalista" : isBrutalismo ? "Brutalismo" : isOrganico ? "Orgánico" : isCristal ? "Cristal" : "Editorial";
   const textColor = isLight ? "#111" : "#fff";
-  const subtextColor = isLight ? "#888" : "#9ca3af";
+  const subtextColor = isLight ? "#888" : isCristal ? "#5a5a72" : "#9ca3af";
   const dotBorder = isLight ? "rgba(0,0,0,0.1)" : "rgba(255,255,255,0.2)";
-  const btnBg = isOrganico ? "#C2703E" : isLight ? "#111" : "#22d3ee";
-  const btnColor = isLight ? "#FAFAFA" : "#000";
+  const btnBg = isOrganico ? "#C2703E" : isCristal ? "transparent" : isLight ? "#111" : "#22d3ee";
+  const btnColor = isLight ? "#FAFAFA" : isCristal ? "#00e5ff" : "#000";
+  const btnBorder = isCristal ? "1px solid rgba(0,229,255,0.4)" : "none";
   const swatchRadius = isBrutalismo ? "0" : isOrganico ? "100px" : "9999px";
-  const cardRadius = isOrganico ? "16px" : "12px";
+  const cardRadius = isOrganico ? "16px" : isCristal ? "16px" : "12px";
   return (
     <Link
       href={v.ruta}
@@ -37,7 +39,7 @@ function TarjetaVariante({ v }: { v: PlantillaBasica }) {
       >
         <div
           className={isBrutalismo ? "w-10 h-10" : "w-10 h-10 rounded-xl"}
-          style={{ background: `linear-gradient(135deg, ${paleta.primario}, ${paleta.acento})` }}
+          style={{ background: `linear-gradient(135deg, ${paleta.primario}, ${paleta.acento})`, boxShadow: isCristal ? `0 0 20px ${paleta.primario}40` : "none" }}
         />
         <div
           className="absolute top-2 left-2 px-2 py-0.5 text-[9px] font-bold rounded-full uppercase tracking-wide"
@@ -60,7 +62,7 @@ function TarjetaVariante({ v }: { v: PlantillaBasica }) {
         </div>
         <span
           className="block w-full py-1.5 text-[10px] font-semibold text-center transition-all"
-          style={{ background: btnBg, color: btnColor, borderRadius: isOrganico ? "100px" : "8px" }}
+          style={{ background: btnBg, color: btnColor, borderRadius: isOrganico ? "100px" : "8px", border: btnBorder }}
         >
           Ver →
         </span>
