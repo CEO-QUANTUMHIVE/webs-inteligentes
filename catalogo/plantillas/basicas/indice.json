@@ -415,6 +415,32 @@
     "creada": "2026-08-06"
   },
   {
+    "id": "pl-p5-gastronomia",
+    "nombre": "Ceniza — Parrilla & Bodegon",
+    "nicho": "gastronomia",
+    "nivel": "premium-organico",
+    "estiloPremium": "Premium 5 — Organico / Luxury Warm",
+    "version": "1.0.0",
+    "estilo": "Organico Luxury Warm (grid asimétrico, cálida elegancia, bordes suaves)",
+    "paleta": {
+      "ref": "habilidades/paletas-por-nicho/gastronomia.md",
+      "primario": "#C2703E",
+      "secundario": "#2D2A26",
+      "acento": "#E8E0D5",
+      "fondo": "#FAF7F2",
+      "texto": "#2D2A26"
+    },
+    "tipografia": { "display": "Cormorant Garamond", "body": "DM Sans" },
+    "secciones": ["hero", "historia", "galeria", "testimonios", "reservas", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
+    "dependencias": ["tailwind"],
+    "compatibleMovil": true,
+    "costoRendimiento": "bajo",
+    "ruta": "/catalogo/plantillas/basicas/gastronomia/p5",
+    "estado": "piloto",
+    "creada": "2026-08-06"
+  },
+  {
     "id": "pl-p4-gastronomia",
     "nombre": "Ceniza — Parrilla & Bodegon",
     "nicho": "gastronomia",

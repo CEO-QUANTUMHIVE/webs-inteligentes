@@ -10,31 +10,33 @@ function TarjetaVariante({ v }: { v: PlantillaBasica }) {
   const { paleta } = v;
   const isMinimalista = v.nivel === "premium-minimalista";
   const isBrutalismo = v.nivel === "premium-brutalismo";
-  const isLight = isMinimalista || isBrutalismo;
-  const borderColor = isMinimalista ? "rgba(0,0,0,0.08)" : isBrutalismo ? "rgba(0,0,0,0.15)" : "rgba(255,255,255,0.1)";
-  const bgColor = isMinimalista ? "#FAFAFA" : isBrutalismo ? "#f5f5f5" : "rgba(255,255,255,0.02)";
-  const previewBg = isMinimalista ? "#F3F3F3" : isBrutalismo ? paleta.fondo : paleta.fondo;
+  const isOrganico = v.nivel === "premium-organico";
+  const isLight = isMinimalista || isBrutalismo || isOrganico;
+  const borderColor = isMinimalista ? "rgba(0,0,0,0.08)" : isBrutalismo ? "rgba(0,0,0,0.15)" : isOrganico ? "#E8E0D5" : "rgba(255,255,255,0.1)";
+  const bgColor = isMinimalista ? "#FAFAFA" : isBrutalismo ? "#f5f5f5" : isOrganico ? "#FAF7F2" : "rgba(255,255,255,0.02)";
+  const previewBg = isMinimalista ? "#F3F3F3" : isBrutalismo ? paleta.fondo : isOrganico ? "#F3EDE5" : paleta.fondo;
   const badgeBg = isLight ? "rgba(0,0,0,0.06)" : "rgba(255,255,255,0.1)";
   const badgeColor = isLight ? "#666" : "#fff";
-  const badgeLabel = isMinimalista ? "Minimalista" : isBrutalismo ? "Brutalismo" : "Editorial";
+  const badgeLabel = isMinimalista ? "Minimalista" : isBrutalismo ? "Brutalismo" : isOrganico ? "Orgánico" : "Editorial";
   const textColor = isLight ? "#111" : "#fff";
   const subtextColor = isLight ? "#888" : "#9ca3af";
   const dotBorder = isLight ? "rgba(0,0,0,0.1)" : "rgba(255,255,255,0.2)";
-  const btnBg = isLight ? "#111" : "#22d3ee";
+  const btnBg = isOrganico ? "#C2703E" : isLight ? "#111" : "#22d3ee";
   const btnColor = isLight ? "#FAFAFA" : "#000";
-  const swatchRadius = isBrutalismo ? "0" : "9999px";
+  const swatchRadius = isBrutalismo ? "0" : isOrganico ? "100px" : "9999px";
+  const cardRadius = isOrganico ? "16px" : "12px";
   return (
     <Link
       href={v.ruta}
-      className="group flex flex-col rounded-xl border transition-all duration-300 hover:scale-[1.02] overflow-hidden block"
-      style={{ borderColor, background: bgColor }}
+      className="group flex flex-col border transition-all duration-300 hover:scale-[1.02] overflow-hidden block"
+      style={{ borderColor, background: bgColor, borderRadius: cardRadius }}
     >
       <div
         className="h-28 relative overflow-hidden flex items-center justify-center"
-        style={{ background: previewBg }}
+        style={{ background: previewBg, borderRadius: `${cardRadius} ${cardRadius} 0 0` }}
       >
         <div
-          className={isBrutalismo ? "w-10 h-10" : "w-10 h-10 rounded-lg"}
+          className={isBrutalismo ? "w-10 h-10" : "w-10 h-10 rounded-xl"}
           style={{ background: `linear-gradient(135deg, ${paleta.primario}, ${paleta.acento})` }}
         />
         <div
@@ -57,8 +59,8 @@ function TarjetaVariante({ v }: { v: PlantillaBasica }) {
           ))}
         </div>
         <span
-          className="block w-full py-1.5 rounded-lg text-[10px] font-semibold text-center transition-all"
-          style={{ background: btnBg, color: btnColor }}
+          className="block w-full py-1.5 text-[10px] font-semibold text-center transition-all"
+          style={{ background: btnBg, color: btnColor, borderRadius: isOrganico ? "100px" : "8px" }}
         >
           Ver →
         </span>
