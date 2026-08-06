@@ -7,11 +7,11 @@ type Props = { items: Slide[] };
 
 export default function P3Waterfall({ items }: Props) {
   const gridRef = useRef<HTMLDivElement>(null);
+  const speeds = [0.03, -0.02, 0.035, -0.025, 0.025, -0.03, 0.03, -0.02];
 
   const handleScroll = useCallback(() => {
     const grid = gridRef.current;
     if (!grid) return;
-
     const children = Array.from(grid.children) as HTMLElement[];
     const windowH = window.innerHeight;
     const centerY = windowH / 2;
@@ -23,24 +23,16 @@ export default function P3Waterfall({ items }: Props) {
       const normalizedDist = distFromCenter / windowH;
       const absDist = Math.abs(normalizedDist);
 
-      // Parallax: alternado
-      const factor = (i % 2 === 0) ? 0.06 : -0.04;
+      const factor = speeds[i % speeds.length];
       const offsetY = distFromCenter * factor;
+      const blur = Math.min(1.5, absDist * 2.5);
+      const opacity = absDist < 0.7 ? 1 : Math.max(0.25, 1 - (absDist - 0.7) * 2.5);
+      const scale = 1 - absDist * 0.04;
 
-      // Difuminado por distancia (blur creciente al alejarse)
-      const blur = Math.min(6, absDist * 8);
-
-      // Opacidad: totalmente opaco cerca del centro, difuminado lejos
-      const opacity = absDist < 0.5 ? 1 : Math.max(0.12, 1 - absDist * 1.5);
-
-      // Escala: cerca = 1, lejos = 0.9
-      const scale = 1 - absDist * 0.08;
-
-      child.style.transform = `translateY(${offsetY}px) scale(${Math.max(0.85, scale)})`;
+      child.style.transform = `translateY(${offsetY}px) scale(${Math.max(0.92, scale)})`;
       child.style.opacity = opacity.toString();
       child.style.filter = `blur(${blur}px)`;
-
-      child.classList.toggle("is-active", absDist < 0.3);
+      child.classList.toggle("is-active", absDist < 0.4);
     });
   }, []);
 
@@ -50,7 +42,6 @@ export default function P3Waterfall({ items }: Props) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  // Loop: 4 copias para infinito visual
   const looped = [...items, ...items, ...items, ...items];
 
   return (
@@ -58,13 +49,7 @@ export default function P3Waterfall({ items }: Props) {
       <div className="p3g-grid" ref={gridRef}>
         {looped.map((item, i) => (
           <div key={`${item.title}-${i}`} className="p3g-item">
-            <img
-              src={`https://images.unsplash.com/${item.img}?w=600&q=75&auto=format&fit=crop`}
-              alt={item.title}
-              width={600}
-              height={800}
-              loading="lazy"
-            />
+            <img src={`https://images.unsplash.com/${item.img}?w=500&q=78&auto=format&fit=crop`} alt={item.title} width={500} height={700} loading="lazy" />
             <div className="p3g-info"><span>{item.title}</span></div>
           </div>
         ))}
