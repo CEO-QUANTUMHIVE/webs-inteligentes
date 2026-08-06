@@ -3,9 +3,9 @@
     "nombre": "Ceniza — Parrilla & Bodegon",
     "nicho": "gastronomia",
     "nivel": "premium",
-    "estiloPremium": "Premium 1 — Editorial Premium (oscuro, cálido, serif, cinematográfico)",
+    "estiloPremium": "Premium 1 — Editorial Premium",
     "version": "1.0.0",
-    "estilo": "Editorial Premium (oscuro, cálido, serif, cinematográfico)",
+    "estilo": "Editorial Premium",
     "paleta": {
       "ref": "habilidades/paletas-por-nicho/gastronomia.md",
       "primario": "#ff6b35",
@@ -15,23 +15,23 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Playfair Display", "body": "Karla" },
-    "secciones": ["hero", "servicios", "galeria", "equipo", "testimonios", "contacto"],
-    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
+    "secciones": ["hero", "servicios", "galeria", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
     "ruta": "/catalogo/plantillas/basicas/gastronomia",
     "estado": "publicada",
-    "creada": "2026-08-05"
+    "creada": "2026-08-06"
   },
   {
     "id": "pl-premium-barberia",
     "nombre": "La Navaja — Barberia Clasica",
     "nicho": "barberia",
     "nivel": "premium",
-    "estiloPremium": "Premium 1 — Editorial Premium (oscuro, cálido, caps, cinematográfico)",
+    "estiloPremium": "Premium 1 — Editorial Premium",
     "version": "1.0.0",
-    "estilo": "Editorial Premium (oscuro, cálido, caps, cinematográfico)",
+    "estilo": "Editorial Premium",
     "paleta": {
       "ref": "habilidades/paletas-por-nicho/barberia.md",
       "primario": "#d97706",
@@ -41,23 +41,23 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Bebas Neue", "body": "Inter" },
-    "secciones": ["hero", "servicios", "galeria", "equipo", "testimonios", "contacto"],
-    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
+    "secciones": ["hero", "servicios", "galeria", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
     "ruta": "/catalogo/plantillas/basicas/barberia",
     "estado": "publicada",
-    "creada": "2026-08-05"
+    "creada": "2026-08-06"
   },
   {
     "id": "pl-premium-wellness",
     "nombre": "Sattva — Centro de Yoga",
     "nicho": "wellness",
     "nivel": "premium",
-    "estiloPremium": "Premium 1 — Editorial Premium (orgánico, púrpura, serif italic, cálido)",
+    "estiloPremium": "Premium 1 — Editorial Premium",
     "version": "1.0.0",
-    "estilo": "Editorial Premium (orgánico, púrpura, serif italic, cálido)",
+    "estilo": "Editorial Premium",
     "paleta": {
       "ref": "habilidades/paletas-por-nicho/wellness.md",
       "primario": "#8b5cf6",
@@ -67,23 +67,23 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Lora", "body": "Raleway" },
-    "secciones": ["hero", "servicios", "galeria", "equipo", "testimonios", "contacto"],
-    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
+    "secciones": ["hero", "servicios", "galeria", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
     "ruta": "/catalogo/plantillas/basicas/wellness",
     "estado": "publicada",
-    "creada": "2026-08-05"
+    "creada": "2026-08-06"
   },
   {
     "id": "pl-premium-servicios-pro",
-    "nombre": "Meridian — Consultora Legal & Empresarial",
+    "nombre": "Meridian — Consultora",
     "nicho": "servicios-pro",
     "nivel": "premium",
-    "estiloPremium": "Premium 1 — Editorial Premium (azul confianza, Poppins, corporativo)",
+    "estiloPremium": "Premium 1 — Editorial Premium",
     "version": "1.0.0",
-    "estilo": "Editorial Premium (azul confianza, Poppins, corporativo)",
+    "estilo": "Editorial Premium",
     "paleta": {
       "ref": "habilidades/paletas-por-nicho/servicios-pro.md",
       "primario": "#2563eb",
@@ -93,23 +93,23 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Poppins", "body": "Open Sans" },
-    "secciones": ["hero", "servicios", "galeria", "equipo", "testimonios", "contacto"],
-    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
+    "secciones": ["hero", "servicios", "galeria", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
     "ruta": "/catalogo/plantillas/basicas/servicios-pro",
     "estado": "publicada",
-    "creada": "2026-08-05"
+    "creada": "2026-08-06"
   },
   {
     "id": "pl-premium-retail",
-    "nombre": "Umami Store — Moda & Accesorios",
+    "nombre": "Umami Store",
     "nicho": "retail",
     "nivel": "premium",
-    "estiloPremium": "Premium 1 — Editorial Premium (rosa zinc, sans-serif, moderno)",
+    "estiloPremium": "Premium 1 — Editorial Premium",
     "version": "1.0.0",
-    "estilo": "Editorial Premium (rosa zinc, sans-serif, moderno)",
+    "estilo": "Editorial Premium",
     "paleta": {
       "ref": "habilidades/paletas-por-nicho/retail.md",
       "primario": "#ec4899",
@@ -119,23 +119,23 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Rubik", "body": "Nunito Sans" },
-    "secciones": ["hero", "servicios", "galeria", "equipo", "testimonios", "contacto"],
-    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
+    "secciones": ["hero", "servicios", "galeria", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
     "ruta": "/catalogo/plantillas/basicas/retail",
     "estado": "publicada",
-    "creada": "2026-08-05"
+    "creada": "2026-08-06"
   },
   {
     "id": "pl-premium-educacion",
-    "nombre": "Nexo Academy — Cursos Online",
+    "nombre": "Nexo Academy",
     "nicho": "educacion",
     "nivel": "premium",
-    "estiloPremium": "Premium 1 — Editorial Premium (verde crecimiento, sans-serif, edtech)",
+    "estiloPremium": "Premium 1 — Editorial Premium",
     "version": "1.0.0",
-    "estilo": "Editorial Premium (verde crecimiento, sans-serif, edtech)",
+    "estilo": "Editorial Premium",
     "paleta": {
       "ref": "habilidades/paletas-por-nicho/educacion.md",
       "primario": "#059669",
@@ -145,23 +145,23 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Manrope", "body": "Inter" },
-    "secciones": ["hero", "servicios", "galeria", "equipo", "testimonios", "contacto"],
-    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
+    "secciones": ["hero", "servicios", "galeria", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
     "ruta": "/catalogo/plantillas/basicas/educacion",
     "estado": "publicada",
-    "creada": "2026-08-05"
+    "creada": "2026-08-06"
   },
   {
     "id": "pl-premium-salud",
-    "nombre": "Vitta — Centro de Salud Integral",
+    "nombre": "Vitta — Centro de Salud",
     "nicho": "salud",
     "nivel": "premium",
-    "estiloPremium": "Premium 1 — Editorial Premium (teal medico, sans-serif, clinico)",
+    "estiloPremium": "Premium 1 — Editorial Premium",
     "version": "1.0.0",
-    "estilo": "Editorial Premium (teal medico, sans-serif, clinico)",
+    "estilo": "Editorial Premium",
     "paleta": {
       "ref": "habilidades/paletas-por-nicho/salud.md",
       "primario": "#2dd4bf",
@@ -171,23 +171,23 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Figtree", "body": "Noto Sans" },
-    "secciones": ["hero", "servicios", "galeria", "equipo", "testimonios", "contacto"],
-    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
+    "secciones": ["hero", "servicios", "galeria", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
     "ruta": "/catalogo/plantillas/basicas/salud",
     "estado": "publicada",
-    "creada": "2026-08-05"
+    "creada": "2026-08-06"
   },
   {
     "id": "pl-premium-inmobiliaria",
-    "nombre": "Merídian — Propiedades Premium",
+    "nombre": "Meridian — Propiedades",
     "nicho": "inmobiliaria",
     "nivel": "premium",
-    "estiloPremium": "Premium 1 — Editorial Premium (oro envejecido, Cinzel serif, lujo)",
+    "estiloPremium": "Premium 1 — Editorial Premium",
     "version": "1.0.0",
-    "estilo": "Editorial Premium (oro envejecido, Cinzel serif, lujo)",
+    "estilo": "Editorial Premium",
     "paleta": {
       "ref": "habilidades/paletas-por-nicho/inmobiliaria.md",
       "primario": "#c9a227",
@@ -197,23 +197,23 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Cinzel", "body": "Josefin Sans" },
-    "secciones": ["hero", "servicios", "galeria", "equipo", "testimonios", "contacto"],
-    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
+    "secciones": ["hero", "servicios", "galeria", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
     "ruta": "/catalogo/plantillas/basicas/inmobiliaria",
     "estado": "publicada",
-    "creada": "2026-08-05"
+    "creada": "2026-08-06"
   },
   {
     "id": "pl-p2-gastronomia",
     "nombre": "Ceniza — Parrilla & Bodegon",
     "nicho": "gastronomia",
     "nivel": "premium-minimalista",
-    "estiloPremium": "Premium 2 — Minimalismo Extremo",
+    "estiloPremium": "Premium 2 — Minimalismo",
     "version": "1.0.0",
-    "estilo": "Minimalismo Extremo",
+    "estilo": "Minimalismo",
     "paleta": {
       "ref": "habilidades/paletas-por-nicho/gastronomia.md",
       "primario": "#ff6b35",
@@ -223,23 +223,23 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Inter", "body": "Inter" },
-    "secciones": ["hero", "servicios", "galeria", "equipo", "testimonios", "contacto"],
-    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
+    "secciones": ["hero", "servicios", "galeria", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
     "ruta": "/catalogo/plantillas/basicas/gastronomia/p2",
     "estado": "publicada",
-    "creada": "2026-08-05"
+    "creada": "2026-08-06"
   },
   {
     "id": "pl-p2-barberia",
     "nombre": "La Navaja — Barberia Clasica",
     "nicho": "barberia",
     "nivel": "premium-minimalista",
-    "estiloPremium": "Premium 2 — Minimalismo Extremo",
+    "estiloPremium": "Premium 2 — Minimalismo",
     "version": "1.0.0",
-    "estilo": "Minimalismo Extremo",
+    "estilo": "Minimalismo",
     "paleta": {
       "ref": "habilidades/paletas-por-nicho/barberia.md",
       "primario": "#d97706",
@@ -249,23 +249,23 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Inter", "body": "Inter" },
-    "secciones": ["hero", "servicios", "galeria", "equipo", "testimonios", "contacto"],
-    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
+    "secciones": ["hero", "servicios", "galeria", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
     "ruta": "/catalogo/plantillas/basicas/barberia/p2",
     "estado": "publicada",
-    "creada": "2026-08-05"
+    "creada": "2026-08-06"
   },
   {
     "id": "pl-p2-wellness",
     "nombre": "Sattva — Centro de Yoga",
     "nicho": "wellness",
     "nivel": "premium-minimalista",
-    "estiloPremium": "Premium 2 — Minimalismo Extremo",
+    "estiloPremium": "Premium 2 — Minimalismo",
     "version": "1.0.0",
-    "estilo": "Minimalismo Extremo",
+    "estilo": "Minimalismo",
     "paleta": {
       "ref": "habilidades/paletas-por-nicho/wellness.md",
       "primario": "#8b5cf6",
@@ -275,23 +275,23 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Inter", "body": "Inter" },
-    "secciones": ["hero", "servicios", "galeria", "equipo", "testimonios", "contacto"],
-    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
+    "secciones": ["hero", "servicios", "galeria", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
     "ruta": "/catalogo/plantillas/basicas/wellness/p2",
     "estado": "publicada",
-    "creada": "2026-08-05"
+    "creada": "2026-08-06"
   },
   {
     "id": "pl-p2-servicios-pro",
     "nombre": "Meridian — Consultora",
     "nicho": "servicios-pro",
     "nivel": "premium-minimalista",
-    "estiloPremium": "Premium 2 — Minimalismo Extremo",
+    "estiloPremium": "Premium 2 — Minimalismo",
     "version": "1.0.0",
-    "estilo": "Minimalismo Extremo",
+    "estilo": "Minimalismo",
     "paleta": {
       "ref": "habilidades/paletas-por-nicho/servicios-pro.md",
       "primario": "#2563eb",
@@ -301,23 +301,23 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Inter", "body": "Inter" },
-    "secciones": ["hero", "servicios", "galeria", "equipo", "testimonios", "contacto"],
-    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
+    "secciones": ["hero", "servicios", "galeria", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
     "ruta": "/catalogo/plantillas/basicas/servicios-pro/p2",
     "estado": "publicada",
-    "creada": "2026-08-05"
+    "creada": "2026-08-06"
   },
   {
     "id": "pl-p2-retail",
     "nombre": "Umami Store",
     "nicho": "retail",
     "nivel": "premium-minimalista",
-    "estiloPremium": "Premium 2 — Minimalismo Extremo",
+    "estiloPremium": "Premium 2 — Minimalismo",
     "version": "1.0.0",
-    "estilo": "Minimalismo Extremo",
+    "estilo": "Minimalismo",
     "paleta": {
       "ref": "habilidades/paletas-por-nicho/retail.md",
       "primario": "#ec4899",
@@ -327,23 +327,23 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Inter", "body": "Inter" },
-    "secciones": ["hero", "servicios", "galeria", "equipo", "testimonios", "contacto"],
-    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
+    "secciones": ["hero", "servicios", "galeria", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
     "ruta": "/catalogo/plantillas/basicas/retail/p2",
     "estado": "publicada",
-    "creada": "2026-08-05"
+    "creada": "2026-08-06"
   },
   {
     "id": "pl-p2-educacion",
     "nombre": "Nexo Academy",
     "nicho": "educacion",
     "nivel": "premium-minimalista",
-    "estiloPremium": "Premium 2 — Minimalismo Extremo",
+    "estiloPremium": "Premium 2 — Minimalismo",
     "version": "1.0.0",
-    "estilo": "Minimalismo Extremo",
+    "estilo": "Minimalismo",
     "paleta": {
       "ref": "habilidades/paletas-por-nicho/educacion.md",
       "primario": "#059669",
@@ -353,23 +353,23 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Inter", "body": "Inter" },
-    "secciones": ["hero", "servicios", "galeria", "equipo", "testimonios", "contacto"],
-    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
+    "secciones": ["hero", "servicios", "galeria", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
     "ruta": "/catalogo/plantillas/basicas/educacion/p2",
     "estado": "publicada",
-    "creada": "2026-08-05"
+    "creada": "2026-08-06"
   },
   {
     "id": "pl-p2-salud",
     "nombre": "Vitta — Centro de Salud",
     "nicho": "salud",
     "nivel": "premium-minimalista",
-    "estiloPremium": "Premium 2 — Minimalismo Extremo",
+    "estiloPremium": "Premium 2 — Minimalismo",
     "version": "1.0.0",
-    "estilo": "Minimalismo Extremo",
+    "estilo": "Minimalismo",
     "paleta": {
       "ref": "habilidades/paletas-por-nicho/salud.md",
       "primario": "#2dd4bf",
@@ -379,23 +379,23 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Inter", "body": "Inter" },
-    "secciones": ["hero", "servicios", "galeria", "equipo", "testimonios", "contacto"],
-    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
+    "secciones": ["hero", "servicios", "galeria", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
     "ruta": "/catalogo/plantillas/basicas/salud/p2",
     "estado": "publicada",
-    "creada": "2026-08-05"
+    "creada": "2026-08-06"
   },
   {
     "id": "pl-p2-inmobiliaria",
-    "nombre": "Merídian — Propiedades",
+    "nombre": "Meridian — Propiedades",
     "nicho": "inmobiliaria",
     "nivel": "premium-minimalista",
-    "estiloPremium": "Premium 2 — Minimalismo Extremo",
+    "estiloPremium": "Premium 2 — Minimalismo",
     "version": "1.0.0",
-    "estilo": "Minimalismo Extremo",
+    "estilo": "Minimalismo",
     "paleta": {
       "ref": "habilidades/paletas-por-nicho/inmobiliaria.md",
       "primario": "#c9a227",
@@ -405,60 +405,33 @@
       "texto": "#ffffff"
     },
     "tipografia": { "display": "Inter", "body": "Inter" },
-    "secciones": ["hero", "servicios", "galeria", "equipo", "testimonios", "contacto"],
-    "elementos": ["premium-reveal", "premium-contador", "premium-hero-parallax", "premium-nav-scroll-flag", "marca-firma-quantumhive"],
+    "secciones": ["hero", "servicios", "galeria", "contacto"],
+    "elementos": ["marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
     "costoRendimiento": "bajo",
     "ruta": "/catalogo/plantillas/basicas/inmobiliaria/p2",
     "estado": "publicada",
-    "creada": "2026-08-05"
-  },
-  {
-    "id": "pl-p4-gastronomia",
-    "nombre": "Ceniza — Parrilla & Bodegon",
-    "nicho": "gastronomia",
-    "nivel": "premium-brutalismo",
-    "estiloPremium": "Premium 4 — Brutalismo / Geometrico",
-    "version": "1.0.0",
-    "estilo": "Brutalismo Geometrico (grid estricto, colores planos, bordes gruesos)",
-    "paleta": {
-      "ref": "habilidades/paletas-por-nicho/gastronomia.md",
-      "primario": "#ff3e00",
-      "secundario": "#1a1a1a",
-      "acento": "#f5f5f0",
-      "fondo": "#f5f5f0",
-      "texto": "#1a1a1a"
-    },
-    "tipografia": { "display": "JetBrains Mono", "body": "Space Grotesk" },
-    "secciones": ["hero", "historia", "galeria", "contacto"],
-    "elementos": ["marca-firma-quantumhive"],
-    "dependencias": ["tailwind"],
-    "compatibleMovil": true,
-    "costoRendimiento": "bajo",
-    "ruta": "/catalogo/plantillas/basicas/gastronomia/p4",
-    "estado": "piloto",
     "creada": "2026-08-06"
-  }
-
+  },
   {
     "id": "pl-p4-barberia",
     "nombre": "La Navaja — Barberia Clasica",
     "nicho": "barberia",
     "nivel": "premium-brutalista",
-    "estiloPremium": "Premium 4 — Brutalismo (raw, bordes gruesos, monospace)",
+    "estiloPremium": "Premium 4 — Brutalismo",
     "version": "1.0.0",
     "estilo": "Brutalismo",
     "paleta": {
-      "ref": "habilidades/paletas-por-nicho/barberias.md",
+      "ref": "habilidades/paletas-por-nicho/barberia.md",
       "primario": "#d97706",
       "secundario": "#92400e",
       "acento": "#0a0a0a",
       "fondo": "#f5f0e8",
-      "texto": "#0a0a0a"
+      "texto": "#ffffff"
     },
     "tipografia": { "display": "JetBrains Mono", "body": "JetBrains Mono" },
-    "secciones": ["hero", "servicios", "historia", "contacto"],
+    "secciones": ["hero", "servicios", "galeria", "contacto"],
     "elementos": ["marca-firma-quantumhive"],
     "dependencias": ["tailwind"],
     "compatibleMovil": true,
