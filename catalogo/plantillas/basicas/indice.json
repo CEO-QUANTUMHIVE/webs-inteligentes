@@ -1043,9 +1043,9 @@
     "nombre": "Ceniza — Parrilla & Bodegon",
     "nicho": "gastronomia",
     "nivel": "premium-liquid",
-    "estiloPremium": "Premium 6 — Liquid Glass / Kinetic",
+    "estiloPremium": "Premium 6 — Canvas Interactivo",
     "version": "1.0.0",
-    "estilo": "Liquid Glass / Kinetic (superficies de vidrio, blur dinámico, profundidad por capas, movimiento como jerarquía)",
+    "estilo": "Canvas Interactivo (parrilla animada, brasas interactivas, fuego dinámico, carne realista sobre parrilla)",
     "paleta": {
       "ref": "habilidades/paletas-por-nicho/gastronomia.md",
       "primario": "#ff3e00",

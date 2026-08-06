@@ -64,7 +64,7 @@ export default function P6Gastronomia(): React.JSX.Element {
           <span className="p6hero-meta">Parrilla &amp; Bodegón — Buenos Aires</span>
           <h1 className="p6hero-title">
             <span className="p6row">FUEGO</span>
-            <span className="p6row p6row--right">LÍQUIDO&nbsp;<em>*</em></span>
+            <span className="p6row p6row--right">LENTO&nbsp;<em>*</em></span>
           </h1>
           <p className="p6hero-sub">
             Brasas maduradas, vinos de bodegas familiares y un salón que se siente
@@ -242,7 +242,7 @@ export default function P6Gastronomia(): React.JSX.Element {
       </section>
 
       <footer className="p6foot">
-        <p>© {new Date().getFullYear()} Ceniza — Parrilla &amp; Bodegón. Premium 6 · Kinetic Poster Noir.</p>
+        <p>© {new Date().getFullYear()} Ceniza — Parrilla &amp; Bodegón. Premium 6 · Canvas Interactivo.</p>
       </footer>
 
       <FirmaQuantumHive />

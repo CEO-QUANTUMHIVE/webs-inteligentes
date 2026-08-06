@@ -1,9 +1,9 @@
 import P6Gastronomia from "./p6-client";
 
 export const metadata = {
-  title: "Ceniza — Premium 6 Liquid Glass / Kinetic",
+  title: "Ceniza — Premium 6 Canvas Interactivo",
   description:
-    "Estilo Liquid Glass / Kinetic: superficies de vidrio, blur dinámico, profundidad por capas, movimiento como jerarquía. Premium moderno y cool.",
+    "Estilo Canvas Interactivo: parrilla animada con brasas, fuego interactivo y carne sobre parrilla. Premium moderno y dinámico.",
 };
 
 export default function Page(): React.JSX.Element {

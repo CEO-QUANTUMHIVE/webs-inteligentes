@@ -1,12 +1,8 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-// P6Parrilla — canvas interactivo estilo parrilla con brasas y carne.
-// - Parrilla ancha de metal con muchas barras horizontales.
-// - Encima: trozos de asado (con hueso) y chorizos.
-// - Brasas abajo que se encienden al pasar el mouse.
-// - El mouse deja un rastro de fuego (partículas) que ascienden.
-// Sin dependencias: canvas 2D + requestAnimationFrame.
+// P6Parrilla — canvas interactivo: parrilla con brasas y carne realista.
+// Draw order: fondo → brasas → rejas → carne (encima) → fuego/saetas.
 
 type Ember = {
   x: number;
@@ -30,125 +26,185 @@ type Particula = {
   flicker: number;
 };
 
-type Pieza = {
-  x: number;
-  y: number;
+type PiezaCarne = {
+  cx: number;
+  cy: number;
   w: number;
   h: number;
-  kind: "asado" | "chorizo";
+  kind: "bife" | "entrania" | "chorizo" | "costilla" | "pollo";
   rot: number;
+  precomputed: {
+    fill: CanvasGradient | string;
+    stroke: string;
+    lineW: number;
+    segments: { cmd: "M" | "Q" | "L"; x: number; y: number; cpx?: number; cpy?: number }[];
+    fatStreaks: { x1: number; y1: number; x2: number; y2: number; w: number }[];
+    boneEllipse?: { x: number; y: number; rx: number; ry: number; rot: number };
+    boneCircles?: { x: number; y: number; r: number }[];
+    grillMarks: { x1: number; y1: number; x2: number; y2: number }[];
+  };
 };
 
-const EMBERS = 72;
-const BARRAS = 12;
-const GRILL_Y = 0.84;
+const EMBERS = 130;
+const BARRAS = 10;
+const GRILL_Y = 0.82;
+
+function precomputeShape(
+  w: number,
+  h: number,
+  segments: number,
+  jitter: number
+): { cmd: "M" | "Q" | "L"; x: number; y: number; cpx?: number; cpy?: number }[] {
+  const pts: [number, number][] = [];
+  for (let i = 0; i < segments; i++) {
+    const angle = (i / segments) * Math.PI * 2;
+    const rx = (w / 2) * (0.82 + Math.random() * jitter);
+    const ry = (h / 2) * (0.82 + Math.random() * jitter);
+    pts.push([Math.cos(angle) * rx, Math.sin(angle) * ry]);
+  }
+  const cmds: { cmd: "M" | "Q"; x: number; y: number; cpx: number; cpy: number }[] = [];
+  cmds.push({ cmd: "M", x: pts[0][0], y: pts[0][1], cpx: 0, cpy: 0 });
+  for (let i = 1; i < pts.length; i++) {
+    const prev = pts[i - 1];
+    const cur = pts[i];
+    const cpx = (prev[0] + cur[0]) / 2;
+    const cpy = (prev[1] + cur[1]) / 2;
+    cmds.push({ cmd: "Q", x: cur[0], y: cur[1], cpx, cpy });
+  }
+  return cmds;
+}
+
+function precomputeFatStreaks(
+  w: number,
+  h: number,
+  count: number
+): { x1: number; y1: number; x2: number; y2: number; w: number }[] {
+  const streaks: { x1: number; y1: number; x2: number; y2: number; w: number }[] = [];
+  for (let i = 0; i < count; i++) {
+    const x1 = (Math.random() - 0.5) * w * 0.65;
+    const y1 = (Math.random() - 0.5) * h * 0.55;
+    const angle = Math.random() * Math.PI * 0.5 - 0.25;
+    const len = 8 + Math.random() * 16;
+    streaks.push({
+      x1,
+      y1,
+      x2: x1 + Math.cos(angle) * len,
+      y2: y1 + Math.sin(angle) * len,
+      w: 0.5 + Math.random() * 1,
+    });
+  }
+  return streaks;
+}
+
+function precomputeGrillMarks(w: number, h: number, count: number): { x1: number; y1: number; x2: number; y2: number }[] {
+  const marks: { x1: number; y1: number; x2: number; y2: number }[] = [];
+  const step = h / (count + 1);
+  for (let i = 1; i <= count; i++) {
+    marks.push({ x1: -w / 2 + 6, y1: -h / 2 + i * step, x2: w / 2 - 6, y2: -h / 2 + i * step });
+  }
+  return marks;
+}
+
+function drawPrecomputedShape(
+  ctx: CanvasRenderingContext2D,
+  cmds: { cmd: "M" | "Q"; x: number; y: number; cpx: number; cpy: number }[],
+  fill: CanvasGradient | string,
+  stroke: string,
+  lineW: number
+) {
+  ctx.beginPath();
+  ctx.moveTo(cmds[0].x, cmds[0].y);
+  for (let i = 1; i < cmds.length; i++) {
+    const c = cmds[i];
+    ctx.quadraticCurveTo(c.cpx, c.cpy, c.x, c.y);
+  }
+  ctx.closePath();
+  ctx.fillStyle = fill;
+  ctx.fill();
+  ctx.strokeStyle = stroke;
+  ctx.lineWidth = lineW;
+  ctx.stroke();
+}
 
 function drawCarne(
   ctx: CanvasRenderingContext2D,
-  p: Pieza,
+  p: PiezaCarne,
   heat: number,
   t: number
 ) {
   ctx.save();
-  ctx.translate(p.x, p.y);
+  ctx.translate(p.cx, p.cy);
   ctx.rotate(p.rot);
-  const sizzle = heat > 0.25 ? Math.sin(t / 60 + p.x) * 0.8 : 0;
+  const sizzle = heat > 0.25 ? Math.sin(t / 60 + p.cx) * 0.5 : 0;
+  const pre = p.precomputed;
 
-  if (p.kind === "chorizo") {
-    const grad = ctx.createLinearGradient(0, -p.h / 2, 0, p.h / 2);
-    grad.addColorStop(0, "#c0563c");
-    grad.addColorStop(0.5, "#8a2f1c");
-    grad.addColorStop(1, "#5e1d10");
-    ctx.fillStyle = grad;
-    roundRect(ctx, -p.w / 2, -p.h / 2, p.w, p.h, p.h / 2);
-    ctx.fill();
-    ctx.strokeStyle = "rgba(30,12,6,0.6)";
-    ctx.lineWidth = 1.5;
-    roundRect(ctx, -p.w / 2, -p.h / 2, p.w, p.h, p.h / 2);
-    ctx.stroke();
-    // brillo superior
-    ctx.fillStyle = "rgba(255,200,150,0.18)";
-    roundRect(ctx, -p.w / 2 + 3, -p.h / 2 + 2, p.w - 6, p.h * 0.32, 6);
-    ctx.fill();
-    // marcas de parrilla
-    ctx.strokeStyle = "rgba(20,8,4,0.5)";
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    for (let i = -1; i <= 1; i++) {
-      ctx.moveTo(p.w / 2, i * 3);
-      ctx.lineTo(-p.w / 2, i * 3);
-    }
-    ctx.stroke();
-  } else {
-    // asado
-    const grad = ctx.createLinearGradient(0, -p.h / 2, 0, p.h / 2);
-    grad.addColorStop(0, "#a4482a");
-    grad.addColorStop(0.6, "#7a3018");
-    grad.addColorStop(1, "#4a1a0c");
-    ctx.fillStyle = grad;
-    roundRect(ctx, -p.w / 2, -p.h / 2, p.w, p.h, 8);
-    ctx.fill();
-    ctx.strokeStyle = "rgba(25,10,5,0.7)";
-    ctx.lineWidth = 2;
-    roundRect(ctx, -p.w / 2, -p.h / 2, p.w, p.h, 8);
-    ctx.stroke();
+  drawPrecomputedShape(ctx, pre.segments as any, pre.fill, pre.stroke, pre.lineW);
 
-    // hueso
-    ctx.fillStyle = "#f2ead8";
+  // grasa
+  for (const f of pre.fatStreaks) {
+    ctx.strokeStyle = "rgba(255,220,180,0.3)";
+    ctx.lineWidth = f.w;
+    ctx.lineCap = "round";
     ctx.beginPath();
-    ctx.ellipse(-p.w / 2 + 8, 0, 7, 10, 0.2, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.fillStyle = "rgba(150,130,100,0.6)";
-    ctx.beginPath();
-    ctx.arc(-p.w / 2 + 5, 0, 2.5, 0, Math.PI * 2);
-    ctx.fill();
-
-    // veteado / grasa
-    ctx.strokeStyle = "rgba(255,220,180,0.25)";
-    ctx.lineWidth = 1.2;
-    ctx.beginPath();
-    ctx.moveTo(-p.w / 2 + 12, -p.h / 2 + 5);
-    ctx.quadraticCurveTo(0, -p.h / 2 + 2, p.w / 2 - 8, -p.h / 2 + 6);
-    ctx.stroke();
-
-    // marcas parrilla
-    ctx.strokeStyle = "rgba(30,8,4,0.5)";
-    ctx.lineWidth = 2.5;
-    ctx.beginPath();
-    for (let i = -2; i <= 2; i++) {
-      const off = i * (p.h / 5) + sizzle;
-      ctx.moveTo(-p.w / 2 + 4, off);
-      ctx.lineTo(p.w / 2 - 4, off);
-    }
+    ctx.moveTo(f.x1, f.y1);
+    ctx.lineTo(f.x2, f.y2);
     ctx.stroke();
   }
 
-  // chispas cuando se calienta
-  if (heat > 0.35 && Math.random() < heat * 0.18) {
-    ctx.fillStyle = "rgba(255,140,60,0.9)";
+  // hueso
+  if (pre.boneEllipse) {
+    const b = pre.boneEllipse;
+    ctx.fillStyle = "#f0e8d4";
     ctx.beginPath();
-    ctx.arc((Math.random() - 0.5) * p.w, p.h / 2, 1 + Math.random() * 1.6, 0, Math.PI * 2);
+    ctx.ellipse(b.x, b.y, b.rx, b.ry, b.rot, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = "rgba(160,140,110,0.45)";
+    ctx.beginPath();
+    ctx.arc(b.x - 1.5, b.y, 2.5, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  if (pre.boneCircles) {
+    ctx.fillStyle = "#e8dcc8";
+    for (const bc of pre.boneCircles) {
+      ctx.beginPath();
+      ctx.ellipse(bc.x, bc.y, bc.r, bc.r * 1.7, 0.3, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  // brillo grasa
+  ctx.fillStyle = "rgba(255,200,150,0.1)";
+  ctx.beginPath();
+  ctx.ellipse(0, -p.h / 3, p.w * 0.3, p.h * 0.15, -0.1, 0, Math.PI * 2);
+  ctx.fill();
+
+  // marcas de parrilla sobre la carne
+  ctx.strokeStyle = `rgba(25,8,3,${0.42 + heat * 0.14})`;
+  ctx.lineWidth = p.kind === "chorizo" ? 1.8 : 2.2;
+  ctx.lineCap = "round";
+  for (const m of pre.grillMarks) {
+    const yOff = m.y1 + sizzle;
+    ctx.beginPath();
+    ctx.moveTo(m.x1, yOff);
+    ctx.lineTo(m.x2, yOff);
+    ctx.stroke();
+  }
+
+  // chispas
+  if (heat > 0.3 && Math.random() < heat * 0.12) {
+    ctx.fillStyle = "rgba(255,140,60,0.85)";
+    ctx.beginPath();
+    ctx.arc(
+      (Math.random() - 0.5) * p.w,
+      p.h / 2 + 2,
+      1 + Math.random() * 1.3,
+      0,
+      Math.PI * 2
+    );
     ctx.fill();
   }
 
   ctx.restore();
-}
-
-function roundRect(
-  ctx: CanvasRenderingContext2D,
-  x: number,
-  y: number,
-  w: number,
-  h: number,
-  r: number
-) {
-  ctx.beginPath();
-  ctx.moveTo(x + r, y);
-  ctx.arcTo(x + w, y, x + w, y + h, r);
-  ctx.arcTo(x + w, y + h, x, y + h, r);
-  ctx.arcTo(x, y + h, x, y, r);
-  ctx.arcTo(x, y, x + w, y, r);
-  ctx.closePath();
 }
 
 export default function P6Parrilla(): React.JSX.Element {
@@ -166,7 +222,7 @@ export default function P6Parrilla(): React.JSX.Element {
 
     const embers: Ember[] = [];
     const particulas: Particula[] = [];
-    const piezas: Pieza[] = [];
+    const piezas: PiezaCarne[] = [];
     const mouse = { x: -9999, y: -9999, px: -9999, py: -9999, on: false };
     let raf = 0;
     let lastT = 0;
@@ -184,67 +240,175 @@ export default function P6Parrilla(): React.JSX.Element {
     const initEmbers = () => {
       embers.length = 0;
       const gy = h * GRILL_Y;
-      const count = Math.round(EMBERS * (w / 1400));
+      const count = Math.round(EMBERS * (w / 1200));
       for (let i = 0; i < count; i++) {
-        const x = (i + 0.5) * (w / count) + (Math.random() - 0.5) * 6;
-        const y = gy + 26 + (Math.random() - 0.5) * 20;
-        const heat = Math.random() < 0.3 ? 0.5 + Math.random() * 0.4 : 0.1;
+        const x = (i + 0.5) * (w / count) + (Math.random() - 0.5) * 8;
+        const y = gy + 22 + (Math.random() - 0.5) * 24;
+        const heat = Math.random() < 0.35 ? 0.45 + Math.random() * 0.45 : 0.08 + Math.random() * 0.2;
         embers.push({
           x,
           y,
-          baseR: 2 + Math.random() * 2.4,
+          baseR: 1.8 + Math.random() * 2.8,
           r: 2,
           heat,
           targetHeat: heat,
-          hue: 12 + Math.random() * 28,
+          hue: 8 + Math.random() * 32,
         });
       }
     };
 
     const initPiezas = () => {
       piezas.length = 0;
-      // asados (con hueso) — piezas grandes repartidas
-      const asados = 4;
       const gy = h * GRILL_Y;
-      for (let i = 0; i < asados; i++) {
-        const f = (i + 0.5) / asados;
+
+      // BIFE de chorizo — grande, con hueso
+      const bifeW = 95 + Math.random() * 20;
+      const bifeH = 48 + Math.random() * 10;
+      piezas.push({
+        cx: w * 0.18 + (Math.random() - 0.5) * 12,
+        cy: gy - 6,
+        w: bifeW,
+        h: bifeH,
+        kind: "bife",
+        rot: (Math.random() - 0.5) * 0.12,
+        precomputed: {
+          fill: (() => {
+            const g = ctx.createLinearGradient(-bifeW / 2, -bifeH / 2, bifeW / 2, bifeH / 2);
+            g.addColorStop(0, "#5c1515"); g.addColorStop(0.3, "#7a1e1e");
+            g.addColorStop(0.6, "#6a1616"); g.addColorStop(1, "#3a0a0a");
+            return g;
+          })(),
+          stroke: "rgba(25,6,4,0.7)",
+          lineW: 1.6,
+          segments: precomputeShape(bifeW, bifeH, 10, 0.12),
+          fatStreaks: precomputeFatStreaks(bifeW, bifeH, 5),
+          boneEllipse: { x: -bifeW / 2 + 10, y: 0, rx: 7, ry: 10, rot: 0.15 },
+          grillMarks: precomputeGrillMarks(bifeW, bifeH, 5),
+        },
+      });
+
+      // ENTRAÑA — alargada
+      const entW = 130 + Math.random() * 25;
+      const entH = 24 + Math.random() * 7;
+      piezas.push({
+        cx: w * 0.42 + (Math.random() - 0.5) * 18,
+        cy: gy - 3,
+        w: entW,
+        h: entH,
+        kind: "entrania",
+        rot: (Math.random() - 0.5) * 0.07,
+        precomputed: {
+          fill: (() => {
+            const g = ctx.createLinearGradient(-entW / 2, 0, entW / 2, 0);
+            g.addColorStop(0, "#7a2222"); g.addColorStop(0.35, "#922e2e");
+            g.addColorStop(0.65, "#7e2020"); g.addColorStop(1, "#5a1616");
+            return g;
+          })(),
+          stroke: "rgba(22,5,3,0.65)",
+          lineW: 1.4,
+          segments: precomputeShape(entW, entH, 12, 0.14),
+          fatStreaks: precomputeFatStreaks(entW, entH, 7),
+          grillMarks: precomputeGrillMarks(entW, entH, 3),
+        },
+      });
+
+      // POLLO — pechuga grande, color claro
+      const polW = 85 + Math.random() * 15;
+      const polH = 60 + Math.random() * 10;
+      piezas.push({
+        cx: w * 0.62 + (Math.random() - 0.5) * 14,
+        cy: gy - 5,
+        w: polW,
+        h: polH,
+        kind: "pollo",
+        rot: (Math.random() - 0.5) * 0.16,
+        precomputed: {
+          fill: (() => {
+            const g = ctx.createLinearGradient(-polW / 2, -polH / 2, polW / 2, polH / 2);
+            g.addColorStop(0, "#c4944a"); g.addColorStop(0.3, "#b08040");
+            g.addColorStop(0.6, "#a07238"); g.addColorStop(1, "#7a5528");
+            return g;
+          })(),
+          stroke: "rgba(40,22,10,0.6)",
+          lineW: 1.5,
+          segments: precomputeShape(polW, polH, 10, 0.13),
+          fatStreaks: precomputeFatStreaks(polW, polH, 4),
+          grillMarks: precomputeGrillMarks(polW, polH, 5),
+        },
+      });
+
+      // COSTILLA — ancha con huesos
+      const costW = 78 + Math.random() * 14;
+      const costH = 52 + Math.random() * 8;
+      piezas.push({
+        cx: w * 0.82 + (Math.random() - 0.5) * 12,
+        cy: gy - 4,
+        w: costW,
+        h: costH,
+        kind: "costilla",
+        rot: (Math.random() - 0.5) * 0.15,
+        precomputed: {
+          fill: (() => {
+            const g = ctx.createLinearGradient(-costW / 2, -costH / 2, costW / 2, costH / 2);
+            g.addColorStop(0, "#6a1c1c"); g.addColorStop(0.4, "#581515");
+            g.addColorStop(1, "#401010");
+            return g;
+          })(),
+          stroke: "rgba(18,5,3,0.6)",
+          lineW: 1.5,
+          segments: precomputeShape(costW, costH, 10, 0.1),
+          fatStreaks: precomputeFatStreaks(costW, costH, 3),
+          boneCircles: [
+            { x: -costW / 3, y: -costH / 3, r: 4 },
+            { x: 0, y: -costH / 3, r: 4 },
+            { x: costW / 3, y: -costH / 3, r: 4 },
+          ],
+          grillMarks: precomputeGrillMarks(costW, costH, 4),
+        },
+      });
+
+      // CHORIZOS
+      for (let i = 0; i < 3; i++) {
+        const f = (i + 1) / 4;
+        const chW = 65 + Math.random() * 18;
+        const chH = 15 + Math.random() * 5;
         piezas.push({
-          x: f * w + (Math.random() - 0.5) * 30,
-          y: gy - (Math.random() * 6 + 2),
-          w: 90 + Math.random() * 40,
-          h: 48 + Math.random() * 16,
-          kind: "asado",
-          rot: (Math.random() - 0.5) * 0.25,
-        });
-      }
-      // chorizos entre los asados
-      const chorizos = 5;
-      for (let i = 0; i < chorizos; i++) {
-        const f = (i + 0.7) / (chorizos + 1);
-        piezas.push({
-          x: f * w + (Math.random() - 0.5) * 20,
-          y: gy - 4 + (Math.random() - 0.5) * 8,
-          w: 120 + Math.random() * 40,
-          h: 20 + Math.random() * 8,
+          cx: w * f + (Math.random() - 0.5) * 22,
+          cy: gy + 3 + (Math.random() - 0.5) * 5,
+          w: chW,
+          h: chH,
           kind: "chorizo",
-          rot: (Math.random() - 0.5) * 0.12,
+          rot: (Math.random() - 0.5) * 0.08,
+          precomputed: {
+            fill: (() => {
+              const g = ctx.createLinearGradient(0, -chH / 2, 0, chH / 2);
+              g.addColorStop(0, "#8a3820"); g.addColorStop(0.4, "#6a2818");
+              g.addColorStop(1, "#4a1a0c");
+              return g;
+            })(),
+            stroke: "rgba(25,10,5,0.55)",
+            lineW: 1.3,
+            segments: precomputeShape(chW, chH, 8, 0.1),
+            fatStreaks: [],
+            grillMarks: precomputeGrillMarks(chW, chH, 2),
+          },
         });
       }
     };
 
     const spawnFuego = (x: number, y: number, poder: number) => {
-      if (particulas.length > 380) particulas.splice(0, particulas.length - 380);
-      const n = Math.max(2, Math.round(poder * 5));
+      if (particulas.length > 420) particulas.splice(0, particulas.length - 420);
+      const n = Math.max(2, Math.round(poder * 6));
       for (let i = 0; i < n; i++) {
         particulas.push({
           x: x + (Math.random() - 0.5) * 14,
           y: y + (Math.random() - 0.5) * 10,
-          vx: (Math.random() - 0.5) * 1.6,
-          vy: -(1.4 + Math.random() * 2.8),
+          vx: (Math.random() - 0.5) * 1.8,
+          vy: -(1.2 + Math.random() * 3),
           life: 0,
-          maxLife: 0.5 + Math.random() * 0.9,
-          r: 1.6 + Math.random() * 3.6,
-          hue: 12 + Math.random() * 34,
+          maxLife: 0.4 + Math.random() * 0.9,
+          r: 1.4 + Math.random() * 3.8,
+          hue: 8 + Math.random() * 36,
           flicker: Math.random() * Math.PI * 2,
         });
       }
@@ -270,44 +434,37 @@ export default function P6Parrilla(): React.JSX.Element {
     const step = (t: number) => {
       const dt = Math.min((t - lastT) / 1000, 0.05);
       lastT = t;
-
       const gy = h * GRILL_Y;
 
-      // Enciende brasas cerca del mouse
       for (const em of embers) {
         const dx = em.x - mouse.x;
         const dy = em.y - mouse.y;
         const d = Math.hypot(dx, dy);
-        if (d < 80 && mouse.on) {
-          em.targetHeat = Math.min(1, 0.6 + (1 - d / 80) * 0.5);
-        } else if (Math.random() < 0.002) {
-          em.targetHeat = 0.15 + Math.random() * 0.4;
+        if (d < 90 && mouse.on) {
+          em.targetHeat = Math.min(1, 0.55 + (1 - d / 90) * 0.5);
+        } else if (Math.random() < 0.003) {
+          em.targetHeat = 0.12 + Math.random() * 0.45;
         }
         em.heat += (em.targetHeat - em.heat) * Math.min(1, dt * 4);
-        em.r = em.baseR * (0.7 + em.heat * 1.6);
+        em.r = em.baseR * (0.7 + em.heat * 1.7);
       }
 
-      // Fuego en el mouse (el puntero "es fuego")
       const dist = Math.hypot(mouse.x - mouse.px, mouse.y - mouse.py);
-      if (mouse.on && dist < 220) {
-        spawnFuego(mouse.x, mouse.y, Math.min(1, dist / 26 + 0.35));
+      if (mouse.on && dist < 240) {
+        spawnFuego(mouse.x, mouse.y, Math.min(1, dist / 28 + 0.3));
       }
-      // rastro sobre la zona de brasas
-      if (mouse.on && mouse.y > gy - 10) {
-        spawnFuego(mouse.x + (Math.random() - 0.5) * 16, mouse.y + 8, 0.5);
+      if (mouse.on && mouse.y > gy - 12) {
+        spawnFuego(mouse.x + (Math.random() - 0.5) * 18, mouse.y + 10, 0.55);
       }
 
       for (let i = particulas.length - 1; i >= 0; i--) {
         const f2 = particulas[i];
         f2.life += dt;
-        if (f2.life >= f2.maxLife) {
-          particulas.splice(i, 1);
-          continue;
-        }
-        const wind = Math.sin(t / 900 + f2.y * 0.02) * 24;
+        if (f2.life >= f2.maxLife) { particulas.splice(i, 1); continue; }
+        const wind = Math.sin(t / 950 + f2.y * 0.02) * 22;
         f2.x += (f2.vx + wind) * dt * 60;
         f2.y += f2.vy * dt * 60;
-        f2.vy -= 0.6 * dt;
+        f2.vy -= 0.55 * dt;
         f2.vx *= 0.98;
       }
 
@@ -317,85 +474,59 @@ export default function P6Parrilla(): React.JSX.Element {
 
     const draw = (t: number) => {
       ctx.clearRect(0, 0, w, h);
-
-      // Fondo oscuro del área de la parrilla (todo el ancho alto)
       const gy = h * GRILL_Y;
-      const grad = ctx.createLinearGradient(0, gy - 140, 0, h);
+
+      // 1) Fondo oscuro
+      const grad = ctx.createLinearGradient(0, gy - 150, 0, h);
       grad.addColorStop(0, "rgba(0,0,0,0)");
-      grad.addColorStop(1, "rgba(8,4,2,0.9)");
+      grad.addColorStop(1, "rgba(6,3,1,0.92)");
       ctx.fillStyle = grad;
-      ctx.fillRect(0, gy - 140, w, h - (gy - 140));
+      ctx.fillRect(0, gy - 150, w, h - (gy - 150));
 
-      // Calor general
-      const glow = ctx.createRadialGradient(w / 2, gy, 20, w / 2, gy, w * 0.8);
-      glow.addColorStop(0, "rgba(255,90,46,0.22)");
-      glow.addColorStop(1, "rgba(255,90,46,0)");
+      // 2) Calor general
+      const glow = ctx.createRadialGradient(w / 2, gy, 20, w / 2, gy, w * 0.85);
+      glow.addColorStop(0, "rgba(255,80,40,0.2)");
+      glow.addColorStop(1, "rgba(255,80,40,0)");
       ctx.fillStyle = glow;
-      ctx.fillRect(0, gy - w * 0.8, w, w);
+      ctx.fillRect(0, gy - w * 0.85, w, w);
 
-      // Brasas
+      // 3) Brasas (debajo de todo)
       for (const em of embers) {
-        if (em.heat < 0.12) continue;
+        if (em.heat < 0.1) continue;
         const a = Math.min(1, em.heat);
         const rr = em.r;
         const hh = em.hue + (1 - em.heat) * 18;
-        const core = ctx.createRadialGradient(em.x, em.y, 0, em.x, em.y, rr * 2.2);
-        core.addColorStop(0, `hsla(${hh}, 100%, ${58 + em.heat * 14}%, ${a})`);
-        core.addColorStop(0.5, `hsla(${hh - 10}, 100%, ${42 + em.heat * 10}%, ${a * 0.55})`);
-        core.addColorStop(1, `hsla(${hh - 14}, 90%, 30%, 0)`);
+        const core = ctx.createRadialGradient(em.x, em.y, 0, em.x, em.y, rr * 2.4);
+        core.addColorStop(0, `hsla(${hh}, 100%, ${56 + em.heat * 16}%, ${a})`);
+        core.addColorStop(0.5, `hsla(${hh - 10}, 100%, ${40 + em.heat * 10}%, ${a * 0.5})`);
+        core.addColorStop(1, `hsla(${hh - 14}, 90%, 28%, 0)`);
         ctx.fillStyle = core;
         ctx.beginPath();
-        ctx.arc(em.x, em.y, rr * 2.2, 0, Math.PI * 2);
+        ctx.arc(em.x, em.y, rr * 2.4, 0, Math.PI * 2);
         ctx.fill();
       }
 
-      // Carne encima de la parrilla. Calienta cerca del mouse.
-      for (const p of piezas) {
-        const dx = p.x - mouse.x;
-        const dy = p.y - mouse.y;
-        const d = Math.hypot(dx, dy);
-        const heat = d < 100 && mouse.on ? Math.max(0.2, 1 - d / 100) : 0.25;
-        drawCarne(ctx, p, heat, t);
-      }
-
-      // Fuego
-      for (const f of particulas) {
-        const pp = f.life / f.maxLife;
-        const a = (1 - pp) * 0.9;
-        const flick = 0.85 + Math.sin(f.flicker + f.life * 24) * 0.15;
-        const r = f.r * (0.5 + pp * 0.7) * flick;
-        const hue = f.hue + pp * 18;
-        const gg = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, r * 2.6);
-        gg.addColorStop(0, `hsla(${hue}, 100%, ${64 + (1 - pp) * 20}%, ${a})`);
-        gg.addColorStop(0.55, `hsla(${hue - 12}, 100%, 45%, ${a * 0.5})`);
-        gg.addColorStop(1, "hsla(0, 0%, 0%, 0)");
-        ctx.fillStyle = gg;
-        ctx.beginPath();
-        ctx.arc(f.x, f.y, r * 2.6, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      // Barras de metal (ancha, más barras)
-      const barW = 4;
-      const interv = (h * 0.22) / (BARRAS - 1);
+      // 4) REJAS de metal (DESPUÉS de brasas, ANTES de carne)
+      const barW = 3.5;
+      const interv = (h * 0.2) / (BARRAS - 1);
       ctx.save();
       ctx.lineCap = "round";
       for (let i = 0; i < BARRAS; i++) {
-        const by = gy - 30 + i * interv;
-        ctx.globalAlpha = 0.95 - i * 0.05;
-        ctx.strokeStyle = "rgba(42,42,46,0.95)";
+        const by = gy - 26 + i * interv;
+        ctx.globalAlpha = 0.92 - i * 0.04;
+        ctx.strokeStyle = "rgba(38,38,42,0.95)";
         ctx.lineWidth = barW;
         ctx.beginPath();
         ctx.moveTo(0, by);
         ctx.lineTo(w, by);
         ctx.stroke();
       }
-      // reflejos cálidos en el metal
-      ctx.globalAlpha = 0.5;
-      ctx.strokeStyle = "rgba(255,90,46,0.4)";
-      ctx.lineWidth = 1.4;
+      // reflejos cálidos
+      ctx.globalAlpha = 0.45;
+      ctx.strokeStyle = "rgba(255,80,40,0.35)";
+      ctx.lineWidth = 1.2;
       for (let i = 0; i < BARRAS; i++) {
-        const by = gy - 30 + i * interv;
+        const by = gy - 26 + i * interv;
         ctx.beginPath();
         ctx.moveTo(0, by);
         ctx.lineTo(w, by);
@@ -403,20 +534,41 @@ export default function P6Parrilla(): React.JSX.Element {
       }
       ctx.restore();
       ctx.globalAlpha = 1;
+
+      // 5) CARNE encima de las rejas
+      for (const p of piezas) {
+        const dx = p.cx - mouse.x;
+        const dy = p.cy - mouse.y;
+        const d = Math.hypot(dx, dy);
+        const heat = d < 110 && mouse.on ? Math.max(0.2, 1 - d / 110) : 0.22;
+        drawCarne(ctx, p, heat, t);
+      }
+
+      // 6) Fuego / partículas (encima de todo)
+      for (const f of particulas) {
+        const pp = f.life / f.maxLife;
+        const a = (1 - pp) * 0.88;
+        const flick = 0.85 + Math.sin(f.flicker + f.life * 24) * 0.15;
+        const r = f.r * (0.5 + pp * 0.7) * flick;
+        const hue = f.hue + pp * 18;
+        const gg = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, r * 2.8);
+        gg.addColorStop(0, `hsla(${hue}, 100%, ${62 + (1 - pp) * 20}%, ${a})`);
+        gg.addColorStop(0.55, `hsla(${hue - 12}, 100%, 42%, ${a * 0.5})`);
+        gg.addColorStop(1, "hsla(0, 0%, 0%, 0)");
+        ctx.fillStyle = gg;
+        ctx.beginPath();
+        ctx.arc(f.x, f.y, r * 2.8, 0, Math.PI * 2);
+        ctx.fill();
+      }
     };
 
     resize();
     initEmbers();
     initPiezas();
-    window.addEventListener("resize", () => {
-      resize();
-      initEmbers();
-      initPiezas();
-    });
+    window.addEventListener("resize", () => { resize(); initEmbers(); initPiezas(); });
     window.addEventListener("mousemove", onMove);
     window.addEventListener("mouseout", onLeave);
     canvas.addEventListener("mouseleave", onLeave);
-
     raf = requestAnimationFrame(step);
 
     return () => {

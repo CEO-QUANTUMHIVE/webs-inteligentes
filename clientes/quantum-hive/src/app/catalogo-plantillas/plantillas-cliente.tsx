@@ -21,7 +21,7 @@ function TarjetaVariante({ v }: { v: PlantillaBasica }) {
   const previewBg = isMinimalista ? "#F3F3F3" : isBrutalismo ? paleta.fondo : isOrganico ? "#F3EDE5" : isCristal ? "#080810" : isNeon ? "#06060a" : isLiquid ? "#0a0a12" : isLuxuryGold ? "#08080c" : paleta.fondo;
   const badgeBg = isLight ? "rgba(0,0,0,0.06)" : isCristal ? "rgba(0,229,255,0.15)" : isNeon ? "rgba(0,229,255,0.2)" : isLuxuryGold ? "rgba(201,162,39,0.2)" : "rgba(255,255,255,0.1)";
   const badgeColor = isLight ? "#666" : isCristal ? "#00e5ff" : isNeon ? "#00e5ff" : isLuxuryGold ? "#c9a227" : "#fff";
-  const badgeLabel = isMinimalista ? "Minimalista" : isBrutalismo ? "Brutalismo" : isOrganico ? "Orgánico" : isCristal ? "Cristal" : isNeon ? "Neon" : isLiquid ? "Liquid" : isLuxuryGold ? "Luxury Gold" : "Editorial";
+  const badgeLabel = isMinimalista ? "Minimalista" : isBrutalismo ? "Brutalismo" : isOrganico ? "Orgánico" : isCristal ? "Cristal" : isNeon ? "Neon" : isLiquid ? "Canvas Interactivo" : isLuxuryGold ? "Luxury Gold" : "Editorial";
   const textColor = isLight ? "#111" : "#fff";
   const subtextColor = isLight ? "#888" : isCristal ? "#5a5a72" : isNeon ? "#5a5a72" : isLuxuryGold ? "#a09080" : "#9ca3af";
   const dotBorder = isLight ? "rgba(0,0,0,0.1)" : "rgba(255,255,255,0.2)";
