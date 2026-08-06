@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 
 // P6Parrilla — canvas interactivo: parrilla con brasas y carne realista.
-// Draw order: fondo → brasas → rejas → carne (encima) → fuego/saetas.
+// Draw order: fondo → brasas → rejas → carne (encima) → humo → fuego/saetas.
 
 type Ember = {
   x: number;
@@ -26,6 +26,17 @@ type Particula = {
   flicker: number;
 };
 
+type Humo = {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  life: number;
+  maxLife: number;
+  r: number;
+  opacity: number;
+};
+
 type PiezaCarne = {
   cx: number;
   cy: number;
@@ -37,11 +48,10 @@ type PiezaCarne = {
     fill: CanvasGradient | string;
     stroke: string;
     lineW: number;
-    segments: { cmd: "M" | "Q" | "L"; x: number; y: number; cpx?: number; cpy?: number }[];
+    segments: { cmd: "M" | "Q"; x: number; y: number; cpx: number; cpy: number }[];
     fatStreaks: { x1: number; y1: number; x2: number; y2: number; w: number }[];
     boneEllipse?: { x: number; y: number; rx: number; ry: number; rot: number };
     boneCircles?: { x: number; y: number; r: number }[];
-    grillMarks: { x1: number; y1: number; x2: number; y2: number }[];
   };
 };
 
@@ -54,7 +64,7 @@ function precomputeShape(
   h: number,
   segments: number,
   jitter: number
-): { cmd: "M" | "Q" | "L"; x: number; y: number; cpx?: number; cpy?: number }[] {
+): { cmd: "M" | "Q"; x: number; y: number; cpx: number; cpy: number }[] {
   const pts: [number, number][] = [];
   for (let i = 0; i < segments; i++) {
     const angle = (i / segments) * Math.PI * 2;
@@ -67,9 +77,7 @@ function precomputeShape(
   for (let i = 1; i < pts.length; i++) {
     const prev = pts[i - 1];
     const cur = pts[i];
-    const cpx = (prev[0] + cur[0]) / 2;
-    const cpy = (prev[1] + cur[1]) / 2;
-    cmds.push({ cmd: "Q", x: cur[0], y: cur[1], cpx, cpy });
+    cmds.push({ cmd: "Q", x: cur[0], y: cur[1], cpx: (prev[0] + cur[0]) / 2, cpy: (prev[1] + cur[1]) / 2 });
   }
   return cmds;
 }
@@ -86,23 +94,13 @@ function precomputeFatStreaks(
     const angle = Math.random() * Math.PI * 0.5 - 0.25;
     const len = 8 + Math.random() * 16;
     streaks.push({
-      x1,
-      y1,
+      x1, y1,
       x2: x1 + Math.cos(angle) * len,
       y2: y1 + Math.sin(angle) * len,
       w: 0.5 + Math.random() * 1,
     });
   }
   return streaks;
-}
-
-function precomputeGrillMarks(w: number, h: number, count: number): { x1: number; y1: number; x2: number; y2: number }[] {
-  const marks: { x1: number; y1: number; x2: number; y2: number }[] = [];
-  const step = h / (count + 1);
-  for (let i = 1; i <= count; i++) {
-    marks.push({ x1: -w / 2 + 6, y1: -h / 2 + i * step, x2: w / 2 - 6, y2: -h / 2 + i * step });
-  }
-  return marks;
 }
 
 function drawPrecomputedShape(
@@ -126,6 +124,16 @@ function drawPrecomputedShape(
   ctx.stroke();
 }
 
+function roundRect(ctx: CanvasRenderingContext2D, x: number, y: number, rw: number, rh: number, r: number) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + rw, y, x + rw, y + rh, r);
+  ctx.arcTo(x + rw, y + rh, x, y + rh, r);
+  ctx.arcTo(x, y + rh, x, y, r);
+  ctx.arcTo(x, y, x + rw, y, r);
+  ctx.closePath();
+}
+
 function drawCarne(
   ctx: CanvasRenderingContext2D,
   p: PiezaCarne,
@@ -135,73 +143,89 @@ function drawCarne(
   ctx.save();
   ctx.translate(p.cx, p.cy);
   ctx.rotate(p.rot);
-  const sizzle = heat > 0.25 ? Math.sin(t / 60 + p.cx) * 0.5 : 0;
   const pre = p.precomputed;
 
-  drawPrecomputedShape(ctx, pre.segments as any, pre.fill, pre.stroke, pre.lineW);
-
-  // grasa
-  for (const f of pre.fatStreaks) {
-    ctx.strokeStyle = "rgba(255,220,180,0.3)";
-    ctx.lineWidth = f.w;
-    ctx.lineCap = "round";
-    ctx.beginPath();
-    ctx.moveTo(f.x1, f.y1);
-    ctx.lineTo(f.x2, f.y2);
+  if (p.kind === "chorizo") {
+    // CHORIZO — estilo original: roundRect cilíndrico
+    const grad = ctx.createLinearGradient(0, -p.h / 2, 0, p.h / 2);
+    grad.addColorStop(0, "#c0563c");
+    grad.addColorStop(0.5, "#8a2f1c");
+    grad.addColorStop(1, "#5e1d10");
+    ctx.fillStyle = grad;
+    roundRect(ctx, -p.w / 2, -p.h / 2, p.w, p.h, p.h / 2);
+    ctx.fill();
+    ctx.strokeStyle = "rgba(30,12,6,0.6)";
+    ctx.lineWidth = 1.5;
+    roundRect(ctx, -p.w / 2, -p.h / 2, p.w, p.h, p.h / 2);
     ctx.stroke();
-  }
+    // brillo superior
+    ctx.fillStyle = "rgba(255,200,150,0.18)";
+    roundRect(ctx, -p.w / 2 + 3, -p.h / 2 + 2, p.w - 6, p.h * 0.32, 6);
+    ctx.fill();
+    // marcas de parrilla (líneas verticales sobre el chorizo)
+    ctx.strokeStyle = "rgba(20,8,4,0.5)";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    for (let i = -1; i <= 1; i++) {
+      ctx.moveTo(p.w / 2, i * 3);
+      ctx.lineTo(-p.w / 2, i * 3);
+    }
+    ctx.stroke();
+  } else {
+    // Carne orgánica (bife, entraña, costilla, pollo)
+    drawPrecomputedShape(ctx, pre.segments, pre.fill, pre.stroke, pre.lineW);
 
-  // hueso
-  if (pre.boneEllipse) {
-    const b = pre.boneEllipse;
-    ctx.fillStyle = "#f0e8d4";
-    ctx.beginPath();
-    ctx.ellipse(b.x, b.y, b.rx, b.ry, b.rot, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.fillStyle = "rgba(160,140,110,0.45)";
-    ctx.beginPath();
-    ctx.arc(b.x - 1.5, b.y, 2.5, 0, Math.PI * 2);
-    ctx.fill();
-  }
-  if (pre.boneCircles) {
-    ctx.fillStyle = "#e8dcc8";
-    for (const bc of pre.boneCircles) {
+    // grasa
+    for (const f of pre.fatStreaks) {
+      ctx.strokeStyle = "rgba(255,220,180,0.3)";
+      ctx.lineWidth = f.w;
+      ctx.lineCap = "round";
       ctx.beginPath();
-      ctx.ellipse(bc.x, bc.y, bc.r, bc.r * 1.7, 0.3, 0, Math.PI * 2);
+      ctx.moveTo(f.x1, f.y1);
+      ctx.lineTo(f.x2, f.y2);
+      ctx.stroke();
+    }
+
+    // hueso
+    if (pre.boneEllipse) {
+      const b = pre.boneEllipse;
+      ctx.fillStyle = "#f0e8d4";
+      ctx.beginPath();
+      ctx.ellipse(b.x, b.y, b.rx, b.ry, b.rot, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = "rgba(160,140,110,0.45)";
+      ctx.beginPath();
+      ctx.arc(b.x - 1.5, b.y, 2.5, 0, Math.PI * 2);
       ctx.fill();
     }
-  }
+    if (pre.boneCircles) {
+      ctx.fillStyle = "#e8dcc8";
+      for (const bc of pre.boneCircles) {
+        ctx.beginPath();
+        ctx.ellipse(bc.x, bc.y, bc.r, bc.r * 1.7, 0.3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
 
-  // brillo grasa
-  ctx.fillStyle = "rgba(255,200,150,0.1)";
-  ctx.beginPath();
-  ctx.ellipse(0, -p.h / 3, p.w * 0.3, p.h * 0.15, -0.1, 0, Math.PI * 2);
-  ctx.fill();
-
-  // marcas de parrilla sobre la carne
-  ctx.strokeStyle = `rgba(25,8,3,${0.42 + heat * 0.14})`;
-  ctx.lineWidth = p.kind === "chorizo" ? 1.8 : 2.2;
-  ctx.lineCap = "round";
-  for (const m of pre.grillMarks) {
-    const yOff = m.y1 + sizzle;
+    // brillo grasa
+    ctx.fillStyle = "rgba(255,200,150,0.1)";
     ctx.beginPath();
-    ctx.moveTo(m.x1, yOff);
-    ctx.lineTo(m.x2, yOff);
-    ctx.stroke();
-  }
-
-  // chispas
-  if (heat > 0.3 && Math.random() < heat * 0.12) {
-    ctx.fillStyle = "rgba(255,140,60,0.85)";
-    ctx.beginPath();
-    ctx.arc(
-      (Math.random() - 0.5) * p.w,
-      p.h / 2 + 2,
-      1 + Math.random() * 1.3,
-      0,
-      Math.PI * 2
-    );
+    ctx.ellipse(0, -p.h / 3, p.w * 0.3, p.h * 0.15, -0.1, 0, Math.PI * 2);
     ctx.fill();
+
+    // chispas al calentar
+    if (heat > 0.3 && Math.random() < heat * 0.1) {
+      ctx.fillStyle = "rgba(255,140,60,0.85)";
+      ctx.beginPath();
+      ctx.arc(
+        (Math.random() - 0.5) * p.w,
+        p.h / 2 + 2,
+        1 + Math.random() * 1.3,
+        0,
+        Math.PI * 2
+      );
+      ctx.fill();
+    }
   }
 
   ctx.restore();
@@ -222,6 +246,7 @@ export default function P6Parrilla(): React.JSX.Element {
 
     const embers: Ember[] = [];
     const particulas: Particula[] = [];
+    const humos: Humo[] = [];
     const piezas: PiezaCarne[] = [];
     const mouse = { x: -9999, y: -9999, px: -9999, py: -9999, on: false };
     let raf = 0;
@@ -246,12 +271,10 @@ export default function P6Parrilla(): React.JSX.Element {
         const y = gy + 22 + (Math.random() - 0.5) * 24;
         const heat = Math.random() < 0.35 ? 0.45 + Math.random() * 0.45 : 0.08 + Math.random() * 0.2;
         embers.push({
-          x,
-          y,
+          x, y,
           baseR: 1.8 + Math.random() * 2.8,
           r: 2,
-          heat,
-          targetHeat: heat,
+          heat, targetHeat: heat,
           hue: 8 + Math.random() * 32,
         });
       }
@@ -267,8 +290,7 @@ export default function P6Parrilla(): React.JSX.Element {
       piezas.push({
         cx: w * 0.18 + (Math.random() - 0.5) * 12,
         cy: gy - 6,
-        w: bifeW,
-        h: bifeH,
+        w: bifeW, h: bifeH,
         kind: "bife",
         rot: (Math.random() - 0.5) * 0.12,
         precomputed: {
@@ -278,12 +300,10 @@ export default function P6Parrilla(): React.JSX.Element {
             g.addColorStop(0.6, "#6a1616"); g.addColorStop(1, "#3a0a0a");
             return g;
           })(),
-          stroke: "rgba(25,6,4,0.7)",
-          lineW: 1.6,
+          stroke: "rgba(25,6,4,0.7)", lineW: 1.6,
           segments: precomputeShape(bifeW, bifeH, 10, 0.12),
           fatStreaks: precomputeFatStreaks(bifeW, bifeH, 5),
           boneEllipse: { x: -bifeW / 2 + 10, y: 0, rx: 7, ry: 10, rot: 0.15 },
-          grillMarks: precomputeGrillMarks(bifeW, bifeH, 5),
         },
       });
 
@@ -293,8 +313,7 @@ export default function P6Parrilla(): React.JSX.Element {
       piezas.push({
         cx: w * 0.42 + (Math.random() - 0.5) * 18,
         cy: gy - 3,
-        w: entW,
-        h: entH,
+        w: entW, h: entH,
         kind: "entrania",
         rot: (Math.random() - 0.5) * 0.07,
         precomputed: {
@@ -304,11 +323,9 @@ export default function P6Parrilla(): React.JSX.Element {
             g.addColorStop(0.65, "#7e2020"); g.addColorStop(1, "#5a1616");
             return g;
           })(),
-          stroke: "rgba(22,5,3,0.65)",
-          lineW: 1.4,
+          stroke: "rgba(22,5,3,0.65)", lineW: 1.4,
           segments: precomputeShape(entW, entH, 12, 0.14),
           fatStreaks: precomputeFatStreaks(entW, entH, 7),
-          grillMarks: precomputeGrillMarks(entW, entH, 3),
         },
       });
 
@@ -318,8 +335,7 @@ export default function P6Parrilla(): React.JSX.Element {
       piezas.push({
         cx: w * 0.62 + (Math.random() - 0.5) * 14,
         cy: gy - 5,
-        w: polW,
-        h: polH,
+        w: polW, h: polH,
         kind: "pollo",
         rot: (Math.random() - 0.5) * 0.16,
         precomputed: {
@@ -329,11 +345,9 @@ export default function P6Parrilla(): React.JSX.Element {
             g.addColorStop(0.6, "#a07238"); g.addColorStop(1, "#7a5528");
             return g;
           })(),
-          stroke: "rgba(40,22,10,0.6)",
-          lineW: 1.5,
+          stroke: "rgba(40,22,10,0.6)", lineW: 1.5,
           segments: precomputeShape(polW, polH, 10, 0.13),
           fatStreaks: precomputeFatStreaks(polW, polH, 4),
-          grillMarks: precomputeGrillMarks(polW, polH, 5),
         },
       });
 
@@ -343,8 +357,7 @@ export default function P6Parrilla(): React.JSX.Element {
       piezas.push({
         cx: w * 0.82 + (Math.random() - 0.5) * 12,
         cy: gy - 4,
-        w: costW,
-        h: costH,
+        w: costW, h: costH,
         kind: "costilla",
         rot: (Math.random() - 0.5) * 0.15,
         precomputed: {
@@ -354,8 +367,7 @@ export default function P6Parrilla(): React.JSX.Element {
             g.addColorStop(1, "#401010");
             return g;
           })(),
-          stroke: "rgba(18,5,3,0.6)",
-          lineW: 1.5,
+          stroke: "rgba(18,5,3,0.6)", lineW: 1.5,
           segments: precomputeShape(costW, costH, 10, 0.1),
           fatStreaks: precomputeFatStreaks(costW, costH, 3),
           boneCircles: [
@@ -363,34 +375,22 @@ export default function P6Parrilla(): React.JSX.Element {
             { x: 0, y: -costH / 3, r: 4 },
             { x: costW / 3, y: -costH / 3, r: 4 },
           ],
-          grillMarks: precomputeGrillMarks(costW, costH, 4),
         },
       });
 
-      // CHORIZOS
+      // CHORIZOS — estilo original cilíndrico
       for (let i = 0; i < 3; i++) {
         const f = (i + 1) / 4;
-        const chW = 65 + Math.random() * 18;
-        const chH = 15 + Math.random() * 5;
         piezas.push({
           cx: w * f + (Math.random() - 0.5) * 22,
           cy: gy + 3 + (Math.random() - 0.5) * 5,
-          w: chW,
-          h: chH,
+          w: 120 + Math.random() * 40,
+          h: 20 + Math.random() * 8,
           kind: "chorizo",
-          rot: (Math.random() - 0.5) * 0.08,
+          rot: (Math.random() - 0.5) * 0.12,
           precomputed: {
-            fill: (() => {
-              const g = ctx.createLinearGradient(0, -chH / 2, 0, chH / 2);
-              g.addColorStop(0, "#8a3820"); g.addColorStop(0.4, "#6a2818");
-              g.addColorStop(1, "#4a1a0c");
-              return g;
-            })(),
-            stroke: "rgba(25,10,5,0.55)",
-            lineW: 1.3,
-            segments: precomputeShape(chW, chH, 8, 0.1),
-            fatStreaks: [],
-            grillMarks: precomputeGrillMarks(chW, chH, 2),
+            fill: "transparent", stroke: "transparent", lineW: 0,
+            segments: [], fatStreaks: [],
           },
         });
       }
@@ -405,11 +405,26 @@ export default function P6Parrilla(): React.JSX.Element {
           y: y + (Math.random() - 0.5) * 10,
           vx: (Math.random() - 0.5) * 1.8,
           vy: -(1.2 + Math.random() * 3),
-          life: 0,
-          maxLife: 0.4 + Math.random() * 0.9,
+          life: 0, maxLife: 0.4 + Math.random() * 0.9,
           r: 1.4 + Math.random() * 3.8,
           hue: 8 + Math.random() * 36,
           flicker: Math.random() * Math.PI * 2,
+        });
+      }
+    };
+
+    const spawnHumo = (x: number, y: number, poder: number) => {
+      if (humos.length > 160) humos.splice(0, humos.length - 160);
+      const n = Math.max(1, Math.round(poder * 3));
+      for (let i = 0; i < n; i++) {
+        humos.push({
+          x: x + (Math.random() - 0.5) * 20,
+          y: y - 5 - Math.random() * 10,
+          vx: (Math.random() - 0.5) * 0.8,
+          vy: -(0.6 + Math.random() * 1.2),
+          life: 0, maxLife: 1.5 + Math.random() * 2.5,
+          r: 4 + Math.random() * 10,
+          opacity: 0.2 + Math.random() * 0.25,
         });
       }
     };
@@ -436,6 +451,7 @@ export default function P6Parrilla(): React.JSX.Element {
       lastT = t;
       const gy = h * GRILL_Y;
 
+      // Brasas se calientan
       for (const em of embers) {
         const dx = em.x - mouse.x;
         const dy = em.y - mouse.y;
@@ -449,6 +465,7 @@ export default function P6Parrilla(): React.JSX.Element {
         em.r = em.baseR * (0.7 + em.heat * 1.7);
       }
 
+      // Fuego del mouse
       const dist = Math.hypot(mouse.x - mouse.px, mouse.y - mouse.py);
       if (mouse.on && dist < 240) {
         spawnFuego(mouse.x, mouse.y, Math.min(1, dist / 28 + 0.3));
@@ -457,6 +474,24 @@ export default function P6Parrilla(): React.JSX.Element {
         spawnFuego(mouse.x + (Math.random() - 0.5) * 18, mouse.y + 10, 0.55);
       }
 
+      // Encontrar la pieza más caliente y spawnear humo
+      let maxHeatPieza: PiezaCarne | null = null;
+      let maxHeatVal = 0;
+      for (const p of piezas) {
+        const dx = p.cx - mouse.x;
+        const dy = p.cy - mouse.y;
+        const d = Math.hypot(dx, dy);
+        const heat = d < 110 && mouse.on ? Math.max(0, 1 - d / 110) : 0;
+        if (heat > maxHeatVal) {
+          maxHeatVal = heat;
+          maxHeatPieza = p;
+        }
+      }
+      if (maxHeatPieza && maxHeatVal > 0.35 && Math.random() < maxHeatVal * 0.4) {
+        spawnHumo(maxHeatPieza.cx, maxHeatPieza.cy, maxHeatVal);
+      }
+
+      // Actualizar partículas de fuego
       for (let i = particulas.length - 1; i >= 0; i--) {
         const f2 = particulas[i];
         f2.life += dt;
@@ -466,6 +501,19 @@ export default function P6Parrilla(): React.JSX.Element {
         f2.y += f2.vy * dt * 60;
         f2.vy -= 0.55 * dt;
         f2.vx *= 0.98;
+      }
+
+      // Actualizar humo
+      for (let i = humos.length - 1; i >= 0; i--) {
+        const s = humos[i];
+        s.life += dt;
+        if (s.life >= s.maxLife) { humos.splice(i, 1); continue; }
+        const wind = Math.sin(t / 1200 + s.y * 0.015) * 12;
+        s.x += (s.vx + wind) * dt * 60;
+        s.y += s.vy * dt * 60;
+        s.vy -= 0.08 * dt;
+        s.r += 0.3 * dt * 60;
+        s.opacity *= 0.997;
       }
 
       draw(t);
@@ -506,7 +554,7 @@ export default function P6Parrilla(): React.JSX.Element {
         ctx.fill();
       }
 
-      // 4) REJAS de metal (DESPUÉS de brasas, ANTES de carne)
+      // 4) REJAS de metal
       const barW = 3.5;
       const interv = (h * 0.2) / (BARRAS - 1);
       ctx.save();
@@ -521,7 +569,6 @@ export default function P6Parrilla(): React.JSX.Element {
         ctx.lineTo(w, by);
         ctx.stroke();
       }
-      // reflejos cálidos
       ctx.globalAlpha = 0.45;
       ctx.strokeStyle = "rgba(255,80,40,0.35)";
       ctx.lineWidth = 1.2;
@@ -544,7 +591,23 @@ export default function P6Parrilla(): React.JSX.Element {
         drawCarne(ctx, p, heat, t);
       }
 
-      // 6) Fuego / partículas (encima de todo)
+      // 6) HUMO (entre carne y fuego)
+      for (const s of humos) {
+        const pp = s.life / s.maxLife;
+        const fade = pp < 0.2 ? pp / 0.2 : 1 - (pp - 0.2) / 0.8;
+        const a = s.opacity * fade;
+        if (a < 0.01) continue;
+        const grad = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r);
+        grad.addColorStop(0, `rgba(180,170,160,${a * 0.7})`);
+        grad.addColorStop(0.4, `rgba(140,130,120,${a * 0.4})`);
+        grad.addColorStop(1, `rgba(100,95,90,0)`);
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // 7) Fuego / partículas (encima de todo)
       for (const f of particulas) {
         const pp = f.life / f.maxLife;
         const a = (1 - pp) * 0.88;
