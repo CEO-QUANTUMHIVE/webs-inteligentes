@@ -170,7 +170,7 @@ graphify update .
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-07 · 568 archivos versionados
+Actualizado: 2026-08-07 · 594 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
@@ -178,6 +178,7 @@ Actualizado: 2026-08-07 · 568 archivos versionados
 | `plantillas/` | 78 | Plantillas por tipo de negocio |
 | `.claude/` | 47 | — |
 | `catalogo/` | 29 | — |
+| `pipeline-framework/` | 26 | — |
 | `habilidades/` | 19 | Skills del pipeline y material de apoyo |
 | `PROCESOS APRENDIDOS/` | 12 | — |
 | `supabase/` | 11 | — |
