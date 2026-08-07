@@ -1,100 +1,100 @@
-﻿---
+---
 name: recrear-web-premium
-description: Orquesta la extraccion logica y reconstruccion de una URL publica hacia un proyecto Next.js limpio y editable bajo el estandar de excelencia de QuantumHive.
+description: Orquesta la extracción lógica y reconstrucción de una URL pública hacia un proyecto Next.js limpio y editable bajo el estándar de excelencia de QuantumHive.
 ---
 
 # Recrear Web Premium
 
-Esta skill dirige el flujo completo de ingenieria inversa visual y tecnica para convertir una web de referencia en codigo Next.js modular. Prioriza la fidelidad extrema de las animaciones y la separacion limpia de componentes y logica, generando ademas candidatos de elementos para el sistema de diseno interno. Todo el codigo generado debe cumplir con el estandar de excelencia de QuantumHive.
+Esta skill dirige el flujo completo de ingeniería inversa visual y técnica para convertir una web de referencia en código Next.js modular. Prioriza la fidelidad extrema de las animaciones y la separación limpia de componentes y lógica, generando además candidatos de elementos para el sistema de diseño interno. Todo el código generado debe cumplir con el estándar de excelencia de QuantumHive.
 
-## Estandar de excelencia QuantumHive
+## Estándar de excelencia QuantumHive
 
-Todas las creaciones de QuantumHive deben cumplir el mismo nivel de calidad visual, tecnica y funcional.
+Todas las creaciones de QuantumHive deben cumplir el mismo nivel de calidad visual, técnica y funcional.
 
-Las categorias representan diferencias de complejidad, tecnologia e interaccion. Nunca diferencias de calidad.
+Las categorías representan diferencias de complejidad, tecnología e interacción. Nunca diferencias de calidad.
 
 QuantumHive no produce:
-- webs basicas;
-- webs genericas;
+- webs básicas;
+- webs genéricas;
 - versiones de baja calidad;
 - copias literales;
 - entregas improvisadas.
 
-Una creacion con menor alcance debe conservar:
-- direccion de arte profesional;
-- composicion original;
+Una creación con menor alcance debe conservar:
+- dirección de arte profesional;
+- composición original;
 - assets propios o licenciados;
 - responsive completo;
-- codigo mantenible;
+- código mantenible;
 - rendimiento controlado;
 - accesibilidad;
 - QA visual y funcional.
 
 ## Inputs Formales
 
-Para iniciar la ejecucion, la skill requiere obligatoriamente los siguientes parametros:
-- `url_referencia`: URL publica a reconstruir.
+Para iniciar la ejecución, la skill requiere obligatoriamente los siguientes parámetros:
+- `url_referencia`: URL pública a reconstruir.
 - `proyecto_destino`: Ruta o nombre del proyecto interno.
-- `nombre_plantilla`: Nombre interno que recibira el diseno reconstruido.
+- `nombre_plantilla`: Nombre interno que recibirá el diseño reconstruido.
 - `rubro`: Sector o industria del sitio (ej. estudio creativo, SaaS, moda, arquitectura).
 - `tipo_sitio`: Tipo funcional del sitio (ej. landing, portfolio, ecommerce, corporativo).
 - `objetivo_recreacion`: Alcance de la tarea (`pagina_completa`, `secciones_especificas`, `elemento_aislado`).
-- `complejidad_tecnica`: Nivel tecnologico y de interaccion (`Diseno de Autor`, `Interaccion Avanzada`, `Experiencia Inmersiva`, `Experiencia Canvas`, `Experiencia Tridimensional`, `Fusion Total`). Se asigna despues del analisis tecnologico.
+- `complejidad_tecnica`: Nivel tecnológico y de interacción (`Diseño de Autor`, `Interacción Avanzada`, `Experiencia Inmersiva`, `Experiencia Canvas`, `Experiencia Tridimensional`, `Fusión Total`). Se asigna después del análisis tecnológico.
 - `modo_adaptacion`: Define el estilo a aplicar (`conservar_estilo`, `identidad_cliente`, `identidad_quantumhive`, `neutral_catalogo`).
-- `extraer_elementos`: Booleano para generar el conjunto de elementos candidatos al catalogo.
+- `extraer_elementos`: Booleano para generar el conjunto de elementos candidatos al catálogo.
 - `capturar_mobile`: Booleano para realizar la captura y QA responsivo.
-- `secciones_incluidas`: (Opcional) Array de selectores o nombres de secciones especificas a clonar, omitiendo el resto.
+- `secciones_incluidas`: (Opcional) Array de selectores o nombres de secciones específicas a clonar, omitiendo el resto.
 
 ## Flujo Obligatorio
 
-Sigue estrictamente esta secuencia. No comenzar la implementacion antes de generar y revisar PLAN_RECONSTRUCCION.md.
+Sigue estrictamente esta secuencia. No comenzar la implementación antes de generar y revisar PLAN_RECONSTRUCCION.md.
 
 1. URL
-2. inspeccion preliminar
+2. inspección preliminar
 3. captura base
-4. deteccion tecnologica
+4. detección tecnológica
 5. router de skills
 6. mapa de estructura
 7. mapa de scroll
 8. mapa de mouse
 9. inventario de assets
-10. equivalencias con el catalogo interno
-11. plan de reconstruccion
-12. checkpoint humano (aprobacion del plan)
-13. implementacion por secciones
-14. extraccion de elementos
+10. equivalencias con el catálogo interno
+11. plan de reconstrucción
+12. checkpoint humano (aprobación del plan)
+13. implementación por secciones
+14. extracción de elementos
 15. QA
 16. paquete candidato
-17. aprobacion humana
+17. aprobación humana
 
 ## Router de Skills
 
-La ejecucion decide la ruta exclusivamente segun las tecnologias detectadas en MAPA_TECNOLOGIAS.json. La categoria de la creacion se asigna despues del analisis, no antes.
+La ejecución decide la ruta exclusivamente según las tecnologías detectadas en `MAPA_TECNOLOGIAS.json`. La categoría de la creación se asigna después del análisis, no antes.
 
-- Sin runtimes avanzados -> copiar-pagina o clone-website
-- GSAP, ScrollTrigger, Lenis, Lottie, Rive o animaciones complejas -> true-web-clone
-- Spline -> web-3d
-- Three.js, WebGL, shaders o canvas -> true-web-clone mas reconstruccion especializada centrada en mapear shaders o texturas
-- Video ligado al scroll (scrubbing) -> captura especifica de timeline para extraer frames o el origen del video y mapearlo a la posicion de scroll
+- Sin runtimes avanzados → `copiar-pagina` o `clone-website`
+- GSAP, ScrollTrigger, Lenis, Lottie, Rive o animaciones complejas → `true-web-clone`
+- Spline → `web-3d`
+- Three.js, WebGL, shaders o canvas → `true-web-clone` más reconstrucción especializada centrada en mapear shaders o texturas
+- Video ligado al scroll (scrubbing) → captura específica de timeline para extraer frames o el origen del video y mapearlo a la posición de scroll
 
-## Artefactos de Ejecucion
+## Artefactos de Ejecución
 
-Para cada ejecucion, debes generar obligatoriamente dentro de la carpeta temporal del proyecto los siguientes archivos:
+Para cada ejecución, debes generar obligatoriamente dentro de la carpeta temporal del proyecto los siguientes archivos:
 
-- CAPTURA_BASE.json
-- MAPA_TECNOLOGIAS.json
-- MAPA_ESTRUCTURA.json
-- MAPA_SCROLL.json
-- MAPA_MOUSE.json
-- MAPA_ASSETS.json
-- PLAN_COMPONENTES.json
-- PLAN_RECONSTRUCCION.md
-- SOLICITUD_ASSETS.json
-- INFORME_QA.json
+- `CAPTURA_BASE.json`
+- `MAPA_TECNOLOGIAS.json`
+- `MAPA_ESTRUCTURA.json`
+- `MAPA_SCROLL.json`
+- `MAPA_MOUSE.json`
+- `MAPA_ASSETS.json`
+- `PLAN_COMPONENTES.json`
+- `PLAN_RECONSTRUCCION.md`
+- `SOLICITUD_ASSETS.json`
+- `INFORME_QA.json`
 
-SOLICITUD_ASSETS.json debe registrar imagenes, videos, texturas, modelos 3D o recursos que deban generarse posteriormente con IA para evitar reutilizar activos propietarios.
+`SOLICITUD_ASSETS.json` debe registrar imágenes, videos, texturas, modelos 3D o recursos que deban generarse posteriormente con IA para evitar reutilizar activos propietarios.
 
-Ademas, debes generar la siguiente estructura de capturas:
+Además, debes generar la siguiente estructura de capturas:
 
 ```
 capturas/
@@ -116,62 +116,62 @@ Las capturas deben cubrir:
 
 ## Captura de Scroll Mejorada
 
-La generacion de MAPA_SCROLL.json debe combinar:
-- Limites de cada seccion.
+La generación de `MAPA_SCROLL.json` debe combinar:
+- Límites de cada sección.
 - Porcentajes del documento.
-- Puntos de activacion detectados.
+- Puntos de activación detectados.
 - Muestreo denso dentro de secciones sticky o pinned.
 - Progreso de 0% a 100% de cada timeline.
-- Checkpoints antes, durante y despues de cada transicion.
+- Checkpoints antes, durante y después de cada transición.
 
-Registrar tambien:
-- Duracion visual.
+Registrar también:
+- Duración visual.
 - Easing estimado.
-- Direccion.
-- Relacion entre scroll vertical y movimiento horizontal.
+- Dirección.
+- Relación entre scroll vertical y movimiento horizontal.
 - Elementos que entran o salen de una escena.
 - Estados mobile alternativos.
 
 ## Captura de Mouse Mejorada
 
-La generacion de MAPA_MOUSE.json debe combinar:
-- mousemove programatico.
-- hover y pointer events.
-- Muestreo de getComputedStyle.
-- Lectura de matrices transform.
-- Capturas comparativas de estado antes, durante y despues de la interaccion.
-- Inspeccion de canvas.
-- Deteccion de cambios visuales dentro de requestAnimationFrame.
-- Fallback tactil.
+La generación de `MAPA_MOUSE.json` debe combinar:
+- `mousemove` programático.
+- `hover` y `pointer events`.
+- Muestreo de `getComputedStyle`.
+- Lectura de matrices `transform`.
+- Capturas comparativas de estado antes, durante y después de la interacción.
+- Inspección de canvas.
+- Detección de cambios visuales dentro de `requestAnimationFrame`.
+- Fallback táctil.
 
-## Limpieza, Adaptacion y Restriccion de Recursos
+## Limpieza, Adaptación y Restricción de Recursos
 
-Los archivos de HTML, CSS, scripts y recursos crudos extraidos de la fuente pueden conservarse unicamente como material temporal de investigacion.
+Los archivos de HTML, CSS, scripts y recursos crudos extraídos de la fuente pueden conservarse únicamente como material temporal de investigación.
 
 No pueden:
-- Formar parte de la implementacion final.
+- Formar parte de la implementación final.
 - Publicarse.
 - Entregarse al cliente.
-- Incorporarse al catalogo.
+- Incorporarse al catálogo.
 
-La salida final debe ser codigo limpio, separando componentes, contenido, estilos, animaciones, datos y assets. Se debe purgar rastreadores, analytics, claves, endpoints privados, y sustituir imagenes/textos comerciales ajenos (registrados en SOLICITUD_ASSETS.json).
+La salida final debe ser código limpio, separando componentes, contenido, estilos, animaciones, datos y assets. Se debe purgar rastreadores, analytics, claves, endpoints privados, y sustituir imágenes/textos comerciales ajenos (registrados en `SOLICITUD_ASSETS.json`).
 
-## Extraccion de Elementos Reutilizables
+## Extracción de Elementos Reutilizables
 
-Tras reconstruir la plantilla, analizar y separar candidatos para el catalogo (ej: hero, navegacion, cursor, botones, cards, galerias, transiciones, scroll horizontal, pinned sections, canvas, fondos, videos, loaders, CTA, formularios, footer).
+Tras reconstruir la plantilla, analizar y separar candidatos para el catálogo (ej: hero, navegación, cursor, botones, cards, galerías, transiciones, scroll horizontal, pinned sections, canvas, fondos, videos, loaders, CTA, formularios, footer).
 
 Cada candidato debe registrar:
-- Nombre, categoria (usando terminologia QuantumHive), descripcion.
-- Dependencias, tecnologias, props configurables.
+- Nombre, categoría (usando terminología QuantumHive), descripción.
+- Dependencias, tecnologías, props configurables.
 - Comportamiento responsive, rendimiento estimado.
-- Origen de inspiracion, archivos relacionados, preview, estado de QA.
-- Clasificacion: reutilizacion directa, adaptacion o reconstruccion.
+- Origen de inspiración, archivos relacionados, preview, estado de QA.
+- Clasificación: reutilización directa, adaptación o reconstrucción.
 
-Estos elementos NO se incorporan automaticamente al catalogo.
+Estos elementos NO se incorporan automáticamente al catálogo.
 
-## Paquete Candidato para Catalogo
+## Paquete Candidato para Catálogo
 
-Cada ejecucion exitosa generara una plantilla completa y un paquete candidato de elementos:
+Cada ejecución exitosa generará una plantilla completa y un paquete candidato de elementos:
 
 ```
 CANDIDATO_CATALOGO/
@@ -186,37 +186,37 @@ CANDIDATO_CATALOGO/
 └── FUENTE_REFERENCIA.json
 ```
 
-FUENTE_REFERENCIA.json debe contener:
-- URL, plataforma, fecha de analisis.
-- Secciones estudiadas, tecnicas observadas.
+`FUENTE_REFERENCIA.json` debe contener:
+- URL, plataforma, fecha de análisis.
+- Secciones estudiadas, técnicas observadas.
 - Restricciones, activos descartados, elementos inspirados.
-- Declaracion de reconstruccion y adaptacion propia.
+- Declaración de reconstrucción y adaptación propia.
 
-Este paquete no modifica catalogo.ts. La publicacion es estrictamente manual y requiere aprobacion humana.
+Este paquete no modifica `catalogo.ts`. La publicación es estrictamente manual y requiere aprobación humana.
 
 ## QA Multicriterio y Estados
 
-El QA (INFORME_QA.json) evalua por separado:
+El QA (`INFORME_QA.json`) evalúa por separado:
 - Fidelidad estructural, visual, de animaciones, scroll, mouse.
 - Responsive, errores de consola, recursos fallidos, rendimiento.
 - Accesibilidad y reduced motion.
 
-La comparacion visual (pixelmatch) es auxiliar y se hace por checkpoints de scroll, no con una unica captura full-page.
+La comparación visual (pixelmatch) es auxiliar y se hace por checkpoints de scroll, no con una única captura full-page.
 
 El informe debe terminar con uno de estos estados:
-- APROBADO
-- APROBADO_CON_OBSERVACIONES
-- REQUIERE_CORRECCIONES
-- BLOQUEADO
+- `APROBADO`
+- `APROBADO_CON_OBSERVACIONES`
+- `REQUIERE_CORRECCIONES`
+- `BLOQUEADO`
 
-Solo APROBADO y APROBADO_CON_OBSERVACIONES pueden presentarse para incorporacion al catalogo, siempre con aprobacion humana.
+Solo `APROBADO` y `APROBADO_CON_OBSERVACIONES` pueden presentarse para incorporación al catálogo, siempre con aprobación humana.
 
-## Manejo de Fallos (Fallbacks por Complejidad Tecnica)
+## Manejo de Fallos (Fallbacks por Complejidad Técnica)
 
-Ante assets bloqueados, licencias restrictivas, fallos de renderizado o imposibilidad tecnica, registrar el problema en INFORME_QA.json y crear un fallback segun la complejidad tecnica exigida:
+Ante assets bloqueados, licencias restrictivas, fallos de renderizado o imposibilidad técnica, registrar el problema en `INFORME_QA.json` y crear un fallback según la complejidad técnica exigida:
 
-- Diseno de Autor: permite un fallback estatico equivalente (ej. reemplazar un video simple por una imagen de alta calidad si falla), preservando la direccion de arte y responsividad.
-- Interaccion Avanzada: permite utilizar una alternativa visual/animada equivalente usando tecnologias nativas o CSS si la dependencia original falla, preservando el proposito de la interaccion.
-- Experiencia Inmersiva: exige mantener el equivalente de interaccion (ej. si el scroll horizontal original falla, debe reprogramarse una experiencia inmersiva equivalente).
-- Experiencia Canvas / Experiencia Tridimensional: si falla la extraccion o renderizado (shaders/3D), debe detenerse inmediatamente y pedir decision humana antes de degradar o simular con video.
-- Fusion Total: ante un fallo critico que comprometa multiples niveles de interaccion compleja, detenerse y solicitar decision humana antes de cualquier degradacion automatica del efecto.
+- Diseño de Autor: permite un fallback estático equivalente (ej. reemplazar un video simple por una imagen de alta calidad si falla), preservando la dirección de arte y responsividad.
+- Interacción Avanzada: permite utilizar una alternativa visual/animada equivalente usando tecnologías nativas o CSS si la dependencia original falla, preservando el propósito de la interacción.
+- Experiencia Inmersiva: exige mantener el equivalente de interacción (ej. si el scroll horizontal original falla, debe reprogramarse una experiencia inmersiva equivalente).
+- Experiencia Canvas / Experiencia Tridimensional: si falla la extracción o renderizado (shaders/3D), debe detenerse inmediatamente y pedir decisión humana antes de degradar o simular con video.
+- Fusión Total: ante un fallo crítico que comprometa múltiples niveles de interacción compleja, detenerse y solicitar decisión humana antes de cualquier degradación automática del efecto.
