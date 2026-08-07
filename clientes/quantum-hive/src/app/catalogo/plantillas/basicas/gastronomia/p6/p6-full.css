@@ -303,7 +303,7 @@ background: var(--p6-accent-hi);
 .p6marquee-track {
   display: flex;
   width: max-content;
-  animation: p6-scroll 22s linear infinite;
+  animation: p6-scroll 20s linear infinite;
 }
 .p6marquee--rev .p6marquee-track {
   animation-direction: reverse;
@@ -312,6 +312,9 @@ background: var(--p6-accent-hi);
 .p6marquee-chunk {
   display: flex;
   flex-shrink: 0;
+  align-items: center;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
 }
 
 .p6marquee-item {
@@ -323,11 +326,9 @@ background: var(--p6-accent-hi);
   display: flex;
   align-items: center;
 }
-.p6marquee-item + .p6marquee-item { margin-left: 2.5rem; }
 
 .p6marquee-dot {
   color: var(--p6-accent);
-  margin-left: 2.5rem;
 }
 
 @keyframes p6-scroll {
