@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Al cambiar de rama ($3 == 1): refresca el grafo (graphify-out/ es por worktree).
+# No se dispara en checkout de archivos sueltos ($3 == 0). No fatal.
+[ "${3:-0}" = "1" ] || exit 0
+
+RAIZ="$(git rev-parse --show-toplevel 2>/dev/null)" || exit 0
+SCRIPT="$RAIZ/scripts/graphify-update.sh"
+[ -f "$SCRIPT" ] || exit 0
+
+if bash "$SCRIPT" >/dev/null 2>&1; then
+  echo "[graphify] grafo actualizado para la rama actual."
+else
+  echo "[graphify] post-checkout: grafo no actualizado. Regenerar:  ./scripts/graphify-update.sh" >&2
+fi
+exit 0
