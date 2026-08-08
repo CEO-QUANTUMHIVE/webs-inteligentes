@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Después de `git pull` / merge: refresca el grafo con los archivos nuevos.
+# No fatal: sólo avisa si falla.
+RAIZ="$(git rev-parse --show-toplevel 2>/dev/null)" || exit 0
+SCRIPT="$RAIZ/scripts/graphify-update.sh"
+[ -f "$SCRIPT" ] || exit 0
+
+if bash "$SCRIPT" >/dev/null 2>&1; then
+  echo "[graphify] grafo actualizado tras merge/pull."
+else
+  echo "[graphify] post-merge: grafo no actualizado. Regenerar:  ./scripts/graphify-update.sh" >&2
+fi
+exit 0
