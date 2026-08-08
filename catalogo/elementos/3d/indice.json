@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "generado": "2026-08-07",
+  "total_elementos": 12,
+  "elementos": [
+    {
+      "id": "conejo-stanford",
+      "nombre": "Conejo Stanford",
+      "categoria": "abstracto",
+      "preview": "elementos/conejo-stanford/preview.webp",
+      "tipo": "modelo_glb",
+      "licencia": "CC0-1.0",
+      "peso_bytes": 136604,
+      "comportamientos_compatibles": [
+        "mirar_mouse",
+        "arrastrar_rotar",
+        "orbita_zoom",
+        "transformar_scroll",
+        "estatico"
+      ],
+      "estado": "ACTIVO"
+    },
+    {
+      "id": "suzi",
+      "nombre": "Suzi",
+      "categoria": "abstracto",
+      "preview": "elementos/suzi/preview.webp",
+      "tipo": "modelo_glb",
+      "licencia": "CC0-1.0",
+      "peso_bytes": 354688,
+      "comportamientos_compatibles": [
+        "mirar_mouse",
+        "arrastrar_rotar",
+        "orbita_zoom",
+        "transformar_scroll",
+        "estatico"
+      ],
+      "estado": "ACTIVO"
+    },
+    {
+      "id": "forma-pmndrs",
+      "nombre": "Forma pmndrs",
+      "categoria": "tecnologia",
+      "preview": "elementos/forma-pmndrs/preview.webp",
+      "tipo": "modelo_glb",
+      "licencia": "CC0-1.0",
+      "peso_bytes": 183684,
+      "comportamientos_compatibles": [
+        "seguir_cursor",
+        "mirar_mouse",
+        "transformar_scroll",
+        "estatico"
+      ],
+      "estado": "ACTIVO"
+    },
+    {
+      "id": "placa-circuito",
+      "nombre": "Placa de circuito",
+      "categoria": "tecnologia",
+      "preview": "elementos/placa-circuito/preview.webp",
+      "tipo": "modelo_glb",
+      "licencia": "CC0-1.0",
+      "peso_bytes": 4142884,
+      "comportamientos_compatibles": [
+        "estatico",
+        "transformar_scroll",
+        "orbita_zoom"
+      ],
+      "estado": "ACTIVO"
+    },
+    {
+      "id": "camara-clasica",
+      "nombre": "Camara clasica",
+      "categoria": "producto",
+      "preview": "elementos/camara-clasica/preview.webp",
+      "tipo": "modelo_glb",
+      "licencia": "CC0-1.0",
+      "peso_bytes": 2436224,
+      "comportamientos_compatibles": [
+        "arrastrar_rotar",
+        "orbita_zoom",
+        "mirar_mouse",
+        "estatico"
+      ],
+      "estado": "ACTIVO"
+    },
+    {
+      "id": "caja-registradora",
+      "nombre": "Caja registradora",
+      "categoria": "comercio",
+      "preview": "elementos/caja-registradora/preview.webp",
+      "tipo": "modelo_glb",
+      "licencia": "CC0-1.0",
+      "peso_bytes": 1037140,
+      "comportamientos_compatibles": [
+        "arrastrar_rotar",
+        "orbita_zoom",
+        "estatico"
+      ],
+      "estado": "ACTIVO"
+    },
+    {
+      "id": "ukelele",
+      "nombre": "Ukelele",
+      "categoria": "producto",
+      "preview": "elementos/ukelele/preview.webp",
+      "tipo": "modelo_glb",
+      "licencia": "CC0-1.0",
+      "peso_bytes": 806312,
+      "comportamientos_compatibles": [
+        "arrastrar_rotar",
+        "orbita_zoom",
+        "estatico"
+      ],
+      "estado": "ACTIVO"
+    },
+    {
+      "id": "moneda",
+      "nombre": "Moneda",
+      "categoria": "comercio",
+      "preview": "elementos/moneda/preview.webp",
+      "tipo": "modelo_glb",
+      "licencia": "MIT",
+      "peso_bytes": 22124,
+      "comportamientos_compatibles": [
+        "seguir_cursor",
+        "mirar_mouse",
+        "transformar_scroll",
+        "estatico"
+      ],
+      "estado": "ACTIVO"
+    },
+    {
+      "id": "plaza-fuente",
+      "nombre": "Plaza con fuente",
+      "categoria": "entorno",
+      "preview": "elementos/plaza-fuente/preview.webp",
+      "tipo": "modelo_glb",
+      "licencia": "MIT",
+      "peso_bytes": 14076,
+      "comportamientos_compatibles": [
+        "estatico",
+        "orbita_zoom"
+      ],
+      "estado": "ACTIVO"
+    },
+    {
+      "id": "helecho",
+      "nombre": "Helecho",
+      "categoria": "entorno",
+      "preview": "elementos/helecho/preview.webp",
+      "tipo": "modelo_glb",
+      "licencia": "CC0-1.0",
+      "peso_bytes": 1143580,
+      "comportamientos_compatibles": [
+        "estatico",
+        "transformar_scroll"
+      ],
+      "estado": "ACTIVO"
+    },
+    {
+      "id": "voluta-scroll",
+      "nombre": "Voluta (transiciones por scroll)",
+      "categoria": "escena_spline",
+      "preview": "elementos/voluta-scroll/preview.webp",
+      "tipo": "referencia_remota",
+      "licencia": "Uso libre (escena oficial publicada por Spline para embed directo)",
+      "peso_bytes": 357,
+      "comportamientos_compatibles": [
+        "transformar_scroll"
+      ],
+      "estado": "ACTIVO"
+    },
+    {
+      "id": "orbita-zoom",
+      "nombre": "Orbita y zoom (control de camara)",
+      "categoria": "escena_spline",
+      "preview": "elementos/orbita-zoom/preview.webp",
+      "tipo": "referencia_remota",
+      "licencia": "Uso libre (escena oficial publicada por Spline para embed directo)",
+      "peso_bytes": 357,
+      "comportamientos_compatibles": [
+        "orbita_zoom"
+      ],
+      "estado": "ACTIVO"
+    }
+  ]
+}

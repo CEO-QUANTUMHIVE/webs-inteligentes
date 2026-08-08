@@ -1,0 +1,50 @@
+{
+  "id": "camara-clasica",
+  "tipo": "modelo_glb",
+  "formato": "GLB (glTF 2.0 binario)",
+  "ruta_asset": "elementos/camara-clasica/modelo.glb",
+  "ruta_preview": "elementos/camara-clasica/preview.webp",
+  "peso_bytes": 2436224,
+  "triangulos": 26987,
+  "vertices": 21347,
+  "texturas": 9,
+  "animaciones": 0,
+  "morph_targets": false,
+  "transparencia": false,
+  "hash_sha256": "0c072db78ca70a17300a6ec0ea09be7fcef3d0a9ac79372672857c32e9c92b56",
+  "fecha_ingreso": "2026-08-07",
+  "estado": "ACTIVO",
+  "dependencias": [
+    "three"
+  ],
+  "nombre": "Camara clasica",
+  "descripcion": "Camara telemetrica clasica fotorealista (scan PBR 1k, 9 texturas). Producto estrella para heroes de fotografia, e-commerce de electronica o secciones de portfolio.",
+  "categoria": "producto",
+  "etiquetas": [
+    "producto",
+    "fotografia",
+    "pbr",
+    "ecommerce",
+    "fotorealista"
+  ],
+  "fuente": "Poly Haven",
+  "fuente_url": "https://polyhaven.com/a/Camera_01",
+  "autor": "Rajil Jose Macatangay",
+  "licencia": "CC0-1.0",
+  "licencia_url": "https://polyhaven.com/license",
+  "atribucion_requerida": false,
+  "redistribucion_permitida": true,
+  "uso_comercial": true,
+  "modificacion_permitida": true,
+  "mobile_compatible": true,
+  "nivel_rendimiento": "medio",
+  "comportamientos_compatibles": [
+    "arrastrar_rotar",
+    "orbita_zoom",
+    "mirar_mouse",
+    "estatico"
+  ],
+  "estado_optimizacion": "empaquetado_glb",
+  "preview_estado": "OK",
+  "observaciones": "El modelo reproduce una camara de marca real visible en las texturas; el asset es CC0 (scan de Poly Haven) y su uso es licito, pero conviene difuminar la marca si el cliente es del rubro fotografico. Preview: render oficial de Poly Haven (CC0)."
+}

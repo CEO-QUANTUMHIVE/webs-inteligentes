@@ -1,0 +1,8 @@
+{
+  "url": "https://prod.spline.design/LEvjG3OETYd2GsRw/scene.splinecode",
+  "tipo_embed": "spline-viewer (web component por CDN)",
+  "script": "https://unpkg.com/@splinetool/viewer/build/spline-viewer.js",
+  "fuente_documentacion": "https://docs.spline.design/",
+  "condiciones_embed": "Escena oficial publicada por Spline para embed directo via spline-viewer (CDN). Uso libre en productos propios y comerciales; no se redistribuye el .splinecode ni se rehostea. Requiere conexion al CDN de Spline en runtime. Sin licencia de redistribucion del archivo fuente.",
+  "nota": "Escena remota hosteada en el CDN de Spline. No se copia el .splinecode al repo. Es una referencia_remota, no un asset redistribuible."
+}

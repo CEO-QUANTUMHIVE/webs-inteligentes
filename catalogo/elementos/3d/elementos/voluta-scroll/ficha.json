@@ -1,0 +1,47 @@
+{
+  "id": "voluta-scroll",
+  "tipo": "referencia_remota",
+  "formato": "escena.json (URL publica .splinecode)",
+  "ruta_asset": "elementos/voluta-scroll/escena.json",
+  "ruta_preview": "elementos/voluta-scroll/preview.webp",
+  "peso_bytes": 357,
+  "triangulos": null,
+  "vertices": null,
+  "texturas": null,
+  "animaciones": null,
+  "morph_targets": null,
+  "transparencia": null,
+  "hash_sha256": "f4e8a1df85ff4b3c874df27cd053e6e02b3e88d20f7ce3eccec5fa5e281ed713",
+  "fecha_ingreso": "2026-08-07",
+  "estado": "ACTIVO",
+  "dependencias": [
+    "@splinetool/viewer (CDN, sin npm)"
+  ],
+  "nombre": "Voluta (transiciones por scroll)",
+  "descripcion": "Escena oficial de Spline con transiciones y estados de camara controlados por scroll. Composicion lista para heroes con narrativa visual y portfolios cinematograficos.",
+  "categoria": "escena_spline",
+  "etiquetas": [
+    "escena",
+    "spline",
+    "scroll",
+    "hero",
+    "narrativa"
+  ],
+  "fuente": "Spline (escena oficial de la documentacion, via skill web-3d)",
+  "fuente_url": "https://prod.spline.design/LEvjG3OETYd2GsRw/scene.splinecode",
+  "autor": "Spline, Inc.",
+  "licencia": "Uso libre (escena oficial publicada por Spline para embed directo)",
+  "licencia_url": "https://docs.spline.design/",
+  "atribucion_requerida": false,
+  "redistribucion_permitida": false,
+  "uso_comercial": true,
+  "modificacion_permitida": false,
+  "mobile_compatible": true,
+  "nivel_rendimiento": null,
+  "comportamientos_compatibles": [
+    "transformar_scroll"
+  ],
+  "estado_optimizacion": "remota_no_aplica",
+  "preview_estado": "TEMPORAL",
+  "observaciones": "La escena vive en el CDN de Spline; el repo solo guarda la URL publica en escena.json (no se copia el .splinecode). Spline no etiqueta licencias en su seccion Community, por lo que se eligieron escenas oficiales de su documentacion con licencia verificable. Metricas geometricas no aplican (escena remota). Preview placeholder generada."
+}

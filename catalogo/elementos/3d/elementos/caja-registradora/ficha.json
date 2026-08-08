@@ -1,0 +1,49 @@
+{
+  "id": "caja-registradora",
+  "tipo": "modelo_glb",
+  "formato": "GLB (glTF 2.0 binario)",
+  "ruta_asset": "elementos/caja-registradora/modelo.glb",
+  "ruta_preview": "elementos/caja-registradora/preview.webp",
+  "peso_bytes": 1037140,
+  "triangulos": 9927,
+  "vertices": 9276,
+  "texturas": 6,
+  "animaciones": 0,
+  "morph_targets": false,
+  "transparencia": true,
+  "hash_sha256": "8ffd6d472a1466567c743b60311ad951e7694e51936bf46c3993a31899d8f6b3",
+  "fecha_ingreso": "2026-08-07",
+  "estado": "ACTIVO",
+  "dependencias": [
+    "three"
+  ],
+  "nombre": "Caja registradora",
+  "descripcion": "Caja registradora vintage fotorealista (scan PBR 1k, 6 texturas). Ideal para heroes y secciones de comercio, retail y puntos de venta.",
+  "categoria": "comercio",
+  "etiquetas": [
+    "comercio",
+    "retail",
+    "vintage",
+    "pbr",
+    "punto-de-venta"
+  ],
+  "fuente": "Poly Haven",
+  "fuente_url": "https://polyhaven.com/a/CashRegister_01",
+  "autor": "Joe Seabuhr",
+  "licencia": "CC0-1.0",
+  "licencia_url": "https://polyhaven.com/license",
+  "atribucion_requerida": false,
+  "redistribucion_permitida": true,
+  "uso_comercial": true,
+  "modificacion_permitida": true,
+  "mobile_compatible": true,
+  "nivel_rendimiento": "medio",
+  "comportamientos_compatibles": [
+    "arrastrar_rotar",
+    "orbita_zoom",
+    "estatico"
+  ],
+  "estado_optimizacion": "empaquetado_glb",
+  "preview_estado": "OK",
+  "observaciones": "Un material usa alphaMode BLEND. glTF 1k empaquetado a GLB unico. Preview: render oficial de Poly Haven (CC0)."
+}

@@ -1,0 +1,51 @@
+{
+  "id": "conejo-stanford",
+  "tipo": "modelo_glb",
+  "formato": "GLB (glTF 2.0 binario)",
+  "ruta_asset": "elementos/conejo-stanford/modelo.glb",
+  "ruta_preview": "elementos/conejo-stanford/preview.webp",
+  "peso_bytes": 136604,
+  "triangulos": 5696,
+  "vertices": 3161,
+  "texturas": 0,
+  "animaciones": 0,
+  "morph_targets": false,
+  "transparencia": true,
+  "hash_sha256": "ffb1955dcb08371db5b701b8eb9d184cc7b6be8605fd6b497e7370a644c5db2c",
+  "fecha_ingreso": "2026-08-07",
+  "estado": "ACTIVO",
+  "dependencias": [
+    "three"
+  ],
+  "nombre": "Conejo Stanford",
+  "descripcion": "Version simplificada del clasico Stanford Bunny distribuida en el repositorio pmndrs/assets. Malla limpia sin texturas, ideal como escultura abstracta de hero o para pruebas de materiales y shaders.",
+  "categoria": "abstracto",
+  "etiquetas": [
+    "abstracto",
+    "escultura",
+    "hero",
+    "test-shader",
+    "low-poly"
+  ],
+  "fuente": "pmndrs/assets (GitHub)",
+  "fuente_url": "https://github.com/pmndrs/assets/blob/main/src/models/bunny.glb",
+  "autor": "pmndrs (Poimandres); modelo original: Stanford Computer Graphics Laboratory",
+  "licencia": "CC0-1.0",
+  "licencia_url": "https://github.com/pmndrs/assets/blob/main/LICENSE",
+  "atribucion_requerida": false,
+  "redistribucion_permitida": true,
+  "uso_comercial": true,
+  "modificacion_permitida": true,
+  "mobile_compatible": true,
+  "nivel_rendimiento": "liviano",
+  "comportamientos_compatibles": [
+    "mirar_mouse",
+    "arrastrar_rotar",
+    "orbita_zoom",
+    "transformar_scroll",
+    "estatico"
+  ],
+  "estado_optimizacion": "original",
+  "preview_estado": "TEMPORAL",
+  "observaciones": "El material original declara alphaMode BLEND (transparencia) sin texturas: conviene sobreescribir el material al integrarlo. Preview placeholder generada; pendiente renderer propio."
+}

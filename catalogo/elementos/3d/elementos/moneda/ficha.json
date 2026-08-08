@@ -1,0 +1,50 @@
+{
+  "id": "moneda",
+  "tipo": "modelo_glb",
+  "formato": "GLB (glTF 2.0 binario)",
+  "ruta_asset": "elementos/moneda/modelo.glb",
+  "ruta_preview": "elementos/moneda/preview.webp",
+  "peso_bytes": 22124,
+  "triangulos": 252,
+  "vertices": 392,
+  "texturas": 1,
+  "animaciones": 0,
+  "morph_targets": false,
+  "transparencia": false,
+  "hash_sha256": "a3fb8f779a6af1cd75e5a02da77a87546ca8a59f6fe52f79f25179c4a68fd0e5",
+  "fecha_ingreso": "2026-08-07",
+  "estado": "ACTIVO",
+  "dependencias": [
+    "three"
+  ],
+  "nombre": "Moneda",
+  "descripcion": "Moneda low-poly del Starter Kit 3D Platformer de Kenney. Clasico elemento giratorio para e-commerce, fintech, precios y gamificacion.",
+  "categoria": "comercio",
+  "etiquetas": [
+    "comercio",
+    "fintech",
+    "low-poly",
+    "gamificacion",
+    "icono-3d"
+  ],
+  "fuente": "KenneyNL/Starter-Kit-3D-Platformer (GitHub)",
+  "fuente_url": "https://github.com/KenneyNL/Starter-Kit-3D-Platformer/blob/main/models/coin.glb",
+  "autor": "Kenney (kenney.nl)",
+  "licencia": "MIT",
+  "licencia_url": "https://github.com/KenneyNL/Starter-Kit-3D-Platformer/blob/main/LICENSE",
+  "atribucion_requerida": false,
+  "redistribucion_permitida": true,
+  "uso_comercial": true,
+  "modificacion_permitida": true,
+  "mobile_compatible": true,
+  "nivel_rendimiento": "liviano",
+  "comportamientos_compatibles": [
+    "seguir_cursor",
+    "mirar_mouse",
+    "transformar_scroll",
+    "estatico"
+  ],
+  "estado_optimizacion": "original",
+  "preview_estado": "TEMPORAL",
+  "observaciones": "Repo GitHub bajo MIT (verificado via API de GitHub). Preview placeholder generada."
+}

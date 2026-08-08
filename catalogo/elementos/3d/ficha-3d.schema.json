@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/CEO-QUANTUMHIVE/webs-inteligentes/catalogo/elementos/3d/ficha-3d.schema.json",
+  "title": "Ficha de elemento 3D del catalogo",
+  "type": "object",
+  "required": [
+    "id",
+    "nombre",
+    "descripcion",
+    "categoria",
+    "etiquetas",
+    "tipo",
+    "fuente",
+    "fuente_url",
+    "autor",
+    "licencia",
+    "licencia_url",
+    "atribucion_requerida",
+    "redistribucion_permitida",
+    "uso_comercial",
+    "modificacion_permitida",
+    "formato",
+    "ruta_asset",
+    "ruta_preview",
+    "peso_bytes",
+    "triangulos",
+    "vertices",
+    "texturas",
+    "animaciones",
+    "morph_targets",
+    "transparencia",
+    "mobile_compatible",
+    "nivel_rendimiento",
+    "comportamientos_compatibles",
+    "dependencias",
+    "estado_optimizacion",
+    "hash_sha256",
+    "fecha_ingreso",
+    "observaciones",
+    "preview_estado",
+    "estado"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "nombre": {
+      "type": "string",
+      "minLength": 1
+    },
+    "descripcion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "categoria": {
+      "enum": [
+        "abstracto",
+        "tecnologia",
+        "producto",
+        "comercio",
+        "entorno",
+        "escena_spline"
+      ]
+    },
+    "etiquetas": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "tipo": {
+      "enum": [
+        "modelo_glb",
+        "escena_spline",
+        "referencia_remota",
+        "material",
+        "entorno"
+      ]
+    },
+    "fuente": {
+      "type": "string"
+    },
+    "fuente_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "autor": {
+      "type": "string"
+    },
+    "licencia": {
+      "type": "string"
+    },
+    "licencia_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "atribucion_requerida": {
+      "type": "boolean"
+    },
+    "redistribucion_permitida": {
+      "type": "boolean"
+    },
+    "uso_comercial": {
+      "type": "boolean"
+    },
+    "modificacion_permitida": {
+      "type": "boolean"
+    },
+    "formato": {
+      "type": "string"
+    },
+    "ruta_asset": {
+      "type": "string"
+    },
+    "ruta_preview": {
+      "type": "string"
+    },
+    "peso_bytes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "triangulos": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "vertices": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "texturas": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "animaciones": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "morph_targets": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "transparencia": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "mobile_compatible": {
+      "type": "boolean"
+    },
+    "nivel_rendimiento": {
+      "enum": [
+        "liviano",
+        "medio",
+        "pesado",
+        null
+      ]
+    },
+    "comportamientos_compatibles": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "seguir_cursor",
+          "mirar_mouse",
+          "arrastrar_rotar",
+          "transformar_scroll",
+          "orbita_zoom",
+          "estatico"
+        ]
+      },
+      "minItems": 1
+    },
+    "dependencias": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "estado_optimizacion": {
+      "enum": [
+        "original",
+        "empaquetado_glb",
+        "optimizado",
+        "pendiente",
+        "remota_no_aplica"
+      ]
+    },
+    "hash_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "fecha_ingreso": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "observaciones": {
+      "type": "string"
+    },
+    "preview_estado": {
+      "enum": [
+        "OK",
+        "TEMPORAL"
+      ]
+    },
+    "estado": {
+      "enum": [
+        "ACTIVO",
+        "RECHAZADO_POR_PESO",
+        "PENDIENTE",
+        "DEPRECADO"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

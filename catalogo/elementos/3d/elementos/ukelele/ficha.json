@@ -1,0 +1,49 @@
+{
+  "id": "ukelele",
+  "tipo": "modelo_glb",
+  "formato": "GLB (glTF 2.0 binario)",
+  "ruta_asset": "elementos/ukelele/modelo.glb",
+  "ruta_preview": "elementos/ukelele/preview.webp",
+  "peso_bytes": 806312,
+  "triangulos": 8912,
+  "vertices": 8235,
+  "texturas": 3,
+  "animaciones": 0,
+  "morph_targets": false,
+  "transparencia": false,
+  "hash_sha256": "c1167b17f7eaaf127e74c5bf11606574492104623f15a657d4bca383d12c5015",
+  "fecha_ingreso": "2026-08-07",
+  "estado": "ACTIVO",
+  "dependencias": [
+    "three"
+  ],
+  "nombre": "Ukelele",
+  "descripcion": "Ukelele fotorealista (scan PBR 1k, 3 texturas). Producto para tiendas de musica, escuelas y marcas lifestyle.",
+  "categoria": "producto",
+  "etiquetas": [
+    "producto",
+    "musica",
+    "instrumento",
+    "pbr",
+    "ecommerce"
+  ],
+  "fuente": "Poly Haven",
+  "fuente_url": "https://polyhaven.com/a/Ukulele_01",
+  "autor": "Joseph Burgan",
+  "licencia": "CC0-1.0",
+  "licencia_url": "https://polyhaven.com/license",
+  "atribucion_requerida": false,
+  "redistribucion_permitida": true,
+  "uso_comercial": true,
+  "modificacion_permitida": true,
+  "mobile_compatible": true,
+  "nivel_rendimiento": "medio",
+  "comportamientos_compatibles": [
+    "arrastrar_rotar",
+    "orbita_zoom",
+    "estatico"
+  ],
+  "estado_optimizacion": "empaquetado_glb",
+  "preview_estado": "OK",
+  "observaciones": "glTF 1k empaquetado a GLB unico. Preview: render oficial de Poly Haven (CC0)."
+}

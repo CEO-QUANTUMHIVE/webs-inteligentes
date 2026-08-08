@@ -1,0 +1,49 @@
+{
+  "id": "placa-circuito",
+  "tipo": "modelo_glb",
+  "formato": "GLB (glTF 2.0 binario)",
+  "ruta_asset": "elementos/placa-circuito/modelo.glb",
+  "ruta_preview": "elementos/placa-circuito/preview.webp",
+  "peso_bytes": 4142884,
+  "triangulos": 14430,
+  "vertices": 18273,
+  "texturas": 4,
+  "animaciones": 0,
+  "morph_targets": false,
+  "transparencia": true,
+  "hash_sha256": "012f9fa7d520661d7c12f5e337eee1fa9ed4f110a737a9c8297075816c711ca0",
+  "fecha_ingreso": "2026-08-07",
+  "estado": "ACTIVO",
+  "dependencias": [
+    "three"
+  ],
+  "nombre": "Placa de circuito",
+  "descripcion": "Placa de circuito impreso fotorealista (scan PBR 1k) con 4 texturas. Pieza tecnologica para heroes de hardware, IoT o servicios de electronica.",
+  "categoria": "tecnologia",
+  "etiquetas": [
+    "tecnologia",
+    "hardware",
+    "pbr",
+    "fotorealista",
+    "electronica"
+  ],
+  "fuente": "Poly Haven",
+  "fuente_url": "https://polyhaven.com/a/circuit_board",
+  "autor": "Benny Weimer",
+  "licencia": "CC0-1.0",
+  "licencia_url": "https://polyhaven.com/license",
+  "atribucion_requerida": false,
+  "redistribucion_permitida": true,
+  "uso_comercial": true,
+  "modificacion_permitida": true,
+  "mobile_compatible": false,
+  "nivel_rendimiento": "pesado",
+  "comportamientos_compatibles": [
+    "estatico",
+    "transformar_scroll",
+    "orbita_zoom"
+  ],
+  "estado_optimizacion": "empaquetado_glb",
+  "preview_estado": "OK",
+  "observaciones": "3.95 MiB: por debajo del limite de 4 MiB pero sin margen; si el limite se interpreta como 4 MB decimales excede por ~139 KB y seria candidato a reoptimizacion (Draco/KTX2) en el lote 2. glTF 1k empaquetado a GLB unico con script propio, sin decimar. Un material usa alphaMode BLEND. Preview: render oficial de Poly Haven (CC0) compuesto sobre fondo neutro."
+}

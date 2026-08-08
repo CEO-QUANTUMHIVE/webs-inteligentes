@@ -1,0 +1,48 @@
+{
+  "id": "plaza-fuente",
+  "tipo": "modelo_glb",
+  "formato": "GLB (glTF 2.0 binario)",
+  "ruta_asset": "elementos/plaza-fuente/modelo.glb",
+  "ruta_preview": "elementos/plaza-fuente/preview.webp",
+  "peso_bytes": 14076,
+  "triangulos": 152,
+  "vertices": 248,
+  "texturas": 1,
+  "animaciones": 0,
+  "morph_targets": false,
+  "transparencia": false,
+  "hash_sha256": "ea2996089e90a79ba13d764106d374486bb8137666cf1cdbaebd1927ef365185",
+  "fecha_ingreso": "2026-08-07",
+  "estado": "ACTIVO",
+  "dependencias": [
+    "three"
+  ],
+  "nombre": "Plaza con fuente",
+  "descripcion": "Modulo de pavimento con fuente low-poly del Starter Kit City Builder de Kenney. Pieza de entorno urbano para escenas de ciudad, mapas de sucursales y fondos de hero.",
+  "categoria": "entorno",
+  "etiquetas": [
+    "entorno",
+    "urbano",
+    "low-poly",
+    "ciudad",
+    "modular"
+  ],
+  "fuente": "KenneyNL/Starter-Kit-City-Builder (GitHub)",
+  "fuente_url": "https://github.com/KenneyNL/Starter-Kit-City-Builder/blob/main/models/pavement-fountain.glb",
+  "autor": "Kenney (kenney.nl)",
+  "licencia": "MIT",
+  "licencia_url": "https://github.com/KenneyNL/Starter-Kit-City-Builder/blob/main/LICENSE",
+  "atribucion_requerida": false,
+  "redistribucion_permitida": true,
+  "uso_comercial": true,
+  "modificacion_permitida": true,
+  "mobile_compatible": true,
+  "nivel_rendimiento": "liviano",
+  "comportamientos_compatibles": [
+    "estatico",
+    "orbita_zoom"
+  ],
+  "estado_optimizacion": "original",
+  "preview_estado": "TEMPORAL",
+  "observaciones": "Repo GitHub bajo MIT (verificado via API de GitHub). Preview placeholder generada."
+}

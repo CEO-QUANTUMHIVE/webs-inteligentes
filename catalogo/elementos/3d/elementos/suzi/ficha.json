@@ -1,0 +1,51 @@
+{
+  "id": "suzi",
+  "tipo": "modelo_glb",
+  "formato": "GLB (glTF 2.0 binario)",
+  "ruta_asset": "elementos/suzi/modelo.glb",
+  "ruta_preview": "elementos/suzi/preview.webp",
+  "peso_bytes": 354688,
+  "triangulos": 15744,
+  "vertices": 8098,
+  "texturas": 0,
+  "animaciones": 0,
+  "morph_targets": false,
+  "transparencia": false,
+  "hash_sha256": "871cdfa1ccf93a62d757b370319b6e5db5ed5128a0b6cd498ac286aea1a241fe",
+  "fecha_ingreso": "2026-08-07",
+  "estado": "ACTIVO",
+  "dependencias": [
+    "three"
+  ],
+  "nombre": "Suzi",
+  "descripcion": "Cabeza de mono iconica del 3D (derivada de Suzanne de Blender), distribuida en pmndrs/assets. Pieza tecnologica/abstracta para heroes, fondos interactivos y demos de iluminacion.",
+  "categoria": "abstracto",
+  "etiquetas": [
+    "abstracto",
+    "icono-3d",
+    "hero",
+    "blender",
+    "demo"
+  ],
+  "fuente": "pmndrs/assets (GitHub)",
+  "fuente_url": "https://github.com/pmndrs/assets/blob/main/src/models/suzi.glb",
+  "autor": "pmndrs (Poimandres); derivada de Suzanne (Blender)",
+  "licencia": "CC0-1.0",
+  "licencia_url": "https://github.com/pmndrs/assets/blob/main/LICENSE",
+  "atribucion_requerida": false,
+  "redistribucion_permitida": true,
+  "uso_comercial": true,
+  "modificacion_permitida": true,
+  "mobile_compatible": true,
+  "nivel_rendimiento": "liviano",
+  "comportamientos_compatibles": [
+    "mirar_mouse",
+    "arrastrar_rotar",
+    "orbita_zoom",
+    "transformar_scroll",
+    "estatico"
+  ],
+  "estado_optimizacion": "original",
+  "preview_estado": "TEMPORAL",
+  "observaciones": "Sin texturas: el aspecto final depende del material asignado. Preview placeholder generada; pendiente renderer propio."
+}

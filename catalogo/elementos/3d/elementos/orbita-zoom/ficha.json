@@ -1,0 +1,47 @@
+{
+  "id": "orbita-zoom",
+  "tipo": "referencia_remota",
+  "formato": "escena.json (URL publica .splinecode)",
+  "ruta_asset": "elementos/orbita-zoom/escena.json",
+  "ruta_preview": "elementos/orbita-zoom/preview.webp",
+  "peso_bytes": 357,
+  "triangulos": null,
+  "vertices": null,
+  "texturas": null,
+  "animaciones": null,
+  "morph_targets": null,
+  "transparencia": null,
+  "hash_sha256": "af611ac42936b1297e6decfd5ae246e8dc0d72b8cff00fc38537c908b40f3c2c",
+  "fecha_ingreso": "2026-08-07",
+  "estado": "ACTIVO",
+  "dependencias": [
+    "@splinetool/viewer (CDN, sin npm)"
+  ],
+  "nombre": "Orbita y zoom (control de camara)",
+  "descripcion": "Escena oficial de Spline con comportamiento de camara orbita + zoom configurado en la exportacion. Base para visores de producto 360 y exhibiciones interactivas de catalogo.",
+  "categoria": "escena_spline",
+  "etiquetas": [
+    "escena",
+    "spline",
+    "orbita",
+    "zoom",
+    "producto-360"
+  ],
+  "fuente": "Spline (escena oficial de la documentacion, via skill web-3d)",
+  "fuente_url": "https://prod.spline.design/U9O6K7fXziMEU7Wu/scene.splinecode",
+  "autor": "Spline, Inc.",
+  "licencia": "Uso libre (escena oficial publicada por Spline para embed directo)",
+  "licencia_url": "https://docs.spline.design/",
+  "atribucion_requerida": false,
+  "redistribucion_permitida": false,
+  "uso_comercial": true,
+  "modificacion_permitida": false,
+  "mobile_compatible": true,
+  "nivel_rendimiento": null,
+  "comportamientos_compatibles": [
+    "orbita_zoom"
+  ],
+  "estado_optimizacion": "remota_no_aplica",
+  "preview_estado": "TEMPORAL",
+  "observaciones": "La escena vive en el CDN de Spline; el repo solo guarda la URL publica en escena.json (no se copia el .splinecode). Escena oficial de la documentacion de Spline (licencia verificable). Metricas geometricas no aplican. Preview placeholder generada."
+}

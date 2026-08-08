@@ -1,0 +1,48 @@
+{
+  "id": "helecho",
+  "tipo": "modelo_glb",
+  "formato": "GLB (glTF 2.0 binario)",
+  "ruta_asset": "elementos/helecho/modelo.glb",
+  "ruta_preview": "elementos/helecho/preview.webp",
+  "peso_bytes": 1143580,
+  "triangulos": 6232,
+  "vertices": 4337,
+  "texturas": 3,
+  "animaciones": 0,
+  "morph_targets": false,
+  "transparencia": true,
+  "hash_sha256": "68b47695e77263eaf2294ed7431255793b54fe5165aece19ace01637b24e6808",
+  "fecha_ingreso": "2026-08-07",
+  "estado": "ACTIVO",
+  "dependencias": [
+    "three"
+  ],
+  "nombre": "Helecho",
+  "descripcion": "Helecho fotorealista (scan PBR 1k, 3 texturas, hojas con canal alfa). Pieza de entorno natural para escenas organicas, heroes de wellness y decoracion de secciones.",
+  "categoria": "entorno",
+  "etiquetas": [
+    "entorno",
+    "naturaleza",
+    "planta",
+    "pbr",
+    "organico"
+  ],
+  "fuente": "Poly Haven",
+  "fuente_url": "https://polyhaven.com/a/fern_02",
+  "autor": "Rob Tuytel, Rico Cilliers",
+  "licencia": "CC0-1.0",
+  "licencia_url": "https://polyhaven.com/license",
+  "atribucion_requerida": false,
+  "redistribucion_permitida": true,
+  "uso_comercial": true,
+  "modificacion_permitida": true,
+  "mobile_compatible": true,
+  "nivel_rendimiento": "medio",
+  "comportamientos_compatibles": [
+    "estatico",
+    "transformar_scroll"
+  ],
+  "estado_optimizacion": "empaquetado_glb",
+  "preview_estado": "OK",
+  "observaciones": "Las hojas usan alphaMode (transparencia por textura): requiere alphaTest o render de doble cara en three.js. glTF 1k empaquetado a GLB unico. Preview: render oficial de Poly Haven (CC0)."
+}

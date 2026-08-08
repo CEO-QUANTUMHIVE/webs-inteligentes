@@ -1,0 +1,50 @@
+{
+  "id": "forma-pmndrs",
+  "tipo": "modelo_glb",
+  "formato": "GLB (glTF 2.0 binario)",
+  "ruta_asset": "elementos/forma-pmndrs/modelo.glb",
+  "ruta_preview": "elementos/forma-pmndrs/preview.webp",
+  "peso_bytes": 183684,
+  "triangulos": 2696,
+  "vertices": 1773,
+  "texturas": 1,
+  "animaciones": 0,
+  "morph_targets": false,
+  "transparencia": false,
+  "hash_sha256": "2f3953019da1feffc9cefbe40dee7ac9283bbe06287d325c72fd605a568e14c3",
+  "fecha_ingreso": "2026-08-07",
+  "estado": "ACTIVO",
+  "dependencias": [
+    "three"
+  ],
+  "nombre": "Forma pmndrs",
+  "descripcion": "Forma geometrica abstracta (marca de Poimandres) con una textura embebida. Util como elemento tecnologico flotante en heroes y secciones de producto SaaS.",
+  "categoria": "tecnologia",
+  "etiquetas": [
+    "tecnologia",
+    "abstracto",
+    "logo-3d",
+    "hero",
+    "saas"
+  ],
+  "fuente": "pmndrs/assets (GitHub)",
+  "fuente_url": "https://github.com/pmndrs/assets/blob/main/src/models/pmndrs.glb",
+  "autor": "pmndrs (Poimandres)",
+  "licencia": "CC0-1.0",
+  "licencia_url": "https://github.com/pmndrs/assets/blob/main/LICENSE",
+  "atribucion_requerida": false,
+  "redistribucion_permitida": true,
+  "uso_comercial": true,
+  "modificacion_permitida": true,
+  "mobile_compatible": true,
+  "nivel_rendimiento": "liviano",
+  "comportamientos_compatibles": [
+    "seguir_cursor",
+    "mirar_mouse",
+    "transformar_scroll",
+    "estatico"
+  ],
+  "estado_optimizacion": "original",
+  "preview_estado": "TEMPORAL",
+  "observaciones": "Es la marca visual de pmndrs: usar como forma abstracta, no para sugerir respaldo del proyecto pmndrs. Preview placeholder generada."
+}
