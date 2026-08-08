@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo catalogo 3D - validacion funcional</title>
+<style>
+  :root { --fondo:#0d0f12; --panel:#161a21; --borde:#262c38; --texto:#e8ebf0; --tenue:#98a2b3; --acento:#22d3ee; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--fondo); color:var(--texto); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; line-height:1.5; }
+  header, main, footer { max-width:960px; margin:0 auto; padding:24px 16px; }
+  h1 { font-size:1.6rem; margin:0 0 8px; }
+  h2 { font-size:1.15rem; margin:0 0 8px; color:var(--acento); }
+  p { margin:0 0 8px; color:var(--tenue); }
+  #estado { display:flex; flex-wrap:wrap; gap:8px 20px; font-size:.8rem; color:var(--tenue); background:var(--panel); border:1px solid var(--borde); border-radius:10px; padding:10px 14px; }
+  #estado div { white-space:nowrap; }
+  #estado b { color:var(--texto); font-weight:600; }
+  section.panel { background:var(--panel); border:1px solid var(--borde); border-radius:14px; padding:16px; margin:24px 0; }
+  .visor { position:relative; aspect-ratio:1/1; max-height:440px; margin:0 auto; border-radius:10px; overflow:hidden; background:radial-gradient(ellipse at 50% 40%, #1b2230 0%, #0d0f12 75%); touch-action:none; }
+  .visor canvas { display:block; width:100%; height:100%; outline:none; }
+  .visor img { width:100%; height:100%; object-fit:cover; display:block; }
+  .cargando { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:var(--tenue); font-size:.9rem; }
+  .aviso { position:absolute; left:0; right:0; bottom:0; margin:0; padding:6px 10px; font-size:.75rem; background:rgba(13,15,18,.82); color:var(--acento); }
+  .info { display:flex; flex-wrap:wrap; gap:6px 16px; margin-top:12px; font-size:.82rem; color:var(--tenue); }
+  .info b { color:var(--texto); }
+  .tag { display:inline-block; background:#0b2a33; color:var(--acento); border:1px solid #16424e; border-radius:999px; padding:1px 10px; font-size:.72rem; margin-right:6px; }
+  .controles { margin-top:10px; display:flex; gap:8px; }
+  .controles button { background:#0b2a33; color:var(--acento); border:1px solid #16424e; border-radius:8px; padding:6px 14px; font-size:.9rem; cursor:pointer; }
+  .controles button:focus-visible { outline:2px solid var(--acento); outline-offset:2px; }
+  #s-moneda { min-height:150vh; }
+  #log-errores, #autotest, #metricas { font-family:ui-monospace,Consolas,monospace; font-size:.78rem; background:var(--panel); border:1px solid var(--borde); border-radius:10px; padding:10px 14px; margin:10px 0; white-space:pre-wrap; word-break:break-word; }
+  .pass { color:#4ade80; } .fail { color:#f87171; }
+  @media (max-width:640px) { .visor { max-height:320px; } h1 { font-size:1.3rem; } }
+</style>
+<script>
+  // Registro de errores temprano (legible via dump-dom en headless)
+  window.__errores = [];
+  function __regErr(m){ window.__errores.push(String(m));
+    var d = document.getElementById('log-errores');
+    if (d) d.textContent = window.__errores.join(' | '); }
+  window.addEventListener('error', function(e){ __regErr(e.message || e.type); });
+  window.addEventListener('unhandledrejection', function(e){ __regErr('rejection: ' + (e.reason && e.reason.message || e.reason)); });
+</script>
+<script type="importmap">
+  { "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  } }
+</script>
+</head>
+<body>
+<header>
+  <h1>Demo catalogo 3D - validacion funcional</h1>
+  <p>Flujo verificado: <b>catalogo &rarr; seleccionar modelo &rarr; aplicar comportamiento &rarr; renderizar</b>.
+     Sandbox estatica, sin build. Modelos servidos desde <code>catalogo/elementos/3d/elementos/</code>.</p>
+  <div id="estado" aria-live="polite">
+    <div>WebGL: <b id="st-webgl">...</b></div>
+    <div>DPR: <b id="st-dpr">...</b></div>
+    <div>Pointer: <b id="st-pointer">...</b></div>
+    <div>Reduced motion: <b id="st-rm">...</b></div>
+  </div>
+</header>
+<main>
+  <section class="panel" id="s-moneda" data-modelo="moneda">
+    <h2>1. Moneda - seguir_cursor + transformar_scroll</h2>
+    <div class="visor" id="v-moneda"><div class="cargando">Cargando...</div></div>
+    <div class="info">
+      <span><b>Modelo:</b> <code>elementos/moneda/modelo.glb</code> (22 KB, Kenney, MIT)</span>
+      <span><b>Comportamientos:</b> <span class="tag">seguir_cursor</span><span class="tag">transformar_scroll</span></span>
+      <span><b>FPS:</b> <b id="fps-moneda">-</b> · <b>Carga:</b> <b id="t-moneda">-</b></span>
+    </div>
+    <p>Desktop: la moneda sigue al cursor. Scroll: rota y escala con el progreso de la pagina (esta seccion tiene 150vh para probarlo).</p>
+  </section>
+
+  <section class="panel" id="s-conejo" data-modelo="conejo-stanford">
+    <h2>2. Conejo Stanford - mirar_mouse</h2>
+    <div class="visor" id="v-conejo"><div class="cargando">Cargando...</div></div>
+    <div class="info">
+      <span><b>Modelo:</b> <code>elementos/conejo-stanford/modelo.glb</code> (133 KB, pmndrs/assets, CC0)</span>
+      <span><b>Comportamiento:</b> <span class="tag">mirar_mouse</span></span>
+      <span><b>FPS:</b> <b id="fps-conejo">-</b> · <b>Carga:</b> <b id="t-conejo">-</b></span>
+    </div>
+    <p>El conejo orienta la cabeza hacia el cursor. Material sobreescrito en runtime (la ficha lo indica: el original declara alphaMode BLEND sin texturas).</p>
+  </section>
+
+  <section class="panel" id="s-ukelele" data-modelo="ukelele">
+    <h2>3. Ukelele - arrastrar_rotar + orbita_zoom</h2>
+    <div class="visor" id="v-ukelele"><div class="cargando">Cargando...</div></div>
+    <div class="info">
+      <span><b>Modelo:</b> <code>elementos/ukelele/modelo.glb</code> (787 KB, Poly Haven, CC0)</span>
+      <span><b>Comportamientos:</b> <span class="tag">arrastrar_rotar</span><span class="tag">orbita_zoom</span></span>
+      <span><b>FPS:</b> <b id="fps-ukelele">-</b> · <b>Carga:</b> <b id="t-ukelele">-</b></span>
+    </div>
+    <p>Arrastra (mouse o tactil) para rotar con inercia. Rueda, pinch o botones para zoom.</p>
+    <div class="controles">
+      <button type="button" id="zoom-in" aria-label="Acercar">+</button>
+      <button type="button" id="zoom-out" aria-label="Alejar">-</button>
+    </div>
+  </section>
+</main>
+<footer>
+  <h2>Registro</h2>
+  <div id="log-errores">sin errores</div>
+  <div id="autotest">autotest: no ejecutado (agregar ?autotest=1 a la URL)</div>
+  <div id="metricas">metricas: pendiente</div>
+</footer>
+<script type="module" src="./demo.js"></script>
+</body>
+</html>
