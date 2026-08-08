@@ -149,28 +149,47 @@ Para crear la plantilla básica #9, usar la skill
 
 ## Grafo de conocimiento
 
-**Consultá el grafo antes de releer el repo.** Para "¿dónde está X?", arquitectura, o "¿cómo se conecta Y con Z?", el grafo responde con archivo y línea exactos. Releer archivos sueltos es el último recurso.
+**Graphify es la primera herramienta de navegación arquitectónica.** Para "¿dónde está X?", arquitectura, o "¿cómo se conecta Y con Z?", el grafo responde con archivo y línea exactos. Orden de contexto:
+
+```
+Graphify  →  archivos señalados  →  búsqueda puntual (grep)  →  exploración amplia (último recurso)
+```
+
+Releer archivos sueltos para reconstruir contexto está **prohibido** si el grafo puede responder la consulta.
 
 ```bash
 graphify query "como se protege el codigo privado de los efectos"
 graphify explain "efectos_publicos"
 graphify path "catalogo-cliente" "Supabase"
+
+# wrappers del repo (resuelven raíz git + validan instalación):
+./scripts/graphify-query.sh query "catalogo 3d"
+./scripts/graphify-update.sh            # regenerar grafo (no usa LLM)
+./scripts/graphify-update.sh --force     # tras refactors que borran código
 ```
 
-Mantenerlo vivo después de cambios grandes (sin costo de LLM):
-
-```bash
-graphify update .
-```
+El grafo se mantiene vivo **solo**: tras cada commit, `scripts/hooks/post-commit`
+corre `graphify update .` (no fatal: si falla, sólo avisa). En un clone/worktree
+nuevo activar los hooks con `./scripts/setup-git-hooks.sh`.
 
 `graphify-out/` está gitignorado: se regenera en cada máquina. Los `.sql` necesitan `pip install "graphifyy[sql]"`, ya instalado — sin eso el esquema de Supabase queda fuera del grafo.
+
+### Worktrees
+
+Cada worktree mantiene/regenera **su propio** `graphify-out/`. No se comparte entre
+ramas activas (cada rama tiene su grafo). Después de crear un worktree:
+
+```bash
+./scripts/setup-git-hooks.sh   # core.hooksPath = scripts/hooks (config local)
+./scripts/graphify-update.sh   # grafo fresco del worktree
+```
 
 <!-- INICIO MAPA AUTO -->
 ## Mapa del repo
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-07 · 569 archivos versionados
+Actualizado: 2026-08-08 · 575 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
@@ -181,12 +200,12 @@ Actualizado: 2026-08-07 · 569 archivos versionados
 | `habilidades/` | 19 | Skills del pipeline y material de apoyo |
 | `PROCESOS APRENDIDOS/` | 12 | — |
 | `supabase/` | 11 | — |
+| `scripts/` | 8 | Automatización del repo |
 | `sistema-de-diseno/` | 6 | Tokens, registro de componentes y efectos |
 | `documentacion/` | 5 | Documentos de producto y comerciales |
 | `.agents/` | 5 | — |
 | `motor-agentes/` | 4 | Andamiaje del agente conversacional (sin implementar) |
 | `evaluaciones/` | 3 | Criterios de QA visual, factual y conversacional |
-| `scripts/` | 2 | Automatización del repo |
 | `logo quantumhive/` | 1 | — |
 | `docs/` | 1 | — |
 | `CONTEXTO/` | 1 | Contexto del proyecto |

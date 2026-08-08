@@ -26,6 +26,34 @@ Web Factory es el sistema de QuantumHive para construir webs ultra-profesionales
 8. **Propuesta Comercial**: Enviar oferta concreta
 9. **Seguimiento**: Organizar próximos pasos
 
+## Regla de contexto del repositorio
+
+Antes de explorar manualmente el repo:
+
+1. consultar Graphify (grafo de conocimiento local);
+2. localizar los archivos mínimos necesarios;
+3. leer únicamente esos archivos;
+4. usar grep / búsqueda global sólo si Graphify no resuelve;
+5. ejecutar `graphify update .` (o `./scripts/graphify-update.sh`) después de cambios estructurales.
+
+Prohibido releer grandes porciones del repo para reconstruir contexto si el grafo puede responder la consulta.
+
+Ejemplos:
+
+```bash
+graphify query "donde se registra el catalogo 3d"
+graphify explain "efectos_publicos"
+graphify path "catalogo-cliente" "Supabase"
+
+# wrappers del repo (resuelven raíz git + validan instalación):
+./scripts/graphify-query.sh query "recrear web premium"
+./scripts/graphify-update.sh            # regenerar grafo
+./scripts/graphify-update.sh --force     # tras refactors que borran código
+```
+
+El grafo se actualiza solo tras cada commit (`scripts/hooks/post-commit`).
+Activar hooks en un clone/worktree nuevo: `./scripts/setup-git-hooks.sh`.
+
 ### Agentes del Sistema
 
 - **Lead Finder**: Encuentra y normaliza candidatos desde Google Maps, Instagram, LinkedIn
