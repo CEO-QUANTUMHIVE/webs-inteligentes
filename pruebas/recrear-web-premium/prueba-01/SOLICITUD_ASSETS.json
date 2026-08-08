@@ -1,0 +1,37 @@
+{
+  "proyecto": "pruebas/recrear-web-premium/prueba-01",
+  "estandar": "Estándar de Excelencia de QuantumHive",
+  "instrucciones_generacion_ia": "Generar imágenes y assets de reemplazo neutros para no reutilizar activos comerciales ni marcas registradas de Bucks Sauce Co.",
+  "activos_solicitados": [
+    {
+      "id": "asset-logo-brand",
+      "tipo": "svg_vector",
+      "descripcion": "Logo para marca gourmet neutra de salsas artesanales ('Artisan Flame / Craft Sauce')",
+      "prompt_sugerido": "Clean modern gourmet sauce badge vector logo, minimal SVG line art, gold and dark slate"
+    },
+    {
+      "id": "asset-botella-3d-pineapple",
+      "tipo": "render_3d_o_imagen",
+      "descripcion": "Render 3D de botella de salsa gourmet sabor Piña Sriracha en fondo transparente",
+      "prompt_sugerido": "3D realistic render of a luxury glass BBQ sauce bottle with amber liquid, pineapple sriracha label, studio lighting, PNG isolated background"
+    },
+    {
+      "id": "asset-botella-3d-habanero",
+      "tipo": "render_3d_o_imagen",
+      "descripcion": "Render 3D de botella de salsa gourmet sabor Habanero Ajo en fondo transparente",
+      "prompt_sugerido": "3D realistic render of a luxury glass BBQ sauce bottle with rich red habanero garlic sauce, studio lighting, PNG isolated background"
+    },
+    {
+      "id": "asset-botella-3d-cherry",
+      "tipo": "render_3d_o_imagen",
+      "descripcion": "Render 3D de botella de salsa gourmet sabor Cereza Ajo en fondo transparente",
+      "prompt_sugerido": "3D realistic render of a luxury glass BBQ sauce bottle with dark burgundy cherry garlic sauce, studio lighting, PNG isolated background"
+    },
+    {
+      "id": "asset-flotantes-ingredientes",
+      "tipo": "imagen_png_transparente",
+      "descripcion": "Set de 5 ingredientes frescos flotantes (Tomate, Cebolla, Chile, Piña, Cereza)",
+      "prompt_sugerido": "Fresh gourmet ingredients floating in mid-air with dynamic motion blur: slice of pineapple, red chili pepper, ripe cherry, onion slice, studio lighting, transparent PNG"
+    }
+  ]
+}

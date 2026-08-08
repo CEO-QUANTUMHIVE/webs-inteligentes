@@ -1,0 +1,117 @@
+{
+  "url": "https://buckssauce.com/",
+  "fecha_analisis": "2026-08-07T03:31:00Z",
+  "resumen_cuantitativo": {
+    "total_requests_assets": 75,
+    "total_imagenes": 40,
+    "total_svg": 6,
+    "total_fuentes": 0,
+    "total_json_animacion": 3,
+    "total_canvas_o_modelos": 2,
+    "total_no_identificados": 24
+  },
+  "clasificacion_por_evidencia": {
+    "url_confirmada": [
+      {
+        "id": "asset-conf-001",
+        "nombre": "pineapple-2.webp",
+        "url": "https://buckssauce.com/_next/image?url=%2Fimages%2Fpineapple-2.webp",
+        "tipo": "Imagen WebP",
+        "licencia": "PROPIETARIO — Bucks Sauce Co.",
+        "accion": "SUSTITUIR — render IA neutral"
+      },
+      {
+        "id": "asset-conf-002",
+        "nombre": "habanero-2.webp",
+        "url": "https://buckssauce.com/_next/image?url=%2Fimages%2Fhabanero-2.webp",
+        "tipo": "Imagen WebP",
+        "licencia": "PROPIETARIO — Bucks Sauce Co.",
+        "accion": "SUSTITUIR — render IA neutral"
+      },
+      {
+        "id": "asset-conf-003",
+        "nombre": "cherry-2.webp",
+        "url": "https://buckssauce.com/_next/image?url=%2Fimages%2Fcherry-2.webp",
+        "tipo": "Imagen WebP",
+        "licencia": "PROPIETARIO — Bucks Sauce Co.",
+        "accion": "SUSTITUIR — render IA neutral"
+      },
+      {
+        "id": "asset-conf-004",
+        "nombre": "Prismic CDN Asset Pack (37 imágenes)",
+        "url": "https://images.prismic.io/buckssauce/[ID]/*",
+        "tipo": "Imágenes PNG/JPEG Prismic",
+        "licencia": "PROPIETARIO — Bucks Sauce Co.",
+        "accion": "SUSTITUIR — fotos lifestyle neutrales"
+      }
+    ],
+    "url_aproximada": [
+      {
+        "id": "asset-aprox-001",
+        "nombre": "logo-full.svg",
+        "url_patron": "https://images.prismic.io/buckssauce/[HASH]/logo-full.svg",
+        "tipo": "Vector SVG",
+        "licencia": "PROPIETARIO — Marca Registrada",
+        "accion": "SUSTITUIR — isotipo neutral Artisan Flame Co."
+      }
+    ],
+    "recurso_observado_visualmente": [
+      {
+        "id": "asset-vis-001",
+        "nombre": "lottie-cool-pineapple",
+        "observacion": "Personaje piña animado en sección sticky scroll",
+        "tipo": "Animación Lottie",
+        "licencia": "PROBABLE PROPIETARIO",
+        "accion": "SUSTITUIR — SVG vectorial con keyframes CSS"
+      },
+      {
+        "id": "asset-vis-002",
+        "nombre": "lottie-fire_breathing-habanero",
+        "observacion": "Personaje habanero animado en sección sticky scroll",
+        "tipo": "Animación Lottie",
+        "licencia": "PROBABLE PROPIETARIO",
+        "accion": "SUSTITUIR — SVG vectorial con keyframes CSS"
+      },
+      {
+        "id": "asset-vis-003",
+        "nombre": "lottie-sassy-cherry",
+        "observacion": "Personaje cereza animado en sección sticky scroll",
+        "tipo": "Animación Lottie",
+        "licencia": "PROBABLE PROPIETARIO",
+        "accion": "SUSTITUIR — SVG vectorial con keyframes CSS"
+      },
+      {
+        "id": "asset-vis-004",
+        "nombre": "Canvas Render 3D Botella Hero",
+        "observacion": "Modelo 3D de botella renderizada con tilt en Hero",
+        "tipo": "WebGL Canvas 3D",
+        "licencia": "N/A — Lógica 3D",
+        "accion": "RECONSTRUIR — Three.js / React Three Fiber"
+      },
+      {
+        "id": "asset-vis-005",
+        "nombre": "Canvas Render 3D Botella Sticky",
+        "observacion": "Modelo 3D de botella en sección narrativa",
+        "tipo": "WebGL Canvas 3D",
+        "licencia": "N/A — Lógica 3D",
+        "accion": "RECONSTRUIR — Three.js / React Three Fiber"
+      }
+    ],
+    "recurso_no_capturado": [
+      {
+        "id": "asset-nocap-001",
+        "nombre": "Archivos .json Lottie",
+        "observacion": "Los archivos JSON crudos de animación no se interceptaron en red",
+        "causa": "Probable empaquetado dentro de los 24 chunks de Next.js",
+        "accion": "SUSTITUIR — animaciones SVG/CSS independientes"
+      },
+      {
+        "id": "asset-nocap-002",
+        "nombre": "Archivos de Fuentes WOFF2",
+        "observacion": "Las peticiones HTTP de fuentes WOFF2 no se registraron en red",
+        "causa": "Fuentes embebidas base64 o servidas desde caché",
+        "accion": "USAR — Google Fonts equivalentes (Playfair Display / Space Grotesk)"
+      }
+    ]
+  }
+}

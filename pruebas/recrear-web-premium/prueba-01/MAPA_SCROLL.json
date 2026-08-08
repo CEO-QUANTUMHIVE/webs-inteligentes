@@ -1,0 +1,169 @@
+{
+  "url": "https://buckssauce.com/",
+  "fuente_medicion": "raw_inspection.json + MAPA_COBERTURA_VERTICAL.json + MAPA_ESTRUCTURA.json",
+  "total_document_height_px": 11283,
+  "body_height_px_medido": 11383,
+  "main_height_px": 10940,
+  "scroll_engine": "Lenis (smooth scroll)",
+  "smooth_scroll_engine": "Lenis",
+  "diferencias_explicadas": [
+    {
+      "concepto": "altura_del_documento vs altura_de_main",
+      "delta_px": 343,
+      "explicacion": "document_height (scrollHeight=11283) - main_height (10940) - body_padding_top (100) = 343 px, igual al footer (hermano de main, fuera de main). NO es hueco dentro de main."
+    },
+    {
+      "concepto": "altura_de_main vs suma_de_secciones_internas",
+      "delta_px": 2075,
+      "explicacion": "main_height 10940 - suma secciones internas (1088+256+866+1366+3149+900+1240 = 8865) = 2075 px. Esta diferencia es el agregado de huecos/gaps internos: 160 (hero->intro) + 160 (intro->ingredients) + 1602 (ingredients->product, NO EXPLICADO en seccion, ver hueco_no_explicado) + 152 (product->why) = 2074 px (1 px por redondeo)."
+    },
+    {
+      "concepto": "scroll_maximo",
+      "valor_px": 10383,
+      "explicacion": "scroll_maximo = document_height (11283) - viewport_height (900) = 10383 px. Es decir, el usuario puede scrollear desde 0 hasta 10383 px."
+    },
+    {
+      "concepto": "elementos_fixed_y_sus_impactos",
+      "explicacion": "El unico elemento fixed es header (height 212) que NO aporta al documento altura de scroll. El body-padding-top 100 es reserva para no solapar contenido."
+    }
+  ],
+  "transiciones_scroll": [
+    {
+      "seccion": "header-nav",
+      "tipo": "overlay_sin_flujo",
+      "trigger": "0px a 212px sobre el viewport (no del documento)",
+      "comportamiento": "fixed con animacion de entrada translateY(-200) -> translateY(0)",
+      "transform_inicial": "translateY(-200px), opacity:0",
+      "transform_final": "translateY(0px), opacity:1",
+      "duration_visual": "0.4s",
+      "easing": "power2.out (declarado; en raw_inspection no hay GSAP; efecto logrado con framer-motion)",
+      "evidencia": "raw_inspection index=0 className 'z-9990 fixed... -translate-y-[200px]'"
+    },
+    {
+      "seccion": "hero-section",
+      "tipo": "seccion_visual_pinned_canvas",
+      "inicio_scroll": 100,
+      "fin_scroll": 1188,
+      "duracion_scroll": 1088,
+      "altura_visible": 900,
+      "altura_wrapper": 1088,
+      "altura_tecnica": 188,
+      "pinning": false,
+      "sticky": false,
+      "comportamiento": "canvas 3D con tilt de botella sincronizado a mouse; ligera transform al scrollear fuera",
+      "transform_inicial": "scale(1), rotate(0deg)",
+      "transform_final": "scale(0.85), rotate(-5deg), opacity(0.8) (estimado, sin evidencia de pinning por raw)",
+      "canvas_sincronizado": true,
+      "rotacion_botella_deg": "0 a 360 al scrollear (estimado, requiere verificacion de shader)",
+      "evidencia": "raw_inspection index=2 rect.top=100 rect.height=1088 hasCanvas=true"
+    },
+    {
+      "seccion": "ingredients-quality-grid",
+      "tipo": "seccion_visual_parallax",
+      "inicio_scroll": 1764,
+      "fin_scroll": 2630,
+      "duracion_scroll": 866,
+      "altura_visible": 866,
+      "altura_wrapper": 866,
+      "altura_tecnica": 0,
+      "pinning": false,
+      "sticky": false,
+      "comportamiento": "parallax-floating-assets",
+      "elementos_sincronizados": ["tomato.webp", "cherry.webp", "onion.webp", "pineapple.webp", "chilli.webp"],
+      "desplazamiento_vertical_delta_px": -80,
+      "transformaciones": "translateY relativo a viewport progress",
+      "evidencia": "raw_inspection index=4 rect.top=1764 rect.height=866"
+    },
+    {
+      "seccion": "gap-ingredients-product",
+      "tipo": "gap_no_determinable",
+      "inicio_scroll": 2630,
+      "fin_scroll": 4232,
+      "duracion_scroll": 1602,
+      "descomposicion": [
+        { "rango_px": "2630-2750", "altura_px": 120, "clasificacion": "margin", "estado": "EXPLICADO", "evidencia": "section-6 className 'mt-15 lg:mt-30' Tailwind: lg:mt-30 = 7.5rem = 120px en desktop." },
+        { "rango_px": "2750-4232", "altura_px": 1482, "clasificacion": "no_determinable", "estado": "REQUIERE_INSPECCION_HUMANA_O_AUTORIZACION_NUEVA_SESION", "hipotesis_residual_principal": "spacer ad-hoc o margin/padding no-Tailwind-standard (Tailwind arbitrary value o CSS-in-JS) en wrapper entre ingredients y product. Confianza BAJO.", "hipotesis_residual_secundaria": "contenedor decorativo absoluto sin texto. Confianza BAJO.", "hipotesis_descartada": "contenido_visual intermedio con 4 imagenes huerfanas: son texturas del canvas 3D del hero (rango 100-1188), no del gap." }
+      ],
+      "pinning": false,
+      "sticky": false,
+      "comportamiento": "sin evidencia pixel-exacta de transformaciones sincronizadas a scroll",
+      "evidencia": "product.rect.top - ingredients.rect.bottom = 4232 - 2630 = 1602 px. Solo 120 px explicables por className Tailwind; 1.482 px restantes requeririan nueva inspeccion DOM profunda (no permitida sin evadir controles).",
+      "limitacion_de_inspeccion": "raw_inspection.bodyHTMLSnippet truncado a 2000 chars; raw_inspection.sections solo captura main > section|div con headings/textSample (omite wrappers absolutos y secciones sin texto)."
+    },
+    {
+      "seccion": "why-bucks-sticky-scroll",
+      "tipo": "seccion_visual_pinned_timeline_pinned",
+      "inicio_scroll": 5750,
+      "fin_scroll": 8899,
+      "duracion_scroll": 3149,
+      "altura_visible": 900,
+      "altura_wrapper": 3149,
+      "altura_tecnica_scroll": 2249,
+      "pinning": true,
+      "sticky": true,
+      "scroll_horizontal_asociado": true,
+      "marquee_transform": "translateX(0%) a translateX(-66%)",
+      "transformaciones": ["pinned scroll-tracker", "marquee translateX sincronizado a progreso", "Lottie playback controlado por scroll progress"],
+      "transform_inicial": "translateX(0%)",
+      "transform_final": "translateX(-66%)",
+      "pasos": [
+        { "id": "01", "titulo": "SMALL BATCHES", "trigger_inicio_px": 5750, "trigger_fin_px": 6750, "duracion_scroll_px": 1000 },
+        { "id": "02", "titulo": "REAL INGREDIENTES", "trigger_inicio_px": 6750, "trigger_fin_px": 7750, "duracion_scroll_px": 1000 },
+        { "id": "03", "titulo": "OH, THIS?", "trigger_inicio_px": 7750, "trigger_fin_px": 8899, "duracion_scroll_px": 1149 },
+        { "id": "unpin", "trigger_px": 8899 }
+      ],
+      "descomposicion_3149_px": "Los 3.149 px NO son solo contenido visual. Descomposicion: altura_visible (1 viewport, ~900 px) + altura_tecnica (timeline de scroll extra durante el pin, ~2249 px). Cuando el usuario scrollea 3149 px dentro de la seccion, la seccion visible permanece clavada y el progreso cambia los paneles 01/02/03 y desplaza el marquee horizontalmente.",
+      "evidencia": "raw_inspection index=6 rect.top=5750.25 rect.height=3149.5 hasCanvas=true classNames 'mt-38 sh:pb-40 overflow-hidden w-screen'",
+      "evidencia_pasos": "headings presentes en raw_inspection section-7 incluyen 'SMALL BATCHES', 'REAL INGREDIENTS', 'OH, THIS?'"
+    },
+    {
+      "seccion": "bundle-pack-saver",
+      "tipo": "seccion_visual_grid",
+      "inicio_scroll": 8900,
+      "fin_scroll": 9800,
+      "duracion_scroll": 900,
+      "altura_visible": 900,
+      "altura_wrapper": 900,
+      "altura_tecnica": 0,
+      "pinning": false,
+      "sticky": false,
+      "comportamiento": "grid 2-col lg (col-reverse mobile) con toggle 3-pack/6-pack",
+      "evidencia": "raw_inspection index=7 rect.top=8899.75 rect.height=900"
+    },
+    {
+      "seccion": "reviews-social-proof",
+      "tipo": "seccion_visual_estatica",
+      "inicio_scroll": 9800,
+      "fin_scroll": 11040,
+      "duracion_scroll": 1240,
+      "altura_visible": 1240,
+      "altura_wrapper": 1240,
+      "altura_tecnica": 0,
+      "pinning": false,
+      "sticky": false,
+      "comportamiento": "grid de testimonios sin scroll sincronizado",
+      "evidencia": "raw_inspection index=8 rect.top=9799.75 rect.height=1240.328"
+    },
+    {
+      "seccion": "footer-newsletter",
+      "tipo": "seccion_visual_fuera_de_main",
+      "inicio_scroll": 11040,
+      "fin_scroll": 11283,
+      "duracion_scroll": 243,
+      "altura_visible_medido": 343,
+      "altura_wrapper_medido": 343,
+      "altura_tecnica": 0,
+      "pinning": false,
+      "sticky": false,
+      "comportamiento": "seccion footer flujo normal, hermano de main",
+      "evidencia": "raw_inspection index=9 rect.top=11040.078 rect.height=342.656 document_height=11283"
+    }
+  ],
+  "breakpoint_mobile": {
+    "viewport": "390x844",
+    "body_height_px": 9327,
+    "scroll_maximo_px": 8483,
+    "scroll_behavior": "En movil (width < 768px) el pin de Why Bucks se reduce a tarjetas verticales apilables y el canvas 3D pasa a rotacion automatica o imagen estatica para preservar FPS. body_height (9327) < desktop body_height (11383) por diseno adaptativo (las secciones colapsan)."
+  },
+  "nota_porque_el_head_no_es_seccion_scroll": "El header fixed NO aporta altura al documento por ser position:fixed. Su rango 0-212 es solo visual overlay. Aparece aqui para explicar que no se contabiliza dos veces."
+}

@@ -1,0 +1,668 @@
+{
+  "url": "https://buckssauce.com/",
+  "pageTitle": "Bucks Sauce - Best Small-Batch BBQ Sauce | Gourmet, No HFCS | Bucks Sauce",
+  "totalHeight": 11283,
+  "desktopDetails": {
+    "title": "Bucks Sauce - Best Small-Batch BBQ Sauce | Gourmet, No HFCS | Bucks Sauce",
+    "tech": {
+      "hasGSAP": false,
+      "hasScrollTrigger": false,
+      "hasThree": true,
+      "hasLenis": true,
+      "hasSpline": false,
+      "hasCanvas": true,
+      "hasVideo": false,
+      "hasAstro": false,
+      "hasReact": false,
+      "hasTailwind": true
+    },
+    "scripts": [
+      "https://connect.facebook.net/signals/config/1039362089030146?v=2.9.373&r=stable&domain=buckssauce.com&hme=6d1ed5deee7eafc01c53d9e9fc3c4e10db50c3d28237bc4932686777e5c3969a&ex_m=111%2C215%2C163%2C23%2C76%2C77%2C154%2C72%2C71%2C11%2C172%2C96%2C17%2C146%2C134%2C41%2C79%2C84%2C142%2C168%2C174%2C27%2C15%2C28%2C29%2C30%2C32%2C50%2C155%2C81%2C119%2C19%2C21%2C46%2C42%2C44%2C43%2C89%2C98%2C102%2C117%2C153%2C156%2C48%2C118%2C25%2C22%2C126%2C73%2C38%2C158%2C157%2C159%2C150%2C148%2C26%2C37%2C61%2C116%2C170%2C74%2C18%2C161%2C121%2C87%2C70%2C20%2C91%2C92%2C123%2C90%2C144%2C143%2C147%2C103%2C169%2C36%2C51%2C120%2C49%2C8%2C4%2C5%2C7%2C6%2C3%2C97%2C108%2C175%2C182%2C229%2C78%2C242%2C241%2C240%2C24%2C35%2C57%2C110%2C63%2C10%2C67%2C104%2C105%2C106%2C112%2C137%2C33%2C31%2C139%2C140%2C141%2C136%2C135%2C164%2C80%2C167%2C165%2C166%2C52%2C62%2C130%2C16%2C171%2C47%2C286%2C287%2C285%2C300%2C318%2C222%2C211%2C64%2C212%2C210%2C321%2C312%2C54%2C223%2C114%2C138%2C86%2C128%2C56%2C127%2C133%2C132%2C60%2C68%2C66%2C160%2C82%2C83%2C122%2C39%2C34%2C55%2C58%2C107%2C173%2C1%2C131%2C14%2C129%2C12%2C2%2C59%2C99%2C69%2C65%2C125%2C95%2C94%2C176%2C177%2C100%2C101%2C9%2C109%2C53%2C151%2C93%2C85%2C75%2C124%2C113%2C45%2C152%2C0%2C88%2C145%2C149%2C162%2C40%2C115%2C13%2C178",
+      "https://connect.facebook.net/en_US/fbevents.js",
+      "https://buckssauce.com/_next/static/chunks/0ab9633ccb5a305e.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/2a867a9068090ea1.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/b3ffbe840f681183.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/e305c39af6b2e0ee.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/turbopack-5a9a5bd9044ea185.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/aa526186a5c4f108.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/c1f78a2964025fc7.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/a4a5522e63169f6d.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/96148c21471d4815.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/f3e35fead36fbe09.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/3c3c6e0c185e0afa.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/812e30c79f796e79.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/f7da6c35e5262994.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/8787ee2bb93f819c.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/0f37027bed7e22cb.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/d559dd76e8beeae2.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/407b5993a30bf64d.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/3c31df6a801c81ae.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/a82f85d88d9d821c.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/c4df0f895c66ff56.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/3b4d3d8ad2741219.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/eac1003371b6a48a.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/a6dad97d9634a72d.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s"
+    ],
+    "stylesheets": [
+      "https://buckssauce.com/_next/static/chunks/64e311a8111c72b5.css?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s"
+    ],
+    "metaTags": [
+      {
+        "name": "",
+        "property": null,
+        "content": ""
+      },
+      {
+        "name": "viewport",
+        "property": null,
+        "content": "width=device-width, initial-scale=1"
+      },
+      {
+        "name": "next-size-adjust",
+        "property": null,
+        "content": ""
+      },
+      {
+        "name": "description",
+        "property": null,
+        "content": "Shop small-batch BBQ sauce made with real ingredients. No high fructose corn syrup, no seed oils, no additives. Sweet heat with a balanced finish. Premium BBQ sauce built to perform."
+      },
+      {
+        "name": "",
+        "property": "og:title",
+        "content": "Bucks Sauce - Best Small-Batch BBQ Sauce | Gourmet, No HFCS | Bucks Sauce"
+      },
+      {
+        "name": "",
+        "property": "og:description",
+        "content": "Shop small-batch BBQ sauce made with real ingredients. No high fructose corn syrup, no seed oils, no additives. Sweet heat with a balanced finish. Premium BBQ sauce built to perform."
+      },
+      {
+        "name": "",
+        "property": "og:image",
+        "content": "https://images.prismic.io/buckssauce/aaHgvcFoBIGEg8Hc_hf_20260227_163946_335a9ad0-a5cb-46d4-aa4f-f10aa97e0510.png?auto=format%2Ccompress&rect=0%2C118%2C2528%2C1327&w=2400&h=1260"
+      },
+      {
+        "name": "",
+        "property": "og:image:width",
+        "content": "2400"
+      },
+      {
+        "name": "",
+        "property": "og:image:height",
+        "content": "1260"
+      },
+      {
+        "name": "",
+        "property": "og:image",
+        "content": "https://images.prismic.io/buckssauce/aacbFlxvIZEnjSPO_hf_20260302_131340_609fc70f-564f-416c-97ec-aa20bdc5bc0e1.png?auto=format,compress"
+      },
+      {
+        "name": "",
+        "property": "og:image:width",
+        "content": "2560"
+      },
+      {
+        "name": "",
+        "property": "og:image:height",
+        "content": "2560"
+      },
+      {
+        "name": "",
+        "property": "og:type",
+        "content": "website"
+      },
+      {
+        "name": "twitter:card",
+        "property": null,
+        "content": "summary_large_image"
+      },
+      {
+        "name": "twitter:title",
+        "property": null,
+        "content": "Bucks Sauce - Best Small-Batch BBQ Sauce | Gourmet, No HFCS | Bucks Sauce"
+      },
+      {
+        "name": "twitter:description",
+        "property": null,
+        "content": "Shop small-batch BBQ sauce made with real ingredients. No high fructose corn syrup, no seed oils, no additives. Sweet heat with a balanced finish. Premium BBQ sauce built to perform."
+      },
+      {
+        "name": "twitter:image",
+        "property": null,
+        "content": "https://images.prismic.io/buckssauce/aaHgvcFoBIGEg8Hc_hf_20260227_163946_335a9ad0-a5cb-46d4-aa4f-f10aa97e0510.png?auto=format%2Ccompress&rect=0%2C118%2C2528%2C1327&w=2400&h=1260"
+      },
+      {
+        "name": "twitter:image:width",
+        "property": null,
+        "content": "2400"
+      },
+      {
+        "name": "twitter:image:height",
+        "property": null,
+        "content": "1260"
+      },
+      {
+        "name": "twitter:image",
+        "property": null,
+        "content": "https://images.prismic.io/buckssauce/aacbFlxvIZEnjSPO_hf_20260302_131340_609fc70f-564f-416c-97ec-aa20bdc5bc0e1.png?auto=format,compress"
+      },
+      {
+        "name": "twitter:image:width",
+        "property": null,
+        "content": "2560"
+      },
+      {
+        "name": "twitter:image:height",
+        "property": null,
+        "content": "2560"
+      }
+    ],
+    "sections": [
+      {
+        "index": 0,
+        "id": "section-1",
+        "tagName": "header",
+        "className": "z-9990 fixed items-start top-0 left-0 w-full pointer-events-none opacity-0 -translate-y-[200px]",
+        "rect": {
+          "top": 0,
+          "height": 212.53125,
+          "width": 1425
+        },
+        "headings": [],
+        "textSample": "GET SAUCE\nGET SAUCE\nSHOP\nSHOP\nWHOLESALE\nWHOLESALE\nABOUT\nABOUT\nCONTACT\nCONTACT\nFAQ\nFAQ\nCART(0)\nCART(0)\nSHOP\nSHOP\nWHOLESALE\nWHOLESALE\nABOUT\nABOUT\nCONTAC",
+        "imageCount": 6,
+        "images": [
+          "https://images.prismic.io/buckssauce/aacr6VxvIZEnjShb_hf_20260227_163946_335a9ad0-a5cb-46d4-aa4f-f10aa97e0510-1-.png?auto=format%2Ccompress&rect=416%2C0%2C1696%2C1696&w=3840&fit=max",
+          "https://images.prismic.io/buckssauce/afuBA8BOoF08xsTS_Wholesale-3.jpg?auto=format%2Ccompress&fit=max&w=3840",
+          "https://images.prismic.io/buckssauce/aanljFxvIZEnjYgF_hf_20260305_201155_801eb4ef-0d00-446c-a0c6-62eaf1bd33da.png?auto=format%2Ccompress&rect=0%2C16%2C1707%2C1707&w=3840&fit=max",
+          "https://images.prismic.io/buckssauce/aaTdVsFoBIGEg9m9_hf_20260302_004034_de1a3843-d018-4f42-8cd5-32bfb3c5bb98.png?auto=format%2Ccompress&rect=442%2C0%2C1696%2C1696&w=3840&fit=max",
+          "https://images.prismic.io/buckssauce/aacfW1xvIZEnjSU-_image70.png?auto=format%2Ccompress&w=3840&fit=max"
+        ],
+        "videoCount": 0,
+        "hasCanvas": false
+      },
+      {
+        "index": 1,
+        "id": "section-2",
+        "tagName": "main",
+        "className": "",
+        "rect": {
+          "top": 100,
+          "height": 10940.078125,
+          "width": 1425
+        },
+        "headings": [
+          "THE BBQ SAUCE THAT\nMAKES OTHER SAUCES\nINSECURE",
+          "CHOOSE YOUR\nWEAPON",
+          "CRUSHED\nPINEAPPLE\nSRIRACHA",
+          "CRUSHED\nHABANERO\nGARLIC",
+          "CRUSHED\nCHERRY\nGARLIC",
+          "Why Bucks Sauce\nW\nH\nY\n \nB\nU\nC\nK\nS\n \nS\nA\nU\nC\nE",
+          "SMALL BATCHES",
+          "REAL INGREDIENTS",
+          "OH, THIS?",
+          "BUY A PACK",
+          "SAVE SOME BUCKS",
+          "CRUSHED PINEAPPLE SRIRACHA",
+          "",
+          "REVIEWS"
+        ],
+        "textSample": "THE BBQ SAUCE THAT\nMAKES OTHER SAUCES\nINSECURE\n\nPRODUCT N0.0\n1\n2\n3\n\nCRUSHED PINEAPPLE SRIRACHA\nCRUSHED HABANERO GARLIC\nCRUSHED CHERRY GARLIC\n\nSHOP NOW",
+        "imageCount": 47,
+        "images": [
+          "https://buckssauce.com/_next/image?url=%2Fimages%2Fpineapple-2.webp&w=3840&q=75&dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+          "https://buckssauce.com/_next/image?url=%2Fimages%2Fhabanero-2.webp&w=3840&q=75&dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+          "https://buckssauce.com/_next/image?url=%2Fimages%2Fcherry-2.webp&w=3840&q=75&dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+          "https://buckssauce.com/_next/image?url=%2Fimages%2Fgarlic.webp&w=3840&q=75&dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+          "https://images.prismic.io/buckssauce/aaclqVxvIZEnjSXh_Untitled-19-.png?auto=format%2Ccompress&rect=438%2C111%2C405%2C1058&w=3840&fit=max"
+        ],
+        "videoCount": 0,
+        "hasCanvas": true
+      },
+      {
+        "index": 2,
+        "id": "section-3",
+        "tagName": "section",
+        "className": "p-container mt-25! flex flex-col items-center",
+        "rect": {
+          "top": 100,
+          "height": 1088,
+          "width": 1425
+        },
+        "headings": [
+          "THE BBQ SAUCE THAT\nMAKES OTHER SAUCES\nINSECURE"
+        ],
+        "textSample": "THE BBQ SAUCE THAT\nMAKES OTHER SAUCES\nINSECURE\n\nPRODUCT N0.0\n1\n2\n3\n\nCRUSHED PINEAPPLE SRIRACHA\nCRUSHED HABANERO GARLIC\nCRUSHED CHERRY GARLIC\n\nSHOP NOW",
+        "imageCount": 9,
+        "images": [
+          "https://images.prismic.io/buckssauce/aaclqVxvIZEnjSXh_Untitled-19-.png?auto=format%2Ccompress&rect=438%2C111%2C405%2C1058&w=3840&fit=max",
+          "https://images.prismic.io/buckssauce/aacj-FxvIZEnjSWv_Untitled-18-.png?auto=format%2Ccompress&rect=441%2C120%2C398%2C1041&w=3840&fit=max",
+          "https://images.prismic.io/buckssauce/aacoN1xvIZEnjSbS_Untitled-20-.png?auto=format%2Ccompress&rect=438%2C111%2C405%2C1058&w=3840&fit=max",
+          "https://images.prismic.io/buckssauce/abpyM7bci2UF6KxN_lottie-cool-pineapple.png?auto=format%2Ccompress&fit=max&w=3840",
+          "https://images.prismic.io/buckssauce/afXJ7MBOoF08xjJZ_lottie-fire_breathing-habanero.png?auto=format%2Ccompress&fit=max&w=3840"
+        ],
+        "videoCount": 0,
+        "hasCanvas": true
+      },
+      {
+        "index": 3,
+        "id": "section-4",
+        "tagName": "div",
+        "className": "p-container w-full mt-30 lg:mt-40 ",
+        "rect": {
+          "top": 1348,
+          "height": 256,
+          "width": 1425
+        },
+        "headings": [],
+        "textSample": "Our BBQ sauces use real, natural stuff\nlike it’s the 1800s.  Slap it on\nanything you grill and act surprised\nwhen people think you can  cook.",
+        "imageCount": 0,
+        "images": [],
+        "videoCount": 0,
+        "hasCanvas": false
+      },
+      {
+        "index": 4,
+        "id": "section-5",
+        "tagName": "section",
+        "className": "relative p-container pt-18 pb-15 sh:pb-20 mt-15 lg:mt-40 overflow-x-clip",
+        "rect": {
+          "top": 1764,
+          "height": 866,
+          "width": 1425
+        },
+        "headings": [],
+        "textSample": "NO CORN SYRUP\n\nSweet is fine. Sugar-lab sweet is not. So we left the high fructose corn syrup on the bottom shelf where it belongs.\n\nNO SEED OILS\n\nWe ",
+        "imageCount": 11,
+        "images": [
+          "https://buckssauce.com/_next/image?url=%2Fimages%2Ftomato.webp&w=3840&q=75&dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+          "https://buckssauce.com/_next/image?url=%2Fimages%2Fcherry.webp&w=3840&q=75&dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+          "https://buckssauce.com/_next/image?url=%2Fimages%2Fonion.webp&w=3840&q=75&dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+          "https://buckssauce.com/_next/image?url=%2Fimages%2Fpineapple.webp&w=3840&q=75&dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+          "https://buckssauce.com/_next/image?url=%2Fimages%2Fchilli.webp&w=3840&q=75&dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s"
+        ],
+        "videoCount": 0,
+        "hasCanvas": false
+      },
+      {
+        "index": 5,
+        "id": "section-6",
+        "tagName": "section",
+        "className": "relative p-container flex flex-col items-center mt-15 lg:mt-30",
+        "rect": {
+          "top": 4232,
+          "height": 1366.25,
+          "width": 1425
+        },
+        "headings": [
+          "CHOOSE YOUR\nWEAPON",
+          "CRUSHED\nPINEAPPLE\nSRIRACHA",
+          "CRUSHED\nHABANERO\nGARLIC",
+          "CRUSHED\nCHERRY\nGARLIC"
+        ],
+        "textSample": "CHOOSE YOUR\nWEAPON\nCRUSHED\nPINEAPPLE\nSRIRACHA\n\nPineapple sweetness. Gentle heat.\nPerfect balance.\n\nADD TO CART\nADD TO CART\nADDING\nADDED\n$12.00\n$12.00\n",
+        "imageCount": 9,
+        "images": [
+          "https://images.prismic.io/buckssauce/aaclqVxvIZEnjSXh_Untitled-19-.png?auto=format%2Ccompress&rect=438%2C111%2C405%2C1058&w=3840&fit=max",
+          "https://images.prismic.io/buckssauce/aaWD9cFoBIGEg-r3_pineapple-front.png?auto=format%2Ccompress&fit=max&w=3840",
+          "https://images.prismic.io/buckssauce/aaWDusFoBIGEg-rr_pineapple-back.png?auto=format%2Ccompress&fit=max&w=3840",
+          "https://images.prismic.io/buckssauce/aacj-FxvIZEnjSWv_Untitled-18-.png?auto=format%2Ccompress&rect=441%2C120%2C398%2C1041&w=3840&fit=max",
+          "https://images.prismic.io/buckssauce/aaWEjcFoBIGEg-sc_habanero-front.png?auto=format%2Ccompress&fit=max&w=3840"
+        ],
+        "videoCount": 0,
+        "hasCanvas": false
+      },
+      {
+        "index": 6,
+        "id": "section-7",
+        "tagName": "section",
+        "className": "relative flex flex-col items-center mt-38 sh:pb-40 overflow-hidden w-screen",
+        "rect": {
+          "top": 5750.25,
+          "height": 3149.5,
+          "width": 1440
+        },
+        "headings": [
+          "Why Bucks Sauce\nW\nH\nY\n \nB\nU\nC\nK\nS\n \nS\nA\nU\nC\nE",
+          "SMALL BATCHES",
+          "REAL INGREDIENTS",
+          "OH, THIS?"
+        ],
+        "textSample": "Why Bucks Sauce\nW\nH\nY\n \nB\nU\nC\nK\nS\n \nS\nA\nU\nC\nE\n\nWE MAKE SMALL-BATCH BBQ SAUCE BECAUSE BIG-BATCH TASTES LIKE SADNESS. WE'RE ENDING BORING BBQ.\n\n0\n1\nSMAL",
+        "imageCount": 2,
+        "images": [
+          "https://buckssauce.com/_next/image?url=%2Fimages%2Flottie-sweating-onion.webp&w=3840&q=75&dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+          "https://buckssauce.com/_next/image?url=%2Fimages%2Flottie-grinning-garlic.webp&w=3840&q=75&dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s"
+        ],
+        "videoCount": 0,
+        "hasCanvas": true
+      },
+      {
+        "index": 7,
+        "id": "section-8",
+        "tagName": "section",
+        "className": "relative w-full mt-38 p-container flex flex-col-reverse lg:grid lg:grid-cols-2 gap-2.5 h-auto lg:h-dvh lg:min-h-220",
+        "rect": {
+          "top": 8899.75,
+          "height": 900,
+          "width": 1425
+        },
+        "headings": [
+          "BUY A PACK",
+          "SAVE SOME BUCKS",
+          "CRUSHED PINEAPPLE SRIRACHA",
+          ""
+        ],
+        "textSample": "BUY A PACK\nSAVE SOME BUCKS\n3 PACK\n6 PACK\nCRUSHED PINEAPPLE SRIRACHA\nADD TO CART\nADD TO CART\nADDING\nADDED\n$32.00\n$32.00",
+        "imageCount": 12,
+        "images": [
+          "https://images.prismic.io/buckssauce/aacpQ1xvIZEnjSdL_PDP-food-porn-bottom-img.png?auto=format%2Ccompress&fit=max&w=3840",
+          "https://images.prismic.io/buckssauce/aaTdVsFoBIGEg9m9_hf_20260302_004034_de1a3843-d018-4f42-8cd5-32bfb3c5bb98.png?auto=format%2Ccompress&rect=433%2C0%2C1696%2C1696&w=3840&fit=max",
+          "https://images.prismic.io/buckssauce/abpyM7bci2UF6KxN_lottie-cool-pineapple.png?auto=format%2Ccompress&fit=max&w=3840",
+          "https://images.prismic.io/buckssauce/aaY4j1xvIZEnjQSL_3-pack-3-.png?auto=format%2Ccompress&w=3840&fit=max",
+          "https://images.prismic.io/buckssauce/aaY4k1xvIZEnjQSN_6-pack-1-.png?auto=format%2Ccompress&w=3840&fit=max"
+        ],
+        "videoCount": 0,
+        "hasCanvas": true
+      },
+      {
+        "index": 8,
+        "id": "section-9",
+        "tagName": "section",
+        "className": "relative p-container",
+        "rect": {
+          "top": 9799.75,
+          "height": 1240.328125,
+          "width": 1425
+        },
+        "headings": [
+          "REVIEWS"
+        ],
+        "textSample": "REVIEWS\n\nKYLE SEIP\n\nI JUST LOVE THE PRODUCT.\n\nYou’re gonna see me use it a lot. (@castiron_kyle)\n\nTHE HEATBROS\n\nTHEY HAVE AMAZING BBQ SAUCE!\n\nIt was a",
+        "imageCount": 0,
+        "images": [],
+        "videoCount": 0,
+        "hasCanvas": false
+      },
+      {
+        "index": 9,
+        "id": "section-10",
+        "tagName": "footer",
+        "className": "relative p-container flex flex-col gap-8 lg:gap-5 pt-5",
+        "rect": {
+          "top": 11040.078125,
+          "height": 342.65625,
+          "width": 1425
+        },
+        "headings": [
+          "JOIN THE BUCKS CLUB"
+        ],
+        "textSample": "SHOP\nWHOLESALE\nABOUT\nFAQ\nCONTACT\nJOIN THE BUCKS CLUB\n\nNew flavors. Restocks. Fire recipes. Merch drops.\n\n© 2026. Bucks Sauce Co. All rights reserved.\n",
+        "imageCount": 0,
+        "images": [],
+        "videoCount": 0,
+        "hasCanvas": false
+      }
+    ],
+    "interactiveElementsCount": 43,
+    "interactiveSample": [
+      {
+        "text": "relative block z-20 w-auto h-20 shrink-0 lg:w-40 lg:h-fit text-foreground pointer-events-auto",
+        "tagName": "a",
+        "className": "relative block z-20 w-auto h-20 shrink-0 lg:w-40 lg:h-fit text-foreground pointer-events-auto",
+        "rect": {
+          "top": 10,
+          "left": 10,
+          "width": 160,
+          "height": 192.53125
+        }
+      },
+      {
+        "text": "GET SAUCE\nGET SAUCE",
+        "tagName": "a",
+        "className": "h-full flex grow lg:grow-0 pointer-events-auto",
+        "rect": {
+          "top": -140,
+          "left": 1083,
+          "width": 192,
+          "height": 60
+        }
+      },
+      {
+        "text": "SHOP\nSHOP",
+        "tagName": "a",
+        "className": "uppercase font-serif text-30 text-foreground transition-colors duration-300 hover:text-foreground inline-flex items-center leading-none",
+        "rect": {
+          "top": 10,
+          "left": 721.296875,
+          "width": 56.84375,
+          "height": 25.484375
+        }
+      },
+      {
+        "text": "WHOLESALE\nWHOLESALE",
+        "tagName": "a",
+        "className": "uppercase font-serif text-30 text-foreground transition-colors duration-300 hover:text-foreground inline-flex items-center leading-none",
+        "rect": {
+          "top": 10,
+          "left": 818.140625,
+          "width": 132.90625,
+          "height": 25.484375
+        }
+      },
+      {
+        "text": "ABOUT\nABOUT",
+        "tagName": "a",
+        "className": "uppercase font-serif text-30 text-foreground transition-colors duration-300 hover:text-foreground inline-flex items-center leading-none",
+        "rect": {
+          "top": 10,
+          "left": 991.046875,
+          "width": 73.140625,
+          "height": 25.484375
+        }
+      },
+      {
+        "text": "CONTACT\nCONTACT",
+        "tagName": "a",
+        "className": "uppercase font-serif text-30 text-foreground transition-colors duration-300 hover:text-foreground inline-flex items-center leading-none",
+        "rect": {
+          "top": 10,
+          "left": 1104.1875,
+          "width": 101.4375,
+          "height": 25.484375
+        }
+      },
+      {
+        "text": "FAQ\nFAQ",
+        "tagName": "a",
+        "className": "uppercase font-serif text-30 text-foreground transition-colors duration-300 hover:text-foreground inline-flex items-center leading-none",
+        "rect": {
+          "top": 10,
+          "left": 1245.625,
+          "width": 44.09375,
+          "height": 25.484375
+        }
+      },
+      {
+        "text": "CART(0)\nCART(0)",
+        "tagName": "button",
+        "className": "uppercase font-serif text-30 text-foreground transition-colors duration-300 hover:text-foreground inline-flex items-center leading-none cursor-pointer bg-transparent border-0 p-0",
+        "rect": {
+          "top": 10,
+          "left": 1329.71875,
+          "width": 85.28125,
+          "height": 25.484375
+        }
+      },
+      {
+        "text": "Close menu",
+        "tagName": "button",
+        "className": "group/button cursor-pointer flex items-center justify-center lg:px-5 lg:py-3 font-serif uppercase text-xl text-background absolute top-1.25 right-1.25 w-12 h-12 lg:min-w-0 lg:min-h-0 px-0 py-0 rounded-lg",
+        "rect": {
+          "top": 15,
+          "left": 1362,
+          "width": 48,
+          "height": 48
+        }
+      },
+      {
+        "text": "SHOP\nSHOP",
+        "tagName": "a",
+        "className": "w-full h-auto flex flex-row items-center text-80 lg:text-100 sh:text-80  py-2.5 cursor-pointer",
+        "rect": {
+          "top": 111,
+          "left": 720,
+          "width": 690,
+          "height": 104.984375
+        }
+      },
+      {
+        "text": "WHOLESALE\nWHOLESALE",
+        "tagName": "a",
+        "className": "w-full h-auto flex flex-row items-center text-80 lg:text-100 sh:text-80  py-2.5 cursor-pointer",
+        "rect": {
+          "top": 216.984375,
+          "left": 720,
+          "width": 690,
+          "height": 104.984375
+        }
+      },
+      {
+        "text": "ABOUT\nABOUT",
+        "tagName": "a",
+        "className": "w-full h-auto flex flex-row items-center text-80 lg:text-100 sh:text-80  py-2.5 cursor-pointer",
+        "rect": {
+          "top": 322.96875,
+          "left": 720,
+          "width": 690,
+          "height": 104.984375
+        }
+      },
+      {
+        "text": "CONTACT\nCONTACT",
+        "tagName": "a",
+        "className": "w-full h-auto flex flex-row items-center text-80 lg:text-100 sh:text-80  py-2.5 cursor-pointer",
+        "rect": {
+          "top": 428.953125,
+          "left": 720,
+          "width": 690,
+          "height": 104.984375
+        }
+      },
+      {
+        "text": "FAQ\nFAQ",
+        "tagName": "a",
+        "className": "w-full h-auto flex flex-row items-center text-80 lg:text-100 sh:text-80  py-2.5 cursor-pointer",
+        "rect": {
+          "top": 534.9375,
+          "left": 720,
+          "width": 690,
+          "height": 104.984375
+        }
+      },
+      {
+        "text": "INSTAGRAM\nINSTAGRAM",
+        "tagName": "a",
+        "className": "w-full",
+        "rect": {
+          "top": 813,
+          "left": 720,
+          "width": 342.5,
+          "height": 72
+        }
+      }
+    ],
+    "bodyHTMLSnippet": "<div hidden=\"\"><!--$--><!--/$--></div><script>(self.__next_s=self.__next_s||[]).push([0,{\"children\":\"\\n            window.addEventListener('error', function(event) {\\n              if (event.error instanceof DOMException && event.error.name === 'NotFoundError') {\\n                event.preventDefault();\\n              }\\n            }, true);\\n          \",\"id\":\"safari-dom-guard\"}])</script><script>(self.__next_s=self.__next_s||[]).push([0,{\"children\":\"\\n            if ('scrollRestoration' in window.history) {\\n              window.history.scrollRestoration = 'manual';\\n            }\\n\\n            const resetScrollToTop = () => {\\n              window.scrollTo(0, 0);\\n              requestAnimationFrame(() => window.scrollTo(0, 0));\\n            };\\n\\n            resetScrollToTop();\\n            window.addEventListener('load', resetScrollToTop);\\n            window.addEventListener('pageshow', resetScrollToTop);\\n          \",\"id\":\"scroll-reset\"}])</script><div data-body=\"true\" class=\"relative\"><header data-nav=\"true\" class=\"z-9990 fixed items-start top-0 left-0 w-full pointer-events-none opacity-0 -translate-y-[200px]\" style=\"transform: translate(0px, 0px); translate: none; rotate: none; scale: none; top: 0px; opacity: 1;\"><div class=\"flex justify-between items-start w-full p-1.25 lg:p-2.5 pointer-events-none\"><a data-logo=\"true\" class=\"relative block z-20 w-auto h-20 shrink-0 lg:w-40 lg:h-fit text-foreground pointer-events-auto\" style=\"will-change: transform, opacity; translate: none; rotate: none; scale: none; transform: translate(0px, 0px); height: auto; opacity: 1;\" href=\"/\"><svg width=\"118\" height=\"142\" viewBox=\"0 0 118 142\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-auto\" style=\"translate: none; rotate: none; scale: none; transform: translate(0px, 0px);\"><title>logo-full</title><g id=\"logo-full\"><g id=\"text\" style=\"opacity: 1;\"><g id=\"sauce\"><path id=\"sauce-s\" d=\"M46.8437 30.7963C46.1127 30.1442 44.686 29.7055 43.7073 29.7055C42.9056 29.7055 42.6933 29.9545 42.6933 30.2865C42.6933 30.6777 43.2239 30.82 44.8039 31.0808C46.6904 31.3891 47.3507 32.2191 47.3507 33.3692C47.3507 34.7801 46.3485 35.9657 44.0139 35.9657C41.6793 35.9657 40.6653 34.8394 40.6653 33.7723C40.6653 32.8356 41.4199 32.6459 41.4199 32.6459C41.5968 33.4996 42.7287 34.2228 44.2497 34.2228C45.0397 34.2228 45.3698 34.0331 45.3698 33.63C45.3698 33.0609 44.6742 32.9423 43.0824 32.6815C41.361 32.3969 40.6889 31.6262 40.6889 30.488C40.6889 29.1601 41.9269 28.1523 43.6602 28.1523C44.9454 28.1523 45.641 28.4606 46.0537 28.4606C46.4192 28.4606 46.6315 28.2827 46.6315 28.2827L46.938 30.7607L46.8437 30.8081V30.7963Z\" fill=\"#F5E4C7\"></path><path id=\"sauce-a\" d=\"M52.3972 35.776V35.6693C52.7981 35.5033 53.1518 34.8986 52.8806 34.0094H50.1687C49.8975 34.8986 50.2512 35.4915 50.6521 35.6693V35.776H47.2328V35.6693C47.4804 35.4915 47.6337 35.2306 47.9285 34.5192C48.2586 33.7011 49.1193 30.9504 49.4023 30.073C49.7796 28.9111 49.3551 28.508 49.0368 28.4131V28.3064H54.213V28.4"
+  },
+  "mobileDetails": {
+    "bodyHeight": 9327,
+    "hasHamburger": true
+  },
+  "networkRequestsCount": 308,
+  "networkSummary": {
+    "images": [
+      "https://buckssauce.com/_next/image?url=%2Fimages%2Fpineapple-2.webp&w=1080&q=75&dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/image?url=%2Fimages%2Fhabanero-2.webp&w=1080&q=75&dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/image?url=%2Fimages%2Fcherry-2.webp&w=1080&q=75&dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/image?url=%2Fimages%2Fgarlic.webp&w=1080&q=75&dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://images.prismic.io/buckssauce/aaclqVxvIZEnjSXh_Untitled-19-.png?auto=format%2Ccompress&rect=438%2C111%2C405%2C1058&w=1080&fit=max",
+      "https://images.prismic.io/buckssauce/aacj-FxvIZEnjSWv_Untitled-18-.png?auto=format%2Ccompress&rect=441%2C120%2C398%2C1041&w=1080&fit=max",
+      "https://images.prismic.io/buckssauce/aacoN1xvIZEnjSbS_Untitled-20-.png?auto=format%2Ccompress&rect=438%2C111%2C405%2C1058&w=1080&fit=max",
+      "https://images.prismic.io/buckssauce/abpyM7bci2UF6KxN_lottie-cool-pineapple.png?auto=format%2Ccompress&fit=max&w=1080",
+      "https://images.prismic.io/buckssauce/afXJ7MBOoF08xjJZ_lottie-fire_breathing-habanero.png?auto=format%2Ccompress&fit=max&w=1080",
+      "https://images.prismic.io/buckssauce/afS2rsBOoF08xihW_lottie-sassy-cherry.png?auto=format%2Ccompress&fit=max&w=1080",
+      "https://images.prismic.io/buckssauce/abPHtVxvIZEnjpAs_Frame14.png?auto=format%2Ccompress&fit=max&w=1080",
+      "https://images.prismic.io/buckssauce/abPIEVxvIZEnjpA6_Frame16.png?auto=format%2Ccompress&fit=max&w=1080",
+      "https://images.prismic.io/buckssauce/abPIYlxvIZEnjpA__Frame18.png?auto=format%2Ccompress&fit=max&w=1080",
+      "https://images.prismic.io/buckssauce/aacpQ1xvIZEnjSdL_PDP-food-porn-bottom-img.png?auto=format%2Ccompress&fit=max&w=1920",
+      "https://images.prismic.io/buckssauce/aaY4j1xvIZEnjQSL_3-pack-3-.png?auto=format%2Ccompress&w=1920&fit=max",
+      "https://images.prismic.io/buckssauce/aaY4k1xvIZEnjQSN_6-pack-1-.png?auto=format%2Ccompress&w=1920&fit=max",
+      "https://images.prismic.io/buckssauce/aaY4kVxvIZEnjQSM_3-pack.png?auto=format%2Ccompress&w=1920&fit=max",
+      "https://images.prismic.io/buckssauce/aaY4llxvIZEnjQSO_6-pack.png?auto=format%2Ccompress&w=1920&fit=max",
+      "https://images.prismic.io/buckssauce/aacr6VxvIZEnjShb_hf_20260227_163946_335a9ad0-a5cb-46d4-aa4f-f10aa97e0510-1-.png?auto=format%2Ccompress&rect=416%2C0%2C1696%2C1696&w=24&q=30&blur=50&fit=max",
+      "https://images.prismic.io/buckssauce/afuBA8BOoF08xsTS_Wholesale-3.jpg?auto=format%2Ccompress&w=24&q=30&blur=50&fit=max",
+      "https://images.prismic.io/buckssauce/aanljFxvIZEnjYgF_hf_20260305_201155_801eb4ef-0d00-446c-a0c6-62eaf1bd33da.png?auto=format%2Ccompress&rect=0%2C16%2C1707%2C1707&w=24&q=30&blur=50&fit=max",
+      "https://images.prismic.io/buckssauce/aaTdVsFoBIGEg9m9_hf_20260302_004034_de1a3843-d018-4f42-8cd5-32bfb3c5bb98.png?auto=format%2Ccompress&rect=442%2C0%2C1696%2C1696&w=24&q=30&blur=50&fit=max",
+      "https://images.prismic.io/buckssauce/aacfW1xvIZEnjSU-_image70.png?auto=format%2Ccompress&w=24&q=30&blur=50&fit=max",
+      "https://images.prismic.io/buckssauce/aaclqVxvIZEnjSXh_Untitled-19-.png?auto=format%2Ccompress&rect=438%2C111%2C405%2C1058&w=24&q=30&blur=50&fit=max",
+      "https://images.prismic.io/buckssauce/aacj-FxvIZEnjSWv_Untitled-18-.png?auto=format%2Ccompress&rect=441%2C120%2C398%2C1041&w=24&q=30&blur=50&fit=max",
+      "https://images.prismic.io/buckssauce/aacoN1xvIZEnjSbS_Untitled-20-.png?auto=format%2Ccompress&rect=438%2C111%2C405%2C1058&w=24&q=30&blur=50&fit=max",
+      "https://images.prismic.io/buckssauce/abpyM7bci2UF6KxN_lottie-cool-pineapple.png?auto=format%2Ccompress&w=24&q=30&blur=50&fit=max",
+      "https://images.prismic.io/buckssauce/afXJ7MBOoF08xjJZ_lottie-fire_breathing-habanero.png?auto=format%2Ccompress&w=24&q=30&blur=50&fit=max",
+      "https://images.prismic.io/buckssauce/afS2rsBOoF08xihW_lottie-sassy-cherry.png?auto=format%2Ccompress&w=24&q=30&blur=50&fit=max",
+      "https://images.prismic.io/buckssauce/abPHtVxvIZEnjpAs_Frame14.png?auto=format%2Ccompress&w=24&q=30&blur=50&fit=max",
+      "https://images.prismic.io/buckssauce/abPIEVxvIZEnjpA6_Frame16.png?auto=format%2Ccompress&w=24&q=30&blur=50&fit=max",
+      "https://images.prismic.io/buckssauce/abPIYlxvIZEnjpA__Frame18.png?auto=format%2Ccompress&w=24&q=30&blur=50&fit=max",
+      "https://buckssauce.cdn.prismic.io/buckssauce/aYBvqN0YXLCxVQNW_no-hfc.svg?auto=format%2Ccompress&w=24&q=30&blur=50&fit=max",
+      "https://buckssauce.cdn.prismic.io/buckssauce/aYBvh90YXLCxVQNO_no-seed-oils.svg?auto=format%2Ccompress&w=24&q=30&blur=50&fit=max",
+      "https://buckssauce.cdn.prismic.io/buckssauce/aYBvmN0YXLCxVQNQ_no-additifs.svg?auto=format%2Ccompress&w=24&q=30&blur=50&fit=max",
+      "https://buckssauce.cdn.prismic.io/buckssauce/aYBvst0YXLCxVQNY_gluten-free.svg?auto=format%2Ccompress&w=24&q=30&blur=50&fit=max",
+      "https://images.prismic.io/buckssauce/aaWD9cFoBIGEg-r3_pineapple-front.png?auto=format%2Ccompress&w=24&q=30&blur=50&fit=max",
+      "https://images.prismic.io/buckssauce/aaWDusFoBIGEg-rr_pineapple-back.png?auto=format%2Ccompress&w=24&q=30&blur=50&fit=max",
+      "https://images.prismic.io/buckssauce/aaWEjcFoBIGEg-sc_habanero-front.png?auto=format%2Ccompress&w=24&q=30&blur=50&fit=max",
+      "https://images.prismic.io/buckssauce/aaWEl8FoBIGEg-sd_habanero-back.png?auto=format%2Ccompress&w=24&q=30&blur=50&fit=max"
+    ],
+    "scripts": [
+      "https://buckssauce.com/.well-known/vercel/security/static/challenge.v2.min.js",
+      "https://buckssauce.com/_next/static/chunks/bc59313b9106dcf9.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/0ab9633ccb5a305e.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/2a867a9068090ea1.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/b3ffbe840f681183.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/e305c39af6b2e0ee.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/turbopack-5a9a5bd9044ea185.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/aa526186a5c4f108.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/c1f78a2964025fc7.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/a4a5522e63169f6d.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/96148c21471d4815.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/f3e35fead36fbe09.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/3c3c6e0c185e0afa.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/812e30c79f796e79.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/f7da6c35e5262994.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/8787ee2bb93f819c.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/0f37027bed7e22cb.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/d559dd76e8beeae2.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/407b5993a30bf64d.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/3c31df6a801c81ae.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/a82f85d88d9d821c.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/c4df0f895c66ff56.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/3b4d3d8ad2741219.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/eac1003371b6a48a.js?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://cdn.logr-in.com/LogRocket.min.js",
+      "https://www.googletagmanager.com/gtag/js?id=G-SMLB0Z5N7C",
+      "https://connect.facebook.net/en_US/fbevents.js",
+      "https://cdn.logr-in.com/logger-1.min.js",
+      "https://connect.facebook.net/signals/config/1039362089030146?v=2.9.373&r=stable&domain=buckssauce.com&hme=6d1ed5deee7eafc01c53d9e9fc3c4e10db50c3d28237bc4932686777e5c3969a&ex_m=111%2C215%2C163%2C23%2C76%2C77%2C154%2C72%2C71%2C11%2C172%2C96%2C17%2C146%2C134%2C41%2C79%2C84%2C142%2C168%2C174%2C27%2C15%2C28%2C29%2C30%2C32%2C50%2C155%2C81%2C119%2C19%2C21%2C46%2C42%2C44%2C43%2C89%2C98%2C102%2C117%2C153%2C156%2C48%2C118%2C25%2C22%2C126%2C73%2C38%2C158%2C157%2C159%2C150%2C148%2C26%2C37%2C61%2C116%2C170%2C74%2C18%2C161%2C121%2C87%2C70%2C20%2C91%2C92%2C123%2C90%2C144%2C143%2C147%2C103%2C169%2C36%2C51%2C120%2C49%2C8%2C4%2C5%2C7%2C6%2C3%2C97%2C108%2C175%2C182%2C229%2C78%2C242%2C241%2C240%2C24%2C35%2C57%2C110%2C63%2C10%2C67%2C104%2C105%2C106%2C112%2C137%2C33%2C31%2C139%2C140%2C141%2C136%2C135%2C164%2C80%2C167%2C165%2C166%2C52%2C62%2C130%2C16%2C171%2C47%2C286%2C287%2C285%2C300%2C318%2C222%2C211%2C64%2C212%2C210%2C321%2C312%2C54%2C223%2C114%2C138%2C86%2C128%2C56%2C127%2C133%2C132%2C60%2C68%2C66%2C160%2C82%2C83%2C122%2C39%2C34%2C55%2C58%2C107%2C173%2C1%2C131%2C14%2C129%2C12%2C2%2C59%2C99%2C69%2C65%2C125%2C95%2C94%2C176%2C177%2C100%2C101%2C9%2C109%2C53%2C151%2C93%2C85%2C75%2C124%2C113%2C45%2C152%2C0%2C88%2C145%2C149%2C162%2C40%2C115%2C13%2C178",
+      "blob:https://buckssauce.com/1c2bff04-401c-4b36-9d44-3648f32add49"
+    ],
+    "stylesheets": [
+      "https://buckssauce.com/_next/static/chunks/64e311a8111c72b5.css?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s",
+      "https://buckssauce.com/_next/static/chunks/64e311a8111c72b5.css?dpl=dpl_ERJ1zP41E6ftskKQt6UXimLEAT1s"
+    ],
+    "media": [
+      "https://buckssauce.com/favicon.ico",
+      "https://buckssauce.com/favicon.png",
+      "https://buckssauce.com/favicon.png"
+    ]
+  }
+}

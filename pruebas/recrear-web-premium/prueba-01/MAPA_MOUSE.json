@@ -1,0 +1,33 @@
+{
+  "total_interactive_elements": 43,
+  "efectos_mouse": [
+    {
+      "elemento": "Hero Botella 3D Canvas",
+      "evento": "mousemove",
+      "area_activa": "Hero Viewport",
+      "movimiento": "Tilt / Parallax 3D interactivo",
+      "intensidad": "Eje X: +/- 15deg, Eje Y: +/- 10deg",
+      "easing": "easeOutCubic",
+      "fallback_tactil": "Autorotación giroscópica / drag táctil"
+    },
+    {
+      "elemento": "Botones GET SAUCE / ADD TO CART",
+      "evento": "hover",
+      "efecto": "Magnetic cursor fill + Text Swap Animation (DUPLICATE SLIDE UP)",
+      "duracion": "300ms",
+      "easing": "cubic-bezier(0.16, 1, 0.3, 1)"
+    },
+    {
+      "elemento": "Tarjetas de Producto CHOOSE YOUR WEAPON",
+      "evento": "hover / click",
+      "efecto": "Flip 3D Botella / Switch de imagen Frente - Dorada + Border Highlight Glow",
+      "duracion": "400ms"
+    },
+    {
+      "elemento": "Badges Animados Lottie",
+      "evento": "hover",
+      "efecto": "Aceleración de Lottie playback speed de 1x a 2x + Scale(1.1)",
+      "duracion": "200ms"
+    }
+  ]
+}

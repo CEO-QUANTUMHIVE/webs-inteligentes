@@ -1,0 +1,186 @@
+{
+  "url": "https://buckssauce.com/",
+  "fuente_medicion": "raw_inspection.json (desktopDetails.sections[].rect + MAPA_COBERTURA_VERTICAL.json)",
+  "document_height_px": 11283,
+  "main_top_px": 100,
+  "main_bottom_px": 11040,
+  "main_height_px": 10940,
+  "total_secciones_visuales_declarado": 8,
+  "total_contenedores_estructurales_declarado": 1,
+  "total_elementos_fuera_de_flujo_declarado": 1,
+  "reglas_aplicadas": [
+    "<main> no cuenta como seccion visual; solo como contenedor estructural.",
+    "Header fixed no se cuenta dos veces; aparece en elementos_fuera_de_flujo.",
+    "La seccion sticky why-bucks diferenciada en altura_visible / altura_wrapper / altura_tecnica_scroll.",
+    "Footer (hermano de main) si se cuenta como seccion visual.",
+    "Los rangos se tomaron de rect.top/rect.height reales; NO se acumularon alturas contiguamente."
+  ],
+  "secciones_visuales": [
+    {
+      "id": "hero-section",
+      "nombre": "Hero Canvas 3D & Headlines",
+      "selector": "main > section:nth-of-type(1)",
+      "orden": 1,
+      "top_px": 100,
+      "bottom_px": 1188,
+      "altura_visual_px": 1088,
+      "altura_en_flujo_px": 1088,
+      "rango_scroll": "100px - 1188px",
+      "proposito": "Presentacion inmersiva del producto principal con canvas 3D interactivo (tilt), headline gigante y selector 01-03.",
+      "evidencia": "raw_inspection index=2; tag section, rect.top=100, rect.height=1088, hasCanvas=true, classNames 'p-container mt-25! flex flex-col items-center'."
+    },
+    {
+      "id": "intro-manifesto",
+      "nombre": "Manifiesto de Marca",
+      "selector": "main > div:nth-of-type(1)",
+      "orden": 2,
+      "top_px": 1348,
+      "bottom_px": 1604,
+      "altura_visual_px": 256,
+      "altura_en_flujo_px": 256,
+      "rango_scroll": "1348px - 1604px",
+      "proposito": "Declaracion de propuesta de valor con tipografia editorial y reveal al scroll.",
+      "evidencia": "raw_inspection index=3; tag div, rect.top=1348, rect.height=256, classNames 'p-container w-full mt-30 lg:mt-40'."
+    },
+    {
+      "id": "ingredients-quality-grid",
+      "nombre": "Cuadricula de Calidad e Ingredientes",
+      "selector": "main > section:nth-of-type(2)",
+      "orden": 3,
+      "top_px": 1764,
+      "bottom_px": 2630,
+      "altura_visual_px": 866,
+      "altura_en_flujo_px": 866,
+      "rango_scroll": "1764px - 2630px",
+      "proposito": "Highlight de diferenciadores (No HFCS, No Seed Oils) con badges SVG y assets parallax flotantes (11 imgs: tomato, cherry, onion, pineapple, chilli...).",
+      "evidencia": "raw_inspection index=4; tag section, rect.top=1764, rect.height=866, classNames 'p-container pt-18 pb-15 sh:pb-20 mt-15 lg:mt-40 overflow-x-clip'."
+    },
+    {
+      "id": "product-weapons-grid",
+      "nombre": "Catalogo Showcase de Variantes",
+      "selector": "main > section:nth-of-type(3)",
+      "orden": 4,
+      "top_px": 4232,
+      "bottom_px": 5598,
+      "altura_visual_px": 1366,
+      "altura_en_flujo_px": 1366,
+      "rango_scroll": "4232px - 5598px",
+      "proposito": "Showcase de 3 variantes (Pineapple Sriracha, Habanero Garlic, Cherry Garlic) con toggle de botella frente/dorso y botones ADD TO CART.",
+      "evidencia": "raw_inspection index=5; tag section, rect.top=4232, rect.height=1366.25, classNames 'p-container flex flex-col items-center mt-15 lg:mt-30'."
+    },
+    {
+      "id": "why-bucks-sticky-scroll",
+      "nombre": "Narrativa Inmersiva Sticky Scroll",
+      "selector": "main > section:nth-of-type(4)",
+      "orden": 5,
+      "top_px": 5750,
+      "bottom_px": 8899,
+      "altura_visual_px": 900,
+      "altura_wrapper_px": 3149,
+      "altura_en_flujo_px": 3149,
+      "altura_tecnica_scroll_px": 2249,
+      "rango_scroll": "5750px - 8899px",
+      "pinning": true,
+      "sticky": true,
+      "pasos_pinned": [
+        { "id": "01", "titulo": "SMALL BATCHES", "trigger_inicio_px": 5750 },
+        { "id": "02", "titulo": "REAL INGREDIENTS", "trigger_inicio_px": 6750 },
+        { "id": "03", "titulo": "OH, THIS?", "trigger_inicio_px": 7750 },
+        { "id": "unpin", "titulo": "RELEASE", "trigger_inicio_px": 8899 }
+      ],
+      "proposito": "Experiencia de marca pinned con marquees cineticos, badges animados Lottie y 3 pasos 01/02/03.",
+      "evidencia": "raw_inspection index=6; tag section, rect.top=5750.25, rect.height=3149.5, hasCanvas=true, classNames 'mt-38 sh:pb-40 overflow-hidden w-screen'."
+    },
+    {
+      "id": "bundle-pack-saver",
+      "nombre": "Packs de Ahorro y Oferta",
+      "selector": "main > section:nth-of-type(5)",
+      "orden": 6,
+      "top_px": 8900,
+      "bottom_px": 9800,
+      "altura_visual_px": 900,
+      "altura_en_flujo_px": 900,
+      "rango_scroll": "8900px - 9800px",
+      "proposito": "Seccion bundle 3-pack/6-pack con galeria fotografica y desglose de economia.",
+      "evidencia": "raw_inspection index=7; tag section, rect.top=8899.75, rect.height=900, hasCanvas=false, classNames 'mt-38 p-container flex flex-col-reverse lg:grid lg:grid-cols-2'."
+    },
+    {
+      "id": "reviews-social-proof",
+      "nombre": "Prueba Social y Reseñas",
+      "selector": "main > section:nth-of-type(6)",
+      "orden": 7,
+      "top_px": 9800,
+      "bottom_px": 11040,
+      "altura_visual_px": 1240,
+      "altura_en_flujo_px": 1240,
+      "rango_scroll": "9800px - 11040px",
+      "proposito": "Grid de testimonios de chefs e influencers con citas destacadas.",
+      "evidencia": "raw_inspection index=8; tag section, rect.top=9799.75, rect.height=1240.328, classNames 'p-container'. Bottom coincide con main.bottom=11040."
+    },
+    {
+      "id": "footer-newsletter",
+      "nombre": "Footer & Bucks Club",
+      "selector": "footer",
+      "orden": 8,
+      "top_px": 11040,
+      "bottom_px": 11383,
+      "altura_visual_px": 343,
+      "altura_en_flujo_px": 343,
+      "rango_scroll": "11040px - 11383px (medido); cobertura de documento se trunca a 11283 px (ver MAPA_COBERTURA_VERTICAL.diferencias_explicadas)",
+      "proposito": "Formulario de captura de email JOIN THE BUCKS CLUB, navegacion secundaria y copyright.",
+      "evidencia": "raw_inspection index=9; tag footer, rect.top=11040.078, rect.height=342.656, classNames 'p-container flex flex-col gap-8 lg:gap-5 pt-5'. Footer es hermano de main, no hijo."
+    }
+  ],
+  "contenedores_estructurales": [
+    {
+      "id": "main-wrapper",
+      "nombre": "Contenedor Semantico Principal",
+      "selector": "main",
+      "orden": 1,
+      "top_px": 100,
+      "bottom_px": 11040,
+      "height_px": 10940,
+      "rango_scroll": "100px - 11040px",
+      "proposito": "Envoltorio semantico que agrupa secciones internas de contenido. NO se cuenta como seccion visual.",
+      "evidencia": "raw_inspection index=1; tag main, rect.top=100, rect.height=10940.078."
+    }
+  ],
+  "elementos_fuera_de_flujo": [
+    {
+      "id": "header-fixed",
+      "nombre": "Header Fixed de Navegacion",
+      "selector": "header[data-nav='true']",
+      "tag": "header",
+      "top_px": 0,
+      "bottom_px": 212,
+      "height_px": 212,
+      "position": "fixed",
+      "rango_scroll": "0px - 212px (overlay, no contribuye al scroll del documento)",
+      "proposito": "Barra de navegacion flotante fija. Se muestra superpuesto al hero. El body reserva 100 px de padding-top para que el contenido no quede oculto.",
+      "evidencia": "raw_inspection index=0; tag header, rect.top=0, rect.height=212.531, className 'z-9990 fixed items-start top-0 left-0 w-full pointer-events-none'."
+    }
+  ],
+  "huecos_no_secciones": [
+    {
+      "id": "gap-ingredients-product-margin-declarado",
+      "rango_px": "2630px - 2750px",
+      "altura_px": 120,
+      "estado": "MARGIN_DECLARADO",
+      "clasificacion": "margin",
+      "nota": "Margen superior declarado por Tailwind `lg:mt-30` (7.5rem * 16px = 120px) del product-weapons-grid. Verificable por className en raw_inspection section-6."
+    },
+    {
+      "id": "gap-ingredients-product-nucleo-no-determinable",
+      "rango_px": "2750px - 4232px",
+      "altura_px": 1482,
+      "estado": "NO_DETERMINABLE",
+      "clasificacion": "no_determinable",
+      "hipotesis_principal": "spacer ad-hoc o margin/padding no-Tailwind-standard (Tailwind arbitrary value o CSS-in-JS) en un wrapper entre ingredients y product. Confianza BAJO.",
+      "hipotesis_secundaria": "contenedor decorativo absoluto sin texto (tag no capturado por el inspector por falta de headings/textSample). Confianza BAJO.",
+      "hipotesis_descartada": "contenido_visual intermedio con 4 imagenes huerfanas — descartada: son texturas del canvas 3D del hero (rango 100-1188), no del gap.",
+      "evidencia_interna_agotada": "raw_inspection.bodyHTMLSnippet truncado a 2000 chars; raw_inspection.sections captura via heuristica por headings/textSample (omite wrappers absolutos sin texto); interactiveSample rects relativos al contenedor (no absolutos al documento); capturas PNG existentes en disco cubren el rango 2630-4232 pero el runtime del agente no soporta input de imagen (no legibles automaticamente).",
+      "limitaciones": "raw_inspection.bodyHTMLSnippet truncado a 2000 chars; raw_inspection.sections solo captura tag section/div con headings/textSample; no se permite re-inspeccionar buckssauce.com sin evadir Vercel Checkpoint; no se permite instalar herramientas; el runtime del agente no soporta input de imagen (capturas PNG no legibles automaticamente).",
+      "nota": "NO se invento seccion para cerrarlo. Ver MAPA_COBERTURA_VERTICAL.huecos_no_explicados."
+    }
+  ]
+}

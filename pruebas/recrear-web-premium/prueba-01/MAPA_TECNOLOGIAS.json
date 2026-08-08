@@ -1,0 +1,134 @@
+{
+  "url": "https://buckssauce.com/",
+  "fecha_analisis": "2026-08-07T03:31:00Z",
+  "metodo_global": "Inspección mediante Chrome Headless (puppeteer-core). Vercel Security Checkpoint activado en primera petición — registrado como BLOQUEADO. Inspección completada en segunda sesión sin técnicas de evasión.",
+  "tecnologias": [
+    {
+      "tecnologia": "Next.js",
+      "estado": "confirmada",
+      "confianza": 98,
+      "metodo_deteccion": "HTTP header + script path pattern",
+      "evidencia": "Respuesta HTTP incluye el header 'x-powered-by: Next.js'. Scripts servidos desde /_next/static/chunks/",
+      "archivo_script_o_recurso": "/_next/static/chunks/turbopack-5a9a5bd9044ea185.js",
+      "selector_dom_relacionado": "script[src*='/_next/']",
+      "request_de_red_relacionado": "https://buckssauce.com/_next/static/chunks/bc59313b9106dcf9.js",
+      "observaciones": "Inferencia de versión por chunks y headers."
+    },
+    {
+      "tecnologia": "Turbopack",
+      "estado": "confirmada",
+      "confianza": 95,
+      "metodo_deteccion": "Nombre de archivo de script en red",
+      "evidencia": "Archivo de red detectado: turbopack-5a9a5bd9044ea185.js — prefijo 'turbopack' en chunk.",
+      "archivo_script_o_recurso": "/_next/static/chunks/turbopack-5a9a5bd9044ea185.js",
+      "selector_dom_relacionado": "script[src*='turbopack']",
+      "request_de_red_relacionado": "https://buckssauce.com/_next/static/chunks/turbopack-5a9a5bd9044ea185.js",
+      "observaciones": "Bundler de Next.js identificado por nombre del chunk."
+    },
+    {
+      "tecnologia": "Tailwind CSS",
+      "estado": "confirmada",
+      "confianza": 90,
+      "metodo_deteccion": "Inspección de clases CSS en el DOM",
+      "evidencia": "Clases detectadas en DOM: 'z-9990', 'mt-30', 'lg:mt-40', 'p-container', 'overflow-x-clip'.",
+      "archivo_script_o_recurso": "/_next/static/css/",
+      "selector_dom_relacionado": "header[class*='z-9990'], section[class*='p-container']",
+      "request_de_red_relacionado": "N/A — CSS embebido en Next.js",
+      "observaciones": "Clases de utilidad de Tailwind CSS v3+."
+    },
+    {
+      "tecnologia": "Prismic CMS",
+      "estado": "confirmada",
+      "confianza": 97,
+      "metodo_deteccion": "Dominio de peticiones de red de imágenes",
+      "evidencia": "47 recursos de imagen cargados desde el dominio 'images.prismic.io'.",
+      "archivo_script_o_recurso": "N/A — CDN Prismic",
+      "selector_dom_relacionado": "img[src*='images.prismic.io']",
+      "request_de_red_relacionado": "https://images.prismic.io/buckssauce/...",
+      "observaciones": "Headless CMS identificado exclusivamente por CDN de imágenes."
+    },
+    {
+      "tecnologia": "Lenis Smooth Scroll",
+      "estado": "probable",
+      "confianza": 70,
+      "metodo_deteccion": "Inferencia por comportamiento de scroll observado",
+      "evidencia": "Desacoplamiento cinemático de scroll observado en navegación.",
+      "archivo_script_o_recurso": "NO_VERIFICADO",
+      "selector_dom_relacionado": "N/A",
+      "request_de_red_relacionado": "NO_DETECTADO",
+      "observaciones": "Requiere inspección manual de chunks."
+    },
+    {
+      "tecnologia": "Three.js / HTML5 Canvas",
+      "estado": "confirmada",
+      "confianza": 92,
+      "metodo_deteccion": "Detección de elemento <canvas> en DOM",
+      "evidencia": "Elemento <canvas> detectado en hero-section y why-bucks-sticky-scroll.",
+      "archivo_script_o_recurso": "NO_VERIFICADO",
+      "selector_dom_relacionado": "section canvas",
+      "request_de_red_relacionado": "NO_DETECTADO como script separado",
+      "observaciones": "Canvas 3D interactivo presente en DOM."
+    },
+    {
+      "tecnologia": "Lottie (animaciones JSON)",
+      "estado": "probable",
+      "confianza": 65,
+      "metodo_deteccion": "Detección visual en capturas",
+      "evidencia": "Personajes animados en capturas.",
+      "archivo_script_o_recurso": "NO_VERIFICADO",
+      "selector_dom_relacionado": "N/A",
+      "request_de_red_relacionado": "NO_DETECTADO",
+      "observaciones": "Archivos JSON no interceptados."
+    },
+    {
+      "tecnologia": "LogRocket",
+      "estado": "no_confirmada",
+      "confianza": 30,
+      "metodo_deteccion": "Ausencia de evidencia en DOM y red",
+      "evidencia": "No se detectó ningún script con dominio logrocket.com.",
+      "archivo_script_o_recurso": "NO_DETECTADO",
+      "selector_dom_relacionado": "N/A",
+      "request_de_red_relacionado": "NO_DETECTADO",
+      "accion_reconstruccion": "EXCLUIR",
+      "motivo": "tracker o analytics externo ajeno a la experiencia visual",
+      "observaciones": "Excluido de la reconstrucción visual."
+    },
+    {
+      "tecnologia": "Facebook Pixel",
+      "estado": "confirmada",
+      "confianza": 95,
+      "metodo_deteccion": "Script tag en DOM con connect.facebook.net",
+      "evidencia": "Script fbevents.js cargado en DOM.",
+      "archivo_script_o_recurso": "https://connect.facebook.net/en_US/fbevents.js",
+      "selector_dom_relacionado": "script[src*='connect.facebook.net']",
+      "request_de_red_relacionado": "https://connect.facebook.net/en_US/fbevents.js",
+      "accion_reconstruccion": "EXCLUIR",
+      "motivo": "tracker o analytics externo ajeno a la experiencia visual",
+      "observaciones": "Excluido de la reconstrucción visual."
+    },
+    {
+      "tecnologia": "Google Tag Manager",
+      "estado": "no_confirmada",
+      "confianza": 25,
+      "metodo_deteccion": "Ausencia de evidencia en DOM y red",
+      "evidencia": "No se detectó script googletagmanager.com.",
+      "archivo_script_o_recurso": "NO_DETECTADO",
+      "selector_dom_relacionado": "N/A",
+      "request_de_red_relacionado": "NO_DETECTADO",
+      "accion_reconstruccion": "EXCLUIR",
+      "motivo": "tracker o analytics externo ajeno a la experiencia visual",
+      "observaciones": "Excluido de la reconstrucción visual."
+    },
+    {
+      "tecnologia": "Vercel (hosting/deployment)",
+      "estado": "confirmada",
+      "confianza": 99,
+      "metodo_deteccion": "HTTP header + security challenge script",
+      "evidencia": "Header x-vercel-id + challenge script.",
+      "archivo_script_o_recurso": "https://buckssauce.com/.well-known/vercel/security/static/challenge.v2.min.js",
+      "selector_dom_relacionado": "script[src*='vercel/security']",
+      "request_de_red_relacionado": "https://buckssauce.com/.well-known/vercel/security/static/challenge.v2.min.js",
+      "observaciones": "Infraestructura de hosting."
+    }
+  ]
+}
