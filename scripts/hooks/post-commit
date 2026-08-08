@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Refresca el grafo Graphify después de cada commit.
+#
+# NO es fatal: el commit ya está hecho. Si graphify falla, sólo avisa cómo
+# regenerar a mano.  Nunca aborta ni destruye trabajo.
+RAIZ="$(git rev-parse --show-toplevel 2>/dev/null)" || exit 0
+SCRIPT="$RAIZ/scripts/graphify-update.sh"
+[ -f "$SCRIPT" ] || exit 0
+
+if bash "$SCRIPT" >/dev/null 2>&1; then
+  echo "[graphify] grafo actualizado tras commit."
+else
+  echo "[graphify] post-commit: no se pudo actualizar el grafo." >&2
+  echo "[graphify] regenerar a mano:  ./scripts/graphify-update.sh --force" >&2
+fi
+exit 0
