@@ -189,7 +189,7 @@ ramas activas (cada rama tiene su grafo). Después de crear un worktree:
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-08 · 627 archivos versionados
+Actualizado: 2026-08-08 · 628 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
@@ -200,7 +200,7 @@ Actualizado: 2026-08-08 · 627 archivos versionados
 | `habilidades/` | 19 | Skills del pipeline y material de apoyo |
 | `PROCESOS APRENDIDOS/` | 12 | — |
 | `supabase/` | 11 | — |
-| `scripts/` | 8 | Automatización del repo |
+| `scripts/` | 9 | Automatización del repo |
 | `sistema-de-diseno/` | 6 | Tokens, registro de componentes y efectos |
 | `documentacion/` | 5 | Documentos de producto y comerciales |
 | `.agents/` | 5 | — |
