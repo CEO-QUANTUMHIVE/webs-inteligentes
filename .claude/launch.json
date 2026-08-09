@@ -6,7 +6,8 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
       "port": 3000,
-      "cwd": "${workspaceFolder}/web-factory/clientes/quantum-hive"
+      "autoPort": true,
+      "cwd": "${workspaceFolder}/clientes/quantum-hive"
     }
   ]
 }
