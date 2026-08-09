@@ -238,6 +238,7 @@ export default function WebsCliente() {
           <nav className="hidden items-center gap-8 text-[11px] uppercase tracking-[0.18em] text-white/48 lg:flex">
             <a href="#enfoque" className="transition-colors hover:text-white">Proceso</a>
             <a href="#capacidades" className="transition-colors hover:text-white">Capacidades</a>
+            <a href="#pruebas" className="transition-colors hover:text-white">Pruebas</a>
             <a href="#planes" className="transition-colors hover:text-white">Planes</a>
             <a href="#faq" className="transition-colors hover:text-white">FAQ</a>
           </nav>
@@ -437,6 +438,23 @@ export default function WebsCliente() {
                   </div>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="pruebas" className="border-y border-white/10 bg-[#0d0d0d] px-4 py-20 md:px-8 md:py-28">
+          <div className="mx-auto max-w-[1500px]">
+            <div className="mb-12 grid gap-6 lg:grid-cols-[.8fr_1fr] lg:items-end">
+              <h2 className="text-[clamp(2.4rem,6.5vw,7rem)] font-black uppercase leading-[.86] tracking-[-0.08em]" data-reveal>Pruebas</h2>
+              <p className="max-w-2xl text-base leading-8 text-white/58 lg:justify-self-end" data-reveal>Reconstrucciones experimentales de la skill <code className="font-mono text-white/80">recrear-web-premium</code>. Cada caso es una referencia publica analizada pieza por pieza y rearmada con marca y contenido neutros.</p>
+            </div>
+            <div className="grid gap-px bg-white/10 lg:grid-cols-3" data-reveal>
+              <Link href="/pruebas/bucks" className="group flex flex-col gap-4 bg-[#0d0d0d] p-6 transition-colors hover:bg-[#131313]">
+                <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-white/40">Caso 01</span>
+                <span className="text-2xl font-black uppercase leading-[.95] tracking-[-0.04em] text-white">buckssauce.com</span>
+                <p className="text-sm leading-6 text-white/55">Landing de salsa BBQ artesanal. 9 secciones, hero con tilt, narrativa pinned de 3.149 px, marquee horizontal. Reconstruida con Canvas2D + GSAP ScrollTrigger.</p>
+                <span className="mt-auto inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-white transition-all group-hover:gap-3">Ver reconstruccion <span aria-hidden="true">&rarr;</span></span>
+              </Link>
             </div>
           </div>
         </section>
