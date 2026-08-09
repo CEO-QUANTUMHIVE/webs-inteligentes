@@ -1,222 +1,110 @@
----
+﻿---
 name: recrear-web-premium
-description: Orquesta la extracción lógica y reconstrucción de una URL pública hacia un proyecto Next.js limpio y editable bajo el estándar de excelencia de QuantumHive.
+description: Orquesta la creación o reconstrucción de webs premium a partir de una referencia, remixando patrones aprendidos en lugar de copiar literalmente. Use cuando el usuario pida reconstruir, clonar, aprender de, o crear una web inspirada en una URL de referencia.
 ---
 
-# Recrear Web Premium
+# Recrear Web Premium — Orquestador
 
-Esta skill dirige el flujo completo de ingeniería inversa visual y técnica para convertir una web de referencia en código Next.js modular. Prioriza la fidelidad extrema de las animaciones y la separación limpia de componentes y lógica, generando además candidatos de elementos para el sistema de diseño interno. Todo el código generado debe cumplir con el estándar de excelencia de QuantumHive.
+Esta skill NO contiene el conocimiento técnico completo. Solo decide qué habilidades especializadas convocar y en qué orden.
 
-## Estándar de excelencia QuantumHive
+## Filosofía
 
-Todas las creaciones de QuantumHive deben cumplir el mismo nivel de calidad visual, técnica y funcional.
+- La URL de referencia se estudia, no se copia.
+- Se extraen patrones reutilizables: layout, motion, scroll, interacción, tipografía, 3D.
+- Se combinan (remix) con la identidad del negocio actual.
+- Nunca se reutiliza branding, logos, textos ni assets propietarios.
+- El resultado debe ser original, coherente y viable en performance.
 
-Las categorías representan diferencias de complejidad, tecnología e interacción. Nunca diferencias de calidad.
+## Habilidades que coordina
 
-QuantumHive no produce:
-- webs básicas;
-- webs genéricas;
-- versiones de baja calidad;
-- copias literales;
-- entregas improvisadas.
+| Capa | Skill especializada | Cuándo convocarla |
+|---|---|---|
+| Referencia / reverse engineering | `clone-website` | Para inspeccionar la estructura, assets y tecnologías de la URL fuente. |
+| Dirección visual | `frontend-design` | Para definir estética, tipografía, color y composición originales. |
+| Dirección UX | `ui-ux-pro-max` | Para validar patrones, accesibilidad, contrastes y estructura del nicho. |
+| Componentes | `21st-cli-use` | Para buscar e instalar componentes del registro 21st.dev antes de escribirlos a mano. |
+| Motion general | `web-animation-design` | Para decidir qué animar, easing, timing y reduced-motion. |
+| Scroll storytelling | `gsap-scrolltrigger` + `gsap-timeline` | Para secciones pinned, scrubbing, cambios de escena. |
+| Animaciones UI | `gsap-react` + `gsap-core` | Para componentes animados en React/Next.js. |
+| Efectos avanzados | `gsap-plugins` | Para morph, split-text, física u otros plugins. |
+| Performance de animación | `gsap-performance` | Para validar que las animaciones no maten el frame budget. |
+| 3D inmersivo | `web-3d` | Para escenas Spline o consideraciones 3D. |
+| Performance general | Reglas QuantumHive | Siempre: evitar render loops, WebGL innecesario, exceso de animaciones simultáneas. |
 
-Una creación con menor alcance debe conservar:
-- dirección de arte profesional;
-- composición original;
-- assets propios o licenciados;
-- responsive completo;
-- código mantenible;
-- rendimiento controlado;
-- accesibilidad;
-- QA visual y funcional.
+## Router de complejidad
 
-## Inputs Formales
+Elegí la ruta según el caso de uso, no por gusto:
 
-Para iniciar la ejecución, la skill requiere obligatoriamente los siguientes parámetros:
-- `url_referencia`: URL pública a reconstruir.
-- `proyecto_destino`: Ruta o nombre del proyecto interno.
-- `nombre_plantilla`: Nombre interno que recibirá el diseño reconstruido.
-- `rubro`: Sector o industria del sitio (ej. estudio creativo, SaaS, moda, arquitectura).
-- `tipo_sitio`: Tipo funcional del sitio (ej. landing, portfolio, ecommerce, corporativo).
-- `objetivo_recreacion`: Alcance de la tarea (`pagina_completa`, `secciones_especificas`, `elemento_aislado`).
-- `complejidad_tecnica`: Nivel tecnológico y de interacción (`Diseño de Autor`, `Interacción Avanzada`, `Experiencia Inmersiva`, `Experiencia Canvas`, `Experiencia Tridimensional`, `Fusión Total`). Se asigna después del análisis tecnológico.
-- `modo_adaptacion`: Define el estilo a aplicar (`conservar_estilo`, `identidad_cliente`, `identidad_quantumhive`, `neutral_catalogo`).
-- `extraer_elementos`: Booleano para generar el conjunto de elementos candidatos al catálogo.
-- `capturar_mobile`: Booleano para realizar la captura y QA responsivo.
-- `secciones_incluidas`: (Opcional) Array de selectores o nombres de secciones específicas a clonar, omitiendo el resto.
+### Web simple (presencia profesional)
+- `frontend-design`
+- `ui-ux-pro-max`
+- `21st-cli-use`
+- `web-animation-design` (motion ligero)
 
-## Flujo Obligatorio
+### Web premium (diseño de autor)
+- Todo lo anterior
+- `gsap-react` + `gsap-core`
 
-Sigue estrictamente esta secuencia. No comenzar la implementación antes de generar y revisar PLAN_RECONSTRUCCION.md.
+### Web premium con storytelling scroll
+- Todo lo anterior
+- `gsap-scrolltrigger`
+- `gsap-timeline`
 
-1. URL
-2. inspección preliminar
-3. captura base
-4. detección tecnológica
-5. router de skills
-6. mapa de estructura
-7. mapa de scroll
-8. mapa de mouse
-9. inventario de assets
-10. equivalencias con el catálogo interno
-11. plan de reconstrucción
-12. checkpoint humano (aprobación del plan)
-13. implementación por secciones
-14. extracción de elementos
-15. QA
-16. paquete candidato
-17. aprobación humana
+### Web inmersiva
+- Todo lo anterior
+- `web-3d`
 
-## Router de Skills
+### Web basada en referencia
+- `clone-website` para estudiar
+- `habilidades/web-premium/` para ver patrones ya aprendidos
+- Remix con `frontend-design`, motion y componentes
 
-La ejecución decide la ruta exclusivamente según las tecnologías detectadas en `MAPA_TECNOLOGIAS.json`. La categoría de la creación se asigna después del análisis, no antes.
+## Flujo obligatorio
 
-- Sin runtimes avanzados → `copiar-pagina` o `clone-website`
-- GSAP, ScrollTrigger, Lenis, Lottie, Rive o animaciones complejas → `true-web-clone`
-- Spline → `web-3d`
-- Three.js, WebGL, shaders o canvas → `true-web-clone` más reconstrucción especializada centrada en mapear shaders o texturas
-- Video ligado al scroll (scrubbing) → captura específica de timeline para extraer frames o el origen del video y mapearlo a la posición de scroll
+1. **Brief mínimo**: URL de referencia, rubro/negocio objetivo, objetivo (aprender / recrear / remixar / crear original), alcance, y si hay assets propios.
+2. **Consultar la biblioteca de patrones**: leer `habilidades/web-premium/referencias/<nombre>/` y `habilidades/web-premium/patrones/` relevantes.
+3. **Inspeccionar la referencia** con `clone-website` (si aplica).
+4. **Decidir dirección visual** con `frontend-design` + `ui-ux-pro-max`.
+5. **Seleccionar patrones** de la biblioteca. No más de 3-4 por web.
+6. **Remixar**: combinar patrones, no reproducir una sola web.
+7. **Implementar** convocando las skills de motion/3D/componentes según el router.
+8. **Validar performance** antes de entregar.
 
-## Artefactos de Ejecución
+## Entregables esperados
 
-Para cada ejecución, debes generar obligatoriamente dentro de la carpeta temporal del proyecto los siguientes archivos:
+Según el alcance, generar (no siempre todos):
 
-- `CAPTURA_BASE.json`
-- `MAPA_TECNOLOGIAS.json`
-- `MAPA_ESTRUCTURA.json`
-- `MAPA_SCROLL.json`
-- `MAPA_MOUSE.json`
-- `MAPA_ASSETS.json`
-- `PLAN_COMPONENTES.json`
-- `PLAN_RECONSTRUCCION.md`
-- `SOLICITUD_ASSETS.json`
-- `INFORME_QA.json`
+- `PLAN_RECONSTRUCCION.md` o nota de diseño breve.
+- Código Next.js limpio, componentizado, en español.
+- `SOLICITUD_ASSETS.json` con imágenes/texturas/modelos que deban generarse o comprarse (nada propietario de la fuente).
+- Nota de atribución: patrones inspirados en la referencia, sin copiar identidad.
 
-`SOLICITUD_ASSETS.json` debe registrar imágenes, videos, texturas, modelos 3D o recursos que deban generarse posteriormente con IA para evitar reutilizar activos propietarios.
+## Reglas de performance
 
-Además, debes generar la siguiente estructura de capturas:
+- Alto impacto visual + costo técnico controlado.
+- Animar solo transform y opacity cuando sea posible.
+- No animar layout properties (width, height, margin).
+- Evitar WebGL sin necesidad real.
+- No más de 1-2 animaciones clave por viewport.
+- Respetar `prefers-reduced-motion`.
+- Validar fluidz en hardware normal, no solo en GPU alta.
 
-```
-capturas/
-├── fuente/
-│   ├── desktop/
-│   └── mobile/
-└── resultado/
-    ├── desktop/
-    └── mobile/
-```
+## Qué NO hacer
 
-Las capturas deben cubrir:
-- inicio;
-- checkpoints de secciones;
-- estados intermedios de scroll;
-- interacciones de mouse;
-- resultado final;
-- mobile.
+- NO generar código monolítico de 500 líneas.
+- NO copiar textos, logos, imágenes ni branding de la referencia.
+- NO inventar datos del negocio cliente.
+- NO deployar sin aprobación explícita.
+- NO convertir esta skill en un manual técnico: delegá en las especializadas.
 
-## Captura de Scroll Mejorada
+## Ejemplo de invocación
 
-La generación de `MAPA_SCROLL.json` debe combinar:
-- Límites de cada sección.
-- Porcentajes del documento.
-- Puntos de activación detectados.
-- Muestreo denso dentro de secciones sticky o pinned.
-- Progreso de 0% a 100% de cada timeline.
-- Checkpoints antes, durante y después de cada transición.
+> "Recrear https://ejemplo.com para una barbería local, modo remix."
 
-Registrar también:
-- Duración visual.
-- Easing estimado.
-- Dirección.
-- Relación entre scroll vertical y movimiento horizontal.
-- Elementos que entran o salen de una escena.
-- Estados mobile alternativos.
-
-## Captura de Mouse Mejorada
-
-La generación de `MAPA_MOUSE.json` debe combinar:
-- `mousemove` programático.
-- `hover` y `pointer events`.
-- Muestreo de `getComputedStyle`.
-- Lectura de matrices `transform`.
-- Capturas comparativas de estado antes, durante y después de la interacción.
-- Inspección de canvas.
-- Detección de cambios visuales dentro de `requestAnimationFrame`.
-- Fallback táctil.
-
-## Limpieza, Adaptación y Restricción de Recursos
-
-Los archivos de HTML, CSS, scripts y recursos crudos extraídos de la fuente pueden conservarse únicamente como material temporal de investigación.
-
-No pueden:
-- Formar parte de la implementación final.
-- Publicarse.
-- Entregarse al cliente.
-- Incorporarse al catálogo.
-
-La salida final debe ser código limpio, separando componentes, contenido, estilos, animaciones, datos y assets. Se debe purgar rastreadores, analytics, claves, endpoints privados, y sustituir imágenes/textos comerciales ajenos (registrados en `SOLICITUD_ASSETS.json`).
-
-## Extracción de Elementos Reutilizables
-
-Tras reconstruir la plantilla, analizar y separar candidatos para el catálogo (ej: hero, navegación, cursor, botones, cards, galerías, transiciones, scroll horizontal, pinned sections, canvas, fondos, videos, loaders, CTA, formularios, footer).
-
-Cada candidato debe registrar:
-- Nombre, categoría (usando terminología QuantumHive), descripción.
-- Dependencias, tecnologías, props configurables.
-- Comportamiento responsive, rendimiento estimado.
-- Origen de inspiración, archivos relacionados, preview, estado de QA.
-- Clasificación: reutilización directa, adaptación o reconstrucción.
-
-Estos elementos NO se incorporan automáticamente al catálogo.
-
-## Paquete Candidato para Catálogo
-
-Cada ejecución exitosa generará una plantilla completa y un paquete candidato de elementos:
-
-```
-CANDIDATO_CATALOGO/
-├── ficha-plantilla.json
-├── ficha-tecnica.md
-├── preview-desktop.png
-├── preview-mobile.png
-├── mapa-interacciones.json
-├── dependencias.json
-├── elementos-candidatos/
-├── informe-qa.json
-└── FUENTE_REFERENCIA.json
-```
-
-`FUENTE_REFERENCIA.json` debe contener:
-- URL, plataforma, fecha de análisis.
-- Secciones estudiadas, técnicas observadas.
-- Restricciones, activos descartados, elementos inspirados.
-- Declaración de reconstrucción y adaptación propia.
-
-Este paquete no modifica `catalogo.ts`. La publicación es estrictamente manual y requiere aprobación humana.
-
-## QA Multicriterio y Estados
-
-El QA (`INFORME_QA.json`) evalúa por separado:
-- Fidelidad estructural, visual, de animaciones, scroll, mouse.
-- Responsive, errores de consola, recursos fallidos, rendimiento.
-- Accesibilidad y reduced motion.
-
-La comparación visual (pixelmatch) es auxiliar y se hace por checkpoints de scroll, no con una única captura full-page.
-
-El informe debe terminar con uno de estos estados:
-- `APROBADO`
-- `APROBADO_CON_OBSERVACIONES`
-- `REQUIERE_CORRECCIONES`
-- `BLOQUEADO`
-
-Solo `APROBADO` y `APROBADO_CON_OBSERVACIONES` pueden presentarse para incorporación al catálogo, siempre con aprobación humana.
-
-## Manejo de Fallos (Fallbacks por Complejidad Técnica)
-
-Ante assets bloqueados, licencias restrictivas, fallos de renderizado o imposibilidad técnica, registrar el problema en `INFORME_QA.json` y crear un fallback según la complejidad técnica exigida:
-
-- Diseño de Autor: permite un fallback estático equivalente (ej. reemplazar un video simple por una imagen de alta calidad si falla), preservando la dirección de arte y responsividad.
-- Interacción Avanzada: permite utilizar una alternativa visual/animada equivalente usando tecnologías nativas o CSS si la dependencia original falla, preservando el propósito de la interacción.
-- Experiencia Inmersiva: exige mantener el equivalente de interacción (ej. si el scroll horizontal original falla, debe reprogramarse una experiencia inmersiva equivalente).
-- Experiencia Canvas / Experiencia Tridimensional: si falla la extracción o renderizado (shaders/3D), debe detenerse inmediatamente y pedir decisión humana antes de degradar o simular con video.
-- Fusión Total: ante un fallo crítico que comprometa múltiples niveles de interacción compleja, detenerse y solicitar decisión humana antes de cualquier degradación automática del efecto.
+Ruta:
+1. `clone-website` → inspección técnica y visual.
+2. `habilidades/web-premium/referencias/ejemplo/` → documentar patrones extraídos.
+3. `frontend-design` + `ui-ux-pro-max` → dirección visual para barbería.
+4. `21st-cli-use` → buscar componentes de hero/navegación.
+5. `web-animation-design` + `gsap-react` → motion de entrada y scroll.
+6. Implementar, validar performance, entregar.

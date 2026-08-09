@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/CEO-QUANTUMHIVE/webs-inteligentes/habilidades/catalogo-productos-3d/schemas/producto-3d.schema.json",
+  "title": "Ficha de producto 3D del catálogo",
+  "type": "object",
+  "required": [
+    "product_id",
+    "nombre",
+    "imagenes_origen",
+    "fuente_3d",
+    "modelo_web",
+    "preview",
+    "formato",
+    "calidad_estimada",
+    "estado",
+    "peso_mb",
+    "poligonos",
+    "texturas",
+    "licencia",
+    "fuente",
+    "fecha_generacion"
+  ],
+  "properties": {
+    "product_id": {
+      "type": "string",
+      "description": "ID único del producto en el catálogo del cliente",
+      "minLength": 1
+    },
+    "nombre": {
+      "type": "string",
+      "description": "Nombre del producto",
+      "minLength": 1
+    },
+    "descripcion": {
+      "type": "string",
+      "description": "Descripción del producto"
+    },
+    "categoria": {
+      "type": "string",
+      "description": "Categoría del producto (ej: calzado, mobiliario, herramientas)"
+    },
+    "imagenes_origen": {
+      "type": "array",
+      "description": "URLs o paths de las imágenes originales del producto",
+      "items": { "type": "string" },
+      "minItems": 0
+    },
+    "tipo_producto": {
+      "type": "string",
+      "description": "Clasificación: genérico, especifico, personalizado",
+      "enum": ["generico", "especifico", "personalizado"]
+    },
+    "fuente_3d": {
+      "type": "string",
+      "description": "Estrategia usada para obtener el modelo 3D",
+      "enum": [
+        "existente",
+        "modelo_equivalente",
+        "multiimagen",
+        "imagen_unica",
+        "manual"
+      ]
+    },
+    "modelo_original": {
+      "type": "string",
+      "description": "Ruta o URL del modelo 3D antes de optimización"
+    },
+    "modelo_web": {
+      "type": "string",
+      "description": "Ruta relativa del modelo GLB optimizado para web",
+      "minLength": 1
+    },
+    "preview": {
+      "type": "string",
+      "description": "Ruta relativa del render preview WebP",
+      "minLength": 1
+    },
+    "formato": {
+      "type": "string",
+      "description": "Formato del modelo web",
+      "enum": ["glb"]
+    },
+    "calidad_estimada": {
+      "type": "string",
+      "description": "Calidad estimada del modelo generado",
+      "enum": ["alta", "media", "baja"]
+    },
+    "estado": {
+      "type": "string",
+      "description": "Estado actual del producto en el pipeline",
+      "enum": [
+        "pendiente",
+        "buscando_modelo",
+        "necesita_fotos",
+        "generando",
+        "optimizando",
+        "listo",
+        "rechazado"
+      ]
+    },
+    "peso_mb": {
+      "type": "number",
+      "description": "Peso del modelo GLB en megabytes",
+      "minimum": 0
+    },
+    "poligonos": {
+      "type": "integer",
+      "description": "Cantidad de triángulos del modelo",
+      "minimum": 0
+    },
+    "texturas": {
+      "type": "integer",
+      "description": "Cantidad de texturas embebidas en el GLB",
+      "minimum": 0
+    },
+    "licencia": {
+      "type": "string",
+      "description": "Licencia del modelo 3D (CC0, MIT, comercial, etc.)"
+    },
+    "fuente": {
+      "type": "string",
+      "description": "Origen del modelo 3D (URL, repositorio, motor de generación)"
+    },
+    "fecha_generacion": {
+      "type": "string",
+      "description": "Fecha de generación del modelo",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "observaciones": {
+      "type": "string",
+      "description": "Notas adicionales sobre el modelo o el proceso"
+    },
+    "variantes": {
+      "type": "array",
+      "description": "Variantes del producto (colores, tamaños)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "sku": { "type": "string" },
+          "color": { "type": "string" },
+          "material": { "type": "string" }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
