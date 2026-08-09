@@ -189,11 +189,11 @@ ramas activas (cada rama tiene su grafo). Después de crear un worktree:
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-08 · 598 archivos versionados
+Actualizado: 2026-08-09 · 604 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
-| `clientes/` | 334 | Proyectos Next.js de cada cliente |
+| `clientes/` | 340 | Proyectos Next.js de cada cliente |
 | `plantillas/` | 78 | Plantillas por tipo de negocio |
 | `.claude/` | 48 | — |
 | `catalogo/` | 29 | — |
@@ -275,6 +275,7 @@ Actualizado: 2026-08-08 · 598 archivos versionados
 - `/catalogo/plantillas/basicas/wellness` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/wellness/page.tsx`
 - `/nuestras-webs` → `clientes/quantum-hive/src/app/nuestras-webs/page.tsx`
 - `/` → `clientes/quantum-hive/src/app/page.tsx`
+- `/pruebas/bucks` → `clientes/quantum-hive/src/app/pruebas/bucks/page.tsx`
 - `/webs-inteligentes` → `clientes/quantum-hive/src/app/webs-inteligentes/page.tsx`
 
 <!-- FIN MAPA AUTO -->
