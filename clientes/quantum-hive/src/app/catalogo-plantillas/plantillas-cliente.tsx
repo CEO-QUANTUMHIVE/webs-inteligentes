@@ -108,6 +108,46 @@ function SeccionRubro({ rubro, variantes }: { rubro: string; variantes: Plantill
   );
 }
 
+function SeccionEstilos() {
+  return (
+    <section className="pb-20 px-4 border-t border-white/10 pt-16">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-bold mb-2">Estilos</h2>
+        <p className="text-gray-400 text-sm mb-8 max-w-2xl">
+          Reconstrucciones fieles de referencias reales, pieza por pieza, con marca y contenido neutros. Hasta dónde llevamos un estilo cuando el proyecto lo pide.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Link
+            href="/pruebas/bucks"
+            className="group rounded-2xl border border-white/10 bg-white/[0.02] hover:border-white/20 transition-all duration-300 hover:scale-[1.02] overflow-hidden block"
+          >
+            <div
+              className="h-48 relative overflow-hidden flex items-center justify-center px-6"
+              style={{ background: "linear-gradient(135deg, #2a1810, #120a08)" }}
+            >
+              <span className="font-black uppercase tracking-tight text-2xl text-center" style={{ color: "#f3e6c8" }}>
+                Artisan Flame Co.
+              </span>
+              <div className="absolute top-3 right-3 px-2 py-0.5 bg-amber-400 text-black text-[10px] font-bold rounded-full">
+                Caso 01
+              </div>
+            </div>
+            <div className="p-5">
+              <h3 className="font-bold text-sm mb-1">buckssauce.com</h3>
+              <p className="text-xs text-gray-400 mb-3">
+                Landing de salsa BBQ artesanal. Hero con tilt de mouse, narrativa pinned, marquee horizontal — reconstruida con Canvas2D + GSAP ScrollTrigger.
+              </p>
+              <span className="inline-flex items-center gap-2 text-xs font-semibold text-cyan-400">
+                Ver reconstrucción →
+              </span>
+            </div>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function PlantillasCliente({
   plantillas,
   basicas,
@@ -179,6 +219,8 @@ export default function PlantillasCliente({
           ))}
         </div>
       </section>
+
+      <SeccionEstilos />
 
       {/* Premium Supabase (si hay) */}
       {plantillas.length > 0 && (
