@@ -11,7 +11,26 @@
  */
 
 import React from "react";
+import dynamic from "next/dynamic";
 import { Home, Layers, Sparkles, MessageCircle, Rocket } from "lucide-react";
+
+const ThreeDPreview = dynamic(() => import("./ThreeDPreview"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-full w-full items-center justify-center bg-[#0a0a0f]">
+      <div className="h-6 w-6 animate-spin rounded-full border-2 border-cyan-400 border-t-transparent" />
+    </div>
+  ),
+});
+
+const SplinePreview = dynamic(() => import("./SplinePreview"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-full w-full items-center justify-center bg-[#0a0a0f]">
+      <div className="h-6 w-6 animate-spin rounded-full border-2 border-cyan-400 border-t-transparent" />
+    </div>
+  ),
+});
 
 import { AnimatedRays } from "@/components/ui/animated-rays";
 import { InteractiveParticles } from "@/components/ui/interactive-particles";
@@ -39,6 +58,38 @@ import { ImageTrail } from "@/components/ui/image-trail";
 import { PerspectiveCarousel } from "@/components/ui/perspective-carousel";
 import { LogoSlider } from "@/components/ui/logo-slider";
 import PortalGalleryEffect, { portalGalleryDemoData } from "./PortalGalleryEffect";
+
+import {
+  CursorTrail,
+  MagneticCursor,
+  RippleClick,
+  GlowFollower,
+  CursorSpotlight,
+  FireTrail,
+  PixelScatter,
+  NoiseGrain,
+  StarfieldCursor,
+  LiquidBlob,
+  TextScramble,
+  Constellation,
+  FluidWarp,
+  GravityWells,
+  NeonSnake,
+  Shockwave,
+  CursorAurora,
+  MatrixCursor,
+  MorphingGrid,
+  ParticleFountain,
+  RainbowTrail,
+  GlitchCursor,
+  OrbitalSystem,
+  SmokeTrail,
+  CursorVortex,
+  DifferenceBlend,
+  Flashlight,
+  SpringRing,
+  TextFollower,
+} from "./canvas-effects";
 
 /* ── contenedores ── */
 
@@ -178,4 +229,73 @@ export const previewsReales: Record<string, React.ComponentType> = {
       <PortalGalleryEffect items={portalGalleryDemoData} height={300} />
     </div>
   ),
+
+  // Elementos 3D — Escenas Spline
+  "3d-voluta-scroll": () => (<Lleno><SplinePreview elementoId="3d-voluta-scroll" /></Lleno>),
+  "3d-orbita-zoom": () => (<Lleno><SplinePreview elementoId="3d-orbita-zoom" /></Lleno>),
+  "3d-seguir-cursor": () => (<Lleno><SplinePreview elementoId="3d-seguir-cursor" /></Lleno>),
+  "3d-mirar-cursor": () => (<Lleno><SplinePreview elementoId="3d-mirar-cursor" /></Lleno>),
+  "3d-fondo-dinamico": () => (<Lleno><SplinePreview elementoId="3d-fondo-dinamico" /></Lleno>),
+  // Elementos 3D — Abstracto procedural
+  "3d-forma-organica": () => (<Lleno><ThreeDPreview elementoId="3d-forma-organica" /></Lleno>),
+  "3d-liquido-metalico": () => (<Lleno><ThreeDPreview elementoId="3d-liquido-metalico" /></Lleno>),
+  "3d-cristal-facetado": () => (<Lleno><ThreeDPreview elementoId="3d-cristal-facetado" /></Lleno>),
+  "3d-particulas-orbita": () => (<Lleno><ThreeDPreview elementoId="3d-particulas-orbita" /></Lleno>),
+  "3d-onda-geometrica": () => (<Lleno><ThreeDPreview elementoId="3d-onda-geometrica" /></Lleno>),
+  "3d-espiral-luminosa": () => (<Lleno><ThreeDPreview elementoId="3d-espiral-luminosa" /></Lleno>),
+  "3d-aurora-forma": () => (<Lleno><ThreeDPreview elementoId="3d-aurora-forma" /></Lleno>),
+  // Elementos 3D — Premium procedural
+  "3d-orb-cristal": () => (<Lleno><ThreeDPreview elementoId="3d-orb-cristal" /></Lleno>),
+  "3d-chrome-blob": () => (<Lleno><ThreeDPreview elementoId="3d-chrome-blob" /></Lleno>),
+  "3d-iridiscente": () => (<Lleno><ThreeDPreview elementoId="3d-iridiscente" /></Lleno>),
+  "3d-liquido-vivo": () => (<Lleno><ThreeDPreview elementoId="3d-liquido-vivo" /></Lleno>),
+  "3d-metaball": () => (<Lleno><ThreeDPreview elementoId="3d-metaball" /></Lleno>),
+  "3d-wireframe-glow": () => (<Lleno><ThreeDPreview elementoId="3d-wireframe-glow" /></Lleno>),
+  "3d-particulas-mouse": () => (<Lleno><ThreeDPreview elementoId="3d-particulas-mouse" /></Lleno>),
+  "3d-ondas-distorsion": () => (<Lleno><ThreeDPreview elementoId="3d-ondas-distorsion" /></Lleno>),
+  "3d-escultura-cinetica": () => (<Lleno><ThreeDPreview elementoId="3d-escultura-cinetica" /></Lleno>),
+  "3d-anillo-neon": () => (<Lleno><ThreeDPreview elementoId="3d-anillo-neon" /></Lleno>),
+  "3d-plano-holografico": () => (<Lleno><ThreeDPreview elementoId="3d-plano-holografico" /></Lleno>),
+  "3d-cristal-cluster": () => (<Lleno><ThreeDPreview elementoId="3d-cristal-cluster" /></Lleno>),
+  "3d-luz-prismatica": () => (<Lleno><ThreeDPreview elementoId="3d-luz-prismatica" /></Lleno>),
+  "3d-estructura-atomica": () => (<Lleno><ThreeDPreview elementoId="3d-estructura-atomica" /></Lleno>),
+  "3d-nebula-cosmica": () => (<Lleno><ThreeDPreview elementoId="3d-nebula-cosmica" /></Lleno>),
+  "3d-loop-infinito": () => (<Lleno><ThreeDPreview elementoId="3d-loop-infinito" /></Lleno>),
+  "3d-explosion-geometrica": () => (<Lleno><ThreeDPreview elementoId="3d-explosion-geometrica" /></Lleno>),
+  "3d-plasma-organico": () => (<Lleno><ThreeDPreview elementoId="3d-plasma-organico" /></Lleno>),
+  "3d-cristales-flotantes": () => (<Lleno><ThreeDPreview elementoId="3d-cristales-flotantes" /></Lleno>),
+  "3d-polvo-estelar": () => (<Lleno><ThreeDPreview elementoId="3d-polvo-estelar" /></Lleno>),
+
+  // Canvas / Mouse Effects
+  "cursor-trail": () => (<Lleno><CursorTrail /></Lleno>),
+  "magnetic-cursor": () => (<Lleno><MagneticCursor /></Lleno>),
+  "ripple-click": () => (<Lleno><RippleClick /></Lleno>),
+  "glow-follower": () => (<Lleno><GlowFollower /></Lleno>),
+  "cursor-spotlight": () => (<Lleno><CursorSpotlight /></Lleno>),
+  "fire-trail": () => (<Lleno><FireTrail /></Lleno>),
+  "pixel-scatter": () => (<Lleno><PixelScatter /></Lleno>),
+  "noise-grain": () => (<Lleno><NoiseGrain /></Lleno>),
+  "starfield-cursor": () => (<Lleno><StarfieldCursor /></Lleno>),
+  "liquid-blob": () => (<Lleno><LiquidBlob /></Lleno>),
+  "text-scramble": () => (<Lleno><TextScramble /></Lleno>),
+  "constellation": () => (<Lleno><Constellation /></Lleno>),
+  "fluid-warp": () => (<Lleno><FluidWarp /></Lleno>),
+  "gravity-wells": () => (<Lleno><GravityWells /></Lleno>),
+  "neon-snake": () => (<Lleno><NeonSnake /></Lleno>),
+  "shockwave": () => (<Lleno><Shockwave /></Lleno>),
+  "cursor-aurora": () => (<Lleno><CursorAurora /></Lleno>),
+  "matrix-cursor": () => (<Lleno><MatrixCursor /></Lleno>),
+  "morphing-grid": () => (<Lleno><MorphingGrid /></Lleno>),
+  "particle-fountain": () => (<Lleno><ParticleFountain /></Lleno>),
+  "rainbow-trail": () => (<Lleno><RainbowTrail /></Lleno>),
+  "glitch-cursor": () => (<Lleno><GlitchCursor /></Lleno>),
+  "orbital-system": () => (<Lleno><OrbitalSystem /></Lleno>),
+  "smoke-trail": () => (<Lleno><SmokeTrail /></Lleno>),
+  "cursor-vortex": () => (<Lleno><CursorVortex /></Lleno>),
+
+  // Efectos agregados — diferencia, fisica, texto
+  "difference-blend": () => (<Lleno><DifferenceBlend /></Lleno>),
+  "flashlight": () => (<Lleno><Flashlight /></Lleno>),
+  "spring-ring": () => (<Lleno><SpringRing /></Lleno>),
+  "text-follower": () => (<Lleno><TextFollower /></Lleno>),
 };
