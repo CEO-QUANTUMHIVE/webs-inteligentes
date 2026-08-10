@@ -1,0 +1,24 @@
+{
+  "id": "cur-magnetic-hover",
+  "nombre": "Hover Magnetico",
+  "categoria": "cursor",
+  "subcategoria": "interaccion",
+  "version": "1.0.0",
+  "descripcion": "Elementos que se desplazan hacia el cursor cuando entra en su radio de atraccion y vuelven con retorno elastico al salir.",
+  "tecnica": "dom-transform",
+  "dependencias": [],
+  "costoRendimiento": "bajo",
+  "compatibleMovil": true,
+  "respetaReducedMotion": true,
+  "estilosPremium": [
+    "Premium 1 — Editorial Premium",
+    "Premium 2 — Minimalismo",
+    "Premium 5 — Organico / Luxury Warm",
+    "Premium 7 — Luxury Gold"
+  ],
+  "nichosSugeridos": ["servicios-pro", "inmobiliaria", "retail", "barberia"],
+  "ruta": "/catalogo/elementos/cursor/magnetic-hover",
+  "estado": "piloto",
+  "creada": "2026-08-09",
+  "fuenteInvestigacion": "Implementa el patron ya documentado en habilidades/web-premium/patrones/motion/magnetic-hover.md. Contrastado con 'Magnetic' de tgomilar/mouse-animations (MIT) y lumojs/lumojslib (MIT). Implementacion propia sin gsap.quickTo."
+}

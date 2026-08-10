@@ -1,0 +1,64 @@
+{
+  "url": "https://salonz-nx.webflow.io/",
+  "fecha_captura": "2026-08-09",
+  "plataforma": "Webflow",
+  "site_id": "666c27cd1c6e167a7c627c52",
+  "viewport_base": { "desktop": "1440x900", "mobile": "390x844" },
+  "fuentes": {
+    "heading": { "familia": "Prata", "weights": ["400"] },
+    "paragraph": { "familia": "Josefin Sans", "weights": ["300", "400", "500", "600", "700"] },
+    "ui": { "familia": "Montserrat", "weights": ["100-900"] },
+    "iconos": { "familia": "Material Icons", "weights": ["400"] },
+    "loader": "WebFont.js (Google)"
+  },
+  "tokens_color": {
+    "--primary": "#d6a454",
+    "--secondary": "#9e704f",
+    "--tertiary": "#fff7eb",
+    "--heading": "#000000",
+    "--heading-secondary": "#ffffff",
+    "--paragraph": "#7a7a7a",
+    "--paragraph-secondary": "#d8d8d8",
+    "--background": "#000000",
+    "--white": "#ffffff",
+    "--border-color": "#ececec",
+    "--box-shadow-1": "#0000001a"
+  },
+  "tipografia_base": {
+    "body": "16px/25px Prata 400, letter-spacing .8px",
+    "h1": "54px/76px Prata 400",
+    "h2": "40px/58px Prata 400",
+    "h3": "36px/48px Prata 400",
+    "hero_title": "h1 blanco, letter-spacing 2px",
+    "hero_sub": "20px/30px blanco",
+    "label": "18px uppercase primary (kicker)"
+  },
+  "patrones_visuales": {
+    "dividers": "title-divider 50x1px primary; heading-divider 40x2px primary",
+    "botones": "blanco 18px/28px padding 12px 34px, hover: texto voltea (flip vertical) + fill dorado sube desde abajo",
+    "secciones": "margin vertical 110px; variantes with-bg (negro con imagen)",
+    "masks": "overflow hidden para reveals de texto (mask + translate)"
+  },
+  "interacciones_detectadas": {
+    "total_data_w_id": 60,
+    "definiciones_ix2": 78,
+    "desglose_eventos": {
+      "SCROLL_INTO_VIEW": 37,
+      "MOUSE_OUT": 11,
+      "MOUSE_OVER": 10,
+      "PAGE_SCROLL": 9,
+      "SLIDER_ACTIVE": 2,
+      "SLIDER_INACTIVE": 2,
+      "DROPDOWN_CLOSE": 2,
+      "DROPDOWN_OPEN": 2,
+      "SCROLLING_IN_VIEW": 1,
+      "MOUSE_CLICK": 1,
+      "MOUSE_SECOND_CLICK": 1
+    }
+  },
+  "recursos_brutos_descargados": {
+    "html": "temp/salonz.html (73KB)",
+    "css": "temp/salonz.css (101KB)",
+    "js": "temp/salonz.js (286KB)"
+  }
+}

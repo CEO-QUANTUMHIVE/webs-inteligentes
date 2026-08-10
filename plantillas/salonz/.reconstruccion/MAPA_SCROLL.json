@@ -1,0 +1,66 @@
+{
+  "metodo": "analisis estatico de definiciones IX2 en bundle + CSS (sin ejecucion de navegador disponible en esta fase; se validara en QA con playwright)",
+  "documento": {
+    "altura_estimada": "~14-16 viewports",
+    "scroll_suave_nativo": true,
+    "lenis_o_smooth": false
+  },
+  "page_scroll_timelines": [
+    {
+      "id": "marquee-partners",
+      "selector": ".slider-animation-wrapper",
+      "rango": "toda la pagina (0-100% doc)",
+      "comportamiento": "translateX proporcional al scroll global; wrapper 200vw parte en translate(-100vw)",
+      "easing": "lineal",
+      "direccion": "horizontal ligado a scroll vertical"
+    },
+    {
+      "id": "counters-digit-roll",
+      "selector": ".animated-counter (4 bloques)",
+      "rango": "activacion al entrar en viewport + progreso de pagina",
+      "comportamiento": "columnas .counter-number-wrapper-left y -reverse trasladan digitos 0-9 verticalmente; izquierda sube, derecha baja (reverse)",
+      "easing": "lineal ligado a scroll",
+      "nota": "efecto odometro: cada digito es una columna de 10 numeros"
+    },
+    {
+      "id": "about-border-draw",
+      "selector": ".image-bg-borders (bottom/right/upper/left-part)",
+      "rango": "seccion about en viewport",
+      "comportamiento": "cada borde (5px dorado) escala de 0% a 100% secuencialmente dibujando el marco",
+      "easing": "ease estimado out",
+      "direccion": "secuencia bottom -> right -> upper -> left"
+    },
+    {
+      "id": "about-open-on-scroll",
+      "selector": ".open-on-scroll-wrapper + .contents",
+      "rango": "seccion about en viewport",
+      "comportamiento": "overlay blanco cubre imagen y se abre (height/clip) revelando contenido de texto",
+      "easing": "ease-out"
+    }
+  ],
+  "scroll_into_view_reveals": {
+    "total": 37,
+    "patrones": [
+      { "patron": "mask-text-reveal", "descripcion": "texto dentro de .mask overflow hidden, translateY 100% -> 0", "aplica": ["hero kicker", "hero H1", "titulos de seccion", "heading-dividers"] },
+      { "patron": "fade-up", "descripcion": "opacity 0->1 + translateY", "aplica": ["parrafos", "botones", "cards", "pricing wrappers"] },
+      { "patron": "stagger-grid", "descripcion": "elementos de grid con delay escalonado", "aplica": ["service-cards", "team-cards", "pricing columnas"] }
+    ],
+    "duraciones_estimadas": "400-800ms",
+    "easing_estimado": "ease / cubic-bezier(.25,.46,.45,.94)"
+  },
+  "checkpoints_captura": [
+    { "nombre": "inicio", "scroll": "0%" },
+    { "nombre": "partners", "scroll": "hero+80px margin" },
+    { "nombre": "about-border-50", "scroll": "marco a medio dibujar" },
+    { "nombre": "about-completo", "scroll": "marco completo" },
+    { "nombre": "counters-activos", "scroll": "counter-section centrada" },
+    { "nombre": "services", "scroll": "grid servicios" },
+    { "nombre": "pricing", "scroll": "seccion with-bg precios" },
+    { "nombre": "team-video", "scroll": "background-video visible" },
+    { "nombre": "faq", "scroll": "acordeones" },
+    { "nombre": "testimonials", "scroll": "tabs activos" },
+    { "nombre": "blog", "scroll": "cards blog" },
+    { "nombre": "footer", "scroll": "100%" }
+  ],
+  "estados_mobile": "reveals identicos; marquee y counters conservan comportamiento; border-draw simplificado"
+}

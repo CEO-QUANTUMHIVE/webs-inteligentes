@@ -1,0 +1,86 @@
+{
+  "url": "https://salonz-nx.webflow.io/",
+  "layout_global": {
+    "page_wrapper": "flujo vertical simple, sin scroll horizontal global",
+    "container": "ancho maximo central con padding lateral 20px",
+    "navbar": "sticky top con margin-top 10px, fondo secondary (#9e704f), z-index 101"
+  },
+  "secciones": [
+    {
+      "id": "navbar",
+      "selector": ".navbar",
+      "descripcion": "Nav sticky con logo central, 2 menus (Home/About/Pricing/Gallery + Team/Blog/Contact), dropdown (Book Appointment/Style-Guide/Change-Log/License), hamburguesa animada en mobile",
+      "elementos_clave": ["nav-link con nav-border inferior dorado", "dropdown w-dropdown", "hamburger 3 lineas"]
+    },
+    {
+      "id": "hero",
+      "selector": "section.hero-slider",
+      "descripcion": "Hero a pantalla casi completa: fondo foto barberia con overlay 50% negro y attachment fixed (parallax nativo), contenido centrado: logo icono, kicker con dividers, H1, parrafo, boton CTA, bloque inferior de 3 info-cards (direccion/telefonos/emails) separadas por divisores 1px",
+      "animaciones": ["intro: logo fade, kicker slide por mask, H1 reveal por mask, parrafo, boton, info-block stagger"]
+    },
+    {
+      "id": "partners",
+      "selector": ".section-80px-margin",
+      "descripcion": "Marquee de 11 logos de sponsors en grid flex, wrapper 200vw desplazado por PAGE_SCROLL, overlays de degradado blanco en bordes",
+      "animaciones": ["marquee ligado a scroll (translate -100vw base)"]
+    },
+    {
+      "id": "about",
+      "selector": ".section (2-column-block)",
+      "descripcion": "2 columnas: imagen cuadrada con marco de 4 bordes dorados que se dibujan con scroll + overlay que se abre; texto con kicker, H2 'Mastering the Art of Grooming', parrafo, boton secundario",
+      "animaciones": ["border-draw por PAGE_SCROLL", "open-on-scroll-wrapper reveal", "contenido reveal por mask"]
+    },
+    {
+      "id": "counters",
+      "selector": ".counter-section",
+      "descripcion": "Banda tertiary (#fff7eb) con 4 contadores: numero gigante 70px con digitos en columnas (wrapper-left + wrapper-reverse) que ruedan segun scroll, sufijo con mask, titulo 24px",
+      "animaciones": ["digit-roll por PAGE_SCROLL (translate vertical de columnas 0-9)"]
+    },
+    {
+      "id": "services",
+      "selector": ".section (3-column-block)",
+      "descripcion": "Titulo central + grid 3 columnas: 3 service-cards izquierda, imagen central (middle-image con bottom-overlay degradado), 3 service-cards derecha. Cada card: titulo uppercase, texto, icono 50px; hover revela imagen de fondo con black-overlay",
+      "animaciones": ["stagger reveal cards", "hover: service-image-wrapper visible + overlays"]
+    },
+    {
+      "id": "pricing",
+      "selector": ".section.with-bg",
+      "descripcion": "Fondo oscuro, titulo blanco horizontal + boton 'See Pricing', grid 3 columnas de listas de precios: header secondary, filas nombre/precio con borde dashed",
+      "animaciones": ["reveal por SCROLL_INTO_VIEW"]
+    },
+    {
+      "id": "team",
+      "selector": ".section (team)",
+      "descripcion": "Titulo + grid 3x2 de team-cards: foto 440px con bottom-overlay, nombre link, rol, iconos sociales; debajo background-video 3/2 max 480px",
+      "animaciones": ["stagger cards", "video autoplay loop muted"]
+    },
+    {
+      "id": "faq",
+      "selector": ".section (faq)",
+      "descripcion": "2 columnas (reversa en tablet): 5 acordeones FAQ (border tertiary, icono plus->minus) + imagen 560px con card flotante 'Still Have Questions?' y boton secundario",
+      "animaciones": ["dropdown open/close altura", "icono rota"]
+    },
+    {
+      "id": "testimonials",
+      "selector": ".section.with-bg (testimonial-tab)",
+      "descripcion": "Fondo oscuro, titulo blanco + boton; tabs: fila de 5 avatares circulares (menu) y paneles con foto grande 320px borde dashed + nombre + rol + parrafo",
+      "animaciones": ["tab switch fade/slide", "avatar activo escala"]
+    },
+    {
+      "id": "blog",
+      "selector": ".section (w-dyn-list)",
+      "descripcion": "Titulo + grid 3 blog-cards: thumbnail 3/2 con zoom hover, categoria, autor, H3 titulo, divider vertical secondary, resumen, read-more con divider animado",
+      "animaciones": ["thumbnail scale hover", "read-more divider grow"]
+    },
+    {
+      "id": "footer",
+      "selector": "footer.footer",
+      "descripcion": "Fondo imagen con gradiente negro: newsletter (logo + titulo + form email), 4 bloques (logo+parrafo+contacto / links / links / horarios 7 dias), copyright con link Webflow",
+      "animaciones": ["footer-links hover: padding-left + border dorado"]
+    }
+  ],
+  "responsivo": {
+    "breakpoints_webflow": ["991px (tablet)", "767px (mobile landscape)", "479px (mobile)"],
+    "cambios_clave": ["nav colapsa a hamburguesa <991", "grids 3col -> 1col", "hero-grid 3 -> 1", "counters 4 -> 2 -> 1", "faq columnas se invierten en tablet"]
+  }
+}

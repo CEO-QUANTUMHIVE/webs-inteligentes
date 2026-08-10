@@ -1,0 +1,116 @@
+{
+  "fecha_generacion": "2026-08-09",
+  "url_fuente": "https://salonz-nx.webflow.io/",
+  "politica": "NO se incorporan assets propietarios ni imagenes/textos comerciales ajenos. Todas las imagenes, videos, logos y textos de la fuente Webflow se registran aqui para generacion posterior con IA o sustitucion por placeholders licenciados.",
+  "activos": [
+    {
+      "grupo": "logo_salonz",
+      "tipo": "imagen",
+      "uso": "navbar, hero, footer, newsletter",
+      "action": "recrear con IA o svg propio (nombre del cliente)",
+      "priority": "alta"
+    },
+    {
+      "grupo": "hero_fondo_barberia",
+      "tipo": "imagen",
+      "archivos_originales": ["vahid-kanani-4-QaKPwndmw-unsplash.webp"],
+      "licencia_original": "Unsplash (free)",
+      "action": "USAR CON ATTRIBUTION 'Photo by Vahid Kanani on Unsplash' o generar imagen propia",
+      "priority": "baja"
+    },
+    {
+      "grupo": "partners_logos",
+      "tipo": "svg",
+      "archivos_originales": ["customers_1..9.svg", "bronx.svg"],
+      "licencia_original": "propietario plantilla",
+      "action": "generar logos ficticios propios (placeholder 'partner-1' a 'partner-9')",
+      "priority": "media"
+    },
+    {
+      "grupo": "about_imagen",
+      "tipo": "imagen",
+      "archivos_originales": ["andre-reis-z0Cyh9nGLFY-unsplash.webp"],
+      "licencia_original": "Unsplash",
+      "action": "USAR CON ATTRIBUTION o generar imagen barbero",
+      "priority": "baja"
+    },
+    {
+      "grupo": "servicios_iconos",
+      "tipo": "imagen",
+      "archivos_originales": ["hair-cutting (1).webp", "facial-massage.webp", "beard-trimming.webp", "hair-cut-tool.webp", "razor (1).webp", "hair-color.webp"],
+      "licencia_original": "stock",
+      "action": "generar iconos propios o usar Material Icons/emoji",
+      "priority": "media"
+    },
+    {
+      "grupo": "servicios_fotos",
+      "tipo": "imagen",
+      "archivos_originales": ["2148256925.webp", "2556.webp", "allef-vinicius-IvQeAVeJULw-unsplash.webp", "26254.webp", "antonio-reynoso-_25iXtaa6oY-unsplash.webp", "2150668447.webp", "groomed-bearded-man.webp"],
+      "licencia_original": "mixta Unsplash/stock",
+      "action": "generar con IA: fotos de barberia/grooming propias",
+      "priority": "alta"
+    },
+    {
+      "grupo": "team_fotos",
+      "tipo": "imagen",
+      "archivos_originales": ["groomed-bearded-man.webp", "SUPRO1.webp", "Supro2.webp", "105656.webp", "94222.webp", "117384.webp"],
+      "licencia_original": "stock",
+      "action": "generar con IA: retratos de barberos/estilistas ficticios",
+      "priority": "alta"
+    },
+    {
+      "grupo": "video_fondo_team",
+      "tipo": "video",
+      "archivos_originales": ["3998457-hd_1366_720_50fps-transcode.mp4", ".webm", "poster-00001.jpg"],
+      "licencia_original": "Pexels 3998457 (free)",
+      "action": "USAR (Pexels free) o reemplazar con video propio de barberia",
+      "priority": "baja"
+    },
+    {
+      "grupo": "testimonios_avatares",
+      "tipo": "imagen",
+      "archivos_originales": ["3542.webp", "7091.webp", "18778.webp", "23540.webp", "15187.webp"],
+      "licencia_original": "stock",
+      "action": "generar con IA: retratos de clientes ficticios",
+      "priority": "alta"
+    },
+    {
+      "grupo": "blog_thumbnails",
+      "tipo": "imagen",
+      "archivos_originales": ["10150.webp", "20970.webp", "vahid-kanani...unsplash.webp"],
+      "licencia_original": "stock/Unsplash",
+      "action": "generar con IA: imagenes de barberia/blog",
+      "priority": "media"
+    },
+    {
+      "grupo": "footer_fondo",
+      "tipo": "imagen",
+      "archivos_originales": ["nathon-oski-EW_rqoSdDes-unsplash.webp"],
+      "licencia_original": "Unsplash",
+      "action": "USAR CON ATTRIBUTION o generar imagen oscura de barberia",
+      "priority": "baja"
+    },
+    {
+      "grupo": "redes_sociales",
+      "tipo": "icono",
+      "archivos_originales": ["facebook.webp", "instagram.webp", "twitter (2).webp"],
+      "licencia_original": "iconos de marca",
+      "action": "usar SVGs propios de redes sociales o lucide-react",
+      "priority": "baja"
+    },
+    {
+      "grupo": "textos_placeholder",
+      "tipo": "texto",
+      "archivos_originales": ["'Sed ut perspiciatis unde omnis iste natus...'"],
+      "licencia_original": "lorem ipsum de plantilla",
+      "action": "sustituir con textos de ejemplo propios o lorem ipsum",
+      "priority": "media"
+    }
+  ],
+  "resumen": {
+    "total_grupos": 13,
+    "requieren_generacion_ia": ["logo", "servicios_iconos", "servicios_fotos", "team_fotos", "testimonios_avatares", "blog_thumbnails"],
+    "pueden_usarse_con_attrIBUTION": ["hero_fondo", "about_imagen", "video_fondo_team", "footer_fondo"],
+    "reemplazables_por_iconos_ternarios": ["redes_sociales", "servicios_iconos"]
+  }
+}

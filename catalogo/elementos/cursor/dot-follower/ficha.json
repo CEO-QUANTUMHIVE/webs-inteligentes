@@ -1,0 +1,24 @@
+{
+  "id": "cur-dot-follower",
+  "nombre": "Punto Seguidor con Anillo",
+  "categoria": "cursor",
+  "subcategoria": "seguidor",
+  "version": "1.0.0",
+  "descripcion": "Punto sólido que sigue el cursor al instante y un anillo exterior que lo persigue con retardo elástico. Reacciona a elementos interactivos.",
+  "tecnica": "dom-transform",
+  "dependencias": [],
+  "costoRendimiento": "bajo",
+  "compatibleMovil": true,
+  "respetaReducedMotion": true,
+  "estilosPremium": [
+    "Premium 2 — Minimalismo",
+    "Premium 3 — Neon / Cascada",
+    "Premium 7 — Luxury Gold",
+    "Premium 8 — Cristal / Interactive Glass"
+  ],
+  "nichosSugeridos": ["servicios-pro", "retail", "inmobiliaria", "educacion"],
+  "ruta": "/catalogo/elementos/cursor/dot-follower",
+  "estado": "piloto",
+  "creada": "2026-08-09",
+  "fuenteInvestigacion": "Patron 'CustomCursor' documentado en tgomilar/mouse-animations (MIT) y lag diferencial de ReactBits BlobCursor (MIT). Implementacion propia en vanilla, sin GSAP ni React."
+}

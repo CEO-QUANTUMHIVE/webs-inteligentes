@@ -1,0 +1,38 @@
+{
+  "url": "https://salonz-nx.webflow.io/",
+  "fecha_analisis": "2026-08-09",
+  "plataforma_fuente": "Webflow",
+  "runtimes_detectados": [
+    { "nombre": "jQuery", "version": "3.5.1", "rol": "dependencia del motor Webflow" },
+    { "nombre": "Webflow IX2", "bundle": "webflow.919fcd5cc.js", "rol": "motor de interacciones (78 definiciones)" },
+    { "nombre": "WebFont.js", "version": "1.6.26", "rol": "carga de fuentes Google" }
+  ],
+  "runtimes_avanzados": {
+    "gsap": false,
+    "scrolltrigger": false,
+    "lenis": false,
+    "three_js": false,
+    "webgl_shaders": false,
+    "spline": false,
+    "lottie": false,
+    "rive": false,
+    "video_scrubbing": false,
+    "nota": "las coincidencias spline/lottie en el bundle son codigo interno del motor IX2, no hay uso en pagina"
+  },
+  "elementos_especiales": [
+    { "tipo": "background_video", "ubicacion": "seccion equipo", "fuente": "Pexels 3998457 (mp4/webm + poster)", "comportamiento": "autoplay loop muted playsinline object-fit cover" },
+    { "tipo": "slider_hero", "ubicacion": "hero", "comportamiento": "SLIDER_ACTIVE/INACTIVE: autoplay con pausa al interactuar" },
+    { "tipo": "marquee_partners", "ubicacion": "post-hero", "comportamiento": "PAGE_SCROLL: wrapper 200vw translate(-100vw) desplazado por scroll" },
+    { "tipo": "contadores_digitos", "ubicacion": "counter-section", "comportamiento": "PAGE_SCROLL: columnas de digitos 0-9 trasladadas verticalmente segun progreso (4 contadores x 2 columnas)" },
+    { "tipo": "borde_animado_about", "ubicacion": "about", "comportamiento": "PAGE_SCROLL: 4 bordes dorados se dibujan alrededor de la imagen + overlay que se abre" },
+    { "tipo": "tabs_testimonios", "ubicacion": "testimonios", "comportamiento": "5 avatares circulares, activo escala con borde dashed primary" },
+    { "tipo": "acordeon_faq", "ubicacion": "faq", "comportamiento": "DROPDOWN_OPEN/CLOSE: icono plus rota a minus, contenido expande" }
+  ],
+  "router_skills": {
+    "decision": "true-web-clone",
+    "razon": "78 interacciones IX2 (scroll-reveal, scrub por PAGE_SCROLL, marquee, contadores, sliders, dropdowns) exigen reconstruccion fiel de animaciones; sin canvas ni 3D",
+    "stack_reconstruccion": ["GSAP", "ScrollTrigger", "CSS transitions para hovers"]
+  },
+  "complejidad_tecnica_asignada": "Interaccion Avanzada",
+  "categoria_justificacion": "animaciones ligadas a scroll y mouse con timelines y estados, sin WebGL ni 3D"
+}

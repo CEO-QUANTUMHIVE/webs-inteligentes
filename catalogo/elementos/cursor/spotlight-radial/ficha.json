@@ -1,0 +1,23 @@
+{
+  "id": "cur-spotlight-radial",
+  "nombre": "Spotlight Radial",
+  "categoria": "cursor",
+  "subcategoria": "iluminacion",
+  "version": "1.0.0",
+  "descripcion": "Halo de luz radial que sigue el cursor e ilumina el contenido debajo. Funciona a pagina completa o acotado a un contenedor.",
+  "tecnica": "css-only",
+  "dependencias": [],
+  "costoRendimiento": "bajo",
+  "compatibleMovil": true,
+  "respetaReducedMotion": true,
+  "estilosPremium": [
+    "Premium 3 — Neon / Cascada",
+    "Premium 7 — Luxury Gold",
+    "Premium 8 — Cristal / Interactive Glass"
+  ],
+  "nichosSugeridos": ["gastronomia", "barberia", "inmobiliaria", "servicios-pro"],
+  "ruta": "/catalogo/elementos/cursor/spotlight-radial",
+  "estado": "piloto",
+  "creada": "2026-08-09",
+  "fuenteInvestigacion": "Patron 'Spotlight' de tgomilar/mouse-animations (MIT) y 'highlight-grid' de Vengeance UI ya presente en sistema-de-diseno/efectos/effects-stack.json. Implementacion propia con CSS custom properties, sin JS de animacion."
+}

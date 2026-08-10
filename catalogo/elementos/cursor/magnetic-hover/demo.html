@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hover Magnético — QuantumHive</title>
+<style>
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{
+    font-family:'DM Sans',system-ui,sans-serif;
+    background:#FAF7F2; color:#2D2A26; min-height:100vh;
+  }
+  .wrap{ max-width:900px; margin:0 auto; padding:100px 32px; }
+  h1{ font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(2.2rem,6vw,3.6rem); font-weight:600; letter-spacing:-.02em; margin-bottom:14px; }
+  .sub{ color:#7a7268; margin-bottom:64px; font-size:1.05rem; }
+  h2{ font-size:.78rem; text-transform:uppercase; letter-spacing:.14em; color:#a09689; margin:56px 0 24px; font-weight:600; }
+
+  .fila{ display:flex; gap:18px; flex-wrap:wrap; align-items:center; }
+
+  .qh-magnetico{
+    position:relative; display:inline-flex; align-items:center; justify-content:center;
+    text-decoration:none; will-change:transform;
+    transition:transform .45s cubic-bezier(.22,1.2,.36,1), background .3s ease, color .3s ease;
+  }
+  .qh-magnetico-int{
+    display:block; pointer-events:none;
+    transition:transform .45s cubic-bezier(.22,1.2,.36,1);
+  }
+
+  .btn{
+    padding:17px 38px; border-radius:999px;
+    background:#C2703E; color:#FAF7F2;
+    font-weight:600; font-size:.95rem;
+  }
+  .btn.ghost{ background:transparent; color:#2D2A26; border:1px solid rgba(45,42,38,.22); }
+  .btn.ghost:hover{ background:#2D2A26; color:#FAF7F2; }
+
+  .ico{
+    width:56px; height:56px; border-radius:50%;
+    border:1px solid rgba(45,42,38,.18); color:#2D2A26;
+    font-size:1rem; font-weight:600;
+  }
+  .ico:hover{ background:#2D2A26; color:#FAF7F2; }
+
+  .tarjeta{
+    width:200px; height:150px; border-radius:18px; flex-direction:column;
+    background:#fff; border:1px solid rgba(45,42,38,.1); color:#2D2A26;
+    box-shadow:0 1px 3px rgba(45,42,38,.05);
+  }
+  .tarjeta strong{ font-size:1.6rem; font-family:'Cormorant Garamond',serif; }
+  .tarjeta span{ font-size:.8rem; color:#7a7268; margin-top:4px; }
+
+  .nota{
+    margin-top:72px; padding:20px 24px; border-left:2px solid #C2703E;
+    background:rgba(194,112,62,.05); color:#7a7268; font-size:.88rem; line-height:1.7;
+  }
+
+  @media (hover:none){
+    .qh-magnetico:active{ transform:scale(.97); }
+  }
+  @media (prefers-reduced-motion:reduce){
+    .qh-magnetico,.qh-magnetico-int{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <h1>Hover Magnético</h1>
+  <p class="sub">Acercá el cursor. Los elementos se dejan atraer y vuelven con rebote.</p>
+
+  <h2>Botones</h2>
+  <div class="fila">
+    <a href="#" class="qh-magnetico btn"><span class="qh-magnetico-int">Reservar mesa</span></a>
+    <a href="#" class="qh-magnetico btn ghost"><span class="qh-magnetico-int">Ver la carta</span></a>
+  </div>
+
+  <h2>Íconos</h2>
+  <div class="fila">
+    <a href="#" class="qh-magnetico ico" data-fuerza="0.5"><span class="qh-magnetico-int">IG</span></a>
+    <a href="#" class="qh-magnetico ico" data-fuerza="0.5"><span class="qh-magnetico-int">FB</span></a>
+    <a href="#" class="qh-magnetico ico" data-fuerza="0.5"><span class="qh-magnetico-int">WA</span></a>
+  </div>
+
+  <h2>Tarjetas — atracción sutil</h2>
+  <div class="fila">
+    <a href="#" class="qh-magnetico tarjeta" data-fuerza="0.18">
+      <span class="qh-magnetico-int"><strong>12</strong><span>años</span></span>
+    </a>
+    <a href="#" class="qh-magnetico tarjeta" data-fuerza="0.18">
+      <span class="qh-magnetico-int"><strong>4.9</strong><span>puntaje</span></span>
+    </a>
+  </div>
+
+  <div class="nota">
+    Desactivado en táctil (reemplazado por <code>:active</code>) y con
+    <code>prefers-reduced-motion: reduce</code>.
+  </div>
+</div>
+
+<script>
+function iniciarMagnetico(selector, opciones = {}) {
+  const cfg = {
+    radio:90, fuerza:0.35, maxDesplazamiento:14,
+    fuerzaInterna:0.55, suavidad:0.2,
+    selectorInterno:'.qh-magnetico-int',
+    ...opciones,
+  };
+
+  if (window.matchMedia('(hover: none)').matches) return null;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
+
+  const items = [...document.querySelectorAll(selector)].map(el => ({
+    el,
+    interno: el.querySelector(cfg.selectorInterno),
+    fuerza: parseFloat(el.dataset.fuerza) || cfg.fuerza,
+    rect: null,
+    x:0, y:0, tx:0, ty:0,
+  }));
+  if (!items.length) return null;
+
+  const medir = () => items.forEach(i => { i.rect = i.el.getBoundingClientRect(); });
+  medir();
+
+  let mx=-9999, my=-9999, rafId=null;
+  const onMove = (e) => { mx = e.clientX; my = e.clientY; };
+
+  const loop = () => {
+    for (const i of items) {
+      const r = i.rect;
+      if (!r) continue;
+
+      const cx = r.left + r.width / 2;
+      const cy = r.top + r.height / 2;
+      const dx = mx - cx;
+      const dy = my - cy;
+
+      const alcanceX = r.width  / 2 + cfg.radio;
+      const alcanceY = r.height / 2 + cfg.radio;
+
+      if (Math.abs(dx) < alcanceX && Math.abs(dy) < alcanceY) {
+        const nx = dx / alcanceX;
+        const ny = dy / alcanceY;
+        const caida = Math.max(0, 1 - Math.hypot(nx, ny));
+        i.tx = Math.max(-cfg.maxDesplazamiento, Math.min(cfg.maxDesplazamiento, dx * i.fuerza * caida));
+        i.ty = Math.max(-cfg.maxDesplazamiento, Math.min(cfg.maxDesplazamiento, dy * i.fuerza * caida));
+      } else {
+        i.tx = 0; i.ty = 0;
+      }
+
+      if (i.tx === 0 && i.ty === 0 && Math.abs(i.x) < 0.05 && Math.abs(i.y) < 0.05) {
+        if (i.x !== 0 || i.y !== 0) {
+          i.x = 0; i.y = 0;
+          i.el.style.transform = '';
+          if (i.interno) i.interno.style.transform = '';
+        }
+        continue;
+      }
+
+      i.x += (i.tx - i.x) * cfg.suavidad;
+      i.y += (i.ty - i.y) * cfg.suavidad;
+
+      i.el.style.transform = `translate3d(${i.x.toFixed(2)}px, ${i.y.toFixed(2)}px, 0)`;
+      if (i.interno) {
+        const ix = i.x * cfg.fuerzaInterna;
+        const iy = i.y * cfg.fuerzaInterna;
+        i.interno.style.transform = `translate3d(${ix.toFixed(2)}px, ${iy.toFixed(2)}px, 0)`;
+      }
+    }
+    rafId = requestAnimationFrame(loop);
+  };
+
+  window.addEventListener('mousemove', onMove, { passive:true });
+  window.addEventListener('resize', medir);
+  window.addEventListener('scroll', medir, { passive:true });
+  loop();
+
+  return {
+    destroy() {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('resize', medir);
+      window.removeEventListener('scroll', medir);
+      items.forEach(i => {
+        i.el.style.transform = '';
+        if (i.interno) i.interno.style.transform = '';
+      });
+    }
+  };
+}
+
+iniciarMagnetico('.qh-magnetico');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Punto Seguidor con Anillo — QuantumHive</title>
+<style>
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{
+    font-family:'Space Grotesk',system-ui,sans-serif;
+    background:#06060a; color:#eeeef5;
+    min-height:100vh; overflow-x:hidden;
+  }
+  .wrap{ max-width:900px; margin:0 auto; padding:80px 32px; }
+  h1{ font-size:clamp(2rem,6vw,3.5rem); font-weight:700; letter-spacing:-.03em; margin-bottom:16px; }
+  .sub{ color:#8a8aa0; margin-bottom:64px; font-size:1.05rem; }
+  .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; margin-bottom:48px; }
+  .card{
+    border:1px solid rgba(0,229,255,.18); border-radius:14px;
+    padding:28px; background:rgba(0,229,255,.03);
+    transition:border-color .25s ease, background .25s ease;
+  }
+  .card:hover{ border-color:rgba(0,229,255,.5); background:rgba(0,229,255,.07); }
+  .card h3{ font-size:1.05rem; margin-bottom:8px; }
+  .card p{ color:#8a8aa0; font-size:.9rem; line-height:1.6; }
+  .btn{
+    display:inline-block; padding:14px 30px; border-radius:999px;
+    border:1px solid #00e5ff; color:#00e5ff; text-decoration:none;
+    font-weight:600; margin-right:12px; margin-bottom:12px;
+    transition:background .25s ease, color .25s ease;
+  }
+  .btn:hover{ background:#00e5ff; color:#06060a; }
+  .nota{
+    margin-top:64px; padding:20px 24px; border-left:2px solid #00e5ff;
+    background:rgba(0,229,255,.04); color:#8a8aa0; font-size:.88rem; line-height:1.7;
+  }
+  @media (hover:none){ .nota-touch::after{ content:' El efecto está desactivado en este dispositivo táctil.'; color:#00e5ff; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <h1>Punto Seguidor con Anillo</h1>
+  <p class="sub">Mové el mouse. El anillo persigue al punto con retardo elástico.</p>
+
+  <div class="grid">
+    <div class="card" data-cursor="hover">
+      <h3>Retardo diferencial</h3>
+      <p>El punto va exacto, el anillo interpola. Esa diferencia es todo el efecto.</p>
+    </div>
+    <div class="card" data-cursor="hover">
+      <h3>Estado hover</h3>
+      <p>Pasá por acá: el anillo se expande y el punto se contrae.</p>
+    </div>
+    <div class="card" data-cursor="hover">
+      <h3>Cero dependencias</h3>
+      <p>Vanilla puro. Un rAF, dos divs, sólo transform.</p>
+    </div>
+  </div>
+
+  <a href="#" class="btn">Botón primario</a>
+  <a href="#" class="btn">Botón secundario</a>
+
+  <div class="nota nota-touch">
+    Se desactiva automáticamente en dispositivos táctiles y con
+    <code>prefers-reduced-motion: reduce</code>.
+  </div>
+</div>
+
+<script>
+function iniciarDotFollower(opciones = {}) {
+  const cfg = {
+    colorPunto: '#00e5ff',
+    colorAnillo: 'rgba(0, 229, 255, 0.5)',
+    tamanoPunto: 8,
+    tamanoAnillo: 36,
+    suavidad: 0.15,
+    escalaHover: 1.6,
+    selectorHover: 'a, button, [data-cursor]',
+    ocultarNativo: true,
+    ...opciones,
+  };
+
+  const esTactil = window.matchMedia('(hover: none)').matches;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (esTactil || reduce) return null;
+
+  const punto = document.createElement('div');
+  const anillo = document.createElement('div');
+
+  Object.assign(punto.style, {
+    position: 'fixed', top: '0', left: '0',
+    width: cfg.tamanoPunto + 'px', height: cfg.tamanoPunto + 'px',
+    background: cfg.colorPunto, borderRadius: '50%',
+    pointerEvents: 'none', zIndex: '99999',
+    transform: 'translate3d(-100px,-100px,0)',
+    marginLeft: -(cfg.tamanoPunto / 2) + 'px',
+    marginTop: -(cfg.tamanoPunto / 2) + 'px',
+    transition: 'opacity .25s ease',
+  });
+
+  Object.assign(anillo.style, {
+    position: 'fixed', top: '0', left: '0',
+    width: cfg.tamanoAnillo + 'px', height: cfg.tamanoAnillo + 'px',
+    border: '1px solid ' + cfg.colorAnillo, borderRadius: '50%',
+    pointerEvents: 'none', zIndex: '99998',
+    transform: 'translate3d(-100px,-100px,0)',
+    marginLeft: -(cfg.tamanoAnillo / 2) + 'px',
+    marginTop: -(cfg.tamanoAnillo / 2) + 'px',
+    transition: 'width .3s ease, height .3s ease, margin .3s ease, opacity .25s ease',
+  });
+
+  document.body.appendChild(punto);
+  document.body.appendChild(anillo);
+  if (cfg.ocultarNativo) document.body.style.cursor = 'none';
+
+  let mx = -100, my = -100, ax = -100, ay = -100, rafId = null;
+
+  const onMove = (e) => { mx = e.clientX; my = e.clientY; };
+  const onLeave = () => { punto.style.opacity = '0'; anillo.style.opacity = '0'; };
+  const onEnter = () => { punto.style.opacity = '1'; anillo.style.opacity = '1'; };
+
+  const aplicarHover = (activo) => {
+    const t = activo ? cfg.tamanoAnillo * cfg.escalaHover : cfg.tamanoAnillo;
+    anillo.style.width = t + 'px';
+    anillo.style.height = t + 'px';
+    anillo.style.marginLeft = -(t / 2) + 'px';
+    anillo.style.marginTop = -(t / 2) + 'px';
+    punto.style.opacity = activo ? '0.4' : '1';
+  };
+
+  const onOver = (e) => { if (e.target.closest(cfg.selectorHover)) aplicarHover(true); };
+  const onOut  = (e) => { if (e.target.closest(cfg.selectorHover)) aplicarHover(false); };
+
+  const loop = () => {
+    ax += (mx - ax) * cfg.suavidad;
+    ay += (my - ay) * cfg.suavidad;
+    punto.style.transform  = `translate3d(${mx}px, ${my}px, 0)`;
+    anillo.style.transform = `translate3d(${ax}px, ${ay}px, 0)`;
+    rafId = requestAnimationFrame(loop);
+  };
+
+  window.addEventListener('mousemove', onMove, { passive: true });
+  document.addEventListener('mouseleave', onLeave);
+  document.addEventListener('mouseenter', onEnter);
+  document.addEventListener('mouseover', onOver);
+  document.addEventListener('mouseout', onOut);
+  loop();
+
+  return {
+    destroy() {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseleave', onLeave);
+      document.removeEventListener('mouseenter', onEnter);
+      document.removeEventListener('mouseover', onOver);
+      document.removeEventListener('mouseout', onOut);
+      punto.remove(); anillo.remove();
+      document.body.style.cursor = '';
+    }
+  };
+}
+
+iniciarDotFollower();
+</script>
+
+</body>
+</html>

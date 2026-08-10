@@ -27,3 +27,7 @@ export { default as DifferenceBlend } from "./DifferenceBlend";
 export { default as Flashlight } from "./Flashlight";
 export { default as SpringRing } from "./SpringRing";
 export { default as TextFollower } from "./TextFollower";
+export { default as BubbleRise } from "./BubbleRise";
+export { default as EmojiRain } from "./EmojiRain";
+export { default as ImageFollow } from "./ImageFollow";
+export { default as GooeyBlob } from "./GooeyBlob";

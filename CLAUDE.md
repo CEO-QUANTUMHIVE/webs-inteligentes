@@ -189,15 +189,15 @@ ramas activas (cada rama tiene su grafo). Después de crear un worktree:
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-10 · 619 archivos versionados
+Actualizado: 2026-08-10 · 677 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
-| `clientes/` | 339 | Proyectos Next.js de cada cliente |
-| `plantillas/` | 78 | Plantillas por tipo de negocio |
-| `.claude/` | 59 | — |
+| `clientes/` | 373 | Proyectos Next.js de cada cliente |
+| `plantillas/` | 87 | Plantillas por tipo de negocio |
+| `.claude/` | 60 | — |
 | `habilidades/` | 45 | Skills del pipeline y material de apoyo |
-| `catalogo/` | 29 | — |
+| `catalogo/` | 43 | — |
 | `PROCESOS APRENDIDOS/` | 12 | — |
 | `supabase/` | 11 | — |
 | `scripts/` | 8 | Automatización del repo |

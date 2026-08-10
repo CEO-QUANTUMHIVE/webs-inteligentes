@@ -1,0 +1,75 @@
+{
+  "total_assets_unicos": 96,
+  "dominio_fuente": "cdn.prod.website-files.com",
+  "grupos": [
+    {
+      "grupo": "logo",
+      "archivos": ["hair-cutting.png", "hair-cutting.webp", "Group 1 (3).webp (navbar/footer)", "hairdress 2 (1).webp", "Group 1 (1).webp"],
+      "uso": "hero icono, navbar, footer, newsletter",
+      "licencia": "propietario de la plantilla"
+    },
+    {
+      "grupo": "hero_fondo",
+      "archivos": ["vahid-kanani-4-QaKPwndmw-unsplash.webp + variantes p-500/800/1080/1600"],
+      "uso": "fondo hero con attachment fixed + fondo FAQ",
+      "licencia": "Unsplash (free license)"
+    },
+    {
+      "grupo": "partners_logos",
+      "archivos": ["customers_1..9.svg", "bronx.svg"],
+      "uso": "marquee de sponsors",
+      "licencia": "propietario (marcas ficticias de plantilla)"
+    },
+    {
+      "grupo": "about",
+      "archivos": ["andre-reis-z0Cyh9nGLFY-unsplash.webp"],
+      "uso": "imagen cuadrada seccion about",
+      "licencia": "Unsplash"
+    },
+    {
+      "grupo": "servicios",
+      "archivos": ["2148256925.webp", "2556.webp", "allef-vinicius-IvQeAVeJULw-unsplash.webp", "26254.webp", "antonio-reynoso-_25iXtaa6oY-unsplash.webp", "2150668447.webp", "groomed-bearded-man...webp (middle-image)"],
+      "iconos": ["hair-cutting (1).webp", "facial-massage.webp", "beard-trimming.webp", "hair-cut-tool.webp", "razor (1).webp", "hair-color.webp"],
+      "uso": "hover de service-cards e imagen central",
+      "licencia": "mixta: Unsplash + stock numerico (freepik-like)"
+    },
+    {
+      "grupo": "team",
+      "archivos": ["groomed-bearded-man.webp", "SUPRO1.webp", "Supro2.webp", "105656.webp", "94222.webp", "117384.webp"],
+      "uso": "6 team-cards",
+      "licencia": "stock"
+    },
+    {
+      "grupo": "video_fondo",
+      "archivos": ["3998457-hd_1366_720_50fps-transcode.mp4", ".webm", "poster-00001.jpg"],
+      "uso": "background-video seccion equipo",
+      "licencia": "Pexels video 3998457 (free license)"
+    },
+    {
+      "grupo": "testimonios",
+      "archivos": ["3542.webp", "7091.webp", "18778.webp", "23540.webp", "15187.webp + variantes"],
+      "uso": "avatares tabs + imagen principal",
+      "licencia": "stock"
+    },
+    {
+      "grupo": "blog",
+      "archivos": ["664fa9bb...10150.webp", "664a0d20...20970.webp", "vahid-kanani...unsplash.webp"],
+      "uso": "thumbnails 3 blog-cards (CMS)",
+      "licencia": "stock/Unsplash"
+    },
+    {
+      "grupo": "footer_fondo",
+      "archivos": ["nathon-oski-EW_rqoSdDes-unsplash.webp"],
+      "uso": "fondo footer con gradiente negro",
+      "licencia": "Unsplash"
+    },
+    {
+      "grupo": "redes_sociales",
+      "archivos": ["facebook.webp", "instagram.webp", "twitter (2).webp"],
+      "uso": "iconos sociales team-cards",
+      "licencia": "iconos de marca"
+    }
+  ],
+  "formatos": "webp predominante con variantes responsive p-500/800/1080/1600; svg para logos partners; mp4/webm para video",
+  "decision_recursos": "no se incorporan assets propietarios a la entrega final; ver SOLICITUD_ASSETS.json"
+}

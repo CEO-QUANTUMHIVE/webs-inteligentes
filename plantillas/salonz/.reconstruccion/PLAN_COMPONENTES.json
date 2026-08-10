@@ -1,0 +1,142 @@
+{
+  "base_tecnologica": "plantillas/base-premium (Next.js 16.2.12 + React 19 + TypeScript + CSS Modules)",
+  "dependencias_a_agregar": [
+    { "nombre": "gsap", "version": "^3", "tipo": "dependencies", "proposito": "animaciones scroll-reveal, marquee, contadores, border-draw, hovers avanzados" },
+    { "nombre": "@gsap/react", "version": "^2", "tipo": "dependencies", "proposito": "hook useGSAP para integracion React" },
+    { "nombre": "playwright", "version": "^1", "tipo": "devDependencies", "proposito": "QA visual automatizado (capturas de pantalla)" }
+  ],
+  "estructura_propuesta": {
+    "archivos_css": {
+      "globals.css": "tokens de color, tipografia, reset, variables CSS custom",
+      "page.module.css": "estilos globales del layout (si aplica)",
+      "componentes": "un CSS Module por componente (Navbar.module.css, Hero.module.css, etc.)"
+    },
+    "directorios": {
+      "src/components/Navbar/": "Navbar.tsx + Navbar.module.css",
+      "src/components/Hero/": "Hero.tsx + Hero.module.css",
+      "src/components/PartnersMarquee/": "PartnersMarquee.tsx + PartnersMarquee.module.css",
+      "src/components/About/": "About.tsx + About.module.css",
+      "src/components/Counters/": "Counters.tsx + Counters.module.css",
+      "src/components/Services/": "Services.tsx + Services.module.css",
+      "src/components/Pricing/": "Pricing.tsx + Pricing.module.css",
+      "src/components/Team/": "Team.tsx + Team.module.css",
+      "src/components/FAQ/": "FAQ.tsx + FAQ.module.css",
+      "src/components/Testimonials/": "Testimonials.tsx + Testimonials.module.css",
+      "src/components/Blog/": "Blog.tsx + Blog.module.css",
+      "src/components/Footer/": "Footer.tsx + Footer.module.css",
+      "src/components/shared/": "ButtonHover, SectionTitle, RevealMask"
+    }
+  },
+  "componentes": [
+    {
+      "nombre": "Navbar",
+      "descripcion": "Navegacion sticky con logo central, 2 menus, dropdown, hamburguesa mobile",
+      "tecnologias": ["React", "CSS Modules", "useState para dropdown/hamburger"],
+      "props": ["links: NavLink[]", "logo: string"],
+      "responsive": "colapsa a hamburguesa <991px"
+    },
+    {
+      "nombre": "Hero",
+      "descripcion": "Hero a pantalla completa con fondo parallax (CSS attachment fixed), logo, kicker, H1, parrafo, boton, 3 info-cards",
+      "tecnologias": ["React", "CSS Modules", "GSAP ScrollTrigger (intro animations)"],
+      "props": ["title: string", "subtitle: string", "paragraph: string", "ctaLabel: string", "infoCards: InfoCard[]"]
+    },
+    {
+      "nombre": "PartnersMarquee",
+      "descripcion": "Logos de sponsors con scroll horizontal ligado a scroll de pagina",
+      "tecnologias": ["React", "CSS Modules", "GSAP ScrollTrigger (scrub horizontal)"],
+      "props": ["logos: Logo[]", "duration?: number"]
+    },
+    {
+      "nombre": "About",
+      "descripcion": "2 columnas: imagen con border-draw animado + texto con reveal",
+      "tecnologias": ["React", "CSS Modules", "GSAP ScrollTrigger"],
+      "props": ["heading: string", "paragraph: string", "image: string", "ctaLabel: string", "ctaLink: string"]
+    },
+    {
+      "nombre": "Counters",
+      "descripcion": "4 contadores con efecto odometro animado por scroll",
+      "tecnologias": ["React", "CSS Modules", "GSAP ScrollTrigger"],
+      "props": ["counters: CounterData[] (number, suffix, label)"],
+      "animacion": "columnas de digitos trasladadas verticalmente proporcionalmente al scroll"
+    },
+    {
+      "nombre": "Services",
+      "descripcion": "Grid 3x2 con imagen central + 6 service-cards con hover reveal",
+      "tecnologias": ["React", "CSS Modules", "GSAP ScrollTrigger (stagger)"],
+      "props": ["services: Service[] (title, description, icon)"],
+      "hover": "revela imagen de fondo con overlay"
+    },
+    {
+      "nombre": "Pricing",
+      "descripcion": "3 columnas de listas de precios con headers secundarios",
+      "tecnologias": ["React", "CSS Modules", "GSAP ScrollTrigger"],
+      "props": ["plans: PricingPlan[] (name, services: {name, price}[])"]
+    },
+    {
+      "nombre": "Team",
+      "descripcion": "Grid 3x2 de team-cards + background video",
+      "tecnologias": ["React", "CSS Modules", "GSAP ScrollTrigger"],
+      "props": ["members: TeamMember[] (name, role, image, social: Social[])", "videoSrc: string"]
+    },
+    {
+      "nombre": "FAQ",
+      "descripcion": "5 acordeones FAQ + imagen lateral con card flotante",
+      "tecnologias": ["React", "CSS Modules", "useState (accordion)", "CSS transitions"],
+      "props": ["questions: FAQItem[] (question, answer)", "image: string", "ctaLabel: string"]
+    },
+    {
+      "nombre": "Testimonials",
+      "descripcion": "Tabs con avatares circulares y paneles de testimonios",
+      "tecnologias": ["React", "CSS Modules", "useState (tabs)"],
+      "props": ["testimonials: Testimonial[] (name, role, image, quote)"]
+    },
+    {
+      "nombre": "Blog",
+      "descripcion": "Grid 3 blog-cards con thumbnail, categoria, autor, titulo, resumen",
+      "tecnologias": ["React", "CSS Modules", "GSAP ScrollTrigger (stagger)"],
+      "props": ["posts: BlogPost[] (thumbnail, category, author, title, excerpt, slug)"]
+    },
+    {
+      "nombre": "Footer",
+      "descripcion": "Footer completo con newsletter, 4 bloques de contenido, copyright",
+      "tecnologias": ["React", "CSS Modules"],
+      "props": ["links: FooterLinks", "hours: Schedule[]", "logo: string", "paragraph: string"]
+    }
+  ],
+  "componentes_shared": [
+    {
+      "nombre": "ButtonHover",
+      "descripcion": "Boton con texto flip vertical y fill dorado que sube desde abajo",
+      "props": ["label: string", "variant?: 'primary' | 'secondary'", "href?: string"]
+    },
+    {
+      "nombre": "SectionTitle",
+      "descripcion": "Kicker uppercase + divider + H2 con mask reveal",
+      "props": ["kicker: string", "title: string", "align?: 'left' | 'center'"]
+    },
+    {
+      "nombre": "RevealMask",
+      "descripcion": "Wrapper con overflow hidden para textos que se revelan con GSAP",
+      "props": ["children: ReactNode", "delay?: number", "duration?: number"]
+    }
+  ],
+  "orden_implementacion": [
+    "1. Scaffold proyecto (copiar base-premium)",
+    "2. Globals + tokens CSS + fuentes next/font",
+    "3. Componentes shared (ButtonHover, SectionTitle, RevealMask)",
+    "4. Navbar",
+    "5. Hero",
+    "6. PartnersMarquee",
+    "7. About (border-draw + reveal)",
+    "8. Counters (odometro)",
+    "9. Services (hover reveal)",
+    "10. Pricing",
+    "11. Team + Video",
+    "12. FAQ (acordeon)",
+    "13. Testimonials (tabs)",
+    "14. Blog (cards)",
+    "15. Footer (newsletter + schedule)",
+    "16. QA: lint, build, QA visual"
+  ]
+}

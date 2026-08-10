@@ -1,0 +1,92 @@
+[
+  {
+    "id": "cur-dot-follower",
+    "nombre": "Punto Seguidor con Anillo",
+    "categoria": "cursor",
+    "subcategoria": "seguidor",
+    "version": "1.0.0",
+    "descripcion": "Punto solido que sigue el cursor al instante y un anillo exterior que lo persigue con retardo elastico.",
+    "tecnica": "dom-transform",
+    "dependencias": [],
+    "costoRendimiento": "bajo",
+    "compatibleMovil": true,
+    "respetaReducedMotion": true,
+    "estilosPremium": [
+      "Premium 2 — Minimalismo",
+      "Premium 3 — Neon / Cascada",
+      "Premium 7 — Luxury Gold",
+      "Premium 8 — Cristal / Interactive Glass"
+    ],
+    "nichosSugeridos": ["servicios-pro", "retail", "inmobiliaria", "educacion"],
+    "ruta": "/catalogo/elementos/cursor/dot-follower",
+    "estado": "piloto",
+    "creada": "2026-08-09"
+  },
+  {
+    "id": "cur-spotlight-radial",
+    "nombre": "Spotlight Radial",
+    "categoria": "cursor",
+    "subcategoria": "iluminacion",
+    "version": "1.0.0",
+    "descripcion": "Halo de luz radial que sigue el cursor. Variante global a pagina completa y variante por contenedor.",
+    "tecnica": "css-only",
+    "dependencias": [],
+    "costoRendimiento": "bajo",
+    "compatibleMovil": true,
+    "respetaReducedMotion": true,
+    "estilosPremium": [
+      "Premium 3 — Neon / Cascada",
+      "Premium 7 — Luxury Gold",
+      "Premium 8 — Cristal / Interactive Glass"
+    ],
+    "nichosSugeridos": ["gastronomia", "barberia", "inmobiliaria", "servicios-pro"],
+    "ruta": "/catalogo/elementos/cursor/spotlight-radial",
+    "estado": "piloto",
+    "creada": "2026-08-09"
+  },
+  {
+    "id": "cur-trail-particulas",
+    "nombre": "Estela de Particulas",
+    "categoria": "cursor",
+    "subcategoria": "particulas",
+    "version": "1.0.0",
+    "descripcion": "Particulas emitidas desde el cursor que se desvanecen y caen. Canvas 2D con pool fijo y auto-pausa en reposo.",
+    "tecnica": "canvas-2d",
+    "dependencias": [],
+    "costoRendimiento": "medio",
+    "compatibleMovil": true,
+    "respetaReducedMotion": true,
+    "estilosPremium": [
+      "Premium 3 — Neon / Cascada",
+      "Premium 6 — Canvas Interactivo",
+      "Premium 8 — Cristal / Interactive Glass"
+    ],
+    "nichosSugeridos": ["gastronomia", "retail", "wellness", "educacion"],
+    "ruta": "/catalogo/elementos/cursor/trail-particulas",
+    "estado": "piloto",
+    "creada": "2026-08-09"
+  },
+  {
+    "id": "cur-magnetic-hover",
+    "nombre": "Hover Magnetico",
+    "categoria": "cursor",
+    "subcategoria": "interaccion",
+    "version": "1.0.0",
+    "descripcion": "Elementos que se desplazan hacia el cursor dentro de su radio de atraccion y vuelven con retorno elastico.",
+    "tecnica": "dom-transform",
+    "dependencias": [],
+    "costoRendimiento": "bajo",
+    "compatibleMovil": true,
+    "respetaReducedMotion": true,
+    "estilosPremium": [
+      "Premium 1 — Editorial Premium",
+      "Premium 2 — Minimalismo",
+      "Premium 5 — Organico / Luxury Warm",
+      "Premium 7 — Luxury Gold"
+    ],
+    "nichosSugeridos": ["servicios-pro", "inmobiliaria", "retail", "barberia"],
+    "ruta": "/catalogo/elementos/cursor/magnetic-hover",
+    "estado": "piloto",
+    "creada": "2026-08-09"
+  }
+]

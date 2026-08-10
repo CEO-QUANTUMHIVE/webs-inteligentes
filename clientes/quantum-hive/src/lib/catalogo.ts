@@ -393,6 +393,10 @@ const ELEMENTOS_CANVAS_MOUSE: Efecto[] = [
   { id: "flashlight", nombre: "Flashlight", descripcion: "Oscuridad total con un circulo de luz que sigue al cursor. Revela contenido oculto con flicker realista.", categoria: "Canvas / Mouse Effects", impacto: 5, ideal_para: ["Narrativa", "Misterio", "Heroes"], origen: "propio", es_nuevo: true },
   { id: "spring-ring", nombre: "Spring Ring", descripcion: "Anillo elastico que se estira y comprime segun la velocidad del cursor. Fisica de resorte con deformacion.", categoria: "Canvas / Mouse Effects", impacto: 4, ideal_para: ["Creative", "Playful", "Portfolios"], origen: "propio", es_nuevo: true },
   { id: "text-follower", nombre: "Text Follower", descripcion: "Etiqueta de texto que sigue al cursor con lag. Click para rotar entre distintos labels contextuales.", categoria: "Canvas / Mouse Effects", impacto: 4, ideal_para: ["Landing pages", "Interactividad", "CTAs"], origen: "propio", es_nuevo: true },
+  { id: "bubble-rise", nombre: "Bubble Rise", descripcion: "Burbujas que ascienden desde el cursor con flotacion y wobble. Desaparecen al llegar arriba.", categoria: "Canvas / Mouse Effects", impacto: 4, ideal_para: ["Wellness", "Spa", "Creativo"], origen: "propio", es_nuevo: true },
+  { id: "emoji-rain", nombre: "Emoji Rain", descripcion: "Simbolos que caen desde el cursor con rotacion y gravedad. Estrella fugaz interactiva.", categoria: "Canvas / Mouse Effects", impacto: 4, ideal_para: ["Playful", "Creative", "Landing pages"], origen: "propio", es_nuevo: true },
+  { id: "image-follow", nombre: "Image Follow", descripcion: "Secuencia de formas geometricas en estela con lag diferencial. Cada capa sigue a la anterior.", categoria: "Canvas / Mouse Effects", impacto: 4, ideal_para: ["Portfolios", "Heroes", "Tech"], origen: "propio", es_nuevo: true },
+  { id: "gooey-blob", nombre: "Gooey Blob", descripcion: "Blob organico con capas luminosas que se persiguen. Efecto de masa viscosa con glow aditivo.", categoria: "Canvas / Mouse Effects", impacto: 5, ideal_para: ["Bio", "Wellness", "Creative"], origen: "propio", es_nuevo: true },
 ];
 
 export async function obtenerEfectos(): Promise<Efecto[]> {

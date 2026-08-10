@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spotlight Radial — QuantumHive</title>
+<style>
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{
+    font-family:'Space Grotesk',system-ui,sans-serif;
+    background:#06060a; color:#eeeef5; min-height:100vh;
+  }
+  .qh-spotlight{
+    position:fixed; inset:0; pointer-events:none; z-index:1;
+    opacity:0; transition:opacity .4s ease;
+    background:radial-gradient(circle var(--radio,380px) at var(--mx,50%) var(--my,50%),
+      rgba(0,229,255,.13) 0%, rgba(0,229,255,.05) 40%, transparent 70%);
+  }
+  .qh-spotlight.activo{ opacity:1; }
+  .wrap{ position:relative; z-index:2; max-width:1000px; margin:0 auto; padding:80px 32px; }
+  h1{ font-size:clamp(2rem,6vw,3.5rem); font-weight:700; letter-spacing:-.03em; margin-bottom:16px; }
+  .sub{ color:#8a8aa0; margin-bottom:64px; }
+  h2{ font-size:1.2rem; margin:56px 0 20px; font-weight:600; }
+  .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
+  .qh-spot-card{
+    position:relative; overflow:hidden;
+    border:1px solid rgba(255,255,255,.08); border-radius:16px;
+    padding:32px; background:#0b0b12; isolation:isolate;
+  }
+  .qh-spot-card::before{
+    content:''; position:absolute; inset:0; z-index:-1;
+    opacity:0; transition:opacity .35s ease;
+    background:radial-gradient(circle var(--radio,260px) at var(--mx,50%) var(--my,50%),
+      rgba(0,229,255,.16) 0%, transparent 65%);
+  }
+  .qh-spot-card:hover::before{ opacity:1; }
+  .qh-spot-card:hover{ border-color:rgba(0,229,255,.3); }
+  .qh-spot-card h3{ font-size:1.05rem; margin-bottom:10px; }
+  .qh-spot-card p{ color:#8a8aa0; font-size:.9rem; line-height:1.65; }
+  .nota{
+    margin-top:64px; padding:20px 24px; border-left:2px solid #00e5ff;
+    background:rgba(0,229,255,.04); color:#8a8aa0; font-size:.88rem; line-height:1.7;
+  }
+</style>
+</head>
+<body>
+
+<div class="qh-spotlight"></div>
+
+<div class="wrap">
+  <h1>Spotlight Radial</h1>
+  <p class="sub">Un halo global sigue tu cursor. Las cards tienen el suyo propio en hover.</p>
+
+  <h2>Variante por contenedor</h2>
+  <div class="grid">
+    <div class="qh-spot-card"><h3>Foco local</h3><p>Cada card calcula el halo relativo a su propia caja.</p></div>
+    <div class="qh-spot-card"><h3>Sin canvas</h3><p>Sólo CSS custom properties. El compositor hace el resto.</p></div>
+    <div class="qh-spot-card"><h3>Barato</h3><p>No hay partículas ni bucle por card. Un rAF compartido.</p></div>
+    <div class="qh-spot-card"><h3>Combinable</h3><p>Convive con el spotlight global sin pelearse.</p></div>
+  </div>
+
+  <div class="nota">
+    Desactivado en táctil y con <code>prefers-reduced-motion: reduce</code>.
+  </div>
+</div>
+
+<script>
+function iniciarSpotlight(opciones = {}) {
+  const cfg = { radio:380, suavidad:0.18, selector:'.qh-spotlight', ...opciones };
+  const el = document.querySelector(cfg.selector);
+  if (!el) return null;
+  if (window.matchMedia('(hover: none)').matches) return null;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
+
+  el.style.setProperty('--radio', cfg.radio + 'px');
+
+  let mx = innerWidth/2, my = innerHeight/2, cx = mx, cy = my, rafId = null;
+
+  const onMove = (e) => { mx = e.clientX; my = e.clientY; el.classList.add('activo'); };
+  const onLeave = () => el.classList.remove('activo');
+
+  const loop = () => {
+    cx += (mx - cx) * cfg.suavidad;
+    cy += (my - cy) * cfg.suavidad;
+    el.style.setProperty('--mx', cx + 'px');
+    el.style.setProperty('--my', cy + 'px');
+    rafId = requestAnimationFrame(loop);
+  };
+
+  window.addEventListener('mousemove', onMove, { passive:true });
+  document.addEventListener('mouseleave', onLeave);
+  loop();
+
+  return { destroy(){
+    cancelAnimationFrame(rafId);
+    window.removeEventListener('mousemove', onMove);
+    document.removeEventListener('mouseleave', onLeave);
+    el.classList.remove('activo');
+  }};
+}
+
+function iniciarSpotlightCards(selector, opciones = {}) {
+  const cfg = { radio:260, ...opciones };
+  if (window.matchMedia('(hover: none)').matches) return null;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
+
+  const cards = [...document.querySelectorAll(selector)];
+  let pendiente = null, rafId = null;
+
+  const onMove = (e) => {
+    const card = e.currentTarget;
+    const r = card.getBoundingClientRect();
+    pendiente = { card, x: e.clientX - r.left, y: e.clientY - r.top };
+    if (!rafId) rafId = requestAnimationFrame(aplicar);
+  };
+
+  const aplicar = () => {
+    rafId = null;
+    if (!pendiente) return;
+    pendiente.card.style.setProperty('--mx', pendiente.x + 'px');
+    pendiente.card.style.setProperty('--my', pendiente.y + 'px');
+  };
+
+  cards.forEach(c => {
+    c.style.setProperty('--radio', cfg.radio + 'px');
+    c.addEventListener('mousemove', onMove, { passive:true });
+  });
+
+  return { destroy(){
+    if (rafId) cancelAnimationFrame(rafId);
+    cards.forEach(c => c.removeEventListener('mousemove', onMove));
+  }};
+}
+
+iniciarSpotlight();
+iniciarSpotlightCards('.qh-spot-card');
+</script>
+
+</body>
+</html>

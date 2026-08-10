@@ -1,0 +1,23 @@
+{
+  "id": "cur-trail-particulas",
+  "nombre": "Estela de Particulas",
+  "categoria": "cursor",
+  "subcategoria": "particulas",
+  "version": "1.0.0",
+  "descripcion": "Particulas emitidas desde el cursor que se desvanecen y caen con deriva suave. Canvas 2D con pool fijo, sin acumulacion de memoria.",
+  "tecnica": "canvas-2d",
+  "dependencias": [],
+  "costoRendimiento": "medio",
+  "compatibleMovil": true,
+  "respetaReducedMotion": true,
+  "estilosPremium": [
+    "Premium 3 — Neon / Cascada",
+    "Premium 6 — Canvas Interactivo",
+    "Premium 8 — Cristal / Interactive Glass"
+  ],
+  "nichosSugeridos": ["gastronomia", "retail", "wellness", "educacion"],
+  "ruta": "/catalogo/elementos/cursor/trail-particulas",
+  "estado": "piloto",
+  "creada": "2026-08-09",
+  "fuenteInvestigacion": "Patron de trail en canvas de tholman/cursor-effects (MIT, 4k stars) y 'Trail' de tgomilar/mouse-animations (MIT). Implementacion propia con pool fijo de particulas y pausa automatica en reposo."
+}

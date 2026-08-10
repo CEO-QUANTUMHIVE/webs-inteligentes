@@ -1,0 +1,73 @@
+{
+  "metodo": "analisis estatico de eventos MOUSE_OVER/MOUSE_OUT/CLICK IX2 + transiciones CSS; validacion con playwright en fase QA",
+  "interacciones_mouse": [
+    {
+      "id": "button-hover-flip",
+      "selector": ".button",
+      "eventos": ["MOUSE_OVER", "MOUSE_OUT"],
+      "comportamiento": "button-text-wrapper (height 28px overflow hidden) contiene default-text y hover-text: en hover el texto voltea verticalmente (translateY -100%) mostrando la version blanca; simultaneamente .hover-color (fondo dorado, height 5% anclado abajo) crece hasta 100%",
+      "duraciones": "fill ~.4s ease, texto ~.3s",
+      "variante": ".button.secondary usa hover-color secondary"
+    },
+    {
+      "id": "nav-link-border",
+      "selector": ".nav-link",
+      "eventos": ["MOUSE_OVER", "MOUSE_OUT"],
+      "comportamiento": ".nav-border (dorado, height 0% abajo) crece a 100% cubriendo el link; texto pasa a heading-on-hover; transition color .3s ease-out",
+      "nota": "el border actua como fondo deslizante bajo el texto"
+    },
+    {
+      "id": "service-card-reveal",
+      "selector": ".service-card",
+      "eventos": ["MOUSE_OVER", "MOUSE_OUT"],
+      "comportamiento": ".service-image-wrapper (display none) pasa a visible con imagen + .black-overlay (#0009); texto cambia a blanco; icono se mantiene z-index 1",
+      "transicion": "aparicion de overlays"
+    },
+    {
+      "id": "blog-thumbnail-zoom",
+      "selector": ".blog-card .mask img",
+      "eventos": "hover por CSS",
+      "comportamiento": "transform scale en .blog-thumbnail, transition .4s cubic-bezier(.165,.84,.44,1)",
+      "nota": "mask overflow hidden recorta el zoom"
+    },
+    {
+      "id": "read-more-divider",
+      "selector": ".read-more-link",
+      "eventos": ["MOUSE_OVER", "MOUSE_OUT"],
+      "comportamiento": ".title-divider.black crece en ancho; color del texto cambia, transition color .3s"
+    },
+    {
+      "id": "footer-links-slide",
+      "selector": ".footer-links",
+      "eventos": "hover por CSS",
+      "comportamiento": "border-left 5px transparent -> primary + padding-left aumenta; transition padding .4s cubic-bezier(.23,1,.32,1), border-color .3s"
+    },
+    {
+      "id": "testimonial-avatar",
+      "selector": ".testimonial-tab-link",
+      "eventos": "hover/active",
+      "comportamiento": "avatar circular con borde dashed primary; activo escala (transform) y tab-pane hace fade; transition transform .4s cubic-bezier(.25,.46,.45,.94)"
+    },
+    {
+      "id": "faq-toggle",
+      "selector": ".faq",
+      "eventos": ["MOUSE_CLICK", "MOUSE_SECOND_CLICK", "DROPDOWN_OPEN", "DROPDOWN_CLOSE"],
+      "comportamiento": "click alterna dropdown: contenido expande (height auto), icono plus (2 lineas cruzadas) rota/oculta linea vertical quedando minus; border-color transition .3s"
+    },
+    {
+      "id": "nav-dropdown",
+      "selector": ".nav-dropdown-wrapper",
+      "eventos": ["DROPDOWN_OPEN", "DROPDOWN_CLOSE"],
+      "comportamiento": "submenu con 4 enlaces (Book Appointment/Style-Guide/Change-Log/License), cada uno con hover-divider"
+    },
+    {
+      "id": "hamburger",
+      "selector": ".hamburger-menu",
+      "eventos": "click (mobile)",
+      "comportamiento": "3 lineas -> X, abre nav-menu en overlay"
+    }
+  ],
+  "cursor_personalizado": false,
+  "parallax_mouse": false,
+  "fallback_tactil": "hovers degradan a estados activos/tap; acordeon y tabs funcionan por click"
+}

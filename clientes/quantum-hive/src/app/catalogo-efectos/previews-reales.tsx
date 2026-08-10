@@ -89,6 +89,10 @@ import {
   Flashlight,
   SpringRing,
   TextFollower,
+  BubbleRise,
+  EmojiRain,
+  ImageFollow,
+  GooeyBlob,
 } from "./canvas-effects";
 
 /* ── contenedores ── */
@@ -298,4 +302,8 @@ export const previewsReales: Record<string, React.ComponentType> = {
   "flashlight": () => (<Lleno><Flashlight /></Lleno>),
   "spring-ring": () => (<Lleno><SpringRing /></Lleno>),
   "text-follower": () => (<Lleno><TextFollower /></Lleno>),
+  "bubble-rise": () => (<Lleno><BubbleRise /></Lleno>),
+  "emoji-rain": () => (<Lleno><EmojiRain /></Lleno>),
+  "image-follow": () => (<Lleno><ImageFollow /></Lleno>),
+  "gooey-blob": () => (<Lleno><GooeyBlob /></Lleno>),
 };
