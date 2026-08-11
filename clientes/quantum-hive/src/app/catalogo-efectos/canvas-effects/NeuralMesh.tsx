@@ -12,7 +12,6 @@ interface NeuronNode {
   charge: number;
   targetCharge: number;
   pulsePhase: number;
-  hue: number;
   dendrites: { angle: number; len: number; thickness: number; branches: { angle: number; len: number }[] }[];
   axonTarget: number | null;
   axonAngle: number;
@@ -49,19 +48,13 @@ export default function NeuralMesh({ color, secondaryColor, size = DEFAULTS.size
     let neurons: NeuronNode[] = [];
     let pulses: Pulse[] = [];
     let lastFire = 0;
-    let dragging: number | null = null;
-    let dragOffset = { x: 0, y: 0 };
-
-    const resize = () => {
-      canvas.width = canvas.offsetWidth * devicePixelRatio;
-      canvas.height = canvas.offsetHeight * devicePixelRatio;
-      ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
-      init();
-    };
+    let dragging: NeuronNode | null = null;
+    let dragOff = { x: 0, y: 0 };
 
     const init = () => {
       const w = canvas.offsetWidth;
       const h = canvas.offsetHeight;
+      if (w === 0 || h === 0) return;
       const spacing = 70 * sizeRef.current;
       const cols = Math.ceil(w / spacing) + 1;
       const rows = Math.ceil(h / spacing) + 1;
@@ -98,7 +91,6 @@ export default function NeuralMesh({ color, secondaryColor, size = DEFAULTS.size
             charge: 0,
             targetCharge: 0,
             pulsePhase: Math.random() * Math.PI * 2,
-            hue: Math.random() * 20,
             dendrites,
             axonTarget: null,
             axonAngle: 0,
@@ -130,73 +122,75 @@ export default function NeuralMesh({ color, secondaryColor, size = DEFAULTS.size
       }
     };
 
-    const resizeHandler = () => resize();
+    const resize = () => {
+      canvas.width = canvas.offsetWidth * devicePixelRatio;
+      canvas.height = canvas.offsetHeight * devicePixelRatio;
+      ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+      init();
+    };
 
-    const onMove = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
-
-      if (dragging !== null) {
-        neurons[dragging].x = mouse.x - dragOffset.x;
-        neurons[dragging].y = mouse.y - dragOffset.y;
-        neurons[dragging].baseX = neurons[dragging].x;
-        neurons[dragging].baseY = neurons[dragging].y;
-        neurons[dragging].charge = 0.8;
-        neurons[dragging].targetCharge = 0.8;
+    const findNeuron = (mx: number, my: number): NeuronNode | null => {
+      for (const n of neurons) {
+        const dx = mx - n.x;
+        const dy = my - n.y;
+        if (Math.sqrt(dx * dx + dy * dy) < n.somaRadius * 3) return n;
       }
+      return null;
+    };
+
+    const getPos = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      return { x: e.clientX - rect.left, y: e.clientY - rect.top };
     };
 
     const onDown = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      const mx = e.clientX - rect.left;
-      const my = e.clientY - rect.top;
+      const p = getPos(e);
+      const hit = findNeuron(p.x, p.y);
+      if (hit) {
+        dragging = hit;
+        dragOff.x = p.x - hit.x;
+        dragOff.y = p.y - hit.y;
+        canvas.style.cursor = "grabbing";
+      }
+    };
 
-      for (let i = 0; i < neurons.length; i++) {
-        const n = neurons[i];
-        const dx = mx - n.x;
-        const dy = my - n.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < n.somaRadius * 3) {
-          dragging = i;
-          dragOffset.x = dx;
-          dragOffset.y = dy;
-          canvas.style.cursor = "grabbing";
-          break;
-        }
+    const onMove = (e: MouseEvent) => {
+      const p = getPos(e);
+      mouse.x = p.x;
+      mouse.y = p.y;
+
+      if (dragging) {
+        dragging.x = p.x - dragOff.x;
+        dragging.y = p.y - dragOff.y;
+        dragging.baseX = dragging.x;
+        dragging.baseY = dragging.y;
+        dragging.charge = 0.8;
+        dragging.targetCharge = 0.8;
       }
     };
 
     const onUp = () => {
-      if (dragging !== null) {
-        // Al soltar, disparar energía a las vecinas
-        const n = neurons[dragging];
+      if (dragging) {
         for (let j = 0; j < neurons.length; j++) {
-          if (j === dragging) continue;
-          const dx = neurons[j].x - n.x;
-          const dy = neurons[j].y - n.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 150 * sizeRef.current) {
-            pulses.push({
-              from: dragging,
-              to: j,
-              progress: 0,
-              intensity: 0.9,
-            });
+          if (neurons[j] === dragging) continue;
+          const dx = neurons[j].x - dragging.x;
+          const dy = neurons[j].y - dragging.y;
+          if (Math.sqrt(dx * dx + dy * dy) < 150 * sizeRef.current) {
+            pulses.push({ from: neurons.indexOf(dragging), to: j, progress: 0, intensity: 0.9 });
           }
         }
-        n.charge = 1;
-        n.targetCharge = 1;
+        dragging.charge = 1;
+        dragging.targetCharge = 1;
       }
       dragging = null;
       canvas.style.cursor = "default";
     };
 
-    canvas.addEventListener("mousemove", onMove);
     canvas.addEventListener("mousedown", onDown);
+    canvas.addEventListener("mousemove", onMove);
     canvas.addEventListener("mouseup", onUp);
     canvas.addEventListener("mouseleave", onUp);
-    window.addEventListener("resize", resizeHandler);
+    window.addEventListener("resize", resize);
     resize();
 
     const hexToRgb = (hex: string) => {
@@ -209,73 +203,56 @@ export default function NeuralMesh({ color, secondaryColor, size = DEFAULTS.size
     const draw = (time: number) => {
       const w = canvas.offsetWidth;
       const h = canvas.offsetHeight;
+      if (w === 0 || h === 0) { animId = requestAnimationFrame(draw); return; }
       ctx.clearRect(0, 0, w, h);
       const t = time * 0.001;
 
-      // Activar neuronas cercanas al mouse (si no está arrastrando)
-      if (dragging === null) {
+      if (!dragging) {
         const now = Date.now();
         for (const n of neurons) {
           const dx = mouse.x - n.x;
           const dy = mouse.y - n.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          const radius = 80 * sizeRef.current;
-
-          if (dist < radius) {
-            const charge = (1 - dist / radius) * intensityRef.current;
-            if (charge > n.charge) {
-              n.targetCharge = charge;
-              n.charge = charge;
-            }
+          if (dist < 80 * sizeRef.current) {
+            const charge = (1 - dist / (80 * sizeRef.current)) * intensityRef.current;
+            if (charge > n.charge) { n.targetCharge = charge; n.charge = charge; }
           }
         }
 
-        // Propagar pulsos
         for (let i = 0; i < neurons.length; i++) {
           const n = neurons[i];
           if (n.charge > 0.3 && n.axonTarget !== null && now - lastFire > 50) {
-            const exists = pulses.some(p => p.from === i && p.progress < 1);
-            if (!exists) {
-              pulses.push({
-                from: i,
-                to: n.axonTarget,
-                progress: 0,
-                intensity: n.charge,
-              });
+            if (!pulses.some(p => p.from === i && p.progress < 1)) {
+              pulses.push({ from: i, to: n.axonTarget, progress: 0, intensity: n.charge });
               lastFire = now;
             }
           }
         }
       }
 
-      // Actualizar pulsos
       for (let i = pulses.length - 1; i >= 0; i--) {
         const p = pulses[i];
         p.progress += 0.015 * speedRef.current;
-        if (p.progress >= 1) {
+        if (p.progress >= 1 && neurons[p.to]) {
           neurons[p.to].charge = Math.min(1, neurons[p.to].charge + p.intensity * 0.7);
           neurons[p.to].targetCharge = Math.min(1, neurons[p.to].targetCharge + p.intensity * 0.7);
           pulses.splice(i, 1);
         }
       }
 
-      // Decaimiento suave
       for (const n of neurons) {
         n.charge += (n.targetCharge - n.charge) * 0.08;
         n.targetCharge *= 0.993;
         n.charge *= 0.997;
-
-        // Flotar solo si no se está arrastrando
-        if (dragging === null || neurons[dragging] !== n) {
+        if (!dragging || dragging !== n) {
           n.x = n.baseX + Math.sin(t * 0.3 + n.pulsePhase) * 3;
           n.y = n.baseY + Math.cos(t * 0.4 + n.pulsePhase) * 3;
         }
       }
 
-      // Dibujar conexiones débiles (la red)
       ctx.globalAlpha = 0.05;
       for (const n of neurons) {
-        if (n.axonTarget === null) continue;
+        if (n.axonTarget === null || !neurons[n.axonTarget]) continue;
         const target = neurons[n.axonTarget];
         ctx.beginPath();
         ctx.moveTo(n.baseX, n.baseY);
@@ -286,28 +263,25 @@ export default function NeuralMesh({ color, secondaryColor, size = DEFAULTS.size
       }
       ctx.globalAlpha = 1;
 
-      // Dibujar pulsos
       for (const p of pulses) {
+        if (!neurons[p.from] || !neurons[p.to]) continue;
         const from = neurons[p.from];
         const to = neurons[p.to];
         const fx = from.x + Math.cos(from.axonAngle) * from.somaRadius;
         const fy = from.y + Math.sin(from.axonAngle) * from.somaRadius;
         const tx = to.x;
         const ty = to.y;
-
         const cx = fx + (tx - fx) * p.progress;
         const cy = fy + (ty - fy) * p.progress;
 
         ctx.beginPath();
         ctx.moveTo(fx, fy);
-        const segs = 6;
-        for (let s = 1; s <= segs; s++) {
-          const frac = s / segs;
+        for (let s = 1; s <= 6; s++) {
+          const frac = s / 6;
           if (frac > p.progress) break;
           const lx = fx + (cx - fx) * (frac / p.progress);
           const ly = fy + (cy - fy) * (frac / p.progress);
-          const jitter = (Math.random() - 0.5) * 4;
-          ctx.lineTo(lx + jitter, ly + jitter);
+          ctx.lineTo(lx + (Math.random() - 0.5) * 4, ly + (Math.random() - 0.5) * 4);
         }
         ctx.strokeStyle = secColorRef.current + Math.round(p.intensity * 220).toString(16).padStart(2, "0");
         ctx.lineWidth = 1.5 * p.intensity;
@@ -328,150 +302,121 @@ export default function NeuralMesh({ color, secondaryColor, size = DEFAULTS.size
         ctx.fill();
       }
 
-      // Dibujar neuronas
-      for (let idx = 0; idx < neurons.length; idx++) {
-        const n = neurons[idx];
+      for (const n of neurons) {
         const pulse = Math.sin(t * 2.5 + n.pulsePhase) * 0.1 + 1;
         const alpha = 0.2 + n.charge * 0.8;
         const rgb = hexToRgb(colorRef.current);
-        const isDragged = dragging === idx;
-        const highlight = isDragged ? 0.3 : 0;
+        const isDragged = dragging === n;
+        const hl = isDragged ? 0.3 : 0;
 
-        // Dendritas
         for (const d of n.dendrites) {
-          const startX = n.x + Math.cos(d.angle) * n.somaRadius;
-          const startY = n.y + Math.sin(d.angle) * n.somaRadius;
-
+          const sx = n.x + Math.cos(d.angle) * n.somaRadius;
+          const sy = n.y + Math.sin(d.angle) * n.somaRadius;
           ctx.beginPath();
-          ctx.moveTo(startX, startY);
-          let prevX = startX, prevY = startY;
-          const segs = 5;
-          for (let s = 1; s <= segs; s++) {
-            const frac = s / segs;
+          ctx.moveTo(sx, sy);
+          let px = sx, py = sy;
+          for (let s = 1; s <= 5; s++) {
             const wobble = Math.sin(t * 1.5 + s * 2) * 1.5;
-            const ex = startX + Math.cos(d.angle) * d.len * frac + wobble;
-            const ey = startY + Math.sin(d.angle) * d.len * frac + wobble;
+            const ex = sx + Math.cos(d.angle) * d.len * (s / 5) + wobble;
+            const ey = sy + Math.sin(d.angle) * d.len * (s / 5) + wobble;
             ctx.lineTo(ex, ey);
-            prevX = ex;
-            prevY = ey;
+            px = ex; py = ey;
           }
-          ctx.strokeStyle = colorRef.current + Math.round((alpha + highlight) * 80).toString(16).padStart(2, "0");
+          ctx.strokeStyle = colorRef.current + Math.round((alpha + hl) * 80).toString(16).padStart(2, "0");
           ctx.lineWidth = d.thickness;
           ctx.lineCap = "round";
           ctx.stroke();
 
           for (const b of d.branches) {
-            const bx = startX + Math.cos(d.angle) * d.len * 0.5;
-            const by = startY + Math.sin(d.angle) * d.len * 0.5;
+            const bx = sx + Math.cos(d.angle) * d.len * 0.5;
+            const by = sy + Math.sin(d.angle) * d.len * 0.5;
             ctx.beginPath();
             ctx.moveTo(bx, by);
             ctx.lineTo(bx + Math.cos(b.angle) * b.len, by + Math.sin(b.angle) * b.len);
-            ctx.strokeStyle = colorRef.current + Math.round((alpha + highlight) * 50).toString(16).padStart(2, "0");
+            ctx.strokeStyle = colorRef.current + Math.round((alpha + hl) * 50).toString(16).padStart(2, "0");
             ctx.lineWidth = d.thickness * 0.6;
             ctx.stroke();
           }
         }
 
-        // Axón
-        if (n.axonTarget !== null) {
+        if (n.axonTarget !== null && neurons[n.axonTarget]) {
           const target = neurons[n.axonTarget];
-          const startX = n.x + Math.cos(n.axonAngle) * n.somaRadius;
-          const startY = n.y + Math.sin(n.axonAngle) * n.somaRadius;
-          const endX = target.x - Math.cos(n.axonAngle) * target.somaRadius;
-          const endY = target.y - Math.sin(n.axonAngle) * target.somaRadius;
+          const sx = n.x + Math.cos(n.axonAngle) * n.somaRadius;
+          const sy = n.y + Math.sin(n.axonAngle) * n.somaRadius;
+          const ex = target.x - Math.cos(n.axonAngle) * target.somaRadius;
+          const ey = target.y - Math.sin(n.axonAngle) * target.somaRadius;
 
-          const axonSegs = 8;
-          for (let s = 0; s < axonSegs; s++) {
-            const f1 = s / axonSegs;
-            const f2 = (s + 1) / axonSegs;
-            const x1 = startX + (endX - startX) * f1;
-            const y1 = startY + (endY - startY) * f1;
-            const x2 = startX + (endX - startX) * f2;
-            const y2 = startY + (endY - startY) * f2;
-
+          for (let s = 0; s < 8; s++) {
+            const f1 = s / 8, f2 = (s + 1) / 8;
             ctx.beginPath();
-            ctx.moveTo(x1, y1);
-            ctx.lineTo(x2, y2);
-            if (s % 2 === 0) {
-              ctx.strokeStyle = colorRef.current + Math.round((alpha + highlight) * 40).toString(16).padStart(2, "0");
-              ctx.lineWidth = 2.5;
-            } else {
-              ctx.strokeStyle = `rgba(255,255,255,${(alpha + highlight) * 0.12})`;
-              ctx.lineWidth = 2;
-            }
+            ctx.moveTo(sx + (ex - sx) * f1, sy + (ey - sy) * f1);
+            ctx.lineTo(sx + (ex - sx) * f2, sy + (ey - sy) * f2);
+            ctx.strokeStyle = s % 2 === 0
+              ? colorRef.current + Math.round((alpha + hl) * 40).toString(16).padStart(2, "0")
+              : `rgba(255,255,255,${(alpha + hl) * 0.12})`;
+            ctx.lineWidth = s % 2 === 0 ? 2.5 : 2;
             ctx.lineCap = "round";
             ctx.stroke();
           }
 
-          const termGrad = ctx.createRadialGradient(endX, endY, 0, endX, endY, 3);
-          termGrad.addColorStop(0, secColorRef.current + Math.round((alpha + highlight) * 180).toString(16).padStart(2, "0"));
-          termGrad.addColorStop(1, secColorRef.current + "00");
+          const tg = ctx.createRadialGradient(ex, ey, 0, ex, ey, 3);
+          tg.addColorStop(0, secColorRef.current + Math.round((alpha + hl) * 180).toString(16).padStart(2, "0"));
+          tg.addColorStop(1, secColorRef.current + "00");
           ctx.beginPath();
-          ctx.arc(endX, endY, 3, 0, Math.PI * 2);
-          ctx.fillStyle = termGrad;
+          ctx.arc(ex, ey, 3, 0, Math.PI * 2);
+          ctx.fillStyle = tg;
           ctx.fill();
         }
 
-        // Soma
         const sr = n.somaRadius * pulse;
 
-        const haloGrad = ctx.createRadialGradient(n.x, n.y, sr * 0.5, n.x, n.y, sr * 3.5);
-        haloGrad.addColorStop(0, `rgba(${rgb.r},${rgb.g},${rgb.b},${(alpha + highlight) * 0.25})`);
-        haloGrad.addColorStop(1, `rgba(${rgb.r},${rgb.g},${rgb.b},0)`);
+        const hg = ctx.createRadialGradient(n.x, n.y, sr * 0.5, n.x, n.y, sr * 3.5);
+        hg.addColorStop(0, `rgba(${rgb.r},${rgb.g},${rgb.b},${(alpha + hl) * 0.25})`);
+        hg.addColorStop(1, `rgba(${rgb.r},${rgb.g},${rgb.b},0)`);
         ctx.beginPath();
         ctx.arc(n.x, n.y, sr * 3.5, 0, Math.PI * 2);
-        ctx.fillStyle = haloGrad;
+        ctx.fillStyle = hg;
         ctx.fill();
 
         ctx.beginPath();
-        const memPts = 24;
-        for (let i = 0; i <= memPts; i++) {
-          const a = (i / memPts) * Math.PI * 2;
-          const w1 = Math.sin(a * 6 + t * 0.8) * 0.06;
-          const w2 = Math.sin(a * 4 + t * 1.2) * 0.04;
-          const r = sr * (1 + w1 + w2);
-          const px = n.x + Math.cos(a) * r;
-          const py = n.y + Math.sin(a) * r;
-          if (i === 0) ctx.moveTo(px, py);
-          else ctx.lineTo(px, py);
+        for (let i = 0; i <= 24; i++) {
+          const a = (i / 24) * Math.PI * 2;
+          const w = sr * (1 + Math.sin(a * 6 + t * 0.8) * 0.06 + Math.sin(a * 4 + t * 1.2) * 0.04);
+          const px = n.x + Math.cos(a) * w;
+          const py = n.y + Math.sin(a) * w;
+          if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
         }
         ctx.closePath();
 
-        const somaGrad = ctx.createRadialGradient(
-          n.x - sr * 0.15, n.y - sr * 0.15, 0,
-          n.x, n.y, sr
-        );
-        somaGrad.addColorStop(0, colorRef.current + Math.round((alpha + highlight) * 220).toString(16).padStart(2, "0"));
-        somaGrad.addColorStop(0.5, colorRef.current + Math.round((alpha + highlight) * 140).toString(16).padStart(2, "0"));
-        somaGrad.addColorStop(1, colorRef.current + Math.round((alpha + highlight) * 40).toString(16).padStart(2, "0"));
-        ctx.fillStyle = somaGrad;
+        const sg = ctx.createRadialGradient(n.x - sr * 0.15, n.y - sr * 0.15, 0, n.x, n.y, sr);
+        sg.addColorStop(0, colorRef.current + Math.round((alpha + hl) * 220).toString(16).padStart(2, "0"));
+        sg.addColorStop(0.5, colorRef.current + Math.round((alpha + hl) * 140).toString(16).padStart(2, "0"));
+        sg.addColorStop(1, colorRef.current + Math.round((alpha + hl) * 40).toString(16).padStart(2, "0"));
+        ctx.fillStyle = sg;
         ctx.fill();
-
-        ctx.strokeStyle = colorRef.current + Math.round((alpha + highlight) * 100).toString(16).padStart(2, "0");
+        ctx.strokeStyle = colorRef.current + Math.round((alpha + hl) * 100).toString(16).padStart(2, "0");
         ctx.lineWidth = isDragged ? 2 : 1.2;
         ctx.stroke();
 
-        // Núcleo
         const nr = sr * 0.35;
-        const nucGrad = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, nr);
-        nucGrad.addColorStop(0, `rgba(255,255,255,${(alpha + highlight) * 0.5})`);
-        nucGrad.addColorStop(0.4, colorRef.current + Math.round((alpha + highlight) * 200).toString(16).padStart(2, "0"));
-        nucGrad.addColorStop(1, colorRef.current + Math.round((alpha + highlight) * 60).toString(16).padStart(2, "0"));
+        const ng = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, nr);
+        ng.addColorStop(0, `rgba(255,255,255,${(alpha + hl) * 0.5})`);
+        ng.addColorStop(0.4, colorRef.current + Math.round((alpha + hl) * 200).toString(16).padStart(2, "0"));
+        ng.addColorStop(1, colorRef.current + Math.round((alpha + hl) * 60).toString(16).padStart(2, "0"));
         ctx.beginPath();
         ctx.arc(n.x, n.y, nr, 0, Math.PI * 2);
-        ctx.fillStyle = nucGrad;
+        ctx.fillStyle = ng;
         ctx.fill();
 
         ctx.beginPath();
         ctx.arc(n.x - nr * 0.15, n.y - nr * 0.15, nr * 0.2, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255,255,255,${(alpha + highlight) * 0.6})`;
+        ctx.fillStyle = `rgba(255,255,255,${(alpha + hl) * 0.6})`;
         ctx.fill();
 
-        // Indicador de arrastre
         if (isDragged) {
           ctx.beginPath();
           ctx.arc(n.x, n.y, sr * 2.5, 0, Math.PI * 2);
-          ctx.strokeStyle = `rgba(255,255,255,0.3)`;
+          ctx.strokeStyle = "rgba(255,255,255,0.3)";
           ctx.lineWidth = 1;
           ctx.setLineDash([3, 3]);
           ctx.stroke();
@@ -486,11 +431,11 @@ export default function NeuralMesh({ color, secondaryColor, size = DEFAULTS.size
 
     return () => {
       cancelAnimationFrame(animId);
-      canvas.removeEventListener("mousemove", onMove);
       canvas.removeEventListener("mousedown", onDown);
+      canvas.removeEventListener("mousemove", onMove);
       canvas.removeEventListener("mouseup", onUp);
       canvas.removeEventListener("mouseleave", onUp);
-      window.removeEventListener("resize", resizeHandler);
+      window.removeEventListener("resize", resize);
     };
   }, []);
 
