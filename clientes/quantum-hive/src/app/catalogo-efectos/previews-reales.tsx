@@ -94,6 +94,7 @@ import {
   ImageFollow,
   GooeyBlob,
   NeuronNetwork,
+  RealNeurons,
 } from "./canvas-effects";
 
 /* ── contenedores ── */
@@ -308,4 +309,5 @@ export const previewsReales: Record<string, React.ComponentType> = {
   "image-follow": () => (<Lleno><ImageFollow /></Lleno>),
   "gooey-blob": () => (<Lleno><GooeyBlob /></Lleno>),
   "neuron-network": () => (<Lleno><NeuronNetwork /></Lleno>),
+  "real-neurons": () => (<Lleno><RealNeurons /></Lleno>),
 };

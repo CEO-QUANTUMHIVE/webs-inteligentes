@@ -398,6 +398,7 @@ const ELEMENTOS_CANVAS_MOUSE: Efecto[] = [
   { id: "image-follow", nombre: "Image Follow", descripcion: "Secuencia de formas geometricas en estela con lag diferencial. Cada capa sigue a la anterior.", categoria: "Canvas / Mouse Effects", impacto: 4, ideal_para: ["Portfolios", "Heroes", "Tech"], origen: "propio", es_nuevo: true },
   { id: "gooey-blob", nombre: "Gooey Blob", descripcion: "Blob organico con capas luminosas que se persiguen. Efecto de masa viscosa con glow aditivo.", categoria: "Canvas / Mouse Effects", impacto: 5, ideal_para: ["Bio", "Wellness", "Creative"], origen: "propio", es_nuevo: true },
   { id: "neuron-network", nombre: "Neuron Network", descripcion: "Red de neuronas con conexiones electricas. Pulso de energia que se propaga entre nodos cerebrales con rayos y chispas.", categoria: "Canvas / Mouse Effects", impacto: 5, ideal_para: ["Tech", "AI", "Health", "Science", "Innovation"], origen: "propio", es_nuevo: true },
+  { id: "real-neurons", nombre: "Real Neurons", descripcion: "Neuronas biologicamente realistas con soma, dendritas ramificadas, axon mielinizado y pulsos sinapticos. El mouse activa la propagacion de impulsos electricos entre celulas.", categoria: "Canvas / Mouse Effects", impacto: 5, ideal_para: ["Neuroscience", "Health", "Tech", "AI", "Science", "Innovation"], origen: "propio", es_nuevo: true },
 ];
 
 export async function obtenerEfectos(): Promise<Efecto[]> {

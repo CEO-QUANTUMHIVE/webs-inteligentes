@@ -32,3 +32,4 @@ export { default as EmojiRain } from "./EmojiRain";
 export { default as ImageFollow } from "./ImageFollow";
 export { default as GooeyBlob } from "./GooeyBlob";
 export { default as NeuronNetwork } from "./NeuronNetwork";
+export { default as RealNeurons } from "./RealNeurons";
