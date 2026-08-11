@@ -95,6 +95,7 @@ import {
   GooeyBlob,
   NeuronNetwork,
   RealNeurons,
+  NeuralMesh,
 } from "./canvas-effects";
 
 /* ── contenedores ── */
@@ -310,4 +311,5 @@ export const previewsReales: Record<string, React.ComponentType> = {
   "gooey-blob": () => (<Lleno><GooeyBlob /></Lleno>),
   "neuron-network": () => (<Lleno><NeuronNetwork /></Lleno>),
   "real-neurons": () => (<Lleno><RealNeurons /></Lleno>),
+  "neural-mesh": () => (<Lleno><NeuralMesh /></Lleno>),
 };
