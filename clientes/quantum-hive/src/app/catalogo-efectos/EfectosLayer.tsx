@@ -41,6 +41,7 @@ const EFFECT_COMPONENTS: Record<string, React.ComponentType<Record<string, unkno
   "emoji-rain": dynamic(() => import("./canvas-effects/EmojiRain"), { ssr: false }),
   "image-follow": dynamic(() => import("./canvas-effects/ImageFollow"), { ssr: false }),
   "gooey-blob": dynamic(() => import("./canvas-effects/GooeyBlob"), { ssr: false }),
+  "neuron-network": dynamic(() => import("./canvas-effects/NeuronNetwork"), { ssr: false }),
 };
 
 /**

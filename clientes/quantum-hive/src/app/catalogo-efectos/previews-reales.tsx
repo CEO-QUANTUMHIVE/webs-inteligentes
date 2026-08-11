@@ -93,6 +93,7 @@ import {
   EmojiRain,
   ImageFollow,
   GooeyBlob,
+  NeuronNetwork,
 } from "./canvas-effects";
 
 /* ── contenedores ── */
@@ -306,4 +307,5 @@ export const previewsReales: Record<string, React.ComponentType> = {
   "emoji-rain": () => (<Lleno><EmojiRain /></Lleno>),
   "image-follow": () => (<Lleno><ImageFollow /></Lleno>),
   "gooey-blob": () => (<Lleno><GooeyBlob /></Lleno>),
+  "neuron-network": () => (<Lleno><NeuronNetwork /></Lleno>),
 };

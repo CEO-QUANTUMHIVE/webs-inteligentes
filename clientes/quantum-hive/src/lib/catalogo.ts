@@ -397,6 +397,7 @@ const ELEMENTOS_CANVAS_MOUSE: Efecto[] = [
   { id: "emoji-rain", nombre: "Emoji Rain", descripcion: "Simbolos que caen desde el cursor con rotacion y gravedad. Estrella fugaz interactiva.", categoria: "Canvas / Mouse Effects", impacto: 4, ideal_para: ["Playful", "Creative", "Landing pages"], origen: "propio", es_nuevo: true },
   { id: "image-follow", nombre: "Image Follow", descripcion: "Secuencia de formas geometricas en estela con lag diferencial. Cada capa sigue a la anterior.", categoria: "Canvas / Mouse Effects", impacto: 4, ideal_para: ["Portfolios", "Heroes", "Tech"], origen: "propio", es_nuevo: true },
   { id: "gooey-blob", nombre: "Gooey Blob", descripcion: "Blob organico con capas luminosas que se persiguen. Efecto de masa viscosa con glow aditivo.", categoria: "Canvas / Mouse Effects", impacto: 5, ideal_para: ["Bio", "Wellness", "Creative"], origen: "propio", es_nuevo: true },
+  { id: "neuron-network", nombre: "Neuron Network", descripcion: "Red de neuronas con conexiones electricas. Pulso de energia que se propaga entre nodos cerebrales con rayos y chispas.", categoria: "Canvas / Mouse Effects", impacto: 5, ideal_para: ["Tech", "AI", "Health", "Science", "Innovation"], origen: "propio", es_nuevo: true },
 ];
 
 export async function obtenerEfectos(): Promise<Efecto[]> {
