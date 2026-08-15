@@ -23,11 +23,11 @@ export interface Rubro {
 }
 
 export const RUBROS_DISPONIBLES: Rubro[] = [
-  { id: "todos", nombre: "Todos los Rubros", icono: "✦", descripcion: "Catálogo completo de la Fábrica Web", count: 60 },
+  { id: "todos", nombre: "Todos los Rubros", icono: "✦", descripcion: "Catálogo completo de la Fábrica Web", count: 61 },
   { id: "barberia", nombre: "Barbería", icono: "✂️", descripcion: "Reserva de turnos y estética masculina", count: 7 },
   { id: "gastronomia", nombre: "Gastronomía", icono: "🍽️", descripcion: "Restaurantes, cartas digitales y reservas", count: 8 },
   { id: "inmobiliaria", nombre: "Inmobiliaria", icono: "🏢", descripcion: "Propiedades, catálogo e inversión", count: 7 },
-  { id: "retail", nombre: "Retail & E-commerce", icono: "🛍️", descripcion: "Tiendas físicas, ropa y productos", count: 7 },
+  { id: "retail", nombre: "Retail & E-commerce", icono: "🛍️", descripcion: "Tiendas físicas, ropa y productos", count: 8 },
   { id: "salud", nombre: "Salud & Medicina", icono: "🩺", descripcion: "Clínicas, médicos y turnos online", count: 7 },
   { id: "servicios-pro", nombre: "Servicios Profesionales", icono: "💼", descripcion: "Consultoría, abogados y contadores", count: 7 },
   { id: "wellness", nombre: "Wellness & Estética", icono: "🌿", descripcion: "Spas, centros de belleza y relajación", count: 7 },
@@ -480,6 +480,21 @@ export const PLANTILLAS_REALES_CATALOGO: PlantillaReal[] = [
     colorAcento: "from-pink-400 to-yellow-400",
     servicios: ["Ropa Bebés", "Juguetes Didácticos", "Regalos"],
     efectosPredeterminados: ["Fade Up"]
+  },
+  {
+    id: "retail-p6",
+    nombre: "Haus Studio P6",
+    rubroId: "retail",
+    rubroNombre: "Retail & E-commerce",
+    variante: "P6 Editorial & Fashion Studio",
+    subtitulo: "Estudio de diseño, indumentaria de vanguardia y lookbooks",
+    descripcion: "Estética editorial de alta gama, tipografía Geist/Anton y micro-interacciones nativas.",
+    urlPath: "/catalogo/plantillas/basicas/retail/p6",
+    imagen: "https://cdn.prod.website-files.com/69a3b779dc496975c0b73f42/69a9087cc1f92d54107bfcef_Image_3%20(1).png",
+    badge: "Premium IX2",
+    colorAcento: "from-zinc-400 to-amber-500",
+    servicios: ["Colecciones Cápsula", "Lookbooks Digitales", "Venta Exclusiva"],
+    efectosPredeterminados: ["SplitText", "Custom Cursor", "GSAP Scroll"]
   },
   {
     id: "retail-p7",
