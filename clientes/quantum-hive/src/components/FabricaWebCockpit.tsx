@@ -32,7 +32,9 @@ import {
   Activity,
   Boxes,
   Compass,
-  Radio
+  Radio,
+  EyeOff,
+  Sparkle
 } from "lucide-react";
 import { 
   PLANTILLAS_REALES_CATALOGO, 
@@ -68,9 +70,9 @@ const TOUR_STEPS = [
   },
   {
     step: 3,
-    titulo: "Efectos Canvas & Mouse",
-    mensaje: "Probá activar los Canvas de Fondo (Partículas, Animated Rays, Cyber Matrix Rain) en el panel derecho.",
-    actionText: "Probar Canvas 2D/3D",
+    titulo: "Efectos de Fondo & Cursores",
+    mensaje: "Probá activar los Canvas de Fondo (Partículas, Neural, Matrix) y los Efectos de Cursor en el panel derecho.",
+    actionText: "Probar Efectos",
   },
   {
     step: 4,
@@ -91,60 +93,67 @@ interface CanvasEffectEntry {
   name: string;
   desc: string;
   categoria: string;
+  tipo: "cursor" | "fondo";
 }
 
 const CANVAS_EFFECTS_CATALOG: CanvasEffectEntry[] = [
-  // 🔥 TRAILS
-  { id: "cursor-trail", name: "Cursor Trail", desc: "Estela de partículas que sigue al cursor", categoria: "Trails" },
-  { id: "fire-trail", name: "Fire Trail", desc: "Estela de fuego cinético", categoria: "Trails" },
-  { id: "smoke-trail", name: "Smoke Trail", desc: "Estela de humo difuso", categoria: "Trails" },
-  { id: "rainbow-trail", name: "Rainbow Trail", desc: "Estela de arcoíris multicolor", categoria: "Trails" },
-  { id: "neon-snake", name: "Neon Snake", desc: "Serpiente de neón que sigue al mouse", categoria: "Trails" },
-  // 🎯 CURSORES
-  { id: "magnetic-cursor", name: "Magnetic Cursor", desc: "Cursor magnético con atracción", categoria: "Cursores" },
-  { id: "glow-follower", name: "Glow Follower", desc: "Halo brillante que sigue al puntero", categoria: "Cursores" },
-  { id: "cursor-spotlight", name: "Cursor Spotlight", desc: "Spotlight radial en la posición del mouse", categoria: "Cursores" },
-  { id: "cursor-aurora", name: "Cursor Aurora", desc: "Aurora boreal que sigue al cursor", categoria: "Cursores" },
-  { id: "cursor-vortex", name: "Cursor Vortex", desc: "Vórtice giratorio en el puntero", categoria: "Cursores" },
-  { id: "spring-ring", name: "Spring Ring", desc: "Anillo elástico con física de resorte", categoria: "Cursores" },
-  { id: "text-follower", name: "Text Follower", desc: "Texto que sigue al cursor", categoria: "Cursores" },
-  // ✨ PARTÍCULAS & REDES
-  { id: "constellation", name: "Constellation", desc: "Red de nodos interconectados reactivos", categoria: "Partículas" },
-  { id: "particle-fountain", name: "Particle Fountain", desc: "Fuente de partículas desde el cursor", categoria: "Partículas" },
-  { id: "pixel-scatter", name: "Pixel Scatter", desc: "Dispersión de píxeles reactivos", categoria: "Partículas" },
-  { id: "gravity-wells", name: "Gravity Wells", desc: "Pozos gravitacionales que atraen partículas", categoria: "Partículas" },
-  { id: "bubble-rise", name: "Bubble Rise", desc: "Burbujas que ascienden desde el cursor", categoria: "Partículas" },
-  { id: "starfield-cursor", name: "Starfield Cursor", desc: "Campo de estrellas warp reactivo", categoria: "Partículas" },
-  { id: "shockwave", name: "Shockwave", desc: "Onda expansiva al hacer click", categoria: "Partículas" },
-  { id: "orbital-system", name: "Orbital System", desc: "Sistema orbital con planetas giratorios", categoria: "Partículas" },
-  // 🧠 NEURAL & MESH
-  { id: "neuron-network", name: "Neuron Network", desc: "Red neuronal interactiva", categoria: "Neural" },
-  { id: "real-neurons", name: "Real Neurons", desc: "Neuronas realistas con sinapsis", categoria: "Neural" },
-  { id: "neural-mesh", name: "Neural Mesh", desc: "Malla neuronal con impulsos eléctricos", categoria: "Neural" },
-  // 🌊 FONDOS & FLUIDOS
-  { id: "fluid-warp", name: "Fluid Warp", desc: "Distorsión fluida del espacio", categoria: "Fluidos" },
-  { id: "liquid-blob", name: "Liquid Blob", desc: "Blob líquido orgánico reactivo", categoria: "Fluidos" },
-  { id: "gooey-blob", name: "Gooey Blob", desc: "Masa pegajosa que sigue al mouse", categoria: "Fluidos" },
-  { id: "morphing-grid", name: "Morphing Grid", desc: "Grilla que se deforma con el cursor", categoria: "Fluidos" },
-  { id: "noise-grain", name: "Noise Grain", desc: "Textura de grano/ruido cinematográfico", categoria: "Fluidos" },
-  { id: "flashlight", name: "Flashlight", desc: "Efecto linterna que revela contenido", categoria: "Fluidos" },
-  { id: "difference-blend", name: "Difference Blend", desc: "Mezcla diferencia de colores invertida", categoria: "Fluidos" },
-  // 🎮 ESPECIALES
-  { id: "glitch-cursor", name: "Glitch Cursor", desc: "Efecto glitch digital en el cursor", categoria: "Especiales" },
-  { id: "matrix-cursor", name: "Matrix Cursor", desc: "Lluvia de código Matrix desde el mouse", categoria: "Especiales" },
-  { id: "ripple-click", name: "Ripple Click", desc: "Ondas concéntricas al hacer click", categoria: "Especiales" },
-  { id: "text-scramble", name: "Text Scramble", desc: "Texto que se desordena cerca del cursor", categoria: "Especiales" },
-  { id: "emoji-rain", name: "Emoji Rain", desc: "Lluvia de emojis desde el cursor", categoria: "Especiales" },
-  { id: "image-follow", name: "Image Follow", desc: "Imagen que sigue al puntero", categoria: "Especiales" },
+  // 🎯 CURSORES & TRAILS (Capa Frente / Overlay)
+  { id: "cursor-trail", name: "Cursor Trail", desc: "Estela de partículas que sigue al cursor", categoria: "Trails", tipo: "cursor" },
+  { id: "fire-trail", name: "Fire Trail", desc: "Estela de fuego cinético", categoria: "Trails", tipo: "cursor" },
+  { id: "smoke-trail", name: "Smoke Trail", desc: "Estela de humo difuso", categoria: "Trails", tipo: "cursor" },
+  { id: "rainbow-trail", name: "Rainbow Trail", desc: "Estela de arcoíris multicolor", categoria: "Trails", tipo: "cursor" },
+  { id: "neon-snake", name: "Neon Snake", desc: "Serpiente de neón que sigue al mouse", categoria: "Trails", tipo: "cursor" },
+  
+  { id: "magnetic-cursor", name: "Magnetic Cursor", desc: "Cursor magnético con atracción", categoria: "Cursores", tipo: "cursor" },
+  { id: "glow-follower", name: "Glow Follower", desc: "Halo brillante que sigue al puntero", categoria: "Cursores", tipo: "cursor" },
+  { id: "cursor-spotlight", name: "Cursor Spotlight", desc: "Spotlight radial en la posición del mouse", categoria: "Cursores", tipo: "cursor" },
+  { id: "cursor-aurora", name: "Cursor Aurora", desc: "Aurora boreal que sigue al cursor", categoria: "Cursores", tipo: "cursor" },
+  { id: "cursor-vortex", name: "Cursor Vortex", desc: "Vórtice giratorio en el puntero", categoria: "Cursores", tipo: "cursor" },
+  { id: "spring-ring", name: "Spring Ring", desc: "Anillo elástico con física de resorte", categoria: "Cursores", tipo: "cursor" },
+  { id: "text-follower", name: "Text Follower", desc: "Texto que sigue al cursor", categoria: "Cursores", tipo: "cursor" },
+
+  { id: "glitch-cursor", name: "Glitch Cursor", desc: "Efecto glitch digital en el cursor", categoria: "Especiales", tipo: "cursor" },
+  { id: "ripple-click", name: "Ripple Click", desc: "Ondas concéntricas al hacer click", categoria: "Especiales", tipo: "cursor" },
+  { id: "text-scramble", name: "Text Scramble", desc: "Texto que se desordena cerca del cursor", categoria: "Especiales", tipo: "cursor" },
+  { id: "emoji-rain", name: "Emoji Rain", desc: "Lluvia de emojis desde el cursor", categoria: "Especiales", tipo: "cursor" },
+  { id: "image-follow", name: "Image Follow", desc: "Imagen que sigue al puntero", categoria: "Especiales", tipo: "cursor" },
+
+  // 🌌 FONDOS & PARTÍCULAS (Capa Fondo / Background)
+  { id: "pixel-scatter", name: "Pixel Scatter", desc: "Dispersión de píxeles reactivos detrás del contenido", categoria: "Partículas", tipo: "fondo" },
+  { id: "constellation", name: "Constellation", desc: "Red de nodos interconectados reactivos", categoria: "Partículas", tipo: "fondo" },
+  { id: "particle-fountain", name: "Particle Fountain", desc: "Fuente de partículas desde el cursor", categoria: "Partículas", tipo: "fondo" },
+  { id: "gravity-wells", name: "Gravity Wells", desc: "Pozos gravitacionales que atraen partículas", categoria: "Partículas", tipo: "fondo" },
+  { id: "bubble-rise", name: "Bubble Rise", desc: "Burbujas que ascienden desde el fondo", categoria: "Partículas", tipo: "fondo" },
+  { id: "starfield-cursor", name: "Starfield Cursor", desc: "Campo de estrellas warp espacial", categoria: "Partículas", tipo: "fondo" },
+  { id: "shockwave", name: "Shockwave", desc: "Onda expansiva en el fondo al hacer click", categoria: "Partículas", tipo: "fondo" },
+  { id: "orbital-system", name: "Orbital System", desc: "Sistema orbital con planetas giratorios", categoria: "Partículas", tipo: "fondo" },
+
+  { id: "neuron-network", name: "Neuron Network", desc: "Red neuronal interactiva de fondo", categoria: "Neural", tipo: "fondo" },
+  { id: "real-neurons", name: "Real Neurons", desc: "Neuronas realistas con sinapsis eléctricas", categoria: "Neural", tipo: "fondo" },
+  { id: "neural-mesh", name: "Neural Mesh", desc: "Malla neuronal con impulsos de datos", categoria: "Neural", tipo: "fondo" },
+
+  { id: "matrix-cursor", name: "Matrix Code Rain", desc: "Lluvia de código verde estilo Matrix", categoria: "Matrix", tipo: "fondo" },
+
+  { id: "fluid-warp", name: "Fluid Warp", desc: "Distorsión fluida del espacio", categoria: "Fluidos", tipo: "fondo" },
+  { id: "liquid-blob", name: "Liquid Blob", desc: "Blob líquido orgánico reactivo", categoria: "Fluidos", tipo: "fondo" },
+  { id: "gooey-blob", name: "Gooey Blob", desc: "Masa pegajosa interactiva", categoria: "Fluidos", tipo: "fondo" },
+  { id: "morphing-grid", name: "Morphing Grid", desc: "Grilla que se deforma con el cursor", categoria: "Fluidos", tipo: "fondo" },
+  { id: "noise-grain", name: "Noise Grain", desc: "Textura de grano/ruido cinematográfico", categoria: "Fluidos", tipo: "fondo" },
+  { id: "flashlight", name: "Flashlight", desc: "Efecto linterna que revela el fondo", categoria: "Fluidos", tipo: "fondo" },
+  { id: "difference-blend", name: "Difference Blend", desc: "Mezcla de color invertida de fondo", categoria: "Fluidos", tipo: "fondo" },
 ];
 
-const CANVAS_CATEGORIES = [
+const CURSOR_CATEGORIES = [
   { id: "Trails", nombre: "🔥 Trails & Estelas", color: "text-orange-400" },
-  { id: "Cursores", nombre: "🎯 Cursores", color: "text-cyan-400" },
+  { id: "Cursores", nombre: "🎯 Cursores & Punteros", color: "text-cyan-400" },
+  { id: "Especiales", nombre: "🎮 Efectos Especiales", color: "text-pink-400" },
+];
+
+const FONDO_CATEGORIES = [
   { id: "Partículas", nombre: "✨ Partículas & Redes", color: "text-amber-400" },
   { id: "Neural", nombre: "🧠 Neural & Mesh", color: "text-purple-400" },
+  { id: "Matrix", nombre: "💻 Matrix Code Rain", color: "text-emerald-400" },
   { id: "Fluidos", nombre: "🌊 Fondos & Fluidos", color: "text-blue-400" },
-  { id: "Especiales", nombre: "🎮 Especiales", color: "text-emerald-400" },
 ];
 
 const EFFECT_DYNAMIC_COMPONENTS: Record<string, React.ComponentType<Record<string, unknown>>> = {
@@ -206,12 +215,12 @@ export function FabricaWebCockpit() {
   // Posición en tiempo real del cursor del Mouse
   const [mousePos, setMousePos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
-
-
-  // Estado de canvas mouse effect seleccionado
-  const [canvasMouseEfecto, setCanvasMouseEfecto] = useState<string>("none");
-  const [canvasModo, setCanvasModo] = useState<"fondo" | "frente">("frente");
-  const [categoriasAbiertas, setCategoriasAbiertas] = useState<Record<string, boolean>>({ "Trails": true });
+  // Estados independientes para Fondo y Cursor
+  const [efectoFondo, setEfectoFondo] = useState<string>("pixel-scatter");
+  const [efectoCursor, setEfectoCursor] = useState<string>("none");
+  const [tabEfectos, setTabEfectos] = useState<"fondo" | "cursor">("fondo");
+  const [categoriasFondoAbiertas, setCategoriasFondoAbiertas] = useState<Record<string, boolean>>({ "Partículas": true });
+  const [categoriasCursorAbiertas, setCategoriasCursorAbiertas] = useState<Record<string, boolean>>({ "Trails": true });
 
   // Chat del Agente de la Web Seleccionada
   const [chatOpen, setChatOpen] = useState<boolean>(false);
@@ -238,21 +247,21 @@ export function FabricaWebCockpit() {
           
           setMousePos({ x: parentX, y: parentY });
           
-          // Despachar evento sintético para que los canvas effects lo reciban
           const syntheticEvent = new MouseEvent("mousemove", {
             clientX: parentX,
             clientY: parentY,
             bubbles: true,
           });
           
-          const canvasContainer = document.getElementById("canvas-overlay-container");
-          const canvasEl = canvasContainer?.querySelector("canvas");
-          
-          if (canvasEl) {
-            canvasEl.dispatchEvent(syntheticEvent);
-          } else {
-            window.dispatchEvent(syntheticEvent);
-          }
+          // Despachar a Canvas de Fondo (z-0)
+          const fondoContainer = document.getElementById("canvas-fondo-container");
+          const fondoCanvas = fondoContainer?.querySelector("canvas");
+          if (fondoCanvas) fondoCanvas.dispatchEvent(syntheticEvent);
+
+          // Despachar a Canvas de Cursor (z-20)
+          const cursorContainer = document.getElementById("canvas-cursor-container");
+          const cursorCanvas = cursorContainer?.querySelector("canvas");
+          if (cursorCanvas) cursorCanvas.dispatchEvent(syntheticEvent);
         }
       }
     };
@@ -265,21 +274,19 @@ export function FabricaWebCockpit() {
     };
   }, []);
 
+  // Control de transparencia del iframe según si hay un efecto de fondo activo
   useEffect(() => {
     const iframe = document.getElementById("template-iframe") as HTMLIFrameElement;
     if (iframe && iframe.contentWindow) {
-      // Necesitamos darle un poco de tiempo para que cargue la plantilla antes de enviar
       const timer = setTimeout(() => {
         iframe.contentWindow?.postMessage({
           type: "set-canvas-mode",
-          mode: canvasModo
+          mode: efectoFondo !== "none" ? "fondo" : "normal"
         }, "*");
       }, 500);
       return () => clearTimeout(timer);
     }
-  }, [canvasModo, plantillaSeleccionada]);
-
-
+  }, [efectoFondo, plantillaSeleccionada]);
 
   // Filtrado de plantillas por rubro
   const plantillasFiltradas = rubroSeleccionado === "todos"
@@ -294,8 +301,6 @@ export function FabricaWebCockpit() {
     handleSeleccionarPlantilla(primeraPlantilla);
     setDesplegableRubrosAbierto(false);
   };
-
-
 
   const handleSeleccionarPlantilla = (plantilla: PlantillaReal) => {
     setPlantillaSeleccionada(plantilla);
@@ -329,15 +334,15 @@ export function FabricaWebCockpit() {
 
   const currentTourStep = TOUR_STEPS[pasoTour];
 
+  const EffectFondoComp = efectoFondo !== "none" ? EFFECT_DYNAMIC_COMPONENTS[efectoFondo] : null;
+  const EffectCursorComp = efectoCursor !== "none" ? EFFECT_DYNAMIC_COMPONENTS[efectoCursor] : null;
 
-
+  const currentFondoObj = CANVAS_EFFECTS_CATALOG.find(e => e.id === efectoFondo);
+  const currentCursorObj = CANVAS_EFFECTS_CATALOG.find(e => e.id === efectoCursor);
 
   return (
     <div className="relative min-h-screen bg-[#04060a] text-slate-100 font-sans overflow-x-hidden selection:bg-amber-500/30 selection:text-amber-200 cursor-default">
       
-
-
-
       {/* HEADER SUPERIOR - BRANDING COCKPIT */}
       <header className="relative z-20 border-b border-amber-500/20 bg-[#060911]/90 backdrop-blur-xl px-4 lg:px-8 py-3">
         <div className="max-w-[1800px] mx-auto flex items-center justify-between gap-4">
@@ -373,10 +378,14 @@ export function FabricaWebCockpit() {
               <span className="text-slate-300">MOTOR IA: <span className="text-emerald-400 font-bold">ONLINE</span></span>
             </div>
             <div className="h-3 w-[1px] bg-slate-800" />
-
             <div className="flex items-center gap-2">
               <Zap className="w-3.5 h-3.5 text-cyan-400" />
               <span className="text-slate-300">RUBRO: <span className="text-cyan-400 font-bold uppercase">{rubroActual.nombre}</span></span>
+            </div>
+            <div className="h-3 w-[1px] bg-slate-800" />
+            <div className="flex items-center gap-2">
+              <span className="text-slate-400">FONDO: <span className="text-amber-400 font-bold">{currentFondoObj ? currentFondoObj.name : "OFF"}</span></span>
+              <span className="text-slate-400">CURSOR: <span className="text-cyan-400 font-bold">{currentCursorObj ? currentCursorObj.name : "OFF"}</span></span>
             </div>
           </div>
 
@@ -502,16 +511,16 @@ export function FabricaWebCockpit() {
                         <button
                           key={rb.id}
                           onClick={() => handleSeleccionarRubro(rb.id)}
-                          className={`w-full px-3 py-2 rounded-xl text-xs text-left transition-all flex items-center justify-between ${
+                          className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs transition-all ${
                             activo
-                              ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-extrabold shadow-[0_0_12px_rgba(212,175,55,0.4)]"
-                              : "bg-slate-900/80 border border-slate-800 text-slate-300 hover:border-amber-500/50 hover:bg-slate-800"
+                              ? "bg-amber-500/20 text-amber-300 font-bold border border-amber-500/40"
+                              : "text-slate-300 hover:bg-slate-800/60 hover:text-white"
                           }`}
                         >
-                          <div className="flex items-center gap-2">
-                            <span className="text-base">{rb.icono}</span>
-                            <span className="font-semibold">{rb.nombre}</span>
-                          </div>
+                          <span className="flex items-center gap-2">
+                            <span>{rb.icono}</span>
+                            <span>{rb.nombre}</span>
+                          </span>
                           <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${activo ? "bg-black/30 text-amber-200" : "bg-slate-800 text-slate-400"}`}>
                             {rb.count} webs
                           </span>
@@ -640,29 +649,32 @@ export function FabricaWebCockpit() {
             <div className={`mx-auto transition-all duration-500 ${modoDevice === "mobile" ? "max-w-[380px]" : "w-full"}`}>
               <div className="relative h-[680px] rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden shadow-2xl">
                 
-                {/* IFRAME DE LA WEB REAL COMPLETA SCROLLABLE 100% */}
+                {/* 1. CAPA DE FONDO (CANVAS DETRÁS DE LA WEB: z-0) */}
+                {EffectFondoComp && (
+                  <div id="canvas-fondo-container" className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl z-0">
+                    <EffectFondoComp />
+                  </div>
+                )}
+
+                {/* 2. IFRAME DE LA WEB REAL COMPLETA (z-10) */}
                 <iframe
                   id="template-iframe"
                   key={plantillaSeleccionada.id}
                   src={plantillaSeleccionada.urlPath}
                   title={plantillaSeleccionada.nombre}
-                  className={`w-full h-full border-none relative ${canvasModo === "fondo" ? "z-10" : "z-0"}`}
+                  className="w-full h-full border-none relative z-10"
                 />
 
-                {/* CANVAS MOUSE EFFECT OVERLAY — sobre la plantilla */}
-                {canvasMouseEfecto !== "none" && (() => {
-                  const EffectComp = EFFECT_DYNAMIC_COMPONENTS[canvasMouseEfecto];
-                  if (!EffectComp) return null;
-                  return (
-                    <div id="canvas-overlay-container" className={`pointer-events-none absolute inset-0 overflow-hidden rounded-2xl ${canvasModo === "fondo" ? "z-0" : "z-10"}`}>
-                      <EffectComp />
-                    </div>
-                  );
-                })()}
+                {/* 3. CAPA DE CURSOR (CANVAS ENCIMA DE LA WEB: z-20) */}
+                {EffectCursorComp && (
+                  <div id="canvas-cursor-container" className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl z-20">
+                    <EffectCursorComp />
+                  </div>
+                )}
 
                 {/* BOTÓN FLOTANTE WIDGET AGENTE IA */}
                 <div 
-                  className="absolute bottom-4 right-4 z-20 transition-transform duration-200 hover:scale-110 hover:-translate-y-1"
+                  className="absolute bottom-4 right-4 z-30 transition-transform duration-200 hover:scale-110 hover:-translate-y-1"
                 >
                   <button
                     onClick={() => setChatOpen(!chatOpen)}
@@ -731,117 +743,215 @@ export function FabricaWebCockpit() {
 
         </section>
 
-        {/* COLUMNA DERECHA - PANEL DE CANVASES DE FONDO, MOUSE Y PUBLICACIÓN (3 COLS) */}
+        {/* COLUMNA DERECHA - SECCIÓN DIVIDIDA EN FONDO Y CURSORES (3 COLS) */}
         <aside className="lg:col-span-3 space-y-4">
 
-          {/* PANEL DE CANVAS MOUSE EFFECTS (35 EFECTOS) */}
+          {/* SELECTOR DE PESTAÑAS: CANVAS DE FONDO vs EFECTOS DE CURSOR */}
           <div className="p-4 rounded-2xl bg-[#080d18]/80 border border-slate-800/80 backdrop-blur-xl shadow-xl space-y-3">
-            <div className="flex flex-col gap-3 border-b border-slate-800 pb-3">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <Wand2 className="w-4 h-4 text-amber-400" />
-                  <h3 className="font-['Orbitron',sans-serif] text-xs font-bold text-slate-200 tracking-wider uppercase">
-                    CANVAS MOUSE EFFECTS
-                  </h3>
+            
+            {/* TABS DE EFECTOS */}
+            <div className="flex bg-slate-900/90 rounded-xl p-1 border border-slate-800 gap-1">
+              <button
+                onClick={() => setTabEfectos("fondo")}
+                className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
+                  tabEfectos === "fondo"
+                    ? "bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-[0_0_10px_rgba(245,158,11,0.2)]"
+                    : "text-slate-400 hover:text-slate-200"
+                }`}
+              >
+                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                <span>CANVAS FONDO</span>
+              </button>
+
+              <button
+                onClick={() => setTabEfectos("cursor")}
+                className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
+                  tabEfectos === "cursor"
+                    ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-[0_0_10px_rgba(0,240,255,0.2)]"
+                    : "text-slate-400 hover:text-slate-200"
+                }`}
+              >
+                <MousePointer className="w-3.5 h-3.5 text-cyan-400" />
+                <span>CURSORES & TRAILS</span>
+              </button>
+            </div>
+
+            {/* CONTENIDO DE LA PESTAÑA: CANVAS DE FONDO (DETRÁS) */}
+            {tabEfectos === "fondo" && (
+              <div className="space-y-3">
+                <div className="flex items-center justify-between text-xs px-1">
+                  <span className="font-mono text-[11px] text-slate-400">
+                    ACTIVO: <strong className="text-amber-300 uppercase">{currentFondoObj ? currentFondoObj.name : "NINGUNO"}</strong>
+                  </span>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/30">
+                    CAPA TRASERA (Z-0)
+                  </span>
                 </div>
-                <span className="text-[10px] font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/30">
-                  35 EFFECTS
-                </span>
-              </div>
-              
-              <div className="flex bg-slate-900 rounded-lg p-1 border border-slate-800">
+
                 <button
-                  onClick={() => setCanvasModo("fondo")}
-                  className={`flex-1 py-1 text-[10px] font-bold rounded-md transition-all ${
-                    canvasModo === "fondo" ? "bg-amber-500/20 text-amber-300 shadow-sm" : "text-slate-500 hover:text-slate-300"
+                  onClick={() => setEfectoFondo("none")}
+                  className={`w-full py-2 rounded-xl text-xs font-bold transition-all border ${
+                    efectoFondo === "none"
+                      ? "bg-slate-800 text-white border-slate-600"
+                      : "bg-slate-900/50 text-slate-400 border-slate-800 hover:border-slate-700 hover:bg-slate-800"
                   }`}
                 >
-                  MODO FONDO (DETRÁS)
+                  DESACTIVAR FONDO
                 </button>
-                <button
-                  onClick={() => setCanvasModo("frente")}
-                  className={`flex-1 py-1 text-[10px] font-bold rounded-md transition-all ${
-                    canvasModo === "frente" ? "bg-cyan-500/20 text-cyan-300 shadow-sm" : "text-slate-500 hover:text-slate-300"
-                  }`}
-                >
-                  MODO FRENTE (ENCIMA)
-                </button>
-              </div>
-            </div>
 
-            <button
-              onClick={() => setCanvasMouseEfecto("none")}
-              className={`w-full py-2 rounded-xl text-xs font-bold transition-all border ${
-                canvasMouseEfecto === "none"
-                  ? "bg-slate-800 text-white border-slate-600"
-                  : "bg-slate-900/50 text-slate-400 border-slate-800 hover:border-slate-700 hover:bg-slate-800"
-              }`}
-            >
-              DESACTIVAR TODOS
-            </button>
-
-            <div className="space-y-2 max-h-[400px] overflow-y-auto pr-1 custom-scrollbar">
-              {CANVAS_CATEGORIES.map((cat) => {
-                const isOpen = categoriasAbiertas[cat.id];
-                const effectsInCategory = CANVAS_EFFECTS_CATALOG.filter(e => e.categoria === cat.id);
-                
-                return (
-                  <div key={cat.id} className="border border-slate-800 rounded-xl overflow-hidden bg-slate-900/30">
-                    <button
-                      onClick={() => setCategoriasAbiertas(prev => ({ ...prev, [cat.id]: !prev[cat.id] }))}
-                      className="w-full flex items-center justify-between p-2.5 bg-slate-900/50 hover:bg-slate-800 transition-colors"
-                    >
-                      <span className={`text-xs font-bold ${cat.color}`}>{cat.nombre}</span>
-                      <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform ${isOpen ? "rotate-180" : ""}`} />
-                    </button>
+                <div className="space-y-2 max-h-[380px] overflow-y-auto pr-1 custom-scrollbar">
+                  {FONDO_CATEGORIES.map((cat) => {
+                    const isOpen = categoriasFondoAbiertas[cat.id] ?? true;
+                    const effectsInCategory = CANVAS_EFFECTS_CATALOG.filter(e => e.tipo === "fondo" && e.categoria === cat.id);
                     
-                    <AnimatePresence>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ height: 0 }}
-                          animate={{ height: "auto" }}
-                          exit={{ height: 0 }}
-                          className="overflow-hidden"
+                    return (
+                      <div key={cat.id} className="border border-slate-800 rounded-xl overflow-hidden bg-slate-900/30">
+                        <button
+                          onClick={() => setCategoriasFondoAbiertas(prev => ({ ...prev, [cat.id]: !prev[cat.id] }))}
+                          className="w-full flex items-center justify-between p-2.5 bg-slate-900/50 hover:bg-slate-800 transition-colors"
                         >
-                          <div className="p-2 space-y-1.5 border-t border-slate-800">
-                            {effectsInCategory.map((fx) => {
-                              const isSelected = canvasMouseEfecto === fx.id;
-                              return (
-                                <button
-                                  key={fx.id}
-                                  onClick={() => setCanvasMouseEfecto(fx.id)}
-                                  className={`w-full p-2 rounded-lg border text-left transition-all ${
-                                    isSelected
-                                      ? "bg-amber-500/10 border-amber-500/50 shadow-[0_0_10px_rgba(212,175,55,0.15)]"
-                                      : "bg-transparent border-transparent hover:bg-slate-800/80"
-                                  }`}
-                                >
-                                  <div className="flex items-center gap-2">
-                                    <div className={`w-3 h-3 rounded-full border flex items-center justify-center shrink-0 ${
-                                      isSelected ? "border-amber-400" : "border-slate-600"
-                                    }`}>
-                                      {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-amber-400" />}
-                                    </div>
-                                    <div className="min-w-0">
-                                      <div className={`text-xs font-semibold truncate ${isSelected ? "text-amber-300" : "text-slate-300"}`}>
-                                        {fx.name}
+                          <span className={`text-xs font-bold ${cat.color}`}>{cat.nombre}</span>
+                          <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                        </button>
+                        
+                        <AnimatePresence>
+                          {isOpen && (
+                            <motion.div
+                              initial={{ height: 0 }}
+                              animate={{ height: "auto" }}
+                              exit={{ height: 0 }}
+                              className="overflow-hidden"
+                            >
+                              <div className="p-2 space-y-1.5 border-t border-slate-800">
+                                {effectsInCategory.map((fx) => {
+                                  const isSelected = efectoFondo === fx.id;
+                                  return (
+                                    <button
+                                      key={fx.id}
+                                      onClick={() => setEfectoFondo(fx.id)}
+                                      className={`w-full p-2 rounded-lg border text-left transition-all ${
+                                        isSelected
+                                          ? "bg-amber-500/15 border-amber-500/60 shadow-[0_0_10px_rgba(212,175,55,0.2)]"
+                                          : "bg-transparent border-transparent hover:bg-slate-800/80"
+                                      }`}
+                                    >
+                                      <div className="flex items-center gap-2">
+                                        <div className={`w-3 h-3 rounded-full border flex items-center justify-center shrink-0 ${
+                                          isSelected ? "border-amber-400" : "border-slate-600"
+                                        }`}>
+                                          {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-amber-400" />}
+                                        </div>
+                                        <div className="min-w-0">
+                                          <div className={`text-xs font-semibold truncate ${isSelected ? "text-amber-300" : "text-slate-300"}`}>
+                                            {fx.name}
+                                          </div>
+                                          <div className="text-[9px] text-slate-500 truncate mt-0.5">
+                                            {fx.desc}
+                                          </div>
+                                        </div>
                                       </div>
-                                      <div className="text-[9px] text-slate-500 truncate mt-0.5">
-                                        {fx.desc}
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* CONTENIDO DE LA PESTAÑA: EFECTOS DE CURSOR (SUPERFICIAL) */}
+            {tabEfectos === "cursor" && (
+              <div className="space-y-3">
+                <div className="flex items-center justify-between text-xs px-1">
+                  <span className="font-mono text-[11px] text-slate-400">
+                    ACTIVO: <strong className="text-cyan-300 uppercase">{currentCursorObj ? currentCursorObj.name : "NINGUNO"}</strong>
+                  </span>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
+                    CAPA FRENTE (Z-20)
+                  </span>
+                </div>
+
+                <button
+                  onClick={() => setEfectoCursor("none")}
+                  className={`w-full py-2 rounded-xl text-xs font-bold transition-all border ${
+                    efectoCursor === "none"
+                      ? "bg-slate-800 text-white border-slate-600"
+                      : "bg-slate-900/50 text-slate-400 border-slate-800 hover:border-slate-700 hover:bg-slate-800"
+                  }`}
+                >
+                  DESACTIVAR CURSOR
+                </button>
+
+                <div className="space-y-2 max-h-[380px] overflow-y-auto pr-1 custom-scrollbar">
+                  {CURSOR_CATEGORIES.map((cat) => {
+                    const isOpen = categoriasCursorAbiertas[cat.id] ?? true;
+                    const effectsInCategory = CANVAS_EFFECTS_CATALOG.filter(e => e.tipo === "cursor" && e.categoria === cat.id);
+                    
+                    return (
+                      <div key={cat.id} className="border border-slate-800 rounded-xl overflow-hidden bg-slate-900/30">
+                        <button
+                          onClick={() => setCategoriasCursorAbiertas(prev => ({ ...prev, [cat.id]: !prev[cat.id] }))}
+                          className="w-full flex items-center justify-between p-2.5 bg-slate-900/50 hover:bg-slate-800 transition-colors"
+                        >
+                          <span className={`text-xs font-bold ${cat.color}`}>{cat.nombre}</span>
+                          <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                        </button>
+                        
+                        <AnimatePresence>
+                          {isOpen && (
+                            <motion.div
+                              initial={{ height: 0 }}
+                              animate={{ height: "auto" }}
+                              exit={{ height: 0 }}
+                              className="overflow-hidden"
+                            >
+                              <div className="p-2 space-y-1.5 border-t border-slate-800">
+                                {effectsInCategory.map((fx) => {
+                                  const isSelected = efectoCursor === fx.id;
+                                  return (
+                                    <button
+                                      key={fx.id}
+                                      onClick={() => setEfectoCursor(fx.id)}
+                                      className={`w-full p-2 rounded-lg border text-left transition-all ${
+                                        isSelected
+                                          ? "bg-cyan-500/15 border-cyan-500/60 shadow-[0_0_10px_rgba(0,240,255,0.2)]"
+                                          : "bg-transparent border-transparent hover:bg-slate-800/80"
+                                      }`}
+                                    >
+                                      <div className="flex items-center gap-2">
+                                        <div className={`w-3 h-3 rounded-full border flex items-center justify-center shrink-0 ${
+                                          isSelected ? "border-cyan-400" : "border-slate-600"
+                                        }`}>
+                                          {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-cyan-400" />}
+                                        </div>
+                                        <div className="min-w-0">
+                                          <div className={`text-xs font-semibold truncate ${isSelected ? "text-cyan-300" : "text-slate-300"}`}>
+                                            {fx.name}
+                                          </div>
+                                          <div className="text-[9px] text-slate-500 truncate mt-0.5">
+                                            {fx.desc}
+                                          </div>
+                                        </div>
                                       </div>
-                                    </div>
-                                  </div>
-                                </button>
-                              );
-                            })}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                );
-              })}
-            </div>
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
           </div>
 
           {/* PANEL DE PUBLICACIÓN DEL SITIO (CTA PRINCIPAL) */}
