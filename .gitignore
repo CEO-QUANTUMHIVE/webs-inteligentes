@@ -52,3 +52,7 @@ desktop.ini
 
 # Grafo de conocimiento: generado localmente, se reconstruye con `graphify update .`
 graphify-out/
+
+# Extracciones de webs de referencia (se regeneran con scripts/extraer-efectos.mjs)
+investigacion/
+node_modules/

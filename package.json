@@ -1,0 +1,12 @@
+{
+  "name": "web-factory-herramientas",
+  "private": true,
+  "type": "module",
+  "description": "Herramientas de automatizacion del repo. NO es el proyecto Next.js (ese vive en clientes/quantum-hive).",
+  "scripts": {
+    "extraer-efectos": "node scripts/extraer-efectos.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.0"
+  }
+}
