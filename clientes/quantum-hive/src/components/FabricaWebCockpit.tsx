@@ -221,13 +221,39 @@ export function FabricaWebCockpit() {
   const [publicandoModal, setPublicandoModal] = useState(false);
   const [sitioPublicado, setSitioPublicado] = useState(false);
 
-  // Escuchar posición del Mouse
+  // Escuchar posición del Mouse y eventos del iframe
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePos({ x: e.clientX, y: e.clientY });
     };
+    
+    const handleMessage = (e: MessageEvent) => {
+      if (e.data?.type === "iframe-mousemove") {
+        const iframe = document.getElementById("template-iframe");
+        if (iframe) {
+          const rect = iframe.getBoundingClientRect();
+          const parentX = e.data.clientX + rect.left;
+          const parentY = e.data.clientY + rect.top;
+          
+          setMousePos({ x: parentX, y: parentY });
+          
+          // Despachar evento sintético para que los canvas effects lo reciban
+          const syntheticEvent = new MouseEvent("mousemove", {
+            clientX: parentX,
+            clientY: parentY,
+            bubbles: true,
+          });
+          window.dispatchEvent(syntheticEvent);
+        }
+      }
+    };
+
     window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("message", handleMessage);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("message", handleMessage);
+    };
   }, []);
 
 
@@ -593,6 +619,7 @@ export function FabricaWebCockpit() {
                 
                 {/* IFRAME DE LA WEB REAL COMPLETA SCROLLABLE 100% */}
                 <iframe
+                  id="template-iframe"
                   key={plantillaSeleccionada.id}
                   src={plantillaSeleccionada.urlPath}
                   title={plantillaSeleccionada.nombre}
@@ -604,7 +631,7 @@ export function FabricaWebCockpit() {
                   const EffectComp = EFFECT_DYNAMIC_COMPONENTS[canvasMouseEfecto];
                   if (!EffectComp) return null;
                   return (
-                    <div className="pointer-events-auto absolute inset-0 z-10 overflow-hidden rounded-2xl">
+                    <div className="pointer-events-none absolute inset-0 z-10 overflow-hidden rounded-2xl">
                       <EffectComp />
                     </div>
                   );

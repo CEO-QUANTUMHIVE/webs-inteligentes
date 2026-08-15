@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Orbitron, Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { GlobalMouseTracker } from "@/components/GlobalMouseTracker";
 
 const orbitron = Orbitron({
   variable: "--font-orbitron",
@@ -59,6 +60,7 @@ export default function RootLayout({
       <body
         className={`${orbitron.variable} ${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
+        <GlobalMouseTracker />
         {children}
       </body>
     </html>
