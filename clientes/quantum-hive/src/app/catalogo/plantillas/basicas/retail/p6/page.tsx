@@ -52,6 +52,18 @@ export default function HausPortfolioPage() {
           overflow-x: clip !important;
           overflow-y: visible !important;
           font-family: 'Host Grotesk', 'Geist', sans-serif;
+          cursor: default !important;
+        }
+
+        /* Asegurar que todos los enlaces y botones tengan cursor pointer visible */
+        a, button, input, select, textarea, [role="button"], .nav-link, .primary-button, .secondary-button, .footer-nav-button {
+          cursor: pointer !important;
+        }
+
+        /* Desactivar cursor: none del custom cursor wrapper de Webflow */
+        .custom-cursor-wrapper, .custom-cursor {
+          display: none !important;
+          pointer-events: none !important;
         }
 
         .page-wrapper, .section-preload-hero-wrapper, .section-hero-gallery-wrapper {
@@ -69,12 +81,6 @@ export default function HausPortfolioPage() {
           top: 0;
           z-index: 999;
           backdrop-filter: blur(14px);
-        }
-
-        /* Custom Cursor suave */
-        .custom-cursor-wrapper {
-          pointer-events: none;
-          z-index: 9999;
         }
       `}</style>
 
