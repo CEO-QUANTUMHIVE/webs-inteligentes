@@ -115,6 +115,127 @@ const detectarTecnologias = (page) =>
     };
   });
 
+/**
+ * Estructura tipada + presupuesto vertical.
+ * Mecaniza las lecciones L01, L02, L03 y L12 de la prueba-01: el modelo contaba
+ * <main> como seccion visual, apilaba alturas desde 0 ignorando rect.top real,
+ * y no cerraba el alto del documento. Eso ahora lo calcula y lo verifica el script.
+ */
+const extraerEstructura = (page) =>
+  page.evaluate(() => {
+    const ENVOLTORIOS = new Set(['MAIN', 'BODY', 'HTML']);
+    const alto = document.documentElement.scrollHeight;
+    const desc = (el) => {
+      const r = el.getBoundingClientRect();
+      const s = getComputedStyle(el);
+      return {
+        tag: el.tagName.toLowerCase(),
+        id: el.id || null,
+        clase: (el.className || '').toString().split(' ')[0].slice(0, 40) || null,
+        titulo: el.querySelector('h1,h2,h3')?.textContent?.trim().slice(0, 70) || null,
+        top_px: Math.round(r.top + window.scrollY),
+        alto_px: Math.round(r.height),
+        position: s.position,
+        // L12: una seccion pinned tiene alto visible != alto en flujo
+        pinned: s.position === 'sticky' || s.position === 'fixed',
+      };
+    };
+
+    const todos = [...document.querySelectorAll('body section, body main, body header, body footer, main > div')];
+    const secciones_visuales = [];
+    const contenedores_estructurales = [];
+    const fuera_de_flujo = [];
+
+    for (const el of todos) {
+      const d = desc(el);
+      const s = getComputedStyle(el);
+      if (ENVOLTORIOS.has(el.tagName)) contenedores_estructurales.push(d);
+      else if (s.position === 'fixed') fuera_de_flujo.push(d);
+      else if (d.alto_px > 40) secciones_visuales.push(d);
+    }
+
+    // L03 + L12: el presupuesto vertical se calcula por UNION de intervalos, no sumando
+    // alturas. Sumar hace doble cuenta cuando una seccion esta anidada o es un wrapper
+    // pinned, que es justo el caso que hay que detectar, no esconder.
+    const enFlujo = secciones_visuales.slice().sort((a, b) => a.top_px - b.top_px);
+
+    const solapamientos = [];
+    for (let i = 0; i < enFlujo.length; i++) {
+      for (let j = i + 1; j < enFlujo.length; j++) {
+        const a = enFlujo[i];
+        const b = enFlujo[j];
+        const finA = a.top_px + a.alto_px;
+        if (b.top_px < finA - 2) {
+          const contenida = b.top_px + b.alto_px <= finA + 2;
+          solapamientos.push({
+            exterior: `${a.tag}${a.clase ? '.' + a.clase : ''}@${a.top_px}`,
+            interior: `${b.tag}${b.clase ? '.' + b.clase : ''}@${b.top_px}`,
+            relacion: contenida ? 'anidada' : 'solapada',
+            // L12: un wrapper que contiene otra seccion y mide mucho mas suele ser pin/sticky
+            probable_pin: contenida && a.alto_px > b.alto_px * 1.2,
+          });
+        }
+      }
+    }
+
+    // Union de intervalos cubiertos
+    const fusionados = [];
+    for (const s of enFlujo) {
+      const ini = s.top_px;
+      const fin = s.top_px + s.alto_px;
+      const ultimo = fusionados[fusionados.length - 1];
+      if (ultimo && ini <= ultimo.fin + 2) ultimo.fin = Math.max(ultimo.fin, fin);
+      else fusionados.push({ ini, fin });
+    }
+
+    const huecos = [];
+    let cursor = 0;
+    for (const f of fusionados) {
+      if (f.ini > cursor + 2) huecos.push({ desde_px: cursor, hasta_px: f.ini, alto_px: f.ini - cursor });
+      cursor = Math.max(cursor, f.fin);
+    }
+    if (alto > cursor + 2) huecos.push({ desde_px: cursor, hasta_px: alto, alto_px: alto - cursor });
+
+    const cubiertoPorSecciones = fusionados.reduce((a, f) => a + (f.fin - f.ini), 0);
+    const cubierto = cubiertoPorSecciones + huecos.reduce((a, h) => a + h.alto_px, 0);
+
+    return {
+      document_height_px: alto,
+      secciones_visuales,
+      contenedores_estructurales,
+      fuera_de_flujo,
+      solapamientos,
+      huecos,
+      presupuesto_vertical: {
+        cubierto_por_secciones_px: cubiertoPorSecciones,
+        cubierto_por_huecos_px: huecos.reduce((a, h) => a + h.alto_px, 0),
+        cubierto_px: cubierto,
+        delta_px: Math.abs(alto - cubierto),
+        cierra: Math.abs(alto - cubierto) <= 2,
+      },
+    };
+  });
+
+/**
+ * Clasifica cada script externo. Mecaniza L04 (toda tecnologia necesita evidencia)
+ * y L05 (los trackers se marcan EXCLUIR, nunca se reconstruyen).
+ */
+const clasificarScripts = (page) =>
+  page.evaluate(() => {
+    const TRACKERS = /googletagmanager|google-analytics|gtag\/js|analytics\.js|fbevents|connect\.facebook|logrocket|hotjar|clarity\.ms|segment\.(com|io)|mixpanel|amplitude|intercom|klaviyo|tiktok|pinterest|doubleclick|hubspot|matomo|plausible|posthog|sentry/i;
+    const VISUAL = /gsap|scrolltrigger|lenis|locomotive|three|barba|swiper|splide|lottie|rive|aos|framer-motion|motion|anime|matter/i;
+
+    return [...document.querySelectorAll('script[src]')].map((s) => {
+      const url = s.src;
+      const esTracker = TRACKERS.test(url);
+      return {
+        script_url: url,
+        categoria: esTracker ? 'tracker_o_analytics' : VISUAL.test(url) ? 'tecnologia_visual' : 'runtime_reconstruible',
+        accion_reconstruccion: esTracker ? 'EXCLUIR' : 'EVALUAR',
+      };
+    });
+  });
+
 /** Marca los elementos que vamos a seguir, para poder re-consultarlos con un selector estable. */
 const marcarElementos = (page) =>
   page.evaluate(() => {
@@ -298,7 +419,27 @@ async function main() {
     }
 
     const tecnologias = await detectarTecnologias(page);
+    const scripts = await clasificarScripts(page);
+    const estructura = await extraerEstructura(page);
     const marcados = await marcarElementos(page);
+
+    console.log(
+      `  secciones=${estructura.secciones_visuales.length}` +
+        `  contenedores=${estructura.contenedores_estructurales.length}` +
+        `  fuera-de-flujo=${estructura.fuera_de_flujo.length}`
+    );
+    console.log(
+      `  presupuesto vertical: ${estructura.presupuesto_vertical.cubierto_px}/${estructura.document_height_px}px ` +
+        `${estructura.presupuesto_vertical.cierra ? 'CIERRA' : `NO CIERRA (delta ${estructura.presupuesto_vertical.delta_px}px)`}`
+    );
+    if (estructura.solapamientos.length) {
+      const pins = estructura.solapamientos.filter((s) => s.probable_pin);
+      console.log(
+        `  secciones anidadas/solapadas: ${estructura.solapamientos.length}` +
+          (pins.length ? `  (${pins.length} probable pin/sticky)` : '')
+      );
+      for (const s of pins.slice(0, 3)) console.log(`    pin? ${s.exterior}  contiene  ${s.interior}`);
+    }
     console.log(`  elementos seguidos: ${marcados}\n`);
 
     // ---- barrido de scroll con rueda REAL -----------------------------------
@@ -347,7 +488,23 @@ async function main() {
 
     await writeFile(
       path.join(SALIDA, 'MAPA_TECNOLOGIAS.json'),
-      JSON.stringify({ meta, tecnologias }, null, 2)
+      JSON.stringify(
+        {
+          meta,
+          // L04: nada se declara sin evidencia. Si no hay script_url ni window_var, es hipotesis.
+          nota: 'Toda tecnologia necesita evidencia (script_url o window_var). Sin eso es hipotesis, no dato.',
+          tecnologias,
+          scripts_externos: scripts,
+          // L05: los trackers nunca se reconstruyen
+          excluir_por_tracker: scripts.filter((s) => s.accion_reconstruccion === 'EXCLUIR').map((s) => s.script_url),
+        },
+        null,
+        2
+      )
+    );
+    await writeFile(
+      path.join(SALIDA, 'MAPA_ESTRUCTURA.json'),
+      JSON.stringify({ meta, ...estructura }, null, 2)
     );
     await writeFile(
       path.join(SALIDA, 'MAPA_SCROLL.json'),
