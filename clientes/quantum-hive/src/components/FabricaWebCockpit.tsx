@@ -24,8 +24,10 @@ import {
   Grid,
   ExternalLink,
   ChevronRight,
-  HelpCircle,
-  Play
+  ChevronDown,
+  Play,
+  RotateCcw,
+  Check
 } from "lucide-react";
 import { 
   PLANTILLAS_REALES_CATALOGO, 
@@ -49,19 +51,19 @@ const TOUR_STEPS = [
   {
     step: 1,
     titulo: "¡Bienvenido a la Fábrica Web!",
-    mensaje: "Hola, soy el Agente Anfitrión de Quantum Hive. Para comenzar, elegí el rubro de tu negocio en el panel izquierdo para probar una plantilla real.",
-    actionText: "Entendido, elegir rubro",
+    mensaje: "Desplegá el panel '1. ELEGÍ TU RUBRO' a la izquierda para seleccionar la industria de tu cliente (Barbería, Gastronomía, Ciberseguridad, etc.).",
+    actionText: "Desplegar Rubros",
   },
   {
     step: 2,
-    titulo: "Navegación Real en Iframe",
-    mensaje: "¡Excelente elección! Ahora podés alternar a la 'Vista Real (Iframe)' arriba del monitor para navegar la web real como un usuario.",
-    actionText: "Ver Iframe en vivo",
+    titulo: "Previsualización de Web Completa",
+    mensaje: "¡Excelente! En el panel del medio podés hacer scroll para explorar toda la web completa (Hero, Servicios, Sobre Nosotros, Testimonios y Footer).",
+    actionText: "Explorar Web Completa",
   },
   {
     step: 3,
     titulo: "Efectos Shader Vengeance",
-    mensaje: "Probá activar o desactivar los Efectos Shader en el panel derecho (Glow, Particles, Tilt 3D) para darle el toque ultra-premium.",
+    mensaje: "Probá activar o desactivar los Efectos Shader en el panel derecho (Glow, Particles, Tilt 3D) para simular el acabado ultra-premium.",
     actionText: "Probar Efectos",
   },
   {
@@ -79,10 +81,12 @@ const TOUR_STEPS = [
 ];
 
 export function FabricaWebCockpit() {
-  const [rubroSeleccionado, setRubroSeleccionado] = useState<string>("todos");
-  const [plantillaSeleccionada, setPlantillaSeleccionada] = useState<PlantillaReal>(PLANTILLAS_REALES_CATALOGO[0]);
+  const [rubroSeleccionado, setRubroSeleccionado] = useState<string>("barberia");
+  const [desplegableRubrosAbierto, setDesplegableRubrosAbierto] = useState<boolean>(true);
+  const [plantillaSeleccionada, setPlantillaSeleccionada] = useState<PlantillaReal>(
+    PLANTILLAS_REALES_CATALOGO.find(p => p.rubroId === "barberia") || PLANTILLAS_REALES_CATALOGO[0]
+  );
   const [modalCatálogoAbierto, setModalCatálogoAbierto] = useState<boolean>(false);
-  const [tipoVistaMonitor, setTipoVistaMonitor] = useState<"demo" | "iframe">("demo");
   const [modoDevice, setModoDevice] = useState<"desktop" | "mobile">("desktop");
   const [pasoTour, setPasoTour] = useState<number>(0);
   const [guiaVisible, setGuiaVisible] = useState<boolean>(true);
@@ -100,7 +104,7 @@ export function FabricaWebCockpit() {
   // Chat del Agente de la Web Seleccionada
   const [chatOpen, setChatOpen] = useState<boolean>(false);
   const [mensajesChat, setMensajesChat] = useState<{ sender: "bot" | "user"; text: string }[]>([
-    { sender: "bot", text: "¡Hola! Soy el Agente de IA entrenado para esta web. ¿En qué puedo ayudarte hoy?" }
+    { sender: "bot", text: "¡Hola! Soy el Agente de IA para esta web. ¿En qué puedo ayudarte hoy?" }
   ]);
   const [inputChat, setInputChat] = useState("");
   const [publicandoModal, setPublicandoModal] = useState(false);
@@ -110,6 +114,15 @@ export function FabricaWebCockpit() {
   const plantillasFiltradas = rubroSeleccionado === "todos"
     ? PLANTILLAS_REALES_CATALOGO
     : PLANTILLAS_REALES_CATALOGO.filter(p => p.rubroId === rubroSeleccionado);
+
+  const rubroActual = RUBROS_DISPONIBLES.find(r => r.id === rubroSeleccionado) || RUBROS_DISPONIBLES[0];
+
+  const handleSeleccionarRubro = (rubroId: string) => {
+    setRubroSeleccionado(rubroId);
+    const primeraPlantilla = PLANTILLAS_REALES_CATALOGO.find(p => p.rubroId === rubroId) || PLANTILLAS_REALES_CATALOGO[0];
+    handleSeleccionarPlantilla(primeraPlantilla);
+    setDesplegableRubrosAbierto(false);
+  };
 
   const toggleEfecto = (efecto: string) => {
     setEfectosActivos((prev) => ({ ...prev, [efecto]: !prev[efecto] }));
@@ -184,11 +197,11 @@ export function FabricaWebCockpit() {
                   QUANTUM HIVE
                 </span>
                 <span className="text-xs px-2 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-300 font-mono tracking-widest uppercase">
-                  v2.4 REAL
+                  FÁBRICA WEB
                 </span>
               </div>
               <p className="text-xs text-slate-400 tracking-widest font-mono uppercase">
-                FÁBRICA DE WEBS INTELIGENTES
+                ESTUDIO DE WEBS INTELIGENTES
               </p>
             </div>
           </div>
@@ -207,7 +220,7 @@ export function FabricaWebCockpit() {
             <div className="h-3 w-[1px] bg-slate-800" />
             <div className="flex items-center gap-2">
               <Zap className="w-3.5 h-3.5 text-amber-400" />
-              <span className="text-slate-300">RUBROS: <span className="text-amber-400 font-bold">11 CATEGORÍAS</span></span>
+              <span className="text-slate-300">RUBRO ACTIVO: <span className="text-amber-400 font-bold uppercase">{rubroActual.nombre}</span></span>
             </div>
           </div>
 
@@ -231,7 +244,7 @@ export function FabricaWebCockpit() {
         </div>
       </header>
 
-      {/* WIDGET DEL AGENTE ANFITRIÓN AUTOGUIADO (GUÍA INTERACTIVA PASO A PASO) */}
+      {/* WIDGET DEL AGENTE ANFITRIÓN AUTOGUIADO */}
       <AnimatePresence>
         {guiaVisible && currentTourStep && (
           <motion.div
@@ -285,61 +298,92 @@ export function FabricaWebCockpit() {
       {/* MAIN STUDIO LAYOUT (3 COLUMNAS) */}
       <main className="relative z-10 max-w-[1800px] mx-auto p-3 lg:p-6 grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
         
-        {/* COLUMNA IZQUIERDA - PANEL DE RUBROS Y PLANTILLAS REALES (3 COLS) */}
+        {/* COLUMNA IZQUIERDA - PANEL DESPLEGABLE DE RUBROS Y PLANTILLAS (3 COLS) */}
         <aside className="lg:col-span-3 space-y-4">
           
-          {/* Selector de Rubros */}
-          <div className="p-4 rounded-2xl bg-[#080d18]/80 border border-slate-800/80 backdrop-blur-xl shadow-xl space-y-3">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-              <div className="flex items-center gap-2">
-                <Filter className="w-4 h-4 text-amber-400" />
-                <h3 className="font-['Orbitron',sans-serif] text-sm font-bold text-slate-200 tracking-wider">
-                  RUBRO DE NEGOCIO
-                </h3>
+          {/* PANEL DESPLEGABLE: 1. ELEGÍ TU RUBRO */}
+          <div className="p-4 rounded-2xl bg-[#080d18]/90 border-2 border-amber-500/60 backdrop-blur-xl shadow-[0_0_20px_rgba(212,175,55,0.15)] space-y-3">
+            
+            <button
+              onClick={() => setDesplegableRubrosAbierto(!desplegableRubrosAbierto)}
+              className="w-full flex items-center justify-between text-left group"
+            >
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-400/50 flex items-center justify-center text-amber-300">
+                  <Filter className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="text-[10px] font-mono text-amber-400 tracking-widest uppercase">PASO 1</div>
+                  <h3 className="font-['Orbitron',sans-serif] text-sm font-bold text-white tracking-wider flex items-center gap-2">
+                    ELEGÍ TU RUBRO
+                  </h3>
+                </div>
               </div>
-              <span className="text-[10px] font-mono text-amber-400">11 RUBROS</span>
-            </div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold text-amber-300 px-2 py-0.5 rounded bg-amber-500/20 border border-amber-400/40">
+                  {rubroActual.icono} {rubroActual.nombre}
+                </span>
+                <ChevronDown className={`w-4 h-4 text-amber-400 transition-transform duration-300 ${desplegableRubrosAbierto ? "rotate-180" : ""}`} />
+              </div>
+            </button>
 
-            {/* Chips de Rubros */}
-            <div className="flex flex-wrap gap-1.5 max-h-[140px] overflow-y-auto pr-1 custom-scrollbar">
-              {RUBROS_DISPONIBLES.map((rb) => {
-                const activo = rubroSeleccionado === rb.id;
-                return (
-                  <button
-                    key={rb.id}
-                    onClick={() => setRubroSeleccionado(rb.id)}
-                    className={`px-2.5 py-1 rounded-lg text-xs font-medium transition-all flex items-center gap-1.5 ${
-                      activo
-                        ? "bg-amber-500 text-black font-bold shadow-[0_0_10px_rgba(212,175,55,0.4)]"
-                        : "bg-slate-900 border border-slate-800 text-slate-300 hover:border-slate-700"
-                    }`}
-                  >
-                    <span>{rb.icono}</span>
-                    <span>{rb.nombre}</span>
-                  </button>
-                );
-              })}
-            </div>
+            {/* MENÚ DESPLEGABLE ACCORDEÓN DE RUBROS */}
+            <AnimatePresence>
+              {desplegableRubrosAbierto && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  className="overflow-hidden pt-2 border-t border-slate-800 space-y-1"
+                >
+                  <p className="text-[11px] text-slate-400 mb-2">
+                    Seleccioná la categoría del negocio para ver sus plantillas reales:
+                  </p>
+                  <div className="grid grid-cols-1 gap-1 max-h-[220px] overflow-y-auto pr-1 custom-scrollbar">
+                    {RUBROS_DISPONIBLES.map((rb) => {
+                      const activo = rubroSeleccionado === rb.id;
+                      return (
+                        <button
+                          key={rb.id}
+                          onClick={() => handleSeleccionarRubro(rb.id)}
+                          className={`w-full px-3 py-2 rounded-xl text-xs text-left transition-all flex items-center justify-between ${
+                            activo
+                              ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-extrabold shadow-[0_0_12px_rgba(212,175,55,0.4)]"
+                              : "bg-slate-900/80 border border-slate-800 text-slate-300 hover:border-amber-500/50 hover:bg-slate-800"
+                          }`}
+                        >
+                          <div className="flex items-center gap-2">
+                            <span className="text-base">{rb.icono}</span>
+                            <span className="font-semibold">{rb.nombre}</span>
+                          </div>
+                          <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${activo ? "bg-black/30 text-amber-200" : "bg-slate-800 text-slate-400"}`}>
+                            {rb.count} webs
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
           </div>
 
-          {/* Tarjeta de Lista de Plantillas Reales Filtradas */}
+          {/* TARJETA DE PLANTILLAS DEL RUBRO SELECCIONADO */}
           <div className="p-4 rounded-2xl bg-[#080d18]/80 border border-slate-800/80 backdrop-blur-xl shadow-xl space-y-3">
             <div className="flex items-center justify-between border-b border-slate-800 pb-2">
               <div className="flex items-center gap-2">
                 <Layers className="w-4 h-4 text-cyan-400" />
-                <h3 className="font-['Orbitron',sans-serif] text-sm font-bold text-slate-200 tracking-wider">
-                  PLANTILLAS REALES
+                <h3 className="font-['Orbitron',sans-serif] text-xs font-bold text-slate-200 tracking-wider uppercase">
+                  PLANTILLAS DE {rubroActual.nombre}
                 </h3>
               </div>
-              <button 
-                onClick={() => setModalCatálogoAbierto(true)}
-                className="text-[10px] font-mono text-cyan-400 hover:underline"
-              >
-                VER TODAS ({plantillasFiltradas.length})
-              </button>
+              <span className="text-[10px] font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/30">
+                {plantillasFiltradas.length} OPCIONES
+              </span>
             </div>
 
-            <div className="space-y-2 max-h-[380px] overflow-y-auto pr-1 custom-scrollbar">
+            <div className="space-y-2 max-h-[320px] overflow-y-auto pr-1 custom-scrollbar">
               {plantillasFiltradas.map((item) => {
                 const esActiva = plantillaSeleccionada.id === item.id;
                 return (
@@ -379,7 +423,7 @@ export function FabricaWebCockpit() {
             </div>
           </div>
 
-          {/* Tarjeta de Controles de Animación y Efectos IX2 / GSAP */}
+          {/* CONTROLES DE ANIMACIÓN Y EFECTOS IX2 / GSAP */}
           <div className="p-4 rounded-2xl bg-[#080d18]/80 border border-slate-800/80 backdrop-blur-xl shadow-xl space-y-3">
             <div className="flex items-center justify-between border-b border-slate-800 pb-2">
               <div className="flex items-center gap-2">
@@ -413,7 +457,7 @@ export function FabricaWebCockpit() {
 
         </aside>
 
-        {/* COLUMNA CENTRAL - STAGE MONITOR / PREVENTA & IFRAME REAL (6 COLS) */}
+        {/* COLUMNA CENTRAL - STAGE MONITOR / WEB REAL COMPLETA EN VIVO (6 COLS) */}
         <section className="lg:col-span-6 space-y-4">
           
           {/* Marco del Monitor de Control Principal */}
@@ -428,44 +472,30 @@ export function FabricaWebCockpit() {
             {/* Top Bar del Monitor / Browser Frame */}
             <div className="flex flex-wrap items-center justify-between px-3 py-2 bg-slate-900/90 rounded-xl border border-slate-800 gap-2 mb-3">
               
-              {/* URL & Controles de Modo Monitor */}
+              {/* URL & Estado */}
               <div className="flex items-center gap-2">
                 <div className="flex gap-1.5">
                   <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
                   <span className="w-3 h-3 rounded-full bg-yellow-500/80 inline-block" />
                   <span className="w-3 h-3 rounded-full bg-green-500/80 inline-block" />
                 </div>
-                <span className="text-xs font-mono text-slate-400 ml-2 truncate max-w-[200px] sm:max-w-[280px]">
+                <span className="text-xs font-mono text-cyan-300 ml-2 truncate max-w-[220px] sm:max-w-[340px]">
                   https://quantumhive.app{plantillaSeleccionada.urlPath}
                 </span>
               </div>
 
-              {/* Selector de Modo: Demo Interactiva vs Iframe Real */}
+              {/* Viewport Toggles */}
               <div className="flex items-center gap-2">
-                <div className="flex bg-slate-950 p-1 rounded-lg border border-slate-800">
-                  <button
-                    onClick={() => setTipoVistaMonitor("demo")}
-                    className={`px-3 py-1 rounded-md text-xs font-bold transition-all ${
-                      tipoVistaMonitor === "demo"
-                        ? "bg-cyan-500 text-black shadow-[0_0_10px_rgba(0,212,255,0.4)]"
-                        : "text-slate-400 hover:text-white"
-                    }`}
-                  >
-                    Demo Interactiva
-                  </button>
-                  <button
-                    onClick={() => setTipoVistaMonitor("iframe")}
-                    className={`px-3 py-1 rounded-md text-xs font-bold transition-all ${
-                      tipoVistaMonitor === "iframe"
-                        ? "bg-amber-500 text-black shadow-[0_0_10px_rgba(212,175,55,0.4)]"
-                        : "text-slate-400 hover:text-white"
-                    }`}
-                  >
-                    Vista Real (Iframe)
-                  </button>
-                </div>
-
-                {/* Viewport Toggles */}
+                <a
+                  href={plantillaSeleccionada.urlPath}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-xs font-mono text-amber-300 border border-slate-700 flex items-center gap-1"
+                  title="Abrir en pestaña completa"
+                >
+                  <ExternalLink className="w-3 h-3" />
+                  <span>Pantalla Completa</span>
+                </a>
                 <div className="flex items-center gap-1">
                   <button
                     onClick={() => setModoDevice("desktop")}
@@ -486,100 +516,21 @@ export function FabricaWebCockpit() {
 
             </div>
 
-            {/* LIVE PREVIEW STAGE CONTAINER */}
+            {/* MONITOR CENTRAL CON LA WEB REAL COMPLETA RENDERIZADA */}
             <div className={`mx-auto transition-all duration-500 ${modoDevice === "mobile" ? "max-w-[380px]" : "w-full"}`}>
-              <div className="relative min-h-[540px] rounded-2xl bg-[#090e1a] border border-slate-800 overflow-hidden shadow-2xl flex flex-col justify-between">
+              <div className="relative h-[680px] rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden shadow-2xl">
                 
-                {tipoVistaMonitor === "iframe" ? (
-                  /* VISTA REAL MEDIANTE IFRAME DE LA PLANTILLA EN EL REPOSITORIO */
-                  <div className="w-full h-[540px] bg-slate-950">
-                    <iframe
-                      src={plantillaSeleccionada.urlPath}
-                      title={plantillaSeleccionada.nombre}
-                      className="w-full h-full border-none"
-                    />
-                  </div>
-                ) : (
-                  /* VISTA DEMO INTERACTIVA CUSTOM */
-                  <>
-                    {/* Imagen de Fondo de la Plantilla con Efectos Aplicados */}
-                    <div className="absolute inset-0 z-0">
-                      <img 
-                        src={plantillaSeleccionada.imagen} 
-                        alt="Preview Web" 
-                        className={`w-full h-full object-cover transition-all duration-700 ${efectosActivos["Blur"] ? "blur-sm" : ""} ${efectosActivos["Tilt"] ? "scale-105 rotate-1" : ""}`}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#090e1a] via-[#090e1a]/85 to-transparent" />
-                      
-                      {/* Overlay Partículas / Neón */}
-                      {efectosActivos["Particles"] && (
-                        <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_30%_30%,rgba(0,212,255,0.4),transparent_50%),radial-gradient(circle_at_70%_70%,rgba(212,175,55,0.3),transparent_50%)] animate-pulse" />
-                      )}
-                    </div>
+                {/* IFRAME DE LA WEB REAL COMPLETA SCROLLABLE 100% */}
+                <iframe
+                  key={plantillaSeleccionada.id}
+                  src={plantillaSeleccionada.urlPath}
+                  title={plantillaSeleccionada.nombre}
+                  className={`w-full h-full border-none transition-all duration-500 ${
+                    efectosActivos["Blur"] ? "blur-sm" : ""
+                  }`}
+                />
 
-                    {/* Contenido en Vivo Renderizado dentro de la Plantilla */}
-                    <div className="relative z-10 p-5 md:p-8 flex-1 flex flex-col justify-between">
-                      
-                      {/* Top Bar de la Web Preview */}
-                      <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                        <div className="flex items-center gap-2">
-                          <span className="text-lg font-bold font-['Orbitron',sans-serif] tracking-wider text-white">
-                            {plantillaSeleccionada.nombre}
-                          </span>
-                        </div>
-                        <span className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/40">
-                          {plantillaSeleccionada.badge}
-                        </span>
-                      </div>
-
-                      {/* Hero Content Preview */}
-                      <div className="my-6 space-y-3 max-w-xl">
-                        <motion.div
-                          key={plantillaSeleccionada.id}
-                          initial={{ opacity: 0, y: 15 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5 }}
-                        >
-                          <div className="text-xs font-mono text-cyan-400 tracking-widest uppercase mb-1">
-                            RUBRO: {plantillaSeleccionada.rubroNombre}
-                          </div>
-                          <h2 className="text-2xl md:text-4xl font-extrabold font-['Orbitron',sans-serif] text-white leading-tight">
-                            {plantillaSeleccionada.subtitulo}
-                          </h2>
-                          <p className="text-sm text-slate-300 mt-2 leading-relaxed">
-                            {plantillaSeleccionada.descripcion}
-                          </p>
-                        </motion.div>
-
-                        {/* Botones Interactivos de la Demo */}
-                        <div className="flex flex-wrap gap-3 pt-2">
-                          <a 
-                            href={plantillaSeleccionada.urlPath} 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-bold text-xs hover:scale-105 transition-transform shadow-[0_0_15px_rgba(0,212,255,0.4)] flex items-center gap-2"
-                          >
-                            <span>ABRIR PLANTILLA COMPLETA</span>
-                            <ExternalLink className="w-3.5 h-3.5" />
-                          </a>
-                        </div>
-                      </div>
-
-                      {/* Grid de Servicios en Vivo dentro de la Demo */}
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-white/10">
-                        {plantillaSeleccionada.servicios.map((srv, i) => (
-                          <div key={i} className="p-2.5 rounded-xl bg-slate-900/80 border border-white/10 backdrop-blur-md">
-                            <div className="text-[10px] font-mono text-cyan-400">0{i + 1}. CAPACIDAD</div>
-                            <div className="text-xs font-bold text-slate-100 mt-0.5">{srv}</div>
-                          </div>
-                        ))}
-                      </div>
-
-                    </div>
-                  </>
-                )}
-
-                {/* BOTÓN FLOTANTE WIDGET AGENTE IA INTEGRADO EN LA WEB PREVIEW */}
+                {/* BOTÓN FLOTANTE WIDGET AGENTE IA INTEGRADO */}
                 <div className="absolute bottom-4 right-4 z-20">
                   <button
                     onClick={() => setChatOpen(!chatOpen)}
@@ -591,7 +542,7 @@ export function FabricaWebCockpit() {
                   </button>
                 </div>
 
-                {/* MODAL CHAT BOX DEL AGENTE CONVERSACIONAL DE IA */}
+                {/* CHAT BOX DE CONVERSACIÓN IA */}
                 <AnimatePresence>
                   {chatOpen && (
                     <motion.div
