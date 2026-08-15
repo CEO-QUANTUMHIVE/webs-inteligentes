@@ -14,6 +14,15 @@ interface Wisp {
   rotSpeed: number;
 }
 
+/** "#f59e0b" -> [245, 158, 11]. Devuelve null si no hay color, para caer al gris por defecto. */
+function hexARgb(hex?: string): [number, number, number] | null {
+  if (!hex) return null;
+  const m = /^#?([\da-f]{3}|[\da-f]{6})$/i.exec(hex.trim());
+  if (!m) return null;
+  const h = m[1].length === 3 ? m[1].replace(/./g, (c) => c + c) : m[1];
+  return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)];
+}
+
 export default function SmokeTrail({ color, secondaryColor, size = DEFAULTS.size, speed = DEFAULTS.speed, intensity = DEFAULTS.intensity }: CursorEffectProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const colorRef = useRef(color || DEFAULTS.color);
@@ -21,6 +30,11 @@ export default function SmokeTrail({ color, secondaryColor, size = DEFAULTS.size
   const sizeRef = useRef(size);
   const speedRef = useRef(speed);
   const intensityRef = useRef(intensity);
+
+  // El humo se tiñe solo si se pasa `color` explicitamente. Sin prop queda
+  // null y el gradiente usa el gris de siempre, asi el catalogo no cambia.
+  const tintaRef = useRef<[number, number, number] | null>(hexARgb(color));
+  useEffect(() => { tintaRef.current = hexARgb(color); }, [color]);
 
   useEffect(() => { colorRef.current = color || DEFAULTS.color; }, [color]);
   useEffect(() => { secondaryColorRef.current = secondaryColor || DEFAULTS.secondaryColor; }, [secondaryColor]);
@@ -93,10 +107,16 @@ export default function SmokeTrail({ color, secondaryColor, size = DEFAULTS.size
         ctx.translate(wisp.x, wisp.y);
         ctx.rotate(wisp.rotation);
 
+        // Si no se pasa `color`, el humo queda gris azulado como siempre.
+        // Con `color`, toma ese tono manteniendo la misma caida de luminosidad.
+        const [hr, hg, hb] = tintaRef.current ?? [180, 180, 200];
+        const oscurecer = (f: number) =>
+          `${Math.round(hr * f)}, ${Math.round(hg * f)}, ${Math.round(hb * f)}`;
+
         const grad = ctx.createRadialGradient(0, 0, 0, 0, 0, wisp.size);
-        grad.addColorStop(0, `rgba(180, 180, 200, ${wisp.life * 0.3 * intensityRef.current})`);
-        grad.addColorStop(0.5, `rgba(140, 140, 160, ${wisp.life * 0.15 * intensityRef.current})`);
-        grad.addColorStop(1, `rgba(100, 100, 120, 0)`);
+        grad.addColorStop(0, `rgba(${oscurecer(1)}, ${wisp.life * 0.3 * intensityRef.current})`);
+        grad.addColorStop(0.5, `rgba(${oscurecer(0.78)}, ${wisp.life * 0.15 * intensityRef.current})`);
+        grad.addColorStop(1, `rgba(${oscurecer(0.56)}, 0)`);
         ctx.beginPath();
         ctx.arc(0, 0, wisp.size, 0, Math.PI * 2);
         ctx.fillStyle = grad;

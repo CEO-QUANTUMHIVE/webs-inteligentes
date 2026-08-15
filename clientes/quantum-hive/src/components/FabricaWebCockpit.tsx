@@ -683,10 +683,6 @@ export function FabricaWebCockpit() {
 
         {/* COLUMNA DERECHA - PANEL DE CANVASES DE FONDO, MOUSE Y PUBLICACIÓN (3 COLS) */}
         <aside className="lg:col-span-3 space-y-4">
-          
-          </div>
-
-
 
           {/* PANEL DE CANVAS MOUSE EFFECTS (35 EFECTOS) */}
           <div className="p-4 rounded-2xl bg-[#080d18]/80 border border-slate-800/80 backdrop-blur-xl shadow-xl space-y-3">
