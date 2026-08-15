@@ -40,6 +40,7 @@ import {
   PlantillaReal, 
   Rubro 
 } from "@/lib/plantillasCatalog";
+import dynamic from "next/dynamic";
 
 // Pasos del Pipeline de Creación
 const PIPELINE_STEPS = [
@@ -85,6 +86,111 @@ const TOUR_STEPS = [
   }
 ];
 
+interface CanvasEffectEntry {
+  id: string;
+  name: string;
+  desc: string;
+  categoria: string;
+}
+
+const CANVAS_EFFECTS_CATALOG: CanvasEffectEntry[] = [
+  // 🔥 TRAILS
+  { id: "cursor-trail", name: "Cursor Trail", desc: "Estela de partículas que sigue al cursor", categoria: "Trails" },
+  { id: "fire-trail", name: "Fire Trail", desc: "Estela de fuego cinético", categoria: "Trails" },
+  { id: "smoke-trail", name: "Smoke Trail", desc: "Estela de humo difuso", categoria: "Trails" },
+  { id: "rainbow-trail", name: "Rainbow Trail", desc: "Estela de arcoíris multicolor", categoria: "Trails" },
+  { id: "neon-snake", name: "Neon Snake", desc: "Serpiente de neón que sigue al mouse", categoria: "Trails" },
+  // 🎯 CURSORES
+  { id: "magnetic-cursor", name: "Magnetic Cursor", desc: "Cursor magnético con atracción", categoria: "Cursores" },
+  { id: "glow-follower", name: "Glow Follower", desc: "Halo brillante que sigue al puntero", categoria: "Cursores" },
+  { id: "cursor-spotlight", name: "Cursor Spotlight", desc: "Spotlight radial en la posición del mouse", categoria: "Cursores" },
+  { id: "cursor-aurora", name: "Cursor Aurora", desc: "Aurora boreal que sigue al cursor", categoria: "Cursores" },
+  { id: "cursor-vortex", name: "Cursor Vortex", desc: "Vórtice giratorio en el puntero", categoria: "Cursores" },
+  { id: "spring-ring", name: "Spring Ring", desc: "Anillo elástico con física de resorte", categoria: "Cursores" },
+  { id: "text-follower", name: "Text Follower", desc: "Texto que sigue al cursor", categoria: "Cursores" },
+  // ✨ PARTÍCULAS & REDES
+  { id: "constellation", name: "Constellation", desc: "Red de nodos interconectados reactivos", categoria: "Partículas" },
+  { id: "particle-fountain", name: "Particle Fountain", desc: "Fuente de partículas desde el cursor", categoria: "Partículas" },
+  { id: "pixel-scatter", name: "Pixel Scatter", desc: "Dispersión de píxeles reactivos", categoria: "Partículas" },
+  { id: "gravity-wells", name: "Gravity Wells", desc: "Pozos gravitacionales que atraen partículas", categoria: "Partículas" },
+  { id: "bubble-rise", name: "Bubble Rise", desc: "Burbujas que ascienden desde el cursor", categoria: "Partículas" },
+  { id: "starfield-cursor", name: "Starfield Cursor", desc: "Campo de estrellas warp reactivo", categoria: "Partículas" },
+  { id: "shockwave", name: "Shockwave", desc: "Onda expansiva al hacer click", categoria: "Partículas" },
+  { id: "orbital-system", name: "Orbital System", desc: "Sistema orbital con planetas giratorios", categoria: "Partículas" },
+  // 🧠 NEURAL & MESH
+  { id: "neuron-network", name: "Neuron Network", desc: "Red neuronal interactiva", categoria: "Neural" },
+  { id: "real-neurons", name: "Real Neurons", desc: "Neuronas realistas con sinapsis", categoria: "Neural" },
+  { id: "neural-mesh", name: "Neural Mesh", desc: "Malla neuronal con impulsos eléctricos", categoria: "Neural" },
+  // 🌊 FONDOS & FLUIDOS
+  { id: "fluid-warp", name: "Fluid Warp", desc: "Distorsión fluida del espacio", categoria: "Fluidos" },
+  { id: "liquid-blob", name: "Liquid Blob", desc: "Blob líquido orgánico reactivo", categoria: "Fluidos" },
+  { id: "gooey-blob", name: "Gooey Blob", desc: "Masa pegajosa que sigue al mouse", categoria: "Fluidos" },
+  { id: "morphing-grid", name: "Morphing Grid", desc: "Grilla que se deforma con el cursor", categoria: "Fluidos" },
+  { id: "noise-grain", name: "Noise Grain", desc: "Textura de grano/ruido cinematográfico", categoria: "Fluidos" },
+  { id: "flashlight", name: "Flashlight", desc: "Efecto linterna que revela contenido", categoria: "Fluidos" },
+  { id: "difference-blend", name: "Difference Blend", desc: "Mezcla diferencia de colores invertida", categoria: "Fluidos" },
+  // 🎮 ESPECIALES
+  { id: "glitch-cursor", name: "Glitch Cursor", desc: "Efecto glitch digital en el cursor", categoria: "Especiales" },
+  { id: "matrix-cursor", name: "Matrix Cursor", desc: "Lluvia de código Matrix desde el mouse", categoria: "Especiales" },
+  { id: "ripple-click", name: "Ripple Click", desc: "Ondas concéntricas al hacer click", categoria: "Especiales" },
+  { id: "text-scramble", name: "Text Scramble", desc: "Texto que se desordena cerca del cursor", categoria: "Especiales" },
+  { id: "emoji-rain", name: "Emoji Rain", desc: "Lluvia de emojis desde el cursor", categoria: "Especiales" },
+  { id: "image-follow", name: "Image Follow", desc: "Imagen que sigue al puntero", categoria: "Especiales" },
+];
+
+const CANVAS_CATEGORIES = [
+  { id: "Trails", nombre: "🔥 Trails & Estelas", color: "text-orange-400" },
+  { id: "Cursores", nombre: "🎯 Cursores", color: "text-cyan-400" },
+  { id: "Partículas", nombre: "✨ Partículas & Redes", color: "text-amber-400" },
+  { id: "Neural", nombre: "🧠 Neural & Mesh", color: "text-purple-400" },
+  { id: "Fluidos", nombre: "🌊 Fondos & Fluidos", color: "text-blue-400" },
+  { id: "Especiales", nombre: "🎮 Especiales", color: "text-emerald-400" },
+];
+
+const EFFECT_DYNAMIC_COMPONENTS: Record<string, React.ComponentType<Record<string, unknown>>> = {
+  "cursor-trail": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/CursorTrail"), { ssr: false }),
+  "fire-trail": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/FireTrail"), { ssr: false }),
+  "smoke-trail": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/SmokeTrail"), { ssr: false }),
+  "rainbow-trail": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/RainbowTrail"), { ssr: false }),
+  "neon-snake": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/NeonSnake"), { ssr: false }),
+  
+  "magnetic-cursor": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/MagneticCursor"), { ssr: false }),
+  "glow-follower": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/GlowFollower"), { ssr: false }),
+  "cursor-spotlight": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/CursorSpotlight"), { ssr: false }),
+  "cursor-aurora": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/CursorAurora"), { ssr: false }),
+  "cursor-vortex": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/CursorVortex"), { ssr: false }),
+  "spring-ring": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/SpringRing"), { ssr: false }),
+  "text-follower": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/TextFollower"), { ssr: false }),
+
+  "constellation": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/Constellation"), { ssr: false }),
+  "particle-fountain": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/ParticleFountain"), { ssr: false }),
+  "pixel-scatter": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/PixelScatter"), { ssr: false }),
+  "gravity-wells": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/GravityWells"), { ssr: false }),
+  "bubble-rise": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/BubbleRise"), { ssr: false }),
+  "starfield-cursor": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/StarfieldCursor"), { ssr: false }),
+  "shockwave": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/Shockwave"), { ssr: false }),
+  "orbital-system": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/OrbitalSystem"), { ssr: false }),
+
+  "neuron-network": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/NeuronNetwork"), { ssr: false }),
+  "real-neurons": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/RealNeurons"), { ssr: false }),
+  "neural-mesh": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/NeuralMesh"), { ssr: false }),
+
+  "fluid-warp": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/FluidWarp"), { ssr: false }),
+  "liquid-blob": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/LiquidBlob"), { ssr: false }),
+  "gooey-blob": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/GooeyBlob"), { ssr: false }),
+  "morphing-grid": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/MorphingGrid"), { ssr: false }),
+  "noise-grain": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/NoiseGrain"), { ssr: false }),
+  "flashlight": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/Flashlight"), { ssr: false }),
+  "difference-blend": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/DifferenceBlend"), { ssr: false }),
+
+  "glitch-cursor": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/GlitchCursor"), { ssr: false }),
+  "matrix-cursor": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/MatrixCursor"), { ssr: false }),
+  "ripple-click": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/RippleClick"), { ssr: false }),
+  "text-scramble": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/TextScramble"), { ssr: false }),
+  "emoji-rain": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/EmojiRain"), { ssr: false }),
+  "image-follow": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/ImageFollow"), { ssr: false }),
+};
+
 export function FabricaWebCockpit() {
   const [rubroSeleccionado, setRubroSeleccionado] = useState<string>("barberia");
   const [desplegableRubrosAbierto, setDesplegableRubrosAbierto] = useState<boolean>(true);
@@ -105,12 +211,15 @@ export function FabricaWebCockpit() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   // Estado de efectos del mouse
-  const [efectosMouse, setEfectosMouse] = useState<Record<string, boolean>>({
+  const [efectosCSS, setEfectosCSS] = useState<Record<string, boolean>>({
     cursorNeon: true,
     spotlight: true,
     magnetic: true,
     tilt3DMouse: true,
   });
+
+  const [canvasMouseEfecto, setCanvasMouseEfecto] = useState<string>("none");
+  const [categoriasAbiertas, setCategoriasAbiertas] = useState<Record<string, boolean>>({ "Trails": true });
 
   // Chat del Agente de la Web Seleccionada
   const [chatOpen, setChatOpen] = useState<boolean>(false);
@@ -338,7 +447,7 @@ export function FabricaWebCockpit() {
   };
 
   const toggleEfectoMouse = (key: string) => {
-    setEfectosMouse((prev) => ({ ...prev, [key]: !prev[key] }));
+    setEfectosCSS((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
   const handleSeleccionarPlantilla = (plantilla: PlantillaReal) => {
@@ -374,8 +483,8 @@ export function FabricaWebCockpit() {
   const currentTourStep = TOUR_STEPS[pasoTour];
 
   // Cálculo de Tilt 3D dinámico
-  const tiltX = efectosMouse.tilt3DMouse ? ((mousePos.y / window.innerHeight) - 0.5) * -12 : 0;
-  const tiltY = efectosMouse.tilt3DMouse ? ((mousePos.x / window.innerWidth) - 0.5) * 12 : 0;
+  const tiltX = efectosCSS.tilt3DMouse && typeof window !== "undefined" ? ((mousePos.y / window.innerHeight) - 0.5) * -12 : 0;
+  const tiltY = efectosCSS.tilt3DMouse && typeof window !== "undefined" ? ((mousePos.x / window.innerWidth) - 0.5) * 12 : 0;
 
   return (
     <div className="relative min-h-screen bg-[#04060a] text-slate-100 font-sans overflow-x-hidden selection:bg-amber-500/30 selection:text-amber-200 cursor-default">
@@ -388,8 +497,19 @@ export function FabricaWebCockpit() {
         />
       )}
 
+      {/* CANVAS MOUSE EFFECT OVERLAY */}
+      {canvasMouseEfecto !== "none" && (() => {
+        const EffectComp = EFFECT_DYNAMIC_COMPONENTS[canvasMouseEfecto];
+        if (!EffectComp) return null;
+        return (
+          <div className="pointer-events-none fixed inset-0 z-[9999]">
+            <EffectComp />
+          </div>
+        );
+      })()}
+
       {/* CAPA DE CURSOR NEÓN PERSONALIZADO */}
-      {efectosMouse.cursorNeon && (
+      {efectosCSS.cursorNeon && (
         <div
           className="pointer-events-none fixed z-50 transition-transform duration-75 ease-out"
           style={{
@@ -405,7 +525,7 @@ export function FabricaWebCockpit() {
       )}
 
       {/* CAPA DE SPOTLIGHT RADIAL MOUSE HOVER */}
-      {efectosMouse.spotlight && (
+      {efectosCSS.spotlight && (
         <div 
           className="pointer-events-none fixed inset-0 z-10 opacity-35 transition-opacity duration-300"
           style={{
@@ -740,7 +860,7 @@ export function FabricaWebCockpit() {
                 {/* BOTÓN FLOTANTE WIDGET AGENTE IA CON ATRACCIÓN MAGNÉTICA MOUSE */}
                 <div 
                   className={`absolute bottom-4 right-4 z-20 transition-transform duration-200 ${
-                    efectosMouse.magnetic ? "hover:scale-110 hover:-translate-y-1" : ""
+                    efectosCSS.magnetic ? "hover:scale-110 hover:-translate-y-1" : ""
                   }`}
                 >
                   <button
@@ -869,16 +989,16 @@ export function FabricaWebCockpit() {
             </div>
           </div>
 
-          {/* PANEL DE EFECTOS DEL MOUSE & PUNTERO */}
+          {/* PANEL DE EFECTOS DEL MOUSE & PUNTERO (CSS) */}
           <div className="p-4 rounded-2xl bg-[#080d18]/80 border border-slate-800/80 backdrop-blur-xl shadow-xl space-y-3">
             <div className="flex items-center justify-between border-b border-slate-800 pb-2">
               <div className="flex items-center gap-2">
                 <MousePointer className="w-4 h-4 text-cyan-400" />
                 <h3 className="font-['Orbitron',sans-serif] text-xs font-bold text-slate-200 tracking-wider uppercase">
-                  EFECTOS DEL MOUSE
+                  CSS MOUSE EFFECTS
                 </h3>
               </div>
-              <span className="text-[10px] font-mono text-cyan-400">PUNTERO</span>
+              <span className="text-[10px] font-mono text-cyan-400">4 EFECTOS</span>
             </div>
 
             <div className="grid grid-cols-2 gap-2">
@@ -888,7 +1008,7 @@ export function FabricaWebCockpit() {
                 { id: "magnetic", name: "Magnético", icon: Move },
                 { id: "tilt3DMouse", name: "Tilt 3D", icon: Activity },
               ].map((fx) => {
-                const activo = efectosMouse[fx.id];
+                const activo = efectosCSS[fx.id];
                 const IconComp = fx.icon;
                 return (
                   <button
@@ -908,6 +1028,95 @@ export function FabricaWebCockpit() {
                       <span className={`w-2 h-2 rounded-full ${activo ? "bg-cyan-400" : "bg-slate-700"}`} />
                     </div>
                   </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* PANEL DE CANVAS MOUSE EFFECTS (35 EFECTOS) */}
+          <div className="p-4 rounded-2xl bg-[#080d18]/80 border border-slate-800/80 backdrop-blur-xl shadow-xl space-y-3">
+            <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+              <div className="flex items-center gap-2">
+                <Wand2 className="w-4 h-4 text-amber-400" />
+                <h3 className="font-['Orbitron',sans-serif] text-xs font-bold text-slate-200 tracking-wider uppercase">
+                  CANVAS MOUSE EFFECTS
+                </h3>
+              </div>
+              <span className="text-[10px] font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/30">
+                35 EFFECTS
+              </span>
+            </div>
+
+            <button
+              onClick={() => setCanvasMouseEfecto("none")}
+              className={`w-full py-2 rounded-xl text-xs font-bold transition-all border ${
+                canvasMouseEfecto === "none"
+                  ? "bg-slate-800 text-white border-slate-600"
+                  : "bg-slate-900/50 text-slate-400 border-slate-800 hover:border-slate-700 hover:bg-slate-800"
+              }`}
+            >
+              DESACTIVAR TODOS
+            </button>
+
+            <div className="space-y-2 max-h-[400px] overflow-y-auto pr-1 custom-scrollbar">
+              {CANVAS_CATEGORIES.map((cat) => {
+                const isOpen = categoriasAbiertas[cat.id];
+                const effectsInCategory = CANVAS_EFFECTS_CATALOG.filter(e => e.categoria === cat.id);
+                
+                return (
+                  <div key={cat.id} className="border border-slate-800 rounded-xl overflow-hidden bg-slate-900/30">
+                    <button
+                      onClick={() => setCategoriasAbiertas(prev => ({ ...prev, [cat.id]: !prev[cat.id] }))}
+                      className="w-full flex items-center justify-between p-2.5 bg-slate-900/50 hover:bg-slate-800 transition-colors"
+                    >
+                      <span className={`text-xs font-bold ${cat.color}`}>{cat.nombre}</span>
+                      <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    
+                    <AnimatePresence>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0 }}
+                          animate={{ height: "auto" }}
+                          exit={{ height: 0 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="p-2 space-y-1.5 border-t border-slate-800">
+                            {effectsInCategory.map((fx) => {
+                              const isSelected = canvasMouseEfecto === fx.id;
+                              return (
+                                <button
+                                  key={fx.id}
+                                  onClick={() => setCanvasMouseEfecto(fx.id)}
+                                  className={`w-full p-2 rounded-lg border text-left transition-all ${
+                                    isSelected
+                                      ? "bg-amber-500/10 border-amber-500/50 shadow-[0_0_10px_rgba(212,175,55,0.15)]"
+                                      : "bg-transparent border-transparent hover:bg-slate-800/80"
+                                  }`}
+                                >
+                                  <div className="flex items-center gap-2">
+                                    <div className={`w-3 h-3 rounded-full border flex items-center justify-center shrink-0 ${
+                                      isSelected ? "border-amber-400" : "border-slate-600"
+                                    }`}>
+                                      {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-amber-400" />}
+                                    </div>
+                                    <div className="min-w-0">
+                                      <div className={`text-xs font-semibold truncate ${isSelected ? "text-amber-300" : "text-slate-300"}`}>
+                                        {fx.name}
+                                      </div>
+                                      <div className="text-[9px] text-slate-500 truncate mt-0.5">
+                                        {fx.desc}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
                 );
               })}
             </div>
