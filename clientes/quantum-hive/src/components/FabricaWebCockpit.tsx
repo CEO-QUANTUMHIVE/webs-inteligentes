@@ -210,6 +210,7 @@ export function FabricaWebCockpit() {
 
   // Estado de canvas mouse effect seleccionado
   const [canvasMouseEfecto, setCanvasMouseEfecto] = useState<string>("none");
+  const [canvasModo, setCanvasModo] = useState<"fondo" | "frente">("frente");
   const [categoriasAbiertas, setCategoriasAbiertas] = useState<Record<string, boolean>>({ "Trails": true });
 
   // Chat del Agente de la Web Seleccionada
@@ -263,6 +264,20 @@ export function FabricaWebCockpit() {
       window.removeEventListener("message", handleMessage);
     };
   }, []);
+
+  useEffect(() => {
+    const iframe = document.getElementById("template-iframe") as HTMLIFrameElement;
+    if (iframe && iframe.contentWindow) {
+      // Necesitamos darle un poco de tiempo para que cargue la plantilla antes de enviar
+      const timer = setTimeout(() => {
+        iframe.contentWindow?.postMessage({
+          type: "set-canvas-mode",
+          mode: canvasModo
+        }, "*");
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [canvasModo, plantillaSeleccionada]);
 
 
 
@@ -631,7 +646,7 @@ export function FabricaWebCockpit() {
                   key={plantillaSeleccionada.id}
                   src={plantillaSeleccionada.urlPath}
                   title={plantillaSeleccionada.nombre}
-                  className="w-full h-full border-none"
+                  className={`w-full h-full border-none relative ${canvasModo === "fondo" ? "z-10" : "z-0"}`}
                 />
 
                 {/* CANVAS MOUSE EFFECT OVERLAY — sobre la plantilla */}
@@ -639,7 +654,7 @@ export function FabricaWebCockpit() {
                   const EffectComp = EFFECT_DYNAMIC_COMPONENTS[canvasMouseEfecto];
                   if (!EffectComp) return null;
                   return (
-                    <div id="canvas-overlay-container" className="pointer-events-none absolute inset-0 z-10 overflow-hidden rounded-2xl">
+                    <div id="canvas-overlay-container" className={`pointer-events-none absolute inset-0 overflow-hidden rounded-2xl ${canvasModo === "fondo" ? "z-0" : "z-10"}`}>
                       <EffectComp />
                     </div>
                   );
@@ -721,16 +736,37 @@ export function FabricaWebCockpit() {
 
           {/* PANEL DE CANVAS MOUSE EFFECTS (35 EFECTOS) */}
           <div className="p-4 rounded-2xl bg-[#080d18]/80 border border-slate-800/80 backdrop-blur-xl shadow-xl space-y-3">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-              <div className="flex items-center gap-2">
-                <Wand2 className="w-4 h-4 text-amber-400" />
-                <h3 className="font-['Orbitron',sans-serif] text-xs font-bold text-slate-200 tracking-wider uppercase">
-                  CANVAS MOUSE EFFECTS
-                </h3>
+            <div className="flex flex-col gap-3 border-b border-slate-800 pb-3">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Wand2 className="w-4 h-4 text-amber-400" />
+                  <h3 className="font-['Orbitron',sans-serif] text-xs font-bold text-slate-200 tracking-wider uppercase">
+                    CANVAS MOUSE EFFECTS
+                  </h3>
+                </div>
+                <span className="text-[10px] font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/30">
+                  35 EFFECTS
+                </span>
               </div>
-              <span className="text-[10px] font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/30">
-                35 EFFECTS
-              </span>
+              
+              <div className="flex bg-slate-900 rounded-lg p-1 border border-slate-800">
+                <button
+                  onClick={() => setCanvasModo("fondo")}
+                  className={`flex-1 py-1 text-[10px] font-bold rounded-md transition-all ${
+                    canvasModo === "fondo" ? "bg-amber-500/20 text-amber-300 shadow-sm" : "text-slate-500 hover:text-slate-300"
+                  }`}
+                >
+                  MODO FONDO (DETRÁS)
+                </button>
+                <button
+                  onClick={() => setCanvasModo("frente")}
+                  className={`flex-1 py-1 text-[10px] font-bold rounded-md transition-all ${
+                    canvasModo === "frente" ? "bg-cyan-500/20 text-cyan-300 shadow-sm" : "text-slate-500 hover:text-slate-300"
+                  }`}
+                >
+                  MODO FRENTE (ENCIMA)
+                </button>
+              </div>
             </div>
 
             <button
