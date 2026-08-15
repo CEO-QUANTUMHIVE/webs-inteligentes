@@ -23,7 +23,8 @@ export interface Rubro {
 }
 
 export const RUBROS_DISPONIBLES: Rubro[] = [
-  { id: "todos", nombre: "Todos los Rubros", icono: "✦", descripcion: "Catálogo completo de la Fábrica Web", count: 61 },
+  { id: "todos", nombre: "Todos los Rubros", icono: "✦", descripcion: "Catálogo completo de la Fábrica Web", count: 67 },
+  { id: "efecto-scroll", nombre: "Efecto Scroll & Parallax", icono: "🌀", descripcion: "Plantillas cinematográficas con sticky cards, GSAP, Webflow IX2 y scroll cinemático", count: 6 },
   { id: "barberia", nombre: "Barbería", icono: "✂️", descripcion: "Reserva de turnos y estética masculina", count: 7 },
   { id: "gastronomia", nombre: "Gastronomía", icono: "🍽️", descripcion: "Restaurantes, cartas digitales y reservas", count: 8 },
   { id: "inmobiliaria", nombre: "Inmobiliaria", icono: "🏢", descripcion: "Propiedades, catálogo e inversión", count: 7 },
@@ -37,6 +38,97 @@ export const RUBROS_DISPONIBLES: Rubro[] = [
 ];
 
 export const PLANTILLAS_REALES_CATALOGO: PlantillaReal[] = [
+  // === EFECTO SCROLL & PARALLAX (6 VARIANTES CINEMATOGRÁFICAS) ===
+  {
+    id: "scroll-p1",
+    nombre: "Zeal Barber Stacking P1",
+    rubroId: "efecto-scroll",
+    rubroNombre: "Efecto Scroll & Parallax",
+    variante: "P1 Stacking Cards & Sticky Deck",
+    subtitulo: "Efecto de cartas superponibles en scroll con Webflow IX2",
+    descripcion: "Fijación sticky escalonada en servicios, parallax en CTA y footer dinámico.",
+    urlPath: "/catalogo/plantillas/basicas/barberia/p6",
+    imagen: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80",
+    badge: "Efecto Scroll",
+    colorAcento: "from-amber-500 to-cyan-500",
+    servicios: ["Stacking Cards", "Webflow IX2", "Parallax Scroll"],
+    efectosPredeterminados: ["Stacking Deck", "Parallax Pin"]
+  },
+  {
+    id: "scroll-p2",
+    nombre: "Haus Studio Editorial P2",
+    rubroId: "efecto-scroll",
+    rubroNombre: "Efecto Scroll & Parallax",
+    variante: "P2 GSAP Scroll & SplitText",
+    subtitulo: "Estudio de alta moda con revelación cinemática en scroll",
+    descripcion: "Lookbook interactivo con GSAP, ScrollTrigger, SplitText y custom cursor.",
+    urlPath: "/catalogo/plantillas/basicas/retail/p6",
+    imagen: "https://cdn.prod.website-files.com/69a3b779dc496975c0b73f42/69a9087cc1f92d54107bfcef_Image_3%20(1).png",
+    badge: "Efecto Scroll",
+    colorAcento: "from-zinc-400 to-amber-500",
+    servicios: ["SplitText Motion", "GSAP ScrollTrigger", "Lookbook Grid"],
+    efectosPredeterminados: ["SplitText", "GSAP Scroll"]
+  },
+  {
+    id: "scroll-p3",
+    nombre: "Luxe Arch Parallax P3",
+    rubroId: "efecto-scroll",
+    rubroNombre: "Efecto Scroll & Parallax",
+    variante: "P3 Architecture Horizontal Pin",
+    subtitulo: "Estudio de arquitectura con scroll horizontal y pinning",
+    descripcion: "Efecto de pin lateral en proyectos, transiciones de imagen a pantalla completa.",
+    urlPath: "/catalogo/plantillas/basicas/lujo/p1",
+    imagen: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+    badge: "Efecto Scroll",
+    colorAcento: "from-emerald-400 to-teal-600",
+    servicios: ["Horizontal Scroll", "Pin Section", "Full Bleed Zoom"],
+    efectosPredeterminados: ["Horizontal Pin", "Depth Zoom"]
+  },
+  {
+    id: "scroll-p4",
+    nombre: "CyberSec Terminal P4",
+    rubroId: "efecto-scroll",
+    rubroNombre: "Efecto Scroll & Parallax",
+    variante: "P4 Matrix & Code Reveal",
+    subtitulo: "B2B SaaS con terminal animado y triggers al hacer scroll",
+    descripcion: "Aparición de logs en tiempo real, HUD holográfico y nodos de red interactivos.",
+    urlPath: "/catalogo/plantillas/basicas/tech/p1",
+    imagen: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+    badge: "Efecto Scroll",
+    colorAcento: "from-cyan-400 to-green-400",
+    servicios: ["Matrix Rain", "Terminal Stream", "Network Node Grid"],
+    efectosPredeterminados: ["Matrix Terminal", "Glow Pulse"]
+  },
+  {
+    id: "scroll-p5",
+    nombre: "Gourmet Experience P5",
+    rubroId: "efecto-scroll",
+    rubroNombre: "Efecto Scroll & Parallax",
+    variante: "P5 Culinary Parallax & Menu Pin",
+    subtitulo: "Gastronomía de autor con cartas flotantes y scroll continuo",
+    descripcion: "Efectos de superposición de platos e ingredientes con profundidad 3D.",
+    urlPath: "/catalogo/plantillas/basicas/gastronomia/p8",
+    imagen: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80",
+    badge: "Efecto Scroll",
+    colorAcento: "from-orange-500 to-amber-600",
+    servicios: ["Dish Zoom Parallax", "Sticky Menu Category", "Chef Story"],
+    efectosPredeterminados: ["Parallax Dish", "Sticky Menu"]
+  },
+  {
+    id: "scroll-p6",
+    nombre: "Concept Store 3D P6",
+    rubroId: "efecto-scroll",
+    rubroNombre: "Efecto Scroll & Parallax",
+    variante: "P6 Layered Product Carousel",
+    subtitulo: "Tienda de autor con carrusel por capas y scroll sincronizado",
+    descripcion: "Catálogo interactivo con capas de profundidad z-index y reveal magnético.",
+    urlPath: "/catalogo/plantillas/basicas/retail/p8",
+    imagen: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80",
+    badge: "Efecto Scroll",
+    colorAcento: "from-purple-400 to-pink-500",
+    servicios: ["Layered 3D Depth", "Magnetic Cursor", "Dynamic Buy Drawer"],
+    efectosPredeterminados: ["3D Layers", "Magnetic Glow"]
+  },
   // === BARBERÍA (7 VARIANTES REALES) ===
   {
     id: "barberia-p1",

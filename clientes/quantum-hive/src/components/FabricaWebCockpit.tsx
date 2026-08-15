@@ -231,6 +231,21 @@ export function FabricaWebCockpit() {
   const [publicandoModal, setPublicandoModal] = useState(false);
   const [sitioPublicado, setSitioPublicado] = useState(false);
 
+  // Activar plantilla desde parámetro URL si viene desde el catálogo
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const urlParams = new URLSearchParams(window.location.search);
+      const plantillaParam = urlParams.get("plantilla");
+      if (plantillaParam) {
+        const found = PLANTILLAS_REALES_CATALOGO.find(p => p.id === plantillaParam);
+        if (found) {
+          setPlantillaSeleccionada(found);
+          setRubroSeleccionado(found.rubroId);
+        }
+      }
+    }
+  }, []);
+
   // Escuchar posición del Mouse y eventos del iframe
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {

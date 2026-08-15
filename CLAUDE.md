@@ -189,11 +189,11 @@ ramas activas (cada rama tiene su grafo). Después de crear un worktree:
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-15 · 709 archivos versionados
+Actualizado: 2026-08-15 · 710 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
-| `clientes/` | 402 | Proyectos Next.js de cada cliente |
+| `clientes/` | 403 | Proyectos Next.js de cada cliente |
 | `plantillas/` | 87 | Plantillas por tipo de negocio |
 | `.claude/` | 60 | — |
 | `habilidades/` | 45 | Skills del pipeline y material de apoyo |
@@ -231,6 +231,7 @@ Actualizado: 2026-08-15 · 709 archivos versionados
 - `/catalogo/plantillas/basicas/educacion/p7` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/educacion/p7/page.tsx`
 - `/catalogo/plantillas/basicas/educacion/p8` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/educacion/p8/page.tsx`
 - `/catalogo/plantillas/basicas/educacion` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/educacion/page.tsx`
+- `/catalogo/plantillas/basicas/efecto-scroll` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/efecto-scroll/page.tsx`
 - `/catalogo/plantillas/basicas/gastronomia/p2` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/gastronomia/p2/page.tsx`
 - `/catalogo/plantillas/basicas/gastronomia/p3` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/gastronomia/p3/page.tsx`
 - `/catalogo/plantillas/basicas/gastronomia/p4` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/gastronomia/p4/page.tsx`
