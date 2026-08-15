@@ -300,7 +300,7 @@ export default function NeuronNetwork({ color, secondaryColor, size = DEFAULTS.s
     <canvas
       ref={canvasRef}
       className={`absolute inset-0 h-full w-full ${""}`}
-      style={{ background: "#050508" }}
+      style={{ background: "transparent" }}
     />
   );
 }

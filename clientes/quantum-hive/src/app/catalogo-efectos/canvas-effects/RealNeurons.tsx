@@ -450,7 +450,7 @@ export default function RealNeurons({ color, secondaryColor, size = DEFAULTS.siz
     <canvas
       ref={canvasRef}
       className="absolute inset-0 h-full w-full"
-      style={{ background: "#050508" }}
+      style={{ background: "transparent" }}
     />
   );
 }

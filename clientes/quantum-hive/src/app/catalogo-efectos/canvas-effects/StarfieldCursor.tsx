@@ -127,7 +127,7 @@ export default function StarfieldCursor({ color, secondaryColor, size = DEFAULTS
     <canvas
       ref={canvasRef}
       className="absolute inset-0 h-full w-full"
-      style={{ background: "#050510" }}
+      style={{ background: "transparent" }}
     />
   );
 }

@@ -50,7 +50,7 @@ export function useCanvasCursor({ draw, props, style }: UseCanvasCursorProps) {
     <canvas
       ref={canvasRef}
       className={`absolute inset-0 h-full w-full ${props.className || ""}`}
-      style={{ background: "#0a0a0f", ...style }}
+      style={{ background: "transparent", ...style }}
     />
   );
 }

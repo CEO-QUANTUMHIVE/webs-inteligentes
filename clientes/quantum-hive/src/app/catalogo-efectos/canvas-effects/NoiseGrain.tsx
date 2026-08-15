@@ -56,7 +56,7 @@ export default function NoiseGrain({ color, secondaryColor, size = DEFAULTS.size
   }, []);
 
   return (
-    <div className="relative h-full w-full overflow-hidden" style={{ background: "#0a0a0f" }}>
+    <div className="relative h-full w-full overflow-hidden" style={{ background: "transparent" }}>
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-center">
           <p className="text-5xl font-bold tracking-tight text-white/90" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>

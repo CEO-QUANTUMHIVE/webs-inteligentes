@@ -83,7 +83,7 @@ export default function ImageFollow() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 h-full w-full"
-      style={{ background: "#0a0a0f" }}
+      style={{ background: "transparent" }}
     />
   );
 }

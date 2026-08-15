@@ -103,7 +103,7 @@ export default function Shockwave({ color, secondaryColor, size = DEFAULTS.size,
   }, []);
 
   return (
-    <div className="relative h-full w-full" style={{ background: "#0a0a0f" }}>
+    <div className="relative h-full w-full" style={{ background: "transparent" }}>
       <canvas
         ref={canvasRef}
         className="absolute inset-0 h-full w-full cursor-pointer"

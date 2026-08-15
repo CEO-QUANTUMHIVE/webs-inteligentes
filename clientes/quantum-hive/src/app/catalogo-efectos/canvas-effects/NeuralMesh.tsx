@@ -443,7 +443,7 @@ export default function NeuralMesh({ color, secondaryColor, size = DEFAULTS.size
     <canvas
       ref={canvasRef}
       className="absolute inset-0 h-full w-full cursor-grab"
-      style={{ background: "#030308" }}
+      style={{ background: "transparent" }}
     />
   );
 }

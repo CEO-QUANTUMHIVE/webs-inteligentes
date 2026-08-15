@@ -79,5 +79,5 @@ export default function RippleClick({ color, size = DEFAULTS.size, speed = DEFAU
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 h-full w-full cursor-pointer" style={{ background: "#0a0a0f" }} />;
+  return <canvas ref={canvasRef} className="absolute inset-0 h-full w-full cursor-pointer" style={{ background: "transparent" }} />;
 }

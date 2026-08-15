@@ -111,7 +111,7 @@ export default function MatrixCursor({ color, secondaryColor, size = DEFAULTS.si
     <canvas
       ref={canvasRef}
       className="absolute inset-0 h-full w-full"
-      style={{ background: "#050505" }}
+      style={{ background: "transparent" }}
     />
   );
 }

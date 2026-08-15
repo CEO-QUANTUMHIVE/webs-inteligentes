@@ -99,5 +99,5 @@ export default function MagneticCursor({ color, size = DEFAULTS.size, intensity 
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" style={{ background: "#0a0a0f" }} />;
+  return <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" style={{ background: "transparent" }} />;
 }

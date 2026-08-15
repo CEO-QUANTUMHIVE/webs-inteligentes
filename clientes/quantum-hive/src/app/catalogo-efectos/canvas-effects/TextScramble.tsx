@@ -59,7 +59,7 @@ export default function TextScramble({ color, secondaryColor, size = DEFAULTS.si
   return (
     <div
       className="flex h-full w-full flex-col items-center justify-center gap-8"
-      style={{ background: "#0a0a0f" }}
+      style={{ background: "transparent" }}
     >
       <p
         className="cursor-default select-none text-4xl font-bold tracking-wider text-white transition-colors md:text-6xl"
