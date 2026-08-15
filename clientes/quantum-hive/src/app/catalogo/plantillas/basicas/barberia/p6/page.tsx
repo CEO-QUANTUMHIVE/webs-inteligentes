@@ -1,623 +1,653 @@
 "use client";
 
-import React, { useState, useRef } from "react";
-import Link from "next/link";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import styles from "./p6.module.css";
+import React, { useEffect, useState } from "react";
+import Script from "next/script";
 import FirmaQuantumHive from "@/components/marca/firma-quantumhive";
-import { 
-  MapPin, 
-  Phone, 
-  Clock, 
-  ShieldCheck, 
-  Star, 
-  Heart, 
-  Scissors, 
-  CheckCircle2, 
-  Mail
-} from "lucide-react";
-
-// Contador numérico animado al hacer scroll
-function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const [count, setCount] = useState(0);
-
-  React.useEffect(() => {
-    if (isInView) {
-      let start = 0;
-      const duration = 1800;
-      const stepTime = 25;
-      const totalSteps = duration / stepTime;
-      const increment = value / totalSteps;
-
-      const timer = setInterval(() => {
-        start += increment;
-        if (start >= value) {
-          setCount(value);
-          clearInterval(timer);
-        } else {
-          setCount(Math.floor(start));
-        }
-      }, stepTime);
-
-      return () => clearInterval(timer);
-    }
-  }, [isInView, value]);
-
-  return (
-    <span ref={ref} className={styles.statNumber}>
-      {count}{suffix}
-    </span>
-  );
-}
 
 export default function P6ZealBarber() {
-  const [formularioEnviado, setFormularioEnviado] = useState(false);
-  const [formData, setFormData] = useState({
-    nombre: "",
-    asunto: "",
-    telefono: "",
-    email: "",
-    mensaje: "",
-  });
+  const [formEnviado, setFormEnviado] = useState(false);
 
-  // Parallax del Hero
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"]
-  });
-  const heroBgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.25]);
+  useEffect(() => {
+    // Agregar atributos de Webflow al elemento html/body para activar el runtime IX2
+    document.documentElement.setAttribute("data-wf-page", "66d807582304dbf9e17edfc7");
+    document.documentElement.setAttribute("data-wf-site", "66d807572304dbf9e17edf64");
+    document.documentElement.classList.add("w-mod-js");
 
-  const handleSubmit = (e: React.FormEvent) => {
+    const initWebflow = () => {
+      // @ts-expect-error - Webflow runtime global
+      if (typeof window !== "undefined" && window.Webflow) {
+        try {
+          // @ts-expect-error - Webflow runtime global
+          window.Webflow.destroy();
+          // @ts-expect-error - Webflow runtime global
+          window.Webflow.ready();
+          // @ts-expect-error - Webflow runtime global
+          window.Webflow.require("ix2")?.init();
+        } catch {
+          // fallback silencioso
+        }
+      }
+    };
+
+    const timer = setTimeout(initWebflow, 500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setFormularioEnviado(true);
-    setTimeout(() => {
-      setFormularioEnviado(false);
-      setFormData({ nombre: "", asunto: "", telefono: "", email: "", mensaje: "" });
-    }, 4000);
-  };
-
-  // Variantes de animación para scroll reveal
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: (custom: number = 0) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.7,
-        delay: custom * 0.12,
-        ease: [0.215, 0.61, 0.355, 1],
-      },
-    }),
-  };
-
-  const scaleIn = {
-    hidden: { opacity: 0, scale: 0.94 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.8, ease: [0.215, 0.61, 0.355, 1] },
-    },
+    setFormEnviado(true);
   };
 
   return (
-    <div className={styles.raiz}>
-      
-      {/* 1. HEADER / BARRA DE NAVEGACIÓN */}
-      <motion.header 
-        className={styles.header}
-        initial={{ y: -60, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        <div className={styles.logoWrap}>
-          <Scissors className="w-6 h-6 text-[#d4af37]" />
-          <span className={styles.logoText}>
-            ZEAL <span>BARBER</span>
-          </span>
-        </div>
+    <>
+      {/* Fuentes y CSS de Webflow Original */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link 
+        href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Oswald:wght@300;400;500;600;700&display=swap" 
+        rel="stylesheet" 
+      />
+      <link rel="stylesheet" href="/templates/zeal-barber/zeal-barber.css" />
 
-        <nav>
-          <ul className={styles.navLinks}>
-            <li><a href="#servicios" className={styles.navLink}>Servicios</a></li>
-            <li><a href="#nosotros" className={styles.navLink}>Nosotros</a></li>
-            <li><a href="#testimonios" className={styles.navLink}>Testimonios</a></li>
-            <li><a href="#contacto" className={styles.navLink}>Contacto</a></li>
-          </ul>
-        </nav>
+      <style jsx global>{`
+        /* Adaptaciones para Dark Theme y compatibilidad */
+        body {
+          background-color: #0d131a;
+          color: #e0e6ed;
+          font-family: 'Lato', sans-serif;
+          margin: 0;
+          overflow-x: hidden;
+        }
+        .header {
+          position: sticky;
+          top: 0;
+          z-index: 99;
+          background: rgba(13, 19, 26, 0.85);
+          backdrop-filter: blur(12px);
+        }
+        .primary-logo {
+          max-height: 48px;
+        }
+        .button {
+          font-family: 'Oswald', sans-serif;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+        }
+        .heading-style-h1, .heading-style-h2, .heading-style-h3, .heading-style-h5 {
+          font-family: 'Oswald', sans-serif;
+          text-transform: uppercase;
+        }
+        .text-blue {
+          color: #fff !important;
+        }
+        .form-input {
+          background-color: #121c24 !important;
+          color: #fff !important;
+          border: 1px solid rgba(255, 255, 255, 0.15) !important;
+          border-radius: 4px;
+        }
+        .form-input:focus {
+          border-color: #d4af37 !important;
+        }
+      `}</style>
 
-        <a href="#contacto" className={styles.btnPrimary}>
-          Reservar Turno
-        </a>
-      </motion.header>
-
-      {/* 2. HERO SECTION CON ENTRADA ESCALONADA Y PARALLAX */}
-      <section ref={heroRef} className={styles.heroSection}>
-        <motion.div 
-          className={styles.heroBgImage}
-          style={{
-            backgroundImage: "url('https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e038f36550184c0e6c4874_hero%20img%20(1).webp')",
-            y: heroBgY,
-          }}
-        />
-        <div className={styles.heroOverlay} />
+      <div className="page-wrapper">
         
-        <motion.div 
-          className={styles.heroContent}
-          style={{ opacity: heroOpacity }}
-        >
-          <motion.h1 
-            className={styles.heroTitle}
-            initial={{ opacity: 0, y: 35 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.215, 0.61, 0.355, 1] }}
-          >
-            Cuidado Experto, <span>Estilo Impecable en Zeal Barber</span>
-          </motion.h1>
-          
-          <motion.p 
-            className={styles.heroSubtitle}
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.35, ease: [0.215, 0.61, 0.355, 1] }}
-          >
-            Donde la precisión se encuentra con la pasión. Viví una experiencia de barbería premium diseñada especialmente a tu medida.
-          </motion.p>
-          
-          <motion.div 
-            className={styles.heroButtons}
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.55, ease: [0.215, 0.61, 0.355, 1] }}
-          >
-            <a href="#contacto" className={styles.btnPrimary}>
-              Reservar un Turno
-            </a>
-            <a href="#servicios" className={styles.btnSecondary}>
-              Ver Servicios
-            </a>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* 3. CONTACT INFO CARDS (Flotando bajo el Hero con Stagger Scroll Reveal) */}
-      <div className={styles.contactBarWrapper}>
-        <div className={styles.contactGrid}>
-          {[
-            {
-              icon: <MapPin className="w-5 h-5" />,
-              title: "Dirección",
-              content: <>Av. Libertador 4520, Piso 1<br />Palermo, Buenos Aires</>
-            },
-            {
-              icon: <Phone className="w-5 h-5" />,
-              title: "Teléfono",
-              content: (
-                <>
-                  <a href="tel:+541145551234" className="hover:text-[#d4af37] transition-colors block">+54 (11) 4555-1234</a>
-                  <a href="tel:+541145555678" className="hover:text-[#d4af37] transition-colors block">+54 (11) 4555-5678</a>
-                </>
-              )
-            },
-            {
-              icon: <Clock className="w-5 h-5" />,
-              title: "Horarios",
-              content: <>Lunes a Sábado: 9:00 a 20:00 hs<br />Domingos: 10:00 a 18:00 hs</>
-            },
-          ].map((card, idx) => (
-            <motion.div 
-              key={idx}
-              className={styles.contactCard}
-              custom={idx}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.25 }}
-              variants={fadeInUp}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-            >
-              <div className={styles.contactIcon}>
-                {card.icon}
-              </div>
-              <h3 className={styles.contactCardTitle}>{card.title}</h3>
-              <p className={styles.contactCardText}>{card.content}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* 4. SECCIÓN SOBRE NOSOTROS CON ANIMACIÓN DE ENTRADA Y CONTADORES */}
-      <section id="nosotros" className={styles.section}>
-        <div className={styles.aboutGrid}>
-          
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={fadeInUp}
-          >
-            <span className={styles.sectionTag}>Experiencia Exclusiva</span>
-            <h2 className={styles.sectionTitle}>
-              Servicios profesionales de barbería con máxima comodidad
-            </h2>
-            <p className={styles.sectionDesc}>
-              Disfrutá de la máxima conveniencia y el lujo del cuidado personal. Desde cortes clásicos hasta los estilos más modernos, nuestros maestros barberos traen lo mejor del arte tradicional con técnicas de vanguardia.
-            </p>
-
-            <div className={styles.statsRow}>
-              <div>
-                <AnimatedCounter value={98} suffix="%" />
-                <div className={styles.statLabel}>Satisfacción de Clientes</div>
-              </div>
-              <div>
-                <AnimatedCounter value={12} suffix="+" />
-                <div className={styles.statLabel}>Años de Trayectoria</div>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div 
-            className={styles.aboutImageWrap}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={scaleIn}
-            whileHover={{ scale: 1.02, transition: { duration: 0.4 } }}
-          >
+        {/* 1. HEADER / LOGO */}
+        <section data-w-id="fa68c949-49ee-fb97-eef1-d6776a07ddd3" className="header">
+          <a href="/" aria-current="page" className="nav-logo w-inline-block w--current">
             <img 
-              src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e12d0d327f116fa1a13513_about-img.webp" 
-              alt="Sobre Zeal Barber" 
-              className={styles.aboutImage}
+              src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e1216506baa38b0143da26_primary-logo.svg" 
+              loading="lazy" 
+              alt="Zeal Barber Logo" 
+              className="primary-logo"
             />
-          </motion.div>
+          </a>
+        </section>
 
-        </div>
-      </section>
-
-      {/* 5. SECCIÓN DE SERVICIOS (STAGGERED SCROLL REVEAL EN LAS 6 TARJETAS) */}
-      <section id="servicios" className={styles.section}>
-        <motion.div 
-          className={styles.sectionHeader}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInUp}
-        >
-          <span className={styles.sectionTag}>Nuestra Carta</span>
-          <h2 className={styles.sectionTitle}>Servicios Excepcionales a tu Medida</h2>
-          <p className={styles.sectionDesc}>
-            En Zeal Barber ofrecemos una variedad integral de servicios para mantenerte impecable y seguro. Cuidado de barba de primera línea y estilismo personalizado.
-          </p>
-        </motion.div>
-
-        <div className={styles.servicesGrid}>
-          {[
-            {
-              nombre: "Corte de Adulto",
-              desc: "Corte profesional a tijera y máquina con lavado premium y peinado incluido.",
-              precio: "$15.000 ARS",
-              icon: "https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e1368f745c48b34de24564_1.svg"
-            },
-            {
-              nombre: "Afeitado Clásico",
-              desc: "Afeitado al ras con toalla caliente, aceites esenciales y loción refrescante.",
-              precio: "$12.000 ARS",
-              icon: "https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e1368ed54a37cc7db6c354_2.svg"
-            },
-            {
-              nombre: "Corte para Niños",
-              desc: "Corte dedicado con la mayor paciencia y detalle para los más chicos.",
-              precio: "$11.000 ARS",
-              icon: "https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e1368ef1622ce81a1ccf62_3.svg"
-            },
-            {
-              nombre: "Hidratación Capilar",
-              desc: "Tratamiento intensivo para nutrir el cuero cabelludo y revitalizar el cabello.",
-              precio: "$14.000 ARS",
-              icon: "https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e1368e77419ca122237c96_4.svg"
-            },
-            {
-              nombre: "Perfilado de Barba",
-              desc: "Diseño de líneas de contorno con navaja y recorte milimétrico de barba.",
-              precio: "$10.500 ARS",
-              icon: "https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e13690086f71672a680d85_6.svg"
-            },
-            {
-              nombre: "Cuidado Integral de Barba",
-              desc: "Lavado exfoliante, hidratación con bálsamo orgánico y peinado modelador.",
-              precio: "$16.500 ARS",
-              icon: "https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e1368e59cc3bb79116a7e0_5.svg"
-            },
-          ].map((srv, idx) => (
-            <motion.div 
-              key={idx} 
-              className={styles.serviceCard}
-              custom={idx}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={fadeInUp}
-              whileHover={{ 
-                y: -10, 
-                boxShadow: "0 20px 35px rgba(0, 0, 0, 0.5)",
-                borderColor: "rgba(212, 175, 55, 0.6)",
-                transition: { duration: 0.3 } 
-              }}
-            >
-              <motion.div 
-                className={styles.serviceIconWrap}
-                whileHover={{ rotate: 10, scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <img src={srv.icon} alt={srv.nombre} className="w-8 h-8 filter brightness-150" />
-              </motion.div>
-              <h3 className={styles.serviceName}>{srv.nombre}</h3>
-              <p className={styles.serviceDesc}>{srv.desc}</p>
-              <div className={styles.servicePrice}>{srv.precio}</div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* 6. BANNER CTA INTERMEDIO */}
-      <section className={styles.ctaBanner}>
-        <motion.div 
-          style={{ position: "relative", zIndex: 2 }}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.4 }}
-          variants={fadeInUp}
-        >
-          <h2 className={styles.ctaTitle}>
-            Disfrutá de servicios de barbería de primer nivel con el confort que merecés
-          </h2>
-          <motion.a 
-            href="#contacto" 
-            className={styles.btnPrimary}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Reservar un Turno
-          </motion.a>
-        </motion.div>
-      </section>
-
-      {/* 7. POR QUÉ ELEGIR ZEAL BARBER (STAGGER SCROLL) */}
-      <section className={styles.section}>
-        <motion.div 
-          className={styles.sectionHeader}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInUp}
-        >
-          <span className={styles.sectionTag}>Nuestros Pilares</span>
-          <h2 className={styles.sectionTitle}>¿Por qué elegir Zeal Barber?</h2>
-          <p className={styles.sectionDesc}>
-            Descubrí la diferencia de atendértete con un equipo de profesionales comprometidos con la excelencia y la personalización de cada detalle.
-          </p>
-        </motion.div>
-
-        <div className={styles.whyGrid}>
-          {[
-            {
-              icon: <ShieldCheck className="w-8 h-8" />,
-              title: "Profesionales Expertos",
-              desc: "Especialistas apasionados dedicados a ofrecer resultados impecables y duraderos."
-            },
-            {
-              icon: <Star className="w-8 h-8" />,
-              title: "Productos Premium",
-              desc: "Utilizamos solo productos importados y orgánicos de la más alta calidad internacional."
-            },
-            {
-              icon: <Heart className="w-8 h-8" />,
-              title: "Máximo Confort",
-              desc: "Ambiente relajante, atención puntual y café de especialidad de cortesía en cada visita."
-            },
-          ].map((item, idx) => (
-            <motion.div 
-              key={idx} 
-              className={styles.whyCard}
-              custom={idx}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={fadeInUp}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-            >
-              <div className={styles.whyIcon}>
-                {item.icon}
-              </div>
-              <h3 className={styles.whyCardTitle}>{item.title}</h3>
-              <p className={styles.whyCardText}>{item.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* 8. SECCIÓN TESTIMONIOS (SLIDE-IN ON SCROLL) */}
-      <section id="testimonios" className={styles.section}>
-        <motion.div 
-          className={styles.testimonialBox}
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
-        >
-          <motion.img 
-            src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66f4f8796c3e7ab6417c2059_Img.png" 
-            alt="Cliente Satisfecho" 
-            className={styles.authorImg}
-            initial={{ opacity: 0, scale: 0.85 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          />
-          <div>
-            <p className={styles.quoteText}>
-              &quot;¡Zeal Barber redefinió por completo mi experiencia de aseo personal! El equipo brinda un servicio impecable y una atención al detalle inigualable. Cada visita se siente como una sesión de cuidado exclusivo. ¡100% recomendado!&quot;
-            </p>
-            <div className={styles.authorName}>Santiago Méndez</div>
-            <div className={styles.authorRole}>Cliente Frecuente · CEO de InnovateTech</div>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* 9. FORMULARIO DE RESERVAS Y CONTACTO */}
-      <section id="contacto" className={styles.bookingSection}>
-        <div className={styles.bookingGrid}>
+        <main className="main-wrapper">
           
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className={styles.sectionTag}>Turnos Online</span>
-            <h2 className={styles.sectionTitle} style={{ textAlign: "left" }}>
-              Agendá tu Cita Hoy Mismo
-            </h2>
-            <p className={styles.sectionDesc} style={{ textAlign: "left", marginBottom: "2rem" }}>
-              Elegí tu fecha preferida y nuestros barberos te confirmarán el horario de inmediato. Atención personalizada y sin esperas.
-            </p>
+          {/* 2. HERO SECTION CON WEBFLOW IX2 */}
+          <section data-w-id="54aebeb4-4130-8682-f6e7-6a8913e9f440" className="section-hero">
+            <div className="hero-main-wrapper">
+              
+              <div data-w-id="33054662-c150-aee8-e5e6-a01e0fa2064b" className="hero-image-block">
+                <img 
+                  sizes="100vw" 
+                  srcSet="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e038f36550184c0e6c4874_hero%20img%20(1)-p-500.webp 500w, https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e038f36550184c0e6c4874_hero%20img%20(1)-p-800.webp 800w, https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e038f36550184c0e6c4874_hero%20img%20(1)-p-1080.webp 1080w, https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e038f36550184c0e6c4874_hero%20img%20(1)-p-1600.webp 1600w, https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e038f36550184c0e6c4874_hero%20img%20(1).webp 2880w" 
+                  alt="Hero Image" 
+                  loading="lazy" 
+                  src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e038f36550184c0e6c4874_hero%20img%20(1).webp" 
+                  className="hero-image"
+                />
+                <div className="hero-image-overlay"></div>
+              </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-                <div className={styles.contactIcon} style={{ margin: 0 }}>
-                  <Phone className="w-5 h-5" />
+              <div className="hero-content">
+                <h1 
+                  id="w-node-_33054662-c150-aee8-e5e6-a01e0fa2064f-e17edfc7" 
+                  data-w-id="33054662-c150-aee8-e5e6-a01e0fa2064f" 
+                  className="heading-style-h1"
+                >
+                  Cuidado Experto, <span className="heading-text-span">Estilo Impecable en Zeal Barber</span>
+                </h1>
+                
+                <div className="padding-bottom padding-small"></div>
+                
+                <div 
+                  data-w-id="33054662-c150-aee8-e5e6-a01e0fa20651" 
+                  className="max-width-medium is-home"
+                >
+                  <p className="text-size-regular text-color-secondary">
+                    Donde la precisión se encuentra con la pasión. Viví una experiencia de barbería premium diseñada especialmente a tu medida.
+                  </p>
                 </div>
-                <div>
-                  <div style={{ fontSize: "0.85rem", color: "#94a3b8", textTransform: "uppercase" }}>Llamanos</div>
-                  <div style={{ fontWeight: 600, color: "#fff" }}>+54 (11) 4555-1234</div>
+                
+                <div className="button-group">
+                  <a href="#appointment" className="button w-button">Reservar Turno</a>
+                  <a href="#services" className="button is-secondary w-button">Ver Servicios</a>
                 </div>
               </div>
 
-              <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-                <div className={styles.contactIcon} style={{ margin: 0 }}>
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <div style={{ fontSize: "0.85rem", color: "#94a3b8", textTransform: "uppercase" }}>Email</div>
-                  <div style={{ fontWeight: 600, color: "#fff" }}>contacto@zealbarber.com</div>
+            </div>
+
+            {/* 3 TARJETAS DE CONTACTO FLOTANTES CON DATA-W-ID ORIGINAL */}
+            <div className="w-layout-blockcontainer container-medium w-container">
+              <div className="hero-contact-wrapper">
+                <div className="common-grid-three-col">
+                  
+                  <div data-w-id="76d251db-28d1-09c6-02d7-42978ed0c643" className="hero-contact-card is-hero">
+                    <div className="services-icon-wrap">
+                      <img src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e0489ae36cc1c76984ae30_Location.svg" loading="lazy" alt="Ubicación" className="icon-40x40"/>
+                    </div>
+                    <div className="services-heading-wrapper">
+                      <h3 className="heading-style-h3">Dirección</h3>
+                      <div className="max-width-xsmall align-center">
+                        <div className="text-size-regular text-color-alternate">
+                          Av. Libertador 4520, Palermo, CABA
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div data-w-id="76d251db-28d1-09c6-02d7-42978ed0c64c" className="hero-contact-card is-hero">
+                    <div className="services-icon-wrap">
+                      <img src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e048fa9d08b49350e7d36e_Calling.svg" loading="lazy" alt="Teléfono" className="icon-40x40"/>
+                    </div>
+                    <div className="services-heading-wrapper">
+                      <h3 className="heading-style-h3">Teléfono</h3>
+                      <div className="flex vertical">
+                        <a href="tel:+541145551234" className="link-style is-services">+54 (11) 4555-1234</a>
+                        <a href="tel:+541145555678" className="link-style is-services">+54 (11) 4555-5678</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="w-node-_76d251db-28d1-09c6-02d7-42978ed0c657-8ed0c642" data-w-id="76d251db-28d1-09c6-02d7-42978ed0c657" className="hero-contact-card is-hero">
+                    <div className="services-icon-wrap">
+                      <img src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e04899f45a3b89dfd6b823_Time%20Circle.svg" loading="lazy" alt="Horarios" className="icon-40x40"/>
+                    </div>
+                    <div className="services-heading-wrapper">
+                      <h3 className="heading-style-h3">Horarios</h3>
+                      <div className="max-width-custom is-contact">
+                        <div className="text-size-regular text-color-alternate">
+                          Lun – Sáb: 9:00 – 20:00 hs <br/>Dom: 10:00 – 18:00 hs
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
-          </motion.div>
+          </section>
 
-          <motion.div 
-            className={styles.formWrap}
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-          >
-            {formularioEnviado ? (
-              <motion.div 
-                style={{ textAlign: "center", padding: "3rem 1rem" }}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-              >
-                <CheckCircle2 className="w-12 h-12 text-[#10b981] mx-auto mb-3" />
-                <h3 className={styles.serviceName}>¡Turno Solicitado con Éxito!</h3>
-                <p className={styles.serviceDesc}>
-                  Nos pondremos en contacto a la brevedad para confirmar tu horario.
-                </p>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubmit}>
-                <div className={styles.inputGroup}>
-                  <label className={styles.label}>Nombre Completo</label>
-                  <input 
-                    type="text" 
-                    required 
-                    placeholder="Ej. Juan Pérez"
-                    className={styles.input}
-                    value={formData.nombre}
-                    onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
-                  />
-                </div>
+          {/* 3. SECCIÓN SOBRE NOSOTROS & CONTADORES */}
+          <section className="section-about">
+            <div className="padding-vertical padding-huge">
+              <div className="w-layout-blockcontainer container-medium w-container">
+                <div className="common-grid-two-col">
+                  
+                  <div id="w-node-b326c2b9-52aa-6c67-aec5-35cd2a86f744-e17edfc7" className="common-content-wrap">
+                    <h2 data-w-id="b9eaa09a-ff64-5fe2-f78c-ba6078606eb8" className="heading-style-h2">
+                      Servicios profesionales de barbería con el máximo confort
+                    </h2>
+                    <div className="padding-bottom padding-small"></div>
+                    <p data-w-id="d97c55b2-c264-0fdb-53dc-34a7cc144075" className="text-size-regular text-color-alternate">
+                      Disfrutá de la máxima conveniencia y el lujo del cuidado personal. Desde cortes clásicos hasta estilos de vanguardia, nuestros maestros barberos garantizan resultados impecables.
+                    </p>
+                    <div className="padding-bottom padding-large"></div>
+                    
+                    <div className="common-counter-wrap">
+                      <div data-w-id="a264d72f-0402-47a7-bc18-373e3c0186ae" className="counter-block">
+                        <div data-w-id="5aba6b3b-5ba7-8ce0-f3b7-deb93debc92e" className="flex">
+                          <div className="heading-style-h2 one">9</div>
+                          <div className="heading-style-h2 two">8</div>
+                          <div className="heading-style-h2 three">%</div>
+                        </div>
+                        <div className="padding-bottom padding-small"></div>
+                        <div data-w-id="2be53823-0811-8810-95c5-d618059ada2c" className="text-size-alternate">Satisfacción de Clientes</div>
+                      </div>
 
-                <div className={styles.row2}>
-                  <div className={styles.inputGroup}>
-                    <label className={styles.label}>Teléfono</label>
-                    <input 
-                      type="tel" 
-                      required 
-                      placeholder="+54 11 ..."
-                      className={styles.input}
-                      value={formData.telefono}
-                      onChange={(e) => setFormData({ ...formData, telefono: e.target.value })}
+                      <div data-w-id="74e5fdc7-5833-9bd8-70a8-cb4009a03606" className="counter-block">
+                        <div data-w-id="d78e904d-5be5-9b41-3f58-33f7115bc1f6" className="flex">
+                          <div className="heading-style-h2 one">1</div>
+                          <div className="heading-style-h2 two">2</div>
+                          <div className="heading-style-h2 three">+</div>
+                        </div>
+                        <div className="padding-bottom padding-small"></div>
+                        <div data-w-id="b5dc2324-4487-4aa4-fbfa-d451994f1577" className="text-size-alternate">Años de Trayectoria</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div data-w-id="8f06a3d0-5f18-f20e-aaf0-c7b24dd77dc9" className="common-image-block">
+                    <img 
+                      src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e12d0d327f116fa1a13513_about-img.webp" 
+                      loading="lazy" 
+                      sizes="(max-width: 767px) 92vw, (max-width: 991px) 46vw, (max-width: 1279px) 47vw, 564px" 
+                      srcSet="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e12d0d327f116fa1a13513_about-img-p-500.webp 500w, https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e12d0d327f116fa1a13513_about-img-p-800.webp 800w, https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e12d0d327f116fa1a13513_about-img-p-1080.webp 1080w, https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e12d0d327f116fa1a13513_about-img.webp 1204w" 
+                      alt="About Zeal Barber" 
+                      className="aspect-ratio-image"
                     />
                   </div>
-                  <div className={styles.inputGroup}>
-                    <label className={styles.label}>Email</label>
-                    <input 
-                      type="email" 
-                      required 
-                      placeholder="juan@correo.com"
-                      className={styles.input}
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    />
+
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* 4. SECCIÓN SERVICIOS (6 TARJETAS CON DATA-W-ID Y STAGGER) */}
+          <section id="services" className="section-services">
+            <div className="padding-vertical padding-xxlarge">
+              <div className="w-layout-blockcontainer container-medium w-container">
+                <div className="common-services-wrap">
+                  
+                  <div className="services-heading-wrap">
+                    <div data-w-id="0dea7d99-0d73-c7ca-00c1-243035c65918" className="common-heading-wrap is-services">
+                      <h2 className="heading-style-h2 text-blue">Servicios de Grooming a tu Medida</h2>
+                      <div className="padding-bottom padding-medium"></div>
+                      <div className="max-width-medium">
+                        <p className="text-size-regular text-blue">
+                          En Zeal Barber ofrecemos una experiencia integral para mantenerte impecable y seguro. Desde cortes clásicos hasta cuidado avanzado de barba.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="w-layout-grid common-grid-two-col services-grid">
+                    
+                    <div id="w-node-f975df92-ff82-7f2b-5044-e386c2f26e68-e17edfc7" data-w-id="f975df92-ff82-7f2b-5044-e386c2f26e68" className="flex is-services">
+                      <div className="icon-wrap">
+                        <img src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e1368f745c48b34de24564_1.svg" loading="lazy" alt="Icon 01" className="icon-64x64"/>
+                      </div>
+                      <div className="padding-bottom padding-medium"></div>
+                      <div className="services-content-wrap">
+                        <h3 className="heading-style-h3">Corte de Adulto</h3>
+                        <div className="text-size-small text-color-alternate">Corte profesional a tijera y máquina con lavado premium y peinado incluido.</div>
+                        <div className="padding-bottom padding-small"></div>
+                        <div className="services-price"><div className="text-size-medium text-blue">$15.000 ARS</div></div>
+                      </div>
+                    </div>
+
+                    <div className="flex is-services-two">
+                      <div className="icon-wrap">
+                        <img src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e1368ed54a37cc7db6c354_2.svg" loading="lazy" alt="Icon 02" className="icon-64x64"/>
+                      </div>
+                      <div className="padding-bottom padding-medium"></div>
+                      <div className="services-content-wrap">
+                        <h3 className="heading-style-h3">Afeitado Clásico</h3>
+                        <div className="text-size-small text-color-alternate">Afeitado al ras con toalla caliente, aceites esenciales y loción refrescante.</div>
+                        <div className="padding-bottom padding-small"></div>
+                        <div className="services-price"><div className="text-size-medium text-blue">$12.000 ARS</div></div>
+                      </div>
+                    </div>
+
+                    <div className="flex is-services-three">
+                      <div className="icon-wrap">
+                        <img src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e1368ef1622ce81a1ccf62_3.svg" loading="lazy" alt="Icon 03" className="icon-64x64"/>
+                      </div>
+                      <div className="padding-bottom padding-medium"></div>
+                      <div className="services-content-wrap">
+                        <h3 className="heading-style-h3">Corte para Niños</h3>
+                        <div className="text-size-small text-color-alternate">Corte dedicado con la mayor paciencia y detalle para los más chicos.</div>
+                        <div className="padding-bottom padding-small"></div>
+                        <div className="services-price"><div className="text-size-medium text-blue">$11.000 ARS</div></div>
+                      </div>
+                    </div>
+
+                    <div className="flex is-services-four">
+                      <div className="icon-wrap">
+                        <img src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e1368e77419ca122237c96_4.svg" loading="lazy" alt="Icon 04" className="icon-64x64"/>
+                      </div>
+                      <div className="padding-bottom padding-medium"></div>
+                      <div className="services-content-wrap">
+                        <h3 className="heading-style-h3">Hidratación Capilar</h3>
+                        <div className="text-size-small text-color-alternate">Tratamiento intensivo para nutrir el cuero cabelludo y revitalizar el cabello.</div>
+                        <div className="padding-bottom padding-small"></div>
+                        <div className="services-price"><div className="text-size-medium text-blue">$14.000 ARS</div></div>
+                      </div>
+                    </div>
+
+                    <div className="flex is-services-five">
+                      <div className="icon-wrap">
+                        <img src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e13690086f71672a680d85_6.svg" loading="lazy" alt="Icon 05" className="icon-64x64"/>
+                      </div>
+                      <div className="padding-bottom padding-medium"></div>
+                      <div className="services-content-wrap">
+                        <h3 className="heading-style-h3">Perfilado de Barba</h3>
+                        <div className="text-size-small text-color-alternate">Diseño de líneas de contorno con navaja y recorte milimétrico de barba.</div>
+                        <div className="padding-bottom padding-small"></div>
+                        <div className="services-price"><div className="text-size-medium text-blue">$10.500 ARS</div></div>
+                      </div>
+                    </div>
+
+                    <div className="flex is-services-six">
+                      <div className="icon-wrap">
+                        <img src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e1368e59cc3bb79116a7e0_5.svg" loading="lazy" alt="Icon 06" className="icon-64x64"/>
+                      </div>
+                      <div className="padding-bottom padding-medium"></div>
+                      <div className="services-content-wrap">
+                        <h3 className="heading-style-h3">Cuidado Integral de Barba</h3>
+                        <div className="text-size-small text-color-alternate">Lavado exfoliante, hidratación con bálsamo orgánico y peinado modelador.</div>
+                        <div className="padding-bottom padding-small"></div>
+                        <div className="services-price"><div className="text-size-medium text-blue">$16.500 ARS</div></div>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
+              </div>
+            </div>
+          </section>
 
-                <div className={styles.inputGroup}>
-                  <label className={styles.label}>Servicio Deseado</label>
-                  <input 
-                    type="text" 
-                    placeholder="Ej. Corte de Adulto + Perfilado de Barba"
-                    className={styles.input}
-                    value={formData.asunto}
-                    onChange={(e) => setFormData({ ...formData, asunto: e.target.value })}
-                  />
+          {/* 5. SECCIÓN CTA CON BANNER */}
+          <section className="section-cta">
+            <div className="position-relative">
+              <div className="common-aspect-ratio-block">
+                <div className="common-bg-overlay"></div>
+              </div>
+            </div>
+            <div className="w-layout-blockcontainer container-large w-container">
+              <div className="global-absolute-content-wrap">
+                <div className="max-width-huge text-align-center">
+                  <div data-w-id="45159b71-6852-6ec1-1f87-ac8ca1b6e103" className="heading-style-h1 booking">
+                    Disfrutá de servicios de barbería de primer nivel con el confort que merecés
+                  </div>
+                  <div className="padding-bottom padding-40"></div>
+                  <a href="#appointment" className="button w-button">Reservar Turno</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* 6. SECCIÓN ¿POR QUÉ ZEAL BARBER? */}
+          <section id="review" className="section-review">
+            <div className="padding-global">
+              <div className="w-layout-blockcontainer container-medium w-container">
+                <div data-w-id="573cdebc-203a-5329-5946-c65ef297ce36" className="common-heading-wrap">
+                  <h2 className="heading-style-h2">¿Por qué Zeal Barber?</h2>
+                  <div className="padding-bottom padding-medium"></div>
+                  <div className="max-width-medium">
+                    <p className="text-size-regular text-color-alternate">
+                      Experimentá el cuidado de primera calidad con nuestro equipo experto, productos importados y máxima puntualidad.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="padding-bottom padding-xxlarge"></div>
+                
+                <div className="common-grid-three-col">
+                  
+                  <div data-w-id="e8cbc694-2ab3-12b6-b4a4-39d1ab537baf" className="hero-contact-why-card">
+                    <div className="services-icon-why-wrap">
+                      <img src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e40a03967edb2809fa99b8_Shield%20Done.svg" loading="lazy" alt="Experto" className="icon-64x64"/>
+                      <h3 className="heading-style-h3">Expertos</h3>
+                      <div className="headline-bottom"></div>
+                    </div>
+                    <div className="headline-bottom is-why"></div>
+                    <div className="max-width-small">
+                      <p data-w-id="e8cbc694-2ab3-12b6-b4a4-39d1ab537bb8" className="text-size-regular text-color-alternate">
+                        Profesionales apasionados dedicados a lograr cortes y afeitados perfectos.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div data-w-id="e8cbc694-2ab3-12b6-b4a4-39d1ab537bba" className="hero-contact-why-card">
+                    <div className="services-icon-why-wrap">
+                      <img src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e409fd91b1c3d67a8ed5b9_Star.svg" loading="lazy" alt="Premium" className="icon-64x64"/>
+                      <h3 className="heading-style-h3">Premium</h3>
+                      <div className="headline-bottom"></div>
+                    </div>
+                    <div className="headline-bottom is-why"></div>
+                    <div className="max-width-small">
+                      <p data-w-id="e8cbc694-2ab3-12b6-b4a4-39d1ab537bc0" className="text-size-regular text-color-alternate">
+                        Solo los mejores productos cosméticos para un cuidado superior de piel y cabello.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div id="w-node-e8cbc694-2ab3-12b6-b4a4-39d1ab537bc2-e17edfc7" data-w-id="e8cbc694-2ab3-12b6-b4a4-39d1ab537bc2" className="hero-contact-why-card">
+                    <div className="services-icon-why-wrap">
+                      <img src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e409fd63e121da9c7f204d_Heart2.svg" loading="lazy" alt="Confort" className="icon-64x64"/>
+                      <h3 className="heading-style-h3">Confort</h3>
+                      <div className="headline-bottom"></div>
+                    </div>
+                    <div className="headline-bottom is-why"></div>
+                    <div className="max-width-small">
+                      <p data-w-id="e8cbc694-2ab3-12b6-b4a4-39d1ab537bc8" className="text-size-regular text-color-alternate">
+                        Relajate en un entorno exclusivo con bebidas de cortesía y atención dedicada.
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* 7. SECCIÓN TESTIMONIOS CON EFECTO SLIDE-IN */}
+          <section id="testimonials" className="section-testimonials">
+            <div className="padding-bottom padding-global">
+              <div className="w-layout-blockcontainer container-medium w-container">
+                
+                <div data-w-id="c9cbed57-78d4-e090-7506-ff17abbdfe4b" className="testimonials-wrap">
+                  
+                  <div data-w-id="ee8d521b-9752-228c-4d90-80c4f425a2ac" className="testimonials-thumb-wrap">
+                    <img 
+                      src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66f4f8796c3e7ab6417c2059_Img.png" 
+                      loading="lazy" 
+                      alt="Cliente" 
+                      className="testimonials-thumb"
+                    />
+                  </div>
+
+                  <div className="testimonials-content-wrap">
+                    <div className="max-width-medium is-home">
+                      <h2 data-w-id="2f24f232-1db1-d0ac-1188-ccd488b40a89" className="heading-style-h2">
+                        ¡Un cambio total en mi imagen!
+                      </h2>
+                    </div>
+                    <div className="padding-xxsmall"></div>
+                    <div className="padding-bottom padding-small"></div>
+                    
+                    <p data-w-id="900f3e99-8e9e-8b59-9ac4-44d157b171e6" className="text-size-regular testimonials">
+                      &quot;Zeal Barber redefinió por completo mi experiencia de aseo personal. El equipo brinda un servicio impecable y una atención al detalle inigualable. Cada visita se siente como una sesión de cuidado exclusivo. ¡100% recomendado!&quot;
+                    </p>
+                    
+                    <div className="padding-xxsmall"></div>
+                    <div className="padding-bottom padding-small"></div>
+                    
+                    <h3 data-w-id="6e9f26e2-e3b5-1672-cbcf-f5839ca0533a" className="heading-style-h3 testimonials">
+                      Santiago Méndez
+                    </h3>
+                    <div className="padding-xxsmall"></div>
+                    <div data-w-id="6c26fa5c-e71f-fdc3-7660-c76b565f2910" className="text-size-regular text-color-alternate">
+                      Cliente Frecuente · CEO de InnovateTech
+                    </div>
+
+                    <div className="testimonials-icon-wrap">
+                      <img src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66f4fad276ad61485c4d2f11_Quotes.svg" loading="lazy" alt="Citas" className="testimonials-icon"/>
+                    </div>
+                  </div>
+
                 </div>
 
-                <div className={styles.inputGroup}>
-                  <label className={styles.label}>Mensaje o Preferencia de Horario</label>
-                  <textarea 
-                    placeholder="Contanos tu disponibilidad horaria o detalles..."
-                    className={styles.textarea}
-                    value={formData.mensaje}
-                    onChange={(e) => setFormData({ ...formData, mensaje: e.target.value })}
-                  />
+              </div>
+            </div>
+          </section>
+
+          {/* 8. FORMULARIO DE RESERVAS Y FOOTER SECTION */}
+          <section className="footer">
+            <footer id="appointment" className="section-footer">
+              <div className="position-relative">
+                <div className="common-aspect-ratio-block is-footer">
+                  <div className="common-bg-overlay is-footer"></div>
                 </div>
+              </div>
 
-                <motion.button 
-                  type="submit" 
-                  className={styles.btnPrimary} 
-                  style={{ width: "100%", marginTop: "0.5rem" }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Confirmar Reserva de Turno
-                </motion.button>
-              </form>
-            )}
-          </motion.div>
+              <div className="global-absolute-content-wrap is-footer">
+                <div className="container-large why">
+                  <div className="w-layout-grid common-grid-two-col is-footer">
+                    
+                    <div className="max-width-medium">
+                      <h2 data-w-id="12039fdd-5153-f015-6be3-658075f6d71a" className="heading-style-h2 text-color-secondary">
+                        Por Qué Nos Destacamos
+                      </h2>
+                      <div className="padding-bottom padding-medium"></div>
+                      <p data-w-id="12039fdd-5153-f015-6be3-658075f6d71f" className="text-size-large text-color-secondary">
+                        Descubrí la diferencia de atendértete con un equipo de profesionales comprometidos con la excelencia y la personalización de cada detalle.
+                      </p>
+                      <div className="padding-bottom padding-medium"></div>
+                      
+                      <div className="cta-wrapper-block">
+                        <div className="flex gap-40">
+                          <div data-w-id="12039fdd-5153-f015-6be3-658075f6d724" className="icon-large-wrap">
+                            <img src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e14b77adaebb2f2635c49e_phone-svg.svg" loading="lazy" alt="Tel" className="icon-36x36"/>
+                          </div>
+                          <div className="flex vertical">
+                            <h5 data-w-id="12039fdd-5153-f015-6be3-658075f6d727" className="heading-style-h5 text-color-secondary">Llamanos</h5>
+                            <a data-w-id="12039fdd-5153-f015-6be3-658075f6d729" href="tel:+541145551234" className="text-size-regular text-color-secondary">+54 (11) 4555-1234</a>
+                          </div>
+                        </div>
 
-        </div>
-      </section>
+                        <div className="flex gap-40">
+                          <div data-w-id="12039fdd-5153-f015-6be3-658075f6d72c" className="icon-large-wrap">
+                            <img src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e956a64d433ab0e9983c83_mail-address.svg" loading="lazy" alt="Email" className="icon-36x36"/>
+                          </div>
+                          <div className="flex vertical">
+                            <h5 data-w-id="12039fdd-5153-f015-6be3-658075f6d72f" className="heading-style-h5 text-color-secondary">Envianos un email</h5>
+                            <a data-w-id="12039fdd-5153-f015-6be3-658075f6d731" href="mailto:contacto@zealbarber.com" className="text-size-regular text-color-secondary">contacto@zealbarber.com</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
 
-      {/* 10. MAPA DE UBICACIÓN */}
-      <div style={{ width: "100%", height: "380px", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.9961685419997!2d-58.420658424260385!3d-34.57895697296338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb577b212f451%3A0x6b1df3df43d463d4!2sPalermo%2C%20CABA!5e0!3m2!1ses!2sar!4v1700000000000!5m2!1ses!2sar"
-          width="100%"
-          height="100%"
-          style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
+                    <div data-w-id="12039fdd-5153-f015-6be3-658075f6d733" className="form-wrap">
+                      <div className="form-block w-form">
+                        {formEnviado ? (
+                          <div className="form-message-success w-form-done" style={{ display: "block" }}>
+                            <div className="text-size-regular">¡Muchas gracias! Tu solicitud de turno ha sido recibida con éxito.</div>
+                          </div>
+                        ) : (
+                          <form onSubmit={handleFormSubmit} id="wf-form-Appointment-Form">
+                            <div className="filed-wrap">
+                              <div className="text-size-regular">Nombre Completo</div>
+                              <input className="form-input w-input" required maxLength={256} name="Full-Name" placeholder="Ej. Juan Pérez" type="text" id="Full-Name"/>
+                            </div>
+                            <div className="filed-wrap">
+                              <div className="text-size-regular">Servicio Deseado</div>
+                              <input className="form-input w-input" maxLength={256} name="Subject" placeholder="Ej. Corte y Barba" type="text" id="Subject"/>
+                            </div>
+                            <div className="column-wrap">
+                              <div className="column-50 is-from">
+                                <div className="filed-wrap">
+                                  <div className="text-size-regular">Teléfono</div>
+                                  <input className="form-input w-input" required maxLength={256} name="Phone" placeholder="+54 11 ..." type="tel" id="Phone"/>
+                                </div>
+                              </div>
+                              <div className="column-50 is-from">
+                                <div className="filed-wrap">
+                                  <div className="text-size-regular">Email</div>
+                                  <input className="form-input w-input" required maxLength={256} name="Email-Address" placeholder="juan@correo.com" type="email" id="Email-Address"/>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="filed-wrap">
+                              <div className="text-size-regular">Mensaje o Detalle del Turno</div>
+                              <textarea id="Message" name="Message" maxLength={5000} placeholder="Contanos tu disponibilidad..." className="form-input is-text-area w-input"></textarea>
+                            </div>
+                            <input type="submit" data-wait="Procesando..." className="button is-form-submit w-button" value="Confirmar Reserva de Turno"/>
+                          </form>
+                        )}
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div className="footer-bg-overlay"></div>
+            </footer>
+
+            {/* MAPA GOOGLE EMBED */}
+            <div className="section-map">
+              <div className="is-map w-embed w-iframe">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.9961685419997!2d-58.420658424260385!3d-34.57895697296338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb577b212f451%3A0x6b1df3df43d463d4!2sPalermo%2C%20CABA!5e0!3m2!1ses!2sar!4v1700000000000!5m2!1ses!2sar" 
+                  width="100%" 
+                  height="450" 
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </div>
+
+            {/* COPYRIGHT & REDES */}
+            <div className="section-copyright">
+              <div className="w-layout-blockcontainer container-large w-container">
+                <div className="flex is-copyright">
+                  <div className="column-50">
+                    <div className="text-size-regular is-legal">© {new Date().getFullYear()} Zeal Barber. Todos los derechos reservados.</div>
+                  </div>
+                  <div className="column-50 is-copyright">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon-block w-inline-block">
+                      <img src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66daabcdca258aa5b1bb8671_facebook.svg" loading="lazy" alt="Facebook" className="icon-24x24"/>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon-block w-inline-block">
+                      <img src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e997451e42f228c617178b_x%20(2).svg" loading="lazy" alt="X / Twitter" className="icon-24x24"/>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon-block w-inline-block">
+                      <img src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66daabcdacc773bb15203803_Instagram.svg" loading="lazy" alt="Instagram" className="icon-24x24"/>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon-block w-inline-block">
+                      <img src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66daabcdb99728e6cc2927af_linkedin.svg" loading="lazy" alt="LinkedIn" className="icon-24x24"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </section>
+
+        </main>
+
+        {/* 9. FIRMA DIGITAL OFICIAL DE QUANTUM HIVE */}
+        <FirmaQuantumHive />
+
       </div>
 
-      {/* 11. FIRMA INSTITUCIONAL STANDARDIZADA DE QUANTUM HIVE */}
-      <FirmaQuantumHive />
-
-    </div>
+      {/* SCRIPTS DE WEBFLOW RUNTIME E IX2 INTERACTIONS */}
+      <Script 
+        src="/templates/zeal-barber/jquery.min.js" 
+        strategy="beforeInteractive" 
+      />
+      <Script 
+        src="/templates/zeal-barber/webflow.js" 
+        strategy="afterInteractive" 
+      />
+    </>
   );
 }
