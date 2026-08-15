@@ -125,6 +125,16 @@
   background-position: center;
   background-repeat: no-repeat;
   padding: 6rem 1.5rem 8rem 1.5rem;
+  overflow: hidden;
+}
+
+.heroBgImage {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .heroOverlay {

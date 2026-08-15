@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import styles from "./p6.module.css";
+import FirmaQuantumHive from "@/components/marca/firma-quantumhive";
 import { 
   MapPin, 
   Phone, 
@@ -12,11 +14,43 @@ import {
   Heart, 
   Scissors, 
   CheckCircle2, 
-  ArrowRight,
-  Mail,
-  Sparkles,
-  Calendar
+  Mail
 } from "lucide-react";
+
+// Contador numérico animado al hacer scroll
+function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const [count, setCount] = useState(0);
+
+  React.useEffect(() => {
+    if (isInView) {
+      let start = 0;
+      const duration = 1800;
+      const stepTime = 25;
+      const totalSteps = duration / stepTime;
+      const increment = value / totalSteps;
+
+      const timer = setInterval(() => {
+        start += increment;
+        if (start >= value) {
+          setCount(value);
+          clearInterval(timer);
+        } else {
+          setCount(Math.floor(start));
+        }
+      }, stepTime);
+
+      return () => clearInterval(timer);
+    }
+  }, [isInView, value]);
+
+  return (
+    <span ref={ref} className={styles.statNumber}>
+      {count}{suffix}
+    </span>
+  );
+}
 
 export default function P6ZealBarber() {
   const [formularioEnviado, setFormularioEnviado] = useState(false);
@@ -28,6 +62,15 @@ export default function P6ZealBarber() {
     mensaje: "",
   });
 
+  // Parallax del Hero
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+  const heroBgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.25]);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormularioEnviado(true);
@@ -37,11 +80,39 @@ export default function P6ZealBarber() {
     }, 4000);
   };
 
+  // Variantes de animación para scroll reveal
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (custom: number = 0) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        delay: custom * 0.12,
+        ease: [0.215, 0.61, 0.355, 1],
+      },
+    }),
+  };
+
+  const scaleIn = {
+    hidden: { opacity: 0, scale: 0.94 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.8, ease: [0.215, 0.61, 0.355, 1] },
+    },
+  };
+
   return (
     <div className={styles.raiz}>
       
       {/* 1. HEADER / BARRA DE NAVEGACIÓN */}
-      <header className={styles.header}>
+      <motion.header 
+        className={styles.header}
+        initial={{ y: -60, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <div className={styles.logoWrap}>
           <Scissors className="w-6 h-6 text-[#d4af37]" />
           <span className={styles.logoText}>
@@ -61,83 +132,112 @@ export default function P6ZealBarber() {
         <a href="#contacto" className={styles.btnPrimary}>
           Reservar Turno
         </a>
-      </header>
+      </motion.header>
 
-      {/* 2. HERO SECTION */}
-      <section 
-        className={styles.heroSection}
-        style={{
-          backgroundImage: "url('https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e038f36550184c0e6c4874_hero%20img%20(1).webp')",
-        }}
-      >
+      {/* 2. HERO SECTION CON ENTRADA ESCALONADA Y PARALLAX */}
+      <section ref={heroRef} className={styles.heroSection}>
+        <motion.div 
+          className={styles.heroBgImage}
+          style={{
+            backgroundImage: "url('https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e038f36550184c0e6c4874_hero%20img%20(1).webp')",
+            y: heroBgY,
+          }}
+        />
         <div className={styles.heroOverlay} />
         
-        <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>
+        <motion.div 
+          className={styles.heroContent}
+          style={{ opacity: heroOpacity }}
+        >
+          <motion.h1 
+            className={styles.heroTitle}
+            initial={{ opacity: 0, y: 35 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.215, 0.61, 0.355, 1] }}
+          >
             Cuidado Experto, <span>Estilo Impecable en Zeal Barber</span>
-          </h1>
-          <p className={styles.heroSubtitle}>
+          </motion.h1>
+          
+          <motion.p 
+            className={styles.heroSubtitle}
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.35, ease: [0.215, 0.61, 0.355, 1] }}
+          >
             Donde la precisión se encuentra con la pasión. Viví una experiencia de barbería premium diseñada especialmente a tu medida.
-          </p>
-          <div className={styles.heroButtons}>
+          </motion.p>
+          
+          <motion.div 
+            className={styles.heroButtons}
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.55, ease: [0.215, 0.61, 0.355, 1] }}
+          >
             <a href="#contacto" className={styles.btnPrimary}>
               Reservar un Turno
             </a>
             <a href="#servicios" className={styles.btnSecondary}>
               Ver Servicios
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
-      {/* 3. CONTACT INFO CARDS (Flotando bajo el Hero) */}
+      {/* 3. CONTACT INFO CARDS (Flotando bajo el Hero con Stagger Scroll Reveal) */}
       <div className={styles.contactBarWrapper}>
         <div className={styles.contactGrid}>
-          
-          <div className={styles.contactCard}>
-            <div className={styles.contactIcon}>
-              <MapPin className="w-5 h-5" />
-            </div>
-            <h3 className={styles.contactCardTitle}>Dirección</h3>
-            <p className={styles.contactCardText}>
-              Av. Libertador 4520, Piso 1<br />Palermo, Buenos Aires
-            </p>
-          </div>
-
-          <div className={styles.contactCard}>
-            <div className={styles.contactIcon}>
-              <Phone className="w-5 h-5" />
-            </div>
-            <h3 className={styles.contactCardTitle}>Teléfono</h3>
-            <p className={styles.contactCardText}>
-              <a href="tel:+541145551234" className="hover:text-[#d4af37] transition-colors">
-                +54 (11) 4555-1234
-              </a><br />
-              <a href="tel:+541145555678" className="hover:text-[#d4af37] transition-colors">
-                +54 (11) 4555-5678
-              </a>
-            </p>
-          </div>
-
-          <div className={styles.contactCard}>
-            <div className={styles.contactIcon}>
-              <Clock className="w-5 h-5" />
-            </div>
-            <h3 className={styles.contactCardTitle}>Horarios</h3>
-            <p className={styles.contactCardText}>
-              Lunes a Sábado: 9:00 a 20:00 hs<br />
-              Domingos: 10:00 a 18:00 hs
-            </p>
-          </div>
-
+          {[
+            {
+              icon: <MapPin className="w-5 h-5" />,
+              title: "Dirección",
+              content: <>Av. Libertador 4520, Piso 1<br />Palermo, Buenos Aires</>
+            },
+            {
+              icon: <Phone className="w-5 h-5" />,
+              title: "Teléfono",
+              content: (
+                <>
+                  <a href="tel:+541145551234" className="hover:text-[#d4af37] transition-colors block">+54 (11) 4555-1234</a>
+                  <a href="tel:+541145555678" className="hover:text-[#d4af37] transition-colors block">+54 (11) 4555-5678</a>
+                </>
+              )
+            },
+            {
+              icon: <Clock className="w-5 h-5" />,
+              title: "Horarios",
+              content: <>Lunes a Sábado: 9:00 a 20:00 hs<br />Domingos: 10:00 a 18:00 hs</>
+            },
+          ].map((card, idx) => (
+            <motion.div 
+              key={idx}
+              className={styles.contactCard}
+              custom={idx}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.25 }}
+              variants={fadeInUp}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
+              <div className={styles.contactIcon}>
+                {card.icon}
+              </div>
+              <h3 className={styles.contactCardTitle}>{card.title}</h3>
+              <p className={styles.contactCardText}>{card.content}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
 
-      {/* 4. SECCIÓN SOBRE NOSOTROS */}
+      {/* 4. SECCIÓN SOBRE NOSOTROS CON ANIMACIÓN DE ENTRADA Y CONTADORES */}
       <section id="nosotros" className={styles.section}>
         <div className={styles.aboutGrid}>
           
-          <div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInUp}
+          >
             <span className={styles.sectionTag}>Experiencia Exclusiva</span>
             <h2 className={styles.sectionTitle}>
               Servicios profesionales de barbería con máxima comodidad
@@ -148,39 +248,51 @@ export default function P6ZealBarber() {
 
             <div className={styles.statsRow}>
               <div>
-                <div className={styles.statNumber}>98%</div>
+                <AnimatedCounter value={98} suffix="%" />
                 <div className={styles.statLabel}>Satisfacción de Clientes</div>
               </div>
               <div>
-                <div className={styles.statNumber}>12+</div>
+                <AnimatedCounter value={12} suffix="+" />
                 <div className={styles.statLabel}>Años de Trayectoria</div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className={styles.aboutImageWrap}>
+          <motion.div 
+            className={styles.aboutImageWrap}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={scaleIn}
+            whileHover={{ scale: 1.02, transition: { duration: 0.4 } }}
+          >
             <img 
               src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e12d0d327f116fa1a13513_about-img.webp" 
               alt="Sobre Zeal Barber" 
               className={styles.aboutImage}
             />
-          </div>
+          </motion.div>
 
         </div>
       </section>
 
-      {/* 5. SECCIÓN DE SERVICIOS */}
+      {/* 5. SECCIÓN DE SERVICIOS (STAGGERED SCROLL REVEAL EN LAS 6 TARJETAS) */}
       <section id="servicios" className={styles.section}>
-        <div className={styles.sectionHeader}>
+        <motion.div 
+          className={styles.sectionHeader}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInUp}
+        >
           <span className={styles.sectionTag}>Nuestra Carta</span>
           <h2 className={styles.sectionTitle}>Servicios Excepcionales a tu Medida</h2>
           <p className={styles.sectionDesc}>
             En Zeal Barber ofrecemos una variedad integral de servicios para mantenerte impecable y seguro. Cuidado de barba de primera línea y estilismo personalizado.
           </p>
-        </div>
+        </motion.div>
 
         <div className={styles.servicesGrid}>
-          
           {[
             {
               nombre: "Corte de Adulto",
@@ -219,83 +331,130 @@ export default function P6ZealBarber() {
               icon: "https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e1368e59cc3bb79116a7e0_5.svg"
             },
           ].map((srv, idx) => (
-            <div key={idx} className={styles.serviceCard}>
-              <div className={styles.serviceIconWrap}>
+            <motion.div 
+              key={idx} 
+              className={styles.serviceCard}
+              custom={idx}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeInUp}
+              whileHover={{ 
+                y: -10, 
+                boxShadow: "0 20px 35px rgba(0, 0, 0, 0.5)",
+                borderColor: "rgba(212, 175, 55, 0.6)",
+                transition: { duration: 0.3 } 
+              }}
+            >
+              <motion.div 
+                className={styles.serviceIconWrap}
+                whileHover={{ rotate: 10, scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
                 <img src={srv.icon} alt={srv.nombre} className="w-8 h-8 filter brightness-150" />
-              </div>
+              </motion.div>
               <h3 className={styles.serviceName}>{srv.nombre}</h3>
               <p className={styles.serviceDesc}>{srv.desc}</p>
               <div className={styles.servicePrice}>{srv.precio}</div>
-            </div>
+            </motion.div>
           ))}
-
         </div>
       </section>
 
       {/* 6. BANNER CTA INTERMEDIO */}
       <section className={styles.ctaBanner}>
-        <div style={{ position: "relative", zIndex: 2 }}>
+        <motion.div 
+          style={{ position: "relative", zIndex: 2 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={fadeInUp}
+        >
           <h2 className={styles.ctaTitle}>
             Disfrutá de servicios de barbería de primer nivel con el confort que merecés
           </h2>
-          <a href="#contacto" className={styles.btnPrimary}>
+          <motion.a 
+            href="#contacto" 
+            className={styles.btnPrimary}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+          >
             Reservar un Turno
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
       </section>
 
-      {/* 7. POR QUÉ ELEGIR ZEAL BARBER */}
+      {/* 7. POR QUÉ ELEGIR ZEAL BARBER (STAGGER SCROLL) */}
       <section className={styles.section}>
-        <div className={styles.sectionHeader}>
+        <motion.div 
+          className={styles.sectionHeader}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInUp}
+        >
           <span className={styles.sectionTag}>Nuestros Pilares</span>
           <h2 className={styles.sectionTitle}>¿Por qué elegir Zeal Barber?</h2>
           <p className={styles.sectionDesc}>
             Descubrí la diferencia de atendértete con un equipo de profesionales comprometidos con la excelencia y la personalización de cada detalle.
           </p>
-        </div>
+        </motion.div>
 
         <div className={styles.whyGrid}>
-          
-          <div className={styles.whyCard}>
-            <div className={styles.whyIcon}>
-              <ShieldCheck className="w-8 h-8" />
-            </div>
-            <h3 className={styles.whyCardTitle}>Profesionales Expertos</h3>
-            <p className={styles.whyCardText}>
-              Especialistas apasionados dedicados a ofrecer resultados impecables y duraderos.
-            </p>
-          </div>
-
-          <div className={styles.whyCard}>
-            <div className={styles.whyIcon}>
-              <Star className="w-8 h-8" />
-            </div>
-            <h3 className={styles.whyCardTitle}>Productos Premium</h3>
-            <p className={styles.whyCardText}>
-              Utilizamos solo productos importados y orgánicos de la más alta calidad internacional.
-            </p>
-          </div>
-
-          <div className={styles.whyCard}>
-            <div className={styles.whyIcon}>
-              <Heart className="w-8 h-8" />
-            </div>
-            <h3 className={styles.whyCardTitle}>Máximo Confort</h3>
-            <p className={styles.whyCardText}>
-              Ambiente relajante, atención puntual y café de especialidad de cortesía en cada visita.
-            </p>
-          </div>
-
+          {[
+            {
+              icon: <ShieldCheck className="w-8 h-8" />,
+              title: "Profesionales Expertos",
+              desc: "Especialistas apasionados dedicados a ofrecer resultados impecables y duraderos."
+            },
+            {
+              icon: <Star className="w-8 h-8" />,
+              title: "Productos Premium",
+              desc: "Utilizamos solo productos importados y orgánicos de la más alta calidad internacional."
+            },
+            {
+              icon: <Heart className="w-8 h-8" />,
+              title: "Máximo Confort",
+              desc: "Ambiente relajante, atención puntual y café de especialidad de cortesía en cada visita."
+            },
+          ].map((item, idx) => (
+            <motion.div 
+              key={idx} 
+              className={styles.whyCard}
+              custom={idx}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeInUp}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
+              <div className={styles.whyIcon}>
+                {item.icon}
+              </div>
+              <h3 className={styles.whyCardTitle}>{item.title}</h3>
+              <p className={styles.whyCardText}>{item.desc}</p>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* 8. SECCIÓN TESTIMONIOS */}
+      {/* 8. SECCIÓN TESTIMONIOS (SLIDE-IN ON SCROLL) */}
       <section id="testimonios" className={styles.section}>
-        <div className={styles.testimonialBox}>
-          <img 
+        <motion.div 
+          className={styles.testimonialBox}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
+        >
+          <motion.img 
             src="https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66f4f8796c3e7ab6417c2059_Img.png" 
             alt="Cliente Satisfecho" 
             className={styles.authorImg}
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           />
           <div>
             <p className={styles.quoteText}>
@@ -304,14 +463,19 @@ export default function P6ZealBarber() {
             <div className={styles.authorName}>Santiago Méndez</div>
             <div className={styles.authorRole}>Cliente Frecuente · CEO de InnovateTech</div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* 9. FORMULARIO DE RESERVAS Y CONTACTO */}
       <section id="contacto" className={styles.bookingSection}>
         <div className={styles.bookingGrid}>
           
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <span className={styles.sectionTag}>Turnos Online</span>
             <h2 className={styles.sectionTitle} style={{ textAlign: "left" }}>
               Agendá tu Cita Hoy Mismo
@@ -341,17 +505,27 @@ export default function P6ZealBarber() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className={styles.formWrap}>
+          <motion.div 
+            className={styles.formWrap}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             {formularioEnviado ? (
-              <div style={{ textAlign: "center", padding: "3rem 1rem" }}>
+              <motion.div 
+                style={{ textAlign: "center", padding: "3rem 1rem" }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+              >
                 <CheckCircle2 className="w-12 h-12 text-[#10b981] mx-auto mb-3" />
                 <h3 className={styles.serviceName}>¡Turno Solicitado con Éxito!</h3>
                 <p className={styles.serviceDesc}>
                   Nos pondremos en contacto a la brevedad para confirmar tu horario.
                 </p>
-              </div>
+              </motion.div>
             ) : (
               <form onSubmit={handleSubmit}>
                 <div className={styles.inputGroup}>
@@ -412,12 +586,18 @@ export default function P6ZealBarber() {
                   />
                 </div>
 
-                <button type="submit" className={styles.btnPrimary} style={{ width: "100%", marginTop: "0.5rem" }}>
+                <motion.button 
+                  type="submit" 
+                  className={styles.btnPrimary} 
+                  style={{ width: "100%", marginTop: "0.5rem" }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
                   Confirmar Reserva de Turno
-                </button>
+                </motion.button>
               </form>
             )}
-          </div>
+          </motion.div>
 
         </div>
       </section>
@@ -435,17 +615,8 @@ export default function P6ZealBarber() {
         />
       </div>
 
-      {/* 11. FOOTER CON ATRIBUCIÓN MANDATORIA POWERED BY QUANTUM HIVE */}
-      <footer className={styles.footerBottom}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
-          <div>
-            © {new Date().getFullYear()} Zeal Barber. Todos los derechos reservados.
-          </div>
-          <div>
-            Powered by <strong style={{ color: "#d4af37" }}>Quantum Hive</strong> · Web Factory
-          </div>
-        </div>
-      </footer>
+      {/* 11. FIRMA INSTITUCIONAL STANDARDIZADA DE QUANTUM HIVE */}
+      <FirmaQuantumHive />
 
     </div>
   );
