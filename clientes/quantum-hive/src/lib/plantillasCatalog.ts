@@ -114,6 +114,21 @@ export const PLANTILLAS_REALES_CATALOGO: PlantillaReal[] = [
     efectosPredeterminados: ["Glow", "Tag Reveal"]
   },
   {
+    id: "barberia-p6",
+    nombre: "Zeal Barber P6",
+    rubroId: "barberia",
+    rubroNombre: "Barbería",
+    variante: "P6 Zeal Webflow Clone",
+    subtitulo: "Estilo exclusivo Zeal Barber con reserva directa y catálogo premium",
+    descripcion: "Clon pixel-perfect en español de Zeal Barber con servicios, horarios y formulario interactivo.",
+    urlPath: "/catalogo/plantillas/basicas/barberia/p6",
+    imagen: "https://cdn.prod.website-files.com/66d807572304dbf9e17edf64/66e038f36550184c0e6c4874_hero%20img%20(1).webp",
+    badge: "Premium IX2",
+    colorAcento: "from-amber-400 to-yellow-500",
+    servicios: ["Corte de Adulto", "Afeitado Clásico", "Cuidado Integral Barba", "Turnos Online"],
+    efectosPredeterminados: ["Fade Up", "Glow"]
+  },
+  {
     id: "barberia-p7",
     nombre: "Barbería Executive P7",
     rubroId: "barberia",
@@ -142,6 +157,23 @@ export const PLANTILLAS_REALES_CATALOGO: PlantillaReal[] = [
     colorAcento: "from-cyan-400 to-amber-400",
     servicios: ["Multi-Sucursal", "Agente Inteligente", "Reserva WhatsApp"],
     efectosPredeterminados: ["Glow", "Particles", "Fade Up"]
+  },
+  {
+    id: "barberia-p9",
+    nombre: "Barbería El Filo P9",
+    rubroId: "barberia",
+    rubroNombre: "Barbería",
+    variante: "P9 Scroll",
+    subtitulo: "Barbería de barrio con motion extraído de una referencia real",
+    descripcion:
+      "Fade-up, marquee ligado al scroll, contadores con rollo y estela de humo siguiendo el mouse.",
+    urlPath: "/catalogo/plantillas/basicas/barberia/p9",
+    imagen:
+      "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80",
+    badge: "Pro",
+    colorAcento: "from-amber-400 to-orange-500",
+    servicios: ["Corte a Navaja", "Turnos WhatsApp", "Precios Cerrados"],
+    efectosPredeterminados: ["Fade Up", "Marquee Scroll", "Odómetro", "Smoke Trail"]
   },
 
   // === GASTRONOMÍA (8 VARIANTES REALES) ===
