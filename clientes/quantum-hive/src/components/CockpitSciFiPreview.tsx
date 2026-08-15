@@ -2,19 +2,23 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  CheckCircle2, 
+import {
+  CheckCircle2,
   ExternalLink,
-  Smartphone, 
-  Monitor, 
+  Smartphone,
+  Monitor,
   RefreshCw,
-  ArrowUpRight
+  ArrowUpRight,
 } from "lucide-react";
-import { 
-  PLANTILLAS_REALES_CATALOGO, 
-  PlantillaReal 
-} from "@/lib/plantillasCatalog";
+import { PLANTILLAS_REALES_CATALOGO, PlantillaReal } from "@/lib/plantillasCatalog";
 import dynamic from "next/dynamic";
+import "@/app/cockpit-scifi/cockpit-oro.css";
+
+/*
+  Cabina Oro — dirección visual tomada del render de referencia.
+  La lógica (iframe, postMessage, tracking de mouse, pipeline) es la misma
+  de antes; lo que cambia es el lenguaje visual. Ver cockpit-oro.css.
+*/
 
 const PIPELINE_PASOS = [
   { id: 1, num: "01", tag: "Brief" },
@@ -35,9 +39,30 @@ const EFFECT_DYNAMIC_COMPONENTS: Record<string, React.ComponentType<Record<strin
   "fire-trail": dynamic(() => import("@/app/catalogo-efectos/canvas-effects/FireTrail"), { ssr: false }),
 };
 
-export function CockpitSciFiPreview() {
+/** Panel HUD con chaflán, vidrio y filo dorado. */
+function Panel({
+  children,
+  className = "",
+  foco = false,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  foco?: boolean;
+}): React.JSX.Element {
+  return (
+    <div className={`hud ${foco ? "hud-foco" : "hud-lateral"} ${className}`}>
+      <div className="hud-cara h-full p-4">{children}</div>
+    </div>
+  );
+}
+
+function Etiqueta({ children }: { children: React.ReactNode }): React.JSX.Element {
+  return <h2 className="oro-label font-['Orbitron',sans-serif]">{children}</h2>;
+}
+
+export function CockpitSciFiPreview(): React.JSX.Element {
   const [plantillaSeleccionada, setPlantillaSeleccionada] = useState<PlantillaReal>(
-    PLANTILLAS_REALES_CATALOGO.find(p => p.rubroId === "barberia") || PLANTILLAS_REALES_CATALOGO[0]
+    PLANTILLAS_REALES_CATALOGO.find((p) => p.rubroId === "barberia") || PLANTILLAS_REALES_CATALOGO[0]
   );
   const [animacionSeleccionada, setAnimacionSeleccionada] = useState<string>("fade");
   const [canvasMouseEfecto, setCanvasMouseEfecto] = useState<string>("pixel-scatter");
@@ -48,6 +73,8 @@ export function CockpitSciFiPreview() {
   const [publicandoModal, setPublicandoModal] = useState(false);
   const [sitioPublicado, setSitioPublicado] = useState(false);
 
+  // Tracking bidireccional: el iframe avisa dónde está el mouse y se lo
+  // reenviamos al canvas, que de otro modo no recibiría nada.
   useEffect(() => {
     const handleMessage = (e: MessageEvent) => {
       if (e.data?.type === "iframe-mousemove") {
@@ -56,16 +83,16 @@ export function CockpitSciFiPreview() {
           const rect = iframe.getBoundingClientRect();
           const parentX = e.data.clientX + rect.left;
           const parentY = e.data.clientY + rect.top;
-          
+
           const syntheticEvent = new MouseEvent("mousemove", {
             clientX: parentX,
             clientY: parentY,
             bubbles: true,
           });
-          
+
           const canvasContainer = document.getElementById("scifi-canvas-overlay-container");
           const canvasEl = canvasContainer?.querySelector("canvas");
-          
+
           if (canvasEl) {
             canvasEl.dispatchEvent(syntheticEvent);
           } else {
@@ -76,19 +103,14 @@ export function CockpitSciFiPreview() {
     };
 
     window.addEventListener("message", handleMessage);
-    return () => {
-      window.removeEventListener("message", handleMessage);
-    };
+    return () => window.removeEventListener("message", handleMessage);
   }, []);
 
   useEffect(() => {
     const iframe = document.getElementById("scifi-template-iframe") as HTMLIFrameElement;
     if (iframe && iframe.contentWindow) {
       const timer = setTimeout(() => {
-        iframe.contentWindow?.postMessage({
-          type: "set-canvas-mode",
-          mode: canvasModo
-        }, "*");
+        iframe.contentWindow?.postMessage({ type: "set-canvas-mode", mode: canvasModo }, "*");
       }, 500);
       return () => clearTimeout(timer);
     }
@@ -97,375 +119,344 @@ export function CockpitSciFiPreview() {
   const handleSimularPublicacion = () => {
     setPublicandoModal(true);
     setSitioPublicado(false);
-    setTimeout(() => {
-      setSitioPublicado(true);
-    }, 2500);
+    setTimeout(() => setSitioPublicado(true), 2500);
   };
 
   const EffectComp = canvasMouseEfecto !== "none" ? EFFECT_DYNAMIC_COMPONENTS[canvasMouseEfecto] : null;
 
   return (
-    <div 
-      className="min-h-screen text-[#e0e6ed] flex flex-col overflow-x-hidden font-sans"
-      style={{
-        background: "#02050a",
-        backgroundImage: "radial-gradient(circle at 50% 50%, #0d1b2a 0%, #02050a 100%)",
-      }}
-    >
-      
-      {/* 2. ENCABEZADO CENTRAL PRINCIPAL */}
-      <header className="text-center py-5 px-4">
-        <h1 className="text-[#ffb703] text-2xl font-bold tracking-[4px] font-['Orbitron',sans-serif] drop-shadow-[0_0_10px_rgba(255,183,3,0.5)]">
+    <div className="oro flex flex-col overflow-x-hidden">
+      <div className="oro-fondo" aria-hidden="true" />
+
+      {/* ── Encabezado ────────────────────────────────────────────── */}
+      <header className="text-center pt-8 pb-6 px-6">
+        <h1 className="font-['Orbitron',sans-serif] text-[clamp(1.6rem,3.4vw,2.6rem)] font-bold tracking-[0.22em] text-transparent bg-clip-text bg-[linear-gradient(180deg,#f2d47e,#d4af37_55%,#9a7a21)]">
           QUANTUM HIVE
         </h1>
-        <p className="text-[#00f3ff] text-[11px] tracking-[2px] uppercase mt-1">
-          — Fábrica Web Sencilla —
+        <p className="mt-2 text-[10px] tracking-[0.42em] uppercase text-[color:var(--o-texto-2)]">
+          Fábrica Web
         </p>
       </header>
 
-      {/* 3. CONTENEDOR GRID DE PANELES MODULARES (IGUAL A LA IMAGEN) */}
-      <main className="grid grid-cols-1 lg:grid-cols-[280px_1fr_280px] gap-5 px-5 flex-1 max-w-[1920px] mx-auto w-full items-start">
-        
-        {/* COLUMNA IZQUIERDA */}
-        <div className="bg-[#0a1426]/60 backdrop-blur-[12px] border border-[#00f3ff]/30 rounded-lg p-4 shadow-[0_0_20px_rgba(0,243,255,0.1)] flex flex-col gap-4">
-          <div>
-            <div className="flex items-center justify-between mb-2">
-              <h2 className="text-xs text-[#00f3ff] tracking-[2px] border-l-[3px] border-[#ffb703] pl-2 uppercase font-bold">
-                Plantillas Base
-              </h2>
-              <button 
+      {/* ── Grid principal ────────────────────────────────────────── */}
+      <main className="grid grid-cols-1 lg:grid-cols-[300px_1fr_300px] gap-6 px-6 flex-1 max-w-[1780px] mx-auto w-full items-start">
+        {/* ── Columna izquierda ── */}
+        <div className="flex flex-col gap-5">
+          <Panel>
+            <div className="flex items-center justify-between mb-3">
+              <Etiqueta>Plantillas</Etiqueta>
+              <button
                 onClick={() => setModalCatálogoAbierto(true)}
-                className="text-[10px] text-[#ffb703] hover:underline"
+                className="text-[10px] font-mono text-[color:var(--o-oro)] hover:text-[color:var(--o-oro-hi)]"
               >
-                +60 Más
+                +60
               </button>
             </div>
-
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               {[
                 { id: "barberia", nombre: "Industrial Metálico" },
-                { id: "cyber-tech", nombre: "Corporativo Neon" },
+                { id: "cyber-tech", nombre: "Corporativo Neón" },
                 { id: "luxora-spa", nombre: "Minimalist Cyberpunk" },
               ].map((p) => {
                 const esActiva = plantillaSeleccionada.id.includes(p.id);
-                const plantillaEncontrada = PLANTILLAS_REALES_CATALOGO.find(pl => pl.id.includes(p.id)) || PLANTILLAS_REALES_CATALOGO[0];
+                const encontrada =
+                  PLANTILLAS_REALES_CATALOGO.find((pl) => pl.id.includes(p.id)) || PLANTILLAS_REALES_CATALOGO[0];
                 return (
                   <div
                     key={p.id}
-                    onClick={() => setPlantillaSeleccionada(plantillaEncontrada)}
-                    className={`bg-white/[0.03] border p-2.5 rounded text-[13px] cursor-pointer transition-all duration-300 ${
-                      esActiva
-                        ? "bg-[#00f3ff]/15 border-[#00f3ff] text-white translate-x-1 shadow-[0_0_10px_rgba(0,243,255,0.2)]"
-                        : "border-white/10 text-[#8fa0b5] hover:bg-[#00f3ff]/10 hover:border-[#00f3ff] hover:text-white hover:translate-x-1"
-                    }`}
+                    onClick={() => setPlantillaSeleccionada(encontrada)}
+                    className="oro-item"
+                    data-activo={esActiva}
                   >
                     {p.nombre}
                   </div>
                 );
               })}
             </div>
-          </div>
+          </Panel>
 
-          <div>
-            <h2 className="text-xs text-[#00f3ff] tracking-[2px] border-l-[3px] border-[#ffb703] pl-2 uppercase font-bold mb-2">
-              Animaciones
-            </h2>
-            <div className="space-y-2">
-              {ANIMACIONES_OPCIONES.map((anim) => {
-                const esActiva = animacionSeleccionada === anim.id;
-                return (
-                  <div
-                    key={anim.id}
-                    onClick={() => setAnimacionSeleccionada(anim.id)}
-                    className={`bg-white/[0.03] border p-2.5 rounded text-[13px] cursor-pointer transition-all duration-300 ${
-                      esActiva
-                        ? "bg-[#00f3ff]/15 border-[#00f3ff] text-white translate-x-1 shadow-[0_0_10px_rgba(0,243,255,0.2)]"
-                        : "border-white/10 text-[#8fa0b5] hover:bg-[#00f3ff]/10 hover:border-[#00f3ff] hover:text-white hover:translate-x-1"
-                    }`}
-                  >
-                    {anim.nombre}
-                  </div>
-                );
-              })}
+          <Panel>
+            <div className="mb-3">
+              <Etiqueta>Animaciones</Etiqueta>
             </div>
-          </div>
+            <div className="space-y-1.5">
+              {ANIMACIONES_OPCIONES.map((anim) => (
+                <div
+                  key={anim.id}
+                  onClick={() => setAnimacionSeleccionada(anim.id)}
+                  className="oro-item"
+                  data-activo={animacionSeleccionada === anim.id}
+                >
+                  {anim.nombre}
+                </div>
+              ))}
+            </div>
+          </Panel>
         </div>
 
-        {/* 4. VISUALIZADOR CENTRAL DE LA WEB (VISTA PREVIA) */}
-        <div className="border-2 border-[#00f3ff] shadow-[0_0_30px_rgba(0,243,255,0.2)] bg-[#060d1a] rounded-lg p-3 flex flex-col justify-between relative min-h-[620px]">
-          
-          {/* Top Bar */}
-          <div className="flex items-center justify-between px-3 py-1.5 bg-black/40 rounded border border-[#00f3ff]/20 mb-2">
-            <span className="text-xs font-mono text-[#00f3ff] truncate">
-              https://quantumhive.app{plantillaSeleccionada.urlPath}
-            </span>
-            <div className="flex items-center gap-2">
-              <a
-                href={plantillaSeleccionada.urlPath}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-2 py-0.5 rounded bg-black/50 text-[11px] font-mono text-[#ffb703] border border-white/10 flex items-center gap-1"
-              >
-                <ExternalLink className="w-3 h-3" />
-                <span>Pestaña</span>
-              </a>
-              <div className="flex items-center gap-1">
-                <button
-                  onClick={() => setModoDevice("desktop")}
-                  className={`p-1 rounded border ${modoDevice === "desktop" ? "bg-[#00f3ff]/20 border-[#00f3ff] text-[#00f3ff]" : "border-white/10 text-slate-500"}`}
+        {/* ── Centro: el holograma ── */}
+        <div className="relative">
+          <Panel foco className="relative">
+            <div className="flex items-center justify-between mb-3 px-1">
+              <span className="text-[11px] font-mono text-[color:var(--o-texto-2)] truncate">
+                quantumhive.app{plantillaSeleccionada.urlPath}
+              </span>
+              <div className="flex items-center gap-2">
+                <a
+                  href={plantillaSeleccionada.urlPath}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 text-[10px] font-mono text-[color:var(--o-oro)] hover:text-[color:var(--o-oro-hi)]"
                 >
-                  <Monitor className="w-3 h-3" />
-                </button>
-                <button
-                  onClick={() => setModoDevice("mobile")}
-                  className={`p-1 rounded border ${modoDevice === "mobile" ? "bg-[#ffb703]/20 border-[#ffb703] text-[#ffb703]" : "border-white/10 text-slate-500"}`}
-                >
-                  <Smartphone className="w-3 h-3" />
-                </button>
+                  <ExternalLink className="w-3 h-3" />
+                  <span>Abrir</span>
+                </a>
+                <div className="flex items-center gap-1">
+                  <button
+                    onClick={() => setModoDevice("desktop")}
+                    aria-label="Vista escritorio"
+                    className={`p-1.5 rounded transition-colors ${
+                      modoDevice === "desktop"
+                        ? "text-[color:var(--o-oro)] bg-[rgba(212,175,55,0.14)]"
+                        : "text-[color:var(--o-texto-3)] hover:text-[color:var(--o-texto-2)]"
+                    }`}
+                  >
+                    <Monitor className="w-3.5 h-3.5" />
+                  </button>
+                  <button
+                    onClick={() => setModoDevice("mobile")}
+                    aria-label="Vista móvil"
+                    className={`p-1.5 rounded transition-colors ${
+                      modoDevice === "mobile"
+                        ? "text-[color:var(--o-oro)] bg-[rgba(212,175,55,0.14)]"
+                        : "text-[color:var(--o-texto-3)] hover:text-[color:var(--o-texto-2)]"
+                    }`}
+                  >
+                    <Smartphone className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Iframe Real Scrollable */}
-          <div className={`mx-auto w-full flex-1 transition-all duration-300 relative rounded overflow-hidden ${
-            modoDevice === "mobile" ? "max-w-[380px]" : "w-full"
-          }`}>
-            <div className="relative h-[530px] w-full bg-[#02050a] border border-white/10 rounded overflow-hidden">
-              <iframe
-                id="scifi-template-iframe"
-                key={plantillaSeleccionada.urlPath}
-                src={plantillaSeleccionada.urlPath}
-                className="w-full h-full border-0 relative z-10"
-                title={`Plantilla: ${plantillaSeleccionada.nombre}`}
-              />
-
-              {EffectComp && (
-                <div
-                  id="scifi-canvas-overlay-container"
-                  className={`absolute inset-0 pointer-events-none ${
-                    canvasModo === "frente" ? "z-20" : "z-0"
-                  }`}
-                >
-                  <EffectComp />
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className="text-center pt-2">
-            <button 
-              onClick={() => window.open(plantillaSeleccionada.urlPath, "_blank")}
-              className="bg-transparent border border-[#ffb703] text-[#ffb703] py-2 px-5 text-xs tracking-[2px] uppercase cursor-pointer font-bold transition-all duration-300 hover:bg-[#ffb703] hover:text-[#02050a] hover:shadow-[0_0_15px_rgba(255,183,3,0.6)]"
+            <div
+              className={`mx-auto w-full transition-all duration-300 ${
+                modoDevice === "mobile" ? "max-w-[380px]" : "w-full"
+              }`}
             >
-              Ver Soluciones
+              <div className="relative h-[560px] w-full bg-[color:var(--o-negro)] overflow-hidden">
+                <iframe
+                  id="scifi-template-iframe"
+                  key={plantillaSeleccionada.urlPath}
+                  src={plantillaSeleccionada.urlPath}
+                  className="w-full h-full border-0 relative z-10"
+                  title={`Plantilla: ${plantillaSeleccionada.nombre}`}
+                />
+
+                {EffectComp && (
+                  <div
+                    id="scifi-canvas-overlay-container"
+                    className={`absolute inset-0 pointer-events-none ${
+                      canvasModo === "frente" ? "z-20" : "z-0"
+                    }`}
+                  >
+                    <EffectComp />
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Cono de luz: la web se proyecta, no está "en una ventana" */}
+            <div className="holo-cono" aria-hidden="true" />
+          </Panel>
+
+          {/* Base emisora */}
+          <div className="holo-base" aria-hidden="true" />
+
+          <div className="text-center mt-5">
+            <button onClick={() => window.open(plantillaSeleccionada.urlPath, "_blank")} className="oro-btn oro-btn-fantasma">
+              Ver en vivo
             </button>
           </div>
-
         </div>
 
-        {/* COLUMNA DERECHA */}
-        <div className="bg-[#0a1426]/60 backdrop-blur-[12px] border border-[#00f3ff]/30 rounded-lg p-4 shadow-[0_0_20px_rgba(0,243,255,0.1)] flex flex-col gap-4">
-          <div>
-            <div className="flex items-center justify-between mb-2">
-              <h2 className="text-xs text-[#00f3ff] tracking-[2px] border-l-[3px] border-[#ffb703] pl-2 uppercase font-bold">
-                Efectos Visuales
-              </h2>
+        {/* ── Columna derecha ── */}
+        <div className="flex flex-col gap-5">
+          <Panel>
+            <div className="flex items-center justify-between mb-3">
+              <Etiqueta>Efectos</Etiqueta>
               <button
                 onClick={() => setCanvasModo(canvasModo === "fondo" ? "frente" : "fondo")}
-                className="text-[9px] font-mono px-1 py-0.5 rounded border border-[#00f3ff]/40 text-[#00f3ff]"
+                className="text-[9px] font-mono uppercase tracking-widest text-[color:var(--o-texto-2)] hover:text-[color:var(--o-oro)]"
               >
-                {canvasModo.toUpperCase()}
+                {canvasModo}
               </button>
             </div>
-
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               {[
-                { id: "glow-follower", label: "Destellos de Neón (Glow)" },
+                { id: "glow-follower", label: "Destellos de Neón" },
                 { id: "pixel-scatter", label: "Lluvia de Partículas" },
-                { id: "none", label: "Desactivar Efectos" },
-              ].map((fx) => {
-                const esActivo = canvasMouseEfecto === fx.id;
-                return (
-                  <div
-                    key={fx.id}
-                    onClick={() => setCanvasMouseEfecto(fx.id)}
-                    className={`bg-white/[0.03] border p-2.5 rounded text-[13px] cursor-pointer transition-all duration-300 ${
-                      esActivo
-                        ? "bg-[#00f3ff]/15 border-[#00f3ff] text-white translate-x-1 shadow-[0_0_10px_rgba(0,243,255,0.2)]"
-                        : "border-white/10 text-[#8fa0b5] hover:bg-[#00f3ff]/10 hover:border-[#00f3ff] hover:text-white hover:translate-x-1"
-                    }`}
-                  >
-                    {fx.label}
-                  </div>
-                );
-              })}
+                { id: "none", label: "Desactivar" },
+              ].map((fx) => (
+                <div
+                  key={fx.id}
+                  onClick={() => setCanvasMouseEfecto(fx.id)}
+                  className="oro-item"
+                  data-activo={canvasMouseEfecto === fx.id}
+                >
+                  {fx.label}
+                </div>
+              ))}
             </div>
-          </div>
+          </Panel>
 
-          <div>
-            <h2 className="text-xs text-[#00f3ff] tracking-[2px] border-l-[3px] border-[#ffb703] pl-2 uppercase font-bold mb-2">
-              Estructura de Publicación
-            </h2>
-            <div className="space-y-2">
-              <div className="bg-white/[0.03] border border-white/10 p-2.5 rounded text-[13px]">
-                🔒 Seguridad SSL Activa
-              </div>
-              <div className="bg-white/[0.03] border border-white/10 p-2.5 rounded text-[13px]">
-                🚀 Optimización SEO Base
-              </div>
+          <Panel>
+            <div className="mb-3">
+              <Etiqueta>Publicar</Etiqueta>
             </div>
-          </div>
-
-          <button 
-            onClick={handleSimularPublicacion}
-            className="bg-[#00f3ff] text-[#02050a] border-none py-3 font-bold uppercase tracking-[1px] rounded cursor-pointer text-center shadow-[0_0_15px_rgba(0,243,255,0.4)] hover:bg-white hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] transition-all mt-auto text-xs"
-          >
-            Publicar Sitio
-          </button>
+            <ul className="space-y-2.5 text-[12px] text-[color:var(--o-texto-2)]">
+              {["Dominio conectado", "Seguridad SSL activa", "Optimización SEO base"].map((t) => (
+                <li key={t} className="flex items-center gap-2.5">
+                  <span className="oro-punto" />
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
+            <button onClick={handleSimularPublicacion} className="oro-btn w-full mt-5">
+              Publicar sitio
+            </button>
+          </Panel>
         </div>
-
       </main>
 
-      {/* 5. PIPELINE INFERIOR (FLUJO DE TRABAJO EN HORIZONTAL) */}
-      <footer className="py-7 px-5 max-w-[940px] mx-auto w-full">
-        <div className="text-center text-[10px] tracking-[3px] text-[#8fa0b5] uppercase mb-4">
-          Pipeline de Creación Activo
-        </div>
-        <div className="relative flex justify-between items-center">
-          
-          {/* Línea que conecta los puntos de proceso por detrás */}
-          <div className="absolute top-[16px] left-0 right-0 h-[2px] bg-[#00f3ff]/20 z-[1]" />
-
+      {/* ── Pipeline ──────────────────────────────────────────────── */}
+      <footer className="py-10 px-6 max-w-[900px] mx-auto w-full">
+        <div className="text-center oro-label justify-center mb-6">Pipeline de creación</div>
+        <div className="relative flex justify-between items-start">
+          <div className="oro-riel" aria-hidden="true" />
           {PIPELINE_PASOS.map((paso) => {
-            const esActivo = pasoPipeline >= paso.id;
-            const esActual = pasoPipeline === paso.id;
+            const estado = pasoPipeline === paso.id ? "actual" : pasoPipeline > paso.id ? "hecho" : "pendiente";
             return (
-              <div 
+              <button
                 key={paso.id}
                 onClick={() => setPasoPipeline(paso.id)}
-                className={`relative z-[2] flex flex-col items-center gap-2 cursor-pointer ${
-                  esActivo ? "opacity-100" : "opacity-60 hover:opacity-100"
-                }`}
+                className="relative z-[2] flex flex-col items-center gap-2.5"
               >
-                <div 
-                  className={`w-8 h-8 rounded-full bg-[#060d1a] border-2 flex items-center justify-center text-[11px] font-bold transition-all duration-300 ${
-                    esActual 
-                      ? "border-[#ffb703] text-[#ffb703] shadow-[0_0_10px_rgba(255,183,3,0.5)]" 
-                      : esActivo 
-                        ? "border-[#00f3ff] text-[#00f3ff]" 
-                        : "border-[#00f3ff]/40 text-[#00f3ff]/50"
+                <span className="oro-nodo font-['Orbitron',sans-serif]" data-estado={estado}>
+                  {paso.num}
+                </span>
+                <span
+                  className={`text-[10px] uppercase tracking-[0.16em] transition-colors ${
+                    estado === "actual" ? "text-[color:var(--o-oro)]" : "text-[color:var(--o-texto-3)]"
                   }`}
                 >
-                  {paso.num}
-                </div>
-                <div className={`text-[11px] uppercase tracking-[1px] transition-colors ${
-                  esActual ? "text-white font-bold" : "text-[#8fa0b5]"
-                }`}>
                   {paso.tag}
-                </div>
-              </div>
+                </span>
+              </button>
             );
           })}
         </div>
       </footer>
 
-      {/* MODAL CATÁLOGO */}
+      {/* ── Modal catálogo ────────────────────────────────────────── */}
       <AnimatePresence>
         {modalCatálogoAbierto && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
             <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
+              initial={{ scale: 0.96, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              className="w-full max-w-4xl max-h-[80vh] p-6 rounded-xl bg-[#0a1426] border-2 border-[#00f3ff]/50 shadow-2xl flex flex-col justify-between overflow-hidden"
+              exit={{ scale: 0.96, opacity: 0 }}
+              className="hud hud-foco w-full max-w-5xl max-h-[82vh]"
             >
-              <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                <h3 className="font-['Orbitron',sans-serif] text-lg font-bold text-white">
-                  Catálogo de Plantillas
-                </h3>
-                <button
-                  onClick={() => setModalCatálogoAbierto(false)}
-                  className="px-3 py-1 rounded bg-black/40 text-slate-300 hover:text-white text-xs border border-white/10"
-                >
-                  ✕ Cerrar
-                </button>
-              </div>
-
-              <div className="my-4 overflow-y-auto pr-1 grid grid-cols-1 md:grid-cols-3 gap-3 max-h-[50vh] custom-scrollbar">
-                {PLANTILLAS_REALES_CATALOGO.map((p) => (
-                  <div
-                    key={p.id}
-                    className="p-3 rounded-lg bg-black/40 border border-white/10 hover:border-[#00f3ff] transition-all flex flex-col justify-between"
-                  >
-                    <div>
-                      <div className="h-28 rounded overflow-hidden mb-2 border border-white/10">
-                        <img src={p.imagen} alt={p.nombre} className="w-full h-full object-cover" />
-                      </div>
-                      <div className="text-[10px] text-[#00f3ff] uppercase font-mono">{p.rubroNombre}</div>
-                      <div className="text-xs font-bold text-white mt-0.5">{p.nombre}</div>
-                    </div>
-                    <button
-                      onClick={() => {
-                        setPlantillaSeleccionada(p);
-                        setModalCatálogoAbierto(false);
-                      }}
-                      className="mt-3 w-full py-1.5 rounded bg-[#00f3ff]/20 text-[#00f3ff] hover:bg-[#00f3ff] hover:text-black font-bold text-xs border border-[#00f3ff]/40 transition-all flex items-center justify-center gap-1"
-                    >
-                      <span>Seleccionar</span>
-                      <ArrowUpRight className="w-3 h-3" />
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
-
-      {/* MODAL PUBLICACIÓN */}
-      <AnimatePresence>
-        {publicandoModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="w-full max-w-md p-6 rounded-xl bg-[#090f1e] border-2 border-[#ffb703]/60 shadow-[0_0_50px_rgba(255,183,3,0.3)] text-center space-y-4"
-            >
-              {!sitioPublicado ? (
-                <div className="space-y-4 py-4">
-                  <RefreshCw className="w-10 h-10 text-[#ffb703] mx-auto animate-spin" />
-                  <h3 className="text-base font-bold text-white font-['Orbitron',sans-serif]">
-                    Compilando Sitio
-                  </h3>
-                  <p className="text-xs text-[#8fa0b5]">
-                    Optimizando assets y desplegando agente conversacional de IA...
-                  </p>
-                </div>
-              ) : (
-                <div className="space-y-3 py-2">
-                  <div className="w-12 h-12 rounded-full bg-emerald-500/20 border-2 border-emerald-400 flex items-center justify-center mx-auto text-emerald-400">
-                    <CheckCircle2 className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white font-['Orbitron',sans-serif]">
-                    ¡Sitio Publicado!
-                  </h3>
-                  <p className="text-xs text-slate-300">
-                    Disponible en: <span className="text-[#00f3ff] font-mono">https://quantumhive.app/sites/{plantillaSeleccionada.id}</span>
-                  </p>
+              <div className="hud-cara p-6 flex flex-col">
+                <div className="flex items-center justify-between pb-4">
+                  <Etiqueta>Catálogo de plantillas</Etiqueta>
                   <button
-                    onClick={() => setPublicandoModal(false)}
-                    className="w-full py-2 rounded bg-[#ffb703] text-black font-bold text-xs font-['Orbitron',sans-serif]"
+                    onClick={() => setModalCatálogoAbierto(false)}
+                    className="text-[11px] text-[color:var(--o-texto-2)] hover:text-[color:var(--o-oro)]"
                   >
-                    Volver
+                    ✕ Cerrar
                   </button>
                 </div>
-              )}
+
+                <div className="overflow-y-auto pr-1 grid grid-cols-1 md:grid-cols-3 gap-3 max-h-[58vh]">
+                  {PLANTILLAS_REALES_CATALOGO.map((p) => (
+                    <div key={p.id} className="hud">
+                      <div className="hud-cara p-3 flex flex-col justify-between h-full">
+                        <div>
+                          <div className="h-28 overflow-hidden mb-2.5">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src={p.imagen} alt={p.nombre} className="w-full h-full object-cover" />
+                          </div>
+                          <div className="text-[9px] uppercase tracking-[0.2em] text-[color:var(--o-oro)] font-mono">
+                            {p.rubroNombre}
+                          </div>
+                          <div className="text-[13px] font-semibold text-[color:var(--o-texto)] mt-1">{p.nombre}</div>
+                        </div>
+                        <button
+                          onClick={() => {
+                            setPlantillaSeleccionada(p);
+                            setModalCatálogoAbierto(false);
+                          }}
+                          className="oro-btn oro-btn-fantasma mt-3 w-full flex items-center justify-center gap-1"
+                        >
+                          <span>Seleccionar</span>
+                          <ArrowUpRight className="w-3 h-3" />
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           </div>
         )}
       </AnimatePresence>
 
+      {/* ── Modal publicación ─────────────────────────────────────── */}
+      <AnimatePresence>
+        {publicandoModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+            <motion.div
+              initial={{ scale: 0.92, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.92, opacity: 0 }}
+              className="hud hud-foco w-full max-w-md"
+            >
+              <div className="hud-cara p-8 text-center space-y-4">
+                {!sitioPublicado ? (
+                  <>
+                    <RefreshCw className="w-9 h-9 text-[color:var(--o-oro)] mx-auto animate-spin" />
+                    <h3 className="font-['Orbitron',sans-serif] text-sm tracking-[0.16em] uppercase text-[color:var(--o-texto)]">
+                      Compilando sitio
+                    </h3>
+                    <p className="text-xs text-[color:var(--o-texto-2)]">
+                      Optimizando assets y desplegando el agente conversacional…
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <div className="w-12 h-12 rounded-full grid place-items-center mx-auto text-[color:var(--o-ok)] bg-[rgba(71,217,138,0.12)]">
+                      <CheckCircle2 className="w-6 h-6" />
+                    </div>
+                    <h3 className="font-['Orbitron',sans-serif] text-sm tracking-[0.16em] uppercase text-[color:var(--o-texto)]">
+                      Sitio publicado
+                    </h3>
+                    <p className="text-xs text-[color:var(--o-texto-2)]">
+                      Disponible en{" "}
+                      <span className="font-mono text-[color:var(--o-oro)]">
+                        quantumhive.app/sites/{plantillaSeleccionada.id}
+                      </span>
+                    </p>
+                    <button onClick={() => setPublicandoModal(false)} className="oro-btn w-full">
+                      Volver
+                    </button>
+                  </>
+                )}
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

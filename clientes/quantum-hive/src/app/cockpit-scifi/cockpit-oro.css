@@ -1,0 +1,305 @@
+/*
+  Sistema visual "Cabina Oro" — dirección tomada del render de referencia.
+
+  Diagnóstico del cockpit anterior (medido sobre el componente, no a ojo):
+    12 familias de color · 136 usos de borde vs 20 de sombra · Orbitron hasta en 10px
+
+  Las tres correcciones que cambian la percepción:
+    1. Negro real + UN acento (oro). El cian deja de competir y pasa a ser
+       únicamente "energía": el holograma y los puntos de estado.
+    2. Chaflán en las esquinas. Los paneles del render no son rectángulos
+       redondeados: tienen la esquina cortada en diagonal. Es la firma visual.
+    3. El borde de 1px se reemplaza por vidrio + sombra. Un panel se separa
+       por fondo y elevación, no por línea. El borde queda para el foco activo.
+*/
+
+.oro {
+  /* — Neutros — */
+  --o-negro: #050506;
+  --o-negro-2: #0a0a0c;
+  --o-humo: #121215;
+  --o-texto: #ece7dc;
+  --o-texto-2: #8d8779;
+  --o-texto-3: #5c574d;
+
+  /* — Acento único — */
+  --o-oro: #d4af37;
+  --o-oro-hi: #f2d47e;
+  --o-oro-dim: rgba(212, 175, 55, 0.34);
+  --o-oro-hair: rgba(212, 175, 55, 0.22);
+
+  /* — Energía (sólo holograma y estados) — */
+  --o-energia: #4fd8ff;
+  --o-ok: #47d98a;
+
+  --o-chaflan: 14px;
+  --o-chaflan-sm: 9px;
+
+  /* Elevación: sombra externa profunda + halo dorado apenas perceptible */
+  --o-elev: 0 24px 60px -18px rgba(0, 0, 0, 0.92), 0 2px 10px rgba(0, 0, 0, 0.7);
+  --o-elev-oro: 0 24px 60px -18px rgba(0, 0, 0, 0.92), 0 0 34px -12px rgba(212, 175, 55, 0.4);
+
+  background: var(--o-negro);
+  color: var(--o-texto);
+  min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+}
+
+/* ── Fondo: trama hexagonal + viñeta ────────────────────────────────
+   El hexágono es el logo. Al 3.5% da textura sin convertirse en ruido. */
+
+.oro-fondo {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: var(--o-negro);
+  background-image:
+    radial-gradient(1200px 700px at 50% 22%, rgba(212, 175, 55, 0.07), transparent 62%),
+    radial-gradient(900px 600px at 50% 100%, rgba(79, 216, 255, 0.05), transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cpath d='M28 0L56 16v32L28 64 0 48V16z' fill='none' stroke='%23d4af37' stroke-opacity='0.09' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: auto, auto, 56px 97px;
+}
+
+/* ── Panel HUD: chaflán + vidrio + filo dorado ──────────────────────
+   El filo se hace con una capa dorada de 1px por detrás, porque `border`
+   no sigue al clip-path. */
+
+.hud {
+  --c: var(--o-chaflan);
+  position: relative;
+  padding: 1px;
+  clip-path: polygon(
+    var(--c) 0, 100% 0, 100% calc(100% - var(--c)),
+    calc(100% - var(--c)) 100%, 0 100%, 0 var(--c)
+  );
+  background: linear-gradient(150deg, var(--o-oro-hair), rgba(212, 175, 55, 0.04) 42%, rgba(212, 175, 55, 0.16));
+  box-shadow: var(--o-elev);
+  transition: box-shadow 0.35s ease, background 0.35s ease;
+}
+
+.hud-cara {
+  --c: var(--o-chaflan);
+  height: 100%;
+  clip-path: polygon(
+    var(--c) 0, 100% 0, 100% calc(100% - var(--c)),
+    calc(100% - var(--c)) 100%, 0 100%, 0 var(--c)
+  );
+  background: linear-gradient(168deg, rgba(18, 18, 21, 0.9), rgba(8, 8, 10, 0.94));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Los paneles laterales retroceden: el protagonista es el preview.
+   Recuperan presencia al pasar el mouse. */
+.hud-lateral {
+  opacity: 0.86;
+  transition: opacity 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hud-lateral:hover,
+.hud-lateral:focus-within {
+  opacity: 1;
+  box-shadow: var(--o-elev-oro);
+}
+
+/* Panel protagonista */
+.hud-foco {
+  background: linear-gradient(150deg, var(--o-oro-dim), rgba(212, 175, 55, 0.1) 46%, var(--o-oro-dim));
+  box-shadow: var(--o-elev-oro);
+}
+
+/* ── Etiqueta de sección ────────────────────────────────────────────
+   Oro, versalitas, muy espaciada. El display sólo acá, nunca en cuerpo. */
+
+.oro-label {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-orbitron, inherit);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--o-oro);
+}
+
+.oro-label::before {
+  content: "";
+  width: 14px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--o-oro));
+}
+
+/* ── Ítems de lista ─────────────────────────────────────────────────
+   Sin borde en reposo: se separan por fondo. El filo dorado aparece
+   sólo en el activo — es lo que define el foco. */
+
+.oro-item {
+  --c: var(--o-chaflan-sm);
+  clip-path: polygon(
+    var(--c) 0, 100% 0, 100% calc(100% - var(--c)),
+    calc(100% - var(--c)) 100%, 0 100%, 0 var(--c)
+  );
+  background: rgba(255, 255, 255, 0.028);
+  color: var(--o-texto-2);
+  padding: 0.62rem 0.8rem;
+  font-size: 12.5px;
+  cursor: pointer;
+  transition: background 0.28s ease, color 0.28s ease, transform 0.28s ease;
+}
+
+.oro-item:hover {
+  background: rgba(212, 175, 55, 0.09);
+  color: var(--o-texto);
+  transform: translateX(3px);
+}
+
+.oro-item[data-activo="true"] {
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
+  color: #fff;
+  box-shadow: inset 2px 0 0 var(--o-oro);
+  transform: translateX(3px);
+}
+
+/* ── Botones ────────────────────────────────────────────────────────── */
+
+.oro-btn {
+  --c: var(--o-chaflan-sm);
+  clip-path: polygon(
+    var(--c) 0, 100% 0, 100% calc(100% - var(--c)),
+    calc(100% - var(--c)) 100%, 0 100%, 0 var(--c)
+  );
+  background: linear-gradient(135deg, var(--o-oro), #b8912a);
+  color: #17130a; /* texto oscuro sobre oro: el blanco no cumple contraste AA */
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.8rem 1.4rem;
+  cursor: pointer;
+  border: 0;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.oro-btn:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+}
+
+.oro-btn-fantasma {
+  background: transparent;
+  color: var(--o-oro);
+  box-shadow: inset 0 0 0 1px var(--o-oro-dim);
+}
+
+.oro-btn-fantasma:hover {
+  background: rgba(212, 175, 55, 0.1);
+  filter: none;
+}
+
+/* ── Holograma: cono de luz + base emisora ──────────────────────────
+   Es lo que crea la jerarquía del render: la web del cliente no está
+   "en una ventana", está proyectada desde el centro de la cabina. */
+
+.holo-cono {
+  position: absolute;
+  left: 50%;
+  bottom: -104px;
+  transform: translateX(-50%);
+  width: 82%;
+  height: 104px;
+  pointer-events: none;
+  /* Ancho arriba (la pantalla), angosto abajo (el emisor) */
+  clip-path: polygon(0 0, 100% 0, 68% 100%, 32% 100%);
+  background: linear-gradient(to bottom, rgba(79, 216, 255, 0.22), rgba(79, 216, 255, 0.05) 55%, transparent);
+  filter: blur(7px);
+}
+
+.holo-base {
+  position: relative;
+  width: 260px;
+  height: 34px;
+  margin: 8px auto 0;
+  pointer-events: none;
+}
+
+.holo-base::before,
+.holo-base::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.holo-base::before {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(79, 216, 255, 0.42), transparent 68%);
+  filter: blur(5px);
+}
+
+.holo-base::after {
+  width: 46%;
+  height: 42%;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.75), rgba(79, 216, 255, 0.5) 55%, transparent 72%);
+  filter: blur(2px);
+}
+
+/* ── Pipeline: riel con nodos ───────────────────────────────────────── */
+
+.oro-riel {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--o-oro-hair) 12%, var(--o-oro-hair) 88%, transparent);
+}
+
+.oro-nodo {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+  font-weight: 700;
+  background: var(--o-negro-2);
+  color: var(--o-texto-3);
+  box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.18);
+  border-radius: 50%;
+  transition: all 0.35s ease;
+}
+
+.oro-nodo[data-estado="hecho"] {
+  color: var(--o-oro);
+  box-shadow: inset 0 0 0 1px var(--o-oro-dim);
+}
+
+.oro-nodo[data-estado="actual"] {
+  color: #17130a;
+  background: linear-gradient(135deg, var(--o-oro-hi), var(--o-oro));
+  box-shadow: 0 0 18px -4px rgba(212, 175, 55, 0.85);
+}
+
+/* ── Estados ────────────────────────────────────────────────────────── */
+
+.oro-punto {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--o-ok);
+  box-shadow: 0 0 8px var(--o-ok);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oro *,
+  .oro *::before,
+  .oro *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
