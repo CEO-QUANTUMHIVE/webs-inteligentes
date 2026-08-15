@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Sparkles, 
@@ -25,9 +25,11 @@ import {
   ExternalLink,
   ChevronRight,
   ChevronDown,
-  Play,
-  RotateCcw,
-  Check
+  MousePointer,
+  Crosshair,
+  Move,
+  Eye,
+  Activity
 } from "lucide-react";
 import { 
   PLANTILLAS_REALES_CATALOGO, 
@@ -51,31 +53,31 @@ const TOUR_STEPS = [
   {
     step: 1,
     titulo: "¡Bienvenido a la Fábrica Web!",
-    mensaje: "Desplegá el panel '1. ELEGÍ TU RUBRO' a la izquierda para seleccionar la industria de tu cliente (Barbería, Gastronomía, Ciberseguridad, etc.).",
+    mensaje: "Desplegá el panel '1. ELEGÍ TU RUBRO' a la izquierda para seleccionar la industria de tu cliente.",
     actionText: "Desplegar Rubros",
   },
   {
     step: 2,
     titulo: "Previsualización de Web Completa",
-    mensaje: "¡Excelente! En el panel del medio podés hacer scroll para explorar toda la web completa (Hero, Servicios, Sobre Nosotros, Testimonios y Footer).",
+    mensaje: "¡Excelente! En el panel del medio podés hacer scroll para explorar toda la web real completa.",
     actionText: "Explorar Web Completa",
   },
   {
     step: 3,
-    titulo: "Efectos Shader Vengeance",
-    mensaje: "Probá activar o desactivar los Efectos Shader en el panel derecho (Glow, Particles, Tilt 3D) para simular el acabado ultra-premium.",
-    actionText: "Probar Efectos",
+    titulo: "Efectos del Mouse & Cursor",
+    mensaje: "Probá activar los Efectos del Mouse en el panel derecho (Cursor Neón, Magnetic Pull, Spotlight 3D).",
+    actionText: "Probar Efectos del Mouse",
   },
   {
     step: 4,
     titulo: "Prueba del Agente IA Integrado",
-    mensaje: "Cada web incluye su propio empleado virtual 24/7. Hacé click en el botón verde 'Asistente IA 24/7' abajo a la derecha para hablarle.",
+    mensaje: "Cada web incluye su propio empleado virtual 24/7. Hacé click en el botón verde 'Asistente IA 24/7' para hablarle.",
     actionText: "Probar Agente IA",
   },
   {
     step: 5,
     titulo: "Publicación & Cotización",
-    mensaje: "¡Todo listo! Hacé click en 'PUBLICAR SITIO EN VIVO' para compilar la web con tu dominio y generar la propuesta comercial.",
+    mensaje: "¡Todo listo! Hacé click en 'PUBLICAR SITIO EN VIVO' para compilar la web con tu dominio.",
     actionText: "Simular Publicación",
   }
 ];
@@ -92,13 +94,25 @@ export function FabricaWebCockpit() {
   const [guiaVisible, setGuiaVisible] = useState<boolean>(true);
   const [pasoPipeline, setPasoPipeline] = useState<number>(3);
   
-  // Estado de efectos
+  // Posición en tiempo real del cursor del Mouse
+  const [mousePos, setMousePos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+
+  // Estado de efectos generales
   const [efectosActivos, setEfectosActivos] = useState<Record<string, boolean>>({
     Glow: true,
     Particles: true,
     Tilt: true,
     Neón: true,
     Blur: false,
+  });
+
+  // ESTADO DE EFECTOS DEL MOUSE (PUNTERO INTERACTIVO)
+  const [efectosMouse, setEfectosMouse] = useState<Record<string, boolean>>({
+    cursorNeon: true,       // Puntero Neón Glowing
+    spotlight: true,        // Spotlight radial que sigue al ratón
+    magnetic: true,         // Atracción magnética en botones
+    tilt3DMouse: true,      // Inclinación 3D del monitor según cursor
+    trailParticles: false,  // Estela de partículas al mover el mouse
   });
 
   // Chat del Agente de la Web Seleccionada
@@ -109,6 +123,15 @@ export function FabricaWebCockpit() {
   const [inputChat, setInputChat] = useState("");
   const [publicandoModal, setPublicandoModal] = useState(false);
   const [sitioPublicado, setSitioPublicado] = useState(false);
+
+  // Escuchar posición del Mouse en pantalla
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   // Filtrado de plantillas por rubro
   const plantillasFiltradas = rubroSeleccionado === "todos"
@@ -126,6 +149,10 @@ export function FabricaWebCockpit() {
 
   const toggleEfecto = (efecto: string) => {
     setEfectosActivos((prev) => ({ ...prev, [efecto]: !prev[efecto] }));
+  };
+
+  const toggleEfectoMouse = (key: string) => {
+    setEfectosMouse((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
   const handleSeleccionarPlantilla = (plantilla: PlantillaReal) => {
@@ -160,9 +187,40 @@ export function FabricaWebCockpit() {
 
   const currentTourStep = TOUR_STEPS[pasoTour];
 
+  // Cálculo de Tilt 3D dinámico sobre la ventana según posición del mouse
+  const tiltX = efectosMouse.tilt3DMouse ? ((mousePos.y / window.innerHeight) - 0.5) * -12 : 0;
+  const tiltY = efectosMouse.tilt3DMouse ? ((mousePos.x / window.innerWidth) - 0.5) * 12 : 0;
+
   return (
-    <div className="relative min-h-screen bg-[#04060a] text-slate-100 font-sans overflow-x-hidden selection:bg-amber-500/30 selection:text-amber-200">
+    <div className="relative min-h-screen bg-[#04060a] text-slate-100 font-sans overflow-x-hidden selection:bg-amber-500/30 selection:text-amber-200 cursor-default">
       
+      {/* CAPA DE CURSOR NEÓN PERSONALIZADO (EFECTO MOUSE) */}
+      {efectosMouse.cursorNeon && (
+        <div
+          className="pointer-events-none fixed z-50 transition-transform duration-75 ease-out"
+          style={{
+            left: `${mousePos.x}px`,
+            top: `${mousePos.y}px`,
+            transform: "translate(-50%, -50%)"
+          }}
+        >
+          {/* Anillo de Neón Cian */}
+          <div className="w-8 h-8 rounded-full border-2 border-cyan-400/80 shadow-[0_0_20px_rgba(0,212,255,0.8)] animate-pulse flex items-center justify-center">
+            <div className="w-2 h-2 rounded-full bg-amber-400 shadow-[0_0_10px_rgba(212,175,55,1)]" />
+          </div>
+        </div>
+      )}
+
+      {/* CAPA DE SPOTLIGHT RADIAL MOUSE HOVER */}
+      {efectosMouse.spotlight && (
+        <div 
+          className="pointer-events-none fixed inset-0 z-10 opacity-40 transition-opacity duration-300"
+          style={{
+            background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(0, 212, 255, 0.12), transparent 70%)`
+          }}
+        />
+      )}
+
       {/* Fondo Cybernético & Grid Hexagonal */}
       <div className="fixed inset-0 pointer-events-none z-0 opacity-20">
         <div 
@@ -214,13 +272,13 @@ export function FabricaWebCockpit() {
             </div>
             <div className="h-3 w-[1px] bg-slate-800" />
             <div className="flex items-center gap-2">
-              <Cpu className="w-3.5 h-3.5 text-cyan-400" />
-              <span className="text-slate-300">PLANTILLAS REALES: <span className="text-cyan-400 font-bold">66 DISPONIBLES</span></span>
+              <MousePointer className="w-3.5 h-3.5 text-amber-400" />
+              <span className="text-slate-300">MOUSE EFFECT: <span className="text-amber-400 font-bold uppercase">{Object.values(efectosMouse).filter(Boolean).length} ACTIVOS</span></span>
             </div>
             <div className="h-3 w-[1px] bg-slate-800" />
             <div className="flex items-center gap-2">
-              <Zap className="w-3.5 h-3.5 text-amber-400" />
-              <span className="text-slate-300">RUBRO ACTIVO: <span className="text-amber-400 font-bold uppercase">{rubroActual.nombre}</span></span>
+              <Zap className="w-3.5 h-3.5 text-cyan-400" />
+              <span className="text-slate-300">RUBRO: <span className="text-cyan-400 font-bold uppercase">{rubroActual.nombre}</span></span>
             </div>
           </div>
 
@@ -231,7 +289,7 @@ export function FabricaWebCockpit() {
               className="px-3.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700/80 text-xs font-medium hover:border-amber-500/50 hover:text-amber-300 transition-all flex items-center gap-1.5"
             >
               <Grid className="w-3.5 h-3.5 text-amber-400" />
-              <span>Ver Catálogo 66+</span>
+              <span>Ver Catálogo 60+</span>
             </button>
             <button 
               onClick={handleSimularPublicacion}
@@ -429,7 +487,7 @@ export function FabricaWebCockpit() {
               <div className="flex items-center gap-2">
                 <Sliders className="w-4 h-4 text-amber-400" />
                 <h3 className="font-['Orbitron',sans-serif] text-sm font-bold text-slate-200 tracking-wider">
-                  ANIMACIONES
+                  ANIMACIONES SCROLL
                 </h3>
               </div>
               <span className="text-[10px] font-mono text-amber-400">rAF + GSAP</span>
@@ -460,8 +518,13 @@ export function FabricaWebCockpit() {
         {/* COLUMNA CENTRAL - STAGE MONITOR / WEB REAL COMPLETA EN VIVO (6 COLS) */}
         <section className="lg:col-span-6 space-y-4">
           
-          {/* Marco del Monitor de Control Principal */}
-          <div className="relative rounded-3xl bg-[#060a12] border-2 border-cyan-500/40 p-2 lg:p-4 shadow-[0_0_40px_rgba(0,212,255,0.15)] overflow-hidden">
+          {/* Marco del Monitor de Control Principal con Tilt 3D reactivo al mouse */}
+          <div 
+            className="relative rounded-3xl bg-[#060a12] border-2 border-cyan-500/40 p-2 lg:p-4 shadow-[0_0_40px_rgba(0,212,255,0.15)] overflow-hidden transition-transform duration-200 ease-out"
+            style={{
+              transform: `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`
+            }}
+          >
             
             {/* Esquinas Futuristas Glowing */}
             <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-cyan-400 rounded-tl-xl pointer-events-none" />
@@ -530,11 +593,15 @@ export function FabricaWebCockpit() {
                   }`}
                 />
 
-                {/* BOTÓN FLOTANTE WIDGET AGENTE IA INTEGRADO */}
-                <div className="absolute bottom-4 right-4 z-20">
+                {/* BOTÓN FLOTANTE WIDGET AGENTE IA CON ATRACCIÓN MAGNÉTICA MOUSE */}
+                <div 
+                  className={`absolute bottom-4 right-4 z-20 transition-transform duration-200 ${
+                    efectosMouse.magnetic ? "hover:scale-110 hover:-translate-y-1" : ""
+                  }`}
+                >
                   <button
                     onClick={() => setChatOpen(!chatOpen)}
-                    className="relative px-4 py-2.5 rounded-full bg-gradient-to-r from-emerald-400 to-teal-500 text-slate-950 font-bold text-xs shadow-[0_0_20px_rgba(16,185,129,0.5)] flex items-center gap-2 hover:scale-105 transition-all"
+                    className="relative px-4 py-2.5 rounded-full bg-gradient-to-r from-emerald-400 to-teal-500 text-slate-950 font-bold text-xs shadow-[0_0_20px_rgba(16,185,129,0.5)] flex items-center gap-2 hover:brightness-110 transition-all"
                   >
                     <Bot className="w-4 h-4" />
                     <span>Asistente IA 24/7</span>
@@ -599,9 +666,64 @@ export function FabricaWebCockpit() {
 
         </section>
 
-        {/* COLUMNA DERECHA - PANEL DE EFECTOS, BRANDING Y PUBLICACIÓN (3 COLS) */}
+        {/* COLUMNA DERECHA - PANEL DE EFECTOS DEL MOUSE, SHADERS Y PUBLICACIÓN (3 COLS) */}
         <aside className="lg:col-span-3 space-y-4">
           
+          {/* NUEVO PANEL DEDICADO: EFECTOS DEL MOUSE & PUNTERO */}
+          <div className="p-4 rounded-2xl bg-gradient-to-b from-[#0b1324] to-[#080d18] border-2 border-cyan-500/60 backdrop-blur-xl shadow-[0_0_25px_rgba(0,212,255,0.2)] space-y-3">
+            <div className="flex items-center justify-between border-b border-cyan-500/30 pb-2">
+              <div className="flex items-center gap-2">
+                <MousePointer className="w-4 h-4 text-cyan-400" />
+                <h3 className="font-['Orbitron',sans-serif] text-sm font-bold text-slate-100 tracking-wider">
+                  EFECTOS DEL MOUSE
+                </h3>
+              </div>
+              <span className="text-[10px] font-mono text-cyan-400 px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-400/40">
+                PUNTERO 3D
+              </span>
+            </div>
+
+            <p className="text-[11px] text-slate-400">
+              Activá efectos dinámicos interactivos al mover el ratón sobre la web:
+            </p>
+
+            <div className="space-y-2">
+              {[
+                { id: "cursorNeon", name: "Cursor Neón Glow", desc: "Halo fluorescente siguiendo el puntero", icon: Crosshair, color: "text-cyan-400" },
+                { id: "spotlight", name: "Spotlight Radial", desc: "Luz focalizada que revela elementos", icon: Eye, color: "text-amber-400" },
+                { id: "magnetic", name: "Cursor Magnético", desc: "Atracción suave de botones al mouse", icon: Move, color: "text-emerald-400" },
+                { id: "tilt3DMouse", name: "Inclinación 3D", desc: "Giro de perspectiva 3D reactivo", icon: Activity, color: "text-purple-400" },
+              ].map((fx) => {
+                const activo = efectosMouse[fx.id];
+                const IconComponent = fx.icon;
+                return (
+                  <button
+                    key={fx.id}
+                    onClick={() => toggleEfectoMouse(fx.id)}
+                    className={`w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between group ${
+                      activo
+                        ? "bg-cyan-500/15 border-cyan-400/80 shadow-[0_0_12px_rgba(0,212,255,0.25)]"
+                        : "bg-slate-900/60 border-slate-800 hover:border-slate-700"
+                    }`}
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <div className={`p-1.5 rounded-lg ${activo ? "bg-cyan-400/20" : "bg-slate-800"}`}>
+                        <IconComponent className={`w-3.5 h-3.5 ${activo ? fx.color : "text-slate-500"}`} />
+                      </div>
+                      <div>
+                        <div className={`text-xs font-bold ${activo ? "text-white" : "text-slate-300"}`}>{fx.name}</div>
+                        <div className="text-[10px] text-slate-400 line-clamp-1">{fx.desc}</div>
+                      </div>
+                    </div>
+                    <div className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center ${activo ? "bg-cyan-400 border-cyan-300" : "border-slate-700"}`}>
+                      {activo && <div className="w-1.5 h-1.5 rounded-full bg-black" />}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
           {/* Tarjeta de Galería & Efectos Vengeance */}
           <div className="p-4 rounded-2xl bg-[#080d18]/80 border border-slate-800/80 backdrop-blur-xl shadow-xl space-y-3">
             <div className="flex items-center justify-between border-b border-slate-800 pb-2">
@@ -640,36 +762,6 @@ export function FabricaWebCockpit() {
             </div>
           </div>
 
-          {/* Tarjeta de Branding & Sistema de Diseño */}
-          <div className="p-4 rounded-2xl bg-[#080d18]/80 border border-slate-800/80 backdrop-blur-xl shadow-xl space-y-3">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-              <div className="flex items-center gap-2">
-                <Palette className="w-4 h-4 text-cyan-400" />
-                <h3 className="font-['Orbitron',sans-serif] text-sm font-bold text-slate-200 tracking-wider">
-                  BRANDING
-                </h3>
-              </div>
-              <span className="text-[10px] font-mono text-cyan-400">TOKENS</span>
-            </div>
-
-            <div className="space-y-2">
-              <span className="text-[11px] font-mono text-slate-400">PALETA DE COLORES</span>
-              <div className="flex gap-2">
-                <div className="h-6 flex-1 rounded-lg bg-gradient-to-r from-amber-400 via-yellow-500 to-cyan-400 border border-white/10" />
-                <div className="h-6 flex-1 rounded-lg bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 border border-white/10" />
-                <div className="h-6 flex-1 rounded-lg bg-gradient-to-r from-emerald-400 via-teal-500 to-amber-400 border border-white/10" />
-              </div>
-            </div>
-
-            <div className="pt-2 border-t border-slate-800 flex items-center justify-between">
-              <div>
-                <div className="text-xs font-semibold text-slate-200">Tipografía Display</div>
-                <div className="text-[10px] font-mono text-slate-500">Orbitron + Space Grotesk</div>
-              </div>
-              <div className="text-lg font-bold font-['Orbitron',sans-serif] text-amber-400">Aa</div>
-            </div>
-          </div>
-
           {/* PANEL DE PUBLICACIÓN DEL SITIO (CTA PRINCIPAL) */}
           <div className="p-4 rounded-2xl bg-gradient-to-b from-[#0e1628] to-[#080d18] border-2 border-amber-500/50 backdrop-blur-xl shadow-[0_0_30px_rgba(212,175,55,0.2)] space-y-3">
             <div className="flex items-center justify-between border-b border-amber-500/30 pb-2">
@@ -689,8 +781,8 @@ export function FabricaWebCockpit() {
                 <span className="text-emerald-400 font-bold">✓</span>
               </div>
               <div className="flex items-center justify-between text-slate-300">
-                <span>Rendimiento</span>
-                <span className="text-amber-400 font-bold">Excelente (60 FPS)</span>
+                <span>Efectos Mouse</span>
+                <span className="text-cyan-400 font-bold">Puntero Neón 3D</span>
               </div>
               <div className="flex items-center justify-between text-slate-300">
                 <span>Seguridad SSL</span>
@@ -756,7 +848,7 @@ export function FabricaWebCockpit() {
         </div>
       </footer>
 
-      {/* MODAL / DRAWER COMPLETO: CATÁLOGO DE 66+ PLANTILLAS REALES */}
+      {/* MODAL / DRAWER COMPLETO: CATÁLOGO DE 60+ PLANTILLAS REALES */}
       <AnimatePresence>
         {modalCatálogoAbierto && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
@@ -769,7 +861,7 @@ export function FabricaWebCockpit() {
               <div className="flex items-center justify-between border-b border-slate-800 pb-4">
                 <div>
                   <h3 className="font-['Orbitron',sans-serif] text-xl font-bold text-white">
-                    CATÁLOGO COMPLETO DE PLANTILLAS REALES (66+)
+                    CATÁLOGO COMPLETO DE PLANTILLAS REALES (60+)
                   </h3>
                   <p className="text-xs text-slate-400">
                     Seleccioná cualquier plantilla por rubro para cargarla directamente en la Fábrica Web.
