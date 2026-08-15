@@ -321,12 +321,109 @@
           "preview": "https://www.vengenceui.com/components/kinetic-text-loader"
         }
       ]
+    },
+    "extracted-webflow": {
+      "name": "Efectos Extraídos Webflow IX2",
+      "description": "Patrones de animación capturados con Playwright rAF diffing de sitios Webflow IX2",
+      "effects": [
+        {
+          "id": "fade-up-reveal",
+          "name": "Fade-up Reveal",
+          "description": "Opacidad 0->1 y translateY 15px->0 al entrar en viewport",
+          "dependencies": [],
+          "useCase": "Headers, párrafos, tarjetas, botones en scroll",
+          "complexity": "low",
+          "ratio": "opacity: 0->1, translateY: 15px->0"
+        },
+        {
+          "id": "fade-simple",
+          "name": "Fade Simple",
+          "description": "Opacidad 0->1 sutil al entrar en viewport sin desplazamiento",
+          "dependencies": [],
+          "useCase": "Imágenes, íconos, contenedores secundarios",
+          "complexity": "low",
+          "ratio": "opacity: 0->1"
+        },
+        {
+          "id": "scroll-marquee",
+          "name": "Marquee de Logos Ligado al Scroll",
+          "description": "Desplazamiento horizontal atado al scroll (0.083px por px de scroll)",
+          "dependencies": [],
+          "useCase": "Carrusel de logos de marcas y clientes ligado al movimiento del usuario",
+          "complexity": "low",
+          "ratio": "0.083px horizontal por 1px vertical"
+        },
+        {
+          "id": "contador-odometro",
+          "name": "Contador con Rollo (Odómetro)",
+          "description": "Tambor vertical de números que ruedan (translateY 224px->0)",
+          "dependencies": [],
+          "useCase": "Cajas de estadísticas, métricas, contadores de logros",
+          "complexity": "low",
+          "ratio": "translateY: +/-224px->0"
+        },
+        {
+          "id": "tag-reveal",
+          "name": "Tag Reveal Sutil",
+          "description": "Badges y etiquetas con micro-movimiento (-2px->0) y fade",
+          "dependencies": [],
+          "useCase": "Badges de sección, pills, subtítulos superiores",
+          "complexity": "low",
+          "ratio": "opacity: 0->1, translateY: -2px->0"
+        }
+      ]
+    },
+    "extracted-gsap-motion": {
+      "name": "Efectos Extraídos (Sign-Zano & Ribbit GSAP)",
+      "description": "Patrones avanzados de Pinned Horizontal Tracks, 3D Tilt y GSAP Motion",
+      "effects": [
+        {
+          "id": "pinned-horizontal-track",
+          "name": "Track Horizontal Pinned",
+          "description": "Carrusel horizontal ligado a scroll vertical de largo recorrido (7.2k px)",
+          "dependencies": ["gsap"],
+          "useCase": "Showcase de proyectos, portfolios, galerías de productos",
+          "complexity": "high"
+        },
+        {
+          "id": "card-3d-tilt",
+          "name": "Tarjeta 3D Perspective Tilt",
+          "description": "Inclinación en perspectiva 3D (perspective 1000px, rotateX/Y)",
+          "dependencies": [],
+          "useCase": "Hero cards, tarjetas de producto destacadas",
+          "complexity": "medium"
+        },
+        {
+          "id": "navbar-dynamic-morph",
+          "name": "Navbar Dynamic Morphing",
+          "description": "Transición fluida de ancho, fondo y borde en la navbar en scroll",
+          "dependencies": ["gsap"],
+          "useCase": "Navegación adaptable de alto impacto visual",
+          "complexity": "medium"
+        },
+        {
+          "id": "fluid-morph-container",
+          "name": "Contenedor Orgánico Fluido",
+          "description": "Morphing continuo de border-radius para formas líquidas dinámicas",
+          "dependencies": [],
+          "useCase": "Fondos de sección, elementos decorativos de agencias",
+          "complexity": "medium"
+        },
+        {
+          "id": "magnetic-button",
+          "name": "Botón Magnético Kinético",
+          "description": "Atracción kinética y reacción dinámica al hover / scroll",
+          "dependencies": ["gsap"],
+          "useCase": "CTAs principales, botones interactivos",
+          "complexity": "medium"
+        }
+      ]
     }
   },
   "stats": {
-    "totalEffects": 28,
-    "categories": 7,
-    "withDependencies": 4,
-    "zeroDependency": 24
+    "totalEffects": 38,
+    "categories": 9,
+    "withDependencies": 7,
+    "zeroDependency": 31
   }
 }
