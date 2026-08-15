@@ -75,25 +75,26 @@ export default function Home() {
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <a
+              href="/fabrica-web"
+              className="px-8 py-4 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-black font-extrabold rounded-xl hover:brightness-110 transition-all hover:scale-105 inline-flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(212,175,55,0.5)] font-['Orbitron',sans-serif] tracking-wider"
+            >
+              <span>⚡</span>
+              FÁBRICA WEB INTELIGENTE
+              <span>→</span>
+            </a>
+            <a
               href="/webs-inteligentes"
-              className="px-8 py-4 bg-cyan-400 text-black font-bold rounded-lg hover:bg-cyan-300 transition-all hover:scale-105 inline-flex items-center justify-center gap-2"
+              className="px-8 py-4 bg-cyan-400 text-black font-bold rounded-xl hover:bg-cyan-300 transition-all hover:scale-105 inline-flex items-center justify-center gap-2"
             >
               Webs Inteligentes
               <span>→</span>
             </a>
             <a
               href="/catalogo-efectos"
-              className="px-8 py-4 bg-purple-500 text-white font-bold rounded-lg hover:bg-purple-400 transition-all hover:scale-105 inline-flex items-center justify-center gap-2"
+              className="px-8 py-4 bg-purple-500 text-white font-bold rounded-xl hover:bg-purple-400 transition-all hover:scale-105 inline-flex items-center justify-center gap-2"
             >
               Catálogo de Efectos
               <span>✦</span>
-            </a>
-            <a
-              href="/catalogo-plantillas"
-              className="px-8 py-4 bg-white/10 text-white font-bold rounded-lg hover:bg-white/20 transition-all hover:scale-105 inline-flex items-center justify-center gap-2 border border-white/20"
-            >
-              Catálogo de Plantillas
-              <span>◧</span>
             </a>
           </div>
 
