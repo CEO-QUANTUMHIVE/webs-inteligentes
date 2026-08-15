@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Sparkles, 
@@ -29,7 +29,10 @@ import {
   Crosshair,
   Move,
   Eye,
-  Activity
+  Activity,
+  Boxes,
+  Compass,
+  Radio
 } from "lucide-react";
 import { 
   PLANTILLAS_REALES_CATALOGO, 
@@ -64,9 +67,9 @@ const TOUR_STEPS = [
   },
   {
     step: 3,
-    titulo: "Efectos del Mouse & Cursor",
-    mensaje: "Probá activar los Efectos del Mouse en el panel derecho (Cursor Neón, Magnetic Pull, Spotlight 3D).",
-    actionText: "Probar Efectos del Mouse",
+    titulo: "Efectos Canvas & Mouse",
+    mensaje: "Probá activar los Canvas de Fondo (Partículas, Animated Rays, Cyber Matrix Rain) en el panel derecho.",
+    actionText: "Probar Canvas 2D/3D",
   },
   {
     step: 4,
@@ -97,22 +100,16 @@ export function FabricaWebCockpit() {
   // Posición en tiempo real del cursor del Mouse
   const [mousePos, setMousePos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
-  // Estado de efectos generales
-  const [efectosActivos, setEfectosActivos] = useState<Record<string, boolean>>({
-    Glow: true,
-    Particles: true,
-    Tilt: true,
-    Neón: true,
-    Blur: false,
-  });
+  // MOTOR DE CANVAS INTERACTIVO SELECCIONADO
+  const [canvasActivo, setCanvasActivo] = useState<"particles" | "rays" | "matrix" | "starfield" | "none">("particles");
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  // ESTADO DE EFECTOS DEL MOUSE (PUNTERO INTERACTIVO)
+  // Estado de efectos del mouse
   const [efectosMouse, setEfectosMouse] = useState<Record<string, boolean>>({
-    cursorNeon: true,       // Puntero Neón Glowing
-    spotlight: true,        // Spotlight radial que sigue al ratón
-    magnetic: true,         // Atracción magnética en botones
-    tilt3DMouse: true,      // Inclinación 3D del monitor según cursor
-    trailParticles: false,  // Estela de partículas al mover el mouse
+    cursorNeon: true,
+    spotlight: true,
+    magnetic: true,
+    tilt3DMouse: true,
   });
 
   // Chat del Agente de la Web Seleccionada
@@ -124,7 +121,7 @@ export function FabricaWebCockpit() {
   const [publicandoModal, setPublicandoModal] = useState(false);
   const [sitioPublicado, setSitioPublicado] = useState(false);
 
-  // Escuchar posición del Mouse en pantalla
+  // Escuchar posición del Mouse
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePos({ x: e.clientX, y: e.clientY });
@@ -132,6 +129,199 @@ export function FabricaWebCockpit() {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
+  // RENDER ENGINE EN TIEMPO REAL PARA EL ELEMENTO HTML5 <CANVAS>
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas || canvasActivo === "none") return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let animationFrameId: number;
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    const handleResize = () => {
+      if (!canvas) return;
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    };
+    window.addEventListener("resize", handleResize);
+
+    // MODO 1: PARTÍCULAS INTERACTIVAS (CONSTELLATION CANVAS)
+    if (canvasActivo === "particles") {
+      const particleCount = 65;
+      const particles: Array<{ x: number; y: number; vx: number; vy: number; radius: number }> = [];
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 1.2,
+          vy: (Math.random() - 0.5) * 1.2,
+          radius: Math.random() * 2 + 1,
+        });
+      }
+
+      const render = () => {
+        ctx.clearRect(0, 0, width, height);
+
+        // Dibujar partículas y conexiones
+        for (let i = 0; i < particleCount; i++) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0 || p.x > width) p.vx *= -1;
+          if (p.y < 0 || p.y > height) p.vy *= -1;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(0, 212, 255, 0.7)";
+          ctx.fill();
+
+          // Conexión con el cursor del mouse
+          const dxMouse = mousePos.x - p.x;
+          const dyMouse = mousePos.y - p.y;
+          const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+          if (distMouse < 140) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(mousePos.x, mousePos.y);
+            ctx.strokeStyle = `rgba(212, 175, 55, ${1 - distMouse / 140})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+
+          // Conexión entre partículas
+          for (let j = i + 1; j < particleCount; j++) {
+            const p2 = particles[j];
+            const dx = p2.x - p.x;
+            const dy = p2.y - p.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 100) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = `rgba(0, 212, 255, ${0.25 * (1 - dist / 100)})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+        }
+        animationFrameId = requestAnimationFrame(render);
+      };
+      render();
+    }
+
+    // MODO 2: ANIMATED RAYS (RAYOS VOLUMÉTRICOS EN CANVAS)
+    else if (canvasActivo === "rays") {
+      let angle = 0;
+      const render = () => {
+        ctx.clearRect(0, 0, width, height);
+        angle += 0.01;
+
+        const rayCount = 12;
+        const centerX = width / 2;
+        const centerY = -100;
+
+        for (let i = 0; i < rayCount; i++) {
+          const rayAngle = (i / rayCount) * Math.PI + Math.sin(angle + i) * 0.1;
+          const endX = centerX + Math.cos(rayAngle) * width * 1.5;
+          const endY = centerY + Math.sin(rayAngle) * height * 1.5;
+
+          const grad = ctx.createLinearGradient(centerX, centerY, endX, endY);
+          grad.addColorStop(0, "rgba(212, 175, 55, 0.25)");
+          grad.addColorStop(0.5, "rgba(0, 212, 255, 0.1)");
+          grad.addColorStop(1, "transparent");
+
+          ctx.beginPath();
+          ctx.moveTo(centerX, centerY);
+          ctx.lineTo(endX - 80, endY);
+          ctx.lineTo(endX + 80, endY);
+          ctx.closePath();
+          ctx.fillStyle = grad;
+          ctx.fill();
+        }
+        animationFrameId = requestAnimationFrame(render);
+      };
+      render();
+    }
+
+    // MODO 3: MATRIX CYBER CODE RAIN CANVAS
+    else if (canvasActivo === "matrix") {
+      const fontSize = 14;
+      const columns = Math.floor(width / fontSize);
+      const drops: number[] = new Array(columns).fill(1);
+      const chars = "01QUANTUMHIVE23456789ABCDEF";
+
+      const render = () => {
+        ctx.fillStyle = "rgba(4, 6, 10, 0.1)";
+        ctx.fillRect(0, 0, width, height);
+
+        ctx.fillStyle = "#00ffcc";
+        ctx.font = `${fontSize}px monospace`;
+
+        for (let i = 0; i < drops.length; i++) {
+          const text = chars[Math.floor(Math.random() * chars.length)];
+          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+          if (drops[i] * fontSize > height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+        animationFrameId = requestAnimationFrame(render);
+      };
+      render();
+    }
+
+    // MODO 4: HYPERSPACE STARFIELD (CAMPO DE ESTRELLAS CANVAS)
+    else if (canvasActivo === "starfield") {
+      const stars: Array<{ x: number; y: number; z: number }> = [];
+      for (let i = 0; i < 200; i++) {
+        stars.push({
+          x: (Math.random() - 0.5) * width,
+          y: (Math.random() - 0.5) * height,
+          z: Math.random() * width,
+        });
+      }
+
+      const render = () => {
+        ctx.fillStyle = "rgba(4, 6, 10, 0.3)";
+        ctx.fillRect(0, 0, width, height);
+
+        const cx = width / 2;
+        const cy = height / 2;
+
+        for (let i = 0; i < stars.length; i++) {
+          const s = stars[i];
+          s.z -= 4;
+          if (s.z <= 0) s.z = width;
+
+          const k = 128 / s.z;
+          const px = s.x * k + cx;
+          const py = s.y * k + cy;
+
+          if (px >= 0 && px <= width && py >= 0 && py <= height) {
+            const size = (1 - s.z / width) * 3;
+            ctx.beginPath();
+            ctx.arc(px, py, size, 0, Math.PI * 2);
+            ctx.fillStyle = "rgba(212, 175, 55, 0.9)";
+            ctx.fill();
+          }
+        }
+        animationFrameId = requestAnimationFrame(render);
+      };
+      render();
+    }
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [canvasActivo, mousePos]);
 
   // Filtrado de plantillas por rubro
   const plantillasFiltradas = rubroSeleccionado === "todos"
@@ -145,10 +335,6 @@ export function FabricaWebCockpit() {
     const primeraPlantilla = PLANTILLAS_REALES_CATALOGO.find(p => p.rubroId === rubroId) || PLANTILLAS_REALES_CATALOGO[0];
     handleSeleccionarPlantilla(primeraPlantilla);
     setDesplegableRubrosAbierto(false);
-  };
-
-  const toggleEfecto = (efecto: string) => {
-    setEfectosActivos((prev) => ({ ...prev, [efecto]: !prev[efecto] }));
   };
 
   const toggleEfectoMouse = (key: string) => {
@@ -187,14 +373,22 @@ export function FabricaWebCockpit() {
 
   const currentTourStep = TOUR_STEPS[pasoTour];
 
-  // Cálculo de Tilt 3D dinámico sobre la ventana según posición del mouse
+  // Cálculo de Tilt 3D dinámico
   const tiltX = efectosMouse.tilt3DMouse ? ((mousePos.y / window.innerHeight) - 0.5) * -12 : 0;
   const tiltY = efectosMouse.tilt3DMouse ? ((mousePos.x / window.innerWidth) - 0.5) * 12 : 0;
 
   return (
     <div className="relative min-h-screen bg-[#04060a] text-slate-100 font-sans overflow-x-hidden selection:bg-amber-500/30 selection:text-amber-200 cursor-default">
       
-      {/* CAPA DE CURSOR NEÓN PERSONALIZADO (EFECTO MOUSE) */}
+      {/* RENDERIZADOR DEL ELEMENTO HTML5 <CANVAS> EN TIEMPO REAL */}
+      {canvasActivo !== "none" && (
+        <canvas
+          ref={canvasRef}
+          className="fixed inset-0 pointer-events-none z-0 opacity-45"
+        />
+      )}
+
+      {/* CAPA DE CURSOR NEÓN PERSONALIZADO */}
       {efectosMouse.cursorNeon && (
         <div
           className="pointer-events-none fixed z-50 transition-transform duration-75 ease-out"
@@ -204,7 +398,6 @@ export function FabricaWebCockpit() {
             transform: "translate(-50%, -50%)"
           }}
         >
-          {/* Anillo de Neón Cian */}
           <div className="w-8 h-8 rounded-full border-2 border-cyan-400/80 shadow-[0_0_20px_rgba(0,212,255,0.8)] animate-pulse flex items-center justify-center">
             <div className="w-2 h-2 rounded-full bg-amber-400 shadow-[0_0_10px_rgba(212,175,55,1)]" />
           </div>
@@ -214,27 +407,12 @@ export function FabricaWebCockpit() {
       {/* CAPA DE SPOTLIGHT RADIAL MOUSE HOVER */}
       {efectosMouse.spotlight && (
         <div 
-          className="pointer-events-none fixed inset-0 z-10 opacity-40 transition-opacity duration-300"
+          className="pointer-events-none fixed inset-0 z-10 opacity-35 transition-opacity duration-300"
           style={{
             background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(0, 212, 255, 0.12), transparent 70%)`
           }}
         />
       )}
-
-      {/* Fondo Cybernético & Grid Hexagonal */}
-      <div className="fixed inset-0 pointer-events-none z-0 opacity-20">
-        <div 
-          className="absolute inset-0" 
-          style={{
-            backgroundImage: `radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.12) 0%, transparent 60%),
-                              linear-gradient(to right, rgba(0, 212, 255, 0.05) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(0, 212, 255, 0.05) 1px, transparent 1px)`,
-            backgroundSize: "100% 100%, 40px 40px, 40px 40px"
-          }}
-        />
-        <div className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[140px]" />
-        <div className="absolute bottom-20 right-1/4 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[160px]" />
-      </div>
 
       {/* HEADER SUPERIOR - BRANDING COCKPIT */}
       <header className="relative z-20 border-b border-amber-500/20 bg-[#060911]/90 backdrop-blur-xl px-4 lg:px-8 py-3">
@@ -272,8 +450,8 @@ export function FabricaWebCockpit() {
             </div>
             <div className="h-3 w-[1px] bg-slate-800" />
             <div className="flex items-center gap-2">
-              <MousePointer className="w-3.5 h-3.5 text-amber-400" />
-              <span className="text-slate-300">MOUSE EFFECT: <span className="text-amber-400 font-bold uppercase">{Object.values(efectosMouse).filter(Boolean).length} ACTIVOS</span></span>
+              <Boxes className="w-3.5 h-3.5 text-amber-400" />
+              <span className="text-slate-300">CANVAS ACTIVO: <span className="text-amber-400 font-bold uppercase">{canvasActivo}</span></span>
             </div>
             <div className="h-3 w-[1px] bg-slate-800" />
             <div className="flex items-center gap-2">
@@ -481,38 +659,6 @@ export function FabricaWebCockpit() {
             </div>
           </div>
 
-          {/* CONTROLES DE ANIMACIÓN Y EFECTOS IX2 / GSAP */}
-          <div className="p-4 rounded-2xl bg-[#080d18]/80 border border-slate-800/80 backdrop-blur-xl shadow-xl space-y-3">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-              <div className="flex items-center gap-2">
-                <Sliders className="w-4 h-4 text-amber-400" />
-                <h3 className="font-['Orbitron',sans-serif] text-sm font-bold text-slate-200 tracking-wider">
-                  ANIMACIONES SCROLL
-                </h3>
-              </div>
-              <span className="text-[10px] font-mono text-amber-400">rAF + GSAP</span>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2">
-              {[
-                { id: "fadeup", name: "Fade In", type: "Webflow IX2" },
-                { id: "slideup", name: "Slide Up", type: "rAF Diff" },
-                { id: "tilt3d", name: "3D Perspective", type: "CSS 3D" },
-                { id: "marquee", name: "Scroll Marquee", type: "Linear" },
-                { id: "odometer", name: "Odómetro", type: "Roll-up" },
-                { id: "gsapfluid", name: "Fluid Morph", type: "GSAP 3" },
-              ].map((anim) => (
-                <div key={anim.id} className="p-2 rounded-lg bg-slate-900/60 border border-slate-800 flex items-center justify-between hover:border-amber-500/40 transition-colors">
-                  <div>
-                    <div className="text-xs font-semibold text-slate-200">{anim.name}</div>
-                    <div className="text-[9px] font-mono text-slate-500">{anim.type}</div>
-                  </div>
-                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
-                </div>
-              ))}
-            </div>
-          </div>
-
         </aside>
 
         {/* COLUMNA CENTRAL - STAGE MONITOR / WEB REAL COMPLETA EN VIVO (6 COLS) */}
@@ -588,9 +734,7 @@ export function FabricaWebCockpit() {
                   key={plantillaSeleccionada.id}
                   src={plantillaSeleccionada.urlPath}
                   title={plantillaSeleccionada.nombre}
-                  className={`w-full h-full border-none transition-all duration-500 ${
-                    efectosActivos["Blur"] ? "blur-sm" : ""
-                  }`}
+                  className="w-full h-full border-none"
                 />
 
                 {/* BOTÓN FLOTANTE WIDGET AGENTE IA CON ATRACCIÓN MAGNÉTICA MOUSE */}
@@ -666,95 +810,102 @@ export function FabricaWebCockpit() {
 
         </section>
 
-        {/* COLUMNA DERECHA - PANEL DE EFECTOS DEL MOUSE, SHADERS Y PUBLICACIÓN (3 COLS) */}
+        {/* COLUMNA DERECHA - PANEL DE CANVASES DE FONDO, MOUSE Y PUBLICACIÓN (3 COLS) */}
         <aside className="lg:col-span-3 space-y-4">
           
-          {/* NUEVO PANEL DEDICADO: EFECTOS DEL MOUSE & PUNTERO */}
-          <div className="p-4 rounded-2xl bg-gradient-to-b from-[#0b1324] to-[#080d18] border-2 border-cyan-500/60 backdrop-blur-xl shadow-[0_0_25px_rgba(0,212,255,0.2)] space-y-3">
-            <div className="flex items-center justify-between border-b border-cyan-500/30 pb-2">
+          {/* NUEVO PANEL DESTACADO: CATÁLOGO DE CANVASES 2D/3D INTERACTIVOS */}
+          <div className="p-4 rounded-2xl bg-gradient-to-b from-[#131129] to-[#080d18] border-2 border-amber-500/60 backdrop-blur-xl shadow-[0_0_25px_rgba(212,175,55,0.2)] space-y-3">
+            <div className="flex items-center justify-between border-b border-amber-500/30 pb-2">
               <div className="flex items-center gap-2">
-                <MousePointer className="w-4 h-4 text-cyan-400" />
+                <Boxes className="w-4 h-4 text-amber-400" />
                 <h3 className="font-['Orbitron',sans-serif] text-sm font-bold text-slate-100 tracking-wider">
-                  EFECTOS DEL MOUSE
+                  CANVAS DE FONDO
                 </h3>
               </div>
-              <span className="text-[10px] font-mono text-cyan-400 px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-400/40">
-                PUNTERO 3D
+              <span className="text-[10px] font-mono text-amber-400 px-2 py-0.5 rounded bg-amber-500/10 border border-amber-400/40">
+                VENGEANCE UI
               </span>
             </div>
 
             <p className="text-[11px] text-slate-400">
-              Activá efectos dinámicos interactivos al mover el ratón sobre la web:
+              Seleccioná un motor de Canvas interactivo en tiempo real para el fondo:
             </p>
 
             <div className="space-y-2">
               {[
-                { id: "cursorNeon", name: "Cursor Neón Glow", desc: "Halo fluorescente siguiendo el puntero", icon: Crosshair, color: "text-cyan-400" },
-                { id: "spotlight", name: "Spotlight Radial", desc: "Luz focalizada que revela elementos", icon: Eye, color: "text-amber-400" },
-                { id: "magnetic", name: "Cursor Magnético", desc: "Atracción suave de botones al mouse", icon: Move, color: "text-emerald-400" },
-                { id: "tilt3DMouse", name: "Inclinación 3D", desc: "Giro de perspectiva 3D reactivo", icon: Activity, color: "text-purple-400" },
-              ].map((fx) => {
-                const activo = efectosMouse[fx.id];
-                const IconComponent = fx.icon;
+                { id: "particles", name: "Interactive Particles", desc: "Red de nodos reactivos a la distancia del ratón", icon: Compass, badge: "Recomendado" },
+                { id: "rays", name: "Animated Rays", desc: "Rayos de luz dorada y cian volumétrica", icon: Radio, badge: "Vengeance" },
+                { id: "matrix", name: "Cyber Matrix Code", desc: "Lluvia de caracteres de código verde/cian", icon: Cpu, badge: "Matrix" },
+                { id: "starfield", name: "Hyperspace Starfield", desc: "Warp espacial con velocidad 3D reactiva", icon: Zap, badge: "3D Space" },
+                { id: "none", name: "Sin Canvas (Oscuro)", desc: "Fondo oscuro plano tradicional", icon: Eye, badge: "Plano" },
+              ].map((cv) => {
+                const activo = canvasActivo === cv.id;
+                const IconComponent = cv.icon;
                 return (
                   <button
-                    key={fx.id}
-                    onClick={() => toggleEfectoMouse(fx.id)}
+                    key={cv.id}
+                    onClick={() => setCanvasActivo(cv.id as any)}
                     className={`w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between group ${
                       activo
-                        ? "bg-cyan-500/15 border-cyan-400/80 shadow-[0_0_12px_rgba(0,212,255,0.25)]"
+                        ? "bg-amber-500/20 border-amber-400 shadow-[0_0_15px_rgba(212,175,55,0.3)]"
                         : "bg-slate-900/60 border-slate-800 hover:border-slate-700"
                     }`}
                   >
                     <div className="flex items-center gap-2.5">
-                      <div className={`p-1.5 rounded-lg ${activo ? "bg-cyan-400/20" : "bg-slate-800"}`}>
-                        <IconComponent className={`w-3.5 h-3.5 ${activo ? fx.color : "text-slate-500"}`} />
+                      <div className={`p-1.5 rounded-lg ${activo ? "bg-amber-400/20 text-amber-300" : "bg-slate-800 text-slate-400"}`}>
+                        <IconComponent className="w-3.5 h-3.5" />
                       </div>
                       <div>
-                        <div className={`text-xs font-bold ${activo ? "text-white" : "text-slate-300"}`}>{fx.name}</div>
-                        <div className="text-[10px] text-slate-400 line-clamp-1">{fx.desc}</div>
+                        <div className={`text-xs font-bold ${activo ? "text-amber-300" : "text-slate-200"}`}>{cv.name}</div>
+                        <div className="text-[10px] text-slate-400 line-clamp-1">{cv.desc}</div>
                       </div>
                     </div>
-                    <div className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center ${activo ? "bg-cyan-400 border-cyan-300" : "border-slate-700"}`}>
-                      {activo && <div className="w-1.5 h-1.5 rounded-full bg-black" />}
-                    </div>
+                    <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded ${activo ? "bg-amber-500 text-black font-bold" : "bg-slate-800 text-slate-400"}`}>
+                      {cv.badge}
+                    </span>
                   </button>
                 );
               })}
             </div>
           </div>
 
-          {/* Tarjeta de Galería & Efectos Vengeance */}
+          {/* PANEL DE EFECTOS DEL MOUSE & PUNTERO */}
           <div className="p-4 rounded-2xl bg-[#080d18]/80 border border-slate-800/80 backdrop-blur-xl shadow-xl space-y-3">
             <div className="flex items-center justify-between border-b border-slate-800 pb-2">
               <div className="flex items-center gap-2">
-                <Wand2 className="w-4 h-4 text-amber-400" />
-                <h3 className="font-['Orbitron',sans-serif] text-sm font-bold text-slate-200 tracking-wider">
-                  EFECTOS SHADER
+                <MousePointer className="w-4 h-4 text-cyan-400" />
+                <h3 className="font-['Orbitron',sans-serif] text-xs font-bold text-slate-200 tracking-wider uppercase">
+                  EFECTOS DEL MOUSE
                 </h3>
               </div>
-              <span className="text-[10px] font-mono text-amber-400">VENGEANCE UI</span>
+              <span className="text-[10px] font-mono text-cyan-400">PUNTERO</span>
             </div>
 
             <div className="grid grid-cols-2 gap-2">
-              {["Glow", "Particles", "Tilt", "Neón", "Blur"].map((efx) => {
-                const activo = efectosActivos[efx];
+              {[
+                { id: "cursorNeon", name: "Neón Glow", icon: Crosshair },
+                { id: "spotlight", name: "Spotlight", icon: Eye },
+                { id: "magnetic", name: "Magnético", icon: Move },
+                { id: "tilt3DMouse", name: "Tilt 3D", icon: Activity },
+              ].map((fx) => {
+                const activo = efectosMouse[fx.id];
+                const IconComp = fx.icon;
                 return (
                   <button
-                    key={efx}
-                    onClick={() => toggleEfecto(efx)}
+                    key={fx.id}
+                    onClick={() => toggleEfectoMouse(fx.id)}
                     className={`p-2 rounded-xl border text-left transition-all ${
                       activo 
-                        ? "bg-amber-500/15 border-amber-500/60 text-amber-300 shadow-[0_0_10px_rgba(212,175,55,0.2)]" 
+                        ? "bg-cyan-500/15 border-cyan-400/80 text-cyan-300 shadow-[0_0_10px_rgba(0,212,255,0.2)]" 
                         : "bg-slate-900/50 border-slate-800 text-slate-400 hover:border-slate-700"
                     }`}
                   >
                     <div className="flex items-center justify-between text-xs font-semibold">
-                      <span>{efx}</span>
-                      <span className={`w-2 h-2 rounded-full ${activo ? "bg-amber-400" : "bg-slate-700"}`} />
-                    </div>
-                    <div className="text-[9px] font-mono text-slate-500 mt-0.5">
-                      {activo ? "ACTIVO" : "INACTIVO"}
+                      <div className="flex items-center gap-1.5">
+                        <IconComp className="w-3 h-3 text-cyan-400" />
+                        <span>{fx.name}</span>
+                      </div>
+                      <span className={`w-2 h-2 rounded-full ${activo ? "bg-cyan-400" : "bg-slate-700"}`} />
                     </div>
                   </button>
                 );
@@ -777,12 +928,12 @@ export function FabricaWebCockpit() {
                 <span className="text-emerald-400 font-bold">✓</span>
               </div>
               <div className="flex items-center justify-between text-slate-300">
-                <span>SEO Optimizado</span>
-                <span className="text-emerald-400 font-bold">✓</span>
+                <span>Canvas de Fondo</span>
+                <span className="text-amber-400 font-bold uppercase">{canvasActivo}</span>
               </div>
               <div className="flex items-center justify-between text-slate-300">
-                <span>Efectos Mouse</span>
-                <span className="text-cyan-400 font-bold">Puntero Neón 3D</span>
+                <span>Rendimiento</span>
+                <span className="text-emerald-400 font-bold">60 FPS Render</span>
               </div>
               <div className="flex items-center justify-between text-slate-300">
                 <span>Seguridad SSL</span>
