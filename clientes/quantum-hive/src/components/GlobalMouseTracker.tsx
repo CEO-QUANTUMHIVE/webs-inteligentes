@@ -20,12 +20,23 @@ export function GlobalMouseTracker() {
     const handleMessage = (e: MessageEvent) => {
       if (e.data?.type === "set-canvas-mode") {
         const isFondo = e.data.mode === "fondo";
-        document.documentElement.style.backgroundColor = isFondo ? "transparent" : "";
-        document.body.style.backgroundColor = isFondo ? "transparent" : "";
         
-        // Algunas plantillas tienen un contenedor principal con clase que incluye 'raiz' o 'contenedor'
-        const raiz = document.querySelector('div[class*="raiz"]') as HTMLElement;
-        if (raiz) raiz.style.backgroundColor = isFondo ? "transparent" : "";
+        let styleEl = document.getElementById("canvas-mode-style");
+        if (!styleEl) {
+          styleEl = document.createElement("style");
+          styleEl.id = "canvas-mode-style";
+          document.head.appendChild(styleEl);
+        }
+        
+        if (isFondo) {
+          // Forzamos la transparencia en los contenedores principales
+          styleEl.innerHTML = `
+            html, body { background: transparent !important; background-color: transparent !important; }
+            div[class*="raiz"], div[class*="layout"] { background: transparent !important; background-color: transparent !important; }
+          `;
+        } else {
+          styleEl.innerHTML = "";
+        }
       }
     };
 
