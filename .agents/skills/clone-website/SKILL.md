@@ -458,7 +458,9 @@ These are lessons from previous failed clones — each one cost hours of rework:
 - **Don't give a builder agent too much scope.** If you're writing a builder prompt and it's getting long because the section is complex, that's a signal to break it into smaller tasks.
 - **Don't bundle unrelated sections into one agent.** A CTA section and a footer are different components with different designs — don't hand them both to one agent and hope for the best.
 - **Don't skip responsive extraction.** If you only inspect at desktop width, the clone will break at tablet and mobile. Test at 1440, 768, and 390 during extraction.
-- **Don't forget smooth scroll libraries.** Check for Lenis (`.lenis` class), Locomotive Scroll, or similar. Default browser scrolling feels noticeably different and the user will spot it immediately.
+- **Don't break `position: sticky` / stacking cards with `overflow-x: hidden`.** When implementing stacking card decks or sticky sidebars, NEVER set `overflow-x: hidden` or `overflow: hidden` on `html`, `body`, `.page-wrapper`, or any ancestor container. Use `overflow-x: clip; overflow-y: visible !important;` instead. In all modern browsers, any `overflow: hidden` on an ancestor completely disables `position: sticky` calculations.
+- **Don't reinvent Webflow/Framer animation engines from scratch.** When cloning a site with Webflow IX2 or complex micro-interactions, directly reuse the original stylesheet and runtime (`webflow.js` + `jquery.min.js`), preserving the exact DOM attributes (`data-wf-page`, `data-wf-site`, `data-w-id`) so that all native scroll, card stacking, and hover triggers execute with 100% fidelity.
+- **Don't forget the official `FirmaQuantumHive` and Spanish localization.** All cloned templates must import `<FirmaQuantumHive />` from `@/components/marca/firma-quantumhive` at the footer and translate all copy, services, and forms into Spanish for local business delivery.
 - **Don't dispatch builders without a spec file.** The spec file forces exhaustive extraction and creates an auditable artifact. Skipping it means the builder gets whatever you can fit in a prompt from memory.
 
 ## Completion

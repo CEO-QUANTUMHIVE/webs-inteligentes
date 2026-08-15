@@ -96,6 +96,9 @@ npx shadcn@latest add @vengeanceui/animated-rays
 5. **Respetar los límites del MVP inicial**
 6. **Priorizar impacto visual sobre complejidad técnica**
 7. **Toda plantilla recreada desde una referencia externa debe estar en español e incluir una atribución visible `Powered by Quantum Hive`**
+8. **Efectos de Scroll / Stacking Cards sin bloqueo de overflow**: Cuando una plantilla use tarjetas apilables/superponibles (`position: sticky`), NUNCA colocar `overflow-x: hidden` ni `overflow: hidden` en `html`, `body` o contenedores ancestros (usar `overflow-x: clip; overflow-y: visible !important;` para evitar romper el cálculo del motor de scroll del navegador).
+9. **Reutilización Directa de Webflow IX2 / Framer**: Para clonar webs de Webflow o Framer con micro-animaciones complejas, reutilizar directamente la hoja de estilos y el runtime nativo (`webflow.js` + `jquery`), preservando los atributos `data-wf-page`, `data-wf-site` y `data-w-id` para garantizar 100% fidelidad de animación en vez de inventar aproximaciones manuales.
+10. **Firma Oficial Obligatoria**: Toda plantilla debe importar e instanciar el componente institucional `<FirmaQuantumHive />` (`@/components/marca/firma-quantumhive`) en el pie de página.
 
 ### Estructura de Directorio
 

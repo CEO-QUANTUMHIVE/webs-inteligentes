@@ -27,6 +27,8 @@ If the site uses canvas, WebGL, Three.js, Rive, 3D models, compressed splats, wa
 - Swiper may render markup but have no instance. Check `el.swiper`, not only `.swiper` nodes.
 - Too many `ScrollTrigger` scrub animations can make a clone feel worse than the source. Use scroll-scrub only where the original visibly needs continuous scroll binding.
 - Custom smooth scroll often feels worse than Lenis or the source library. Prefer the detected source library.
+- **`position: sticky` / Stacking Cards Breaking**: If sticky cards (e.g. card decks that superimpose on scroll) do not stick or overlap, check ALL ancestor elements (`html`, `body`, `.page-wrapper`, wrappers) for `overflow: hidden` or `overflow-x: hidden`. Any `overflow: hidden` on an ancestor completely disables `position: sticky` in the browser! Replace with `overflow-x: clip; overflow-y: visible !important;`.
+- **Webflow IX2 Engine Reuse**: For Webflow sites with sticky stacking cards and micro-interactions, do NOT attempt to recreate every interaction by hand in React. Reuse the native Webflow stylesheet and `webflow.js` / IX2 engine, preserving `data-wf-page`, `data-wf-site`, and `data-w-id` attributes.
 
 ## Visual Gaps That Are Not Normal Assets
 
