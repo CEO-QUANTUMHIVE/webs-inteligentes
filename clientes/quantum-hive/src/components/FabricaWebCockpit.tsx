@@ -243,7 +243,15 @@ export function FabricaWebCockpit() {
             clientY: parentY,
             bubbles: true,
           });
-          window.dispatchEvent(syntheticEvent);
+          
+          const canvasContainer = document.getElementById("canvas-overlay-container");
+          const canvasEl = canvasContainer?.querySelector("canvas");
+          
+          if (canvasEl) {
+            canvasEl.dispatchEvent(syntheticEvent);
+          } else {
+            window.dispatchEvent(syntheticEvent);
+          }
         }
       }
     };
@@ -631,7 +639,7 @@ export function FabricaWebCockpit() {
                   const EffectComp = EFFECT_DYNAMIC_COMPONENTS[canvasMouseEfecto];
                   if (!EffectComp) return null;
                   return (
-                    <div className="pointer-events-none absolute inset-0 z-10 overflow-hidden rounded-2xl">
+                    <div id="canvas-overlay-container" className="pointer-events-none absolute inset-0 z-10 overflow-hidden rounded-2xl">
                       <EffectComp />
                     </div>
                   );
