@@ -91,6 +91,14 @@ const detectarTecnologias = (page) =>
         instancia: typeof window.lenis !== 'undefined',
         bundleado: buscarEnScripts(/lenis/i),
       },
+      // Webflow IX2: anima con estilos inline desde rAF, no aparece en getAnimations().
+      // La evidencia dura es webflow.js + los atributos data-w-id de cada interaccion.
+      webflow: {
+        ix2: document.querySelectorAll('[data-w-id]').length > 0,
+        interacciones: document.querySelectorAll('[data-w-id]').length,
+        bundleado: buscarEnScripts(/webflow/i),
+        jquery: typeof window.jQuery !== 'undefined',
+      },
       locomotive: !!document.querySelector('[data-scroll-container]'),
       framerMotion: !!document.querySelector('[style*="--motion"], [data-framer-name]'),
       aos: !!document.querySelector('[data-aos]'),
@@ -239,17 +247,31 @@ const clasificarScripts = (page) =>
 /** Marca los elementos que vamos a seguir, para poder re-consultarlos con un selector estable. */
 const marcarElementos = (page) =>
   page.evaluate(() => {
-    const candidatos = new Set();
-    document.querySelectorAll('header, nav, section, main > div, footer').forEach((el) => candidatos.add(el));
-    // Elementos que se ven animables aunque no sean secciones
-    document.querySelectorAll('[class*="parallax" i],[class*="reveal" i],[class*="sticky" i],[data-scroll]')
-      .forEach((el) => candidatos.add(el));
+    const estructural = new Set();
+    const animado = new Set();
+
+    document.querySelectorAll('header, nav, section, main > div, footer').forEach((el) => estructural.add(el));
+
+    // Elementos animados por JS. Webflow IX2, GSAP y compañia no aparecen en
+    // getAnimations() porque escriben estilos inline desde un loop de rAF; su
+    // huella es justamente ese style inline con transform/opacity.
+    document.querySelectorAll('[style]').forEach((el) => {
+      const s = el.getAttribute('style') || '';
+      if (/transform|opacity|clip-path|filter/.test(s)) animado.add(el);
+    });
+
+    // Marcadores declarativos de las librerias mas comunes
+    document
+      .querySelectorAll('[data-w-id],[data-scroll],[data-aos],[data-framer-name],[class*="parallax" i],[class*="reveal" i],[class*="sticky" i]')
+      .forEach((el) => animado.add(el));
+
+    // La estructura entra completa; los animados se recortan para que el JSON no explote.
+    const seleccion = [...estructural, ...[...animado].filter((el) => !estructural.has(el)).slice(0, 60)];
 
     let n = 0;
-    [...candidatos].slice(0, 40).forEach((el) => {
-      el.setAttribute('data-qh-id', `qh-${n++}`);
-    });
-    return n;
+    for (const el of seleccion) el.setAttribute('data-qh-id', `qh-${n++}`);
+
+    return { total: n, estructurales: estructural.size, animados: seleccion.length - estructural.size };
   });
 
 const PROPS = [
@@ -440,7 +462,9 @@ async function main() {
       );
       for (const s of pins.slice(0, 3)) console.log(`    pin? ${s.exterior}  contiene  ${s.interior}`);
     }
-    console.log(`  elementos seguidos: ${marcados}\n`);
+    console.log(
+      `  elementos seguidos: ${marcados.total}  (${marcados.estructurales} estructurales + ${marcados.animados} animados por JS)\n`
+    );
 
     // ---- barrido de scroll con rueda REAL -----------------------------------
     const alturaTotal = await page.evaluate(() => document.documentElement.scrollHeight);
@@ -519,6 +543,7 @@ async function main() {
     const libs = [
       tecnologias.gsap.global && `GSAP ${tecnologias.gsap.version ?? ''}`,
       tecnologias.gsap.scrollTrigger && `ScrollTrigger (${tecnologias.gsap.triggers?.length ?? 0} triggers)`,
+      tecnologias.webflow.ix2 && `Webflow IX2 (${tecnologias.webflow.interacciones} interacciones)`,
       tecnologias.lenis.clase && 'Lenis',
       tecnologias.locomotive && 'Locomotive',
       tecnologias.aos && 'AOS',
