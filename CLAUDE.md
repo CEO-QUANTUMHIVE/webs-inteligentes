@@ -189,11 +189,11 @@ ramas activas (cada rama tiene su grafo). Después de crear un worktree:
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-15 · 693 archivos versionados
+Actualizado: 2026-08-15 · 695 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
-| `clientes/` | 386 | Proyectos Next.js de cada cliente |
+| `clientes/` | 388 | Proyectos Next.js de cada cliente |
 | `plantillas/` | 87 | Plantillas por tipo de negocio |
 | `.claude/` | 60 | — |
 | `habilidades/` | 45 | Skills del pipeline y material de apoyo |
@@ -273,6 +273,7 @@ Actualizado: 2026-08-15 · 693 archivos versionados
 - `/catalogo/plantillas/basicas/wellness/p7` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/wellness/p7/page.tsx`
 - `/catalogo/plantillas/basicas/wellness/p8` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/wellness/p8/page.tsx`
 - `/catalogo/plantillas/basicas/wellness` → `clientes/quantum-hive/src/app/catalogo/plantillas/basicas/wellness/page.tsx`
+- `/cockpit-scifi` → `clientes/quantum-hive/src/app/cockpit-scifi/page.tsx`
 - `/fabrica-web` → `clientes/quantum-hive/src/app/fabrica-web/page.tsx`
 - `/nuestras-webs` → `clientes/quantum-hive/src/app/nuestras-webs/page.tsx`
 - `/` → `clientes/quantum-hive/src/app/page.tsx`
