@@ -206,9 +206,7 @@ export function FabricaWebCockpit() {
   // Posición en tiempo real del cursor del Mouse
   const [mousePos, setMousePos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
-  // MOTOR DE CANVAS INTERACTIVO SELECCIONADO
-  const [canvasActivo, setCanvasActivo] = useState<"particles" | "rays" | "matrix" | "starfield" | "none">("particles");
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+
 
   // Estado de canvas mouse effect seleccionado
   const [canvasMouseEfecto, setCanvasMouseEfecto] = useState<string>("none");
@@ -232,198 +230,7 @@ export function FabricaWebCockpit() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // RENDER ENGINE EN TIEMPO REAL PARA EL ELEMENTO HTML5 <CANVAS>
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas || canvasActivo === "none") return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
 
-    let animationFrameId: number;
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
-
-    const handleResize = () => {
-      if (!canvas) return;
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    };
-    window.addEventListener("resize", handleResize);
-
-    // MODO 1: PARTÍCULAS INTERACTIVAS (CONSTELLATION CANVAS)
-    if (canvasActivo === "particles") {
-      const particleCount = 65;
-      const particles: Array<{ x: number; y: number; vx: number; vy: number; radius: number }> = [];
-
-      for (let i = 0; i < particleCount; i++) {
-        particles.push({
-          x: Math.random() * width,
-          y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 1.2,
-          vy: (Math.random() - 0.5) * 1.2,
-          radius: Math.random() * 2 + 1,
-        });
-      }
-
-      const render = () => {
-        ctx.clearRect(0, 0, width, height);
-
-        // Dibujar partículas y conexiones
-        for (let i = 0; i < particleCount; i++) {
-          const p = particles[i];
-          p.x += p.vx;
-          p.y += p.vy;
-
-          if (p.x < 0 || p.x > width) p.vx *= -1;
-          if (p.y < 0 || p.y > height) p.vy *= -1;
-
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-          ctx.fillStyle = "rgba(0, 212, 255, 0.7)";
-          ctx.fill();
-
-          // Conexión con el cursor del mouse
-          const dxMouse = mousePos.x - p.x;
-          const dyMouse = mousePos.y - p.y;
-          const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
-          if (distMouse < 140) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(mousePos.x, mousePos.y);
-            ctx.strokeStyle = `rgba(212, 175, 55, ${1 - distMouse / 140})`;
-            ctx.lineWidth = 0.8;
-            ctx.stroke();
-          }
-
-          // Conexión entre partículas
-          for (let j = i + 1; j < particleCount; j++) {
-            const p2 = particles[j];
-            const dx = p2.x - p.x;
-            const dy = p2.y - p.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-
-            if (dist < 100) {
-              ctx.beginPath();
-              ctx.moveTo(p.x, p.y);
-              ctx.lineTo(p2.x, p2.y);
-              ctx.strokeStyle = `rgba(0, 212, 255, ${0.25 * (1 - dist / 100)})`;
-              ctx.lineWidth = 0.5;
-              ctx.stroke();
-            }
-          }
-        }
-        animationFrameId = requestAnimationFrame(render);
-      };
-      render();
-    }
-
-    // MODO 2: ANIMATED RAYS (RAYOS VOLUMÉTRICOS EN CANVAS)
-    else if (canvasActivo === "rays") {
-      let angle = 0;
-      const render = () => {
-        ctx.clearRect(0, 0, width, height);
-        angle += 0.01;
-
-        const rayCount = 12;
-        const centerX = width / 2;
-        const centerY = -100;
-
-        for (let i = 0; i < rayCount; i++) {
-          const rayAngle = (i / rayCount) * Math.PI + Math.sin(angle + i) * 0.1;
-          const endX = centerX + Math.cos(rayAngle) * width * 1.5;
-          const endY = centerY + Math.sin(rayAngle) * height * 1.5;
-
-          const grad = ctx.createLinearGradient(centerX, centerY, endX, endY);
-          grad.addColorStop(0, "rgba(212, 175, 55, 0.25)");
-          grad.addColorStop(0.5, "rgba(0, 212, 255, 0.1)");
-          grad.addColorStop(1, "transparent");
-
-          ctx.beginPath();
-          ctx.moveTo(centerX, centerY);
-          ctx.lineTo(endX - 80, endY);
-          ctx.lineTo(endX + 80, endY);
-          ctx.closePath();
-          ctx.fillStyle = grad;
-          ctx.fill();
-        }
-        animationFrameId = requestAnimationFrame(render);
-      };
-      render();
-    }
-
-    // MODO 3: MATRIX CYBER CODE RAIN CANVAS
-    else if (canvasActivo === "matrix") {
-      const fontSize = 14;
-      const columns = Math.floor(width / fontSize);
-      const drops: number[] = new Array(columns).fill(1);
-      const chars = "01QUANTUMHIVE23456789ABCDEF";
-
-      const render = () => {
-        ctx.fillStyle = "rgba(4, 6, 10, 0.1)";
-        ctx.fillRect(0, 0, width, height);
-
-        ctx.fillStyle = "#00ffcc";
-        ctx.font = `${fontSize}px monospace`;
-
-        for (let i = 0; i < drops.length; i++) {
-          const text = chars[Math.floor(Math.random() * chars.length)];
-          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-          if (drops[i] * fontSize > height && Math.random() > 0.975) {
-            drops[i] = 0;
-          }
-          drops[i]++;
-        }
-        animationFrameId = requestAnimationFrame(render);
-      };
-      render();
-    }
-
-    // MODO 4: HYPERSPACE STARFIELD (CAMPO DE ESTRELLAS CANVAS)
-    else if (canvasActivo === "starfield") {
-      const stars: Array<{ x: number; y: number; z: number }> = [];
-      for (let i = 0; i < 200; i++) {
-        stars.push({
-          x: (Math.random() - 0.5) * width,
-          y: (Math.random() - 0.5) * height,
-          z: Math.random() * width,
-        });
-      }
-
-      const render = () => {
-        ctx.fillStyle = "rgba(4, 6, 10, 0.3)";
-        ctx.fillRect(0, 0, width, height);
-
-        const cx = width / 2;
-        const cy = height / 2;
-
-        for (let i = 0; i < stars.length; i++) {
-          const s = stars[i];
-          s.z -= 4;
-          if (s.z <= 0) s.z = width;
-
-          const k = 128 / s.z;
-          const px = s.x * k + cx;
-          const py = s.y * k + cy;
-
-          if (px >= 0 && px <= width && py >= 0 && py <= height) {
-            const size = (1 - s.z / width) * 3;
-            ctx.beginPath();
-            ctx.arc(px, py, size, 0, Math.PI * 2);
-            ctx.fillStyle = "rgba(212, 175, 55, 0.9)";
-            ctx.fill();
-          }
-        }
-        animationFrameId = requestAnimationFrame(render);
-      };
-      render();
-    }
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, [canvasActivo, mousePos]);
 
   // Filtrado de plantillas por rubro
   const plantillasFiltradas = rubroSeleccionado === "todos"
@@ -479,13 +286,6 @@ export function FabricaWebCockpit() {
   return (
     <div className="relative min-h-screen bg-[#04060a] text-slate-100 font-sans overflow-x-hidden selection:bg-amber-500/30 selection:text-amber-200 cursor-default">
       
-      {/* RENDERIZADOR DEL ELEMENTO HTML5 <CANVAS> EN TIEMPO REAL */}
-      {canvasActivo !== "none" && (
-        <canvas
-          ref={canvasRef}
-          className="fixed inset-0 pointer-events-none z-0 opacity-45"
-        />
-      )}
 
 
 
@@ -524,11 +324,7 @@ export function FabricaWebCockpit() {
               <span className="text-slate-300">MOTOR IA: <span className="text-emerald-400 font-bold">ONLINE</span></span>
             </div>
             <div className="h-3 w-[1px] bg-slate-800" />
-            <div className="flex items-center gap-2">
-              <Boxes className="w-3.5 h-3.5 text-amber-400" />
-              <span className="text-slate-300">CANVAS ACTIVO: <span className="text-amber-400 font-bold uppercase">{canvasActivo}</span></span>
-            </div>
-            <div className="h-3 w-[1px] bg-slate-800" />
+
             <div className="flex items-center gap-2">
               <Zap className="w-3.5 h-3.5 text-cyan-400" />
               <span className="text-slate-300">RUBRO: <span className="text-cyan-400 font-bold uppercase">{rubroActual.nombre}</span></span>
@@ -808,7 +604,7 @@ export function FabricaWebCockpit() {
                   const EffectComp = EFFECT_DYNAMIC_COMPONENTS[canvasMouseEfecto];
                   if (!EffectComp) return null;
                   return (
-                    <div className="pointer-events-none absolute inset-0 z-10 overflow-hidden rounded-2xl">
+                    <div className="pointer-events-auto absolute inset-0 z-10 overflow-hidden rounded-2xl">
                       <EffectComp />
                     </div>
                   );
@@ -888,60 +684,6 @@ export function FabricaWebCockpit() {
         {/* COLUMNA DERECHA - PANEL DE CANVASES DE FONDO, MOUSE Y PUBLICACIÓN (3 COLS) */}
         <aside className="lg:col-span-3 space-y-4">
           
-          {/* NUEVO PANEL DESTACADO: CATÁLOGO DE CANVASES 2D/3D INTERACTIVOS */}
-          <div className="p-4 rounded-2xl bg-gradient-to-b from-[#131129] to-[#080d18] border-2 border-amber-500/60 backdrop-blur-xl shadow-[0_0_25px_rgba(212,175,55,0.2)] space-y-3">
-            <div className="flex items-center justify-between border-b border-amber-500/30 pb-2">
-              <div className="flex items-center gap-2">
-                <Boxes className="w-4 h-4 text-amber-400" />
-                <h3 className="font-['Orbitron',sans-serif] text-sm font-bold text-slate-100 tracking-wider">
-                  CANVAS DE FONDO
-                </h3>
-              </div>
-              <span className="text-[10px] font-mono text-amber-400 px-2 py-0.5 rounded bg-amber-500/10 border border-amber-400/40">
-                VENGEANCE UI
-              </span>
-            </div>
-
-            <p className="text-[11px] text-slate-400">
-              Seleccioná un motor de Canvas interactivo en tiempo real para el fondo:
-            </p>
-
-            <div className="space-y-2">
-              {[
-                { id: "particles", name: "Interactive Particles", desc: "Red de nodos reactivos a la distancia del ratón", icon: Compass, badge: "Recomendado" },
-                { id: "rays", name: "Animated Rays", desc: "Rayos de luz dorada y cian volumétrica", icon: Radio, badge: "Vengeance" },
-                { id: "matrix", name: "Cyber Matrix Code", desc: "Lluvia de caracteres de código verde/cian", icon: Cpu, badge: "Matrix" },
-                { id: "starfield", name: "Hyperspace Starfield", desc: "Warp espacial con velocidad 3D reactiva", icon: Zap, badge: "3D Space" },
-                { id: "none", name: "Sin Canvas (Oscuro)", desc: "Fondo oscuro plano tradicional", icon: Eye, badge: "Plano" },
-              ].map((cv) => {
-                const activo = canvasActivo === cv.id;
-                const IconComponent = cv.icon;
-                return (
-                  <button
-                    key={cv.id}
-                    onClick={() => setCanvasActivo(cv.id as any)}
-                    className={`w-full p-2.5 rounded-xl border text-left transition-all flex items-center justify-between group ${
-                      activo
-                        ? "bg-amber-500/20 border-amber-400 shadow-[0_0_15px_rgba(212,175,55,0.3)]"
-                        : "bg-slate-900/60 border-slate-800 hover:border-slate-700"
-                    }`}
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <div className={`p-1.5 rounded-lg ${activo ? "bg-amber-400/20 text-amber-300" : "bg-slate-800 text-slate-400"}`}>
-                        <IconComponent className="w-3.5 h-3.5" />
-                      </div>
-                      <div>
-                        <div className={`text-xs font-bold ${activo ? "text-amber-300" : "text-slate-200"}`}>{cv.name}</div>
-                        <div className="text-[10px] text-slate-400 line-clamp-1">{cv.desc}</div>
-                      </div>
-                    </div>
-                    <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded ${activo ? "bg-amber-500 text-black font-bold" : "bg-slate-800 text-slate-400"}`}>
-                      {cv.badge}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
           </div>
 
 
@@ -1049,10 +791,7 @@ export function FabricaWebCockpit() {
                 <span>Dominio Conectado</span>
                 <span className="text-emerald-400 font-bold">✓</span>
               </div>
-              <div className="flex items-center justify-between text-slate-300">
-                <span>Canvas de Fondo</span>
-                <span className="text-amber-400 font-bold uppercase">{canvasActivo}</span>
-              </div>
+
               <div className="flex items-center justify-between text-slate-300">
                 <span>Rendimiento</span>
                 <span className="text-emerald-400 font-bold">60 FPS Render</span>
