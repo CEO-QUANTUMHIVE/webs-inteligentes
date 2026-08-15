@@ -77,17 +77,112 @@ export default function P6ZealBarber() {
           font-family: 'Oswald', sans-serif;
           text-transform: uppercase;
         }
-        .text-blue {
-          color: #fff !important;
+        /* Estilos exactos para Stacking Cards en la sección Servicios */
+        .section-services {
+          background-color: #0b1118 !important;
+          position: relative;
         }
-        .form-input {
-          background-color: #121c24 !important;
-          color: #fff !important;
-          border: 1px solid rgba(255, 255, 255, 0.15) !important;
-          border-radius: 4px;
+        .common-services-wrap {
+          display: grid !important;
+          grid-template-columns: 1fr 1.25fr !important;
+          gap: 3.5rem !important;
+          align-items: start !important;
+          position: relative !important;
         }
-        .form-input:focus {
+        .services-heading-wrap {
+          position: sticky !important;
+          top: 7.5rem !important;
+          background-color: #15222e !important;
+          border: 1px solid rgba(212, 175, 55, 0.25) !important;
+          border-radius: 1.875rem !important;
+          padding: 2.5rem !important;
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+        }
+        .common-grid-two-col.services-grid {
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 2.5rem !important;
+          position: relative !important;
+          padding-bottom: 5rem !important;
+        }
+        .flex.is-services,
+        .flex.is-services-two,
+        .flex.is-services-three,
+        .flex.is-services-four,
+        .flex.is-services-five,
+        .flex.is-services-six {
+          background-color: #111a24 !important;
+          border: 1px solid rgba(212, 175, 55, 0.3) !important;
+          border-radius: 1.875rem !important;
+          padding: 3rem 2.5rem !important;
+          box-shadow: 0 -15px 30px rgba(0, 0, 0, 0.6), 0 20px 40px rgba(0, 0, 0, 0.7) !important;
+          position: sticky !important;
+          transition: transform 0.3s ease, border-color 0.3s ease !important;
+        }
+        .flex.is-services {
+          top: 7.5rem !important;
+          z-index: 1 !important;
+        }
+        .flex.is-services-two {
+          top: 9rem !important;
+          z-index: 2 !important;
+        }
+        .flex.is-services-three {
+          top: 10.5rem !important;
+          z-index: 3 !important;
+        }
+        .flex.is-services-four {
+          top: 12rem !important;
+          z-index: 4 !important;
+        }
+        .flex.is-services-five {
+          top: 13.5rem !important;
+          z-index: 5 !important;
+        }
+        .flex.is-services-six {
+          top: 15rem !important;
+          z-index: 6 !important;
+        }
+        .flex.is-services:hover,
+        .flex.is-services-two:hover,
+        .flex.is-services-three:hover,
+        .flex.is-services-four:hover,
+        .flex.is-services-five:hover,
+        .flex.is-services-six:hover {
           border-color: #d4af37 !important;
+          box-shadow: 0 0 25px rgba(212, 175, 55, 0.3), 0 25px 50px rgba(0, 0, 0, 0.8) !important;
+        }
+        .services-price .text-blue {
+          color: #d4af37 !important;
+          font-family: 'Oswald', sans-serif !important;
+          font-size: 1.35rem !important;
+          font-weight: 700 !important;
+        }
+        .icon-wrap {
+          background: rgba(212, 175, 55, 0.1) !important;
+          border: 1px solid rgba(212, 175, 55, 0.3) !important;
+          border-radius: 12px !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          padding: 8px !important;
+        }
+
+        @media (max-width: 991px) {
+          .common-services-wrap {
+            grid-template-columns: 1fr !important;
+          }
+          .services-heading-wrap {
+            position: static !important;
+          }
+          .flex.is-services,
+          .flex.is-services-two,
+          .flex.is-services-three,
+          .flex.is-services-four,
+          .flex.is-services-five,
+          .flex.is-services-six {
+            position: static !important;
+          }
         }
       `}</style>
 
