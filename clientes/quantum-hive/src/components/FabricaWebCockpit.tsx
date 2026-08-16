@@ -405,7 +405,14 @@ export function FabricaWebCockpit() {
           </div>
 
           {/* Actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
+            <a
+              href="/catalogo/plantillas/basicas/efecto-scroll"
+              className="px-3.5 py-1.5 rounded-lg bg-cyan-500/10 border border-cyan-400/60 text-cyan-300 text-xs font-mono font-bold tracking-wider hover:bg-cyan-500 hover:text-black transition-all flex items-center gap-1.5 shadow-[0_0_15px_rgba(6,182,212,0.25)]"
+            >
+              <span>🌀</span>
+              <span>EFECTO SCROLL</span>
+            </a>
             <button
               onClick={() => setModalCatálogoAbierto(true)}
               className="px-3.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700/80 text-xs font-medium hover:border-amber-500/50 hover:text-amber-300 transition-all flex items-center gap-1.5"
@@ -481,6 +488,44 @@ export function FabricaWebCockpit() {
         {/* COLUMNA IZQUIERDA - PANEL DESPLEGABLE DE RUBROS Y PLANTILLAS (3 COLS) */}
         <aside className="lg:col-span-3 space-y-4">
           
+          {/* BANNER DESTACADO: NUEVA COLECCIÓN EFECTO SCROLL */}
+          <div className="p-4 rounded-2xl bg-gradient-to-br from-[#061e29]/90 via-[#071322]/90 to-[#0d1f1c]/90 border-2 border-cyan-400/60 shadow-[0_0_25px_rgba(6,182,212,0.2)] space-y-2.5 relative overflow-hidden">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="text-lg animate-spin" style={{ animationDuration: "8s" }}>🌀</span>
+                <span className="text-xs font-mono font-bold tracking-wider text-cyan-300 uppercase">
+                  COLECCIÓN EFECTO SCROLL
+                </span>
+              </div>
+              <span className="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-cyan-400 text-black shadow-sm">
+                6 WEBS
+              </span>
+            </div>
+
+            <p className="text-[11px] text-slate-300 leading-snug">
+              Webs cinematográficas con <strong>Stacking Cards</strong>, <strong>GSAP ScrollTrigger</strong> y Webflow IX2.
+            </p>
+
+            <div className="grid grid-cols-2 gap-2 pt-1">
+              <button
+                onClick={() => handleSeleccionarRubro("efecto-scroll")}
+                className={`px-2.5 py-1.5 rounded-xl text-xs font-mono font-bold transition-all text-center flex items-center justify-center gap-1 ${
+                  rubroSeleccionado === "efecto-scroll"
+                    ? "bg-cyan-400 text-black shadow-[0_0_15px_rgba(6,182,212,0.5)]"
+                    : "bg-cyan-500/20 text-cyan-300 hover:bg-cyan-500 hover:text-black border border-cyan-500/40"
+                }`}
+              >
+                <span>⚡</span> Cargar Cockpit
+              </button>
+              <a
+                href="/catalogo/plantillas/basicas/efecto-scroll"
+                className="px-2.5 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-700 text-xs font-mono transition-all text-center flex items-center justify-center gap-1"
+              >
+                <span>📂</span> Ver Catálogo
+              </a>
+            </div>
+          </div>
+
           {/* PANEL DESPLEGABLE: 1. ELEGÍ TU RUBRO */}
           <div className="p-4 rounded-2xl bg-[#080d18]/90 border-2 border-amber-500/60 backdrop-blur-xl shadow-[0_0_20px_rgba(212,175,55,0.15)] space-y-3">
             

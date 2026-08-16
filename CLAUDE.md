@@ -189,7 +189,7 @@ ramas activas (cada rama tiene su grafo). Después de crear un worktree:
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-15 · 711 archivos versionados
+Actualizado: 2026-08-16 · 711 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|

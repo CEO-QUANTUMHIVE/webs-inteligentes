@@ -62,6 +62,35 @@
   background-size: auto, auto, 56px 97px;
 }
 
+/* ── Rejilla principal ──────────────────────────────────────────────
+   El padding va acá y no en una utilidad de Tailwind: medido, `px-6`
+   computaba 0px sobre <main> y los paneles quedaban pegados al borde
+   de la ventana. Esto es lo que da la respiración del render. */
+
+.oro-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 1.6vw, 1.6rem);
+  align-items: start;
+  width: 100%;
+  max-width: 1720px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 3vw, 3rem);
+}
+
+@media (min-width: 1024px) {
+  .oro-main {
+    grid-template-columns: minmax(240px, 300px) minmax(0, 1fr) minmax(240px, 300px);
+  }
+}
+
+.oro-pie {
+  width: 100%;
+  max-width: 900px;
+  margin-inline: auto;
+  padding: clamp(1.5rem, 3vh, 2.75rem) clamp(1.25rem, 3vw, 3rem) clamp(2rem, 4vh, 3rem);
+}
+
 /* ── Panel HUD: chaflán + vidrio + filo dorado ──────────────────────
    El filo se hace con una capa dorada de 1px por detrás, porque `border`
    no sigue al clip-path. */

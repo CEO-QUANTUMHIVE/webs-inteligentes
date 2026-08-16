@@ -125,7 +125,7 @@ export function CockpitSciFiPreview(): React.JSX.Element {
   const EffectComp = canvasMouseEfecto !== "none" ? EFFECT_DYNAMIC_COMPONENTS[canvasMouseEfecto] : null;
 
   return (
-    <div className="oro flex flex-col overflow-x-hidden">
+    <div className="oro flex flex-col overflow-x-hidden pb-4">
       <div className="oro-fondo" aria-hidden="true" />
 
       {/* ── Encabezado ────────────────────────────────────────────── */}
@@ -139,7 +139,7 @@ export function CockpitSciFiPreview(): React.JSX.Element {
       </header>
 
       {/* ── Grid principal ────────────────────────────────────────── */}
-      <main className="grid grid-cols-1 lg:grid-cols-[300px_1fr_300px] gap-6 px-6 flex-1 max-w-[1780px] mx-auto w-full items-start">
+      <main className="oro-main">
         {/* ── Columna izquierda ── */}
         <div className="flex flex-col gap-5">
           <Panel>
@@ -198,7 +198,7 @@ export function CockpitSciFiPreview(): React.JSX.Element {
         <div className="relative">
           <Panel foco className="relative">
             <div className="flex items-center justify-between mb-3 px-1">
-              <span className="text-[11px] font-mono text-[color:var(--o-texto-2)] truncate">
+              <span className="text-[11px] font-mono text-[color:var(--o-texto-2)] truncate min-w-0 flex-1">
                 quantumhive.app{plantillaSeleccionada.urlPath}
               </span>
               <div className="flex items-center gap-2">
@@ -329,7 +329,7 @@ export function CockpitSciFiPreview(): React.JSX.Element {
       </main>
 
       {/* ── Pipeline ──────────────────────────────────────────────── */}
-      <footer className="py-10 px-6 max-w-[900px] mx-auto w-full">
+      <footer className="oro-pie">
         <div className="text-center oro-label justify-center mb-6">Pipeline de creación</div>
         <div className="relative flex justify-between items-start">
           <div className="oro-riel" aria-hidden="true" />

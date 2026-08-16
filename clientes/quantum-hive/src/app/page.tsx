@@ -73,7 +73,7 @@ export default function Home() {
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 flex-wrap">
             <a
               href="/fabrica-web"
               className="px-8 py-4 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-black font-extrabold rounded-xl hover:brightness-110 transition-all hover:scale-105 inline-flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(212,175,55,0.5)] font-['Orbitron',sans-serif] tracking-wider"
@@ -83,8 +83,16 @@ export default function Home() {
               <span>→</span>
             </a>
             <a
+              href="/catalogo/plantillas/basicas/efecto-scroll"
+              className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-teal-500 text-black font-extrabold rounded-xl hover:brightness-110 transition-all hover:scale-105 inline-flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(6,182,212,0.4)] font-['Orbitron',sans-serif] tracking-wider"
+            >
+              <span>🌀</span>
+              EFECTO SCROLL
+              <span>✦</span>
+            </a>
+            <a
               href="/webs-inteligentes"
-              className="px-8 py-4 bg-cyan-400 text-black font-bold rounded-xl hover:bg-cyan-300 transition-all hover:scale-105 inline-flex items-center justify-center gap-2"
+              className="px-8 py-4 bg-slate-800 text-white font-bold rounded-xl hover:bg-slate-700 transition-all hover:scale-105 inline-flex items-center justify-center gap-2 border border-slate-700"
             >
               Webs Inteligentes
               <span>→</span>
@@ -185,6 +193,112 @@ export default function Home() {
                 </ul>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECCIÓN NUEVA: PLANTILLAS CON EFECTO SCROLL & CINEMATICS */}
+      <section className="py-24 px-4 bg-gradient-to-b from-[#050508] via-[#07111e] to-[#050508] border-y border-cyan-500/20 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-cyan-500/10 blur-[150px] pointer-events-none rounded-full" />
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-mono mb-3">
+                <span>🌀</span> COLECCIÓN DESTACADA // NUEVA SECCIÓN
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold" style={{ fontFamily: "Orbitron, sans-serif" }}>
+                Plantillas con <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400">Efecto Scroll</span>
+              </h2>
+              <p className="text-gray-400 text-sm md:text-base mt-2 max-w-xl">
+                Animaciones fluidas con Stacking Cards, GSAP ScrollTrigger y motores nativos Webflow IX2.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <a
+                href="/catalogo/plantillas/basicas/efecto-scroll"
+                className="px-6 py-3 rounded-xl bg-cyan-500 text-black font-bold font-['Orbitron',sans-serif] text-xs tracking-wider hover:bg-cyan-400 transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] flex items-center gap-2"
+              >
+                <span>🌀</span>
+                VER CATÁLOGO SCROLL COMPLETO
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Tarjeta 1: Zeal Barber */}
+            <div className="group rounded-3xl border border-cyan-500/30 bg-[#0a121c]/80 overflow-hidden hover:border-cyan-400 transition-all hover:shadow-[0_0_30px_rgba(6,182,212,0.2)]">
+              <div className="aspect-[16/9] overflow-hidden relative">
+                <img
+                  src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80"
+                  alt="Zeal Barber"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-cyan-500 text-black text-xs font-mono font-bold">
+                  STACKING CARDS
+                </span>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-white mb-2" style={{ fontFamily: "Orbitron, sans-serif" }}>
+                  Zeal Barber IX2
+                </h3>
+                <p className="text-gray-400 text-sm mb-6">
+                  Mazo de tarjetas apilables con scroll continuo, sombras dinámicas de profundidad y fidelidad 100% nativa.
+                </p>
+                <div className="flex gap-3">
+                  <a
+                    href="/catalogo/plantillas/basicas/barberia/p6"
+                    className="flex-1 py-3 rounded-xl bg-cyan-500/20 hover:bg-cyan-500 text-cyan-300 hover:text-black border border-cyan-500/40 text-xs font-mono font-bold text-center transition-all"
+                  >
+                    ⚡ Probar Demo
+                  </a>
+                  <a
+                    href="/fabrica-web?plantilla=scroll-p1"
+                    className="flex-1 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 text-xs font-mono text-center transition-all"
+                  >
+                    🛠️ Abrir en Cockpit
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Tarjeta 2: Haus Studio */}
+            <div className="group rounded-3xl border border-purple-500/30 bg-[#0e0a1a]/80 overflow-hidden hover:border-purple-400 transition-all hover:shadow-[0_0_30px_rgba(168,85,247,0.2)]">
+              <div className="aspect-[16/9] overflow-hidden relative">
+                <img
+                  src="https://cdn.prod.website-files.com/69a3b779dc496975c0b73f42/69a9087cc1f92d54107bfcef_Image_3%20(1).png"
+                  alt="Haus Studio"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-purple-500 text-white text-xs font-mono font-bold">
+                  GSAP & SPLITTEXT
+                </span>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-white mb-2" style={{ fontFamily: "Orbitron, sans-serif" }}>
+                  Haus Studio Editorial
+                </h3>
+                <p className="text-gray-400 text-sm mb-6">
+                  Lookbook de alta moda con tipografía cinematográfica, reveal por letras y transiciones magnéticas.
+                </p>
+                <div className="flex gap-3">
+                  <a
+                    href="/catalogo/plantillas/basicas/retail/p6"
+                    className="flex-1 py-3 rounded-xl bg-purple-500/20 hover:bg-purple-500 text-purple-300 hover:text-white border border-purple-500/40 text-xs font-mono font-bold text-center transition-all"
+                  >
+                    ⚡ Probar Demo
+                  </a>
+                  <a
+                    href="/fabrica-web?plantilla=scroll-p2"
+                    className="flex-1 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 text-xs font-mono text-center transition-all"
+                  >
+                    🛠️ Abrir en Cockpit
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
