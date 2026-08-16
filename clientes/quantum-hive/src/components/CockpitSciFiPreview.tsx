@@ -51,7 +51,7 @@ function Panel({
 }): React.JSX.Element {
   return (
     <div className={`hud ${foco ? "hud-foco" : "hud-lateral"} ${className}`}>
-      <div className="hud-cara h-full p-4">{children}</div>
+      <div className="hud-cara h-full">{children}</div>
     </div>
   );
 }
@@ -367,7 +367,7 @@ export function CockpitSciFiPreview(): React.JSX.Element {
               exit={{ scale: 0.96, opacity: 0 }}
               className="hud hud-foco w-full max-w-5xl max-h-[82vh]"
             >
-              <div className="hud-cara p-6 flex flex-col">
+              <div className="hud-cara flex flex-col">
                 <div className="flex items-center justify-between pb-4">
                   <Etiqueta>Catálogo de plantillas</Etiqueta>
                   <button
@@ -381,7 +381,7 @@ export function CockpitSciFiPreview(): React.JSX.Element {
                 <div className="overflow-y-auto pr-1 grid grid-cols-1 md:grid-cols-3 gap-3 max-h-[58vh]">
                   {PLANTILLAS_REALES_CATALOGO.map((p) => (
                     <div key={p.id} className="hud">
-                      <div className="hud-cara p-3 flex flex-col justify-between h-full">
+                      <div className="hud-cara flex flex-col justify-between h-full">
                         <div>
                           <div className="h-28 overflow-hidden mb-2.5">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -422,7 +422,7 @@ export function CockpitSciFiPreview(): React.JSX.Element {
               exit={{ scale: 0.92, opacity: 0 }}
               className="hud hud-foco w-full max-w-md"
             >
-              <div className="hud-cara p-8 text-center space-y-4">
+              <div className="hud-cara text-center space-y-4">
                 {!sitioPublicado ? (
                   <>
                     <RefreshCw className="w-9 h-9 text-[color:var(--o-oro)] mx-auto animate-spin" />

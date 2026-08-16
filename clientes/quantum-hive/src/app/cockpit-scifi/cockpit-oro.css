@@ -118,6 +118,10 @@
   background: linear-gradient(168deg, rgba(18, 18, 21, 0.9), rgba(8, 8, 10, 0.94));
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+
+  /* El padding tiene que superar al chaflán o el corte diagonal se come el
+     contenido de las esquinas. Con chaflán de 14px, 20px deja aire suficiente. */
+  padding: 20px;
 }
 
 /* Los paneles laterales retroceden: el protagonista es el preview.

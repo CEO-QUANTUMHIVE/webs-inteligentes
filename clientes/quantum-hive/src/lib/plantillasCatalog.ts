@@ -8,7 +8,7 @@ export interface PlantillaReal {
   descripcion: string;
   urlPath: string;
   imagen: string;
-  badge: "Básica" | "Pro" | "Premium IX2" | "GSAP Motion";
+  badge: "Básica" | "Pro" | "Premium IX2" | "GSAP Motion" | "Efecto Scroll";
   colorAcento: string;
   servicios: string[];
   efectosPredeterminados: string[];
