@@ -286,14 +286,112 @@ gsap.registerPlugin(Observer);
 
 
 
-  <div style="background: #09090b; border-top: 1px solid rgba(255,255,255,0.1); padding: 32px 24px; text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14px; color: #a1a1aa; position: relative; z-index: 99999;">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px;">
-      <div>© 2026 Engine Studio. Todos los derechos reservados.</div>
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <span>Diseño y tecnología por</span>
-        <strong style="color: #fff; letter-spacing: 0.05em;">QUANTUM HIVE</strong>
-        <span style="background: rgba(34, 197, 94, 0.1); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.25); padding: 3px 10px; border-radius: 9999px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">POWERED BY QUANTUM HIVE</span>
-      </div>
-    </div>
+  
+<style>
+.qh-official-firma {
+  background: #000 !important;
+  border-top: 1px solid rgba(212, 175, 55, 0.28) !important;
+  padding: 2.25rem 1.5rem 2.5rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  text-align: center !important;
+  position: relative !important;
+  z-index: 99999 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+.qh-official-marca {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.9rem !important;
+  text-decoration: none !important;
+  transition: opacity 200ms ease, transform 200ms ease !important;
+}
+.qh-official-marca:hover {
+  opacity: 0.9 !important;
+  transform: translateY(-1px) !important;
+}
+.qh-official-iso {
+  width: 46px !important;
+  height: 46px !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.35)) !important;
+}
+.qh-official-texto {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  line-height: 1.15 !important;
+}
+.qh-official-eyebrow {
+  font-size: 0.66rem !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: #8a7a4a !important;
+}
+.qh-official-nombre {
+  font-size: 1.15rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.14em !important;
+  background: linear-gradient(90deg, #d4af37, #ffd700, #d4af37) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+.qh-official-tagline {
+  font-size: 0.68rem !important;
+  color: #6f6a5e !important;
+  letter-spacing: 0.02em !important;
+}
+.qh-official-copy {
+  font-size: 0.74rem !important;
+  color: #5f5a52 !important;
+  max-width: 60ch !important;
+}
+.qh-official-copy a {
+  color: #b8973a !important;
+  text-decoration: none !important;
+  transition: color 200ms ease !important;
+}
+.qh-official-copy a:hover {
+  color: #ffd700 !important;
+}
+</style>
+
+<footer class="qh-official-firma">
+  <a
+    href="https://www.quantumhive.com.ar"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="qh-official-marca"
+    aria-label="Sitio desarrollado por Quantum Hive"
+  >
+    <img
+      src="/marca/quantumhive-isotipo.webp"
+      alt="Quantum Hive"
+      class="qh-official-iso"
+      width="46"
+      height="46"
+      loading="lazy"
+    />
+    <span class="qh-official-texto">
+      <span class="qh-official-eyebrow">Sitio desarrollado por</span>
+      <span class="qh-official-nombre">QUANTUM HIVE</span>
+      <span class="qh-official-tagline">Multi-Agent Business Infrastructure</span>
+    </span>
+  </a>
+  <span class="qh-official-copy">
+    © 2026 Quantum Hive. Todos los derechos reservados · Módulo
+    <a
+      href="https://websinteligentes.quantumhive.com.ar"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Webs Inteligentes
+    </a>
+  </span>
+</footer>
+
   </div>
   </body></html>
