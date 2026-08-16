@@ -1,11 +1,161 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import FirmaQuantumHive from "@/components/marca/firma-quantumhive";
 
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
 export default function GriflanStudioRawClonePage() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !containerRef.current) return;
+
+    const ctx = gsap.context(() => {
+      // 1. ANIMACIÓN DE ENTRADA HERO (Stagger fade-up cinemático)
+      gsap.fromTo(
+        ".js-i-fade-top, .js-i-fade",
+        {
+          opacity: 0,
+          y: 40,
+          rotateX: 8
+        },
+        {
+          opacity: 1,
+          y: 0,
+          rotateX: 0,
+          duration: 1.2,
+          stagger: 0.07,
+          ease: "power3.out"
+        }
+      );
+
+      // 2. ANIMACIÓN FLOTANTE ORGÁNICA DE RIBBONS / ADORNOS
+      gsap.to(".js-i-logo-t, [class*='ribbon']", {
+        y: -10,
+        rotation: 3,
+        duration: 3,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      // 3. SCROLLTRIGGER PARALLAX EN PROYECTOS & TARJETAS
+      const articles = gsap.utils.toArray<HTMLElement>(".article, .js-slide, [class*='article']");
+      articles.forEach((card) => {
+        gsap.fromTo(
+          card,
+          {
+            opacity: 0.3,
+            y: 50,
+            scale: 0.97
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+              end: "top 45%",
+              scrub: 1
+            }
+          }
+        );
+      });
+
+      // 4. ANIMACIÓN DE TÍTULOS Y GRANDES SECCIONES AL HACER SCROLL
+      const headings = gsap.utils.toArray<HTMLElement>("h1, h2, .home-service");
+      headings.forEach((heading) => {
+        gsap.fromTo(
+          heading,
+          {
+            opacity: 0,
+            y: 35
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: heading,
+              start: "top 90%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        );
+      });
+
+      // 5. INTERACTIVIDAD EN HOVER DE SERVICIOS (home-service)
+      const serviceItems = document.querySelectorAll(".home-service");
+      serviceItems.forEach((item) => {
+        item.addEventListener("mouseenter", () => {
+          gsap.to(item, {
+            scale: 1.02,
+            color: "#ff3b30",
+            duration: 0.4,
+            ease: "power2.out"
+          });
+        });
+        item.addEventListener("mouseleave", () => {
+          gsap.to(item, {
+            scale: 1,
+            color: "inherit",
+            duration: 0.4,
+            ease: "power2.out"
+          });
+        });
+      });
+
+      // 6. CARROUSEL INTERACTIVO / SCROLL SUAVE HORIZONTAL (js-slides)
+      const slidesContainers = document.querySelectorAll<HTMLElement>(".js-slides");
+      slidesContainers.forEach((slides) => {
+        let isDown = false;
+        let startX: number;
+        let scrollLeft: number;
+
+        slides.style.cursor = "grab";
+
+        slides.addEventListener("mousedown", (e) => {
+          isDown = true;
+          slides.style.cursor = "grabbing";
+          startX = e.pageX - slides.offsetLeft;
+          scrollLeft = slides.scrollLeft;
+        });
+
+        slides.addEventListener("mouseleave", () => {
+          isDown = false;
+          slides.style.cursor = "grab";
+        });
+
+        slides.addEventListener("mouseup", () => {
+          isDown = false;
+          slides.style.cursor = "grab";
+        });
+
+        slides.addEventListener("mousemove", (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - slides.offsetLeft;
+          const walk = (x - startX) * 2;
+          slides.scrollLeft = scrollLeft - walk;
+        });
+      });
+
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <>
+    <div ref={containerRef} className="relative min-h-screen bg-[#111111] text-[#f4f4f4] overflow-x-clip" style={{ overflowY: "visible" }}>
       {/* 1. Hoja de Estilos Nativas Directas de Griflan */}
       <link rel="stylesheet" href="/templates/griflan/griflan-master.css" />
 
@@ -21,6 +171,6 @@ export default function GriflanStudioRawClonePage() {
       <div className="relative z-50 bg-[#0e0e0e] border-t border-white/10 py-8">
         <FirmaQuantumHive />
       </div>
-    </>
+    </div>
   );
 }
