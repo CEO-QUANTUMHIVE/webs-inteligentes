@@ -41,18 +41,18 @@ export const PLANTILLAS_REALES_CATALOGO: PlantillaReal[] = [
   // === EFECTO SCROLL & PARALLAX (7 VARIANTES CINEMATOGRÁFICAS) ===
   {
     id: "scroll-p7",
-    nombre: "Griflan Creative Studio P7",
+    nombre: "Engine Studio P7",
     rubroId: "efecto-scroll",
     rubroNombre: "Efecto Scroll & Parallax",
-    variante: "P7 Editorial Serif & 3D Motion",
-    subtitulo: "Estudio de branding y experiencias digitales de alto impacto para Venture Capital",
-    descripcion: "Diseño editorial de vanguardia con tipografía TAN MEMORIES, reels 3D, casos de estudio y noticias de venture capital.",
+    variante: "P7 Circular Wheel & Stacking Cards",
+    subtitulo: "Estudio Creativo de Vanguardia con Rueda Circular 3D y Stacking Cards",
+    descripcion: "Hero con carrusel circular dinámico, dispersión cromática, tarjetas apilables en scroll y Webflow IX2 nativo.",
     urlPath: "/catalogo/plantillas/basicas/servicios-profesionales-p7",
-    imagen: "/assets/griflan/1761856774-group-22-copy-2.jpg",
-    badge: "Efecto Scroll",
-    colorAcento: "from-[#ff3b30] to-amber-500",
-    servicios: ["Estrategia & Branding", "Experiencias Digitales", "Motion & 3D Visuals"],
-    efectosPredeterminados: ["SplitText", "3D Motion Reel", "Editorial Parallax"]
+    imagen: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+    badge: "Premium IX2",
+    colorAcento: "from-red-500 to-amber-500",
+    servicios: ["Motion Graphics & 3D", "Branding Estratégico", "Diseño UI/UX", "Desarrollo Web"],
+    efectosPredeterminados: ["Circular Wheel", "Stacking Cards", "Tilt 3D", "Magnetic Button"]
   },
   {
     id: "scroll-p1",
