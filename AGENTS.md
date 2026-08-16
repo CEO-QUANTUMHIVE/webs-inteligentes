@@ -89,6 +89,15 @@ npx shadcn@latest add @vengeanceui/animated-rays
 
 ### Reglas Críticas
 
+0. **REGLA CERO (0) - PROTOCOLO INVIOLABLE DE CLONACIÓN (PROHIBIDO REESCRIBIR JSX MANUAL)**:
+   Cuando el usuario proporcione una URL para clonar/recrear:
+   - **ESTÁ ESTRICTAMENTE PROHIBIDO** escribir componentes React/Tailwind/Framer Motion desde cero inventando aproximaciones manuales.
+   - **Flujo Obligatorio de 4 Fases**:
+     1. **Extracción Raw**: Descargar con Playwright el `rendered.html` completo, todas las hojas CSS originales, tipografías (`.woff2`), videos e imágenes a `public/templates/<sitio>/`.
+     2. **Vinculación Directa de Estilos**: Reutilizar de forma nativa las hojas de estilo originales (`<link rel="stylesheet">`), preservando todas las clases CSS originales y variables de diseño.
+     3. **Traducción In-Situ del DOM**: Traducir el contenido al español editando directamente los textos dentro de las etiquetas del DOM original, sin alterar la jerarquía HTML, ni las clases, ni los `data-*` attributes.
+     4. **Firma Oficial & QA Visual**: Incrustar `<FirmaQuantumHive />` al pie y verificar la paridad visual contra capturas de pantalla de Playwright.
+
 1. **Nunca inventar información del negocio**
 2. **Siempre requerir aprobación humana antes de enviar propuestas**
 3. **Usar solo información pública verificable**

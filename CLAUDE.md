@@ -28,6 +28,15 @@ El proyecto Next.js vive en **`clientes/quantum-hive/`**.
 
 ## Reglas
 
+0. **REGLA CERO (0) — PROTOCOLO INVIOLABLE DE CLONACIÓN DE WEBS (PROHIBIDO REESCRIBIR JSX MANUAL)**:
+   Cuando el usuario envíe una URL para clonar o recrear:
+   - **ESTÁ TOTALMENTE PROHIBIDO** inventar código React/Tailwind/Framer Motion desde cero.
+   - **Flujo Obligatorio de 4 Fases**:
+     1. **Extracción Raw**: Descargar con Playwright el `rendered.html` completo, hojas CSS originales, tipografías (`.woff2`), videos e imágenes a `public/templates/<sitio>/`.
+     2. **Vinculación Directa**: Reutilizar de forma nativa las hojas de estilo originales (`<link rel="stylesheet">`), preservando todas las clases CSS y variables de diseño.
+     3. **Traducción In-Situ del DOM**: Traducir el contenido al español editando directamente los textos dentro de las etiquetas del DOM original, sin alterar la jerarquía HTML, ni las clases, ni los `data-*` attributes.
+     4. **Firma Oficial & QA Visual**: Incrustar `<FirmaQuantumHive />` al pie y validar fidelidad visual contra capturas de pantalla de Playwright.
+
 1. **Todo en español** — textos de UI, nombres de carpetas y documentación.
 2. **CSS puro para producción.** Vengeance UI solo en páginas de catálogo/demo. En home y páginas críticas usar CSS puro con las variables de `globals.css` — los componentes de Vengeance se rompieron en producción.
 3. **React 19: usar `React.JSX.Element`**, nunca `JSX.Element` (el namespace global desapareció).
@@ -189,11 +198,11 @@ ramas activas (cada rama tiene su grafo). Después de crear un worktree:
 
 _Generado por `scripts/actualizar-mapa.sh` en cada commit. No editar a mano._
 
-Actualizado: 2026-08-16 · 785 archivos versionados
+Actualizado: 2026-08-16 · 859 archivos versionados
 
 | Área | Archivos | Qué contiene |
 |------|----------|--------------|
-| `clientes/` | 478 | Proyectos Next.js de cada cliente |
+| `clientes/` | 552 | Proyectos Next.js de cada cliente |
 | `plantillas/` | 87 | Plantillas por tipo de negocio |
 | `.claude/` | 60 | — |
 | `habilidades/` | 45 | Skills del pipeline y material de apoyo |

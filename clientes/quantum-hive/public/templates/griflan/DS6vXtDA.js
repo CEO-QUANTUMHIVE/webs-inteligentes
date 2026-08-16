@@ -1,0 +1,1 @@
+import{ac as n,ad as s,ae as r,a6 as u,af as o}from"#entry";function c(e){const t=e||s();return t?.ssrContext?.head||t?.runWithContext(()=>{if(r())return u(o)})}function d(e,t={}){const a=c(t.nuxt);if(a)return n(e,{head:a,...t})}export{d as u};
