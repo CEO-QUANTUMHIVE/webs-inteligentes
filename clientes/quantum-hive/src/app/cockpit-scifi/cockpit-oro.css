@@ -124,6 +124,21 @@
   padding: 20px;
 }
 
+/* Los modales necesitan más aire que un panel lateral. */
+.hud-cara-amplio {
+  padding: 34px 32px;
+}
+
+.hud-cara-amplio > * + * {
+  margin-top: 1.1rem;
+}
+
+/* En los modales centrados, los bloques con ancho propio (el ícono de estado)
+   se centran solos sin depender de una utilidad suelta. */
+.hud-cara-amplio.text-center > * {
+  margin-inline: auto;
+}
+
 /* Los paneles laterales retroceden: el protagonista es el preview.
    Recuperan presencia al pasar el mouse. */
 .hud-lateral {

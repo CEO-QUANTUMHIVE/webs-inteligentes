@@ -367,7 +367,7 @@ export function CockpitSciFiPreview(): React.JSX.Element {
               exit={{ scale: 0.96, opacity: 0 }}
               className="hud hud-foco w-full max-w-5xl max-h-[82vh]"
             >
-              <div className="hud-cara flex flex-col">
+              <div className="hud-cara hud-cara-amplio flex flex-col">
                 <div className="flex items-center justify-between pb-4">
                   <Etiqueta>Catálogo de plantillas</Etiqueta>
                   <button
@@ -422,7 +422,7 @@ export function CockpitSciFiPreview(): React.JSX.Element {
               exit={{ scale: 0.92, opacity: 0 }}
               className="hud hud-foco w-full max-w-md"
             >
-              <div className="hud-cara text-center space-y-4">
+              <div className="hud-cara hud-cara-amplio text-center">
                 {!sitioPublicado ? (
                   <>
                     <RefreshCw className="w-9 h-9 text-[color:var(--o-oro)] mx-auto animate-spin" />
