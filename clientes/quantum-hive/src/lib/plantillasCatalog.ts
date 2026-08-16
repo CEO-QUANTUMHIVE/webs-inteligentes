@@ -23,14 +23,14 @@ export interface Rubro {
 }
 
 export const RUBROS_DISPONIBLES: Rubro[] = [
-  { id: "todos", nombre: "Todos los Rubros", icono: "✦", descripcion: "Catálogo completo de la Fábrica Web", count: 67 },
-  { id: "efecto-scroll", nombre: "Efecto Scroll & Parallax", icono: "🌀", descripcion: "Plantillas cinematográficas con sticky cards, GSAP, Webflow IX2 y scroll cinemático", count: 6 },
+  { id: "todos", nombre: "Todos los Rubros", icono: "✦", descripcion: "Catálogo completo de la Fábrica Web", count: 68 },
+  { id: "efecto-scroll", nombre: "Efecto Scroll & Parallax", icono: "🌀", descripcion: "Plantillas cinematográficas con sticky cards, GSAP, Webflow IX2 y scroll cinemático", count: 7 },
   { id: "barberia", nombre: "Barbería", icono: "✂️", descripcion: "Reserva de turnos y estética masculina", count: 7 },
   { id: "gastronomia", nombre: "Gastronomía", icono: "🍽️", descripcion: "Restaurantes, cartas digitales y reservas", count: 8 },
   { id: "inmobiliaria", nombre: "Inmobiliaria", icono: "🏢", descripcion: "Propiedades, catálogo e inversión", count: 7 },
   { id: "retail", nombre: "Retail & E-commerce", icono: "🛍️", descripcion: "Tiendas físicas, ropa y productos", count: 8 },
   { id: "salud", nombre: "Salud & Medicina", icono: "🩺", descripcion: "Clínicas, médicos y turnos online", count: 7 },
-  { id: "servicios-pro", nombre: "Servicios Profesionales", icono: "💼", descripcion: "Consultoría, abogados y contadores", count: 7 },
+  { id: "servicios-pro", nombre: "Servicios Profesionales", icono: "💼", descripcion: "Consultoría, abogados y contadores", count: 8 },
   { id: "wellness", nombre: "Wellness & Estética", icono: "🌿", descripcion: "Spas, centros de belleza y relajación", count: 7 },
   { id: "educacion", nombre: "Educación & Academias", icono: "🎓", descripcion: "Academias, cursos e institutos", count: 7 },
   { id: "tech", nombre: "Ciberseguridad & Tech", icono: "🛡️", descripcion: "B2B SaaS y empresas tecnológicas", count: 2 },
@@ -38,7 +38,22 @@ export const RUBROS_DISPONIBLES: Rubro[] = [
 ];
 
 export const PLANTILLAS_REALES_CATALOGO: PlantillaReal[] = [
-  // === EFECTO SCROLL & PARALLAX (6 VARIANTES CINEMATOGRÁFICAS) ===
+  // === EFECTO SCROLL & PARALLAX (7 VARIANTES CINEMATOGRÁFICAS) ===
+  {
+    id: "scroll-p7",
+    nombre: "Griflan Creative Studio P7",
+    rubroId: "efecto-scroll",
+    rubroNombre: "Efecto Scroll & Parallax",
+    variante: "P7 Editorial Serif & 3D Motion",
+    subtitulo: "Estudio de branding y experiencias digitales de alto impacto para Venture Capital",
+    descripcion: "Diseño editorial de vanguardia con tipografía TAN MEMORIES, reels 3D, casos de estudio y noticias de venture capital.",
+    urlPath: "/catalogo/plantillas/basicas/servicios-profesionales-p7",
+    imagen: "/assets/griflan/1761856774-group-22-copy-2.jpg",
+    badge: "Efecto Scroll",
+    colorAcento: "from-[#ff3b30] to-amber-500",
+    servicios: ["Estrategia & Branding", "Experiencias Digitales", "Motion & 3D Visuals"],
+    efectosPredeterminados: ["SplitText", "3D Motion Reel", "Editorial Parallax"]
+  },
   {
     id: "scroll-p1",
     nombre: "Zeal Barber Stacking P1",

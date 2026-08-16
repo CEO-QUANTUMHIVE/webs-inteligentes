@@ -1,0 +1,1 @@
+import{X as v}from"#entry";var o,f;function d(){if(f)return o;f=1;function e(t,n,r){return t*(1-r)+n*r}return o=e,o}var p,l;function h(){if(l)return p;l=1;const e=d();function t(n,r,u,i,s=60){if(typeof i>"u")return e(n,r,u);const a=i/(1/s),c=1-u;return e(n,r,1-Math.pow(c,a))}return p=t,p}var q=h();const m=v(q);export{m as l};

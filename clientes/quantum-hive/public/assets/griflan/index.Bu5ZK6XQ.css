@@ -1,0 +1,1 @@
+.test-slide{--size:85%;margin-left:3rem;max-width:var(--size);min-width:var(--size)}@media(min-width:650px){.test-slide{--size:52.5rem;margin-left:calc(var(--size)*-.25)}.test-slide:nth-child(odd){margin-top:-30rem}.test-slide:nth-child(2n){margin-top:30rem}}
