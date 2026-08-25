@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import { obtenerPlantillas, obtenerPlantillasBasicas } from "@/lib/catalogo";
 import PlantillasCliente from "./plantillas-cliente";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-
 export const metadata: Metadata = {
   title: "Catálogo de Plantillas — Webs Inteligentes | Quantum Hive",
   description:
