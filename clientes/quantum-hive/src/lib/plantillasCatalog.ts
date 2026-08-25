@@ -16,24 +16,6 @@ export interface PlantillaReal {
 
 export interface Rubro {
   id: string;
-export interface PlantillaReal {
-  id: string;
-  nombre: string;
-  rubroId: string;
-  rubroNombre: string;
-  variante: string;
-  subtitulo: string;
-  descripcion: string;
-  urlPath: string;
-  imagen: string;
-  badge: "Básica" | "Pro" | "Premium IX2" | "GSAP Motion" | "Efecto Scroll";
-  colorAcento: string;
-  servicios: string[];
-  efectosPredeterminados: string[];
-}
-
-export interface Rubro {
-  id: string;
   nombre: string;
   icono: string;
   descripcion: string;
