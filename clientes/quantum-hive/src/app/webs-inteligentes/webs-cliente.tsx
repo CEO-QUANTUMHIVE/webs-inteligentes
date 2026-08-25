@@ -236,10 +236,9 @@ export default function WebsCliente() {
             <img src="/marca/wordmark.webp" alt="Quantum Hive" width={836} height={67} className="h-5 w-auto md:h-6" />
           </Link>
           <nav className="hidden items-center gap-8 text-[11px] uppercase tracking-[0.18em] text-white/48 lg:flex">
-            <a href="#enfoque" className="transition-colors hover:text-white">Proceso</a>
-            <a href="#capacidades" className="transition-colors hover:text-white">Capacidades</a>
-            <a href="#planes" className="transition-colors hover:text-white">Planes</a>
-            <a href="#faq" className="transition-colors hover:text-white">FAQ</a>
+            <Link href="/fabrica-web" className="transition-colors hover:text-white">Fábrica Web</Link>
+            <Link href="/catalogo-plantillas" className="transition-colors hover:text-white">Catálogo de Plantillas</Link>
+            <Link href="/catalogo-efectos" className="transition-colors hover:text-white">Catálogo de Efectos</Link>
           </nav>
           <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="rounded-full border border-white/15 px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-white transition-all hover:border-[#d8ff3f] hover:bg-[#d8ff3f] hover:text-black md:px-6">
             Iniciar proyecto
