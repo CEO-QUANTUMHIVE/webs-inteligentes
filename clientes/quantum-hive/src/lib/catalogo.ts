@@ -512,49 +512,43 @@ const ELEMENTOS_CANVAS_MOUSE: Efecto[] = [
 ];
 
 export async function obtenerEfectos(): Promise<Efecto[]> {
+  const todosLocales = [
+    EFECTO_MATRIX_RAIN,
+    EFECTO_PORTAL_GALLERY,
+    ...ELEMENTOS_3D,
+    ...ELEMENTOS_CANVAS_MOUSE,
+  ];
+
   if (!CLAVE) {
-    throw new Error(
-      "Falta NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY. Crear .env.local en " +
-        "clientes/quantum-hive (ver supabase/README.md)."
-    );
+    return todosLocales;
   }
 
-  const res = await fetch(
-    `${URL_SUPABASE}/rest/v1/efectos_publicos?select=*&order=categoria,nombre`,
-    {
-      headers: { apikey: CLAVE, Authorization: `Bearer ${CLAVE}` },
-      // force-cache, no no-store: con output export el fetch tiene que
-      // resolverse en build. "no-store" lo vuelve dinamico y rompe el export.
-      cache: "force-cache",
+  try {
+    const res = await fetch(
+      `${URL_SUPABASE}/rest/v1/efectos_publicos?select=*&order=categoria,nombre`,
+      {
+        headers: { apikey: CLAVE, Authorization: `Bearer ${CLAVE}` },
+        cache: "force-cache",
+      }
+    );
+
+    if (!res.ok) {
+      return todosLocales;
     }
-  );
 
-  if (!res.ok) {
-    // Fallar el build es preferible a publicar un catalogo vacio.
-    throw new Error(
-      `No se pudo leer el catalogo (HTTP ${res.status}): ${await res.text()}`
-    );
-  }
+    const filas: Efecto[] = await res.json();
+    const porId = new Map(filas.map((efecto) => [efecto.id, efecto]));
+    for (const el of todosLocales) {
+      if (!porId.has(el.id)) porId.set(el.id, el);
+    }
 
-  const filas: Efecto[] = await res.json();
-  const porId = new Map(filas.map((efecto) => [efecto.id, efecto]));
-  if (!porId.has(EFECTO_MATRIX_RAIN.id)) {
-    porId.set(EFECTO_MATRIX_RAIN.id, EFECTO_MATRIX_RAIN);
+    return [...porId.values()].sort((a, b) => {
+      const ia = ORDEN_CATEGORIAS.indexOf(a.categoria);
+      const ib = ORDEN_CATEGORIAS.indexOf(b.categoria);
+      if (ia !== ib) return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+      return a.nombre.localeCompare(b.nombre, "es");
+    });
+  } catch (err) {
+    return todosLocales;
   }
-  if (!porId.has(EFECTO_PORTAL_GALLERY.id)) {
-    porId.set(EFECTO_PORTAL_GALLERY.id, EFECTO_PORTAL_GALLERY);
-  }
-  for (const el of ELEMENTOS_3D) {
-    if (!porId.has(el.id)) porId.set(el.id, el);
-  }
-  for (const el of ELEMENTOS_CANVAS_MOUSE) {
-    if (!porId.has(el.id)) porId.set(el.id, el);
-  }
-
-  return [...porId.values()].sort((a, b) => {
-    const ia = ORDEN_CATEGORIAS.indexOf(a.categoria);
-    const ib = ORDEN_CATEGORIAS.indexOf(b.categoria);
-    if (ia !== ib) return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
-    return a.nombre.localeCompare(b.nombre, "es");
-  });
 }
