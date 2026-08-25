@@ -336,7 +336,37 @@ const PLANTILLA_BRASA: Plantilla = {
   imagen: "/templates/brasa/brand/portada.jpg",
 };
 
+const PLANTILLA_DISORT: Plantilla = {
+  id: "disort-saas",
+  name: "DISORT — Quantum SaaS & Tech",
+  description:
+    "Landing de ultra-lujo para empresas de tecnología, IA y SaaS con Bento Grid interactivo, animaciones Webflow IX2 y diseño futurista.",
+  niche: "Servicios Profesionales",
+  style: "Futurista Bento IX2",
+  pages: ["Portada", "Plataforma", "Integraciones", "Precios", "Casos de Éxito", "Contacto"],
+  colors: {
+    primary: "#06b6d4",
+    secondary: "#3b82f6",
+    accent: "#a855f7",
+    bg: "#030712",
+  },
+  font: "Space Grotesk & Inter",
+  features: [
+    "20 micro-animaciones Webflow IX2",
+    "Bento Grid interactivo",
+    "Dashboard preview con datos HD",
+    "Filtros de características",
+    "Diseño responsive premium",
+    "Firma digital Quantum Hive",
+  ],
+  preview: "creative",
+  popular: true,
+  urlDemo: "/templates/disort/site/index.html",
+  imagen: "/templates/disort/brand/portada.jpg",
+};
+
 const PLANTILLAS_PUBLICADAS = [
+  PLANTILLA_DISORT,
   PLANTILLA_CONCRETO,
   PLANTILLA_GAMER,
   PLANTILLA_CODIX,
@@ -356,7 +386,7 @@ export async function obtenerPlantillas(): Promise<Plantilla[]> {
 
   try {
     const res = await fetch(
-      `${URL_SUPABASE}/rest/v1/plantillas?select=*&id=in.(concreto-streetwear,gamer-agency,codix-developer,quantum-studio,studio-vanadium,aurea-nail-studio,zinzira-fashion,brasa-parrilla)&publicado=is.true`,
+      `${URL_SUPABASE}/rest/v1/plantillas?select=*&id=in.(concreto-streetwear,gamer-agency,codix-developer,quantum-studio,studio-vanadium,aurea-nail-studio,zinzira-fashion,brasa-parrilla,disort-saas)&publicado=is.true`,
       {
         headers: { apikey: CLAVE, Authorization: `Bearer ${CLAVE}` },
         cache: "force-cache",

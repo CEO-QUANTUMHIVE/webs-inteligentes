@@ -417,6 +417,21 @@ export const PLANTILLAS_REALES_CATALOGO: PlantillaReal[] = [
     servicios: ["Cortes a la Leña", "Hamburguesas de Autor", "Coctelería & Cervezas"],
     efectosPredeterminados: ["Webflow IX2", "Scroll Motion", "Firma Quantum Hive"]
   },
+  {
+    id: "tech-disort",
+    nombre: "DISORT — Quantum SaaS & Tech",
+    rubroId: "servicios-pro",
+    rubroNombre: "Servicios Profesionales",
+    variante: "P10 Webflow IX2 Bento SaaS",
+    subtitulo: "Plataforma tecnológica, automatización de workflows e inteligencia artificial",
+    descripcion: "Landing de ultra-lujo para empresas de tecnología y SaaS con Bento Grid interactivo y 20 micro-animaciones IX2.",
+    urlPath: "/templates/disort/site/index.html",
+    imagen: "/templates/disort/brand/portada.jpg",
+    badge: "Premium IX2",
+    colorAcento: "from-cyan-400 to-purple-600",
+    servicios: ["Workflows IA", "Integraciones SaaS", "Dashboard Pro"],
+    efectosPredeterminados: ["Bento Grid", "Webflow IX2", "Glassmorphism", "Firma Quantum Hive"]
+  },
 
   // === INMOBILIARIA (7 VARIANTES REALES) ===
   {

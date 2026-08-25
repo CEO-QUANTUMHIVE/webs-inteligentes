@@ -1,0 +1,556 @@
+{
+  "source": "https://disort.webflow.io/",
+  "downloadedAt": "2026-08-25T04:28:09.480Z",
+  "summary": {
+    "failed": 3,
+    "downloaded": 66
+  },
+  "assets": [
+    {
+      "url": "https://cdn.prod.website-files.com",
+      "status": "failed",
+      "httpStatus": 403,
+      "error": "HTTP 403"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/css/disort.webflow.shared.13a9e444c.css",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 321699,
+      "contentType": "text/css",
+      "file": "assets/9f59b8d562-disort.webflow.shared.13a9e444c.css"
+    },
+    {
+      "url": "https://fonts.googleapis.com",
+      "status": "failed",
+      "httpStatus": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://fonts.gstatic.com",
+      "status": "failed",
+      "httpStatus": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 13188,
+      "contentType": "text/javascript; charset=UTF-8",
+      "file": "assets/9f87595f89-webfont.js"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/6909a4dd1589b39f3ffba8e7_Favicon.png",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 767,
+      "contentType": "image/png",
+      "file": "assets/8ac8e06b54-6909a4dd1589b39f3ffba8e7_Favicon.png"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/6909a4f086b748b99c3826f9_Webclip.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 2140,
+      "contentType": "image/svg+xml",
+      "file": "assets/c10a3eea5e-6909a4f086b748b99c3826f9_Webclip.svg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/690af03b62f6fe3fff50ebc7_Disort%20Nav%20Logo.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 3698,
+      "contentType": "image/svg+xml",
+      "file": "assets/7af01eeca4-690af03b62f6fe3fff50ebc7_Disort-Nav-Logo.svg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691c2b575c0b126a34f6f572_Nav%20Icon.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 464,
+      "contentType": "image/svg+xml",
+      "file": "assets/6e5ab3ad7a-691c2b575c0b126a34f6f572_Nav-Icon.svg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/69109ec51fb10961bca8069a_Right%20Arrow.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 1049,
+      "contentType": "image/svg+xml",
+      "file": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg"
+    },
+    {
+      "url": "https://disort.webflow.io/post/the-rise-of-electric-vehicles-whats-next",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 39853,
+      "contentType": "text/html; charset=utf-8",
+      "file": "assets/a5b39a17ac-the-rise-of-electric-vehicles-whats-next.bin"
+    },
+    {
+      "url": "https://disort.webflow.io/career/forward-deployed-engineer-agentic-platform-emea-apac",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 43513,
+      "contentType": "text/html; charset=utf-8",
+      "file": "assets/056b1738f2-forward-deployed-engineer-agentic-platform-emea-apac.bin"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae33a0b/690cd03d61cd3b66103fdadb_Blog%20Image%2008.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 13957,
+      "contentType": "image/avif",
+      "file": "assets/dce6b0f322-690cd03d61cd3b66103fdadb_Blog-Image-08.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/690cb2be43d1dd31d191bd96_Right%20Arow.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 1035,
+      "contentType": "image/svg+xml",
+      "file": "assets/76168776d9-690cb2be43d1dd31d191bd96_Right-Arow.svg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691d55cddbabe72eb0b0ba36_Nav%20Image.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 7406,
+      "contentType": "image/avif",
+      "file": "assets/361b517927-691d55cddbabe72eb0b0ba36_Nav-Image.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691d5ce7d924fe9bc636a6fb_Right%20Arrow.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 1017,
+      "contentType": "image/svg+xml",
+      "file": "assets/9ce8c1fe4c-691d5ce7d924fe9bc636a6fb_Right-Arrow.svg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691ae512a011def389e05612_Showcase%20Image.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 230396,
+      "contentType": "image/avif",
+      "file": "assets/6f809a130c-691ae512a011def389e05612_Showcase-Image.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/6909ed578203ba15b11a659f_Mask%20group.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 15024,
+      "contentType": "image/svg+xml",
+      "file": "assets/7529f9e6d6-6909ed578203ba15b11a659f_Mask-group.svg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691ae9f5bce8a9ae60aa7b14_figma-5%201.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 1140,
+      "contentType": "image/svg+xml",
+      "file": "assets/ea285d5a83-691ae9f5bce8a9ae60aa7b14_figma-5-1.svg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691aec25e7abbac7f7c9cb17_Short%20Showcase%20Image.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 31512,
+      "contentType": "image/avif",
+      "file": "assets/c15ed95e55-691aec25e7abbac7f7c9cb17_Short-Showcase-Image.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691ae9f4ec4fa97c2bfd7171_Showcase%20Image%202.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 10295,
+      "contentType": "image/avif",
+      "file": "assets/cf702ca1b8-691ae9f4ec4fa97c2bfd7171_Showcase-Image-2.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691af901f8a8d4efd055f9ab_Home%2001.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 108151,
+      "contentType": "image/avif",
+      "file": "assets/8bd743ab25-691af901f8a8d4efd055f9ab_Home-01.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691af90151176c6a0ef998c1_Home%2002.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 88249,
+      "contentType": "image/avif",
+      "file": "assets/792b18c79e-691af90151176c6a0ef998c1_Home-02.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691af90180d6cfb677e2e96e_Home%2003.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 106356,
+      "contentType": "image/avif",
+      "file": "assets/056aba36a9-691af90180d6cfb677e2e96e_Home-03.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691aff4fc2d608bc0bf79bd1_Pricing%2001.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 33338,
+      "contentType": "image/avif",
+      "file": "assets/e93bcb5cbc-691aff4fc2d608bc0bf79bd1_Pricing-01.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691aff4fb3aa652611193bdd_Pricing%2002.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 43239,
+      "contentType": "image/avif",
+      "file": "assets/603f3f1172-691aff4fb3aa652611193bdd_Pricing-02.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691aff4f27d6743ea48c15f9_Pricing%2003.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 39170,
+      "contentType": "image/avif",
+      "file": "assets/579e027121-691aff4f27d6743ea48c15f9_Pricing-03.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691b228644eb3a9c4d4b78d7_Contact%2001.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 24470,
+      "contentType": "image/avif",
+      "file": "assets/cd3fa56b02-691b228644eb3a9c4d4b78d7_Contact-01.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691b22850bcc496b4a6d38dd_Contact%2002.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 35847,
+      "contentType": "image/avif",
+      "file": "assets/7852bbe380-691b22850bcc496b4a6d38dd_Contact-02.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691b22857e374ad87845e7eb_Contact%2003.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 57956,
+      "contentType": "image/avif",
+      "file": "assets/a4e98c5f89-691b22857e374ad87845e7eb_Contact-03.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691b23625a93713f0826c45c_about.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 103609,
+      "contentType": "image/avif",
+      "file": "assets/8a6a4a6494-691b23625a93713f0826c45c_about.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691b236253a6847604ae957d_career.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 72277,
+      "contentType": "image/avif",
+      "file": "assets/c95790b588-691b236253a6847604ae957d_career.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691b2361f57d704324af2325_careersignle.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 49175,
+      "contentType": "image/avif",
+      "file": "assets/c91ad81812-691b2361f57d704324af2325_careersignle.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691b24c05d201cdafd3a851a_Blog%2001.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 40621,
+      "contentType": "image/avif",
+      "file": "assets/c322f73a9b-691b24c05d201cdafd3a851a_Blog-01.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691b24c0dbc63ce8fe4c3b13_Blog%2002.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 40087,
+      "contentType": "image/avif",
+      "file": "assets/12e62c34da-691b24c0dbc63ce8fe4c3b13_Blog-02.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691b24bfc79abebab694a174_Blog%2003.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 38614,
+      "contentType": "image/avif",
+      "file": "assets/2e18cf336a-691b24bfc79abebab694a174_Blog-03.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691b24be95323eed6cc7a75b_Blog%20Single.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 84473,
+      "contentType": "image/avif",
+      "file": "assets/b39c59fec7-691b24be95323eed6cc7a75b_Blog-Single.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691b24c0bf021ecdc1388d06_404.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 15387,
+      "contentType": "image/avif",
+      "file": "assets/b9e81057b0-691b24c0bf021ecdc1388d06_404.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691b24bfc0e3cd55a8c8b6e7_Sing%20in.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 16368,
+      "contentType": "image/avif",
+      "file": "assets/e460c589fc-691b24bfc0e3cd55a8c8b6e7_Sing-in.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691b24be4b121944478f8e3e_Sing%20Up.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 11152,
+      "contentType": "image/avif",
+      "file": "assets/40fc07558d-691b24be4b121944478f8e3e_Sing-Up.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/690a486b5052d82bf3ecc509_Border%20Corner.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 169,
+      "contentType": "image/svg+xml",
+      "file": "assets/9d7beee64e-690a486b5052d82bf3ecc509_Border-Corner.svg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/690a5cf73b3486f2b340c350_Section%20Bg.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 14413,
+      "contentType": "image/svg+xml",
+      "file": "assets/80a052de9f-690a5cf73b3486f2b340c350_Section-Bg.svg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/690add6fa30f452f01b49fbb_Disort.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 4054,
+      "contentType": "image/svg+xml",
+      "file": "assets/8d821b7dc6-690add6fa30f452f01b49fbb_Disort.svg"
+    },
+    {
+      "url": "https://www.basecom.co/",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 98717,
+      "contentType": "text/html; charset=utf-8",
+      "file": "assets/caed3ac822-asset.bin"
+    },
+    {
+      "url": "https://webflow.com/",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 625770,
+      "contentType": "text/html; charset=utf-8",
+      "file": "assets/42eb21f7e3-asset.bin"
+    },
+    {
+      "url": "https://www.linkedin.com/",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 140089,
+      "contentType": "text/html; charset=utf-8",
+      "file": "assets/d0d41a7810-asset.bin"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/690a6398459f010913ca0e83_LinkedIn.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 621,
+      "contentType": "image/svg+xml",
+      "file": "assets/394f81a023-690a6398459f010913ca0e83_LinkedIn.svg"
+    },
+    {
+      "url": "https://www.facebook.com/",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 427809,
+      "contentType": "text/html; charset=\"utf-8\"",
+      "file": "assets/108ec1825c-asset.bin"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/690a639757318c481d242bf0_Facebook.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 290,
+      "contentType": "image/svg+xml",
+      "file": "assets/37c8e4120e-690a639757318c481d242bf0_Facebook.svg"
+    },
+    {
+      "url": "https://x.com/",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 35122,
+      "contentType": "text/html; charset=UTF-8",
+      "file": "assets/c95ba9082e-asset.bin"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/690a63984eb9dd8578d6eb62_x.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 369,
+      "contentType": "image/svg+xml",
+      "file": "assets/c1fc8f28b0-690a63984eb9dd8578d6eb62_x.svg"
+    },
+    {
+      "url": "https://www.instagram.com/",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 402029,
+      "contentType": "text/html; charset=\"utf-8\"",
+      "file": "assets/e730d810bf-asset.bin"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/690a6397eec8c16e2b6d8f8f_Instagram.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 2616,
+      "contentType": "image/svg+xml",
+      "file": "assets/eb67531d4e-690a6397eec8c16e2b6d8f8f_Instagram.svg"
+    },
+    {
+      "url": "https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=69099cd52c16040f8ae339e1",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 89476,
+      "contentType": "application/javascript",
+      "file": "assets/10068663f5-jquery-3.5.1.min.dc5e7f18c8.js"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/js/webflow.schunk.36b8fb49256177c8.js",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 41429,
+      "contentType": "text/javascript",
+      "file": "assets/b8a297cfa1-webflow.schunk.36b8fb49256177c8.js"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/js/webflow.schunk.06a465bedf1ac10b.js",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 370300,
+      "contentType": "text/javascript",
+      "file": "assets/c9ef4af850-webflow.schunk.06a465bedf1ac10b.js"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/js/webflow.b022b0a7.cc5ce053d32f7bbd.js",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 1859,
+      "contentType": "text/javascript",
+      "file": "assets/7843bc7e97-webflow.b022b0a7.cc5ce053d32f7bbd.js"
+    },
+    {
+      "url": "https://webflow.com",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 625770,
+      "contentType": "text/html; charset=utf-8",
+      "file": "assets/dcdc7c78ba-asset.bin"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691eea48a7b285cfee42ac8a_Open%20graph.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 73936,
+      "contentType": "image/avif",
+      "file": "assets/69308bfffa-691eea48a7b285cfee42ac8a_Open-graph.avif"
+    },
+    {
+      "url": "https://schema.org",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 8232,
+      "contentType": "text/html",
+      "file": "assets/042224a3ad-asset.bin"
+    },
+    {
+      "url": "https://schema.org/InStock",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 24324,
+      "contentType": "text/html",
+      "file": "assets/fdb7cf3e66-InStock.bin"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/6909dd89211d3ef3786e7ddf_InterDisplay-SemiBold.ttf",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 412228,
+      "contentType": "font/ttf",
+      "file": "assets/8eda6dc6b2-6909dd89211d3ef3786e7ddf_InterDisplay-SemiBold.ttf"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/6909dd89fa775e78aa7f93f7_InterDisplay-Medium.ttf",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 410472,
+      "contentType": "font/ttf",
+      "file": "assets/2a93ca0d72-6909dd89fa775e78aa7f93f7_InterDisplay-Medium.ttf"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/6909dd89ae7183b1068472c2_InterDisplay-Regular.ttf",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 403396,
+      "contentType": "font/ttf",
+      "file": "assets/5591f2b028-6909dd89ae7183b1068472c2_InterDisplay-Regular.ttf"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/6909dd89f500031e28a482dd_InterDisplay-Bold.ttf",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 412808,
+      "contentType": "font/ttf",
+      "file": "assets/c167eff725-6909dd89f500031e28a482dd_InterDisplay-Bold.ttf"
+    },
+    {
+      "url": "https://d3e54v103j8qbb.cloudfront.net/static/custom-checkbox-checkmark.589d534424.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 167,
+      "contentType": "image/svg+xml",
+      "file": "assets/b97cd6429c-custom-checkbox-checkmark.589d534424.svg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/690b11f9e765b1f624fdde36_Hero%20Card%20Bg.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 1734,
+      "contentType": "image/avif",
+      "file": "assets/0a13dfe2bc-690b11f9e765b1f624fdde36_Hero-Card-Bg.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/690ede3c879ca6faed60e5d9_Hero%2002%20Card%20Bg.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 2540,
+      "contentType": "image/avif",
+      "file": "assets/59ebbde35e-690ede3c879ca6faed60e5d9_Hero-02-Card-Bg.avif"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/69099cd52c16040f8ae339e1/691060fa614a2127d2b98653_Lightbox%20Bg.avif",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 20436,
+      "contentType": "image/avif",
+      "file": "assets/615c4f46e6-691060fa614a2127d2b98653_Lightbox-Bg.avif"
+    }
+  ]
+}

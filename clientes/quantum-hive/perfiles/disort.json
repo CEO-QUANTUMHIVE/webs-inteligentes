@@ -1,0 +1,13 @@
+{
+  "business": {
+    "slug": "disort",
+    "name": "DISORT — Quantum SaaS",
+    "rubro": "tech",
+    "tagline": "Automatización workflows inteligentes y arquitectura web de alto rendimiento",
+    "description": "Plataforma SaaS para negocios y agencias con integraciones conversacionales y diseño ultra-premium."
+  },
+  "brand": {
+    "assetDir": "clientes/quantum-hive/assets/by-rubro/tech",
+    "logo": "clientes/quantum-hive/assets/quantumhive-isotipo.webp"
+  }
+}

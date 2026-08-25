@@ -1,0 +1,2613 @@
+{
+  "source": "https://disort.webflow.io/",
+  "slug": "disort",
+  "generatedAt": "2026-08-25T04:28:10.450Z",
+  "summary": {
+    "texts": 134,
+    "images": 85,
+    "links": 96,
+    "dataWId": 20,
+    "webflowRuntime": true,
+    "jqueryRuntime": true
+  },
+  "texts": [
+    {
+      "id": "t0001",
+      "kind": "other",
+      "tag": "title",
+      "text": "Disort - Webflow HTML Website Template",
+      "chars": 38,
+      "context": "html#. head#. title#."
+    },
+    {
+      "id": "t0002",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Pages",
+      "chars": 5,
+      "context": "ody#. div#.master-navbar div#.navbar-container w-nav div#.navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown div#.nav-dropdown-toggle w-dropdown-toggle div#.nav-link-wrap div#.nav-link"
+    },
+    {
+      "id": "t0003",
+      "kind": "nav",
+      "tag": "div",
+      "text": "PRODUCTS",
+      "chars": 8,
+      "context": "er nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-dropdown-list-title div#.tag-01 text-secondary-01"
+    },
+    {
+      "id": "t0004",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Home 01",
+      "chars": 7,
+      "context": "menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0005",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Home 02",
+      "chars": 7,
+      "context": "menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0006",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Home 03",
+      "chars": 7,
+      "context": "menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0007",
+      "kind": "nav",
+      "tag": "div",
+      "text": "RESOURCES",
+      "chars": 9,
+      "context": "er nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-dropdown-list-title div#.tag-01 text-secondary-01"
+    },
+    {
+      "id": "t0008",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Blog 01",
+      "chars": 7,
+      "context": "menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0009",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Blog 02",
+      "chars": 7,
+      "context": "menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0010",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Blog 03",
+      "chars": 7,
+      "context": "menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0011",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Blog Single",
+      "chars": 11,
+      "context": "menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0012",
+      "kind": "nav",
+      "tag": "div",
+      "text": "COMPANY",
+      "chars": 7,
+      "context": "er nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-dropdown-list-title div#.tag-01 text-secondary-01"
+    },
+    {
+      "id": "t0013",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Career Page",
+      "chars": 11,
+      "context": "nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0014",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Career Single",
+      "chars": 13,
+      "context": "nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0015",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Pricing 01",
+      "chars": 10,
+      "context": "nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0016",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Pricing 02",
+      "chars": 10,
+      "context": "nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0017",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Pricing 03",
+      "chars": 10,
+      "context": "nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0018",
+      "kind": "nav",
+      "tag": "div",
+      "text": "About",
+      "chars": 5,
+      "context": "nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0019",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Contact 01",
+      "chars": 10,
+      "context": "nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0020",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Contact 02",
+      "chars": 10,
+      "context": "nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0021",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Contact 03",
+      "chars": 10,
+      "context": "nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0022",
+      "kind": "nav",
+      "tag": "div",
+      "text": "UTILITIES",
+      "chars": 9,
+      "context": "er nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-dropdown-list-title div#.tag-01 text-secondary-01"
+    },
+    {
+      "id": "t0023",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Style Guide",
+      "chars": 11,
+      "context": "menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0024",
+      "kind": "nav",
+      "tag": "div",
+      "text": "License",
+      "chars": 7,
+      "context": "menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0025",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Changelog",
+      "chars": 9,
+      "context": "menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0026",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Log in",
+      "chars": 6,
+      "context": "menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0027",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Sign up",
+      "chars": 7,
+      "context": "menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0028",
+      "kind": "other",
+      "tag": "div",
+      "text": "Deal Acceleration Tactics to Shorten Your Sales Cycle.",
+      "chars": 54,
+      "context": "ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-right-blog div#.w-dyn-list div#.w-dyn-items div#.w-dyn-item a#.link-block w-inline-block div#.nav-blog-text div#.body-03-medium"
+    },
+    {
+      "id": "t0029",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Products",
+      "chars": 8,
+      "context": "ody#. div#.master-navbar div#.navbar-container w-nav div#.navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown div#.nav-dropdown-toggle w-dropdown-toggle div#.nav-link-wrap div#.nav-link"
+    },
+    {
+      "id": "t0030",
+      "kind": "nav",
+      "tag": "div",
+      "text": "PRODUCTS",
+      "chars": 8,
+      "context": "iv#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v2 w-dropdown-list div#.nav-dropdown-list-body div#.nav-dropdown-list div#.nav-dropdown-list-title div#.tag-01 text-secondary-01"
+    },
+    {
+      "id": "t0031",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Home 01",
+      "chars": 7,
+      "context": "rapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v2 w-dropdown-list div#.nav-dropdown-list-body div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0032",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Home 02",
+      "chars": 7,
+      "context": "rapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v2 w-dropdown-list div#.nav-dropdown-list-body div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0033",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Home 03",
+      "chars": 7,
+      "context": "rapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v2 w-dropdown-list div#.nav-dropdown-list-body div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0034",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Company",
+      "chars": 7,
+      "context": "ody#. div#.master-navbar div#.navbar-container w-nav div#.navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown div#.nav-dropdown-toggle w-dropdown-toggle div#.nav-link-wrap div#.nav-link"
+    },
+    {
+      "id": "t0035",
+      "kind": "nav",
+      "tag": "div",
+      "text": "COMPANY",
+      "chars": 7,
+      "context": "menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-dropdown-list-title div#.tag-01 text-secondary-01"
+    },
+    {
+      "id": "t0036",
+      "kind": "nav",
+      "tag": "div",
+      "text": "About Page",
+      "chars": 10,
+      "context": "v-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0037",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Pricing 01",
+      "chars": 10,
+      "context": "v-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0038",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Pricing 02",
+      "chars": 10,
+      "context": "v-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0039",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Pricing 03",
+      "chars": 10,
+      "context": "v-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0040",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Contact 01",
+      "chars": 10,
+      "context": "v-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0041",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Contact 02",
+      "chars": 10,
+      "context": "v-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0042",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Contact 03",
+      "chars": 10,
+      "context": "v-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0043",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Career",
+      "chars": 6,
+      "context": "n w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#w-node-_440717e7-7695-15b0-715a-ef83ca50be93-ca50be01.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0044",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Career Single",
+      "chars": 13,
+      "context": "n w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#w-node-_440717e7-7695-15b0-715a-ef83ca50be93-ca50be01.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0045",
+      "kind": "other",
+      "tag": "div",
+      "text": "Deal Acceleration Tactics to Shorten Your Sales Cycle.",
+      "chars": 54,
+      "context": "-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-right-blog v2 div#.w-dyn-list div#.w-dyn-items div#.w-dyn-item a#.link-block v2 w-inline-block div#.nav-blog-text v1 div#.body-03-medium"
+    },
+    {
+      "id": "t0046",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Pricing",
+      "chars": 7,
+      "context": "ody#. div#.master-navbar div#.navbar-container w-nav div#.navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown div#.nav-dropdown-toggle w-dropdown-toggle div#.nav-link-wrap div#.nav-link"
+    },
+    {
+      "id": "t0047",
+      "kind": "nav",
+      "tag": "div",
+      "text": "PRICING",
+      "chars": 7,
+      "context": ".navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-dropdown-list-title div#.tag-01 text-secondary-01"
+    },
+    {
+      "id": "t0048",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Pricing Page 01",
+      "chars": 15,
+      "context": "per nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0049",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Pricing Page 02",
+      "chars": 15,
+      "context": "per nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0050",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Pricing Page 03",
+      "chars": 15,
+      "context": "per nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0051",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Resources",
+      "chars": 9,
+      "context": "ody#. div#.master-navbar div#.navbar-container w-nav div#.navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown div#.nav-dropdown-toggle w-dropdown-toggle div#.nav-link-wrap div#.nav-link"
+    },
+    {
+      "id": "t0052",
+      "kind": "nav",
+      "tag": "div",
+      "text": "RESOURCES",
+      "chars": 9,
+      "context": ".navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-dropdown-list-title div#.tag-01 text-secondary-01"
+    },
+    {
+      "id": "t0053",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Blog 01",
+      "chars": 7,
+      "context": "per nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0054",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Blog 02",
+      "chars": 7,
+      "context": "per nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0055",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Blog 03",
+      "chars": 7,
+      "context": "per nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0056",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Blog Single",
+      "chars": 11,
+      "context": "per nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block div#.body-03-medium"
+    },
+    {
+      "id": "t0057",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Get Started",
+      "chars": 11,
+      "context": "#.navbar-container-wrap div#.navbar-wrapper div#.nav-right-wrap div#.nav-right div#.nav-button-wrapper a#.button-01 w-variant-46c0186a-b320-580c-ae89-f5480cc0f27c w-inline-block div#.button-text-wrapper div#.body-03-medium text-light w-variant-46c0186a-b320-580c-ae89-f5480cc0f27c"
+    },
+    {
+      "id": "t0058",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Get Started",
+      "chars": 11,
+      "context": "#.navbar-container-wrap div#.navbar-wrapper div#.nav-right-wrap div#.nav-right div#.nav-button-wrapper a#.button-01 w-variant-46c0186a-b320-580c-ae89-f5480cc0f27c w-inline-block div#.button-text-wrapper div#.body-03-medium text-light w-variant-46c0186a-b320-580c-ae89-f5480cc0f27c"
+    },
+    {
+      "id": "t0059",
+      "kind": "heading",
+      "tag": "h1",
+      "text": "Transform your business journey with Disort",
+      "chars": 43,
+      "context": "html#. body#. div#.page-wrapper section#.overview-hero div#.container div#.overview-hero-wrap div#.overview-hero-top div#.overview-hero-heading div#.hero-heading h1#."
+    },
+    {
+      "id": "t0060",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Start a new journey of digital marketing with Interbase where we help you to achieve your goals in digital world.",
+      "chars": 113,
+      "context": "html#. body#. div#.page-wrapper section#.overview-hero div#.container div#.overview-hero-wrap div#.overview-hero-top div#.overview-hero-heading div#.hero-sub-heading overview-sub-heading p#.sub-heading-02-1"
+    },
+    {
+      "id": "t0061",
+      "kind": "label",
+      "tag": "div",
+      "text": "Buy Template",
+      "chars": 12,
+      "context": "html#. body#. div#.page-wrapper section#.overview-hero div#.container div#.overview-hero-wrap div#.overview-hero-top div#.hero-button-wrap overview-button-wrap a#.button-01 w-inline-block div#.button-text-wrapper div#.body-03-medium text-light"
+    },
+    {
+      "id": "t0062",
+      "kind": "label",
+      "tag": "div",
+      "text": "Buy Template",
+      "chars": 12,
+      "context": "html#. body#. div#.page-wrapper section#.overview-hero div#.container div#.overview-hero-wrap div#.overview-hero-top div#.hero-button-wrap overview-button-wrap a#.button-01 w-inline-block div#.button-text-wrapper div#.body-03-medium text-light"
+    },
+    {
+      "id": "t0063",
+      "kind": "label",
+      "tag": "div",
+      "text": "Preview Page",
+      "chars": 12,
+      "context": "html#. body#. div#.page-wrapper section#.overview-hero div#.container div#.overview-hero-wrap div#.overview-hero-top div#.hero-button-wrap overview-button-wrap a#.button-02 w-inline-block div#.button-text-wrapper div#.body-03-medium text-primary-color-01"
+    },
+    {
+      "id": "t0064",
+      "kind": "label",
+      "tag": "div",
+      "text": "Preview Page",
+      "chars": 12,
+      "context": "html#. body#. div#.page-wrapper section#.overview-hero div#.container div#.overview-hero-wrap div#.overview-hero-top div#.hero-button-wrap overview-button-wrap a#.button-02 w-inline-block div#.button-text-wrapper div#.body-03-medium"
+    },
+    {
+      "id": "t0065",
+      "kind": "heading",
+      "tag": "h2",
+      "text": "What's included in Sailwind",
+      "chars": 27,
+      "context": "html#. body#. div#.page-wrapper section#.overview-features div#.container div#.overview-features-wrap div#.overview-features-top h2#."
+    },
+    {
+      "id": "t0066",
+      "kind": "label",
+      "tag": "div",
+      "text": "70+",
+      "chars": 3,
+      "context": "html#. body#. div#.page-wrapper section#.overview-features div#.container div#.overview-features-wrap div#.overview-features-bottom div#.overview-left div#.overview-left-top div#.overview-left-bottom-12 div#.features-card-inner-wrapper div#.text-style-h1"
+    },
+    {
+      "id": "t0067",
+      "kind": "label",
+      "tag": "div",
+      "text": "Sections & Components",
+      "chars": 21,
+      "context": "html#. body#. div#.page-wrapper section#.overview-features div#.container div#.overview-features-wrap div#.overview-features-bottom div#.overview-left div#.overview-left-top div#.overview-left-bottom-12 div#.features-card-inner-wrapper div#.feature-text-wrap div#.text-style-h6"
+    },
+    {
+      "id": "t0068",
+      "kind": "other",
+      "tag": "div",
+      "text": "With meticulously crafted designs and seamless interaction",
+      "chars": 58,
+      "context": "html#. body#. div#.page-wrapper section#.overview-features div#.container div#.overview-features-wrap div#.overview-features-bottom div#.overview-left div#.overview-left-top div#.overview-left-bottom-12 div#.features-card-inner-wrapper div#.feature-text-wrap div#.body-03-regular"
+    },
+    {
+      "id": "t0069",
+      "kind": "label",
+      "tag": "div",
+      "text": "Figma file included",
+      "chars": 19,
+      "context": "html#. body#. div#.page-wrapper section#.overview-features div#.container div#.overview-features-wrap div#.overview-features-bottom div#.overview-left div#.overview-left-top div#.overview-left-bottom-12 div#.features-card-inner-wrapper div#.feature-text-wrap div#.text-style-h6"
+    },
+    {
+      "id": "t0070",
+      "kind": "label",
+      "tag": "div",
+      "text": "Email us at",
+      "chars": 11,
+      "context": "html#. body#. div#.page-wrapper section#.overview-features div#.container div#.overview-features-wrap div#.overview-features-bottom div#.overview-left div#.overview-left-top div#.overview-left-bottom-12 div#.features-card-inner-wrapper div#.feature-text-wrap div#.body-03-regular"
+    },
+    {
+      "id": "t0071",
+      "kind": "button",
+      "tag": "a",
+      "text": "hello@basecom.co",
+      "chars": 16,
+      "context": " div#.page-wrapper section#.overview-features div#.container div#.overview-features-wrap div#.overview-features-bottom div#.overview-left div#.overview-left-top div#.overview-left-bottom-12 div#.features-card-inner-wrapper div#.feature-text-wrap div#.body-03-regular a#.email-link"
+    },
+    {
+      "id": "t0072",
+      "kind": "other",
+      "tag": "div",
+      "text": "with your receipt to receive Figma file!",
+      "chars": 40,
+      "context": "html#. body#. div#.page-wrapper section#.overview-features div#.container div#.overview-features-wrap div#.overview-features-bottom div#.overview-left div#.overview-left-top div#.overview-left-bottom-12 div#.features-card-inner-wrapper div#.feature-text-wrap div#.body-03-regular"
+    },
+    {
+      "id": "t0073",
+      "kind": "label",
+      "tag": "div",
+      "text": "24+",
+      "chars": 3,
+      "context": "html#. body#. div#.page-wrapper section#.overview-features div#.container div#.overview-features-wrap div#.overview-features-bottom div#.overview-left div#.overview-left-bottom div#.overview-left-bottom-1 div#.features-card-inner-wrapper div#.text-style-h1"
+    },
+    {
+      "id": "t0074",
+      "kind": "label",
+      "tag": "div",
+      "text": "Unique Landing pages",
+      "chars": 20,
+      "context": "html#. body#. div#.page-wrapper section#.overview-features div#.container div#.overview-features-wrap div#.overview-features-bottom div#.overview-left div#.overview-left-bottom div#.overview-left-bottom-1 div#.features-card-inner-wrapper div#.text-style-h6"
+    },
+    {
+      "id": "t0075",
+      "kind": "label",
+      "tag": "div",
+      "text": "Pre-made global components",
+      "chars": 26,
+      "context": "html#. body#. div#.page-wrapper section#.overview-features div#.container div#.overview-features-wrap div#.overview-features-bottom div#.overview-features-right div#.heading-04"
+    },
+    {
+      "id": "t0076",
+      "kind": "heading",
+      "tag": "h2",
+      "text": "Home Pages",
+      "chars": 10,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-top h2#."
+    },
+    {
+      "id": "t0077",
+      "kind": "label",
+      "tag": "div",
+      "text": "Home Page 01",
+      "chars": 12,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-name-wrap div#.text-style-h6"
+    },
+    {
+      "id": "t0078",
+      "kind": "label",
+      "tag": "div",
+      "text": "Home Page 02",
+      "chars": 12,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-name-wrap div#.text-style-h6"
+    },
+    {
+      "id": "t0079",
+      "kind": "label",
+      "tag": "div",
+      "text": "Home Page 03",
+      "chars": 12,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-name-wrap div#.text-style-h6"
+    },
+    {
+      "id": "t0080",
+      "kind": "heading",
+      "tag": "h2",
+      "text": "Pricing Page",
+      "chars": 12,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-top h2#."
+    },
+    {
+      "id": "t0081",
+      "kind": "label",
+      "tag": "div",
+      "text": "Pricing Page 01",
+      "chars": 15,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-name-wrap div#.text-style-h6"
+    },
+    {
+      "id": "t0082",
+      "kind": "label",
+      "tag": "div",
+      "text": "Pricing Page 02",
+      "chars": 15,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-name-wrap div#.text-style-h6"
+    },
+    {
+      "id": "t0083",
+      "kind": "label",
+      "tag": "div",
+      "text": "Pricing Page 03",
+      "chars": 15,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-name-wrap div#.text-style-h6"
+    },
+    {
+      "id": "t0084",
+      "kind": "heading",
+      "tag": "h2",
+      "text": "More Pages",
+      "chars": 10,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-top h2#."
+    },
+    {
+      "id": "t0085",
+      "kind": "label",
+      "tag": "div",
+      "text": "Contact Page 01",
+      "chars": 15,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-variant-16108e93-fe7f-13c0-307e-052d46072b61 w-inline-block div#.page-name-wrap div#.text-style-h6"
+    },
+    {
+      "id": "t0086",
+      "kind": "label",
+      "tag": "div",
+      "text": "Contact Page 02",
+      "chars": 15,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-variant-16108e93-fe7f-13c0-307e-052d46072b61 w-inline-block div#.page-name-wrap div#.text-style-h6"
+    },
+    {
+      "id": "t0087",
+      "kind": "label",
+      "tag": "div",
+      "text": "Contact Page 03",
+      "chars": 15,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-variant-16108e93-fe7f-13c0-307e-052d46072b61 w-inline-block div#.page-name-wrap div#.text-style-h6"
+    },
+    {
+      "id": "t0088",
+      "kind": "label",
+      "tag": "div",
+      "text": "About Page",
+      "chars": 10,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-name-wrap div#.text-style-h6"
+    },
+    {
+      "id": "t0089",
+      "kind": "label",
+      "tag": "div",
+      "text": "Career Page",
+      "chars": 11,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-name-wrap div#.text-style-h6"
+    },
+    {
+      "id": "t0090",
+      "kind": "label",
+      "tag": "div",
+      "text": "Career Single Page",
+      "chars": 18,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-name-wrap div#.text-style-h6"
+    },
+    {
+      "id": "t0091",
+      "kind": "heading",
+      "tag": "h2",
+      "text": "CMS Pages",
+      "chars": 9,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-top h2#."
+    },
+    {
+      "id": "t0092",
+      "kind": "label",
+      "tag": "div",
+      "text": "Blog Page 01",
+      "chars": 12,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-variant-16108e93-fe7f-13c0-307e-052d46072b61 w-inline-block div#.page-name-wrap div#.text-style-h6"
+    },
+    {
+      "id": "t0093",
+      "kind": "label",
+      "tag": "div",
+      "text": "Blog Page 02",
+      "chars": 12,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-variant-16108e93-fe7f-13c0-307e-052d46072b61 w-inline-block div#.page-name-wrap div#.text-style-h6"
+    },
+    {
+      "id": "t0094",
+      "kind": "label",
+      "tag": "div",
+      "text": "Blog Page 03",
+      "chars": 12,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-name-wrap div#.text-style-h6"
+    },
+    {
+      "id": "t0095",
+      "kind": "label",
+      "tag": "div",
+      "text": "Blog Single Page",
+      "chars": 16,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-name-wrap div#.text-style-h6"
+    },
+    {
+      "id": "t0096",
+      "kind": "label",
+      "tag": "div",
+      "text": "404 Page",
+      "chars": 8,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-name-wrap div#.text-style-h6"
+    },
+    {
+      "id": "t0097",
+      "kind": "heading",
+      "tag": "h2",
+      "text": "Account Pages",
+      "chars": 13,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section v2 div#.container div#.showcase-section-wrap div#.showcase-section-top h2#."
+    },
+    {
+      "id": "t0098",
+      "kind": "label",
+      "tag": "div",
+      "text": "Log in Page",
+      "chars": 11,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section v2 div#.container div#.showcase-section-wrap div#.showcase-section-bottom-2 a#.page-card-02 w-inline-block div#. div#.text-style-h6"
+    },
+    {
+      "id": "t0099",
+      "kind": "label",
+      "tag": "div",
+      "text": "Sign up Page",
+      "chars": 12,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section v2 div#.container div#.showcase-section-wrap div#.showcase-section-bottom-2 a#.page-card-02 w-inline-block div#. div#.text-style-h6"
+    },
+    {
+      "id": "t0100",
+      "kind": "heading",
+      "tag": "h1",
+      "text": "Your future runs on data let’s create it",
+      "chars": 40,
+      "context": "html#. body#. div#.page-wrapper section#.cta div#.container div#.cta-wrap div#.cta-main-content div#.cta-main-wrap div#.cta-main-wrapper div#.cta-content div#.cta-top-heading div#.heading-wrap h1#.text-light"
+    },
+    {
+      "id": "t0101",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "From collection to clarity — we’ll help you make sense of it all.",
+      "chars": 65,
+      "context": "html#. body#. div#.page-wrapper section#.cta div#.container div#.cta-wrap div#.cta-main-content div#.cta-main-wrap div#.cta-main-wrapper div#.cta-content div#.cta-top-heading div#.sub-heading-wrap p#.body-03-regular text-stock-color"
+    },
+    {
+      "id": "t0102",
+      "kind": "label",
+      "tag": "div",
+      "text": "Get Started Now",
+      "chars": 15,
+      "context": "section#.cta div#.container div#.cta-wrap div#.cta-main-content div#.cta-main-wrap div#.cta-main-wrapper div#.cta-content div#.button-wrap a#.button-02 w-variant-9a1cff00-cf91-b1e4-63fe-390ee7c8d6f8 w-inline-block div#.button-text-wrapper div#.body-03-medium text-primary-color-01"
+    },
+    {
+      "id": "t0103",
+      "kind": "label",
+      "tag": "div",
+      "text": "Get Started Now",
+      "chars": 15,
+      "context": "y#. div#.page-wrapper section#.cta div#.container div#.cta-wrap div#.cta-main-content div#.cta-main-wrap div#.cta-main-wrapper div#.cta-content div#.button-wrap a#.button-02 w-variant-9a1cff00-cf91-b1e4-63fe-390ee7c8d6f8 w-inline-block div#.button-text-wrapper div#.body-03-medium"
+    },
+    {
+      "id": "t0104",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Disort a creative agency that blends strategy, design, and innovation to help brands grow with meaning.",
+      "chars": 103,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-left p#.body-03-regular text-primary-color-01"
+    },
+    {
+      "id": "t0105",
+      "kind": "label",
+      "tag": "div",
+      "text": "Overview",
+      "chars": 8,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.sub-heading-02"
+    },
+    {
+      "id": "t0106",
+      "kind": "button",
+      "tag": "a",
+      "text": "Home 01",
+      "chars": 7,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0107",
+      "kind": "button",
+      "tag": "a",
+      "text": "Home 02",
+      "chars": 7,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0108",
+      "kind": "button",
+      "tag": "a",
+      "text": "Home 03",
+      "chars": 7,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0109",
+      "kind": "button",
+      "tag": "a",
+      "text": "Contact 01",
+      "chars": 10,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0110",
+      "kind": "button",
+      "tag": "a",
+      "text": "Contact 02",
+      "chars": 10,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0111",
+      "kind": "button",
+      "tag": "a",
+      "text": "Contact 03",
+      "chars": 10,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0112",
+      "kind": "button",
+      "tag": "a",
+      "text": "About us",
+      "chars": 8,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0113",
+      "kind": "label",
+      "tag": "div",
+      "text": "Company",
+      "chars": 7,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.sub-heading-02"
+    },
+    {
+      "id": "t0114",
+      "kind": "button",
+      "tag": "a",
+      "text": "Pricing 01",
+      "chars": 10,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0115",
+      "kind": "button",
+      "tag": "a",
+      "text": "Pricing 02",
+      "chars": 10,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0116",
+      "kind": "button",
+      "tag": "a",
+      "text": "Pricing 03",
+      "chars": 10,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0117",
+      "kind": "button",
+      "tag": "a",
+      "text": "Career",
+      "chars": 6,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0118",
+      "kind": "button",
+      "tag": "a",
+      "text": "Career single",
+      "chars": 13,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0119",
+      "kind": "label",
+      "tag": "div",
+      "text": "Resources",
+      "chars": 9,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.sub-heading-02"
+    },
+    {
+      "id": "t0120",
+      "kind": "button",
+      "tag": "a",
+      "text": "Blog 01",
+      "chars": 7,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0121",
+      "kind": "button",
+      "tag": "a",
+      "text": "Blog 02",
+      "chars": 7,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0122",
+      "kind": "button",
+      "tag": "a",
+      "text": "Blog 03",
+      "chars": 7,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0123",
+      "kind": "button",
+      "tag": "a",
+      "text": "Blog single",
+      "chars": 11,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0124",
+      "kind": "label",
+      "tag": "div",
+      "text": "Utilities",
+      "chars": 9,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.sub-heading-02"
+    },
+    {
+      "id": "t0125",
+      "kind": "button",
+      "tag": "a",
+      "text": "404",
+      "chars": 3,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0126",
+      "kind": "button",
+      "tag": "a",
+      "text": "Log in",
+      "chars": 6,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0127",
+      "kind": "button",
+      "tag": "a",
+      "text": "Sign up",
+      "chars": 7,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0128",
+      "kind": "button",
+      "tag": "a",
+      "text": "Style guide",
+      "chars": 11,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0129",
+      "kind": "button",
+      "tag": "a",
+      "text": "License",
+      "chars": 7,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0130",
+      "kind": "button",
+      "tag": "a",
+      "text": "Changelog",
+      "chars": 9,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list a#.footer-page-link"
+    },
+    {
+      "id": "t0131",
+      "kind": "label",
+      "tag": "div",
+      "text": "© All rights reserved.",
+      "chars": 22,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-bottom div#.footer-bottom-wrap div#.body-03-regular"
+    },
+    {
+      "id": "t0132",
+      "kind": "button",
+      "tag": "a",
+      "text": "Basecom",
+      "chars": 7,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-bottom div#.footer-bottom-wrap div#.body-03-regular a#.copyright-link"
+    },
+    {
+      "id": "t0133",
+      "kind": "label",
+      "tag": "div",
+      "text": ". Powered by",
+      "chars": 12,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-bottom div#.footer-bottom-wrap div#.body-03-regular"
+    },
+    {
+      "id": "t0134",
+      "kind": "button",
+      "tag": "a",
+      "text": "Webflow",
+      "chars": 7,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-bottom div#.footer-bottom-wrap div#.body-03-regular a#.copyright-link"
+    }
+  ],
+  "images": [
+    {
+      "id": "i0001",
+      "role": "logo",
+      "src": "assets/7af01eeca4-690af03b62f6fe3fff50ebc7_Disort-Nav-Logo.svg",
+      "alt": "Disort Nav Logo",
+      "className": "navbar-brand-logo",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.master-navbar div#.navbar-container w-nav div#.navbar-container-wrap div#.navbar-wrapper a#.navbar-brand w-nav-brand w--current"
+    },
+    {
+      "id": "i0002",
+      "role": "logo",
+      "src": "assets/6e5ab3ad7a-691c2b575c0b126a34f6f572_Nav-Icon.svg",
+      "alt": "Nav Icon",
+      "className": "nav-dropdown-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.master-navbar div#.navbar-container w-nav div#.navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown div#.nav-dropdown-toggle w-dropdown-toggle"
+    },
+    {
+      "id": "i0003",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "ar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0004",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "ar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0005",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "ar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0006",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "ar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0007",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "ar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0008",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "ar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0009",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "ar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0010",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": ".nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0011",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": ".nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0012",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": ".nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0013",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": ".nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0014",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": ".nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0015",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": ".nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0016",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": ".nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0017",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": ".nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0018",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": ".nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0019",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "ar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0020",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "ar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0021",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "ar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0022",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "ar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0023",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "ar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0024",
+      "role": "logo",
+      "src": "assets/dce6b0f322-690cd03d61cd3b66103fdadb_Blog-Image-08.avif",
+      "alt": "Deal Acceleration Tactics to Shorten Your Sales Cycle.",
+      "className": "image-fit",
+      "width": null,
+      "height": null,
+      "context": "-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-right-blog div#.w-dyn-list div#.w-dyn-items div#.w-dyn-item a#.link-block w-inline-block div#.nav-blog-wrap"
+    },
+    {
+      "id": "i0025",
+      "role": "logo",
+      "src": "assets/76168776d9-690cb2be43d1dd31d191bd96_Right-Arow.svg",
+      "alt": "Right Arow",
+      "className": "blog-short-icon",
+      "width": null,
+      "height": null,
+      "context": "-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-right-blog div#.w-dyn-list div#.w-dyn-items div#.w-dyn-item a#.link-block w-inline-block div#.nav-blog-text"
+    },
+    {
+      "id": "i0026",
+      "role": "logo",
+      "src": "assets/6e5ab3ad7a-691c2b575c0b126a34f6f572_Nav-Icon.svg",
+      "alt": "Nav Icon",
+      "className": "nav-dropdown-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.master-navbar div#.navbar-container w-nav div#.navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown div#.nav-dropdown-toggle w-dropdown-toggle"
+    },
+    {
+      "id": "i0027",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "r-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v2 w-dropdown-list div#.nav-dropdown-list-body div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0028",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "r-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v2 w-dropdown-list div#.nav-dropdown-list-body div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0029",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "r-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v2 w-dropdown-list div#.nav-dropdown-list-body div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0030",
+      "role": "logo",
+      "src": "assets/361b517927-691d55cddbabe72eb0b0ba36_Nav-Image.avif",
+      "alt": "Young man with dark curly hair looking sideways, surrounded by red and orange blurred lights.",
+      "className": "image-fit",
+      "width": null,
+      "height": null,
+      "context": "ar div#.navbar-container w-nav div#.navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v2 w-dropdown-list div#.nav-dropdown-list-body div#.nav-right-blog v1"
+    },
+    {
+      "id": "i0031",
+      "role": "logo",
+      "src": "assets/6e5ab3ad7a-691c2b575c0b126a34f6f572_Nav-Icon.svg",
+      "alt": "Nav Icon",
+      "className": "nav-dropdown-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.master-navbar div#.navbar-container w-nav div#.navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown div#.nav-dropdown-toggle w-dropdown-toggle"
+    },
+    {
+      "id": "i0032",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "er w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0033",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "er w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0034",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "er w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0035",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "er w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0036",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "er w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0037",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "er w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0038",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "er w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0039",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "tem div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#w-node-_440717e7-7695-15b0-715a-ef83ca50be93-ca50be01.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0040",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "tem div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#w-node-_440717e7-7695-15b0-715a-ef83ca50be93-ca50be01.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0041",
+      "role": "logo",
+      "src": "assets/dce6b0f322-690cd03d61cd3b66103fdadb_Blog-Image-08.avif",
+      "alt": "Deal Acceleration Tactics to Shorten Your Sales Cycle.",
+      "className": "image-fit",
+      "width": null,
+      "height": null,
+      "context": "menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-right-blog v2 div#.w-dyn-list div#.w-dyn-items div#.w-dyn-item a#.link-block v2 w-inline-block div#.nav-blog-wrap v1"
+    },
+    {
+      "id": "i0042",
+      "role": "logo",
+      "src": "assets/9ce8c1fe4c-691d5ce7d924fe9bc636a6fb_Right-Arrow.svg",
+      "alt": "Right Arrow",
+      "className": "blog-short-icon",
+      "width": null,
+      "height": null,
+      "context": "menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-right-blog v2 div#.w-dyn-list div#.w-dyn-items div#.w-dyn-item a#.link-block v2 w-inline-block div#.nav-blog-text v1"
+    },
+    {
+      "id": "i0043",
+      "role": "logo",
+      "src": "assets/6e5ab3ad7a-691c2b575c0b126a34f6f572_Nav-Icon.svg",
+      "alt": "Nav Icon",
+      "className": "nav-dropdown-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.master-navbar div#.navbar-container w-nav div#.navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown div#.nav-dropdown-toggle w-dropdown-toggle"
+    },
+    {
+      "id": "i0044",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "rap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0045",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "rap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0046",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "rap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0047",
+      "role": "logo",
+      "src": "assets/6e5ab3ad7a-691c2b575c0b126a34f6f572_Nav-Icon.svg",
+      "alt": "Nav Icon",
+      "className": "nav-dropdown-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.master-navbar div#.navbar-container w-nav div#.navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown div#.nav-dropdown-toggle w-dropdown-toggle"
+    },
+    {
+      "id": "i0048",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "rap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0049",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "rap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0050",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "rap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0051",
+      "role": "logo",
+      "src": "assets/d9524cda23-69109ec51fb10961bca8069a_Right-Arrow.svg",
+      "alt": "",
+      "className": "nav-icon",
+      "width": null,
+      "height": null,
+      "context": "rap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-list-wrap a#.nav-drop-item w-inline-block"
+    },
+    {
+      "id": "i0052",
+      "role": "hero",
+      "src": "assets/6f809a130c-691ae512a011def389e05612_Showcase-Image.avif",
+      "alt": "Three angled screenshots of a data automation software website showing features like data tracking, security trends, and business growth statistics.",
+      "className": "showcase-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.overview-hero div#.container div#.overview-hero-wrap div#.overview-hero-bottom div#.overview-hero-inner"
+    },
+    {
+      "id": "i0053",
+      "role": "content",
+      "src": "assets/7529f9e6d6-6909ed578203ba15b11a659f_Mask-group.svg",
+      "alt": "",
+      "className": "image-fit",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.section-divider div#.container div#.section-divider-wrap"
+    },
+    {
+      "id": "i0054",
+      "role": "logo",
+      "src": "assets/ea285d5a83-691ae9f5bce8a9ae60aa7b14_figma-5-1.svg",
+      "alt": "Figma Logo",
+      "className": "figma-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.overview-features div#.container div#.overview-features-wrap div#.overview-features-bottom div#.overview-left div#.overview-left-top div#.overview-left-bottom-12 div#.features-card-inner-wrapper"
+    },
+    {
+      "id": "i0055",
+      "role": "logo",
+      "src": "assets/c15ed95e55-691aec25e7abbac7f7c9cb17_Short-Showcase-Image.avif",
+      "alt": "Website homepage showcasing a tool for automating manual data collection with charts, user interface screens, and customer logos.",
+      "className": "features-card-inner-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.overview-features div#.container div#.overview-features-wrap div#.overview-features-bottom div#.overview-left div#.overview-left-bottom div#.overview-left-bottom-2"
+    },
+    {
+      "id": "i0056",
+      "role": "content",
+      "src": "assets/cf702ca1b8-691ae9f4ec4fa97c2bfd7171_Showcase-Image-2.avif",
+      "alt": "Showcase Image",
+      "className": "features-inner-img-02",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.overview-features div#.container div#.overview-features-wrap div#.overview-features-bottom div#.overview-features-right"
+    },
+    {
+      "id": "i0057",
+      "role": "content",
+      "src": "assets/8bd743ab25-691af901f8a8d4efd055f9ab_Home-01.avif",
+      "alt": "Website homepage for Disort showing data automation features, user interface screenshots, and business growth tools with abstract blurred background images.",
+      "className": "page-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-image-box"
+    },
+    {
+      "id": "i0058",
+      "role": "content",
+      "src": "assets/792b18c79e-691af90151176c6a0ef998c1_Home-02.avif",
+      "alt": "Website homepage for Disort showing sections about automating data collection, cloud services for developers, business data tools, testimonials, blog posts, and a call to action to get started.",
+      "className": "page-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-image-box"
+    },
+    {
+      "id": "i0059",
+      "role": "content",
+      "src": "assets/056aba36a9-691af90180d6cfb677e2e96e_Home-03.avif",
+      "alt": "Webpage layout displaying a data gathering spreadsheet tool with statistics, business data building features, core principles, automation options, testimonials, and a call to action for creating data-driven futures.",
+      "className": "page-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-image-box"
+    },
+    {
+      "id": "i0060",
+      "role": "hero",
+      "src": "assets/e93bcb5cbc-691aff4fc2d608bc0bf79bd1_Pricing-01.avif",
+      "alt": "Pricing page for Disort showing three subscription plans: Starter at $25/month, Plus at $40/month, and Enterprise at $60/month, with features comparison table below and a call to action banner.",
+      "className": "page-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-image-box"
+    },
+    {
+      "id": "i0061",
+      "role": "content",
+      "src": "assets/603f3f1172-691aff4fb3aa652611193bdd_Pricing-02.avif",
+      "alt": "Pricing page for Disort showing business plan options: Starter, Pro Plus, and Enterprise with Pro Plus details including price $40 per month, features like 250 saved items and 5 image templates, plus sections highlighting core values and a customer testimonial.",
+      "className": "page-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-image-box"
+    },
+    {
+      "id": "i0062",
+      "role": "content",
+      "src": "assets/579e027121-691aff4f27d6743ea48c15f9_Pricing-03.avif",
+      "alt": "Pricing options for business: Pro Plus at $40/month with 100 saved items, 3 image templates, unlimited collections, 5 key point credits; Enterprise at $60/month with additional 8 integrations. Features like innovation, integrity, curiosity, precision, human thinking, sustainability highlighted. FAQ section and call to action to get started now.",
+      "className": "page-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-image-box"
+    },
+    {
+      "id": "i0063",
+      "role": "content",
+      "src": "assets/cd3fa56b02-691b228644eb3a9c4d4b78d7_Contact-01.avif",
+      "alt": "Disort website contact page with form to submit full name, email, company name, inquiry, office address in Moscow, support email, and phone number, plus company info and navigation links.",
+      "className": "page-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-variant-16108e93-fe7f-13c0-307e-052d46072b61 w-inline-block div#.page-image-box"
+    },
+    {
+      "id": "i0064",
+      "role": "logo",
+      "src": "assets/7852bbe380-691b22850bcc496b4a6d38dd_Contact-02.avif",
+      "alt": "Disort website contact page with a form for first name, second name, email, and message, blurred portrait photo, office address, email, and phone details, trusted brand logos, and footer with navigation links.",
+      "className": "page-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-variant-16108e93-fe7f-13c0-307e-052d46072b61 w-inline-block div#.page-image-box"
+    },
+    {
+      "id": "i0065",
+      "role": "logo",
+      "src": "assets/a4e98c5f89-691b22857e374ad87845e7eb_Contact-03.avif",
+      "alt": "Contact page with a blurred portrait of a woman with orange light streaks, a form for name, email, company, and message, company logos, office address in Moscow, support email, phone number, a map of Washington, and a footer with navigation links.",
+      "className": "page-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-variant-16108e93-fe7f-13c0-307e-052d46072b61 w-inline-block div#.page-image-box"
+    },
+    {
+      "id": "i0066",
+      "role": "content",
+      "src": "assets/8a6a4a6494-691b23625a93713f0826c45c_about.avif",
+      "alt": "Disort webpage showing company overview including mission, vision, team photos, global locations, and key statistics about data projects and clients.",
+      "className": "page-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-image-box"
+    },
+    {
+      "id": "i0067",
+      "role": "content",
+      "src": "assets/c95790b588-691b236253a6847604ae957d_career.avif",
+      "alt": "Career webpage featuring diverse professionals collaborating and sections highlighting company values, perks, job openings, FAQs, and a call to action to create a data-driven future.",
+      "className": "page-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-image-box"
+    },
+    {
+      "id": "i0068",
+      "role": "content",
+      "src": "assets/c91ad81812-691b2361f57d704324af2325_careersignle.avif",
+      "alt": "Job listing page for Forward Deployed Engineer at Disort with an application form, job descriptions, open positions, and company footer.",
+      "className": "page-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-image-box"
+    },
+    {
+      "id": "i0069",
+      "role": "content",
+      "src": "assets/c322f73a9b-691b24c05d201cdafd3a851a_Blog-01.avif",
+      "alt": "Blog page featuring latest articles on employee benefits and sales cycle tactics with author names and publication dates, plus a call to action to start using data for business.",
+      "className": "page-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-variant-16108e93-fe7f-13c0-307e-052d46072b61 w-inline-block div#.page-image-box"
+    },
+    {
+      "id": "i0070",
+      "role": "content",
+      "src": "assets/12e62c34da-691b24c0dbc63ce8fe4c3b13_Blog-02.avif",
+      "alt": "Disort blog page showing a featured article titled 'Global Employee Benefits: How to Attract and Retain Talent in 2025' with an abstract image of a blurred figure walking past an orange door, followed by a grid of six blog articles on deal acceleration tactics.",
+      "className": "page-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-variant-16108e93-fe7f-13c0-307e-052d46072b61 w-inline-block div#.page-image-box"
+    },
+    {
+      "id": "i0071",
+      "role": "content",
+      "src": "assets/2e18cf336a-691b24bfc79abebab694a174_Blog-03.avif",
+      "alt": "Blog page from Disort showing updates and insights with featured article on global employee benefits and a grid of latest blogs about deal acceleration tactics to shorten sales cycles.",
+      "className": "page-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-image-box"
+    },
+    {
+      "id": "i0072",
+      "role": "hero",
+      "src": "assets/b39c59fec7-691b24be95323eed6cc7a75b_Blog-Single.avif",
+      "alt": "Webpage article titled 'How Heron Power Used a Roll Up Vehicle to Rally Strategic Support Fast' with blurred images of a person near an orange door and a busy street scene with car lights.",
+      "className": "page-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-image-box"
+    },
+    {
+      "id": "i0073",
+      "role": "hero",
+      "src": "assets/b9e81057b0-691b24c0bf021ecdc1388d06_404.avif",
+      "alt": "404 error page from Disort with message 'Oops! Page not found' and a button to go back home, plus a banner stating 'Your future runs on data let's create it' with a get started button.",
+      "className": "page-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom a#.page-preview-card w-inline-block div#.page-image-box"
+    },
+    {
+      "id": "i0074",
+      "role": "content",
+      "src": "assets/e460c589fc-691b24bfc0e3cd55a8c8b6e7_Sing-in.avif",
+      "alt": "Login screen with fields for email and password on the left, and a photo of a person with blonde hair and red glasses on the right with a quote about sharing information.",
+      "className": "page-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section v2 div#.container div#.showcase-section-wrap div#.showcase-section-bottom-2 a#.page-card-02 w-inline-block div#.page-image-box"
+    },
+    {
+      "id": "i0075",
+      "role": "content",
+      "src": "assets/40fc07558d-691b24be4b121944478f8e3e_Sing-Up.avif",
+      "alt": "Sign-up form with fields for name, email, password, terms checkbox, and buttons for sign-up and Google login, alongside a blurred cityscape background with a man in a black coat.",
+      "className": "page-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section v2 div#.container div#.showcase-section-wrap div#.showcase-section-bottom-2 a#.page-card-02 w-inline-block div#.page-image-box"
+    },
+    {
+      "id": "i0076",
+      "role": "content",
+      "src": "assets/9d7beee64e-690a486b5052d82bf3ecc509_Border-Corner.svg",
+      "alt": "",
+      "className": "border-corners",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.cta div#.container div#.cta-wrap div#.cta-top div#.cta-top-left"
+    },
+    {
+      "id": "i0077",
+      "role": "content",
+      "src": "assets/9d7beee64e-690a486b5052d82bf3ecc509_Border-Corner.svg",
+      "alt": "",
+      "className": "border-corners rotated-01",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.cta div#.container div#.cta-wrap div#.cta-top div#.cta-top-right"
+    },
+    {
+      "id": "i0078",
+      "role": "content",
+      "src": "assets/80a052de9f-690a5cf73b3486f2b340c350_Section-Bg.svg",
+      "alt": "Section Bg",
+      "className": "image-fit",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.cta div#.container div#.cta-wrap div#.cta-main-content div#.cta-main-wrap div#.cta-main-bg"
+    },
+    {
+      "id": "i0079",
+      "role": "content",
+      "src": "assets/9d7beee64e-690a486b5052d82bf3ecc509_Border-Corner.svg",
+      "alt": "",
+      "className": "border-corners rotated-02",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.cta div#.container div#.cta-wrap div#.cta-bottom div#.cta-bottom-left"
+    },
+    {
+      "id": "i0080",
+      "role": "content",
+      "src": "assets/9d7beee64e-690a486b5052d82bf3ecc509_Border-Corner.svg",
+      "alt": "",
+      "className": "border-corners rotated-03",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.cta div#.container div#.cta-wrap div#.cta-bottom div#.cta-bottom-right"
+    },
+    {
+      "id": "i0081",
+      "role": "logo",
+      "src": "assets/8d821b7dc6-690add6fa30f452f01b49fbb_Disort.svg",
+      "alt": "Disort",
+      "className": "footer-logo",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-left a#.footer-logo-link w-inline-block"
+    },
+    {
+      "id": "i0082",
+      "role": "icon",
+      "src": "assets/394f81a023-690a6398459f010913ca0e83_LinkedIn.svg",
+      "alt": "",
+      "className": "footer-social-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-bottom div#.footer-bottom-wrap div#.footer-social-wrap a#.footer-social-list w-inline-block"
+    },
+    {
+      "id": "i0083",
+      "role": "icon",
+      "src": "assets/37c8e4120e-690a639757318c481d242bf0_Facebook.svg",
+      "alt": "",
+      "className": "footer-social-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-bottom div#.footer-bottom-wrap div#.footer-social-wrap a#.footer-social-list w-inline-block"
+    },
+    {
+      "id": "i0084",
+      "role": "icon",
+      "src": "assets/c1fc8f28b0-690a63984eb9dd8578d6eb62_x.svg",
+      "alt": "",
+      "className": "footer-social-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-bottom div#.footer-bottom-wrap div#.footer-social-wrap a#.footer-social-list w-inline-block"
+    },
+    {
+      "id": "i0085",
+      "role": "icon",
+      "src": "assets/eb67531d4e-690a6397eec8c16e2b6d8f8f_Instagram.svg",
+      "alt": "",
+      "className": "footer-social-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-bottom div#.footer-bottom-wrap div#.footer-social-wrap a#.footer-social-list w-inline-block"
+    }
+  ],
+  "links": [
+    {
+      "id": "l0001",
+      "role": "nav",
+      "href": "/",
+      "className": "navbar-brand w-nav-brand w--current",
+      "context": "html#. body#. div#.master-navbar div#.navbar-container w-nav div#.navbar-container-wrap div#.navbar-wrapper"
+    },
+    {
+      "id": "l0002",
+      "role": "nav",
+      "href": "/home-01",
+      "className": "nav-drop-item w-inline-block",
+      "context": ".navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0003",
+      "role": "nav",
+      "href": "/home-02",
+      "className": "nav-drop-item w-inline-block",
+      "context": ".navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0004",
+      "role": "nav",
+      "href": "/home-03",
+      "className": "nav-drop-item w-inline-block",
+      "context": ".navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0005",
+      "role": "nav",
+      "href": "/blog-01",
+      "className": "nav-drop-item w-inline-block",
+      "context": ".navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0006",
+      "role": "nav",
+      "href": "/blog-02",
+      "className": "nav-drop-item w-inline-block",
+      "context": ".navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0007",
+      "role": "nav",
+      "href": "/blog-03",
+      "className": "nav-drop-item w-inline-block",
+      "context": ".navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0008",
+      "role": "nav",
+      "href": "assets/a5b39a17ac-the-rise-of-electric-vehicles-whats-next.bin",
+      "className": "nav-drop-item w-inline-block",
+      "context": ".navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0009",
+      "role": "nav",
+      "href": "/career",
+      "className": "nav-drop-item w-inline-block",
+      "context": "er-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap"
+    },
+    {
+      "id": "l0010",
+      "role": "nav",
+      "href": "assets/056b1738f2-forward-deployed-engineer-agentic-platform-emea-apac.bin",
+      "className": "nav-drop-item w-inline-block",
+      "context": "er-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap"
+    },
+    {
+      "id": "l0011",
+      "role": "nav",
+      "href": "/pricing-01",
+      "className": "nav-drop-item w-inline-block",
+      "context": "er-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap"
+    },
+    {
+      "id": "l0012",
+      "role": "nav",
+      "href": "/pricing-02",
+      "className": "nav-drop-item w-inline-block",
+      "context": "er-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap"
+    },
+    {
+      "id": "l0013",
+      "role": "nav",
+      "href": "/pricing-03",
+      "className": "nav-drop-item w-inline-block",
+      "context": "er-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap"
+    },
+    {
+      "id": "l0014",
+      "role": "nav",
+      "href": "/about",
+      "className": "nav-drop-item w-inline-block",
+      "context": "er-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap"
+    },
+    {
+      "id": "l0015",
+      "role": "nav",
+      "href": "/contact-01",
+      "className": "nav-drop-item w-inline-block",
+      "context": "er-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap"
+    },
+    {
+      "id": "l0016",
+      "role": "nav",
+      "href": "/contact-02",
+      "className": "nav-drop-item w-inline-block",
+      "context": "er-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap"
+    },
+    {
+      "id": "l0017",
+      "role": "nav",
+      "href": "/contact-03",
+      "className": "nav-drop-item w-inline-block",
+      "context": "er-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-block div#.nav-list-wrap"
+    },
+    {
+      "id": "l0018",
+      "role": "nav",
+      "href": "/reference/style-guide",
+      "className": "nav-drop-item w-inline-block",
+      "context": ".navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0019",
+      "role": "nav",
+      "href": "/reference/license",
+      "className": "nav-drop-item w-inline-block",
+      "context": ".navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0020",
+      "role": "nav",
+      "href": "/reference/changelog",
+      "className": "nav-drop-item w-inline-block",
+      "context": ".navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0021",
+      "role": "nav",
+      "href": "/sign-in",
+      "className": "nav-drop-item w-inline-block",
+      "context": ".navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0022",
+      "role": "nav",
+      "href": "/sign-up",
+      "className": "nav-drop-item w-inline-block",
+      "context": ".navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-left-item div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0023",
+      "role": "nav",
+      "href": "/post/the-rise-of-electric-vehicles-whats-next",
+      "className": "link-block w-inline-block",
+      "context": "container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap w-dropdown-list div#.nav-dropdown-list-body div#.nav-right-blog div#.w-dyn-list div#.w-dyn-items div#.w-dyn-item"
+    },
+    {
+      "id": "l0024",
+      "role": "nav",
+      "href": "/home-01",
+      "className": "nav-drop-item w-inline-block",
+      "context": "ainer w-nav div#.navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v2 w-dropdown-list div#.nav-dropdown-list-body div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0025",
+      "role": "nav",
+      "href": "/home-02",
+      "className": "nav-drop-item w-inline-block",
+      "context": "ainer w-nav div#.navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v2 w-dropdown-list div#.nav-dropdown-list-body div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0026",
+      "role": "nav",
+      "href": "/home-03",
+      "className": "nav-drop-item w-inline-block",
+      "context": "ainer w-nav div#.navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v2 w-dropdown-list div#.nav-dropdown-list-body div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0027",
+      "role": "nav",
+      "href": "/about",
+      "className": "nav-drop-item w-inline-block",
+      "context": "vbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#.nav-list-wrap"
+    },
+    {
+      "id": "l0028",
+      "role": "nav",
+      "href": "/pricing-01",
+      "className": "nav-drop-item w-inline-block",
+      "context": "vbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#.nav-list-wrap"
+    },
+    {
+      "id": "l0029",
+      "role": "nav",
+      "href": "/pricing-02",
+      "className": "nav-drop-item w-inline-block",
+      "context": "vbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#.nav-list-wrap"
+    },
+    {
+      "id": "l0030",
+      "role": "nav",
+      "href": "/pricing-03",
+      "className": "nav-drop-item w-inline-block",
+      "context": "vbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#.nav-list-wrap"
+    },
+    {
+      "id": "l0031",
+      "role": "nav",
+      "href": "/contact-01",
+      "className": "nav-drop-item w-inline-block",
+      "context": "vbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#.nav-list-wrap"
+    },
+    {
+      "id": "l0032",
+      "role": "nav",
+      "href": "/contact-02",
+      "className": "nav-drop-item w-inline-block",
+      "context": "vbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#.nav-list-wrap"
+    },
+    {
+      "id": "l0033",
+      "role": "nav",
+      "href": "/contact-03",
+      "className": "nav-drop-item w-inline-block",
+      "context": "vbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#.nav-list-wrap"
+    },
+    {
+      "id": "l0034",
+      "role": "nav",
+      "href": "/career",
+      "className": "nav-drop-item w-inline-block",
+      "context": "-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#w-node-_440717e7-7695-15b0-715a-ef83ca50be93-ca50be01.nav-list-wrap"
+    },
+    {
+      "id": "l0035",
+      "role": "nav",
+      "href": "assets/056b1738f2-forward-deployed-engineer-agentic-platform-emea-apac.bin",
+      "className": "nav-drop-item w-inline-block",
+      "context": "-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-left-item v3 div#.nav-dropdown-list v1 div#.nav-block v1 div#w-node-_440717e7-7695-15b0-715a-ef83ca50be93-ca50be01.nav-list-wrap"
+    },
+    {
+      "id": "l0036",
+      "role": "nav",
+      "href": "/post/the-rise-of-electric-vehicles-whats-next",
+      "className": "link-block v2 w-inline-block",
+      "context": "-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v4 w-dropdown-list div#.nav-dropdown-list-body v2 div#.nav-right-blog v2 div#.w-dyn-list div#.w-dyn-items div#.w-dyn-item"
+    },
+    {
+      "id": "l0037",
+      "role": "nav",
+      "href": "/pricing-01",
+      "className": "nav-drop-item w-inline-block",
+      "context": "er w-nav div#.navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0038",
+      "role": "nav",
+      "href": "/pricing-02",
+      "className": "nav-drop-item w-inline-block",
+      "context": "er w-nav div#.navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0039",
+      "role": "nav",
+      "href": "/pricing-03",
+      "className": "nav-drop-item w-inline-block",
+      "context": "er w-nav div#.navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0040",
+      "role": "nav",
+      "href": "/blog-01",
+      "className": "nav-drop-item w-inline-block",
+      "context": "er w-nav div#.navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0041",
+      "role": "nav",
+      "href": "/blog-02",
+      "className": "nav-drop-item w-inline-block",
+      "context": "er w-nav div#.navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0042",
+      "role": "nav",
+      "href": "/blog-03",
+      "className": "nav-drop-item w-inline-block",
+      "context": "er w-nav div#.navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0043",
+      "role": "nav",
+      "href": "assets/a5b39a17ac-the-rise-of-electric-vehicles-whats-next.bin",
+      "className": "nav-drop-item w-inline-block",
+      "context": "er w-nav div#.navbar-container-wrap div#.navbar-wrapper nav#.nav-menu-wrapper w-nav-menu ul#.nav-menus w-list-unstyled li#.nav-item div#.nav-dropdown w-dropdown nav#.nav-dropdown-list-wrap v3 w-dropdown-list div#.nav-dropdown-list-body v1 div#.nav-dropdown-list div#.nav-list-wrap"
+    },
+    {
+      "id": "l0044",
+      "role": "nav",
+      "href": "/contact-01",
+      "className": "button-01 w-variant-46c0186a-b320-580c-ae89-f5480cc0f27c w-inline-block",
+      "context": "html#. body#. div#.master-navbar div#.navbar-container w-nav div#.navbar-container-wrap div#.navbar-wrapper div#.nav-right-wrap div#.nav-right div#.nav-button-wrapper"
+    },
+    {
+      "id": "l0045",
+      "role": "cta",
+      "href": "/contact-01",
+      "className": "button-01 w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.overview-hero div#.container div#.overview-hero-wrap div#.overview-hero-top div#.hero-button-wrap overview-button-wrap"
+    },
+    {
+      "id": "l0046",
+      "role": "cta",
+      "href": "/contact-01",
+      "className": "button-02 w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.overview-hero div#.container div#.overview-hero-wrap div#.overview-hero-top div#.hero-button-wrap overview-button-wrap"
+    },
+    {
+      "id": "l0047",
+      "role": "email",
+      "href": "mailto:hello@basecom.co",
+      "className": "email-link",
+      "context": "html#. body#. div#.page-wrapper section#.overview-features div#.container div#.overview-features-wrap div#.overview-features-bottom div#.overview-left div#.overview-left-top div#.overview-left-bottom-12 div#.features-card-inner-wrapper div#.feature-text-wrap div#.body-03-regular"
+    },
+    {
+      "id": "l0048",
+      "role": "link",
+      "href": "/home-01",
+      "className": "page-preview-card w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom"
+    },
+    {
+      "id": "l0049",
+      "role": "link",
+      "href": "/home-02",
+      "className": "page-preview-card w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom"
+    },
+    {
+      "id": "l0050",
+      "role": "link",
+      "href": "/home-03",
+      "className": "page-preview-card w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom"
+    },
+    {
+      "id": "l0051",
+      "role": "link",
+      "href": "/pricing-01",
+      "className": "page-preview-card w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom"
+    },
+    {
+      "id": "l0052",
+      "role": "link",
+      "href": "/pricing-02",
+      "className": "page-preview-card w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom"
+    },
+    {
+      "id": "l0053",
+      "role": "link",
+      "href": "/pricing-03",
+      "className": "page-preview-card w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom"
+    },
+    {
+      "id": "l0054",
+      "role": "link",
+      "href": "/pricing-01",
+      "className": "page-preview-card w-variant-16108e93-fe7f-13c0-307e-052d46072b61 w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom"
+    },
+    {
+      "id": "l0055",
+      "role": "link",
+      "href": "/contact-02",
+      "className": "page-preview-card w-variant-16108e93-fe7f-13c0-307e-052d46072b61 w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom"
+    },
+    {
+      "id": "l0056",
+      "role": "link",
+      "href": "/pricing-03",
+      "className": "page-preview-card w-variant-16108e93-fe7f-13c0-307e-052d46072b61 w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom"
+    },
+    {
+      "id": "l0057",
+      "role": "link",
+      "href": "/about",
+      "className": "page-preview-card w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom"
+    },
+    {
+      "id": "l0058",
+      "role": "link",
+      "href": "/career",
+      "className": "page-preview-card w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom"
+    },
+    {
+      "id": "l0059",
+      "role": "link",
+      "href": "assets/056b1738f2-forward-deployed-engineer-agentic-platform-emea-apac.bin",
+      "className": "page-preview-card w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom"
+    },
+    {
+      "id": "l0060",
+      "role": "link",
+      "href": "/blog-01",
+      "className": "page-preview-card w-variant-16108e93-fe7f-13c0-307e-052d46072b61 w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom"
+    },
+    {
+      "id": "l0061",
+      "role": "link",
+      "href": "/blog-02",
+      "className": "page-preview-card w-variant-16108e93-fe7f-13c0-307e-052d46072b61 w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom"
+    },
+    {
+      "id": "l0062",
+      "role": "link",
+      "href": "/blog-03",
+      "className": "page-preview-card w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom"
+    },
+    {
+      "id": "l0063",
+      "role": "link",
+      "href": "assets/a5b39a17ac-the-rise-of-electric-vehicles-whats-next.bin",
+      "className": "page-preview-card w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom"
+    },
+    {
+      "id": "l0064",
+      "role": "link",
+      "href": "/404",
+      "className": "page-preview-card w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section div#.container div#.showcase-section-wrap div#.showcase-section-bottom"
+    },
+    {
+      "id": "l0065",
+      "role": "link",
+      "href": "/sign-in",
+      "className": "page-card-02 w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section v2 div#.container div#.showcase-section-wrap div#.showcase-section-bottom-2"
+    },
+    {
+      "id": "l0066",
+      "role": "link",
+      "href": "/sign-up",
+      "className": "page-card-02 w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.showcase-section v2 div#.container div#.showcase-section-wrap div#.showcase-section-bottom-2"
+    },
+    {
+      "id": "l0067",
+      "role": "cta",
+      "href": "/contact-01",
+      "className": "button-02 w-variant-9a1cff00-cf91-b1e4-63fe-390ee7c8d6f8 w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.cta div#.container div#.cta-wrap div#.cta-main-content div#.cta-main-wrap div#.cta-main-wrapper div#.cta-content div#.button-wrap"
+    },
+    {
+      "id": "l0068",
+      "role": "link",
+      "href": "/home-01",
+      "className": "footer-logo-link w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-left"
+    },
+    {
+      "id": "l0069",
+      "role": "link",
+      "href": "/home-01",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0070",
+      "role": "link",
+      "href": "/home-02",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0071",
+      "role": "link",
+      "href": "/home-03",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0072",
+      "role": "link",
+      "href": "/contact-01",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0073",
+      "role": "link",
+      "href": "/contact-02",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0074",
+      "role": "link",
+      "href": "/contact-03",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0075",
+      "role": "link",
+      "href": "/about",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0076",
+      "role": "link",
+      "href": "/pricing-01",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0077",
+      "role": "link",
+      "href": "/pricing-02",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0078",
+      "role": "link",
+      "href": "/pricing-03",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0079",
+      "role": "link",
+      "href": "/career",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0080",
+      "role": "link",
+      "href": "assets/056b1738f2-forward-deployed-engineer-agentic-platform-emea-apac.bin",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0081",
+      "role": "link",
+      "href": "/blog-01",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0082",
+      "role": "link",
+      "href": "/blog-02",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0083",
+      "role": "link",
+      "href": "/blog-03",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0084",
+      "role": "link",
+      "href": "assets/a5b39a17ac-the-rise-of-electric-vehicles-whats-next.bin",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0085",
+      "role": "link",
+      "href": "/404",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0086",
+      "role": "link",
+      "href": "/sign-in",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0087",
+      "role": "link",
+      "href": "/sign-up",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0088",
+      "role": "link",
+      "href": "/reference/style-guide",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0089",
+      "role": "link",
+      "href": "/reference/license",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0090",
+      "role": "link",
+      "href": "/reference/changelog",
+      "className": "footer-page-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-top div#.footer-top-right div#.footer-link-block div#.footer-link-list"
+    },
+    {
+      "id": "l0091",
+      "role": "link",
+      "href": "assets/caed3ac822-asset.bin",
+      "className": "copyright-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-bottom div#.footer-bottom-wrap div#.body-03-regular"
+    },
+    {
+      "id": "l0092",
+      "role": "link",
+      "href": "assets/42eb21f7e3-asset.bin",
+      "className": "copyright-link",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-bottom div#.footer-bottom-wrap div#.body-03-regular"
+    },
+    {
+      "id": "l0093",
+      "role": "link",
+      "href": "assets/d0d41a7810-asset.bin",
+      "className": "footer-social-list w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-bottom div#.footer-bottom-wrap div#.footer-social-wrap"
+    },
+    {
+      "id": "l0094",
+      "role": "link",
+      "href": "assets/108ec1825c-asset.bin",
+      "className": "footer-social-list w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-bottom div#.footer-bottom-wrap div#.footer-social-wrap"
+    },
+    {
+      "id": "l0095",
+      "role": "link",
+      "href": "assets/c95ba9082e-asset.bin",
+      "className": "footer-social-list w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-bottom div#.footer-bottom-wrap div#.footer-social-wrap"
+    },
+    {
+      "id": "l0096",
+      "role": "link",
+      "href": "assets/e730d810bf-asset.bin",
+      "className": "footer-social-list w-inline-block",
+      "context": "html#. body#. div#.page-wrapper section#.footer div#.container div#.footer-wrap div#.footer-bottom div#.footer-bottom-wrap div#.footer-social-wrap"
+    }
+  ]
+}

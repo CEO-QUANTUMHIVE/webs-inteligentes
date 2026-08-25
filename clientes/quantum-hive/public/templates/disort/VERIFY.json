@@ -1,0 +1,28 @@
+{
+  "pass": true,
+  "generatedAt": "2026-08-25T04:28:32.586Z",
+  "source": "https://disort.webflow.io/",
+  "output": "clientes\\quantum-hive\\public\\templates\\disort\\site\\index.html",
+  "metrics": {
+    "totalTexts": 134,
+    "eligibleTexts": 131,
+    "changedTexts": 131,
+    "changedTextPercent": 100,
+    "changedImages": 81,
+    "copiedAssets": 9,
+    "changedLinks": 0,
+    "sourceDataWId": 20,
+    "adaptedDataWId": 20
+  },
+  "checks": {
+    "textAdaptation": true,
+    "copyLengthSafe": true,
+    "effectsPreserved": true,
+    "webflowRuntimePreserved": true,
+    "jqueryRuntimePreserved": true,
+    "signaturePresent": true,
+    "webflowBrandRemoved": true,
+    "assetsResolved": true
+  },
+  "issues": []
+}
