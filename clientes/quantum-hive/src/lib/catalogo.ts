@@ -349,49 +349,61 @@ const PLANTILLAS_PUBLICADAS = [
 
 export async function obtenerPlantillas(): Promise<Plantilla[]> {
   // Fallback estático: sin clave de Supabase, devolver las plantillas
-  // hardcodeadas directamente. No bloquear la ruta /catalogo-plantillas
-  // en entornos locales o builds sin configuración de base de datos.
+  // hardcodeadas directamente. No bloquear la ruta /catalogo-plantillas.
   if (!CLAVE) {
     return [...PLANTILLAS_PUBLICADAS];
   }
 
-  const res = await fetch(
-    `${URL_SUPABASE}/rest/v1/plantillas?select=*&id=in.(concreto-streetwear,gamer-agency,codix-developer,quantum-studio,studio-vanadium,aurea-nail-studio)&publicado=is.true`,
-    {
-      headers: { apikey: CLAVE, Authorization: `Bearer ${CLAVE}` },
-      cache: "force-cache",
+  try {
+    const res = await fetch(
+      `${URL_SUPABASE}/rest/v1/plantillas?select=*&id=in.(concreto-streetwear,gamer-agency,codix-developer,quantum-studio,studio-vanadium,aurea-nail-studio,zinzira-fashion,brasa-parrilla)&publicado=is.true`,
+      {
+        headers: { apikey: CLAVE, Authorization: `Bearer ${CLAVE}` },
+        cache: "force-cache",
+      }
+    );
+
+    if (!res.ok) {
+      return [...PLANTILLAS_PUBLICADAS];
     }
-  );
 
-  if (!res.ok) {
-    throw new Error(`No se pudieron leer las plantillas (HTTP ${res.status})`);
+    const plantillas = ((await res.json()) as FilaPlantilla[]).map((f) => ({
+      id: f.id,
+      name: f.nombre,
+      description: f.descripcion ?? "",
+      niche: f.nicho,
+      style: f.estilo ?? "",
+      pages: f.paginas ?? [],
+      colors: {
+        primary: f.paleta?.primario ?? "#2563eb",
+        secondary: f.paleta?.secundario ?? "#3b82f6",
+        accent: f.paleta?.acento ?? "#f97316",
+        bg: f.paleta?.fondo ?? "#0a0a0f",
+      },
+      font: f.fuentes?.familias ?? "Inter",
+      features: f.caracteristicas ?? [],
+      preview: f.vista_previa ?? "minimal",
+      popular: f.popular ?? false,
+      urlDemo: f.url_demo ?? null,
+      imagen: (f as any).imagen ?? undefined,
+    }));
+
+    const porId = new Map(PLANTILLAS_PUBLICADAS.map((plantilla) => [plantilla.id, plantilla]));
+    plantillas.forEach((dbPlantilla) => {
+      const local = porId.get(dbPlantilla.id);
+      porId.set(dbPlantilla.id, {
+        ...local,
+        ...dbPlantilla,
+        urlDemo: dbPlantilla.urlDemo || local?.urlDemo || null,
+        imagen: dbPlantilla.imagen || local?.imagen,
+      } as Plantilla);
+    });
+
+    return PLANTILLAS_PUBLICADAS.map((plantilla) => porId.get(plantilla.id)!);
+  } catch (err) {
+    console.error("Error leyendo Supabase, usando PLANTILLAS_PUBLICADAS:", err);
+    return [...PLANTILLAS_PUBLICADAS];
   }
-
-  const plantillas = ((await res.json()) as FilaPlantilla[]).map((f) => ({
-    id: f.id,
-    name: f.nombre,
-    description: f.descripcion ?? "",
-    niche: f.nicho,
-    style: f.estilo ?? "",
-    pages: f.paginas ?? [],
-    colors: {
-      primary: f.paleta?.primario ?? "#2563eb",
-      secondary: f.paleta?.secundario ?? "#3b82f6",
-      accent: f.paleta?.acento ?? "#f97316",
-      bg: f.paleta?.fondo ?? "#0a0a0f",
-    },
-    font: f.fuentes?.familias ?? "Inter",
-    features: f.caracteristicas ?? [],
-    preview: f.vista_previa ?? "minimal",
-    popular: f.popular ?? false,
-    urlDemo: f.url_demo ?? null,
-  }));
-
-  // Las migraciones pueden aplicarse despues del deploy del frontend. Completamos
-  // solo las demos verificadas que falten, sin reintroducir conceptos descartados.
-  const porId = new Map(PLANTILLAS_PUBLICADAS.map((plantilla) => [plantilla.id, plantilla]));
-  plantillas.forEach((plantilla) => porId.set(plantilla.id, plantilla));
-  return PLANTILLAS_PUBLICADAS.map((plantilla) => porId.get(plantilla.id)!);
 }
 
 /** Orden de las categorias en la barra lateral. */
