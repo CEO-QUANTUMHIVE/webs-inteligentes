@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { obtenerPlantillas, obtenerPlantillasBasicas } from "@/lib/catalogo";
 import PlantillasCliente from "./plantillas-cliente";
 
-// Server component: puede exportar su propia metadata. Antes esta ruta
-// compartia el title del layout con las otras cuatro.
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export const metadata: Metadata = {
   title: "Catálogo de Plantillas — Webs Inteligentes | Quantum Hive",
   description:
