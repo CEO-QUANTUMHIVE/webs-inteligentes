@@ -1,0 +1,34 @@
+[
+  {
+    "name": "hero.jpg",
+    "alt": "Tecnología de vanguardia y circuitos"
+  },
+  {
+    "name": "portada.jpg",
+    "alt": "Ciberseguridad y datos cifrados"
+  },
+  {
+    "name": "gallery-1.jpg",
+    "alt": "Hardware y pantallas de monitoreo"
+  },
+  {
+    "name": "gallery-2.jpg",
+    "alt": "Desarrollo de software y código"
+  },
+  {
+    "name": "gallery-3.jpg",
+    "alt": "Redes globales y computación en la nube"
+  },
+  {
+    "name": "gallery-4.jpg",
+    "alt": "Servidores y centro de procesamiento de datos"
+  },
+  {
+    "name": "gallery-5.jpg",
+    "alt": "Inteligencia artificial y analítica avanzada"
+  },
+  {
+    "name": "gallery-6.jpg",
+    "alt": "Equipo de ingeniería de software"
+  }
+]

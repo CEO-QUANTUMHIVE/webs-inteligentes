@@ -1,0 +1,24 @@
+{
+  "business": {
+    "name": "ZINZIRA — Moda Urbana",
+    "rubro": "Retail / Moda",
+    "headline": "Colecciones exclusivas de indumentaria urbana y contemporánea",
+    "shortHeadline": "Colección Urbana",
+    "description": "Indumentaria y accesorios de diseño con estética urbana contemporánea, cortes modernos y telas de alta calidad.",
+    "services": [
+      { "name": "Básicos Urbanos", "description": "Remeras, hoodies y pantalones de calce relajado" },
+      { "name": "Ediciones Limitadas", "description": "Cápsulas exclusivas con diseños de edición limitada" },
+      { "name": "Accesorios & Calzado", "description": "Complementos urbanos para completar tu estilo" }
+    ]
+  },
+  "contact": {
+    "ctaLabel": "Ver Tienda",
+    "ctaUrl": "#tienda",
+    "email": "contacto@zinzira.com.ar",
+    "phone": "+54 11 5555 4321",
+    "address": "Palermo, Buenos Aires"
+  },
+  "site": {
+    "language": "es-AR"
+  }
+}

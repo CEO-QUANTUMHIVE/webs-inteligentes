@@ -1,0 +1,34 @@
+[
+  {
+    "name": "hero.jpg",
+    "alt": "Spa y centro de bienestar"
+  },
+  {
+    "name": "portada.jpg",
+    "alt": "Tratamientos estéticos y relax"
+  },
+  {
+    "name": "gallery-1.jpg",
+    "alt": "Manicura y diseño de uñas editorial"
+  },
+  {
+    "name": "gallery-2.jpg",
+    "alt": "Masajes corporales y aromaterapia"
+  },
+  {
+    "name": "gallery-3.jpg",
+    "alt": "Cuidado facial y skincare"
+  },
+  {
+    "name": "gallery-4.jpg",
+    "alt": "Productos naturales y relajación"
+  },
+  {
+    "name": "gallery-5.jpg",
+    "alt": "Espacio zen de meditación"
+  },
+  {
+    "name": "gallery-6.jpg",
+    "alt": "Cosmética natural y belleza"
+  }
+]

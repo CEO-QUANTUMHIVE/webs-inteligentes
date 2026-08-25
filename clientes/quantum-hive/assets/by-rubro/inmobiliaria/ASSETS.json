@@ -1,0 +1,34 @@
+[
+  {
+    "name": "hero.jpg",
+    "alt": "Residencia moderna y diseño de lujo"
+  },
+  {
+    "name": "portada.jpg",
+    "alt": "Propiedad exclusiva con arquitectura de vanguardia"
+  },
+  {
+    "name": "gallery-1.jpg",
+    "alt": "Living espacioso con luz natural"
+  },
+  {
+    "name": "gallery-2.jpg",
+    "alt": "Cocina integrada de diseño contemporáneo"
+  },
+  {
+    "name": "gallery-3.jpg",
+    "alt": "Suite principal con balcón panorámico"
+  },
+  {
+    "name": "gallery-4.jpg",
+    "alt": "Piscina y área exterior de descanso"
+  },
+  {
+    "name": "gallery-5.jpg",
+    "alt": "Fachada exterior con vegetación"
+  },
+  {
+    "name": "gallery-6.jpg",
+    "alt": "Detalles finos y terminaciones premium"
+  }
+]

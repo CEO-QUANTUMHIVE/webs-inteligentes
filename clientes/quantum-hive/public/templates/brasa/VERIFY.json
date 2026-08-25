@@ -1,0 +1,28 @@
+{
+  "pass": true,
+  "generatedAt": "2026-08-25T02:42:26.881Z",
+  "source": "https://brasa-template.webflow.io/",
+  "output": "clientes\\quantum-hive\\public\\templates\\brasa\\site\\index.html",
+  "metrics": {
+    "totalTexts": 140,
+    "eligibleTexts": 137,
+    "changedTexts": 137,
+    "changedTextPercent": 100,
+    "changedImages": 33,
+    "copiedAssets": 9,
+    "changedLinks": 4,
+    "sourceDataWId": 77,
+    "adaptedDataWId": 77
+  },
+  "checks": {
+    "textAdaptation": true,
+    "copyLengthSafe": true,
+    "effectsPreserved": true,
+    "webflowRuntimePreserved": true,
+    "jqueryRuntimePreserved": true,
+    "signaturePresent": true,
+    "webflowBrandRemoved": true,
+    "assetsResolved": true
+  },
+  "issues": []
+}

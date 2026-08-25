@@ -1,0 +1,54 @@
+{
+  "business": {
+    "name": "Áurea Nail Studio",
+    "rubro": "estudio de uñas",
+    "headline": "Uñas que expresan tu estilo",
+    "shortHeadline": "UÑAS QUE EXPRESAN",
+    "description": "Manicura, nail art y cuidado de uñas en una experiencia pensada para expresar tu estilo.",
+    "services": [
+      {
+        "name": "Manicura",
+        "description": "Cuidado, forma y color para una terminación prolija."
+      },
+      {
+        "name": "Nail art",
+        "description": "Diseños personalizados para cada estilo y ocasión."
+      },
+      {
+        "name": "Gel y extensiones",
+        "description": "Opciones de larga duración adaptadas a tu preferencia."
+      }
+    ],
+    "benefits": [
+      "Diseños que acompañan tu estilo",
+      "Opciones para cada ocasión",
+      "Una forma simple de consultar y reservar"
+    ],
+    "process": [
+      "Elegí tu estilo",
+      "Consultá disponibilidad",
+      "Coordiná tu turno"
+    ]
+  },
+  "brand": {
+    "assetDir": "clientes/quantum-hive/assets/aurea-nail-studio",
+    "hero": "07-28712961.jpg",
+    "gallery": [
+      "01-34132695.jpg",
+      "03-34930141.jpg",
+      "04-34930100.jpg",
+      "05-6852174.jpg",
+      "06-14814957.jpg",
+      "07-28712961.jpg",
+      "09-34132696.jpg",
+      "10-19239100.jpg"
+    ]
+  },
+  "contact": {
+    "ctaLabel": "Consultar turno",
+    "ctaUrl": "#contacto"
+  },
+  "site": {
+    "language": "es-AR"
+  }
+}

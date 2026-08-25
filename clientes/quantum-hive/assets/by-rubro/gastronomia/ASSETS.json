@@ -1,0 +1,34 @@
+[
+  {
+    "name": "hero.jpg",
+    "alt": "Restaurante y salón gourmet"
+  },
+  {
+    "name": "portada.jpg",
+    "alt": "Platos gourmet de autor"
+  },
+  {
+    "name": "gallery-1.jpg",
+    "alt": "Plato principal artesanal"
+  },
+  {
+    "name": "gallery-2.jpg",
+    "alt": "Ensaladas y opciones frescas"
+  },
+  {
+    "name": "gallery-3.jpg",
+    "alt": "Pizza artesanal en horno de barro"
+  },
+  {
+    "name": "gallery-4.jpg",
+    "alt": "Coctelería y barra de bebidas"
+  },
+  {
+    "name": "gallery-5.jpg",
+    "alt": "Café de especialidad y pastelería"
+  },
+  {
+    "name": "gallery-6.jpg",
+    "alt": "Ambiente cálido e iluminación nocturna"
+  }
+]

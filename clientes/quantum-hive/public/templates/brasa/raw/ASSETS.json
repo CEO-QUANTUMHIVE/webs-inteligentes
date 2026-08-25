@@ -1,0 +1,563 @@
+{
+  "source": "https://brasa-template.webflow.io/",
+  "downloadedAt": "2026-08-25T02:41:20.939Z",
+  "summary": {
+    "failed": 3,
+    "downloaded": 67
+  },
+  "assets": [
+    {
+      "url": "https://cdn.prod.website-files.com",
+      "status": "failed",
+      "httpStatus": 403,
+      "error": "HTTP 403"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/css/brasa-template.shared.38e119549.min.css",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 148432,
+      "contentType": "text/css",
+      "file": "assets/627fc0ee6b-brasa-template.shared.38e119549.min.css"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67dc99e9e898f2957272201c_favicon.png",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 618,
+      "contentType": "image/png",
+      "file": "assets/617309fd9a-67dc99e9e898f2957272201c_favicon.png"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67dc99ec1be0d895a426a890_webclip.png",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 3589,
+      "contentType": "image/png",
+      "file": "assets/00aaec2ba6-67dc99ec1be0d895a426a890_webclip.png"
+    },
+    {
+      "url": "https://webflow.com/templates/html/brasa-website-template",
+      "status": "failed",
+      "error": "fetch failed"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67dc98cacde7d671516f64b4_logo-brasa.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 4034,
+      "contentType": "image/svg+xml",
+      "file": "assets/94b95c87b1-67dc98cacde7d671516f64b4_logo-brasa.svg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67db0560131ca0b295186d93_line.lottie",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 1036,
+      "contentType": "application/octet-stream",
+      "file": "assets/129690a860-67db0560131ca0b295186d93_line.lottie"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg",
+      "status": "failed",
+      "httpStatus": 403,
+      "error": "HTTP 403"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67db074cb5080aede0d7f5c2_location.json",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 11826,
+      "contentType": "application/json",
+      "file": "assets/3c85c8fd3e-67db074cb5080aede0d7f5c2_location.json"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67db0837131ca0b2951b1071_chef-hat.json",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 30109,
+      "contentType": "application/json",
+      "file": "assets/46fe1a3d51-67db0837131ca0b2951b1071_chef-hat.json"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67dafcb6cd3725fd97e99fa8_Gourmet%20Red%20Bun%20Burger%20on%20Rustic%20Tabletop.jpeg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 295699,
+      "contentType": "image/jpeg",
+      "file": "assets/8ab4f62b09-67dafcb6cd3725fd97e99fa8_Gourmet-Red-Bun-Burger-on-Rustic-Tabletop.jpeg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67dafd1541494c5f9d77f599_Delicious%20Fried%20Chicken%20Basket.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 140534,
+      "contentType": "image/webp",
+      "file": "assets/fbb3c78353-67dafd1541494c5f9d77f599_Delicious-Fried-Chicken-Basket.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67db2154d55f8f582e23f49c_4899.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 153370,
+      "contentType": "image/webp",
+      "file": "assets/18b3cc5a4e-67db2154d55f8f582e23f49c_4899.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67db28ed7bd9c4e71459683c_burger.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 14641,
+      "contentType": "image/svg+xml",
+      "file": "assets/ef1e6f0053-67db28ed7bd9c4e71459683c_burger.svg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67db2988d9c58ad5a74cb7d5_donuts.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 14874,
+      "contentType": "image/svg+xml",
+      "file": "assets/4c02030d00-67db2988d9c58ad5a74cb7d5_donuts.svg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67db298f4dbc990311b33037_fries.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 7277,
+      "contentType": "image/svg+xml",
+      "file": "assets/189bbb4b48-67db298f4dbc990311b33037_fries.svg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67db29980268a778afde74ff_hotdog.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 9072,
+      "contentType": "image/svg+xml",
+      "file": "assets/9036a5615f-67db29980268a778afde74ff_hotdog.svg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67db31e24e47ff0775e2944b_2150404805.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 94790,
+      "contentType": "image/webp",
+      "file": "assets/4763fdeb3d-67db31e24e47ff0775e2944b_2150404805.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67db3289db60fad66072a804_2148868237.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 172074,
+      "contentType": "image/webp",
+      "file": "assets/109a54f390-67db3289db60fad66072a804_2148868237.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67dc43424436a8cbc92c4591_young-adults-enjoying-food-min.jpg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 451641,
+      "contentType": "image/jpeg",
+      "file": "assets/3bd6c62f62-67dc43424436a8cbc92c4591_young-adults-enjoying-food-min.jpg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac20f/67d85eca483aba2443d903f0_close-up-delicious-chicken-meal-min.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 549236,
+      "contentType": "image/webp",
+      "file": "assets/4464b08d99-67d85eca483aba2443d903f0_close-up-delicious-chicken-meal-min.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67dc4d856668f4299502c978_view.json",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 9309,
+      "contentType": "application/json",
+      "file": "assets/2a55e100af-67dc4d856668f4299502c978_view.json"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac20f/67d85ea02c0823767bdcff47_42443.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 407606,
+      "contentType": "image/webp",
+      "file": "assets/bb0a2a85bd-67d85ea02c0823767bdcff47_42443.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac20f/67d85e4abaad09415716dee7_34660.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 160132,
+      "contentType": "image/webp",
+      "file": "assets/e772ef1a19-67d85e4abaad09415716dee7_34660.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac20f/67d85e2c39e2bd26fbce4396_6542.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 136480,
+      "contentType": "image/webp",
+      "file": "assets/18a0d025a4-67d85e2c39e2bd26fbce4396_6542.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac20f/67d85e06983afc658b8d890b_3764.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 226640,
+      "contentType": "image/webp",
+      "file": "assets/a9178d7fb0-67d85e06983afc658b8d890b_3764.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac20f/67d85dc5773249c01fdc1b96_1213.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 134500,
+      "contentType": "image/webp",
+      "file": "assets/7ee5fc684e-67d85dc5773249c01fdc1b96_1213.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac20f/67d85db05cf372c97c828020_2148042529.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 157066,
+      "contentType": "image/webp",
+      "file": "assets/9e89a48d8b-67d85db05cf372c97c828020_2148042529.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac20f/67d85da1073ac8b560f7e724_pre-prepared-food-showcasing-ready-eat-delicious-meals-go-min.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 382728,
+      "contentType": "image/webp",
+      "file": "assets/bf98e7f24e-67d85da1073ac8b560f7e724_pre-prepared-food-showcasing-ready-eat-delicious-meals-go-min.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac20f/67d85d352476c55409f1a3af_11271.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 252346,
+      "contentType": "image/webp",
+      "file": "assets/71ec85ca2e-67d85d352476c55409f1a3af_11271.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac20f/67d85d136ed727b7a0169805_4345.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 199984,
+      "contentType": "image/webp",
+      "file": "assets/4c7bc3dc0a-67d85d136ed727b7a0169805_4345.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac20f/67d85d00e3bd51456a74b8d1_971.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 195714,
+      "contentType": "image/webp",
+      "file": "assets/218cdf7ab8-67d85d00e3bd51456a74b8d1_971.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac20f/67d85cdfea1d26f8ef454c8e_303.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 80120,
+      "contentType": "image/webp",
+      "file": "assets/53f1c1be87-67d85cdfea1d26f8ef454c8e_303.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac20f/67d85cbe2655d79b274eb80c_2150168926.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 148452,
+      "contentType": "image/webp",
+      "file": "assets/f7231fe905-67d85cbe2655d79b274eb80c_2150168926.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac20f/67d85c9f93d46c558a56af2f_20691.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 106120,
+      "contentType": "image/webp",
+      "file": "assets/7928d40e69-67d85c9f93d46c558a56af2f_20691.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac20f/67d85c84fb76cb2940d5489f_6220.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 59684,
+      "contentType": "image/webp",
+      "file": "assets/dcd715a697-67d85c84fb76cb2940d5489f_6220.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac20f/67d85c237f070410e2015f02_14459.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 232106,
+      "contentType": "image/webp",
+      "file": "assets/c145a00078-67d85c237f070410e2015f02_14459.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac20f/67d85bf2ff45c05cfc376983_3859.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 181654,
+      "contentType": "image/webp",
+      "file": "assets/c14a3ca984-67d85bf2ff45c05cfc376983_3859.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac20f/67d85b993f0d1bd7d0ea1509_433.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 255706,
+      "contentType": "image/webp",
+      "file": "assets/9e05400bae-67d85b993f0d1bd7d0ea1509_433.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67dc63527ac6e31ae4bbbe14_star.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 776,
+      "contentType": "image/svg+xml",
+      "file": "assets/2e7a3482e8-67dc63527ac6e31ae4bbbe14_star.svg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67d43c25fbcd1b83dd9acad1_author-1.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 37012,
+      "contentType": "image/webp",
+      "file": "assets/c5a2f25f73-67d43c25fbcd1b83dd9acad1_author-1.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67d43c25fbcd1b83dd9acaf7_author-2.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 21758,
+      "contentType": "image/webp",
+      "file": "assets/1b7538b7cc-67d43c25fbcd1b83dd9acaf7_author-2.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67d43c25fbcd1b83dd9acae6_author-3.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 47540,
+      "contentType": "image/webp",
+      "file": "assets/3ca698f46a-67d43c25fbcd1b83dd9acae6_author-3.webp"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67dc6d558cfedb55d8974967_arrow-1.lottie",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 8821,
+      "contentType": "application/octet-stream",
+      "file": "assets/6234da7d37-67dc6d558cfedb55d8974967_arrow-1.lottie"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67dc76a8e7b57e3f8b5c2afa_line-2-orange.lottie",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 1178,
+      "contentType": "application/octet-stream",
+      "file": "assets/2acde4397e-67dc76a8e7b57e3f8b5c2afa_line-2-orange.lottie"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67dc6850cd9987c037ad4f6b_2149525601.jpg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 1702282,
+      "contentType": "image/jpeg",
+      "file": "assets/d273bdbe56-67dc6850cd9987c037ad4f6b_2149525601.jpg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67dc98df6cb65d160e8f4cc9_logo-brasa-white-bg.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 8167,
+      "contentType": "image/svg+xml",
+      "file": "assets/bb98c9cb22-67dc98df6cb65d160e8f4cc9_logo-brasa-white-bg.svg"
+    },
+    {
+      "url": "https://webflow.com/",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 625770,
+      "contentType": "text/html; charset=utf-8",
+      "file": "assets/42eb21f7e3-asset.bin"
+    },
+    {
+      "url": "https://www.template.supply/",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 723417,
+      "contentType": "text/html",
+      "file": "assets/97ce4fff7d-asset.bin"
+    },
+    {
+      "url": "https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=67d43c25fbcd1b83dd9ac238",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 89476,
+      "contentType": "application/javascript",
+      "file": "assets/1f3f51a550-jquery-3.5.1.min.dc5e7f18c8.js"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/js/brasa-template.schunk.17808c0d08c97489.js",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 1171884,
+      "contentType": "text/javascript",
+      "file": "assets/8c25b521ac-brasa-template.schunk.17808c0d08c97489.js"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/js/brasa-template.schunk.72f02ff067507ae2.js",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 475724,
+      "contentType": "text/javascript",
+      "file": "assets/7b26b182c9-brasa-template.schunk.72f02ff067507ae2.js"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/js/brasa-template.ac0db634.ca84a4271f3b6a38.js",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 2319,
+      "contentType": "text/javascript",
+      "file": "assets/4f0f2438f0-brasa-template.ac0db634.ca84a4271f3b6a38.js"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67e6dca94f890ac454d1611e_Open%20graph.png",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 69503,
+      "contentType": "image/png",
+      "file": "assets/ba2b17d4dc-67e6dca94f890ac454d1611e_Open-graph.png"
+    },
+    {
+      "url": "http://www.w3.org/2000/svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 1515,
+      "contentType": "text/html; charset=iso-8859-1",
+      "file": "assets/b05687485d-svg.bin"
+    },
+    {
+      "url": "http://www.w3.org/1999/xlink",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 1003,
+      "contentType": "text/html; charset=utf-8",
+      "file": "assets/b43cd36652-xlink.bin"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67d43c25fbcd1b83dd9acb12_BDOGrotesk-Medium-BF648a656fc86b8.ttf",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 126796,
+      "contentType": "font/ttf",
+      "file": "assets/483429a20a-67d43c25fbcd1b83dd9acb12_BDOGrotesk-Medium-BF648a656fc86b8.ttf"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67d43c25fbcd1b83dd9acb11_BDOGrotesk-Bold-BF648a656f8559f.ttf",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 126556,
+      "contentType": "font/ttf",
+      "file": "assets/5f6321823d-67d43c25fbcd1b83dd9acb11_BDOGrotesk-Bold-BF648a656f8559f.ttf"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67d43c25fbcd1b83dd9acb14_BDOGrotesk-DemiBold-BF648a656f9c460.ttf",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 126648,
+      "contentType": "font/ttf",
+      "file": "assets/85ba0b376e-67d43c25fbcd1b83dd9acb14_BDOGrotesk-DemiBold-BF648a656f9c460.ttf"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67d43c25fbcd1b83dd9acb15_BDOGrotesk-Light-BF648a656f91fcb.ttf",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 126856,
+      "contentType": "font/ttf",
+      "file": "assets/de5f6fa356-67d43c25fbcd1b83dd9acb15_BDOGrotesk-Light-BF648a656f91fcb.ttf"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67daf0e805507c9253a02480_OMGSANS.ttf",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 63076,
+      "contentType": "font/ttf",
+      "file": "assets/941f5dc063-67daf0e805507c9253a02480_OMGSANS.ttf"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67d43c25fbcd1b83dd9acb13_BDOGrotesk-Regular-BF648a656f74a27.otf",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 110048,
+      "contentType": "font/otf",
+      "file": "assets/86c558ba73-67d43c25fbcd1b83dd9acb13_BDOGrotesk-Regular-BF648a656f74a27.otf"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67db3a7bb5a39af7bdd1baaf_Batuphat%20Script%20Extrude.otf",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 77468,
+      "contentType": "font/otf",
+      "file": "assets/2ee15a33db-67db3a7bb5a39af7bdd1baaf_Batuphat-Script-Extrude.otf"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67db3a7b47752559cada03f1_Batuphat%20Script.otf",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 70564,
+      "contentType": "font/otf",
+      "file": "assets/21c3b2adc5-67db3a7b47752559cada03f1_Batuphat-Script.otf"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67d43c25fbcd1b83dd9ac625_webflow-spacing-bg-final.png",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 493,
+      "contentType": "image/png",
+      "file": "assets/ec5d9b3558-67d43c25fbcd1b83dd9ac625_webflow-spacing-bg-final.png"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67dc43fbeefdfe48a354bf3d_bg-black.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 219,
+      "contentType": "image/svg+xml",
+      "file": "assets/9bd434967b-67dc43fbeefdfe48a354bf3d_bg-black.svg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67dc61c947285df192598e98_drawn-bg-1.png",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 106355,
+      "contentType": "image/png",
+      "file": "assets/94a023cc1a-67dc61c947285df192598e98_drawn-bg-1.png"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67dafba53101ef233a48acfb_bg-red.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 219,
+      "contentType": "image/svg+xml",
+      "file": "assets/42c0d03ba7-67dafba53101ef233a48acfb_bg-red.svg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67dc7ef610a86c70dcad07f9_bg-white.svg",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 215,
+      "contentType": "image/svg+xml",
+      "file": "assets/ccd764795e-67dc7ef610a86c70dcad07f9_bg-white.svg"
+    },
+    {
+      "url": "https://cdn.prod.website-files.com/67d43c25fbcd1b83dd9ac238/67e413fea06075af8f0124a7_2149525568.webp",
+      "status": "downloaded",
+      "httpStatus": 200,
+      "bytes": 123408,
+      "contentType": "image/webp",
+      "file": "assets/3c05bdd2e6-67e413fea06075af8f0124a7_2149525568.webp"
+    }
+  ]
+}

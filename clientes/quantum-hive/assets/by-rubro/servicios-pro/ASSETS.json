@@ -1,0 +1,34 @@
+[
+  {
+    "name": "hero.jpg",
+    "alt": "Oficina corporativa de diseño abierto"
+  },
+  {
+    "name": "portada.jpg",
+    "alt": "Equipo profesional colaborando en proyecto"
+  },
+  {
+    "name": "gallery-1.jpg",
+    "alt": "Reunión de estrategia corporativa"
+  },
+  {
+    "name": "gallery-2.jpg",
+    "alt": "Consultoría y asesoramiento profesional"
+  },
+  {
+    "name": "gallery-3.jpg",
+    "alt": "Presentación y trabajo en equipo"
+  },
+  {
+    "name": "gallery-4.jpg",
+    "alt": "Análisis de datos y métricas corporativas"
+  },
+  {
+    "name": "gallery-5.jpg",
+    "alt": "Workspace profesional con tecnología"
+  },
+  {
+    "name": "gallery-6.jpg",
+    "alt": "Edificio de arquitectura financiera"
+  }
+]

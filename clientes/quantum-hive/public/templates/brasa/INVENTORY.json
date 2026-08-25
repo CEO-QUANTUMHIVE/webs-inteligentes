@@ -1,0 +1,2011 @@
+{
+  "source": "https://brasa-template.webflow.io/",
+  "slug": "brasa",
+  "generatedAt": "2026-08-25T02:41:22.681Z",
+  "summary": {
+    "texts": 140,
+    "images": 48,
+    "links": 56,
+    "dataWId": 77,
+    "webflowRuntime": false,
+    "jqueryRuntime": true
+  },
+  "texts": [
+    {
+      "id": "t0001",
+      "kind": "other",
+      "tag": "title",
+      "text": "Brasa - Webflow Ecommerce website template",
+      "chars": 42,
+      "context": "html#. head#. title#."
+    },
+    {
+      "id": "t0002",
+      "kind": "button",
+      "tag": "a",
+      "text": "Buy template",
+      "chars": 12,
+      "context": "html#. body#. a#.buy-template w-button"
+    },
+    {
+      "id": "t0003",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Home",
+      "chars": 4,
+      "context": "html#. body#. div#.page-wrapper div#.navbars nav#.navbar div#.padding-global div#.container-medium div#.navbar_component div#.navbar_main div#.navbar_links a#.navbar_link w-inline-block w--current div#.navbar_text"
+    },
+    {
+      "id": "t0004",
+      "kind": "nav",
+      "tag": "div",
+      "text": "About",
+      "chars": 5,
+      "context": "html#. body#. div#.page-wrapper div#.navbars nav#.navbar div#.padding-global div#.container-medium div#.navbar_component div#.navbar_main div#.navbar_links a#.navbar_link w-inline-block div#.navbar_text"
+    },
+    {
+      "id": "t0005",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Menu",
+      "chars": 4,
+      "context": "html#. body#. div#.page-wrapper div#.navbars nav#.navbar div#.padding-global div#.container-medium div#.navbar_component div#.navbar_main div#.navbar_links a#.navbar_link w-inline-block div#.navbar_text"
+    },
+    {
+      "id": "t0006",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Locations",
+      "chars": 9,
+      "context": "html#. body#. div#.page-wrapper div#.navbars nav#.navbar div#.padding-global div#.container-medium div#.navbar_component div#.navbar_main div#.navbar_links a#.navbar_link w-inline-block div#.navbar_text"
+    },
+    {
+      "id": "t0007",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Blog",
+      "chars": 4,
+      "context": "html#. body#. div#.page-wrapper div#.navbars nav#.navbar div#.padding-global div#.container-medium div#.navbar_component div#.navbar_main div#.navbar_links a#.navbar_link w-inline-block div#.navbar_text"
+    },
+    {
+      "id": "t0008",
+      "kind": "nav",
+      "tag": "div",
+      "text": "0",
+      "chars": 1,
+      "context": "#.page-wrapper div#.navbars nav#.navbar div#.padding-global div#.container-medium div#.navbar_component div#.navbar_infos div#.w-commerce-commercecartwrapper cart a#.w-commerce-commercecartopenlink cart_button w-inline-block div#.w-commerce-commercecartopenlinkcount cart_quantity"
+    },
+    {
+      "id": "t0009",
+      "kind": "heading",
+      "tag": "h4",
+      "text": "Your Cart",
+      "chars": 9,
+      "context": "twrapper cart div#.w-commerce-commercecartcontainerwrapper w-commerce-commercecartcontainerwrapper--carttype-rightsidebar cart_wrapper div#.w-commerce-commercecartcontainer cart_container div#.w-commerce-commercecartheader cart-header h4#.w-commerce-commercecartheading cart-title"
+    },
+    {
+      "id": "t0010",
+      "kind": "nav",
+      "tag": "div",
+      "text": "$ 0.00 USD",
+      "chars": 10,
+      "context": "artcontainer cart_container div#.w-commerce-commercecartformwrapper cart-form-wrapper form#.w-commerce-commercecartform default-state div#.w-commerce-commercecartlist cart-list div#.w-commerce-commercecartitem cart-item div#.w-commerce-commercecartiteminfo div#.cart_product-price"
+    },
+    {
+      "id": "t0011",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Remove",
+      "chars": 6,
+      "context": "v#.w-commerce-commercecartformwrapper cart-form-wrapper form#.w-commerce-commercecartform default-state div#.w-commerce-commercecartlist cart-list div#.w-commerce-commercecartitem cart-item div#.w-commerce-commercecartiteminfo a#.cart_remove-button w-inline-block div#.cart_remove"
+    },
+    {
+      "id": "t0012",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Subtotal",
+      "chars": 8,
+      "context": "wrapper--carttype-rightsidebar cart_wrapper div#.w-commerce-commercecartcontainer cart_container div#.w-commerce-commercecartformwrapper cart-form-wrapper form#.w-commerce-commercecartform default-state div#.w-commerce-commercecartfooter div#.w-commerce-commercecartlineitem div#."
+    },
+    {
+      "id": "t0013",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Pay with browser.",
+      "chars": 17,
+      "context": "htsidebar cart_wrapper div#.w-commerce-commercecartcontainer cart_container div#.w-commerce-commercecartformwrapper cart-form-wrapper form#.w-commerce-commercecartform default-state div#.w-commerce-commercecartfooter div#. div#. a#.w-commerce-commercecartquickcheckoutbutton div#."
+    },
+    {
+      "id": "t0014",
+      "kind": "nav",
+      "tag": "a",
+      "text": "Continue to Checkout",
+      "chars": 20,
+      "context": "rightsidebar cart_wrapper div#.w-commerce-commercecartcontainer cart_container div#.w-commerce-commercecartformwrapper cart-form-wrapper form#.w-commerce-commercecartform default-state div#.w-commerce-commercecartfooter div#. a#.w-commerce-commercecartcheckoutbutton button yellow"
+    },
+    {
+      "id": "t0015",
+      "kind": "nav",
+      "tag": "div",
+      "text": "No items found.",
+      "chars": 15,
+      "context": "art div#.w-commerce-commercecartcontainerwrapper w-commerce-commercecartcontainerwrapper--carttype-rightsidebar cart_wrapper div#.w-commerce-commercecartcontainer cart_container div#.w-commerce-commercecartformwrapper cart-form-wrapper div#.w-commerce-commercecartemptystate div#."
+    },
+    {
+      "id": "t0016",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Product is not available in this quantity.",
+      "chars": 42,
+      "context": "containerwrapper w-commerce-commercecartcontainerwrapper--carttype-rightsidebar cart_wrapper div#.w-commerce-commercecartcontainer cart_container div#.w-commerce-commercecartformwrapper cart-form-wrapper div#.w-commerce-commercecarterrorstate error-message-2 div#.w-cart-error-msg"
+    },
+    {
+      "id": "t0017",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Location",
+      "chars": 8,
+      "context": "html#. body#. div#.page-wrapper div#.navbars nav#.navbar div#.padding-global div#.container-medium div#.navbar_component div#.navbar_infos a#.navbar_info-block w-inline-block div#.navbar_info-texts div#.navbar_info-text"
+    },
+    {
+      "id": "t0018",
+      "kind": "nav",
+      "tag": "div",
+      "text": "New York, NY",
+      "chars": 12,
+      "context": "html#. body#. div#.page-wrapper div#.navbars nav#.navbar div#.padding-global div#.container-medium div#.navbar_component div#.navbar_infos a#.navbar_info-block w-inline-block div#.navbar_info-texts div#.navbar_info"
+    },
+    {
+      "id": "t0019",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Order now",
+      "chars": 9,
+      "context": "html#. body#. div#.page-wrapper div#.navbars nav#.navbar div#.padding-global div#.container-medium div#.navbar_component div#.navbar_infos a#.navbar_info-block w-inline-block div#.navbar_info-texts div#.navbar_info-text"
+    },
+    {
+      "id": "t0020",
+      "kind": "nav",
+      "tag": "div",
+      "text": "987-654-3210",
+      "chars": 12,
+      "context": "html#. body#. div#.page-wrapper div#.navbars nav#.navbar div#.padding-global div#.container-medium div#.navbar_component div#.navbar_infos a#.navbar_info-block w-inline-block div#.navbar_info-texts div#.navbar_info"
+    },
+    {
+      "id": "t0021",
+      "kind": "heading",
+      "tag": "h1",
+      "text": "Burger love, always.",
+      "chars": 20,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-header div#.padding-global div#.home-header_component div#.home-header_headings h1#.home-header_heading _1"
+    },
+    {
+      "id": "t0022",
+      "kind": "heading",
+      "tag": "h1",
+      "text": "Golden nuggets of joy",
+      "chars": 21,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-header div#.padding-global div#.home-header_component div#.home-header_headings h1#.home-header_heading _2"
+    },
+    {
+      "id": "t0023",
+      "kind": "heading",
+      "tag": "h1",
+      "text": "Fries speak louder",
+      "chars": 18,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-header div#.padding-global div#.home-header_component div#.home-header_headings h1#.home-header_heading _3"
+    },
+    {
+      "id": "t0024",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Order now",
+      "chars": 9,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-header div#.padding-global div#.home-header_component div#.home-header_images div#.home-header_button-wrap a#.home-header_button w-inline-block div#.home-header_button-text"
+    },
+    {
+      "id": "t0025",
+      "kind": "label",
+      "tag": "div",
+      "text": "wow",
+      "chars": 3,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap div#.home-marquee_word"
+    },
+    {
+      "id": "t0026",
+      "kind": "label",
+      "tag": "div",
+      "text": "uff",
+      "chars": 3,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap div#.home-marquee_word"
+    },
+    {
+      "id": "t0027",
+      "kind": "label",
+      "tag": "div",
+      "text": "Mmm",
+      "chars": 3,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap div#.home-marquee_word"
+    },
+    {
+      "id": "t0028",
+      "kind": "label",
+      "tag": "div",
+      "text": "Tasty",
+      "chars": 5,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap div#.home-marquee_word"
+    },
+    {
+      "id": "t0029",
+      "kind": "label",
+      "tag": "div",
+      "text": "wow",
+      "chars": 3,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap div#.home-marquee_word"
+    },
+    {
+      "id": "t0030",
+      "kind": "label",
+      "tag": "div",
+      "text": "uff",
+      "chars": 3,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap div#.home-marquee_word"
+    },
+    {
+      "id": "t0031",
+      "kind": "label",
+      "tag": "div",
+      "text": "Mmm",
+      "chars": 3,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap div#.home-marquee_word"
+    },
+    {
+      "id": "t0032",
+      "kind": "label",
+      "tag": "div",
+      "text": "Tasty",
+      "chars": 5,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap div#.home-marquee_word"
+    },
+    {
+      "id": "t0033",
+      "kind": "label",
+      "tag": "div",
+      "text": "wow",
+      "chars": 3,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap div#.home-marquee_word"
+    },
+    {
+      "id": "t0034",
+      "kind": "label",
+      "tag": "div",
+      "text": "uff",
+      "chars": 3,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap div#.home-marquee_word"
+    },
+    {
+      "id": "t0035",
+      "kind": "label",
+      "tag": "div",
+      "text": "Mmm",
+      "chars": 3,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap div#.home-marquee_word"
+    },
+    {
+      "id": "t0036",
+      "kind": "label",
+      "tag": "div",
+      "text": "Tasty",
+      "chars": 5,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap div#.home-marquee_word"
+    },
+    {
+      "id": "t0037",
+      "kind": "label",
+      "tag": "div",
+      "text": "About us",
+      "chars": 8,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-about div#.padding-global div#.container-medium div#.home-about_component div#.content-block_texts div#.content-block_head div#.label_component div#.label_text"
+    },
+    {
+      "id": "t0038",
+      "kind": "label",
+      "tag": "div",
+      "text": "About us",
+      "chars": 8,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-about div#.padding-global div#.container-medium div#.home-about_component div#.content-block_texts div#.content-block_head div#.label_component div#.label_text _2"
+    },
+    {
+      "id": "t0039",
+      "kind": "heading",
+      "tag": "h2",
+      "text": "From Our Grill to Your Heart",
+      "chars": 28,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-about div#.padding-global div#.container-medium div#.home-about_component div#.content-block_texts div#.content-block_head h2#."
+    },
+    {
+      "id": "t0040",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis.",
+      "chars": 131,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-about div#.padding-global div#.container-medium div#.home-about_component div#.content-block_texts div#.home-about_texts p#.text-size-medium text-weight-medium"
+    },
+    {
+      "id": "t0041",
+      "kind": "label",
+      "tag": "div",
+      "text": "About us",
+      "chars": 8,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-about div#.padding-global div#.container-medium div#.home-about_component div#.content-block_texts div#.home-about_texts a#.button w-inline-block div#."
+    },
+    {
+      "id": "t0042",
+      "kind": "heading",
+      "tag": "h2",
+      "text": "Our menu",
+      "chars": 8,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-menu div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.text-color-white h2#."
+    },
+    {
+      "id": "t0043",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Sides",
+      "chars": 5,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-menu div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-menu w-tab-menu a#.menu_link w-inline-block w-tab-link w--current div#."
+    },
+    {
+      "id": "t0044",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Main",
+      "chars": 4,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-menu div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-menu w-tab-menu a#.menu_link w-inline-block w-tab-link div#."
+    },
+    {
+      "id": "t0045",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Drinks",
+      "chars": 6,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-menu div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-menu w-tab-menu a#.menu_link w-inline-block w-tab-link div#."
+    },
+    {
+      "id": "t0046",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Desserts",
+      "chars": 8,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-menu div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-menu w-tab-menu a#.menu_link w-inline-block w-tab-link div#."
+    },
+    {
+      "id": "t0047",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Chicken wings",
+      "chars": 13,
+      "context": "u_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-white h3#.menu_name"
+    },
+    {
+      "id": "t0048",
+      "kind": "nav",
+      "tag": "div",
+      "text": "$ 17.00 USD",
+      "chars": 11,
+      "context": "#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-grey-300 div#."
+    },
+    {
+      "id": "t0049",
+      "kind": "nav",
+      "tag": "div",
+      "text": "View",
+      "chars": 4,
+      "context": "abs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos a#.button-icon_component w-inline-block div#.button-icon_text"
+    },
+    {
+      "id": "t0050",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Chicken nuggets",
+      "chars": 15,
+      "context": "u_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-white h3#.menu_name"
+    },
+    {
+      "id": "t0051",
+      "kind": "nav",
+      "tag": "div",
+      "text": "$ 16.00 USD",
+      "chars": 11,
+      "context": "#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-grey-300 div#."
+    },
+    {
+      "id": "t0052",
+      "kind": "nav",
+      "tag": "div",
+      "text": "View",
+      "chars": 4,
+      "context": "abs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos a#.button-icon_component w-inline-block div#.button-icon_text"
+    },
+    {
+      "id": "t0053",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "French fries",
+      "chars": 12,
+      "context": "u_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-white h3#.menu_name"
+    },
+    {
+      "id": "t0054",
+      "kind": "nav",
+      "tag": "div",
+      "text": "$ 12.00 USD",
+      "chars": 11,
+      "context": "#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-grey-300 div#."
+    },
+    {
+      "id": "t0055",
+      "kind": "nav",
+      "tag": "div",
+      "text": "View",
+      "chars": 4,
+      "context": "abs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos a#.button-icon_component w-inline-block div#.button-icon_text"
+    },
+    {
+      "id": "t0056",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Mozzarella sticks",
+      "chars": 17,
+      "context": "u_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-white h3#.menu_name"
+    },
+    {
+      "id": "t0057",
+      "kind": "nav",
+      "tag": "div",
+      "text": "$ 15.00 USD",
+      "chars": 11,
+      "context": "#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-grey-300 div#."
+    },
+    {
+      "id": "t0058",
+      "kind": "nav",
+      "tag": "div",
+      "text": "View",
+      "chars": 4,
+      "context": "abs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos a#.button-icon_component w-inline-block div#.button-icon_text"
+    },
+    {
+      "id": "t0059",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Onion rings",
+      "chars": 11,
+      "context": "u_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-white h3#.menu_name"
+    },
+    {
+      "id": "t0060",
+      "kind": "nav",
+      "tag": "div",
+      "text": "$ 16.00 USD",
+      "chars": 11,
+      "context": "#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-grey-300 div#."
+    },
+    {
+      "id": "t0061",
+      "kind": "nav",
+      "tag": "div",
+      "text": "View",
+      "chars": 4,
+      "context": "abs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos a#.button-icon_component w-inline-block div#.button-icon_text"
+    },
+    {
+      "id": "t0062",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Tuna salad",
+      "chars": 10,
+      "context": "u_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-white h3#.menu_name"
+    },
+    {
+      "id": "t0063",
+      "kind": "nav",
+      "tag": "div",
+      "text": "$ 18.00 USD",
+      "chars": 11,
+      "context": "#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-grey-300 div#."
+    },
+    {
+      "id": "t0064",
+      "kind": "nav",
+      "tag": "div",
+      "text": "View",
+      "chars": 4,
+      "context": "abs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos a#.button-icon_component w-inline-block div#.button-icon_text"
+    },
+    {
+      "id": "t0065",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Nachos",
+      "chars": 6,
+      "context": "er-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-white h3#.menu_name"
+    },
+    {
+      "id": "t0066",
+      "kind": "nav",
+      "tag": "div",
+      "text": "$ 32.00 USD",
+      "chars": 11,
+      "context": "ntainer-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-grey-300 div#."
+    },
+    {
+      "id": "t0067",
+      "kind": "nav",
+      "tag": "div",
+      "text": "View",
+      "chars": 4,
+      "context": "iv#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos a#.button-icon_component w-inline-block div#.button-icon_text"
+    },
+    {
+      "id": "t0068",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Hot dog chicken",
+      "chars": 15,
+      "context": "er-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-white h3#.menu_name"
+    },
+    {
+      "id": "t0069",
+      "kind": "nav",
+      "tag": "div",
+      "text": "$ 22.00 USD",
+      "chars": 11,
+      "context": "ntainer-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-grey-300 div#."
+    },
+    {
+      "id": "t0070",
+      "kind": "nav",
+      "tag": "div",
+      "text": "View",
+      "chars": 4,
+      "context": "iv#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos a#.button-icon_component w-inline-block div#.button-icon_text"
+    },
+    {
+      "id": "t0071",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Hot dog",
+      "chars": 7,
+      "context": "er-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-white h3#.menu_name"
+    },
+    {
+      "id": "t0072",
+      "kind": "nav",
+      "tag": "div",
+      "text": "$ 14.00 USD",
+      "chars": 11,
+      "context": "ntainer-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-grey-300 div#."
+    },
+    {
+      "id": "t0073",
+      "kind": "nav",
+      "tag": "div",
+      "text": "View",
+      "chars": 4,
+      "context": "iv#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos a#.button-icon_component w-inline-block div#.button-icon_text"
+    },
+    {
+      "id": "t0074",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Bacon burger",
+      "chars": 12,
+      "context": "er-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-white h3#.menu_name"
+    },
+    {
+      "id": "t0075",
+      "kind": "nav",
+      "tag": "div",
+      "text": "$ 29.00 USD",
+      "chars": 11,
+      "context": "ntainer-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-grey-300 div#."
+    },
+    {
+      "id": "t0076",
+      "kind": "nav",
+      "tag": "div",
+      "text": "View",
+      "chars": 4,
+      "context": "iv#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos a#.button-icon_component w-inline-block div#.button-icon_text"
+    },
+    {
+      "id": "t0077",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Veggie burger",
+      "chars": 13,
+      "context": "er-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-white h3#.menu_name"
+    },
+    {
+      "id": "t0078",
+      "kind": "nav",
+      "tag": "div",
+      "text": "$ 22.00 USD",
+      "chars": 11,
+      "context": "ntainer-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-grey-300 div#."
+    },
+    {
+      "id": "t0079",
+      "kind": "nav",
+      "tag": "div",
+      "text": "View",
+      "chars": 4,
+      "context": "iv#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos a#.button-icon_component w-inline-block div#.button-icon_text"
+    },
+    {
+      "id": "t0080",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Classic burger",
+      "chars": 14,
+      "context": "er-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-white h3#.menu_name"
+    },
+    {
+      "id": "t0081",
+      "kind": "nav",
+      "tag": "div",
+      "text": "$ 26.00 USD",
+      "chars": 11,
+      "context": "ntainer-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-grey-300 div#."
+    },
+    {
+      "id": "t0082",
+      "kind": "nav",
+      "tag": "div",
+      "text": "View",
+      "chars": 4,
+      "context": "iv#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos a#.button-icon_component w-inline-block div#.button-icon_text"
+    },
+    {
+      "id": "t0083",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Italian soda",
+      "chars": 12,
+      "context": "er-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-white h3#.menu_name"
+    },
+    {
+      "id": "t0084",
+      "kind": "nav",
+      "tag": "div",
+      "text": "$ 9.00 USD",
+      "chars": 10,
+      "context": "ntainer-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-grey-300 div#."
+    },
+    {
+      "id": "t0085",
+      "kind": "nav",
+      "tag": "div",
+      "text": "View",
+      "chars": 4,
+      "context": "iv#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos a#.button-icon_component w-inline-block div#.button-icon_text"
+    },
+    {
+      "id": "t0086",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Orange juice",
+      "chars": 12,
+      "context": "er-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-white h3#.menu_name"
+    },
+    {
+      "id": "t0087",
+      "kind": "nav",
+      "tag": "div",
+      "text": "$ 9.00 USD",
+      "chars": 10,
+      "context": "ntainer-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-grey-300 div#."
+    },
+    {
+      "id": "t0088",
+      "kind": "nav",
+      "tag": "div",
+      "text": "View",
+      "chars": 4,
+      "context": "iv#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos a#.button-icon_component w-inline-block div#.button-icon_text"
+    },
+    {
+      "id": "t0089",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Soda",
+      "chars": 4,
+      "context": "er-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-white h3#.menu_name"
+    },
+    {
+      "id": "t0090",
+      "kind": "nav",
+      "tag": "div",
+      "text": "$ 7.00 USD",
+      "chars": 10,
+      "context": "ntainer-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-grey-300 div#."
+    },
+    {
+      "id": "t0091",
+      "kind": "nav",
+      "tag": "div",
+      "text": "View",
+      "chars": 4,
+      "context": "iv#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos a#.button-icon_component w-inline-block div#.button-icon_text"
+    },
+    {
+      "id": "t0092",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Pancakes",
+      "chars": 8,
+      "context": "er-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-white h3#.menu_name"
+    },
+    {
+      "id": "t0093",
+      "kind": "nav",
+      "tag": "div",
+      "text": "$ 14.00 USD",
+      "chars": 11,
+      "context": "ntainer-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-grey-300 div#."
+    },
+    {
+      "id": "t0094",
+      "kind": "nav",
+      "tag": "div",
+      "text": "View",
+      "chars": 4,
+      "context": "iv#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos a#.button-icon_component w-inline-block div#.button-icon_text"
+    },
+    {
+      "id": "t0095",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Brownie à la mode",
+      "chars": 17,
+      "context": "er-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-white h3#.menu_name"
+    },
+    {
+      "id": "t0096",
+      "kind": "nav",
+      "tag": "div",
+      "text": "$ 26.00 USD",
+      "chars": 11,
+      "context": "ntainer-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-grey-300 div#."
+    },
+    {
+      "id": "t0097",
+      "kind": "nav",
+      "tag": "div",
+      "text": "View",
+      "chars": 4,
+      "context": "iv#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos a#.button-icon_component w-inline-block div#.button-icon_text"
+    },
+    {
+      "id": "t0098",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Chocolate brownie",
+      "chars": 17,
+      "context": "er-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-white h3#.menu_name"
+    },
+    {
+      "id": "t0099",
+      "kind": "nav",
+      "tag": "div",
+      "text": "$ 23.00 USD",
+      "chars": 11,
+      "context": "ntainer-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos div#.menu_texts div#.text-color-grey-300 div#."
+    },
+    {
+      "id": "t0100",
+      "kind": "nav",
+      "tag": "div",
+      "text": "View",
+      "chars": 4,
+      "context": "iv#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos a#.button-icon_component w-inline-block div#.button-icon_text"
+    },
+    {
+      "id": "t0101",
+      "kind": "heading",
+      "tag": "h2",
+      "text": "What our clients say",
+      "chars": 20,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_testimonials div#.padding-global div#.container-medium div#.testimonials_component div#.text-color-white h2#.heading-style-h3"
+    },
+    {
+      "id": "t0102",
+      "kind": "paragraph",
+      "tag": "blockquote",
+      "text": "\"The fries were perfectly crispy, and the nuggets? Addictive!\"\u001b",
+      "chars": 63,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_testimonials div#.padding-global div#.container-medium div#.testimonials_component div#.testimonials_list div#.testimonials_item _1 div#.testimonials_content blockquote#.text-align-center"
+    },
+    {
+      "id": "t0103",
+      "kind": "label",
+      "tag": "div",
+      "text": "Sophia L.",
+      "chars": 9,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_testimonials div#.padding-global div#.container-medium div#.testimonials_component div#.testimonials_list div#.testimonials_item _1 div#.testimonials_author-infos div#.testimonials_author-name"
+    },
+    {
+      "id": "t0104",
+      "kind": "label",
+      "tag": "div",
+      "text": "Client",
+      "chars": 6,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_testimonials div#.padding-global div#.container-medium div#.testimonials_component div#.testimonials_list div#.testimonials_item _1 div#.testimonials_author-infos div#.testimonials_author-desc"
+    },
+    {
+      "id": "t0105",
+      "kind": "other",
+      "tag": "blockquote",
+      "text": "\"Hands down the best burger I’ve ever had!\"\u001b",
+      "chars": 44,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_testimonials div#.padding-global div#.container-medium div#.testimonials_component div#.testimonials_list div#.testimonials_item _2 div#.testimonials_content blockquote#.text-align-center"
+    },
+    {
+      "id": "t0106",
+      "kind": "label",
+      "tag": "div",
+      "text": "Emma R.",
+      "chars": 7,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_testimonials div#.padding-global div#.container-medium div#.testimonials_component div#.testimonials_list div#.testimonials_item _2 div#.testimonials_author-infos div#.testimonials_author-name"
+    },
+    {
+      "id": "t0107",
+      "kind": "label",
+      "tag": "div",
+      "text": "Client",
+      "chars": 6,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_testimonials div#.padding-global div#.container-medium div#.testimonials_component div#.testimonials_list div#.testimonials_item _2 div#.testimonials_author-infos div#."
+    },
+    {
+      "id": "t0108",
+      "kind": "other",
+      "tag": "blockquote",
+      "text": "\"Best burger in town, no contest!\"\u001b",
+      "chars": 35,
+      "context": "pper main#.main-wrapper section#.section_testimonials div#.padding-global div#.container-medium div#.testimonials_component div#.testimonials_list div#w-node-c5557d4f-a368-c579-b579-3b0baad86688-aad86663.testimonials_item _3 div#.testimonials_content blockquote#.text-align-center"
+    },
+    {
+      "id": "t0109",
+      "kind": "label",
+      "tag": "div",
+      "text": "Mark T",
+      "chars": 6,
+      "context": "main#.main-wrapper section#.section_testimonials div#.padding-global div#.container-medium div#.testimonials_component div#.testimonials_list div#w-node-c5557d4f-a368-c579-b579-3b0baad86688-aad86663.testimonials_item _3 div#.testimonials_author-infos div#.testimonials_author-name"
+    },
+    {
+      "id": "t0110",
+      "kind": "label",
+      "tag": "div",
+      "text": "Client",
+      "chars": 6,
+      "context": "ody#. div#.page-wrapper main#.main-wrapper section#.section_testimonials div#.padding-global div#.container-medium div#.testimonials_component div#.testimonials_list div#w-node-c5557d4f-a368-c579-b579-3b0baad86688-aad86663.testimonials_item _3 div#.testimonials_author-infos div#."
+    },
+    {
+      "id": "t0111",
+      "kind": "heading",
+      "tag": "h2",
+      "text": "Come",
+      "chars": 4,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper footer#.section_cta div#.cta_wrapper div#.cta_sticky div#.padding-global full-wdth div#.cta_component div#.cta_heading-wrap h2#.cta_heading"
+    },
+    {
+      "id": "t0112",
+      "kind": "heading",
+      "tag": "h2",
+      "text": "Visit us",
+      "chars": 8,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper footer#.section_cta div#.cta_wrapper div#.cta_sticky div#.padding-global full-wdth div#.cta_component div#.cta_heading-wrap h2#.cta_heading"
+    },
+    {
+      "id": "t0113",
+      "kind": "heading",
+      "tag": "h2",
+      "text": "Our location",
+      "chars": 12,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper footer#.section_cta div#.cta_wrapper div#.cta_sticky div#.cta_content div#.padding-global div#.cta_block div#.cta_main-content h2#.heading-style-h3"
+    },
+    {
+      "id": "t0114",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "2120 Straford Park",
+      "chars": 18,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper footer#.section_cta div#.cta_wrapper div#.cta_sticky div#.cta_content div#.padding-global div#.cta_block div#.cta_main-content p#.paragraph"
+    },
+    {
+      "id": "t0115",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Lexington, Kentucky - US",
+      "chars": 24,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper footer#.section_cta div#.cta_wrapper div#.cta_sticky div#.cta_content div#.padding-global div#.cta_block div#.cta_main-content p#.paragraph"
+    },
+    {
+      "id": "t0116",
+      "kind": "label",
+      "tag": "div",
+      "text": "Our locations",
+      "chars": 13,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper footer#.section_cta div#.cta_wrapper div#.cta_sticky div#.cta_content div#.padding-global div#.cta_block div#.cta_main-content a#.button w-variant-f9a57b09-0948-885f-f777-ee7ac10d901d w-inline-block div#."
+    },
+    {
+      "id": "t0117",
+      "kind": "brand",
+      "tag": "div",
+      "text": "Bite. Smile. Repeat.",
+      "chars": 20,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_brand div#.footer_brand-desc"
+    },
+    {
+      "id": "t0118",
+      "kind": "label",
+      "tag": "div",
+      "text": "Home",
+      "chars": 4,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#.footer_links-groups div#.footer_links-group a#.footer_link w-inline-block w--current div#.footer_link-text"
+    },
+    {
+      "id": "t0119",
+      "kind": "label",
+      "tag": "div",
+      "text": "About",
+      "chars": 5,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#.footer_links-groups div#.footer_links-group a#.footer_link w-inline-block div#.footer_link-text"
+    },
+    {
+      "id": "t0120",
+      "kind": "label",
+      "tag": "div",
+      "text": "Menu",
+      "chars": 4,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#.footer_links-groups div#.footer_links-group a#.footer_link w-inline-block div#.footer_link-text"
+    },
+    {
+      "id": "t0121",
+      "kind": "label",
+      "tag": "div",
+      "text": "Locations",
+      "chars": 9,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#.footer_links-groups div#.footer_links-group a#.footer_link w-inline-block div#.footer_link-text"
+    },
+    {
+      "id": "t0122",
+      "kind": "label",
+      "tag": "div",
+      "text": "Location",
+      "chars": 8,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#.footer_links-groups div#.footer_links-group a#.footer_link w-inline-block div#.footer_link-text"
+    },
+    {
+      "id": "t0123",
+      "kind": "label",
+      "tag": "div",
+      "text": "Contact",
+      "chars": 7,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#.footer_links-groups div#.footer_links-group a#.footer_link w-inline-block div#.footer_link-text"
+    },
+    {
+      "id": "t0124",
+      "kind": "label",
+      "tag": "div",
+      "text": "Blog",
+      "chars": 4,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#.footer_links-groups div#.footer_links-group a#.footer_link w-inline-block div#.footer_link-text"
+    },
+    {
+      "id": "t0125",
+      "kind": "label",
+      "tag": "div",
+      "text": "Blog post",
+      "chars": 9,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#.footer_links-groups div#.footer_links-group a#.footer_link w-inline-block div#.footer_link-text"
+    },
+    {
+      "id": "t0126",
+      "kind": "label",
+      "tag": "div",
+      "text": "Product",
+      "chars": 7,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#.footer_links-groups div#.footer_links-group a#.footer_link w-inline-block div#.footer_link-text"
+    },
+    {
+      "id": "t0127",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Location",
+      "chars": 8,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#w-node-_2da64e58-7a64-a03c-8c3f-856a365e0a09-365e09d4.footer_infos div#.footer_info p#.footer_info-label"
+    },
+    {
+      "id": "t0128",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "2120 Straford Park",
+      "chars": 18,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#w-node-_2da64e58-7a64-a03c-8c3f-856a365e0a09-365e09d4.footer_infos div#.footer_info p#.footer_info-text"
+    },
+    {
+      "id": "t0129",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Lexington, Kentucky - US",
+      "chars": 24,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#w-node-_2da64e58-7a64-a03c-8c3f-856a365e0a09-365e09d4.footer_infos div#.footer_info p#.footer_info-text"
+    },
+    {
+      "id": "t0130",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Phone",
+      "chars": 5,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#w-node-_2da64e58-7a64-a03c-8c3f-856a365e0a09-365e09d4.footer_infos div#.footer_info p#.footer_info-label"
+    },
+    {
+      "id": "t0131",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "987-654-3210",
+      "chars": 12,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#w-node-_2da64e58-7a64-a03c-8c3f-856a365e0a09-365e09d4.footer_infos div#.footer_info p#.footer_info-text"
+    },
+    {
+      "id": "t0132",
+      "kind": "label",
+      "tag": "div",
+      "text": "© 2025 Brasa",
+      "chars": 12,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_legal-links div#w-node-_2da64e58-7a64-a03c-8c3f-856a365e0a18-365e09d4.footer_legal-wrap div#.footer_copyright"
+    },
+    {
+      "id": "t0133",
+      "kind": "label",
+      "tag": "div",
+      "text": "Powered by",
+      "chars": 10,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_legal-links div#w-node-_2da64e58-7a64-a03c-8c3f-856a365e0a18-365e09d4.footer_legal-wrap div#.footer_copyright"
+    },
+    {
+      "id": "t0134",
+      "kind": "button",
+      "tag": "a",
+      "text": "Webflow",
+      "chars": 7,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_legal-links div#w-node-_2da64e58-7a64-a03c-8c3f-856a365e0a18-365e09d4.footer_legal-wrap div#.footer_copyright a#.footer_legal-link"
+    },
+    {
+      "id": "t0135",
+      "kind": "label",
+      "tag": "div",
+      "text": "Created by",
+      "chars": 10,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_legal-links div#w-node-_2da64e58-7a64-a03c-8c3f-856a365e0a18-365e09d4.footer_legal-wrap div#.footer_copyright"
+    },
+    {
+      "id": "t0136",
+      "kind": "button",
+      "tag": "a",
+      "text": "template.supply",
+      "chars": 15,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_legal-links div#w-node-_2da64e58-7a64-a03c-8c3f-856a365e0a18-365e09d4.footer_legal-wrap div#.footer_copyright a#.footer_legal-link"
+    },
+    {
+      "id": "t0137",
+      "kind": "button",
+      "tag": "a",
+      "text": "Instructions",
+      "chars": 12,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_legal-links div#w-node-_2da64e58-7a64-a03c-8c3f-856a365e0a25-365e09d4.footer_template-links a#.footer_template-link"
+    },
+    {
+      "id": "t0138",
+      "kind": "button",
+      "tag": "a",
+      "text": "Style guide",
+      "chars": 11,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_legal-links div#w-node-_2da64e58-7a64-a03c-8c3f-856a365e0a25-365e09d4.footer_template-links a#.footer_template-link"
+    },
+    {
+      "id": "t0139",
+      "kind": "button",
+      "tag": "a",
+      "text": "Licenses",
+      "chars": 8,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_legal-links div#w-node-_2da64e58-7a64-a03c-8c3f-856a365e0a25-365e09d4.footer_template-links a#.footer_template-link"
+    },
+    {
+      "id": "t0140",
+      "kind": "button",
+      "tag": "a",
+      "text": "Changelog",
+      "chars": 9,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_legal-links div#w-node-_2da64e58-7a64-a03c-8c3f-856a365e0a25-365e09d4.footer_template-links a#.footer_template-link"
+    }
+  ],
+  "images": [
+    {
+      "id": "i0001",
+      "role": "logo",
+      "src": "assets/94b95c87b1-67dc98cacde7d671516f64b4_logo-brasa.svg",
+      "alt": "",
+      "className": "navbar_logo",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper div#.navbars nav#.navbar div#.padding-global div#.container-medium div#.navbar_component div#.navbar_main a#.navbar_logo-wrap w-inline-block w--current"
+    },
+    {
+      "id": "i0002",
+      "role": "logo",
+      "src": "https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg",
+      "alt": "",
+      "className": "w-commerce-commercecartitemimage cart_image w-dyn-bind-empty",
+      "width": null,
+      "height": null,
+      "context": "-carttype-rightsidebar cart_wrapper div#.w-commerce-commercecartcontainer cart_container div#.w-commerce-commercecartformwrapper cart-form-wrapper form#.w-commerce-commercecartform default-state div#.w-commerce-commercecartlist cart-list div#.w-commerce-commercecartitem cart-item"
+    },
+    {
+      "id": "i0003",
+      "role": "content",
+      "src": "assets/8ab4f62b09-67dafcb6cd3725fd97e99fa8_Gourmet-Red-Bun-Burger-on-Rustic-Tabletop.jpeg",
+      "alt": "A cheeseburger on a wooden cutting board with ketchup.",
+      "className": "home-header_image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-header div#.padding-global div#.home-header_component div#.home-header_images div#.home-header_image-wrap _1"
+    },
+    {
+      "id": "i0004",
+      "role": "content",
+      "src": "assets/fbb3c78353-67dafd1541494c5f9d77f599_Delicious-Fried-Chicken-Basket.webp",
+      "alt": "A basket filled with fried chicken and french fries.",
+      "className": "home-header_image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-header div#.padding-global div#.home-header_component div#.home-header_images div#.home-header_image-wrap _2"
+    },
+    {
+      "id": "i0005",
+      "role": "content",
+      "src": "assets/18b3cc5a4e-67db2154d55f8f582e23f49c_4899.webp",
+      "alt": "A basket filled with french fries next to a burger.",
+      "className": "home-header_image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-header div#.padding-global div#.home-header_component div#.home-header_images div#.home-header_image-wrap _3"
+    },
+    {
+      "id": "i0006",
+      "role": "icon",
+      "src": "assets/ef1e6f0053-67db28ed7bd9c4e71459683c_burger.svg",
+      "alt": "",
+      "className": "home-marquee_icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap"
+    },
+    {
+      "id": "i0007",
+      "role": "icon",
+      "src": "assets/4c02030d00-67db2988d9c58ad5a74cb7d5_donuts.svg",
+      "alt": "",
+      "className": "home-marquee_icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap"
+    },
+    {
+      "id": "i0008",
+      "role": "icon",
+      "src": "assets/189bbb4b48-67db298f4dbc990311b33037_fries.svg",
+      "alt": "",
+      "className": "home-marquee_icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap"
+    },
+    {
+      "id": "i0009",
+      "role": "icon",
+      "src": "assets/9036a5615f-67db29980268a778afde74ff_hotdog.svg",
+      "alt": "",
+      "className": "home-marquee_icon big",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap"
+    },
+    {
+      "id": "i0010",
+      "role": "icon",
+      "src": "assets/ef1e6f0053-67db28ed7bd9c4e71459683c_burger.svg",
+      "alt": "",
+      "className": "home-marquee_icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap"
+    },
+    {
+      "id": "i0011",
+      "role": "icon",
+      "src": "assets/4c02030d00-67db2988d9c58ad5a74cb7d5_donuts.svg",
+      "alt": "",
+      "className": "home-marquee_icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap"
+    },
+    {
+      "id": "i0012",
+      "role": "icon",
+      "src": "assets/189bbb4b48-67db298f4dbc990311b33037_fries.svg",
+      "alt": "",
+      "className": "home-marquee_icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap"
+    },
+    {
+      "id": "i0013",
+      "role": "icon",
+      "src": "assets/9036a5615f-67db29980268a778afde74ff_hotdog.svg",
+      "alt": "",
+      "className": "home-marquee_icon big",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap"
+    },
+    {
+      "id": "i0014",
+      "role": "icon",
+      "src": "assets/ef1e6f0053-67db28ed7bd9c4e71459683c_burger.svg",
+      "alt": "",
+      "className": "home-marquee_icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap"
+    },
+    {
+      "id": "i0015",
+      "role": "icon",
+      "src": "assets/4c02030d00-67db2988d9c58ad5a74cb7d5_donuts.svg",
+      "alt": "",
+      "className": "home-marquee_icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap"
+    },
+    {
+      "id": "i0016",
+      "role": "icon",
+      "src": "assets/189bbb4b48-67db298f4dbc990311b33037_fries.svg",
+      "alt": "",
+      "className": "home-marquee_icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap"
+    },
+    {
+      "id": "i0017",
+      "role": "icon",
+      "src": "assets/9036a5615f-67db29980268a778afde74ff_hotdog.svg",
+      "alt": "",
+      "className": "home-marquee_icon big",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-marquee div#.home-marquee_component div#.home-marquee_wrapper div#.home-marquee_group div#.home-marquee_word-wrap"
+    },
+    {
+      "id": "i0018",
+      "role": "content",
+      "src": "assets/4763fdeb3d-67db31e24e47ff0775e2944b_2150404805.webp",
+      "alt": "A woman in a red shirt is eating a sandwich.",
+      "className": "home-about_img",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-about div#.padding-global div#.container-medium div#.home-about_component div#.home-about_images div#.home-about_img-1 div#.home-about_img-wrap"
+    },
+    {
+      "id": "i0019",
+      "role": "content",
+      "src": "assets/109a54f390-67db3289db60fad66072a804_2148868237.webp",
+      "alt": "A hamburger cooking on a grill with flames.",
+      "className": "home-about_img",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-about div#.padding-global div#.container-medium div#.home-about_component div#.home-about_images div#.home-about_img-2 div#.home-about_img-wrap"
+    },
+    {
+      "id": "i0020",
+      "role": "hero",
+      "src": "assets/3bd6c62f62-67dc43424436a8cbc92c4591_young-adults-enjoying-food-min.jpg",
+      "alt": "A couple of people that are holding some food.",
+      "className": "menu_cover",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-menu div#.home-menu_cover-wrap"
+    },
+    {
+      "id": "i0021",
+      "role": "content",
+      "src": "assets/4464b08d99-67d85eca483aba2443d903f0_close-up-delicious-chicken-meal-min.webp",
+      "alt": "",
+      "className": "menu_img",
+      "width": null,
+      "height": null,
+      "context": "iv#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content"
+    },
+    {
+      "id": "i0022",
+      "role": "content",
+      "src": "assets/bb0a2a85bd-67d85ea02c0823767bdcff47_42443.webp",
+      "alt": "",
+      "className": "menu_img",
+      "width": null,
+      "height": null,
+      "context": "iv#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content"
+    },
+    {
+      "id": "i0023",
+      "role": "content",
+      "src": "assets/e772ef1a19-67d85e4abaad09415716dee7_34660.webp",
+      "alt": "",
+      "className": "menu_img",
+      "width": null,
+      "height": null,
+      "context": "iv#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content"
+    },
+    {
+      "id": "i0024",
+      "role": "content",
+      "src": "assets/18a0d025a4-67d85e2c39e2bd26fbce4396_6542.webp",
+      "alt": "",
+      "className": "menu_img",
+      "width": null,
+      "height": null,
+      "context": "iv#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content"
+    },
+    {
+      "id": "i0025",
+      "role": "content",
+      "src": "assets/a9178d7fb0-67d85e06983afc658b8d890b_3764.webp",
+      "alt": "",
+      "className": "menu_img",
+      "width": null,
+      "height": null,
+      "context": "iv#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content"
+    },
+    {
+      "id": "i0026",
+      "role": "content",
+      "src": "assets/7ee5fc684e-67d85dc5773249c01fdc1b96_1213.webp",
+      "alt": "",
+      "className": "menu_img",
+      "width": null,
+      "height": null,
+      "context": "iv#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content"
+    },
+    {
+      "id": "i0027",
+      "role": "content",
+      "src": "assets/9e89a48d8b-67d85db05cf372c97c828020_2148042529.webp",
+      "alt": "",
+      "className": "menu_img",
+      "width": null,
+      "height": null,
+      "context": "section_home-menu div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content"
+    },
+    {
+      "id": "i0028",
+      "role": "content",
+      "src": "assets/bf98e7f24e-67d85da1073ac8b560f7e724_pre-prepared-food-showcasing-ready-eat-delicious-meals-go-min.webp",
+      "alt": "",
+      "className": "menu_img",
+      "width": null,
+      "height": null,
+      "context": "section_home-menu div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content"
+    },
+    {
+      "id": "i0029",
+      "role": "content",
+      "src": "assets/71ec85ca2e-67d85d352476c55409f1a3af_11271.webp",
+      "alt": "",
+      "className": "menu_img",
+      "width": null,
+      "height": null,
+      "context": "section_home-menu div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content"
+    },
+    {
+      "id": "i0030",
+      "role": "content",
+      "src": "assets/4c7bc3dc0a-67d85d136ed727b7a0169805_4345.webp",
+      "alt": "",
+      "className": "menu_img",
+      "width": null,
+      "height": null,
+      "context": "section_home-menu div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content"
+    },
+    {
+      "id": "i0031",
+      "role": "content",
+      "src": "assets/218cdf7ab8-67d85d00e3bd51456a74b8d1_971.webp",
+      "alt": "",
+      "className": "menu_img",
+      "width": null,
+      "height": null,
+      "context": "section_home-menu div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content"
+    },
+    {
+      "id": "i0032",
+      "role": "content",
+      "src": "assets/53f1c1be87-67d85cdfea1d26f8ef454c8e_303.webp",
+      "alt": "",
+      "className": "menu_img",
+      "width": null,
+      "height": null,
+      "context": "section_home-menu div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content"
+    },
+    {
+      "id": "i0033",
+      "role": "content",
+      "src": "assets/f7231fe905-67d85cbe2655d79b274eb80c_2150168926.webp",
+      "alt": "",
+      "className": "menu_img",
+      "width": null,
+      "height": null,
+      "context": "section_home-menu div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content"
+    },
+    {
+      "id": "i0034",
+      "role": "content",
+      "src": "assets/7928d40e69-67d85c9f93d46c558a56af2f_20691.webp",
+      "alt": "",
+      "className": "menu_img",
+      "width": null,
+      "height": null,
+      "context": "section_home-menu div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content"
+    },
+    {
+      "id": "i0035",
+      "role": "content",
+      "src": "assets/dcd715a697-67d85c84fb76cb2940d5489f_6220.webp",
+      "alt": "",
+      "className": "menu_img",
+      "width": null,
+      "height": null,
+      "context": "section_home-menu div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content"
+    },
+    {
+      "id": "i0036",
+      "role": "content",
+      "src": "assets/c145a00078-67d85c237f070410e2015f02_14459.webp",
+      "alt": "",
+      "className": "menu_img",
+      "width": null,
+      "height": null,
+      "context": "section_home-menu div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content"
+    },
+    {
+      "id": "i0037",
+      "role": "content",
+      "src": "assets/c14a3ca984-67d85bf2ff45c05cfc376983_3859.webp",
+      "alt": "",
+      "className": "menu_img",
+      "width": null,
+      "height": null,
+      "context": "section_home-menu div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content"
+    },
+    {
+      "id": "i0038",
+      "role": "content",
+      "src": "assets/9e05400bae-67d85b993f0d1bd7d0ea1509_433.webp",
+      "alt": "",
+      "className": "menu_img",
+      "width": null,
+      "height": null,
+      "context": "section_home-menu div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content"
+    },
+    {
+      "id": "i0039",
+      "role": "content",
+      "src": "assets/2e7a3482e8-67dc63527ac6e31ae4bbbe14_star.svg",
+      "alt": "",
+      "className": "testimonials_star",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_testimonials div#.padding-global div#.container-medium div#.testimonials_component div#.testimonials_stars"
+    },
+    {
+      "id": "i0040",
+      "role": "content",
+      "src": "assets/2e7a3482e8-67dc63527ac6e31ae4bbbe14_star.svg",
+      "alt": "",
+      "className": "testimonials_star",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_testimonials div#.padding-global div#.container-medium div#.testimonials_component div#.testimonials_stars"
+    },
+    {
+      "id": "i0041",
+      "role": "content",
+      "src": "assets/2e7a3482e8-67dc63527ac6e31ae4bbbe14_star.svg",
+      "alt": "",
+      "className": "testimonials_star",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_testimonials div#.padding-global div#.container-medium div#.testimonials_component div#.testimonials_stars"
+    },
+    {
+      "id": "i0042",
+      "role": "content",
+      "src": "assets/2e7a3482e8-67dc63527ac6e31ae4bbbe14_star.svg",
+      "alt": "",
+      "className": "testimonials_star",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_testimonials div#.padding-global div#.container-medium div#.testimonials_component div#.testimonials_stars"
+    },
+    {
+      "id": "i0043",
+      "role": "content",
+      "src": "assets/2e7a3482e8-67dc63527ac6e31ae4bbbe14_star.svg",
+      "alt": "",
+      "className": "testimonials_star",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_testimonials div#.padding-global div#.container-medium div#.testimonials_component div#.testimonials_stars"
+    },
+    {
+      "id": "i0044",
+      "role": "content",
+      "src": "assets/c5a2f25f73-67d43c25fbcd1b83dd9acad1_author-1.webp",
+      "alt": "",
+      "className": "testimonials_author",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_testimonials div#.padding-global div#.container-medium div#.testimonials_component div#.testimonials_list div#.testimonials_item _1 div#.testimonials_content"
+    },
+    {
+      "id": "i0045",
+      "role": "content",
+      "src": "assets/1b7538b7cc-67d43c25fbcd1b83dd9acaf7_author-2.webp",
+      "alt": "",
+      "className": "testimonials_author",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_testimonials div#.padding-global div#.container-medium div#.testimonials_component div#.testimonials_list div#.testimonials_item _2 div#.testimonials_content"
+    },
+    {
+      "id": "i0046",
+      "role": "content",
+      "src": "assets/3ca698f46a-67d43c25fbcd1b83dd9acae6_author-3.webp",
+      "alt": "",
+      "className": "testimonials_author",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_testimonials div#.padding-global div#.container-medium div#.testimonials_component div#.testimonials_list div#w-node-c5557d4f-a368-c579-b579-3b0baad86688-aad86663.testimonials_item _3 div#.testimonials_content"
+    },
+    {
+      "id": "i0047",
+      "role": "content",
+      "src": "assets/d273bdbe56-67dc6850cd9987c037ad4f6b_2149525601.jpg",
+      "alt": "A group of people sitting at a table eating food.",
+      "className": "cta_image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper footer#.section_cta div#.cta_wrapper div#.cta_sticky div#.cta_image-wrap"
+    },
+    {
+      "id": "i0048",
+      "role": "logo",
+      "src": "assets/bb98c9cb22-67dc98df6cb65d160e8f4cc9_logo-brasa-white-bg.svg",
+      "alt": "",
+      "className": "footer_logo",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_brand a#.footer_logo-wrap w-inline-block"
+    }
+  ],
+  "links": [
+    {
+      "id": "l0001",
+      "role": "cta",
+      "href": "assets/42eb21f7e3-asset.bintemplates/html/brasa-website-template",
+      "className": "buy-template w-button",
+      "context": "html#. body#."
+    },
+    {
+      "id": "l0002",
+      "role": "nav",
+      "href": "/",
+      "className": "navbar_logo-wrap w-inline-block w--current",
+      "context": "html#. body#. div#.page-wrapper div#.navbars nav#.navbar div#.padding-global div#.container-medium div#.navbar_component div#.navbar_main"
+    },
+    {
+      "id": "l0003",
+      "role": "nav",
+      "href": "/",
+      "className": "navbar_link w-inline-block w--current",
+      "context": "html#. body#. div#.page-wrapper div#.navbars nav#.navbar div#.padding-global div#.container-medium div#.navbar_component div#.navbar_main div#.navbar_links"
+    },
+    {
+      "id": "l0004",
+      "role": "nav",
+      "href": "/about",
+      "className": "navbar_link w-inline-block",
+      "context": "html#. body#. div#.page-wrapper div#.navbars nav#.navbar div#.padding-global div#.container-medium div#.navbar_component div#.navbar_main div#.navbar_links"
+    },
+    {
+      "id": "l0005",
+      "role": "nav",
+      "href": "/menu",
+      "className": "navbar_link w-inline-block",
+      "context": "html#. body#. div#.page-wrapper div#.navbars nav#.navbar div#.padding-global div#.container-medium div#.navbar_component div#.navbar_main div#.navbar_links"
+    },
+    {
+      "id": "l0006",
+      "role": "nav",
+      "href": "/locations",
+      "className": "navbar_link w-inline-block",
+      "context": "html#. body#. div#.page-wrapper div#.navbars nav#.navbar div#.padding-global div#.container-medium div#.navbar_component div#.navbar_main div#.navbar_links"
+    },
+    {
+      "id": "l0007",
+      "role": "nav",
+      "href": "/blog",
+      "className": "navbar_link w-inline-block",
+      "context": "html#. body#. div#.page-wrapper div#.navbars nav#.navbar div#.padding-global div#.container-medium div#.navbar_component div#.navbar_main div#.navbar_links"
+    },
+    {
+      "id": "l0008",
+      "role": "nav",
+      "href": "#",
+      "className": "w-commerce-commercecartopenlink cart_button w-inline-block",
+      "context": "html#. body#. div#.page-wrapper div#.navbars nav#.navbar div#.padding-global div#.container-medium div#.navbar_component div#.navbar_infos div#.w-commerce-commercecartwrapper cart"
+    },
+    {
+      "id": "l0009",
+      "role": "nav",
+      "href": "",
+      "className": "w-commerce-commercecartcloselink cart_close-button w-inline-block",
+      "context": " div#.navbar_infos div#.w-commerce-commercecartwrapper cart div#.w-commerce-commercecartcontainerwrapper w-commerce-commercecartcontainerwrapper--carttype-rightsidebar cart_wrapper div#.w-commerce-commercecartcontainer cart_container div#.w-commerce-commercecartheader cart-header"
+    },
+    {
+      "id": "l0010",
+      "role": "nav",
+      "href": "#",
+      "className": "cart_remove-button w-inline-block",
+      "context": "iv#.w-commerce-commercecartcontainer cart_container div#.w-commerce-commercecartformwrapper cart-form-wrapper form#.w-commerce-commercecartform default-state div#.w-commerce-commercecartlist cart-list div#.w-commerce-commercecartitem cart-item div#.w-commerce-commercecartiteminfo"
+    },
+    {
+      "id": "l0011",
+      "role": "nav",
+      "href": "",
+      "className": "w-commerce-commercecartapplepaybutton",
+      "context": "-commerce-commercecartcontainerwrapper--carttype-rightsidebar cart_wrapper div#.w-commerce-commercecartcontainer cart_container div#.w-commerce-commercecartformwrapper cart-form-wrapper form#.w-commerce-commercecartform default-state div#.w-commerce-commercecartfooter div#. div#."
+    },
+    {
+      "id": "l0012",
+      "role": "nav",
+      "href": "",
+      "className": "w-commerce-commercecartquickcheckoutbutton",
+      "context": "-commerce-commercecartcontainerwrapper--carttype-rightsidebar cart_wrapper div#.w-commerce-commercecartcontainer cart_container div#.w-commerce-commercecartformwrapper cart-form-wrapper form#.w-commerce-commercecartform default-state div#.w-commerce-commercecartfooter div#. div#."
+    },
+    {
+      "id": "l0013",
+      "role": "nav",
+      "href": "/checkout",
+      "className": "w-commerce-commercecartcheckoutbutton button yellow",
+      "context": "pper w-commerce-commercecartcontainerwrapper--carttype-rightsidebar cart_wrapper div#.w-commerce-commercecartcontainer cart_container div#.w-commerce-commercecartformwrapper cart-form-wrapper form#.w-commerce-commercecartform default-state div#.w-commerce-commercecartfooter div#."
+    },
+    {
+      "id": "l0014",
+      "role": "nav",
+      "href": "/locations",
+      "className": "navbar_info-block w-inline-block",
+      "context": "html#. body#. div#.page-wrapper div#.navbars nav#.navbar div#.padding-global div#.container-medium div#.navbar_component div#.navbar_infos"
+    },
+    {
+      "id": "l0015",
+      "role": "phone",
+      "href": "tel:987-654-3210",
+      "className": "navbar_info-block w-inline-block",
+      "context": "html#. body#. div#.page-wrapper div#.navbars nav#.navbar div#.padding-global div#.container-medium div#.navbar_component div#.navbar_infos"
+    },
+    {
+      "id": "l0016",
+      "role": "nav",
+      "href": "/menu",
+      "className": "home-header_button w-inline-block",
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-header div#.padding-global div#.home-header_component div#.home-header_images div#.home-header_button-wrap"
+    },
+    {
+      "id": "l0017",
+      "role": "cta",
+      "href": "/about",
+      "className": "button w-inline-block",
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-about div#.padding-global div#.container-medium div#.home-about_component div#.content-block_texts div#.home-about_texts"
+    },
+    {
+      "id": "l0018",
+      "role": "nav",
+      "href": "",
+      "className": "menu_link w-inline-block w-tab-link w--current",
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-menu div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-menu w-tab-menu"
+    },
+    {
+      "id": "l0019",
+      "role": "nav",
+      "href": "",
+      "className": "menu_link w-inline-block w-tab-link",
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-menu div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-menu w-tab-menu"
+    },
+    {
+      "id": "l0020",
+      "role": "nav",
+      "href": "",
+      "className": "menu_link w-inline-block w-tab-link",
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-menu div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-menu w-tab-menu"
+    },
+    {
+      "id": "l0021",
+      "role": "nav",
+      "href": "",
+      "className": "menu_link w-inline-block w-tab-link",
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper section#.section_home-menu div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-menu w-tab-menu"
+    },
+    {
+      "id": "l0022",
+      "role": "nav",
+      "href": "/product/chicken-wings",
+      "className": "button-icon_component w-inline-block",
+      "context": "al div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos"
+    },
+    {
+      "id": "l0023",
+      "role": "nav",
+      "href": "/product/chicken-nuggets",
+      "className": "button-icon_component w-inline-block",
+      "context": "al div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos"
+    },
+    {
+      "id": "l0024",
+      "role": "nav",
+      "href": "/product/french-fries",
+      "className": "button-icon_component w-inline-block",
+      "context": "al div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos"
+    },
+    {
+      "id": "l0025",
+      "role": "nav",
+      "href": "/product/muzzarela-sticks",
+      "className": "button-icon_component w-inline-block",
+      "context": "al div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos"
+    },
+    {
+      "id": "l0026",
+      "role": "nav",
+      "href": "/product/onion-rings",
+      "className": "button-icon_component w-inline-block",
+      "context": "al div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos"
+    },
+    {
+      "id": "l0027",
+      "role": "nav",
+      "href": "/product/tuna-salad",
+      "className": "button-icon_component w-inline-block",
+      "context": "al div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane w--tab-active div#.menu_wrapper w-dyn-list div#.menu_list w-dyn-items div#.menu_item w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos"
+    },
+    {
+      "id": "l0028",
+      "role": "nav",
+      "href": "/product/nachos",
+      "className": "button-icon_component w-inline-block",
+      "context": "u div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos"
+    },
+    {
+      "id": "l0029",
+      "role": "nav",
+      "href": "/product/hot-dog-chicken",
+      "className": "button-icon_component w-inline-block",
+      "context": "u div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos"
+    },
+    {
+      "id": "l0030",
+      "role": "nav",
+      "href": "/product/hot-dog",
+      "className": "button-icon_component w-inline-block",
+      "context": "u div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos"
+    },
+    {
+      "id": "l0031",
+      "role": "nav",
+      "href": "/product/bacon-burger",
+      "className": "button-icon_component w-inline-block",
+      "context": "u div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos"
+    },
+    {
+      "id": "l0032",
+      "role": "nav",
+      "href": "/product/veggie-burger",
+      "className": "button-icon_component w-inline-block",
+      "context": "u div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos"
+    },
+    {
+      "id": "l0033",
+      "role": "nav",
+      "href": "/product/classic-burger",
+      "className": "button-icon_component w-inline-block",
+      "context": "u div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos"
+    },
+    {
+      "id": "l0034",
+      "role": "nav",
+      "href": "/product/italian-soda",
+      "className": "button-icon_component w-inline-block",
+      "context": "u div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos"
+    },
+    {
+      "id": "l0035",
+      "role": "nav",
+      "href": "/product/orange-juice",
+      "className": "button-icon_component w-inline-block",
+      "context": "u div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos"
+    },
+    {
+      "id": "l0036",
+      "role": "nav",
+      "href": "/product/soda",
+      "className": "button-icon_component w-inline-block",
+      "context": "u div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos"
+    },
+    {
+      "id": "l0037",
+      "role": "nav",
+      "href": "/product/pancakes",
+      "className": "button-icon_component w-inline-block",
+      "context": "u div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos"
+    },
+    {
+      "id": "l0038",
+      "role": "nav",
+      "href": "/product/brownie-a-la-mode",
+      "className": "button-icon_component w-inline-block",
+      "context": "u div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos"
+    },
+    {
+      "id": "l0039",
+      "role": "nav",
+      "href": "/product/chocolate-brownie",
+      "className": "button-icon_component w-inline-block",
+      "context": "u div#.menu_content div#.padding-global div#.container-small div#.menu_component div#.menu_tabs w-tabs div#.menu_tabs-content w-tab-content div#.menu_item w-tab-pane div#.w-dyn-list div#.menu_list w-dyn-items div#.w-dyn-item div#.menu_block div#.menu_block-content div#.menu_infos"
+    },
+    {
+      "id": "l0040",
+      "role": "cta",
+      "href": "/locations",
+      "className": "button w-variant-f9a57b09-0948-885f-f777-ee7ac10d901d w-inline-block",
+      "context": "html#. body#. div#.page-wrapper main#.main-wrapper footer#.section_cta div#.cta_wrapper div#.cta_sticky div#.cta_content div#.padding-global div#.cta_block div#.cta_main-content"
+    },
+    {
+      "id": "l0041",
+      "role": "link",
+      "href": "#",
+      "className": "footer_logo-wrap w-inline-block",
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_brand"
+    },
+    {
+      "id": "l0042",
+      "role": "link",
+      "href": "/",
+      "className": "footer_link w-inline-block w--current",
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#.footer_links-groups div#.footer_links-group"
+    },
+    {
+      "id": "l0043",
+      "role": "link",
+      "href": "/about",
+      "className": "footer_link w-inline-block",
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#.footer_links-groups div#.footer_links-group"
+    },
+    {
+      "id": "l0044",
+      "role": "nav",
+      "href": "/menu",
+      "className": "footer_link w-inline-block",
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#.footer_links-groups div#.footer_links-group"
+    },
+    {
+      "id": "l0045",
+      "role": "link",
+      "href": "/locations",
+      "className": "footer_link w-inline-block",
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#.footer_links-groups div#.footer_links-group"
+    },
+    {
+      "id": "l0046",
+      "role": "link",
+      "href": "/locations/los-angeles-ca",
+      "className": "footer_link w-inline-block",
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#.footer_links-groups div#.footer_links-group"
+    },
+    {
+      "id": "l0047",
+      "role": "link",
+      "href": "/contact",
+      "className": "footer_link w-inline-block",
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#.footer_links-groups div#.footer_links-group"
+    },
+    {
+      "id": "l0048",
+      "role": "link",
+      "href": "/blog",
+      "className": "footer_link w-inline-block",
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#.footer_links-groups div#.footer_links-group"
+    },
+    {
+      "id": "l0049",
+      "role": "link",
+      "href": "/post/best-sides-to-pair-with-your-meal",
+      "className": "footer_link w-inline-block",
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#.footer_links-groups div#.footer_links-group"
+    },
+    {
+      "id": "l0050",
+      "role": "link",
+      "href": "/product/classic-burger",
+      "className": "footer_link w-inline-block",
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_main div#.footer_links div#.footer_links-groups div#.footer_links-group"
+    },
+    {
+      "id": "l0051",
+      "role": "link",
+      "href": "assets/42eb21f7e3-asset.bin",
+      "className": "footer_legal-link",
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_legal-links div#w-node-_2da64e58-7a64-a03c-8c3f-856a365e0a18-365e09d4.footer_legal-wrap div#.footer_copyright"
+    },
+    {
+      "id": "l0052",
+      "role": "link",
+      "href": "assets/97ce4fff7d-asset.bin",
+      "className": "footer_legal-link",
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_legal-links div#w-node-_2da64e58-7a64-a03c-8c3f-856a365e0a18-365e09d4.footer_legal-wrap div#.footer_copyright"
+    },
+    {
+      "id": "l0053",
+      "role": "link",
+      "href": "/template/instructions",
+      "className": "footer_template-link",
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_legal-links div#w-node-_2da64e58-7a64-a03c-8c3f-856a365e0a25-365e09d4.footer_template-links"
+    },
+    {
+      "id": "l0054",
+      "role": "link",
+      "href": "/template/style-guide",
+      "className": "footer_template-link",
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_legal-links div#w-node-_2da64e58-7a64-a03c-8c3f-856a365e0a25-365e09d4.footer_template-links"
+    },
+    {
+      "id": "l0055",
+      "role": "link",
+      "href": "/template/licenses",
+      "className": "footer_template-link",
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_legal-links div#w-node-_2da64e58-7a64-a03c-8c3f-856a365e0a25-365e09d4.footer_template-links"
+    },
+    {
+      "id": "l0056",
+      "role": "link",
+      "href": "/template/changelog",
+      "className": "footer_template-link",
+      "context": "html#. body#. div#.page-wrapper footer#.footer div#.padding-global div#.container-small div#.footer_component div#.footer_legal-links div#w-node-_2da64e58-7a64-a03c-8c3f-856a365e0a25-365e09d4.footer_template-links"
+    }
+  ]
+}

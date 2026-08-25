@@ -16,6 +16,24 @@ export interface PlantillaReal {
 
 export interface Rubro {
   id: string;
+export interface PlantillaReal {
+  id: string;
+  nombre: string;
+  rubroId: string;
+  rubroNombre: string;
+  variante: string;
+  subtitulo: string;
+  descripcion: string;
+  urlPath: string;
+  imagen: string;
+  badge: "Básica" | "Pro" | "Premium IX2" | "GSAP Motion" | "Efecto Scroll";
+  colorAcento: string;
+  servicios: string[];
+  efectosPredeterminados: string[];
+}
+
+export interface Rubro {
+  id: string;
   nombre: string;
   icono: string;
   descripcion: string;
@@ -23,17 +41,15 @@ export interface Rubro {
 }
 
 export const RUBROS_DISPONIBLES: Rubro[] = [
-  { id: "todos", nombre: "Todos los Rubros", icono: "✦", descripcion: "Catálogo completo de la Fábrica Web", count: 68 },
+  { id: "todos", nombre: "Todos los Rubros", icono: "✦", descripcion: "Catálogo completo de la Fábrica Web", count: 73 },
   { id: "efecto-scroll", nombre: "Efecto Scroll & Parallax", icono: "🌀", descripcion: "Plantillas cinematográficas con sticky cards, GSAP, Webflow IX2 y scroll cinemático", count: 7 },
   { id: "barberia", nombre: "Barbería", icono: "✂️", descripcion: "Reserva de turnos y estética masculina", count: 7 },
-  { id: "gastronomia", nombre: "Gastronomía", icono: "🍽️", descripcion: "Restaurantes, cartas digitales y reservas", count: 8 },
+  { id: "gastronomia", nombre: "Gastronomía", icono: "🍽️", descripcion: "Restaurantes, cartas digitales y reservas", count: 9 },
   { id: "inmobiliaria", nombre: "Inmobiliaria", icono: "🏢", descripcion: "Propiedades, catálogo e inversión", count: 7 },
-  { id: "retail", nombre: "Retail & E-commerce", icono: "🛍️", descripcion: "Tiendas físicas, ropa y productos", count: 8 },
+  { id: "retail", nombre: "Retail & E-commerce", icono: "🛍️", descripcion: "Tiendas físicas, ropa y productos", count: 9 },
   { id: "salud", nombre: "Salud & Medicina", icono: "🩺", descripcion: "Clínicas, médicos y turnos online", count: 7 },
   { id: "servicios-pro", nombre: "Servicios Profesionales", icono: "💼", descripcion: "Consultoría, abogados y contadores", count: 8 },
-  { id: "wellness", nombre: "Wellness & Estética", icono: "🌿", descripcion: "Spas, centros de belleza y relajación", count: 7 },
-  { id: "educacion", nombre: "Educación & Academias", icono: "🎓", descripcion: "Academias, cursos e institutos", count: 7 },
-  { id: "tech", nombre: "Ciberseguridad & Tech", icono: "🛡️", descripcion: "B2B SaaS y empresas tecnológicas", count: 2 },
+  { id: "wellness", nombre: "Wellness & Estética", icono: "🌿", descripcion: "Spas, centros de belleza y relajación", count: 8 },
   { id: "lujo", nombre: "Lujo & Arquitectura", icono: "🏛️", descripcion: "Arquitectura, arte y marcas premium", count: 1 },
 ];
 
@@ -404,6 +420,21 @@ export const PLANTILLAS_REALES_CATALOGO: PlantillaReal[] = [
     servicios: ["Menú de Pasos", "Experiencia Privada", "Agente Reservas"],
     efectosPredeterminados: ["Glow", "Particles"]
   },
+  {
+    id: "gastro-brasa",
+    nombre: "BRASA Parrilla & Burger Bar",
+    rubroId: "gastronomia",
+    rubroNombre: "Gastronomía",
+    variante: "P9 Webflow IX2 Parrilla",
+    subtitulo: "Cortes ahumados a la leña, hamburguesas de autor y parrilla gourmet",
+    descripcion: "Landing gastronómica con 77 micro-animaciones preservadas, menú interactivo, reserva y fotos de autor.",
+    urlPath: "/templates/brasa/site/index.html",
+    imagen: "/templates/brasa/brand/portada.jpg",
+    badge: "Premium IX2",
+    colorAcento: "from-amber-500 to-orange-600",
+    servicios: ["Cortes a la Leña", "Hamburguesas de Autor", "Coctelería & Cervezas"],
+    efectosPredeterminados: ["Webflow IX2", "Scroll Motion", "Firma Quantum Hive"]
+  },
 
   // === INMOBILIARIA (7 VARIANTES REALES) ===
   {
@@ -632,6 +663,21 @@ export const PLANTILLAS_REALES_CATALOGO: PlantillaReal[] = [
     colorAcento: "from-purple-400 to-cyan-400",
     servicios: ["Ediciones Limitadas", "Arte Local", "Agente Ventas"],
     efectosPredeterminados: ["Glow", "Particles"]
+  },
+  {
+    id: "retail-zinzira",
+    nombre: "Zinzira Moda Urbana",
+    rubroId: "retail",
+    rubroNombre: "Retail & E-commerce",
+    variante: "P9 Webflow IX2 Moda",
+    subtitulo: "Indumentaria y accesorios de diseño urbano contemporáneo",
+    descripcion: "Ecommerce con Webflow IX2 preservado, colecciones exclusivas, productos destacados y reseñas.",
+    urlPath: "/templates/zinzira/site/index.html",
+    imagen: "/templates/zinzira/raw/assets/05e09f1e54-6734580c3dd434a47f2f514d_670fa50b9c497307800e5988_collection-1.jpeg",
+    badge: "Premium IX2",
+    colorAcento: "from-zinc-400 to-cyan-400",
+    servicios: ["Colecciones Exclusivas", "Básicos Urbanos", "Reseñas Clientes"],
+    efectosPredeterminados: ["Webflow IX2", "Scroll Motion", "Firma Quantum Hive"]
   },
 
   // === SALUD (7 VARIANTES REALES) ===
@@ -923,6 +969,21 @@ export const PLANTILLAS_REALES_CATALOGO: PlantillaReal[] = [
     colorAcento: "from-amber-500 to-red-600",
     servicios: ["WODs Diarios", "Musculación", "Pase Libre"],
     efectosPredeterminados: ["Tilt 3D", "Odómetro"]
+  },
+  {
+    id: "well-aurea-nail-studio",
+    nombre: "Áurea Nail Studio",
+    rubroId: "wellness",
+    rubroNombre: "Wellness & Estética",
+    variante: "Webflow IX2 Adaptada",
+    subtitulo: "Estudio de uñas premium con turnos, servicios y portfolio visual",
+    descripcion: "Landing Webflow adaptada al español, con identidad propia, imágenes del rubro y animaciones originales preservadas.",
+    urlPath: "/templates/aurea-nail-studio/site/index.html",
+    imagen: "/templates/aurea-nail-studio/brand/07-28712961.jpg",
+    badge: "Premium IX2",
+    colorAcento: "from-rose-300 to-stone-500",
+    servicios: ["Manicura personalizada", "Nail art", "Cuidado y color", "Turnos online"],
+    efectosPredeterminados: ["Webflow IX2", "Scroll Reveal", "Parallax", "Microinteracciones"]
   },
   {
     id: "well-p7",

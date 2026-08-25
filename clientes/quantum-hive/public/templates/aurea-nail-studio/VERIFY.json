@@ -1,0 +1,28 @@
+{
+  "pass": true,
+  "generatedAt": "2026-08-24T18:06:25.372Z",
+  "source": "https://nailorastudio.webflow.io/",
+  "output": "clientes\\quantum-hive\\public\\templates\\aurea-nail-studio\\site\\index.html",
+  "metrics": {
+    "totalTexts": 176,
+    "eligibleTexts": 153,
+    "changedTexts": 176,
+    "changedTextPercent": 115,
+    "changedImages": 56,
+    "copiedAssets": 11,
+    "changedLinks": 5,
+    "sourceDataWId": 0,
+    "adaptedDataWId": 0
+  },
+  "checks": {
+    "textAdaptation": true,
+    "copyLengthSafe": true,
+    "effectsPreserved": true,
+    "webflowRuntimePreserved": true,
+    "jqueryRuntimePreserved": true,
+    "signaturePresent": true,
+    "webflowBrandRemoved": true,
+    "assetsResolved": true
+  },
+  "issues": []
+}

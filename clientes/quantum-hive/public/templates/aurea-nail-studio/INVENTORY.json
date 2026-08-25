@@ -1,0 +1,2689 @@
+{
+  "source": "https://nailorastudio.webflow.io/",
+  "slug": "aurea-nail-studio",
+  "generatedAt": "2026-08-24T15:54:14.662Z",
+  "summary": {
+    "texts": 176,
+    "images": 87,
+    "links": 56,
+    "dataWId": 0,
+    "webflowRuntime": true,
+    "jqueryRuntime": true
+  },
+  "texts": [
+    {
+      "id": "t0001",
+      "kind": "other",
+      "tag": "title",
+      "text": "Nailora – Webflow HTML website template",
+      "chars": 39,
+      "context": "html#. head#. title#."
+    },
+    {
+      "id": "t0002",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Mon - Fri: 10AM - 6PM",
+      "chars": 21,
+      "context": "html#. body#. nav#.nav div#.nav-info div#.w-layout-blockcontainer container w-container div#.nav-info-content div#.body-xs"
+    },
+    {
+      "id": "t0003",
+      "kind": "nav",
+      "tag": "div",
+      "text": "+ 1 (212) 555-0198",
+      "chars": 18,
+      "context": "html#. body#. nav#.nav div#.nav-info div#.w-layout-blockcontainer container w-container div#.nav-info-content div#.nav-info-items div#.nav-info-item a#.contact-item w-inline-block div#.contact-item-text"
+    },
+    {
+      "id": "t0004",
+      "kind": "nav",
+      "tag": "div",
+      "text": "301 Milam St, Houston",
+      "chars": 21,
+      "context": "html#. body#. nav#.nav div#.nav-info div#.w-layout-blockcontainer container w-container div#.nav-info-content div#.nav-info-items a#.contact-item w-inline-block div#.contact-item-text"
+    },
+    {
+      "id": "t0005",
+      "kind": "brand",
+      "tag": "div",
+      "text": "Nailora",
+      "chars": 7,
+      "context": "html#. body#. nav#.nav div#.nav-main div#.w-layout-blockcontainer container w-container div#.nav-main-content div#.logo-and-button a#.logo w-inline-block w--current div#.body-m"
+    },
+    {
+      "id": "t0006",
+      "kind": "nav",
+      "tag": "div",
+      "text": "About",
+      "chars": 5,
+      "context": "html#. body#. nav#.nav div#.nav-main div#.w-layout-blockcontainer container w-container div#.nav-main-content div#.nav-main-info div#.nav-main-menu-items a#.menu-item w-inline-block div#.menu-item-text"
+    },
+    {
+      "id": "t0007",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Services",
+      "chars": 8,
+      "context": "html#. body#. nav#.nav div#.nav-main div#.w-layout-blockcontainer container w-container div#.nav-main-content div#.nav-main-info div#.nav-main-menu-items a#.menu-item w-inline-block div#.menu-item-text"
+    },
+    {
+      "id": "t0008",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Team",
+      "chars": 4,
+      "context": "html#. body#. nav#.nav div#.nav-main div#.w-layout-blockcontainer container w-container div#.nav-main-content div#.nav-main-info div#.nav-main-menu-items a#.menu-item w-inline-block div#.menu-item-text"
+    },
+    {
+      "id": "t0009",
+      "kind": "nav",
+      "tag": "div",
+      "text": "FAQ",
+      "chars": 3,
+      "context": "html#. body#. nav#.nav div#.nav-main div#.w-layout-blockcontainer container w-container div#.nav-main-content div#.nav-main-info div#.nav-main-menu-items a#.menu-item w-inline-block div#.menu-item-text"
+    },
+    {
+      "id": "t0010",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Book Now",
+      "chars": 8,
+      "context": ". nav#.nav div#.nav-main div#.w-layout-blockcontainer container w-container div#.nav-main-content div#.nav-main-info div#.nav-main-buttons div#.nav-main-button a#.button w-variant-d6a04dc2-de44-c019-1506-c99e84ad1c6c w-inline-block div#.button-text-wrapper div#.body-s button-text"
+    },
+    {
+      "id": "t0011",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Book Now",
+      "chars": 8,
+      "context": "ain div#.w-layout-blockcontainer container w-container div#.nav-main-content div#.nav-main-info div#.nav-main-buttons div#.nav-main-button a#.button w-variant-d6a04dc2-de44-c019-1506-c99e84ad1c6c w-inline-block div#.button-text-wrapper div#.body-s button-text absolute-button-text"
+    },
+    {
+      "id": "t0012",
+      "kind": "heading",
+      "tag": "h1",
+      "text": "Ready for nails that feel",
+      "chars": 25,
+      "context": "html#. body#. main#.hero home-hero div#.w-layout-blockcontainer container w-container div#.hero-content div#.hero-info h1#.h1"
+    },
+    {
+      "id": "t0013",
+      "kind": "label",
+      "tag": "span",
+      "text": "like you?",
+      "chars": 9,
+      "context": "html#. body#. main#.hero home-hero div#.w-layout-blockcontainer container w-container div#.hero-content div#.hero-info h1#.h1 span#.highlighted"
+    },
+    {
+      "id": "t0014",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Custom nail designs that reflect your mood, style, and everyday energy.",
+      "chars": 71,
+      "context": "html#. body#. main#.hero home-hero div#.w-layout-blockcontainer container w-container div#.hero-content div#.hero-info div#.hero-text p#.body-m hero-description"
+    },
+    {
+      "id": "t0015",
+      "kind": "label",
+      "tag": "div",
+      "text": "Book Now",
+      "chars": 8,
+      "context": "html#. body#. main#.hero home-hero div#.w-layout-blockcontainer container w-container div#.hero-content div#.hero-info div#.hero-text div#.hero-button a#.button w-inline-block div#.button-text-wrapper div#.body-s button-text"
+    },
+    {
+      "id": "t0016",
+      "kind": "label",
+      "tag": "div",
+      "text": "Book Now",
+      "chars": 8,
+      "context": "html#. body#. main#.hero home-hero div#.w-layout-blockcontainer container w-container div#.hero-content div#.hero-info div#.hero-text div#.hero-button a#.button w-inline-block div#.button-text-wrapper div#.body-s button-text absolute-button-text"
+    },
+    {
+      "id": "t0017",
+      "kind": "heading",
+      "tag": "h2",
+      "text": "The foundation",
+      "chars": 14,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content div#.section-heading div#.illustrations-section-heading h2#.h2"
+    },
+    {
+      "id": "t0018",
+      "kind": "label",
+      "tag": "span",
+      "text": "of great nails",
+      "chars": 14,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content div#.section-heading div#.illustrations-section-heading h2#.h2 span#.highlighted"
+    },
+    {
+      "id": "t0019",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Manicures",
+      "chars": 9,
+      "context": "body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content div#.categories-info div#.category-blocks div#.category-block-wrapper first-block a#.category-block w-inline-block div#.category-block-content h3#.h3 category-block-heading"
+    },
+    {
+      "id": "t0020",
+      "kind": "label",
+      "tag": "div",
+      "text": "8 services",
+      "chars": 10,
+      "context": " section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content div#.categories-info div#.category-blocks div#.category-block-wrapper first-block a#.category-block w-inline-block div#.category-block-text div#.body-s category-block-description"
+    },
+    {
+      "id": "t0021",
+      "kind": "label",
+      "tag": "div",
+      "text": "View All",
+      "chars": 8,
+      "context": "-padding div#.w-layout-blockcontainer container w-container div#.section-content div#.categories-info div#.category-blocks div#.category-block-wrapper first-block a#.category-block w-inline-block div#.category-block-text div#.body-s category-block-description absolute-description"
+    },
+    {
+      "id": "t0022",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Pedicures",
+      "chars": 9,
+      "context": "ody#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content div#.categories-info div#.category-blocks div#.category-block-wrapper second-block a#.category-block w-inline-block div#.category-block-content h3#.h3 category-block-heading"
+    },
+    {
+      "id": "t0023",
+      "kind": "label",
+      "tag": "div",
+      "text": "4 services",
+      "chars": 10,
+      "context": "section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content div#.categories-info div#.category-blocks div#.category-block-wrapper second-block a#.category-block w-inline-block div#.category-block-text div#.body-s category-block-description"
+    },
+    {
+      "id": "t0024",
+      "kind": "label",
+      "tag": "div",
+      "text": "View All",
+      "chars": 8,
+      "context": "padding div#.w-layout-blockcontainer container w-container div#.section-content div#.categories-info div#.category-blocks div#.category-block-wrapper second-block a#.category-block w-inline-block div#.category-block-text div#.body-s category-block-description absolute-description"
+    },
+    {
+      "id": "t0025",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Gel Nails",
+      "chars": 9,
+      "context": "body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content div#.categories-info div#.category-blocks div#.category-block-wrapper third-block a#.category-block w-inline-block div#.category-block-content h3#.h3 category-block-heading"
+    },
+    {
+      "id": "t0026",
+      "kind": "label",
+      "tag": "div",
+      "text": "6 services",
+      "chars": 10,
+      "context": " section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content div#.categories-info div#.category-blocks div#.category-block-wrapper third-block a#.category-block w-inline-block div#.category-block-text div#.body-s category-block-description"
+    },
+    {
+      "id": "t0027",
+      "kind": "label",
+      "tag": "div",
+      "text": "View All",
+      "chars": 8,
+      "context": "-padding div#.w-layout-blockcontainer container w-container div#.section-content div#.categories-info div#.category-blocks div#.category-block-wrapper third-block a#.category-block w-inline-block div#.category-block-text div#.body-s category-block-description absolute-description"
+    },
+    {
+      "id": "t0028",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Our most-loved treatments, crafted to refresh, relax, and leave you polished to perfection.",
+      "chars": 91,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content div#.categories-info p#.body-m category-info-text"
+    },
+    {
+      "id": "t0029",
+      "kind": "label",
+      "tag": "div",
+      "text": "About Us",
+      "chars": 8,
+      "context": "html#. body#. section#about.section div#.w-layout-blockcontainer container w-container div#.about-content div#.about-info div#.section-heading div#.body-s section-caption"
+    },
+    {
+      "id": "t0030",
+      "kind": "heading",
+      "tag": "h2",
+      "text": "Rooted in calm.",
+      "chars": 15,
+      "context": "html#. body#. section#about.section div#.w-layout-blockcontainer container w-container div#.about-content div#.about-info div#.section-heading h2#.h2"
+    },
+    {
+      "id": "t0031",
+      "kind": "label",
+      "tag": "span",
+      "text": "Built on detail",
+      "chars": 15,
+      "context": "html#. body#. section#about.section div#.w-layout-blockcontainer container w-container div#.about-content div#.about-info div#.section-heading h2#.h2 span#.highlighted"
+    },
+    {
+      "id": "t0032",
+      "kind": "label",
+      "tag": "div",
+      "text": "4.98",
+      "chars": 4,
+      "context": "html#. body#. section#about.section div#.w-layout-blockcontainer container w-container div#.about-content div#.about-info div#.value-blocks div#.value-block-wrapper first-block div#.value-block div#.value-block-content div#.regular-xl"
+    },
+    {
+      "id": "t0033",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Average Rating",
+      "chars": 14,
+      "context": "html#. body#. section#about.section div#.w-layout-blockcontainer container w-container div#.about-content div#.about-info div#.value-blocks div#.value-block-wrapper first-block div#.value-block p#.body-m"
+    },
+    {
+      "id": "t0034",
+      "kind": "label",
+      "tag": "div",
+      "text": "12+",
+      "chars": 3,
+      "context": "html#. body#. section#about.section div#.w-layout-blockcontainer container w-container div#.about-content div#.about-info div#.value-blocks div#.value-block-wrapper second-block div#.value-block div#.value-block-content div#.regular-xl"
+    },
+    {
+      "id": "t0035",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Years of Expertise",
+      "chars": 18,
+      "context": "html#. body#. section#about.section div#.w-layout-blockcontainer container w-container div#.about-content div#.about-info div#.value-blocks div#.value-block-wrapper second-block div#.value-block p#.body-m"
+    },
+    {
+      "id": "t0036",
+      "kind": "label",
+      "tag": "div",
+      "text": "98%",
+      "chars": 3,
+      "context": "html#. body#. section#about.section div#.w-layout-blockcontainer container w-container div#.about-content div#.about-info div#.value-blocks div#.value-block-wrapper third-block div#.value-block div#.value-block-content div#.regular-xl"
+    },
+    {
+      "id": "t0037",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Rebook Rate",
+      "chars": 11,
+      "context": "html#. body#. section#about.section div#.w-layout-blockcontainer container w-container div#.about-content div#.about-info div#.value-blocks div#.value-block-wrapper third-block div#.value-block p#.body-m"
+    },
+    {
+      "id": "t0038",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "“Nailora is where calm meets style. Clean sets, custom art, zero drama. Just good nails, done right”",
+      "chars": 100,
+      "context": "html#. body#. section#about.section div#.w-layout-blockcontainer container w-container div#.about-content div#.quote-block-wrapper div#.quote-block h3#.h3 quote-block-text"
+    },
+    {
+      "id": "t0039",
+      "kind": "label",
+      "tag": "div",
+      "text": "Lina Markovic",
+      "chars": 13,
+      "context": "html#. body#. section#about.section div#.w-layout-blockcontainer container w-container div#.about-content div#.quote-block-wrapper div#.quote-block div#.quote-block-person div#.quote-block-person-info div#.body-m"
+    },
+    {
+      "id": "t0040",
+      "kind": "label",
+      "tag": "div",
+      "text": "Founder of Nailora",
+      "chars": 18,
+      "context": "html#. body#. section#about.section div#.w-layout-blockcontainer container w-container div#.about-content div#.quote-block-wrapper div#.quote-block div#.quote-block-person div#.quote-block-person-info div#.body-s quote-block-person-position"
+    },
+    {
+      "id": "t0041",
+      "kind": "heading",
+      "tag": "h2",
+      "text": "Services that",
+      "chars": 13,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.section-heading text-and-button-section-heading h2#.h2"
+    },
+    {
+      "id": "t0042",
+      "kind": "label",
+      "tag": "span",
+      "text": "speak your style",
+      "chars": 16,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.section-heading text-and-button-section-heading h2#.h2 span#.highlighted"
+    },
+    {
+      "id": "t0043",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Style that fits your schedule, your energy, and your aesthetic.",
+      "chars": 63,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.section-heading text-and-button-section-heading div#.section-heading-text p#.body-m section-heading-description"
+    },
+    {
+      "id": "t0044",
+      "kind": "label",
+      "tag": "div",
+      "text": "Book Now",
+      "chars": 8,
+      "context": "container container w-container div#.section-content big-gap div#.section-heading text-and-button-section-heading div#.section-heading-text div#.button-wrapper a#.button w-variant-d6a04dc2-de44-c019-1506-c99e84ad1c6c w-inline-block div#.button-text-wrapper div#.body-s button-text"
+    },
+    {
+      "id": "t0045",
+      "kind": "label",
+      "tag": "div",
+      "text": "Book Now",
+      "chars": 8,
+      "context": "-container div#.section-content big-gap div#.section-heading text-and-button-section-heading div#.section-heading-text div#.button-wrapper a#.button w-variant-d6a04dc2-de44-c019-1506-c99e84ad1c6c w-inline-block div#.button-text-wrapper div#.body-s button-text absolute-button-text"
+    },
+    {
+      "id": "t0046",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Manicures",
+      "chars": 9,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-category p#.body-m"
+    },
+    {
+      "id": "t0047",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Classic Manicure",
+      "chars": 16,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block h3#.h3"
+    },
+    {
+      "id": "t0048",
+      "kind": "label",
+      "tag": "div",
+      "text": "$25",
+      "chars": 3,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block div#.regular-l service-block-price"
+    },
+    {
+      "id": "t0049",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "French Manicure",
+      "chars": 15,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block h3#.h3"
+    },
+    {
+      "id": "t0050",
+      "kind": "label",
+      "tag": "div",
+      "text": "$35",
+      "chars": 3,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block div#.regular-l service-block-price"
+    },
+    {
+      "id": "t0051",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Russian Manicure",
+      "chars": 16,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block h3#.h3"
+    },
+    {
+      "id": "t0052",
+      "kind": "label",
+      "tag": "div",
+      "text": "$65",
+      "chars": 3,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block div#.regular-l service-block-price"
+    },
+    {
+      "id": "t0053",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Spa Manicure",
+      "chars": 12,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block h3#.h3"
+    },
+    {
+      "id": "t0054",
+      "kind": "label",
+      "tag": "div",
+      "text": "$50",
+      "chars": 3,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block div#.regular-l service-block-price"
+    },
+    {
+      "id": "t0055",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Express Manicure",
+      "chars": 16,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block h3#.h3"
+    },
+    {
+      "id": "t0056",
+      "kind": "label",
+      "tag": "div",
+      "text": "$20",
+      "chars": 3,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block div#.regular-l service-block-price"
+    },
+    {
+      "id": "t0057",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Non-Toxic Manicure",
+      "chars": 18,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block h3#.h3"
+    },
+    {
+      "id": "t0058",
+      "kind": "label",
+      "tag": "div",
+      "text": "$35",
+      "chars": 3,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block div#.regular-l service-block-price"
+    },
+    {
+      "id": "t0059",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Natural Manicure",
+      "chars": 16,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block h3#.h3"
+    },
+    {
+      "id": "t0060",
+      "kind": "label",
+      "tag": "div",
+      "text": "$30",
+      "chars": 3,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block div#.regular-l service-block-price"
+    },
+    {
+      "id": "t0061",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Deluxe Manicure",
+      "chars": 15,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block h3#.h3"
+    },
+    {
+      "id": "t0062",
+      "kind": "label",
+      "tag": "div",
+      "text": "$75",
+      "chars": 3,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block div#.regular-l service-block-price"
+    },
+    {
+      "id": "t0063",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Pedicures",
+      "chars": 9,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#pedicures.services-category div#.service-category p#.body-m"
+    },
+    {
+      "id": "t0064",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Classic Pedicure",
+      "chars": 16,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#pedicures.services-category div#.service-blocks a#.service-block w-inline-block h3#.h3"
+    },
+    {
+      "id": "t0065",
+      "kind": "label",
+      "tag": "div",
+      "text": "$35",
+      "chars": 3,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#pedicures.services-category div#.service-blocks a#.service-block w-inline-block div#.regular-l service-block-price"
+    },
+    {
+      "id": "t0066",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Silk Soles",
+      "chars": 10,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#pedicures.services-category div#.service-blocks a#.service-block w-inline-block h3#.h3"
+    },
+    {
+      "id": "t0067",
+      "kind": "label",
+      "tag": "div",
+      "text": "$60",
+      "chars": 3,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#pedicures.services-category div#.service-blocks a#.service-block w-inline-block div#.regular-l service-block-price"
+    },
+    {
+      "id": "t0068",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Spa Pedicure",
+      "chars": 12,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#pedicures.services-category div#.service-blocks a#.service-block w-inline-block h3#.h3"
+    },
+    {
+      "id": "t0069",
+      "kind": "label",
+      "tag": "div",
+      "text": "$70",
+      "chars": 3,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#pedicures.services-category div#.service-blocks a#.service-block w-inline-block div#.regular-l service-block-price"
+    },
+    {
+      "id": "t0070",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Deluxe Pedicure",
+      "chars": 15,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#pedicures.services-category div#.service-blocks a#.service-block w-inline-block h3#.h3"
+    },
+    {
+      "id": "t0071",
+      "kind": "label",
+      "tag": "div",
+      "text": "$80",
+      "chars": 3,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#pedicures.services-category div#.service-blocks a#.service-block w-inline-block div#.regular-l service-block-price"
+    },
+    {
+      "id": "t0072",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Gel Nails",
+      "chars": 9,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-category p#.body-m"
+    },
+    {
+      "id": "t0073",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Gel Manicure",
+      "chars": 12,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks a#.service-block w-inline-block h3#.h3"
+    },
+    {
+      "id": "t0074",
+      "kind": "label",
+      "tag": "div",
+      "text": "$40",
+      "chars": 3,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks a#.service-block w-inline-block div#.regular-l service-block-price"
+    },
+    {
+      "id": "t0075",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Gel Overlay",
+      "chars": 11,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks a#.service-block w-inline-block h3#.h3"
+    },
+    {
+      "id": "t0076",
+      "kind": "label",
+      "tag": "div",
+      "text": "$55",
+      "chars": 3,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks a#.service-block w-inline-block div#.regular-l service-block-price"
+    },
+    {
+      "id": "t0077",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Gel Pedicure",
+      "chars": 12,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks a#.service-block w-inline-block h3#.h3"
+    },
+    {
+      "id": "t0078",
+      "kind": "label",
+      "tag": "div",
+      "text": "$55",
+      "chars": 3,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks a#.service-block w-inline-block div#.regular-l service-block-price"
+    },
+    {
+      "id": "t0079",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "BIAB / Builder Gel",
+      "chars": 18,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks a#.service-block w-inline-block h3#.h3"
+    },
+    {
+      "id": "t0080",
+      "kind": "label",
+      "tag": "div",
+      "text": "$75",
+      "chars": 3,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks a#.service-block w-inline-block div#.regular-l service-block-price"
+    },
+    {
+      "id": "t0081",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Gel Extensions",
+      "chars": 14,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks a#.service-block w-inline-block h3#.h3"
+    },
+    {
+      "id": "t0082",
+      "kind": "label",
+      "tag": "div",
+      "text": "$85",
+      "chars": 3,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks a#.service-block w-inline-block div#.regular-l service-block-price"
+    },
+    {
+      "id": "t0083",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Gel Nail Art Add-On",
+      "chars": 19,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks a#.service-block w-inline-block h3#.h3"
+    },
+    {
+      "id": "t0084",
+      "kind": "label",
+      "tag": "div",
+      "text": "$15",
+      "chars": 3,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks a#.service-block w-inline-block div#.regular-l service-block-price"
+    },
+    {
+      "id": "t0085",
+      "kind": "heading",
+      "tag": "h2",
+      "text": "Why they keep",
+      "chars": 13,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.section-heading div#.illustrations-section-heading h2#.h2"
+    },
+    {
+      "id": "t0086",
+      "kind": "label",
+      "tag": "span",
+      "text": "coming back",
+      "chars": 11,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.section-heading div#.illustrations-section-heading h2#.h2 span#.highlighted"
+    },
+    {
+      "id": "t0087",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "It’s rare to find a salon that feels this calm – and leaves your nails looking this good.",
+      "chars": 89,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.testimonials-info div#.testimonial-blocks div#.testimonial-block div#.testimonial-block-content p#.regular-l testimonial-block-text"
+    },
+    {
+      "id": "t0088",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Jasmine L.",
+      "chars": 10,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.testimonials-info div#.testimonial-blocks div#.testimonial-block div#.testimonial-block-content p#.body-s testimonial-block-attribution"
+    },
+    {
+      "id": "t0089",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "My gel pedicure lasted really beautifully. The quiet, calming space made it feel like more than just a service, truly.",
+      "chars": 118,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.testimonials-info div#.testimonial-blocks div#.testimonial-block div#.testimonial-block-content p#.regular-l testimonial-block-text"
+    },
+    {
+      "id": "t0090",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Taylor M.",
+      "chars": 9,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.testimonials-info div#.testimonial-blocks div#.testimonial-block div#.testimonial-block-content p#.body-s testimonial-block-attribution"
+    },
+    {
+      "id": "t0091",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "From natural sets to bold, custom nail art, they just get it. Nailora makes me feel seen, styled, and completely at ease.",
+      "chars": 121,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.testimonials-info div#.testimonial-blocks div#.testimonial-block div#.testimonial-block-content p#.regular-l testimonial-block-text"
+    },
+    {
+      "id": "t0092",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Rachel T.",
+      "chars": 9,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.testimonials-info div#.testimonial-blocks div#.testimonial-block div#.testimonial-block-content p#.body-s testimonial-block-attribution"
+    },
+    {
+      "id": "t0093",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Brought an idea, left with something even better. The detail and care are perfect.",
+      "chars": 82,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.testimonials-info div#.testimonial-blocks div#.testimonial-block div#.testimonial-block-content p#.regular-l testimonial-block-text"
+    },
+    {
+      "id": "t0094",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Maya S.",
+      "chars": 7,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.testimonials-info div#.testimonial-blocks div#.testimonial-block div#.testimonial-block-content p#.body-s testimonial-block-attribution"
+    },
+    {
+      "id": "t0095",
+      "kind": "label",
+      "tag": "div",
+      "text": "View All",
+      "chars": 8,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.button-wrapper a#.button w-variant-d6a04dc2-de44-c019-1506-c99e84ad1c6c w-inline-block div#.button-text-wrapper div#.body-s button-text"
+    },
+    {
+      "id": "t0096",
+      "kind": "label",
+      "tag": "div",
+      "text": "View All",
+      "chars": 8,
+      "context": "#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.button-wrapper a#.button w-variant-d6a04dc2-de44-c019-1506-c99e84ad1c6c w-inline-block div#.button-text-wrapper div#.body-s button-text absolute-button-text"
+    },
+    {
+      "id": "t0097",
+      "kind": "label",
+      "tag": "div",
+      "text": "Special Offer",
+      "chars": 13,
+      "context": "html#. body#. section#.section div#.w-layout-blockcontainer container w-container div#.banner-content div#.banner-info div#.banner-text div#.section-heading div#.body-s section-caption white-caption"
+    },
+    {
+      "id": "t0098",
+      "kind": "heading",
+      "tag": "h2",
+      "text": "Chic nails,",
+      "chars": 11,
+      "context": "html#. body#. section#.section div#.w-layout-blockcontainer container w-container div#.banner-content div#.banner-info div#.banner-text div#.section-heading h2#.h2"
+    },
+    {
+      "id": "t0099",
+      "kind": "label",
+      "tag": "span",
+      "text": "special price",
+      "chars": 13,
+      "context": "html#. body#. section#.section div#.w-layout-blockcontainer container w-container div#.banner-content div#.banner-info div#.banner-text div#.section-heading h2#.h2 span#.highlighted white-highlighted"
+    },
+    {
+      "id": "t0100",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Treat yourself to 15% off your next appointment.",
+      "chars": 48,
+      "context": "html#. body#. section#.section div#.w-layout-blockcontainer container w-container div#.banner-content div#.banner-info div#.banner-text p#.body-s banner-description"
+    },
+    {
+      "id": "t0101",
+      "kind": "label",
+      "tag": "div",
+      "text": "Book Now",
+      "chars": 8,
+      "context": "html#. body#. section#.section div#.w-layout-blockcontainer container w-container div#.banner-content div#.banner-info div#.button-wrapper a#.button w-variant-9fac932f-513a-2a9d-d0e7-4df5e08d9c7f w-inline-block div#.button-text-wrapper div#.body-s button-text"
+    },
+    {
+      "id": "t0102",
+      "kind": "label",
+      "tag": "div",
+      "text": "Book Now",
+      "chars": 8,
+      "context": "html#. body#. section#.section div#.w-layout-blockcontainer container w-container div#.banner-content div#.banner-info div#.button-wrapper a#.button w-variant-9fac932f-513a-2a9d-d0e7-4df5e08d9c7f w-inline-block div#.button-text-wrapper div#.body-s button-text absolute-button-text"
+    },
+    {
+      "id": "t0103",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Curated",
+      "chars": 7,
+      "context": "html#. body#. section#.section div#.w-layout-blockcontainer container w-container div#.banner-content div#.benefit-blocks div#.benefit-block-wrapper first-block div#.benefit-block div#.benefit-block-content h3#.h3"
+    },
+    {
+      "id": "t0104",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Selected to match you",
+      "chars": 21,
+      "context": "html#. body#. section#.section div#.w-layout-blockcontainer container w-container div#.banner-content div#.benefit-blocks div#.benefit-block-wrapper first-block div#.benefit-block div#.benefit-block-content p#.body-s benefit-block-description"
+    },
+    {
+      "id": "t0105",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Polished",
+      "chars": 8,
+      "context": "html#. body#. section#.section div#.w-layout-blockcontainer container w-container div#.banner-content div#.benefit-blocks div#.benefit-block-wrapper second-block div#.benefit-block div#.benefit-block-content h3#.h3"
+    },
+    {
+      "id": "t0106",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Flawless finish, always",
+      "chars": 23,
+      "context": "html#. body#. section#.section div#.w-layout-blockcontainer container w-container div#.banner-content div#.benefit-blocks div#.benefit-block-wrapper second-block div#.benefit-block div#.benefit-block-content p#.body-s benefit-block-description"
+    },
+    {
+      "id": "t0107",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Trusted",
+      "chars": 7,
+      "context": "html#. body#. section#.section div#.w-layout-blockcontainer container w-container div#.banner-content div#.benefit-blocks div#.benefit-block-wrapper third-block div#.benefit-block div#.benefit-block-content h3#.h3"
+    },
+    {
+      "id": "t0108",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Loved by loyal clients",
+      "chars": 22,
+      "context": "html#. body#. section#.section div#.w-layout-blockcontainer container w-container div#.banner-content div#.benefit-blocks div#.benefit-block-wrapper third-block div#.benefit-block div#.benefit-block-content p#.body-s benefit-block-description"
+    },
+    {
+      "id": "t0109",
+      "kind": "label",
+      "tag": "div",
+      "text": "Nailora Team",
+      "chars": 12,
+      "context": "html#. body#. section#team.section div#.w-layout-blockcontainer container w-container div#.section-content div#.section-heading div#.body-s section-caption"
+    },
+    {
+      "id": "t0110",
+      "kind": "heading",
+      "tag": "h2",
+      "text": "Crafted by",
+      "chars": 10,
+      "context": "html#. body#. section#team.section div#.w-layout-blockcontainer container w-container div#.section-content div#.section-heading h2#.h2"
+    },
+    {
+      "id": "t0111",
+      "kind": "label",
+      "tag": "span",
+      "text": "calm hands",
+      "chars": 10,
+      "context": "html#. body#. section#team.section div#.w-layout-blockcontainer container w-container div#.section-content div#.section-heading h2#.h2 span#.highlighted"
+    },
+    {
+      "id": "t0112",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Lina Markovic",
+      "chars": 13,
+      "context": "html#. body#. section#team.section div#.w-layout-blockcontainer container w-container div#.section-content div#.team-blocks div#.team-block-wrapper first-block a#.team-block w-inline-block div#.team-block-content div#.team-block-info h3#.h3"
+    },
+    {
+      "id": "t0113",
+      "kind": "label",
+      "tag": "div",
+      "text": "Founder & Nail Artist",
+      "chars": 21,
+      "context": "dy#. section#team.section div#.w-layout-blockcontainer container w-container div#.section-content div#.team-blocks div#.team-block-wrapper first-block a#.team-block w-inline-block div#.team-block-content div#.team-block-info div#.team-block-text div#.body-s team-block-description"
+    },
+    {
+      "id": "t0114",
+      "kind": "label",
+      "tag": "div",
+      "text": "Visit Instagram",
+      "chars": 15,
+      "context": "tion div#.w-layout-blockcontainer container w-container div#.section-content div#.team-blocks div#.team-block-wrapper first-block a#.team-block w-inline-block div#.team-block-content div#.team-block-info div#.team-block-text div#.body-s team-block-description absolute-description"
+    },
+    {
+      "id": "t0115",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Amira Clark",
+      "chars": 11,
+      "context": "html#. body#. section#team.section div#.w-layout-blockcontainer container w-container div#.section-content div#.team-blocks div#.team-block-wrapper second-block a#.team-block w-inline-block div#.team-block-content div#.team-block-info h3#.h3"
+    },
+    {
+      "id": "t0116",
+      "kind": "label",
+      "tag": "div",
+      "text": "Nail Art Specialist",
+      "chars": 19,
+      "context": "y#. section#team.section div#.w-layout-blockcontainer container w-container div#.section-content div#.team-blocks div#.team-block-wrapper second-block a#.team-block w-inline-block div#.team-block-content div#.team-block-info div#.team-block-text div#.body-s team-block-description"
+    },
+    {
+      "id": "t0117",
+      "kind": "label",
+      "tag": "div",
+      "text": "Visit Instagram",
+      "chars": 15,
+      "context": "ion div#.w-layout-blockcontainer container w-container div#.section-content div#.team-blocks div#.team-block-wrapper second-block a#.team-block w-inline-block div#.team-block-content div#.team-block-info div#.team-block-text div#.body-s team-block-description absolute-description"
+    },
+    {
+      "id": "t0118",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Sofia Davis",
+      "chars": 11,
+      "context": "html#. body#. section#team.section div#.w-layout-blockcontainer container w-container div#.section-content div#.team-blocks div#.team-block-wrapper third-block a#.team-block w-inline-block div#.team-block-content div#.team-block-info h3#.h3"
+    },
+    {
+      "id": "t0119",
+      "kind": "label",
+      "tag": "div",
+      "text": "Gel & BIAB Expert",
+      "chars": 17,
+      "context": "dy#. section#team.section div#.w-layout-blockcontainer container w-container div#.section-content div#.team-blocks div#.team-block-wrapper third-block a#.team-block w-inline-block div#.team-block-content div#.team-block-info div#.team-block-text div#.body-s team-block-description"
+    },
+    {
+      "id": "t0120",
+      "kind": "label",
+      "tag": "div",
+      "text": "Visit Instagram",
+      "chars": 15,
+      "context": "tion div#.w-layout-blockcontainer container w-container div#.section-content div#.team-blocks div#.team-block-wrapper third-block a#.team-block w-inline-block div#.team-block-content div#.team-block-info div#.team-block-text div#.body-s team-block-description absolute-description"
+    },
+    {
+      "id": "t0121",
+      "kind": "heading",
+      "tag": "h2",
+      "text": "Everything you",
+      "chars": 14,
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.heading-and-button h2#.h2"
+    },
+    {
+      "id": "t0122",
+      "kind": "label",
+      "tag": "span",
+      "text": "might wonder",
+      "chars": 12,
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.heading-and-button h2#.h2 span#.highlighted"
+    },
+    {
+      "id": "t0123",
+      "kind": "label",
+      "tag": "div",
+      "text": "Book Now",
+      "chars": 8,
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.heading-and-button div#.button-wrapper a#.button w-variant-9fac932f-513a-2a9d-d0e7-4df5e08d9c7f w-inline-block div#.button-text-wrapper div#.body-s button-text"
+    },
+    {
+      "id": "t0124",
+      "kind": "label",
+      "tag": "div",
+      "text": "Book Now",
+      "chars": 8,
+      "context": "body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.heading-and-button div#.button-wrapper a#.button w-variant-9fac932f-513a-2a9d-d0e7-4df5e08d9c7f w-inline-block div#.button-text-wrapper div#.body-s button-text absolute-button-text"
+    },
+    {
+      "id": "t0125",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "How do I book an appointment?",
+      "chars": 29,
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.faq-items-wrapper div#.faq-items div#.faq-item div#.faq-question p#.body-m"
+    },
+    {
+      "id": "t0126",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "You can book online, by phone, or via Instagram DM. Walk-ins are limited, so we recommend booking ahead.",
+      "chars": 104,
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.faq-items-wrapper div#.faq-items div#.faq-item div#.faq-answer p#.body-s faq-answer-text"
+    },
+    {
+      "id": "t0127",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Do you accept walk-ins?",
+      "chars": 23,
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.faq-items-wrapper div#.faq-items div#.faq-item div#.faq-question p#.body-m"
+    },
+    {
+      "id": "t0128",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "We operate mainly by appointment, but feel free to message us – we’ll try to fit you in if there’s a gap.",
+      "chars": 105,
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.faq-items-wrapper div#.faq-items div#.faq-item div#.faq-answer p#.body-s faq-answer-text"
+    },
+    {
+      "id": "t0129",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "What kind of products do you use?",
+      "chars": 33,
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.faq-items-wrapper div#.faq-items div#.faq-item div#.faq-question p#.body-m"
+    },
+    {
+      "id": "t0130",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "We use high-quality, non-toxic, and cruelty-free products that are safe and nourishing for natural nails.",
+      "chars": 105,
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.faq-items-wrapper div#.faq-items div#.faq-item div#.faq-answer p#.body-s faq-answer-text"
+    },
+    {
+      "id": "t0131",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "What’s the service duration?",
+      "chars": 28,
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.faq-items-wrapper div#.faq-items div#.faq-item div#.faq-question p#.body-m"
+    },
+    {
+      "id": "t0132",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Most services take 45–90 minutes depending on the treatment and any add-ons like art or extensions.",
+      "chars": 99,
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.faq-items-wrapper div#.faq-items div#.faq-item div#.faq-answer p#.body-s faq-answer-text"
+    },
+    {
+      "id": "t0133",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Can I bring my own nail design?",
+      "chars": 31,
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.faq-items-wrapper div#.faq-items div#.faq-item div#.faq-question p#.body-m"
+    },
+    {
+      "id": "t0134",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Yes! We love custom inspiration. Bring photos or ideas – we’ll make it work with your nail shape and style.",
+      "chars": 107,
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.faq-items-wrapper div#.faq-items div#.faq-item div#.faq-answer p#.body-s faq-answer-text"
+    },
+    {
+      "id": "t0135",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Is gel safe for my nails?",
+      "chars": 25,
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.faq-items-wrapper div#.faq-items div#.faq-item div#.faq-question p#.body-m"
+    },
+    {
+      "id": "t0136",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Yes – when applied and removed properly. We’re careful to protect your nails and keep them healthy underneath.",
+      "chars": 110,
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.faq-items-wrapper div#.faq-items div#.faq-item div#.faq-answer p#.body-s faq-answer-text"
+    },
+    {
+      "id": "t0137",
+      "kind": "heading",
+      "tag": "h2",
+      "text": "Reach out,",
+      "chars": 10,
+      "context": "html#. body#. section#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.section-heading div#.illustrations-section-heading h2#.h2"
+    },
+    {
+      "id": "t0138",
+      "kind": "label",
+      "tag": "span",
+      "text": "stay polished",
+      "chars": 13,
+      "context": "html#. body#. section#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.section-heading div#.illustrations-section-heading h2#.h2 span#.highlighted"
+    },
+    {
+      "id": "t0139",
+      "kind": "heading",
+      "tag": "h3",
+      "text": "Get in touch",
+      "chars": 12,
+      "context": "html#. body#. section#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-form div#.form-block w-form form#wf-form-contact-form.form h3#.h3"
+    },
+    {
+      "id": "t0140",
+      "kind": "label",
+      "tag": "label",
+      "text": "Full Name",
+      "chars": 9,
+      "context": "tml#. body#. section#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-form div#.form-block w-form form#wf-form-contact-form.form div#.form-inputs div#.form-input label#.body-s form-label"
+    },
+    {
+      "id": "t0141",
+      "kind": "label",
+      "tag": "label",
+      "text": "Email",
+      "chars": 5,
+      "context": "tml#. body#. section#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-form div#.form-block w-form form#wf-form-contact-form.form div#.form-inputs div#.form-input label#.body-s form-label"
+    },
+    {
+      "id": "t0142",
+      "kind": "label",
+      "tag": "label",
+      "text": "Inquiry Type",
+      "chars": 12,
+      "context": "tml#. body#. section#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-form div#.form-block w-form form#wf-form-contact-form.form div#.form-inputs div#.form-input label#.body-s form-label"
+    },
+    {
+      "id": "t0143",
+      "kind": "label",
+      "tag": "option",
+      "text": "Booking Request",
+      "chars": 15,
+      "context": "ct.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-form div#.form-block w-form form#wf-form-contact-form.form div#.form-inputs div#.form-input select#inquiry-type.input select w-select option#."
+    },
+    {
+      "id": "t0144",
+      "kind": "label",
+      "tag": "option",
+      "text": "General Question",
+      "chars": 16,
+      "context": "ct.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-form div#.form-block w-form form#wf-form-contact-form.form div#.form-inputs div#.form-input select#inquiry-type.input select w-select option#."
+    },
+    {
+      "id": "t0145",
+      "kind": "label",
+      "tag": "option",
+      "text": "Special Request",
+      "chars": 15,
+      "context": "ct.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-form div#.form-block w-form form#wf-form-contact-form.form div#.form-inputs div#.form-input select#inquiry-type.input select w-select option#."
+    },
+    {
+      "id": "t0146",
+      "kind": "label",
+      "tag": "option",
+      "text": "Feedback",
+      "chars": 8,
+      "context": "ct.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-form div#.form-block w-form form#wf-form-contact-form.form div#.form-inputs div#.form-input select#inquiry-type.input select w-select option#."
+    },
+    {
+      "id": "t0147",
+      "kind": "label",
+      "tag": "option",
+      "text": "Other",
+      "chars": 5,
+      "context": "ct.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-form div#.form-block w-form form#wf-form-contact-form.form div#.form-inputs div#.form-input select#inquiry-type.input select w-select option#."
+    },
+    {
+      "id": "t0148",
+      "kind": "label",
+      "tag": "label",
+      "text": "Message",
+      "chars": 7,
+      "context": "tion#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-form div#.form-block w-form form#wf-form-contact-form.form div#.form-inputs div#.form-input text-area-input label#.body-s form-label"
+    },
+    {
+      "id": "t0149",
+      "kind": "label",
+      "tag": "div",
+      "text": "Your Message Has Been Sent",
+      "chars": 26,
+      "context": "y#. section#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-form div#.form-block w-form div#.success-message w-form-done div#.success-message-content div#.regular-l success-message-text"
+    },
+    {
+      "id": "t0150",
+      "kind": "label",
+      "tag": "div",
+      "text": "Something went wrong. Try again.",
+      "chars": 32,
+      "context": "html#. body#. section#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-form div#.form-block w-form div#.error-message w-form-fail div#.body-s"
+    },
+    {
+      "id": "t0151",
+      "kind": "heading",
+      "tag": "h4",
+      "text": "Call Us",
+      "chars": 7,
+      "context": "html#. body#. section#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-blocks div#.contact-block-wrapper first-block a#.contact-block w-inline-block div#.contact-block-content h4#.h4"
+    },
+    {
+      "id": "t0152",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "Let’s talk nails",
+      "chars": 16,
+      "context": "tact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-blocks div#.contact-block-wrapper first-block a#.contact-block w-inline-block div#.contact-block-content p#.body-s contact-block-description"
+    },
+    {
+      "id": "t0153",
+      "kind": "heading",
+      "tag": "h4",
+      "text": "Find Us",
+      "chars": 7,
+      "context": "html#. body#. section#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-blocks div#.contact-block-wrapper second-block a#.contact-block w-inline-block div#.contact-block-content h4#.h4"
+    },
+    {
+      "id": "t0154",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "See you here",
+      "chars": 12,
+      "context": "act.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-blocks div#.contact-block-wrapper second-block a#.contact-block w-inline-block div#.contact-block-content p#.body-s contact-block-description"
+    },
+    {
+      "id": "t0155",
+      "kind": "heading",
+      "tag": "h4",
+      "text": "Email Us",
+      "chars": 8,
+      "context": "html#. body#. section#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-blocks div#.contact-block-wrapper third-block a#.contact-block w-inline-block div#.contact-block-content h4#.h4"
+    },
+    {
+      "id": "t0156",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "We’re listening",
+      "chars": 15,
+      "context": "tact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-blocks div#.contact-block-wrapper third-block a#.contact-block w-inline-block div#.contact-block-content p#.body-s contact-block-description"
+    },
+    {
+      "id": "t0157",
+      "kind": "brand",
+      "tag": "div",
+      "text": "Nailora",
+      "chars": 7,
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-menu div#.footer-info a#.logo w-variant-a773f25e-9df4-2b81-8359-d461c73529bc w-inline-block w--current div#.body-m"
+    },
+    {
+      "id": "t0158",
+      "kind": "paragraph",
+      "tag": "p",
+      "text": "A studio built around calm service, clean products, and good nails",
+      "chars": 66,
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-menu div#.footer-info div#.footer-details p#.body-s footer-description"
+    },
+    {
+      "id": "t0159",
+      "kind": "nav",
+      "tag": "div",
+      "text": "+ 1 (212) 555-0198",
+      "chars": 18,
+      "context": "kcontainer container w-container div#.footer-content div#.footer-menu div#.footer-info div#.footer-details div#.footer-contact-items a#.contact-item w-variant-c23c1905-2a6c-777c-0aa9-f7f1973a7398 w-inline-block div#.contact-item-text w-variant-c23c1905-2a6c-777c-0aa9-f7f1973a7398"
+    },
+    {
+      "id": "t0160",
+      "kind": "nav",
+      "tag": "div",
+      "text": "301 Milam St, Houston",
+      "chars": 21,
+      "context": "kcontainer container w-container div#.footer-content div#.footer-menu div#.footer-info div#.footer-details div#.footer-contact-items a#.contact-item w-variant-c23c1905-2a6c-777c-0aa9-f7f1973a7398 w-inline-block div#.contact-item-text w-variant-c23c1905-2a6c-777c-0aa9-f7f1973a7398"
+    },
+    {
+      "id": "t0161",
+      "kind": "nav",
+      "tag": "div",
+      "text": "hello@nailora.com",
+      "chars": 17,
+      "context": "kcontainer container w-container div#.footer-content div#.footer-menu div#.footer-info div#.footer-details div#.footer-contact-items a#.contact-item w-variant-c23c1905-2a6c-777c-0aa9-f7f1973a7398 w-inline-block div#.contact-item-text w-variant-c23c1905-2a6c-777c-0aa9-f7f1973a7398"
+    },
+    {
+      "id": "t0162",
+      "kind": "nav",
+      "tag": "div",
+      "text": "We're Open:",
+      "chars": 11,
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-menu div#.footer-info div#.footer-details div#.footer-info-block div#.body-s footer-info-block-name"
+    },
+    {
+      "id": "t0163",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Mon - Fri: 10AM - 6PM",
+      "chars": 21,
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-menu div#.footer-info div#.footer-details div#.footer-info-block div#.body-s"
+    },
+    {
+      "id": "t0164",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Menu",
+      "chars": 4,
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-menu div#.footer-menu-blocks div#.footer-menu-block div#.body-xs footer-menu-block-name"
+    },
+    {
+      "id": "t0165",
+      "kind": "nav",
+      "tag": "div",
+      "text": "About",
+      "chars": 5,
+      "context": "container container w-container div#.footer-content div#.footer-menu div#.footer-menu-blocks div#.footer-menu-block div#.footer-menu-items a#.menu-item w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266 w-inline-block div#.menu-item-text w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266"
+    },
+    {
+      "id": "t0166",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Services",
+      "chars": 8,
+      "context": "container container w-container div#.footer-content div#.footer-menu div#.footer-menu-blocks div#.footer-menu-block div#.footer-menu-items a#.menu-item w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266 w-inline-block div#.menu-item-text w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266"
+    },
+    {
+      "id": "t0167",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Team",
+      "chars": 4,
+      "context": "container container w-container div#.footer-content div#.footer-menu div#.footer-menu-blocks div#.footer-menu-block div#.footer-menu-items a#.menu-item w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266 w-inline-block div#.menu-item-text w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266"
+    },
+    {
+      "id": "t0168",
+      "kind": "nav",
+      "tag": "div",
+      "text": "FAQ",
+      "chars": 3,
+      "context": "container container w-container div#.footer-content div#.footer-menu div#.footer-menu-blocks div#.footer-menu-block div#.footer-menu-items a#.menu-item w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266 w-inline-block div#.menu-item-text w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266"
+    },
+    {
+      "id": "t0169",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Contact",
+      "chars": 7,
+      "context": "container container w-container div#.footer-content div#.footer-menu div#.footer-menu-blocks div#.footer-menu-block div#.footer-menu-items a#.menu-item w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266 w-inline-block div#.menu-item-text w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266"
+    },
+    {
+      "id": "t0170",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Follow Us",
+      "chars": 9,
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-menu div#.footer-menu-blocks div#.footer-menu-block div#.body-xs footer-menu-block-name"
+    },
+    {
+      "id": "t0171",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Facebook",
+      "chars": 8,
+      "context": "container container w-container div#.footer-content div#.footer-menu div#.footer-menu-blocks div#.footer-menu-block div#.footer-menu-items a#.menu-item w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266 w-inline-block div#.menu-item-text w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266"
+    },
+    {
+      "id": "t0172",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Instagram",
+      "chars": 9,
+      "context": "container container w-container div#.footer-content div#.footer-menu div#.footer-menu-blocks div#.footer-menu-block div#.footer-menu-items a#.menu-item w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266 w-inline-block div#.menu-item-text w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266"
+    },
+    {
+      "id": "t0173",
+      "kind": "nav",
+      "tag": "div",
+      "text": "Pinterest",
+      "chars": 9,
+      "context": "container container w-container div#.footer-content div#.footer-menu div#.footer-menu-blocks div#.footer-menu-block div#.footer-menu-items a#.menu-item w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266 w-inline-block div#.menu-item-text w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266"
+    },
+    {
+      "id": "t0174",
+      "kind": "label",
+      "tag": "div",
+      "text": "© 2025, Nailora",
+      "chars": 15,
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-legal div#.body-xs"
+    },
+    {
+      "id": "t0175",
+      "kind": "label",
+      "tag": "div",
+      "text": "Licenses",
+      "chars": 8,
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-legal div#.footer-links a#.footer-link w-inline-block div#.body-xs"
+    },
+    {
+      "id": "t0176",
+      "kind": "label",
+      "tag": "div",
+      "text": "Powered by Webflow",
+      "chars": 18,
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-legal div#.footer-links a#.footer-link w-inline-block div#.body-xs"
+    }
+  ],
+  "images": [
+    {
+      "id": "i0001",
+      "role": "icon",
+      "src": "assets/ae8130396b-688b41799af5b75944e227bc_Call.svg",
+      "alt": "",
+      "className": "contact-item-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. nav#.nav div#.nav-info div#.w-layout-blockcontainer container w-container div#.nav-info-content div#.nav-info-items div#.nav-info-item a#.contact-item w-inline-block"
+    },
+    {
+      "id": "i0002",
+      "role": "icon",
+      "src": "assets/7ce2748604-688b41790d4c1bda0956be61_Location.svg",
+      "alt": "",
+      "className": "contact-item-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. nav#.nav div#.nav-info div#.w-layout-blockcontainer container w-container div#.nav-info-content div#.nav-info-items a#.contact-item w-inline-block"
+    },
+    {
+      "id": "i0003",
+      "role": "icon",
+      "src": "assets/ae8130396b-688b41799af5b75944e227bc_Call.svg",
+      "alt": "",
+      "className": "icon-button-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. nav#.nav div#.nav-main div#.w-layout-blockcontainer container w-container div#.nav-main-content div#.nav-main-info div#.nav-main-buttons div#.nav-main-icon-button a#.icon-button w-inline-block"
+    },
+    {
+      "id": "i0004",
+      "role": "icon",
+      "src": "assets/5d2761abfc-688b4179f1d0a686a8f2e645_Arrow-Right.svg",
+      "alt": "",
+      "className": "button-icon",
+      "width": null,
+      "height": null,
+      "context": "ainer div#.nav-main-content div#.nav-main-info div#.nav-main-buttons div#.nav-main-button a#.button w-variant-d6a04dc2-de44-c019-1506-c99e84ad1c6c w-inline-block div#.button-icons w-variant-d6a04dc2-de44-c019-1506-c99e84ad1c6c div#.button-icon-wrapper absolute-button-icon-wrapper"
+    },
+    {
+      "id": "i0005",
+      "role": "icon",
+      "src": "assets/5d2761abfc-688b4179f1d0a686a8f2e645_Arrow-Right.svg",
+      "alt": "",
+      "className": "button-icon",
+      "width": null,
+      "height": null,
+      "context": "ockcontainer container w-container div#.nav-main-content div#.nav-main-info div#.nav-main-buttons div#.nav-main-button a#.button w-variant-d6a04dc2-de44-c019-1506-c99e84ad1c6c w-inline-block div#.button-icons w-variant-d6a04dc2-de44-c019-1506-c99e84ad1c6c div#.button-icon-wrapper"
+    },
+    {
+      "id": "i0006",
+      "role": "hero",
+      "src": "assets/5d2761abfc-688b4179f1d0a686a8f2e645_Arrow-Right.svg",
+      "alt": "",
+      "className": "button-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. main#.hero home-hero div#.w-layout-blockcontainer container w-container div#.hero-content div#.hero-info div#.hero-text div#.hero-button a#.button w-inline-block div#.button-icons div#.button-icon-wrapper absolute-button-icon-wrapper"
+    },
+    {
+      "id": "i0007",
+      "role": "hero",
+      "src": "assets/5d2761abfc-688b4179f1d0a686a8f2e645_Arrow-Right.svg",
+      "alt": "",
+      "className": "button-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. main#.hero home-hero div#.w-layout-blockcontainer container w-container div#.hero-content div#.hero-info div#.hero-text div#.hero-button a#.button w-inline-block div#.button-icons div#.button-icon-wrapper"
+    },
+    {
+      "id": "i0008",
+      "role": "hero",
+      "src": "assets/106fb8f647-688b6156b53ef7d16e347807_pexels-cottonbro-3997379.avif",
+      "alt": "Woman selecting nail polish samples",
+      "className": "background-image parallax-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. main#.hero home-hero div#.w-layout-blockcontainer container w-container div#.hero-content div#.hero-images div#.hero-image first-image"
+    },
+    {
+      "id": "i0009",
+      "role": "hero",
+      "src": "assets/9b3e483d63-688b615675a1197c037c4a9f_pexels-michelle-leman-6774877.avif",
+      "alt": "Woman with pastel rainbow nails and bold pink eyeshadow",
+      "className": "background-image parallax-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. main#.hero home-hero div#.w-layout-blockcontainer container w-container div#.hero-content div#.hero-images div#.hero-image main-image"
+    },
+    {
+      "id": "i0010",
+      "role": "hero",
+      "src": "assets/6b64a43ba8-688b61564a975085ff4e2752_allison-christine-n4MHxHD1dKI-unsplash.avif",
+      "alt": "Hand with nude and glittery rhinestone nails in a sweater",
+      "className": "background-image parallax-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. main#.hero home-hero div#.w-layout-blockcontainer container w-container div#.hero-content div#.hero-images div#.hero-image last-image"
+    },
+    {
+      "id": "i0011",
+      "role": "content",
+      "src": "assets/1df97c06c9-688b6686894662dcf1c32262_Illustration-1.svg",
+      "alt": "",
+      "className": "section-heading-illustration left-illustrations",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content div#.section-heading div#.illustrations-section-heading"
+    },
+    {
+      "id": "i0012",
+      "role": "content",
+      "src": "assets/28134e0488-688b668667e2ef537055920a_Illustration-2.svg",
+      "alt": "",
+      "className": "section-heading-illustration center-illustrations",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content div#.section-heading div#.illustrations-section-heading"
+    },
+    {
+      "id": "i0013",
+      "role": "content",
+      "src": "assets/c932ab76cb-688b6685e0582742404b4f76_Illustration-3.svg",
+      "alt": "",
+      "className": "section-heading-illustration right-illustrations",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content div#.section-heading div#.illustrations-section-heading"
+    },
+    {
+      "id": "i0014",
+      "role": "content",
+      "src": "assets/1c52f4abab-688b69fa3ef86282e57bd8cf_Shape-1.svg",
+      "alt": "",
+      "className": "category-block-shape",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content div#.categories-info div#.category-blocks div#.category-block-wrapper first-block a#.category-block w-inline-block div#.category-block-content"
+    },
+    {
+      "id": "i0015",
+      "role": "content",
+      "src": "assets/cd7af22ece-688b69fa322cc77b238814fa_Shape-2.svg",
+      "alt": "",
+      "className": "category-block-shape",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content div#.categories-info div#.category-blocks div#.category-block-wrapper second-block a#.category-block w-inline-block div#.category-block-content"
+    },
+    {
+      "id": "i0016",
+      "role": "content",
+      "src": "assets/5c08ebb37b-688b69fa791f6a077878c132_Shape-3.svg",
+      "alt": "",
+      "className": "category-block-shape",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content div#.categories-info div#.category-blocks div#.category-block-wrapper third-block a#.category-block w-inline-block div#.category-block-content"
+    },
+    {
+      "id": "i0017",
+      "role": "icon",
+      "src": "assets/f98729ba7a-688b4179907a1b2a90121c8d_Star.svg",
+      "alt": "",
+      "className": "value-block-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#about.section div#.w-layout-blockcontainer container w-container div#.about-content div#.about-info div#.value-blocks div#.value-block-wrapper first-block div#.value-block div#.value-block-content"
+    },
+    {
+      "id": "i0018",
+      "role": "icon",
+      "src": "assets/ce5e3348cd-688b4179cac8cfbfb8869c83_Verify.svg",
+      "alt": "",
+      "className": "value-block-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#about.section div#.w-layout-blockcontainer container w-container div#.about-content div#.about-info div#.value-blocks div#.value-block-wrapper second-block div#.value-block div#.value-block-content"
+    },
+    {
+      "id": "i0019",
+      "role": "icon",
+      "src": "assets/6c1a5d0148-688b70dfb34dd0f8a9f6f2d7_Crown.svg",
+      "alt": "",
+      "className": "value-block-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#about.section div#.w-layout-blockcontainer container w-container div#.about-content div#.about-info div#.value-blocks div#.value-block-wrapper third-block div#.value-block div#.value-block-content"
+    },
+    {
+      "id": "i0020",
+      "role": "content",
+      "src": "assets/3b3616e582-688b742eae7fb206bf0f645f_Person-Image.avif",
+      "alt": "Lina Markovic",
+      "className": "quote-block-person-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#about.section div#.w-layout-blockcontainer container w-container div#.about-content div#.quote-block-wrapper div#.quote-block div#.quote-block-person"
+    },
+    {
+      "id": "i0021",
+      "role": "content",
+      "src": "assets/a24f06e157-688b72e83ff1fbf7c130d7aa_pexels-shvets-production-9775216.avif",
+      "alt": "Woman applying cuticle oil with a dropper on manicured nails",
+      "className": "background-image parallax-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#about.section div#.w-layout-blockcontainer container w-container div#.about-content div#.quote-block-wrapper"
+    },
+    {
+      "id": "i0022",
+      "role": "icon",
+      "src": "assets/5d2761abfc-688b4179f1d0a686a8f2e645_Arrow-Right.svg",
+      "alt": "",
+      "className": "button-icon",
+      "width": null,
+      "height": null,
+      "context": "ion-heading text-and-button-section-heading div#.section-heading-text div#.button-wrapper a#.button w-variant-d6a04dc2-de44-c019-1506-c99e84ad1c6c w-inline-block div#.button-icons w-variant-d6a04dc2-de44-c019-1506-c99e84ad1c6c div#.button-icon-wrapper absolute-button-icon-wrapper"
+    },
+    {
+      "id": "i0023",
+      "role": "icon",
+      "src": "assets/5d2761abfc-688b4179f1d0a686a8f2e645_Arrow-Right.svg",
+      "alt": "",
+      "className": "button-icon",
+      "width": null,
+      "height": null,
+      "context": "ion-content big-gap div#.section-heading text-and-button-section-heading div#.section-heading-text div#.button-wrapper a#.button w-variant-d6a04dc2-de44-c019-1506-c99e84ad1c6c w-inline-block div#.button-icons w-variant-d6a04dc2-de44-c019-1506-c99e84ad1c6c div#.button-icon-wrapper"
+    },
+    {
+      "id": "i0024",
+      "role": "content",
+      "src": "assets/1c52f4abab-688b69fa3ef86282e57bd8cf_Shape-1.svg",
+      "alt": "",
+      "className": "service-catgory-shape",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-category"
+    },
+    {
+      "id": "i0025",
+      "role": "content",
+      "src": "assets/1343b69f8b-68906520889e17fc7688ae99_Classic-Manicure.avif",
+      "alt": "Classic Manicure",
+      "className": "service-block-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block"
+    },
+    {
+      "id": "i0026",
+      "role": "content",
+      "src": "assets/002e576544-6890652064a04d1c55d7c8ab_French-Manicure.avif",
+      "alt": "French Manicure",
+      "className": "service-block-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block"
+    },
+    {
+      "id": "i0027",
+      "role": "content",
+      "src": "assets/9f2d668115-68906520183ff7b96acb7c80_Russian-Manicure.avif",
+      "alt": "Russian Manicure",
+      "className": "service-block-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block"
+    },
+    {
+      "id": "i0028",
+      "role": "content",
+      "src": "assets/49a878b7df-68906520c30e572512a04415_Spa-Manicure.avif",
+      "alt": "Spa Manicure",
+      "className": "service-block-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block"
+    },
+    {
+      "id": "i0029",
+      "role": "content",
+      "src": "assets/61c5059a3a-6890652093d0d395be26397a_Express-Manicure.avif",
+      "alt": "Express Manicure",
+      "className": "service-block-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block"
+    },
+    {
+      "id": "i0030",
+      "role": "content",
+      "src": "assets/fd525fd5e6-6890652064a04d1c55d7c88e_Non-Toxic-Manicure.avif",
+      "alt": "Non-Toxic Manicure",
+      "className": "service-block-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block"
+    },
+    {
+      "id": "i0031",
+      "role": "content",
+      "src": "assets/1e1e52ca2e-68906520fd34fa44b03a66db_Natural-Manicure.avif",
+      "alt": "Natural Manicure",
+      "className": "service-block-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block"
+    },
+    {
+      "id": "i0032",
+      "role": "content",
+      "src": "assets/2579d8c502-68906520c30e572512a04418_Deluxe-Manicure.avif",
+      "alt": "Deluxe Manicure",
+      "className": "service-block-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks a#.service-block w-inline-block"
+    },
+    {
+      "id": "i0033",
+      "role": "content",
+      "src": "assets/cd7af22ece-688b69fa322cc77b238814fa_Shape-2.svg",
+      "alt": "",
+      "className": "service-catgory-shape",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#pedicures.services-category div#.service-category"
+    },
+    {
+      "id": "i0034",
+      "role": "content",
+      "src": "assets/38513a41aa-689065af8b894497a0f56561_Classic-Pedicure.avif",
+      "alt": "Classic Pedicure",
+      "className": "service-block-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#pedicures.services-category div#.service-blocks a#.service-block w-inline-block"
+    },
+    {
+      "id": "i0035",
+      "role": "content",
+      "src": "assets/ce52809be4-689065af26d2687b7be64690_Silk-Soles.avif",
+      "alt": "Silk Soles",
+      "className": "service-block-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#pedicures.services-category div#.service-blocks a#.service-block w-inline-block"
+    },
+    {
+      "id": "i0036",
+      "role": "content",
+      "src": "assets/788f724d3c-689065af797ed4309fbe39e8_Spa-Pedicure.avif",
+      "alt": "Spa Pedicure",
+      "className": "service-block-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#pedicures.services-category div#.service-blocks a#.service-block w-inline-block"
+    },
+    {
+      "id": "i0037",
+      "role": "content",
+      "src": "assets/41a4387617-689065af21c7c8dbde195c95_Deluxe-Pedicure.avif",
+      "alt": "Deluxe Pedicure",
+      "className": "service-block-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#pedicures.services-category div#.service-blocks a#.service-block w-inline-block"
+    },
+    {
+      "id": "i0038",
+      "role": "content",
+      "src": "assets/5c08ebb37b-688b69fa791f6a077878c132_Shape-3.svg",
+      "alt": "",
+      "className": "service-catgory-shape",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-category"
+    },
+    {
+      "id": "i0039",
+      "role": "content",
+      "src": "assets/ed005a130e-689065ff926e7432d99949bc_Gel-Manicure.avif",
+      "alt": "Gel Manicure",
+      "className": "service-block-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks a#.service-block w-inline-block"
+    },
+    {
+      "id": "i0040",
+      "role": "content",
+      "src": "assets/3860033947-689065ff30da98598b7a40a6_Gel-Overlay.avif",
+      "alt": "Gel Overlay",
+      "className": "service-block-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks a#.service-block w-inline-block"
+    },
+    {
+      "id": "i0041",
+      "role": "content",
+      "src": "assets/8c10eba649-689065ff149ae9bbfc7df30c_Gel-Pedicure.avif",
+      "alt": "Gel Pedicure",
+      "className": "service-block-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks a#.service-block w-inline-block"
+    },
+    {
+      "id": "i0042",
+      "role": "content",
+      "src": "assets/4edbf30715-689065ffd217527a8dde7e36_Builder-Gel.avif",
+      "alt": "Builder Gel",
+      "className": "service-block-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks a#.service-block w-inline-block"
+    },
+    {
+      "id": "i0043",
+      "role": "content",
+      "src": "assets/4d6e9fd498-689065ffe5f7ea5106400d55_Gel-Extensions.avif",
+      "alt": "Gel Extensions",
+      "className": "service-block-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks a#.service-block w-inline-block"
+    },
+    {
+      "id": "i0044",
+      "role": "content",
+      "src": "assets/3e3abcf558-689065ffd673a7e6cd0ae53a_Gel-Nail-Art-Add-On.avif",
+      "alt": "Gel Nail Art Add-On",
+      "className": "service-block-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks a#.service-block w-inline-block"
+    },
+    {
+      "id": "i0045",
+      "role": "content",
+      "src": "assets/cd078f01d1-688b668677411edaa4f9a8c4_Illustration-4.svg",
+      "alt": "",
+      "className": "section-heading-illustration left-illustrations",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.section-heading div#.illustrations-section-heading"
+    },
+    {
+      "id": "i0046",
+      "role": "content",
+      "src": "assets/3aaa53e573-688b668663a41a0e07fcf412_Illustration-6.svg",
+      "alt": "",
+      "className": "section-heading-illustration center-illustrations",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.section-heading div#.illustrations-section-heading"
+    },
+    {
+      "id": "i0047",
+      "role": "content",
+      "src": "assets/50f4d85829-688b66861ffd4d9bf1e30366_Illustration-9.svg",
+      "alt": "",
+      "className": "section-heading-illustration right-illustrations",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.section-heading div#.illustrations-section-heading"
+    },
+    {
+      "id": "i0048",
+      "role": "icon",
+      "src": "assets/6cf2e25022-688b4179baa815bbe160717e_Quote-Up.svg",
+      "alt": "",
+      "className": "testimonial-block-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.testimonials-info div#.testimonial-blocks div#.testimonial-block div#.testimonial-block-content"
+    },
+    {
+      "id": "i0049",
+      "role": "content",
+      "src": "assets/69953e752a-688b82d529965eda473a78eb_katie-mansfield-dupe.avif",
+      "alt": "Hand with pink swirl nails and rings in car",
+      "className": "background-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.testimonials-info div#.testimonial-blocks div#.testimonial-block div#.testimonial-block-image"
+    },
+    {
+      "id": "i0050",
+      "role": "icon",
+      "src": "assets/6cf2e25022-688b4179baa815bbe160717e_Quote-Up.svg",
+      "alt": "",
+      "className": "testimonial-block-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.testimonials-info div#.testimonial-blocks div#.testimonial-block div#.testimonial-block-content"
+    },
+    {
+      "id": "i0051",
+      "role": "content",
+      "src": "assets/7750b5235f-688b82d4db6496bd88ad6f04_bruna-gomes-dupe.avif",
+      "alt": "Hand with glittery pastel nails in sunlight",
+      "className": "background-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.testimonials-info div#.testimonial-blocks div#.testimonial-block div#.testimonial-block-image"
+    },
+    {
+      "id": "i0052",
+      "role": "icon",
+      "src": "assets/6cf2e25022-688b4179baa815bbe160717e_Quote-Up.svg",
+      "alt": "",
+      "className": "testimonial-block-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.testimonials-info div#.testimonial-blocks div#.testimonial-block div#.testimonial-block-content"
+    },
+    {
+      "id": "i0053",
+      "role": "content",
+      "src": "assets/0a1226f6c3-688b82d480e1a1bb9db818be_jayda-anderson-dupe.avif",
+      "alt": "Hand with light pink nails and rings on cozy blanket",
+      "className": "background-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.testimonials-info div#.testimonial-blocks div#.testimonial-block div#.testimonial-block-image"
+    },
+    {
+      "id": "i0054",
+      "role": "icon",
+      "src": "assets/6cf2e25022-688b4179baa815bbe160717e_Quote-Up.svg",
+      "alt": "",
+      "className": "testimonial-block-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.testimonials-info div#.testimonial-blocks div#.testimonial-block div#.testimonial-block-content"
+    },
+    {
+      "id": "i0055",
+      "role": "content",
+      "src": "assets/6c907dcd2c-688b82d456faa32228f6840f_shai---dupe.avif",
+      "alt": "Hand with autumn-colored nails holding a brown purse",
+      "className": "background-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.testimonials-info div#.testimonial-blocks div#.testimonial-block div#.testimonial-block-image"
+    },
+    {
+      "id": "i0056",
+      "role": "icon",
+      "src": "assets/5d2761abfc-688b4179f1d0a686a8f2e645_Arrow-Right.svg",
+      "alt": "",
+      "className": "button-icon",
+      "width": null,
+      "height": null,
+      "context": "out-blockcontainer container w-container div#.section-content big-gap div#.button-wrapper a#.button w-variant-d6a04dc2-de44-c019-1506-c99e84ad1c6c w-inline-block div#.button-icons w-variant-d6a04dc2-de44-c019-1506-c99e84ad1c6c div#.button-icon-wrapper absolute-button-icon-wrapper"
+    },
+    {
+      "id": "i0057",
+      "role": "icon",
+      "src": "assets/5d2761abfc-688b4179f1d0a686a8f2e645_Arrow-Right.svg",
+      "alt": "",
+      "className": "button-icon",
+      "width": null,
+      "height": null,
+      "context": "ection big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.button-wrapper a#.button w-variant-d6a04dc2-de44-c019-1506-c99e84ad1c6c w-inline-block div#.button-icons w-variant-d6a04dc2-de44-c019-1506-c99e84ad1c6c div#.button-icon-wrapper"
+    },
+    {
+      "id": "i0058",
+      "role": "hero",
+      "src": "assets/16654a2e81-688b41e00dacb2b7b318b7b5_Arrow-Right.svg",
+      "alt": "",
+      "className": "button-icon",
+      "width": null,
+      "height": null,
+      "context": "kcontainer container w-container div#.banner-content div#.banner-info div#.button-wrapper a#.button w-variant-9fac932f-513a-2a9d-d0e7-4df5e08d9c7f w-inline-block div#.button-icons w-variant-9fac932f-513a-2a9d-d0e7-4df5e08d9c7f div#.button-icon-wrapper absolute-button-icon-wrapper"
+    },
+    {
+      "id": "i0059",
+      "role": "hero",
+      "src": "assets/16654a2e81-688b41e00dacb2b7b318b7b5_Arrow-Right.svg",
+      "alt": "",
+      "className": "button-icon",
+      "width": null,
+      "height": null,
+      "context": "n#.section div#.w-layout-blockcontainer container w-container div#.banner-content div#.banner-info div#.button-wrapper a#.button w-variant-9fac932f-513a-2a9d-d0e7-4df5e08d9c7f w-inline-block div#.button-icons w-variant-9fac932f-513a-2a9d-d0e7-4df5e08d9c7f div#.button-icon-wrapper"
+    },
+    {
+      "id": "i0060",
+      "role": "hero",
+      "src": "assets/411ef9d587-688b417941867184284503a4_Magic-Star.svg",
+      "alt": "",
+      "className": "benefit-block-icons",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#.section div#.w-layout-blockcontainer container w-container div#.banner-content div#.benefit-blocks div#.benefit-block-wrapper first-block div#.benefit-block"
+    },
+    {
+      "id": "i0061",
+      "role": "hero",
+      "src": "assets/1425ccf4d9-688b41793be151fc6bcf09b6_Sun.svg",
+      "alt": "",
+      "className": "benefit-block-icons",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#.section div#.w-layout-blockcontainer container w-container div#.banner-content div#.benefit-blocks div#.benefit-block-wrapper second-block div#.benefit-block"
+    },
+    {
+      "id": "i0062",
+      "role": "hero",
+      "src": "assets/ef88d82e7e-688b4179340c616f9b8e1d7c_Heart.svg",
+      "alt": "",
+      "className": "benefit-block-icons",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#.section div#.w-layout-blockcontainer container w-container div#.banner-content div#.benefit-blocks div#.benefit-block-wrapper third-block div#.benefit-block"
+    },
+    {
+      "id": "i0063",
+      "role": "hero",
+      "src": "assets/9155c7d0bf-688b87613efc6f8b00701096_pexels-ayseguldelice-30720975.avif",
+      "alt": "Hand with nude nails wearing a diamond ring, holding a book",
+      "className": "background-image parallax-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#.section div#.w-layout-blockcontainer container w-container div#.banner-content"
+    },
+    {
+      "id": "i0064",
+      "role": "content",
+      "src": "assets/63f44527b0-688b8d473fc17d3e1964a3b3_Lina-Markovic.avif",
+      "alt": "Lina Markovic",
+      "className": "background-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#team.section div#.w-layout-blockcontainer container w-container div#.section-content div#.team-blocks div#.team-block-wrapper first-block a#.team-block w-inline-block div#.team-block-content div#.team-block-image"
+    },
+    {
+      "id": "i0065",
+      "role": "content",
+      "src": "assets/e36514fe2c-688b8d47e70b3f77eeb62112_Amira-Clark.avif",
+      "alt": "Amira Clark",
+      "className": "background-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#team.section div#.w-layout-blockcontainer container w-container div#.section-content div#.team-blocks div#.team-block-wrapper second-block a#.team-block w-inline-block div#.team-block-content div#.team-block-image"
+    },
+    {
+      "id": "i0066",
+      "role": "content",
+      "src": "assets/7bcdbc0c3f-688b8d47112b85ff385323f8_Sofia-Davis.avif",
+      "alt": "Sofia Davis",
+      "className": "background-image",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#team.section div#.w-layout-blockcontainer container w-container div#.section-content div#.team-blocks div#.team-block-wrapper third-block a#.team-block w-inline-block div#.team-block-content div#.team-block-image"
+    },
+    {
+      "id": "i0067",
+      "role": "icon",
+      "src": "assets/16654a2e81-688b41e00dacb2b7b318b7b5_Arrow-Right.svg",
+      "alt": "",
+      "className": "button-icon",
+      "width": null,
+      "height": null,
+      "context": "tainer container w-container div#.faq-content div#.heading-and-button div#.button-wrapper a#.button w-variant-9fac932f-513a-2a9d-d0e7-4df5e08d9c7f w-inline-block div#.button-icons w-variant-9fac932f-513a-2a9d-d0e7-4df5e08d9c7f div#.button-icon-wrapper absolute-button-icon-wrapper"
+    },
+    {
+      "id": "i0068",
+      "role": "icon",
+      "src": "assets/16654a2e81-688b41e00dacb2b7b318b7b5_Arrow-Right.svg",
+      "alt": "",
+      "className": "button-icon",
+      "width": null,
+      "height": null,
+      "context": "ection div#.w-layout-blockcontainer container w-container div#.faq-content div#.heading-and-button div#.button-wrapper a#.button w-variant-9fac932f-513a-2a9d-d0e7-4df5e08d9c7f w-inline-block div#.button-icons w-variant-9fac932f-513a-2a9d-d0e7-4df5e08d9c7f div#.button-icon-wrapper"
+    },
+    {
+      "id": "i0069",
+      "role": "icon",
+      "src": "assets/a7b04d1a1a-688b41796fa46adabec34a03_Arrow-Down.svg",
+      "alt": "",
+      "className": "faq-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.faq-items-wrapper div#.faq-items div#.faq-item div#.faq-question"
+    },
+    {
+      "id": "i0070",
+      "role": "icon",
+      "src": "assets/a7b04d1a1a-688b41796fa46adabec34a03_Arrow-Down.svg",
+      "alt": "",
+      "className": "faq-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.faq-items-wrapper div#.faq-items div#.faq-item div#.faq-question"
+    },
+    {
+      "id": "i0071",
+      "role": "icon",
+      "src": "assets/a7b04d1a1a-688b41796fa46adabec34a03_Arrow-Down.svg",
+      "alt": "",
+      "className": "faq-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.faq-items-wrapper div#.faq-items div#.faq-item div#.faq-question"
+    },
+    {
+      "id": "i0072",
+      "role": "icon",
+      "src": "assets/a7b04d1a1a-688b41796fa46adabec34a03_Arrow-Down.svg",
+      "alt": "",
+      "className": "faq-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.faq-items-wrapper div#.faq-items div#.faq-item div#.faq-question"
+    },
+    {
+      "id": "i0073",
+      "role": "icon",
+      "src": "assets/a7b04d1a1a-688b41796fa46adabec34a03_Arrow-Down.svg",
+      "alt": "",
+      "className": "faq-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.faq-items-wrapper div#.faq-items div#.faq-item div#.faq-question"
+    },
+    {
+      "id": "i0074",
+      "role": "icon",
+      "src": "assets/a7b04d1a1a-688b41796fa46adabec34a03_Arrow-Down.svg",
+      "alt": "",
+      "className": "faq-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.faq-items-wrapper div#.faq-items div#.faq-item div#.faq-question"
+    },
+    {
+      "id": "i0075",
+      "role": "content",
+      "src": "assets/91084ef8b0-688b6686791f6a0778771ba0_Illustration-7.svg",
+      "alt": "",
+      "className": "section-heading-illustration left-illustrations",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.section-heading div#.illustrations-section-heading"
+    },
+    {
+      "id": "i0076",
+      "role": "content",
+      "src": "assets/49ca3d07df-688b6687fbd0ee462986ff56_Illustration-8.svg",
+      "alt": "",
+      "className": "section-heading-illustration center-illustrations",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.section-heading div#.illustrations-section-heading"
+    },
+    {
+      "id": "i0077",
+      "role": "content",
+      "src": "assets/79055de783-688b668699a6f0d52b13d71b_Illustration-5.svg",
+      "alt": "",
+      "className": "section-heading-illustration right-illustrations",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.section-heading div#.illustrations-section-heading"
+    },
+    {
+      "id": "i0078",
+      "role": "content",
+      "src": "assets/3aaa53e573-688b668663a41a0e07fcf412_Illustration-6.svg",
+      "alt": "",
+      "className": "success-message-illustration",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-form div#.form-block w-form div#.success-message w-form-done div#.success-message-content"
+    },
+    {
+      "id": "i0079",
+      "role": "icon",
+      "src": "assets/ae8130396b-688b41799af5b75944e227bc_Call.svg",
+      "alt": "",
+      "className": "contact-block-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-blocks div#.contact-block-wrapper first-block a#.contact-block w-inline-block div#.contact-block-icon-wrapper"
+    },
+    {
+      "id": "i0080",
+      "role": "icon",
+      "src": "assets/7ce2748604-688b41790d4c1bda0956be61_Location.svg",
+      "alt": "",
+      "className": "contact-block-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-blocks div#.contact-block-wrapper second-block a#.contact-block w-inline-block div#.contact-block-icon-wrapper"
+    },
+    {
+      "id": "i0081",
+      "role": "icon",
+      "src": "assets/a93e12b687-688b417906d95cdcf2eaf9b5_Sms.svg",
+      "alt": "",
+      "className": "contact-block-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. section#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-blocks div#.contact-block-wrapper third-block a#.contact-block w-inline-block div#.contact-block-icon-wrapper"
+    },
+    {
+      "id": "i0082",
+      "role": "icon",
+      "src": "assets/55c11cf630-688b41e0c60131be9c59b890_Call.svg",
+      "alt": "",
+      "className": "contact-item-icon w-variant-c23c1905-2a6c-777c-0aa9-f7f1973a7398",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-menu div#.footer-info div#.footer-details div#.footer-contact-items a#.contact-item w-variant-c23c1905-2a6c-777c-0aa9-f7f1973a7398 w-inline-block"
+    },
+    {
+      "id": "i0083",
+      "role": "icon",
+      "src": "assets/29a58bd9ac-688b41e09aa1b90c8b545750_Location.svg",
+      "alt": "",
+      "className": "contact-item-icon w-variant-c23c1905-2a6c-777c-0aa9-f7f1973a7398",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-menu div#.footer-info div#.footer-details div#.footer-contact-items a#.contact-item w-variant-c23c1905-2a6c-777c-0aa9-f7f1973a7398 w-inline-block"
+    },
+    {
+      "id": "i0084",
+      "role": "icon",
+      "src": "assets/1bf2cc2a18-688b41e04186718428452eab_Sms.svg",
+      "alt": "",
+      "className": "contact-item-icon w-variant-c23c1905-2a6c-777c-0aa9-f7f1973a7398",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-menu div#.footer-info div#.footer-details div#.footer-contact-items a#.contact-item w-variant-c23c1905-2a6c-777c-0aa9-f7f1973a7398 w-inline-block"
+    },
+    {
+      "id": "i0085",
+      "role": "icon",
+      "src": "assets/55c11cf630-688b41e0c60131be9c59b890_Call.svg",
+      "alt": "",
+      "className": "fab-button-icon",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.fab-button a#.fab-button-content w-inline-block"
+    },
+    {
+      "id": "i0086",
+      "role": "content",
+      "src": "assets/07eb56d44e-688c85b3d8262e53e551cf01_Noise.avif",
+      "alt": "",
+      "className": "noise-default",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.noise"
+    },
+    {
+      "id": "i0087",
+      "role": "content",
+      "src": "assets/07eb56d44e-688c85b3d8262e53e551cf01_Noise.avif",
+      "alt": "",
+      "className": "noise-flipped",
+      "width": null,
+      "height": null,
+      "context": "html#. body#. div#.noise"
+    }
+  ],
+  "links": [
+    {
+      "id": "l0001",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "contact-item w-inline-block",
+      "context": "html#. body#. nav#.nav div#.nav-info div#.w-layout-blockcontainer container w-container div#.nav-info-content div#.nav-info-items div#.nav-info-item"
+    },
+    {
+      "id": "l0002",
+      "role": "nav",
+      "href": "assets/18fbaa2b65-maps.bin",
+      "className": "contact-item w-inline-block",
+      "context": "html#. body#. nav#.nav div#.nav-info div#.w-layout-blockcontainer container w-container div#.nav-info-content div#.nav-info-items"
+    },
+    {
+      "id": "l0003",
+      "role": "nav",
+      "href": "/",
+      "className": "logo w-inline-block w--current",
+      "context": "html#. body#. nav#.nav div#.nav-main div#.w-layout-blockcontainer container w-container div#.nav-main-content div#.logo-and-button"
+    },
+    {
+      "id": "l0004",
+      "role": "nav",
+      "href": "#about",
+      "className": "menu-item w-inline-block",
+      "context": "html#. body#. nav#.nav div#.nav-main div#.w-layout-blockcontainer container w-container div#.nav-main-content div#.nav-main-info div#.nav-main-menu-items"
+    },
+    {
+      "id": "l0005",
+      "role": "nav",
+      "href": "#services",
+      "className": "menu-item w-inline-block",
+      "context": "html#. body#. nav#.nav div#.nav-main div#.w-layout-blockcontainer container w-container div#.nav-main-content div#.nav-main-info div#.nav-main-menu-items"
+    },
+    {
+      "id": "l0006",
+      "role": "nav",
+      "href": "#team",
+      "className": "menu-item w-inline-block",
+      "context": "html#. body#. nav#.nav div#.nav-main div#.w-layout-blockcontainer container w-container div#.nav-main-content div#.nav-main-info div#.nav-main-menu-items"
+    },
+    {
+      "id": "l0007",
+      "role": "nav",
+      "href": "#faq",
+      "className": "menu-item w-inline-block",
+      "context": "html#. body#. nav#.nav div#.nav-main div#.w-layout-blockcontainer container w-container div#.nav-main-content div#.nav-main-info div#.nav-main-menu-items"
+    },
+    {
+      "id": "l0008",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "icon-button w-inline-block",
+      "context": "html#. body#. nav#.nav div#.nav-main div#.w-layout-blockcontainer container w-container div#.nav-main-content div#.nav-main-info div#.nav-main-buttons div#.nav-main-icon-button"
+    },
+    {
+      "id": "l0009",
+      "role": "nav",
+      "href": "#contact",
+      "className": "button w-variant-d6a04dc2-de44-c019-1506-c99e84ad1c6c w-inline-block",
+      "context": "html#. body#. nav#.nav div#.nav-main div#.w-layout-blockcontainer container w-container div#.nav-main-content div#.nav-main-info div#.nav-main-buttons div#.nav-main-button"
+    },
+    {
+      "id": "l0010",
+      "role": "cta",
+      "href": "#contact",
+      "className": "button w-inline-block",
+      "context": "html#. body#. main#.hero home-hero div#.w-layout-blockcontainer container w-container div#.hero-content div#.hero-info div#.hero-text div#.hero-button"
+    },
+    {
+      "id": "l0011",
+      "role": "link",
+      "href": "#manicures",
+      "className": "category-block w-inline-block",
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content div#.categories-info div#.category-blocks div#.category-block-wrapper first-block"
+    },
+    {
+      "id": "l0012",
+      "role": "link",
+      "href": "#pedicures",
+      "className": "category-block w-inline-block",
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content div#.categories-info div#.category-blocks div#.category-block-wrapper second-block"
+    },
+    {
+      "id": "l0013",
+      "role": "link",
+      "href": "#gel-nails",
+      "className": "category-block w-inline-block",
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content div#.categories-info div#.category-blocks div#.category-block-wrapper third-block"
+    },
+    {
+      "id": "l0014",
+      "role": "cta",
+      "href": "#contact",
+      "className": "button w-variant-d6a04dc2-de44-c019-1506-c99e84ad1c6c w-inline-block",
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.section-heading text-and-button-section-heading div#.section-heading-text div#.button-wrapper"
+    },
+    {
+      "id": "l0015",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "service-block w-inline-block",
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks"
+    },
+    {
+      "id": "l0016",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "service-block w-inline-block",
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks"
+    },
+    {
+      "id": "l0017",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "service-block w-inline-block",
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks"
+    },
+    {
+      "id": "l0018",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "service-block w-inline-block",
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks"
+    },
+    {
+      "id": "l0019",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "service-block w-inline-block",
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks"
+    },
+    {
+      "id": "l0020",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "service-block w-inline-block",
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks"
+    },
+    {
+      "id": "l0021",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "service-block w-inline-block",
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks"
+    },
+    {
+      "id": "l0022",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "service-block w-inline-block",
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#manicures.services-category div#.service-blocks"
+    },
+    {
+      "id": "l0023",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "service-block w-inline-block",
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#pedicures.services-category div#.service-blocks"
+    },
+    {
+      "id": "l0024",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "service-block w-inline-block",
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#pedicures.services-category div#.service-blocks"
+    },
+    {
+      "id": "l0025",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "service-block w-inline-block",
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#pedicures.services-category div#.service-blocks"
+    },
+    {
+      "id": "l0026",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "service-block w-inline-block",
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#pedicures.services-category div#.service-blocks"
+    },
+    {
+      "id": "l0027",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "service-block w-inline-block",
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks"
+    },
+    {
+      "id": "l0028",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "service-block w-inline-block",
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks"
+    },
+    {
+      "id": "l0029",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "service-block w-inline-block",
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks"
+    },
+    {
+      "id": "l0030",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "service-block w-inline-block",
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks"
+    },
+    {
+      "id": "l0031",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "service-block w-inline-block",
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks"
+    },
+    {
+      "id": "l0032",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "service-block w-inline-block",
+      "context": "html#. body#. section#services.section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.services-info div#gel-nails.services-category div#.service-blocks"
+    },
+    {
+      "id": "l0033",
+      "role": "cta",
+      "href": "assets/18fbaa2b65-maps.bin",
+      "className": "button w-variant-d6a04dc2-de44-c019-1506-c99e84ad1c6c w-inline-block",
+      "context": "html#. body#. section#.section big-padding div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.button-wrapper"
+    },
+    {
+      "id": "l0034",
+      "role": "cta",
+      "href": "#contact",
+      "className": "button w-variant-9fac932f-513a-2a9d-d0e7-4df5e08d9c7f w-inline-block",
+      "context": "html#. body#. section#.section div#.w-layout-blockcontainer container w-container div#.banner-content div#.banner-info div#.button-wrapper"
+    },
+    {
+      "id": "l0035",
+      "role": "link",
+      "href": "assets/e730d810bf-asset.bin",
+      "className": "team-block w-inline-block",
+      "context": "html#. body#. section#team.section div#.w-layout-blockcontainer container w-container div#.section-content div#.team-blocks div#.team-block-wrapper first-block"
+    },
+    {
+      "id": "l0036",
+      "role": "link",
+      "href": "assets/e730d810bf-asset.bin",
+      "className": "team-block w-inline-block",
+      "context": "html#. body#. section#team.section div#.w-layout-blockcontainer container w-container div#.section-content div#.team-blocks div#.team-block-wrapper second-block"
+    },
+    {
+      "id": "l0037",
+      "role": "link",
+      "href": "assets/e730d810bf-asset.bin",
+      "className": "team-block w-inline-block",
+      "context": "html#. body#. section#team.section div#.w-layout-blockcontainer container w-container div#.section-content div#.team-blocks div#.team-block-wrapper third-block"
+    },
+    {
+      "id": "l0038",
+      "role": "cta",
+      "href": "#contact",
+      "className": "button w-variant-9fac932f-513a-2a9d-d0e7-4df5e08d9c7f w-inline-block",
+      "context": "html#. body#. section#faq.section div#.w-layout-blockcontainer container w-container div#.faq-content div#.heading-and-button div#.button-wrapper"
+    },
+    {
+      "id": "l0039",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "contact-block w-inline-block",
+      "context": "html#. body#. section#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-blocks div#.contact-block-wrapper first-block"
+    },
+    {
+      "id": "l0040",
+      "role": "link",
+      "href": "assets/18fbaa2b65-maps.bin",
+      "className": "contact-block w-inline-block",
+      "context": "html#. body#. section#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-blocks div#.contact-block-wrapper second-block"
+    },
+    {
+      "id": "l0041",
+      "role": "email",
+      "href": "mailto:hello@nailora.com?subject=Hello!",
+      "className": "contact-block w-inline-block",
+      "context": "html#. body#. section#contact.section contact-section div#.w-layout-blockcontainer container w-container div#.section-content big-gap div#.contact-info div#.contact-blocks div#.contact-block-wrapper third-block"
+    },
+    {
+      "id": "l0042",
+      "role": "nav",
+      "href": "/",
+      "className": "logo w-variant-a773f25e-9df4-2b81-8359-d461c73529bc w-inline-block w--current",
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-menu div#.footer-info"
+    },
+    {
+      "id": "l0043",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "contact-item w-variant-c23c1905-2a6c-777c-0aa9-f7f1973a7398 w-inline-block",
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-menu div#.footer-info div#.footer-details div#.footer-contact-items"
+    },
+    {
+      "id": "l0044",
+      "role": "nav",
+      "href": "#",
+      "className": "contact-item w-variant-c23c1905-2a6c-777c-0aa9-f7f1973a7398 w-inline-block",
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-menu div#.footer-info div#.footer-details div#.footer-contact-items"
+    },
+    {
+      "id": "l0045",
+      "role": "email",
+      "href": "mailto:hello@nailora.com?subject=Hello!",
+      "className": "contact-item w-variant-c23c1905-2a6c-777c-0aa9-f7f1973a7398 w-inline-block",
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-menu div#.footer-info div#.footer-details div#.footer-contact-items"
+    },
+    {
+      "id": "l0046",
+      "role": "nav",
+      "href": "#about",
+      "className": "menu-item w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266 w-inline-block",
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-menu div#.footer-menu-blocks div#.footer-menu-block div#.footer-menu-items"
+    },
+    {
+      "id": "l0047",
+      "role": "nav",
+      "href": "#services",
+      "className": "menu-item w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266 w-inline-block",
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-menu div#.footer-menu-blocks div#.footer-menu-block div#.footer-menu-items"
+    },
+    {
+      "id": "l0048",
+      "role": "nav",
+      "href": "#team",
+      "className": "menu-item w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266 w-inline-block",
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-menu div#.footer-menu-blocks div#.footer-menu-block div#.footer-menu-items"
+    },
+    {
+      "id": "l0049",
+      "role": "nav",
+      "href": "#faq",
+      "className": "menu-item w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266 w-inline-block",
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-menu div#.footer-menu-blocks div#.footer-menu-block div#.footer-menu-items"
+    },
+    {
+      "id": "l0050",
+      "role": "nav",
+      "href": "#contact",
+      "className": "menu-item w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266 w-inline-block",
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-menu div#.footer-menu-blocks div#.footer-menu-block div#.footer-menu-items"
+    },
+    {
+      "id": "l0051",
+      "role": "nav",
+      "href": "assets/108ec1825c-asset.bin",
+      "className": "menu-item w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266 w-inline-block",
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-menu div#.footer-menu-blocks div#.footer-menu-block div#.footer-menu-items"
+    },
+    {
+      "id": "l0052",
+      "role": "nav",
+      "href": "assets/e730d810bf-asset.bin",
+      "className": "menu-item w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266 w-inline-block",
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-menu div#.footer-menu-blocks div#.footer-menu-block div#.footer-menu-items"
+    },
+    {
+      "id": "l0053",
+      "role": "nav",
+      "href": "assets/6a26263aa3-asset.bin",
+      "className": "menu-item w-variant-dd07560b-516e-e287-4f17-4ba3f84fb266 w-inline-block",
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-menu div#.footer-menu-blocks div#.footer-menu-block div#.footer-menu-items"
+    },
+    {
+      "id": "l0054",
+      "role": "link",
+      "href": "/info/licenses",
+      "className": "footer-link w-inline-block",
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-legal div#.footer-links"
+    },
+    {
+      "id": "l0055",
+      "role": "link",
+      "href": "assets/dcdc7c78ba-asset.bin/",
+      "className": "footer-link w-inline-block",
+      "context": "html#. body#. footer#.footer div#.w-layout-blockcontainer container w-container div#.footer-content div#.footer-legal div#.footer-links"
+    },
+    {
+      "id": "l0056",
+      "role": "phone",
+      "href": "tel:+12125550198",
+      "className": "fab-button-content w-inline-block",
+      "context": "html#. body#. div#.fab-button"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "name": "hero.jpg",
+    "alt": "Moda urbana y tienda de indumentaria"
+  },
+  {
+    "name": "portada.jpg",
+    "alt": "Colección de temporada"
+  },
+  {
+    "name": "gallery-1.jpg",
+    "alt": "Prendas de vestir exclusivas"
+  },
+  {
+    "name": "gallery-2.jpg",
+    "alt": "Estilo y diseño urbano"
+  },
+  {
+    "name": "gallery-3.jpg",
+    "alt": "Accesorios y moda contemporánea"
+  },
+  {
+    "name": "gallery-4.jpg",
+    "alt": "Catálogo de ropa femenina y masculina"
+  },
+  {
+    "name": "gallery-5.jpg",
+    "alt": "Detalles y textura de prendas"
+  },
+  {
+    "name": "gallery-6.jpg",
+    "alt": "Lookbook urbano de temporada"
+  }
+]

@@ -85,6 +85,8 @@ export interface Plantilla {
   popular?: boolean;
   /** Demo navegable servida desde public/plantillas/. null si todavia no hay. */
   urlDemo: string | null;
+  /** Imagen de portada de la plantilla */
+  imagen?: string;
 }
 
 interface FilaPlantilla {
@@ -247,19 +249,114 @@ const PLANTILLA_STUDIO_VANADIUM: Plantilla = {
   urlDemo: "/plantillas/studio-vanadium/",
 };
 
+const PLANTILLA_AUREA_NAIL_STUDIO: Plantilla = {
+  id: "aurea-nail-studio",
+  name: "ÁUREA NAIL STUDIO — Estética de uñas",
+  description:
+    "Landing editorial para un estudio de uñas con servicios, portfolio visual, preguntas frecuentes y acceso a turnos.",
+  niche: "Wellness / Estética",
+  style: "Editorial Webflow premium",
+  pages: ["Portada", "Estudio", "Servicios", "Estilos", "Preguntas", "Turnos"],
+  colors: {
+    primary: "#f1e7e1",
+    secondary: "#b59f95",
+    accent: "#fff7f2",
+    bg: "#160f0e",
+  },
+  font: "Tipografía editorial Webflow",
+  features: [
+    "Webflow IX2 preservado",
+    "Animaciones por scroll",
+    "Portfolio fotográfico",
+    "Preguntas desplegables",
+    "Diseño responsive",
+    "Firma digital Quantum Hive",
+  ],
+  preview: "creative",
+  popular: true,
+  urlDemo: "/templates/aurea-nail-studio/site/index.html",
+  imagen: "/templates/aurea-nail-studio/brand/07-28712961.jpg",
+};
+
+const PLANTILLA_ZINZIRA: Plantilla = {
+  id: "zinzira-fashion",
+  name: "ZINZIRA — Moda Urbana",
+  description:
+    "Ecommerce editorial para marcas de indumentaria urbana con colecciones exclusivas, productos destacados y reseñas.",
+  niche: "Retail / Moda",
+  style: "Editorial Webflow premium",
+  pages: ["Portada", "Colecciones", "Categorías", "Reseñas", "Preguntas", "Contacto"],
+  colors: {
+    primary: "#111111",
+    secondary: "#333333",
+    accent: "#e5e5e5",
+    bg: "#fafafa",
+  },
+  font: "Tipografía editorial Webflow",
+  features: [
+    "Webflow IX2 preservado",
+    "Animaciones por scroll",
+    "Galerías de colecciones",
+    "Reseñas de clientes",
+    "Diseño responsive",
+    "Firma digital Quantum Hive",
+  ],
+  preview: "clean",
+  popular: true,
+  urlDemo: "/templates/zinzira/site/index.html",
+  imagen: "/templates/zinzira/brand/hero.jpg",
+};
+
+const PLANTILLA_BRASA: Plantilla = {
+  id: "brasa-parrilla",
+  name: "BRASA — Parrilla & Burger Bar",
+  description:
+    "Landing gastronómica premium para restaurantes de carne y parrillas con menú interactivo, reserva de mesa y opiniones.",
+  niche: "Gastronomía / Parrilla",
+  style: "Editorial Webflow premium",
+  pages: ["Portada", "Menú", "Especialidades", "Reseñas", "Ubicación", "Reserva"],
+  colors: {
+    primary: "#d97706",
+    secondary: "#92400e",
+    accent: "#fef3c7",
+    bg: "#0c0a09",
+  },
+  font: "Tipografía editorial Webflow",
+  features: [
+    "77 micro-animaciones preservadas",
+    "Menú interactivo de platos",
+    "Fotografía gastronómica HD",
+    "Formulario de reservas",
+    "Diseño responsive",
+    "Firma digital Quantum Hive",
+  ],
+  preview: "bold",
+  popular: true,
+  urlDemo: "/templates/brasa/site/index.html",
+  imagen: "/templates/brasa/brand/portada.jpg",
+};
+
 const PLANTILLAS_PUBLICADAS = [
   PLANTILLA_CONCRETO,
   PLANTILLA_GAMER,
   PLANTILLA_CODIX,
   PLANTILLA_QUANTUM_STUDIO,
   PLANTILLA_STUDIO_VANADIUM,
+  PLANTILLA_AUREA_NAIL_STUDIO,
+  PLANTILLA_ZINZIRA,
+  PLANTILLA_BRASA,
 ];
 
 export async function obtenerPlantillas(): Promise<Plantilla[]> {
-  if (!CLAVE) throw new Error("Falta NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY.");
+  // Fallback estático: sin clave de Supabase, devolver las plantillas
+  // hardcodeadas directamente. No bloquear la ruta /catalogo-plantillas
+  // en entornos locales o builds sin configuración de base de datos.
+  if (!CLAVE) {
+    return [...PLANTILLAS_PUBLICADAS];
+  }
 
   const res = await fetch(
-    `${URL_SUPABASE}/rest/v1/plantillas?select=*&id=in.(concreto-streetwear,gamer-agency,codix-developer,quantum-studio,studio-vanadium)&publicado=is.true`,
+    `${URL_SUPABASE}/rest/v1/plantillas?select=*&id=in.(concreto-streetwear,gamer-agency,codix-developer,quantum-studio,studio-vanadium,aurea-nail-studio)&publicado=is.true`,
     {
       headers: { apikey: CLAVE, Authorization: `Bearer ${CLAVE}` },
       cache: "force-cache",

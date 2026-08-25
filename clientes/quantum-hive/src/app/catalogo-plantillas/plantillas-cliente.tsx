@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -157,61 +157,125 @@ export default function PlantillasCliente({
       <section className="pt-16 pb-10 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-white/5 border border-white/10">
-            <span className="text-cyan-400 text-sm">Webs Inteligentes</span>
+            <span className="text-cyan-400 text-sm">Fábrica de Webs Quantum Hive</span>
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
-            Plantillas <span className="text-cyan-400">Premium</span>
+            Catálogo de <span className="text-cyan-400">Plantillas</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-4">
-            Elegí tu rubro, elegí tu estilo. Cada negocio tiene su plantilla perfecta.
+            Explorá nuestras demos premium navegables en vivo y las variantes por rubro listas para personalizar.
           </p>
           <p className="text-sm text-gray-500">
-            {basicas.length} variantes en {rubrosOrdenados.length} rubros
+            {plantillas.length} Demos Premium Adaptadas · {basicas.length} Variantes en {rubrosOrdenados.length} Rubros
           </p>
         </div>
       </section>
 
-      {/* Rubros con variantes */}
-      <section className="pb-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          {rubrosOrdenados.map((rubro) => (
-            <SeccionRubro key={rubro} rubro={rubro} variantes={rubrosMap.get(rubro)!} />
-          ))}
-        </div>
-      </section>
-
-      {/* Premium Supabase (si hay) */}
+      {/* SECCIÓN PRINCIPAL: Plantillas Premium Adaptadas & Demos en Vivo */}
       {plantillas.length > 0 && (
-        <section className="pb-20 px-4 border-t border-white/10 pt-16">
+        <section className="pb-16 px-4">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">Estudios & Agencias</h2>
-            <p className="text-gray-400 text-sm mb-6">Demos premium de Quantum Hive</p>
-            <div className="flex flex-wrap gap-2 justify-center mb-8">
-              {nichesSupabase.map((n) => (
-                <button key={n} onClick={() => setSelectedNiche(n)}
-                  className={`px-4 py-2 rounded-full text-xs font-medium transition-all ${selectedNiche === n ? "bg-cyan-400 text-black" : "bg-white/5 text-gray-400 hover:bg-white/10 border border-white/10"}`}
-                >{n}</button>
-              ))}
+            <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4 border-b border-white/10 pb-6">
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
+                  <span>Demos Premium Adaptadas</span>
+                  <span className="px-3 py-1 bg-cyan-500/20 text-cyan-400 text-xs font-semibold rounded-full border border-cyan-500/30">
+                    Webflow IX2 En Vivo
+                  </span>
+                </h2>
+                <p className="text-gray-400 text-sm mt-1">
+                  Plantillas reales clonadas y adaptadas con micro-animaciones, firma digital y fotografías HD de rubro.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {nichesSupabase.map((n) => (
+                  <button
+                    key={n}
+                    onClick={() => setSelectedNiche(n)}
+                    className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all ${
+                      selectedNiche === n
+                        ? "bg-cyan-400 text-black shadow-lg shadow-cyan-400/20"
+                        : "bg-white/5 text-gray-400 hover:bg-white/10 border border-white/10"
+                    }`}
+                  >
+                    {n}
+                  </button>
+                ))}
+              </div>
             </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filtered.map((t) => (
-                <div key={t.id} className="group rounded-2xl border border-white/10 bg-white/[0.02] hover:border-white/20 transition-all duration-300 hover:scale-[1.02] overflow-hidden">
-                  <div className="h-48 relative overflow-hidden" style={{ background: t.colors.bg }}>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="h-4 w-20 rounded mx-auto mb-2" style={{ background: `${t.colors.primary}60` }} />
-                        <div className="h-2 w-28 rounded mx-auto mb-1 opacity-40" style={{ background: t.colors.accent }} />
-                        <div className="h-2 w-20 rounded mx-auto opacity-30" style={{ background: t.colors.accent }} />
+                <div
+                  key={t.id}
+                  className="group rounded-2xl border border-white/10 bg-white/[0.02] hover:border-cyan-500/40 hover:bg-white/[0.04] transition-all duration-300 overflow-hidden flex flex-col shadow-xl"
+                >
+                  {/* Vista Previa / Portada */}
+                  <div className="h-56 relative overflow-hidden bg-black/60">
+                    {t.imagen ? (
+                      <img
+                        src={t.imagen}
+                        alt={t.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center" style={{ background: t.colors.bg }}>
+                        <div className="text-center">
+                          <div className="h-4 w-24 rounded mx-auto mb-2" style={{ background: `${t.colors.primary}` }} />
+                          <div className="h-2 w-32 rounded mx-auto mb-1 opacity-60" style={{ background: t.colors.accent }} />
+                        </div>
                       </div>
+                    )}
+                    <div className="absolute top-3 left-3 px-2.5 py-1 bg-black/70 backdrop-blur-md text-cyan-400 text-[10px] font-bold rounded-full border border-cyan-500/30 uppercase tracking-wider">
+                      {t.niche}
                     </div>
-                    {t.popular && <div className="absolute top-3 right-3 px-2 py-0.5 bg-cyan-400 text-black text-[10px] font-bold rounded-full">Popular</div>}
+                    {t.popular && (
+                      <div className="absolute top-3 right-3 px-2.5 py-1 bg-gradient-to-r from-amber-400 to-amber-500 text-black text-[10px] font-bold rounded-full shadow-md">
+                        ★ Destacada
+                      </div>
+                    )}
                   </div>
-                  <div className="p-5">
-                    <h3 className="font-bold text-sm mb-1">{t.name}</h3>
-                    <p className="text-xs text-gray-400 mb-3">{t.description}</p>
-                    <div className="flex gap-2">
-                      <a href="#contacto" className="flex-1 py-2 rounded-lg text-xs font-semibold bg-cyan-400 text-black text-center">Usar →</a>
-                      {t.urlDemo && <a href={t.urlDemo} target="_blank" className="px-3 py-2 rounded-lg bg-white/5 text-gray-400 text-xs">Demo ↗</a>}
+
+                  {/* Detalle */}
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="font-bold text-lg mb-2 text-white group-hover:text-cyan-400 transition-colors">
+                        {t.name}
+                      </h3>
+                      <p className="text-xs text-gray-400 leading-relaxed mb-4">
+                        {t.description}
+                      </p>
+
+                      {/* Tags de Características */}
+                      {t.features && t.features.length > 0 && (
+                        <div className="flex flex-wrap gap-1.5 mb-6">
+                          {t.features.slice(0, 4).map((feat, idx) => (
+                            <span
+                              key={idx}
+                              className="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] text-gray-300"
+                            >
+                              {feat}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Botones de Acción */}
+                    <div className="flex items-center gap-3 pt-4 border-t border-white/10">
+                      {t.urlDemo ? (
+                        <a
+                          href={t.urlDemo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 py-2.5 px-4 rounded-xl text-xs font-semibold bg-gradient-to-r from-cyan-400 to-blue-500 text-black text-center hover:shadow-lg hover:shadow-cyan-500/20 transition-all flex items-center justify-center gap-1.5"
+                        >
+                          <span>Ver Demo en Vivo</span>
+                          <span>↗</span>
+                        </a>
+                      ) : (
+                        <span className="flex-1 text-xs text-gray-500 text-center py-2.5">Demo en desarrollo</span>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -220,6 +284,19 @@ export default function PlantillasCliente({
           </div>
         </section>
       )}
+
+      {/* Rubros con variantes básicas */}
+      <section className="pb-20 px-4 border-t border-white/10 pt-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">Variantes por Rubro & Estilos</h2>
+            <p className="text-gray-400 text-sm">Colección de estructuras base por rubro específico</p>
+          </div>
+          {rubrosOrdenados.map((rubro) => (
+            <SeccionRubro key={rubro} rubro={rubro} variantes={rubrosMap.get(rubro)!} />
+          ))}
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="py-8 px-4 border-t border-white/10">

@@ -1,0 +1,24 @@
+{
+  "business": {
+    "name": "BRASA — Parrilla & Burger Bar",
+    "rubro": "Gastronomía / Parrilla",
+    "headline": "Cortes ahumados a la leña, hamburguesas de autor y cocina a las brasas",
+    "shortHeadline": "Pasión por las Brasas",
+    "description": "Parrilla urbana especializada en cortes a la leña, hamburguesas caseras de carne madurada y cocina gourmet de autor.",
+    "services": [
+      { "name": "Cortes a la Leña", "description": "Selección premium de carnes maduradas a las brasas" },
+      { "name": "Hamburguesas de Autor", "description": "Medallones de carne seleccionada con panes artesanales" },
+      { "name": "Coctelería & Cervezas", "description": "Barra de tragos de autor y cervezas tiradas artesanales" }
+    ]
+  },
+  "contact": {
+    "ctaLabel": "Reservar Mesa",
+    "ctaUrl": "#reserva",
+    "email": "contacto@brasaparrilla.com.ar",
+    "phone": "+54 11 4444 8888",
+    "address": "Palermo Soho, Buenos Aires"
+  },
+  "site": {
+    "language": "es-AR"
+  }
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "name": "hero.jpg",
+    "alt": "Sillón de barbería clásico"
+  },
+  {
+    "name": "portada.jpg",
+    "alt": "Barbería profesional y estética masculina"
+  },
+  {
+    "name": "gallery-1.jpg",
+    "alt": "Corte de pelo y fade preciso"
+  },
+  {
+    "name": "gallery-2.jpg",
+    "alt": "Perfilado y cuidado de barba"
+  },
+  {
+    "name": "gallery-3.jpg",
+    "alt": "Herramientas de navaja y tijeras"
+  },
+  {
+    "name": "gallery-4.jpg",
+    "alt": "Productos de barbería y grooming"
+  },
+  {
+    "name": "gallery-5.jpg",
+    "alt": "Atención personalizada al cliente"
+  },
+  {
+    "name": "gallery-6.jpg",
+    "alt": "Estética y estilo clásico de barbería"
+  }
+]
