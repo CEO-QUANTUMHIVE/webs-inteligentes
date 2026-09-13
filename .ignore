@@ -1,0 +1,9 @@
+.git
+.git/**
+node_modules
+node_modules/**
+clientes/quantum-hive/node_modules
+clientes/quantum-hive/node_modules/**
+.wrangler
+.wrangler/**
+**/*12149178*_webm.webm

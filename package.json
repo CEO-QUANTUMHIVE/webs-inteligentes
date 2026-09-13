@@ -4,6 +4,7 @@
   "type": "module",
   "description": "Herramientas de automatizacion del repo. NO es el proyecto Next.js (ese vive en clientes/quantum-hive).",
   "scripts": {
+    "build": "npm run build --prefix clientes/quantum-hive",
     "extraer-efectos": "node scripts/extraer-efectos.mjs"
   },
   "devDependencies": {

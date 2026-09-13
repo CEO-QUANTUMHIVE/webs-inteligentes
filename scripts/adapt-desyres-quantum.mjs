@@ -85,9 +85,9 @@ const replacements = [
   ["Let’s Build Together!", "CARGAR MI NEGOCIO"],
   ["@2025 All Right Reserved by", "Webs Inteligentes · 2026"],
   ["8AM DESIGN", "POWERED BY QUANTUM HIVE"],
-  ["ABOUT", "FÁBRICA WEB"],
-  ["EXPERTISE", "PLANTILLAS"],
-  ["WORKS", "EFECTOS"],
+  ["ABOUT", "SOLUCIÓN"],
+  ["EXPERTISE", "SISTEMA"],
+  ["WORKS", "CATÁLOGO"],
   ["CONTACT", "EMPEZAR"],
 ];
 
