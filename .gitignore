@@ -56,3 +56,6 @@ graphify-out/
 # Extracciones de webs de referencia (se regeneran con scripts/extraer-efectos.mjs)
 investigacion/
 node_modules/
+# --- basura regenerable (no commitear) - 2026-10-02 ---
+.worktrees/
+work/
